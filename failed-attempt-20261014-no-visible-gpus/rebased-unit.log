@@ -1,0 +1,636 @@
+
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+[default1]:W1014 09:38:04.983000 86 torch/utils/cpp_extension.py:140] No CUDA runtime is found, using CUDA_HOME='/usr/local/cuda'
+[default0]:W1014 09:38:04.983000 85 torch/utils/cpp_extension.py:140] No CUDA runtime is found, using CUDA_HOME='/usr/local/cuda'
+[default1]:...........Initializing torch.distributed with rank: 1, world_size: 2
+[default0]:...........Initializing torch.distributed with rank: 0, world_size: 2
+[default1]:E
+[default1]:==================================== ERRORS ====================================
+[default1]:_ ERROR at setup of test_gdn_offload_replay[unfused_pre_gdr-shared_qk-False-0.0-1024] _
+[default1]:
+[default1]:    @pytest.fixture
+[default1]:    def gdn_offload_groups() -> Iterator[ProcessGroupCollection]:
+[default1]:        """Isolate the manager and initialize the real TP/CP groups."""
+[default1]:>       Utils.initialize_model_parallel()
+[default1]:
+[default1]:tests/unit_tests/ssm/test_gated_delta_net_offloading.py:100: 
+[default1]:_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[default1]:tests/unit_tests/test_utilities.py:323: in initialize_model_parallel
+[default1]:    Utils.initialize_distributed()
+[default1]:tests/unit_tests/test_utilities.py:270: in initialize_distributed
+[default1]:    torch.distributed.init_process_group(
+[default1]:/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: in wrapper
+[default1]:    return func(*args, **kwargs)
+[default1]:           ^^^^^^^^^^^^^^^^^^^^^
+[default1]:/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:97: in wrapper
+[default1]:    func_return = func(*args, **kwargs)
+[default1]:                  ^^^^^^^^^^^^^^^^^^^^^
+[default1]:/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/distributed_c10d.py:1838: in init_process_group
+[default1]:    default_pg, _ = _new_process_group_helper(
+[default1]:_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[default1]:
+[default1]:group_size = 2, group_rank = 1, global_ranks_in_group = [], backend = 'nccl'
+[default1]:store = <torch.distributed.distributed_c10d.PrefixStore object at 0x7f7173597e30>
+[default1]:group_name = '0'
+[default1]:backend_options = <torch._C._distributed_c10d.ProcessGroupNCCL.Options object at 0x7f71735bfb30>
+[default1]:timeout = datetime.timedelta(seconds=600), pg_tag = None, device_id = None
+[default1]:group_desc = 'default_pg'
+[default1]:
+[default1]:    def _new_process_group_helper(
+[default1]:        group_size,
+[default1]:        group_rank,
+[default1]:        global_ranks_in_group,
+[default1]:        backend,
+[default1]:        store,
+[default1]:        group_name: GroupName,
+[default1]:        backend_options=None,
+[default1]:        timeout=None,
+[default1]:        pg_tag=None,
+[default1]:        device_id=None,
+[default1]:        group_desc=None,
+[default1]:    ):
+[default1]:        """
+[default1]:        Create a new distributed process group.
+[default1]:    
+[default1]:        This function must be called by ALL processes in the global group, even if
+[default1]:        the calling process is not part of the newly created group. In that case,
+[default1]:        this function returns GroupMember.NON_GROUP_MEMBER.
+[default1]:    
+[default1]:        This function is called with ``global_ranks_in_group == []`` for the default group.
+[default1]:        """
+[default1]:        global _world
+[default1]:    
+[default1]:        if group_name in _world.pg_names.values():
+[default1]:            raise ValueError(
+[default1]:                "The specified group name has already been "
+[default1]:                "created, please use a different group name"
+[default1]:            )
+[default1]:    
+[default1]:        if device_id is not None and (device_id.index is None or device_id.type == "cpu"):
+[default1]:            raise ValueError(
+[default1]:                "init_process_group device_id parameter must be an accelerator with an index"
+[default1]:            )
+[default1]:    
+[default1]:        # Note: _new_process_group_helper is only called from init_process_group, which always provides a timeout value
+[default1]:        _check_valid_timeout(timeout)
+[default1]:    
+[default1]:        if pg_tag not in [None, ""]:
+[default1]:            # creating with the same tag and rank set results in the same underlying PG
+[default1]:            existing_group = _find_pg_by_ranks_and_tag(pg_tag, global_ranks_in_group)
+[default1]:            if existing_group:
+[default1]:                _, prefix_store = _world.pg_map[existing_group]
+[default1]:                return existing_group, prefix_store
+[default1]:    
+[default1]:        group_desc = "undefined" if group_desc is None else group_desc
+[default1]:    
+[default1]:        # The list of group ranks is empty if we're creating the default group.
+[default1]:        is_default_group = len(global_ranks_in_group) == 0
+[default1]:    
+[default1]:        # nccl and potentially other backends allow creation of
+[default1]:        # communicators based on pre-existing ones, which can save
+[default1]:        # initialization time.  Due to lazy initialization of
+[default1]:        # communicators in some backends, we have to be careful and only
+[default1]:        # split when we *know* the default PG has already started communicator initialization.
+[default1]:        # We know this if we have bound a device id to the default pg (eager initialized).
+[default1]:        if is_initialized() and _get_default_group().bound_device_id:
+[default1]:            split_from = _get_split_source(_get_default_group())
+[default1]:        else:
+[default1]:            split_from = None
+[default1]:    
+[default1]:        # If this is a subgroup (which means group_ranks is specified),
+[default1]:        # we check if the current process is a member of the new group.
+[default1]:        if not is_default_group:
+[default1]:            global_rank = _get_default_group().rank()
+[default1]:            if global_rank not in global_ranks_in_group:
+[default1]:                # If we are using `ncclCommSplit` (or similar split from
+[default1]:                # other APIs) to create the communicator, we will need to
+[default1]:                # call `ncclCommSplit` on *all* ranks in this new group's
+[default1]:                # parent group, even those not in the new group.  This is
+[default1]:                # a requirement of the NCCL API as otherwise we would get
+[default1]:                # out of sync.
+[default1]:                if split_from:
+[default1]:                    split_from.perform_nocolor_split(_get_default_group().bound_device_id)
+[default1]:                return GroupMember.NON_GROUP_MEMBER, None
+[default1]:    
+[default1]:        prefix_store = PrefixStore(f"{group_name}/", store)
+[default1]:        # The backend for PG will be set later based on what's inside BackendConfig
+[default1]:        # and timeout are set in each backend's option.
+[default1]:        pg: ProcessGroup = ProcessGroup(
+[default1]:            prefix_store,
+[default1]:            group_rank,
+[default1]:            group_size,
+[default1]:        )
+[default1]:        backend_config = BackendConfig(backend)
+[default1]:        # Set the default backend when single backend is passed in.
+[default1]:        if "," not in str(backend) and ":" not in str(backend):
+[default1]:            if backend not in Backend.backend_type_map:
+[default1]:                raise AssertionError(f"Unknown backend type {backend}")
+[default1]:            if backend == Backend.UNDEFINED:
+[default1]:                # Currently when backend is UNDEFINED, only one backend will be initialized
+[default1]:                # we use nccl (if cuda is available) or gloo as default backend
+[default1]:                # so we can correctly call getDefaultBackend which in ProcessGroup.
+[default1]:                if Backend.NCCL in backend_config.get_device_backend_map().values():
+[default1]:                    pg._set_default_backend(ProcessGroup.BackendType.NCCL)
+[default1]:                else:
+[default1]:                    pg._set_default_backend(ProcessGroup.BackendType.GLOO)
+[default1]:            else:
+[default1]:                pg._set_default_backend(Backend.backend_type_map[backend])
+[default1]:        # In order to correctly call pg._has_hooks(), we should set the default backend
+[default1]:        # when multi backend is passed in
+[default1]:        else:
+[default1]:            if Backend.NCCL in backend_config.device_backend_map.values():
+[default1]:                pg._set_default_backend(ProcessGroup.BackendType.NCCL)
+[default1]:            elif Backend._plugins.keys():
+[default1]:                custom_backend = next(iter(Backend._plugins.keys()))
+[default1]:                if custom_backend in backend_config.device_backend_map.values():
+[default1]:                    pg._set_default_backend(ProcessGroup.BackendType.CUSTOM)
+[default1]:            else:
+[default1]:                pg._set_default_backend(ProcessGroup.BackendType.GLOO)
+[default1]:    
+[default1]:        if device_id:
+[default1]:            pg.bound_device_id = device_id
+[default1]:        backend_class: torch._C._distributed_c10d.Backend
+[default1]:        for device, backend_str in backend_config.get_device_backend_map().items():
+[default1]:            # Use the group name as prefix in the default store, such that
+[default1]:            # a single store can be reused by multiple groups.
+[default1]:            backend_prefix_store = PrefixStore(f"{device}/", prefix_store)
+[default1]:    
+[default1]:            if _use_torchcomms_enabled() and backend_str not in [Backend.FAKE]:
+[default1]:                torch_device = torch.device(device)
+[default1]:                logger.warning(
+[default1]:                    "Using TorchComms backend (enabled via %s) for device %s with backend %s",
+[default1]:                    "TORCH_DISTRIBUTED_USE_TORCHCOMMS env var"
+[default1]:                    if os.environ.get("TORCH_DISTRIBUTED_USE_TORCHCOMMS")
+[default1]:                    else "dist_config.use_torchcomms",
+[default1]:                    torch_device,
+[default1]:                    backend_str,
+[default1]:                )
+[default1]:                # TODO: figure out pg option conversion for torchComms.
+[default1]:                comm = new_comm(
+[default1]:                    backend_str, torch_device, name=group_name, store=backend_prefix_store
+[default1]:                )
+[default1]:                # Keep a reference so the comm outlives this function scope.
+[default1]:                _world.comms.append(comm)
+[default1]:                group_name = GroupName(group_name)
+[default1]:                # pyrefly: ignore [bad-assignment]
+[default1]:                backend_class = _BackendWrapper(comm)
+[default1]:                backend_type = ProcessGroup.BackendType.CUSTOM
+[default1]:            elif backend_str == Backend.MPI:
+[default1]:                if not is_mpi_available():
+[default1]:                    raise RuntimeError(
+[default1]:                        "Distributed package doesn't have MPI built in."
+[default1]:                        " MPI is only included if you build PyTorch from"
+[default1]:                        " source on a host that has MPI installed."
+[default1]:                    )
+[default1]:                backend_class = ProcessGroupMPI.create(global_ranks_in_group)
+[default1]:                backend_type = ProcessGroup.BackendType.MPI
+[default1]:                if not backend_class:
+[default1]:                    return GroupMember.NON_GROUP_MEMBER, None
+[default1]:                # create new process group with accurate rank and size
+[default1]:                if pg.rank() == -1 and pg.size() == -1:
+[default1]:                    pg = ProcessGroup(
+[default1]:                        backend_prefix_store,
+[default1]:                        backend_class.rank(),
+[default1]:                        backend_class.size(),
+[default1]:                    )
+[default1]:                    pg._set_default_backend(backend_type)
+[default1]:            elif backend_str == Backend.GLOO:
+[default1]:                # TODO: remove this check after lazy initialization is supported
+[default1]:                # if pg_options is not None:
+[default1]:                #     raise RuntimeError("GLOO options not supported")
+[default1]:                if not is_gloo_available():
+[default1]:                    raise RuntimeError("Distributed package doesn't have Gloo built in")
+[default1]:                backend_class = ProcessGroupGloo(
+[default1]:                    backend_prefix_store,
+[default1]:                    group_rank,
+[default1]:                    group_size,
+[default1]:                    # pyrefly: ignore [bad-argument-type]
+[default1]:                    timeout=timeout,
+[default1]:                )
+[default1]:                backend_class.options.global_ranks_in_group = global_ranks_in_group
+[default1]:                backend_class.options.group_name = group_name
+[default1]:                backend_type = ProcessGroup.BackendType.GLOO
+[default1]:            elif backend_str == Backend.NCCL:
+[default1]:                if not is_nccl_available():
+[default1]:                    raise RuntimeError("Distributed package doesn't have NCCL built in")
+[default1]:                if backend_options is not None:
+[default1]:                    if not isinstance(backend_options, ProcessGroupNCCL.Options):
+[default1]:                        raise AssertionError(
+[default1]:                            "Expected backend_options argument to be of type ProcessGroupNCCL.Options"
+[default1]:                        )
+[default1]:                    if backend_options._timeout != timeout:
+[default1]:                        warnings.warn(
+[default1]:                            "backend_options._timeout was specified, "
+[default1]:                            "but timeout kwarg has a default value that will always override it. ",
+[default1]:                            stacklevel=2,
+[default1]:                        )
+[default1]:                else:
+[default1]:                    # default backend_options for NCCL
+[default1]:                    backend_options = ProcessGroupNCCL.Options()
+[default1]:                    backend_options.is_high_priority_stream = False
+[default1]:                # pyrefly: ignore [bad-argument-type]
+[default1]:                backend_options._timeout = timeout
+[default1]:    
+[default1]:                if split_from:
+[default1]:                    backend_options.split_from = split_from
+[default1]:                    backend_options.split_color = _process_group_color(
+[default1]:                        global_ranks_in_group
+[default1]:                    )
+[default1]:                backend_options.global_ranks_in_group = global_ranks_in_group
+[default1]:                backend_options.group_name = group_name
+[default1]:>               backend_class = ProcessGroupNCCL(
+[default1]:                    backend_prefix_store, group_rank, group_size, backend_options
+[default1]:                )
+[default1]:E               ValueError: ProcessGroupNCCL is only supported with GPUs, no GPUs found!
+[default1]:
+[default1]:/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/distributed_c10d.py:2125: ValueError
+[default1]:------------------------------ Captured log setup ------------------------------
+[default1]:DEBUG    c10d-NullHandler-default:c10d_logger.py:87 {'func_name': 'init_process_group', 'error': 'ProcessGroupNCCL is only supported with GPUs, no GPUs found!'}
+[default1]:=============================== warnings summary ===============================
+[default1]:../home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+[default1]:  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+[default1]:    warnings.warn(
+[default1]:
+[default1]:megatron/core/tensor_parallel/random.py:92
+[default1]:  /workspace/megatron/core/tensor_parallel/random.py:92: DeprecationWarning: Using deprecated internal API from Transformer Engine. transformer_engine.pytorch.fp8 will be removed in a future release.
+[default1]:    from transformer_engine.pytorch.fp8 import FP8GlobalStateManager, fp8_autocast
+[default1]:
+[default1]:megatron/core/extensions/transformer_engine.py:4073
+[default1]:  /workspace/megatron/core/extensions/transformer_engine.py:4073: DeprecationWarning: transformer_engine.pytorch.float8_tensor is deprecated and will be removed in a future release. Float8Tensor should be imported directly through `from transformer_engine.pytorch import Float8Tensor`
+[default1]:    from transformer_engine.pytorch.float8_tensor import Float8Tensor
+[default1]:
+[default1]:megatron/core/inference/contexts/__init__.py:9
+[default1]:  /workspace/megatron/core/inference/contexts/__init__.py:9: DeprecationWarning: The following imports from `dynamic_context.py` will be removed in this file in `megatron-core` 0.14. The imports here result in a cyclic import issue that causes rotary embeddings to import from Apex rather than Transformer Engine.
+[default1]:    warnings.warn(
+[default1]:
+[default1]:../home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/fla/utils/_device.py:100
+[default1]:  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/fla/utils/_device.py:100: UserWarning: Triton is not supported on current platform, roll back to CPU.
+[default1]:    _cpu_device_warning()
+[default1]:
+[default1]:tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config
+[default1]:  /workspace/megatron/core/transformer/transformer_config.py:3380: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+[default1]:    warnings.warn(
+[default1]:
+[default1]:tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config
+[default1]:  /workspace/megatron/core/transformer/transformer_config.py:1707: DeprecationWarning: experimental_attention_variant='gated_delta_net' is deprecated and will be removed in a future release. Use 'gdn' instead.
+[default1]:    self.experimental_attention_variant = normalize_experimental_attention_variant(
+[default1]:
+[default1]:-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+[default1]:==================================== PASSES ====================================
+[default1]:============================= slowest 15 durations =============================
+[default1]:0.01s setup    tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[unfused_pre_gdr-shared_qk-False-0.0-1024]
+[default1]:
+[default1]:(14 durations < 0.005s hidden.  Use -vv to show these durations.)
+[default1]:=========================== short test summary info ============================
+[default1]:PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs0-only supports GDN]
+[default1]:PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs1-only supports GDN]
+[default1]:PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs2-BF16]
+[default1]:PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs3-BF16]
+[default1]:PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs4-BF16]
+[default1]:PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs5-FLA]
+[default1]:PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs6-FLA]
+[default1]:PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs7-FLA]
+[default1]:PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs8-full recomputation]
+[default1]:PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs9-CUDA graphs]
+[default1]:PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config
+[default1]:ERROR tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[unfused_pre_gdr-shared_qk-False-0.0-1024]
+[default1]:!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!
+[default1]:11 passed, 24 deselected, 20 warnings, 1 error in 9.30s
+[default0]:E
+[default0]:==================================== ERRORS ====================================
+[default0]:_ ERROR at setup of test_gdn_offload_replay[unfused_pre_gdr-shared_qk-False-0.0-1024] _
+[default0]:
+[default0]:    @pytest.fixture
+[default0]:    def gdn_offload_groups() -> Iterator[ProcessGroupCollection]:
+[default0]:        """Isolate the manager and initialize the real TP/CP groups."""
+[default0]:>       Utils.initialize_model_parallel()
+[default0]:
+[default0]:tests/unit_tests/ssm/test_gated_delta_net_offloading.py:100: 
+[default0]:_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[default0]:tests/unit_tests/test_utilities.py:323: in initialize_model_parallel
+[default0]:    Utils.initialize_distributed()
+[default0]:tests/unit_tests/test_utilities.py:270: in initialize_distributed
+[default0]:    torch.distributed.init_process_group(
+[default0]:/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: in wrapper
+[default0]:    return func(*args, **kwargs)
+[default0]:           ^^^^^^^^^^^^^^^^^^^^^
+[default0]:/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:97: in wrapper
+[default0]:    func_return = func(*args, **kwargs)
+[default0]:                  ^^^^^^^^^^^^^^^^^^^^^
+[default0]:/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/distributed_c10d.py:1838: in init_process_group
+[default0]:    default_pg, _ = _new_process_group_helper(
+[default0]:_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[default0]:
+[default0]:group_size = 2, group_rank = 0, global_ranks_in_group = [], backend = 'nccl'
+[default0]:store = <torch.distributed.distributed_c10d.PrefixStore object at 0x7f1d24c45530>
+[default0]:group_name = '0'
+[default0]:backend_options = <torch._C._distributed_c10d.ProcessGroupNCCL.Options object at 0x7f1d24c441f0>
+[default0]:timeout = datetime.timedelta(seconds=600), pg_tag = None, device_id = None
+[default0]:group_desc = 'default_pg'
+[default0]:
+[default0]:    def _new_process_group_helper(
+[default0]:        group_size,
+[default0]:        group_rank,
+[default0]:        global_ranks_in_group,
+[default0]:        backend,
+[default0]:        store,
+[default0]:        group_name: GroupName,
+[default0]:        backend_options=None,
+[default0]:        timeout=None,
+[default0]:        pg_tag=None,
+[default0]:        device_id=None,
+[default0]:        group_desc=None,
+[default0]:    ):
+[default0]:        """
+[default0]:        Create a new distributed process group.
+[default0]:    
+[default0]:        This function must be called by ALL processes in the global group, even if
+[default0]:        the calling process is not part of the newly created group. In that case,
+[default0]:        this function returns GroupMember.NON_GROUP_MEMBER.
+[default0]:    
+[default0]:        This function is called with ``global_ranks_in_group == []`` for the default group.
+[default0]:        """
+[default0]:        global _world
+[default0]:    
+[default0]:        if group_name in _world.pg_names.values():
+[default0]:            raise ValueError(
+[default0]:                "The specified group name has already been "
+[default0]:                "created, please use a different group name"
+[default0]:            )
+[default0]:    
+[default0]:        if device_id is not None and (device_id.index is None or device_id.type == "cpu"):
+[default0]:            raise ValueError(
+[default0]:                "init_process_group device_id parameter must be an accelerator with an index"
+[default0]:            )
+[default0]:    
+[default0]:        # Note: _new_process_group_helper is only called from init_process_group, which always provides a timeout value
+[default0]:        _check_valid_timeout(timeout)
+[default0]:    
+[default0]:        if pg_tag not in [None, ""]:
+[default0]:            # creating with the same tag and rank set results in the same underlying PG
+[default0]:            existing_group = _find_pg_by_ranks_and_tag(pg_tag, global_ranks_in_group)
+[default0]:            if existing_group:
+[default0]:                _, prefix_store = _world.pg_map[existing_group]
+[default0]:                return existing_group, prefix_store
+[default0]:    
+[default0]:        group_desc = "undefined" if group_desc is None else group_desc
+[default0]:    
+[default0]:        # The list of group ranks is empty if we're creating the default group.
+[default0]:        is_default_group = len(global_ranks_in_group) == 0
+[default0]:    
+[default0]:        # nccl and potentially other backends allow creation of
+[default0]:        # communicators based on pre-existing ones, which can save
+[default0]:        # initialization time.  Due to lazy initialization of
+[default0]:        # communicators in some backends, we have to be careful and only
+[default0]:        # split when we *know* the default PG has already started communicator initialization.
+[default0]:        # We know this if we have bound a device id to the default pg (eager initialized).
+[default0]:        if is_initialized() and _get_default_group().bound_device_id:
+[default0]:            split_from = _get_split_source(_get_default_group())
+[default0]:        else:
+[default0]:            split_from = None
+[default0]:    
+[default0]:        # If this is a subgroup (which means group_ranks is specified),
+[default0]:        # we check if the current process is a member of the new group.
+[default0]:        if not is_default_group:
+[default0]:            global_rank = _get_default_group().rank()
+[default0]:            if global_rank not in global_ranks_in_group:
+[default0]:                # If we are using `ncclCommSplit` (or similar split from
+[default0]:                # other APIs) to create the communicator, we will need to
+[default0]:                # call `ncclCommSplit` on *all* ranks in this new group's
+[default0]:                # parent group, even those not in the new group.  This is
+[default0]:                # a requirement of the NCCL API as otherwise we would get
+[default0]:                # out of sync.
+[default0]:                if split_from:
+[default0]:                    split_from.perform_nocolor_split(_get_default_group().bound_device_id)
+[default0]:                return GroupMember.NON_GROUP_MEMBER, None
+[default0]:    
+[default0]:        prefix_store = PrefixStore(f"{group_name}/", store)
+[default0]:        # The backend for PG will be set later based on what's inside BackendConfig
+[default0]:        # and timeout are set in each backend's option.
+[default0]:        pg: ProcessGroup = ProcessGroup(
+[default0]:            prefix_store,
+[default0]:            group_rank,
+[default0]:            group_size,
+[default0]:        )
+[default0]:        backend_config = BackendConfig(backend)
+[default0]:        # Set the default backend when single backend is passed in.
+[default0]:        if "," not in str(backend) and ":" not in str(backend):
+[default0]:            if backend not in Backend.backend_type_map:
+[default0]:                raise AssertionError(f"Unknown backend type {backend}")
+[default0]:            if backend == Backend.UNDEFINED:
+[default0]:                # Currently when backend is UNDEFINED, only one backend will be initialized
+[default0]:                # we use nccl (if cuda is available) or gloo as default backend
+[default0]:                # so we can correctly call getDefaultBackend which in ProcessGroup.
+[default0]:                if Backend.NCCL in backend_config.get_device_backend_map().values():
+[default0]:                    pg._set_default_backend(ProcessGroup.BackendType.NCCL)
+[default0]:                else:
+[default0]:                    pg._set_default_backend(ProcessGroup.BackendType.GLOO)
+[default0]:            else:
+[default0]:                pg._set_default_backend(Backend.backend_type_map[backend])
+[default0]:        # In order to correctly call pg._has_hooks(), we should set the default backend
+[default0]:        # when multi backend is passed in
+[default0]:        else:
+[default0]:            if Backend.NCCL in backend_config.device_backend_map.values():
+[default0]:                pg._set_default_backend(ProcessGroup.BackendType.NCCL)
+[default0]:            elif Backend._plugins.keys():
+[default0]:                custom_backend = next(iter(Backend._plugins.keys()))
+[default0]:                if custom_backend in backend_config.device_backend_map.values():
+[default0]:                    pg._set_default_backend(ProcessGroup.BackendType.CUSTOM)
+[default0]:            else:
+[default0]:                pg._set_default_backend(ProcessGroup.BackendType.GLOO)
+[default0]:    
+[default0]:        if device_id:
+[default0]:            pg.bound_device_id = device_id
+[default0]:        backend_class: torch._C._distributed_c10d.Backend
+[default0]:        for device, backend_str in backend_config.get_device_backend_map().items():
+[default0]:            # Use the group name as prefix in the default store, such that
+[default0]:            # a single store can be reused by multiple groups.
+[default0]:            backend_prefix_store = PrefixStore(f"{device}/", prefix_store)
+[default0]:    
+[default0]:            if _use_torchcomms_enabled() and backend_str not in [Backend.FAKE]:
+[default0]:                torch_device = torch.device(device)
+[default0]:                logger.warning(
+[default0]:                    "Using TorchComms backend (enabled via %s) for device %s with backend %s",
+[default0]:                    "TORCH_DISTRIBUTED_USE_TORCHCOMMS env var"
+[default0]:                    if os.environ.get("TORCH_DISTRIBUTED_USE_TORCHCOMMS")
+[default0]:                    else "dist_config.use_torchcomms",
+[default0]:                    torch_device,
+[default0]:                    backend_str,
+[default0]:                )
+[default0]:                # TODO: figure out pg option conversion for torchComms.
+[default0]:                comm = new_comm(
+[default0]:                    backend_str, torch_device, name=group_name, store=backend_prefix_store
+[default0]:                )
+[default0]:                # Keep a reference so the comm outlives this function scope.
+[default0]:                _world.comms.append(comm)
+[default0]:                group_name = GroupName(group_name)
+[default0]:                # pyrefly: ignore [bad-assignment]
+[default0]:                backend_class = _BackendWrapper(comm)
+[default0]:                backend_type = ProcessGroup.BackendType.CUSTOM
+[default0]:            elif backend_str == Backend.MPI:
+[default0]:                if not is_mpi_available():
+[default0]:                    raise RuntimeError(
+[default0]:                        "Distributed package doesn't have MPI built in."
+[default0]:                        " MPI is only included if you build PyTorch from"
+[default0]:                        " source on a host that has MPI installed."
+[default0]:                    )
+[default0]:                backend_class = ProcessGroupMPI.create(global_ranks_in_group)
+[default0]:                backend_type = ProcessGroup.BackendType.MPI
+[default0]:                if not backend_class:
+[default0]:                    return GroupMember.NON_GROUP_MEMBER, None
+[default0]:                # create new process group with accurate rank and size
+[default0]:                if pg.rank() == -1 and pg.size() == -1:
+[default0]:                    pg = ProcessGroup(
+[default0]:                        backend_prefix_store,
+[default0]:                        backend_class.rank(),
+[default0]:                        backend_class.size(),
+[default0]:                    )
+[default0]:                    pg._set_default_backend(backend_type)
+[default0]:            elif backend_str == Backend.GLOO:
+[default0]:                # TODO: remove this check after lazy initialization is supported
+[default0]:                # if pg_options is not None:
+[default0]:                #     raise RuntimeError("GLOO options not supported")
+[default0]:                if not is_gloo_available():
+[default0]:                    raise RuntimeError("Distributed package doesn't have Gloo built in")
+[default0]:                backend_class = ProcessGroupGloo(
+[default0]:                    backend_prefix_store,
+[default0]:                    group_rank,
+[default0]:                    group_size,
+[default0]:                    # pyrefly: ignore [bad-argument-type]
+[default0]:                    timeout=timeout,
+[default0]:                )
+[default0]:                backend_class.options.global_ranks_in_group = global_ranks_in_group
+[default0]:                backend_class.options.group_name = group_name
+[default0]:                backend_type = ProcessGroup.BackendType.GLOO
+[default0]:            elif backend_str == Backend.NCCL:
+[default0]:                if not is_nccl_available():
+[default0]:                    raise RuntimeError("Distributed package doesn't have NCCL built in")
+[default0]:                if backend_options is not None:
+[default0]:                    if not isinstance(backend_options, ProcessGroupNCCL.Options):
+[default0]:                        raise AssertionError(
+[default0]:                            "Expected backend_options argument to be of type ProcessGroupNCCL.Options"
+[default0]:                        )
+[default0]:                    if backend_options._timeout != timeout:
+[default0]:                        warnings.warn(
+[default0]:                            "backend_options._timeout was specified, "
+[default0]:                            "but timeout kwarg has a default value that will always override it. ",
+[default0]:                            stacklevel=2,
+[default0]:                        )
+[default0]:                else:
+[default0]:                    # default backend_options for NCCL
+[default0]:                    backend_options = ProcessGroupNCCL.Options()
+[default0]:                    backend_options.is_high_priority_stream = False
+[default0]:                # pyrefly: ignore [bad-argument-type]
+[default0]:                backend_options._timeout = timeout
+[default0]:    
+[default0]:                if split_from:
+[default0]:                    backend_options.split_from = split_from
+[default0]:                    backend_options.split_color = _process_group_color(
+[default0]:                        global_ranks_in_group
+[default0]:                    )
+[default0]:                backend_options.global_ranks_in_group = global_ranks_in_group
+[default0]:                backend_options.group_name = group_name
+[default0]:>               backend_class = ProcessGroupNCCL(
+[default0]:                    backend_prefix_store, group_rank, group_size, backend_options
+[default0]:                )
+[default0]:E               ValueError: ProcessGroupNCCL is only supported with GPUs, no GPUs found!
+[default0]:
+[default0]:/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/distributed_c10d.py:2125: ValueError
+[default0]:------------------------------ Captured log setup ------------------------------
+[default0]:DEBUG    c10d-NullHandler-default:c10d_logger.py:87 {'func_name': 'init_process_group', 'error': 'ProcessGroupNCCL is only supported with GPUs, no GPUs found!'}
+[default0]:=============================== warnings summary ===============================
+[default0]:../home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+[default0]:  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+[default0]:    warnings.warn(
+[default0]:
+[default0]:megatron/core/tensor_parallel/random.py:92
+[default0]:  /workspace/megatron/core/tensor_parallel/random.py:92: DeprecationWarning: Using deprecated internal API from Transformer Engine. transformer_engine.pytorch.fp8 will be removed in a future release.
+[default0]:    from transformer_engine.pytorch.fp8 import FP8GlobalStateManager, fp8_autocast
+[default0]:
+[default0]:megatron/core/extensions/transformer_engine.py:4073
+[default0]:  /workspace/megatron/core/extensions/transformer_engine.py:4073: DeprecationWarning: transformer_engine.pytorch.float8_tensor is deprecated and will be removed in a future release. Float8Tensor should be imported directly through `from transformer_engine.pytorch import Float8Tensor`
+[default0]:    from transformer_engine.pytorch.float8_tensor import Float8Tensor
+[default0]:
+[default0]:megatron/core/inference/contexts/__init__.py:9
+[default0]:  /workspace/megatron/core/inference/contexts/__init__.py:9: DeprecationWarning: The following imports from `dynamic_context.py` will be removed in this file in `megatron-core` 0.14. The imports here result in a cyclic import issue that causes rotary embeddings to import from Apex rather than Transformer Engine.
+[default0]:    warnings.warn(
+[default0]:
+[default0]:../home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/fla/utils/_device.py:100
+[default0]:  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/fla/utils/_device.py:100: UserWarning: Triton is not supported on current platform, roll back to CPU.
+[default0]:    _cpu_device_warning()
+[default0]:
+[default0]:megatron/core/models/mimo/config/base_configs.py:12
+[default0]:  /workspace/megatron/core/models/mimo/config/base_configs.py:12: UserWarning: MimoModelConfig is experimental and still under active development. The API may change without notice in future releases.
+[default0]:    class MimoModelConfig:
+[default0]:
+[default0]:tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config
+[default0]:  /workspace/megatron/core/transformer/transformer_config.py:3380: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+[default0]:    warnings.warn(
+[default0]:
+[default0]:tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config
+[default0]:  /workspace/megatron/core/transformer/transformer_config.py:1707: DeprecationWarning: experimental_attention_variant='gated_delta_net' is deprecated and will be removed in a future release. Use 'gdn' instead.
+[default0]:    self.experimental_attention_variant = normalize_experimental_attention_variant(
+[default0]:
+[default0]:-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+[default0]:==================================== PASSES ====================================
+[default0]:============================= slowest 15 durations =============================
+[default0]:0.01s setup    tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[unfused_pre_gdr-shared_qk-False-0.0-1024]
+[default0]:
+[default0]:(14 durations < 0.005s hidden.  Use -vv to show these durations.)
+[default0]:=========================== short test summary info ============================
+[default0]:PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs0-only supports GDN]
+[default0]:PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs1-only supports GDN]
+[default0]:PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs2-BF16]
+[default0]:PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs3-BF16]
+[default0]:PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs4-BF16]
+[default0]:PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs5-FLA]
+[default0]:PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs6-FLA]
+[default0]:PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs7-FLA]
+[default0]:PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs8-full recomputation]
+E1014 09:38:13.247000 17 torch/distributed/elastic/multiprocessing/api.py:986] failed (exitcode: 1) local_rank: 0 (pid: 85) of binary: /home/songbinbin/.venvs/megatron-gdn-offload/bin/python3.12
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/run.py", line 994, in <module>
+    main()
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 362, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/run.py", line 990, in main
+    run(args)
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/run.py", line 981, in run
+    elastic_launch(
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 170, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 317, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/artifacts/four-gpu-acceptance-20261008/run_reduced.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2026-10-14_09:38:13
+  host      : 3d1bbd426b0d
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 86)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-10-14_09:38:13
+  host      : 3d1bbd426b0d
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 85)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+[default0]:PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs9-CUDA graphs]
+[default0]:PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config
+[default0]:ERROR tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[unfused_pre_gdr-shared_qk-False-0.0-1024]
+[default0]:!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!
+[default0]:11 passed, 24 deselected, 21 warnings, 1 error in 9.37s

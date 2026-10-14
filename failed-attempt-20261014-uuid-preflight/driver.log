@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/songbinbin/gdn-offload-artifacts/run_latest_public_gpu_evidence.py", line 50, in <module>
+    assert [device["uuid"] for device in report["cuda_preflight"]["devices"]] == UUIDS, report["cuda_preflight"]
+AssertionError: {'torch': '2.11.0+cu130', 'cuda': '13.0', 'devices': [{'name': 'NVIDIA RTX A6000', 'uuid': 'c8b76e6b-5a4b-7829-4c91-139b71218405'}, {'name': 'NVIDIA RTX A6000', 'uuid': '40c36f3c-9282-74a6-63d2-077d1e4a1cb7'}]}

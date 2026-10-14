@@ -1,0 +1,7 @@
+Start rebased-unit at b22c9f7251a480529a4815c8c5fe0ece64734c03
+Traceback (most recent call last):
+  File "/home/songbinbin/gdn-offload-artifacts/run_latest_public_gpu_evidence.py", line 73, in <module>
+    run("rebased-unit", ["/artifacts/four-gpu-acceptance-20261008/run_reduced.py", "-q", "-x", "--confcutdir=tests/unit_tests/ssm",
+  File "/home/songbinbin/gdn-offload-artifacts/run_latest_public_gpu_evidence.py", line 68, in run
+    raise RuntimeError(f"{name} failed, exit {result.returncode}; see {job['combined_log']}")
+RuntimeError: rebased-unit failed, exit 1; see latest-head-20261014/rebased-unit.log

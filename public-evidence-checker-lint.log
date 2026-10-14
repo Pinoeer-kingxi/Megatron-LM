@@ -1,0 +1,8 @@
+reformatted /artifacts/post-rebase-public-evidence/check_verifier.py
+
+All done! ✨ 🍰 ✨
+1 file reformatted, 1 file left unchanged.
+warning: The top-level linter settings are deprecated in favour of their counterparts in the `lint` section. Please update the following options in `pyproject.toml`:
+  - 'per-file-ignores' -> 'lint.per-file-ignores'
+All checks passed!
+Success: no issues found in 2 source files

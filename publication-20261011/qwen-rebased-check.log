@@ -1,0 +1,9 @@
+Start fused=False arm=disabled
+Passed fused=False arm=disabled
+Start fused=False arm=1
+Passed fused=False arm=1
+Start fused=True arm=disabled
+Passed fused=True arm=disabled
+Start fused=True arm=1
+Passed fused=True arm=1
+Passed four fresh full-Qwen runs, eight rank files, 24 exact complete rank-step states.

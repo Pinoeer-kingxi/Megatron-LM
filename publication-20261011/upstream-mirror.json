@@ -1,0 +1,6 @@
+{
+  "verified_upstream_main": "e30d863a6d82a3c45f2d71355dc73fbf5610967b",
+  "verified_via": "GitHub branch API and prior successful git fetch",
+  "mirror": "/home/songbinbin/gdn-offload-artifacts/publication-20261011/upstream-main-mirror.git",
+  "purpose": "Run standard formatter with identical upstream contents despite container-network fetch stalls"
+}

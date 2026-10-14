@@ -1,0 +1,86 @@
+diff --git a/docs/developer/gdn_activation_offload_training.md b/docs/developer/gdn_activation_offload_training.md
+index 6a3eab61e..a4cc6580a 100644
+--- a/docs/developer/gdn_activation_offload_training.md
++++ b/docs/developer/gdn_activation_offload_training.md
+@@ -7,6 +7,28 @@ are listed below. Configuration checks on CPU do not qualify a parallel topology
+ 
+ ## GPU validation status
+ 
++The submission branch is rebased onto `main` at
++`e30d863a6d82a3c45f2d71355dc73fbf5610967b`. Its explicit GDN backend selector
++requires `gdn_kernel_backend="fla"` for recurrence offloading; Torch and
++Transformer Engine backends fail at configuration time. The optional Qwen tool
++also explicitly selects FLA for both disabled and offloaded baselines.
++
++Post-rebase checks on 2026-10-11 (2026-10-12 UTC) pass 73 GDN recurrence/config
++cases, 16 gate-backward replay cases and 15 shared-manager cases on each of two
++ranks: 104 passed with no skips. The native complete reduced-model training suite
++passes 72 cases on each rank with 24 four-rank cases skipped and launcher exit
++code 0. Eleven configuration-boundary cases also pass on CPU. These checks do
++not rerun the historical four-rank or memory/runtime matrices below.
++
++A separate post-rebase comparison reruns complete pretrained Qwen TP=2/SP
++training with output-norm recomputation enabled. Both pre-GDR variants use fresh
++disabled and fraction-1 processes: four two-rank runs, eight rank files and
++24 exact complete rank-step states. Each comparison includes one warmup and two
++steady optimizer steps, with all pre-reset pool counts zero and positive transfer
++bytes in enabled arms. These runs use sequence 128 and the 1024-element threshold;
++they produce no timed samples. The local publication evidence is indexed by
++`publication-20261011/publication-checks.json`.
++
+ The 2026-10-06/07/08/10/11 runs use RTX A6000 GPUs, PyTorch 2.11.0+cu130, Transformer
+ Engine 2.20.2, FLA 0.5.1 and cuDNN 9.19.0. These public-package container runs
+ do not replace upstream CI.
+diff --git a/docs/developer/gdn_activation_offloading.md b/docs/developer/gdn_activation_offloading.md
+index cdf9c0e11..4158b557a 100644
+--- a/docs/developer/gdn_activation_offloading.md
++++ b/docs/developer/gdn_activation_offloading.md
+@@ -8,7 +8,9 @@ targets memory-constrained training. BestJuly confirmed in the
+ that saved-tensor offloading would complement existing recomputation approaches.
+ [The follow-up reply](https://github.com/NVIDIA/Megatron-LM/issues/6757#issuecomment-6008766114)
+ accepts either current `main` or `dev` as a starting point.
+-This implementation uses `main` at `d6316eb45`.
++The initial implementation uses `main` at `d6316eb45`; the submission branch is
++rebased onto `e30d863a6d82a3c45f2d71355dc73fbf5610967b`. Recorded A6000
++measurements retain their original source commits.
+ 
+ The later [PR #7852](https://github.com/NVIDIA/Megatron-LM/pull/7852) implements
+ input-projection and conv/QKV selective recomputation plus convolution-input offload.
+@@ -85,7 +87,8 @@ Backward crosses the commit before reading FLA's saved tensors;
+ the group-start backward lets the existing manager prefetch the preceding group.
+ The output norm and its optional `gdn_norm_out` checkpoint remain outside this scope.
+ 
+-The option is disabled by default. It requires BF16 GDN1 and the FLA recurrence;
++The option is disabled by default. It requires BF16 GDN1 and
++`gdn_kernel_backend="fla"`;
+ configuration rejects GDN2, FP8/FP4, deterministic reference execution, full-layer
+ recomputation, and CUDA graphs. Eval, no-grad, and fully frozen recurrence forwards
+ do not register groups. A trainable gate is used as the group-start anchor if Q is
+diff --git a/megatron/core/transformer/transformer_config.py b/megatron/core/transformer/transformer_config.py
+index 43fdc444d..6e43affba 100644
+--- a/megatron/core/transformer/transformer_config.py
++++ b/megatron/core/transformer/transformer_config.py
+@@ -1536,7 +1536,8 @@ class TransformerConfig(ModelParallelConfig):
+     "shortcut_post_norm": offload the input of the shortcut output normalization.
+             Requires moe_shortcut_connection=True.
+     "gdn_core_attn": offload tensors saved by the FLA GatedDeltaNet recurrence.
+-            Initial support is BF16 GDN with no CUDA graphs or full recomputation.
++            Requires BF16 GDN and gdn_kernel_backend="fla", with no CUDA graphs
++            or full recomputation.
+     """
+     min_offloaded_tensor_size: int = 1024 * 1024
+     """The minimum size of the tensor to be offloaded."""
+diff --git a/tests/unit_tests/determinism/kernels/manifest.py b/tests/unit_tests/determinism/kernels/manifest.py
+index 59f8dd08f..091e7cc1c 100644
+--- a/tests/unit_tests/determinism/kernels/manifest.py
++++ b/tests/unit_tests/determinism/kernels/manifest.py
+@@ -479,7 +479,8 @@ KERNELS: Tuple[KernelEntry, ...] = (
+             "tests/unit_tests/ssm/test_gated_delta_net_offloading.py",
+         ),
+         kind="torch.compile",
+-        notes="deterministic_mode selects torch_chunk_gated_delta_rule over FLA (recorded non-deterministic).",
++        notes="Deterministic execution uses torch_chunk_gated_delta_rule; GDN1 requires "
++        "gdn_kernel_backend='torch'. FLA remains outside deterministic_mode support.",
+     ),
+     KernelEntry(
+         name="gdn_pre_gated_delta_rule_fusion",

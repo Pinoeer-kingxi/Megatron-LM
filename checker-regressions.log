@@ -1,0 +1,5 @@
+PASS unmodified checksum and full-state comparisons
+PASS rejection: SHA-256 mismatch
+PASS rejection: Qwen state mismatch
+PASS rejection: Pinned pool still in use
+Passed unmodified evidence and all three failure regressions; original files unchanged.

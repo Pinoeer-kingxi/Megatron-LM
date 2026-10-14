@@ -1,0 +1,13 @@
+Start rebased-unit at b22c9f7251a480529a4815c8c5fe0ece64734c03
+Passed rebased-unit
+Start rebased-training at b22c9f7251a480529a4815c8c5fe0ece64734c03
+Passed rebased-training
+Start qwen-unfused-disabled at b22c9f7251a480529a4815c8c5fe0ece64734c03
+Passed qwen-unfused-disabled
+Start qwen-unfused-1 at b22c9f7251a480529a4815c8c5fe0ece64734c03
+Passed qwen-unfused-1
+Start qwen-fused-disabled at b22c9f7251a480529a4815c8c5fe0ece64734c03
+Passed qwen-fused-disabled
+Start qwen-fused-1 at b22c9f7251a480529a4815c8c5fe0ece64734c03
+Passed qwen-fused-1
+Passed all six latest-source GPU jobs and 24 complete Qwen rank-step states.

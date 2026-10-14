@@ -1,0 +1,5 @@
+[rank1]:W1012 02:33:57.431000 302 torch/_dynamo/convert_frame.py:1743] [10/8] torch._dynamo hit config.recompile_limit (8)
+[rank1]:W1012 02:33:57.431000 302 torch/_dynamo/convert_frame.py:1743] [10/8]    function: 'torch_dynamo_resume_in__apply_gated_norm_unfused_at_182' (/workspace/megatron/core/ssm/gated_delta_net/gdn.py:182)
+[rank1]:W1012 02:33:57.431000 302 torch/_dynamo/convert_frame.py:1743] [10/8]    last reason: 10/6: gate.stride()[0] == 64*original_shape[1]*original_shape[2]  # (unknown source gate.stride()[0], please file a bug)
+[rank1]:W1012 02:33:57.431000 302 torch/_dynamo/convert_frame.py:1743] [10/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+[rank1]:W1012 02:33:57.431000 302 torch/_dynamo/convert_frame.py:1743] [10/8] To diagnose recompilation issues, see https://docs.pytorch.org/docs/main/user_guide/torch_compiler/compile/programming_model.recompilation.html

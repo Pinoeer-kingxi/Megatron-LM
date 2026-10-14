@@ -1,0 +1,83 @@
+{
+  "status": "passed",
+  "scope": "Post-rebase complete Qwen TP=2/SP, norm recomputation enabled, disabled/full offload, fused/unfused",
+  "fresh_two_rank_runs": 4,
+  "rank_files": 8,
+  "exact_complete_rank_step_states": 24,
+  "all_pre_reset_pool_counts_zero": true,
+  "timed_samples": 0,
+  "results": [
+    {
+      "fused": false,
+      "arm": "disabled",
+      "rank": 0,
+      "exact_steps": 3,
+      "file": "qwen-training/publication-20261011/tp_sp/unfused/disabled.rank0.json",
+      "sha256": "6a7b963a96cfdfe7cd60722a8a9cc6e9cd6b1d720f7b244ee5a75ec11dfee185",
+      "selected_transfer_bytes": 0
+    },
+    {
+      "fused": false,
+      "arm": "disabled",
+      "rank": 1,
+      "exact_steps": 3,
+      "file": "qwen-training/publication-20261011/tp_sp/unfused/disabled.rank1.json",
+      "sha256": "a4732f2d4fa9e86cb520b51694eaea6a320452e4d2eb7ae0fe3d10eb44bc6024",
+      "selected_transfer_bytes": 0
+    },
+    {
+      "fused": false,
+      "arm": "1",
+      "rank": 0,
+      "exact_steps": 3,
+      "file": "qwen-training/publication-20261011/tp_sp/unfused/1.rank0.json",
+      "sha256": "2181f088a9a9d7ca75d75cf6694f0950e57f5c7370ecbceed5998deeb58488e6",
+      "selected_transfer_bytes": 66015232
+    },
+    {
+      "fused": false,
+      "arm": "1",
+      "rank": 1,
+      "exact_steps": 3,
+      "file": "qwen-training/publication-20261011/tp_sp/unfused/1.rank1.json",
+      "sha256": "a6fd3d79d2b8915d3eaba9b4fd7a58a3b68dce9f024a04b798e54d52d8999fda",
+      "selected_transfer_bytes": 66015232
+    },
+    {
+      "fused": true,
+      "arm": "disabled",
+      "rank": 0,
+      "exact_steps": 3,
+      "file": "qwen-training/publication-20261011/tp_sp/fused/disabled.rank0.json",
+      "sha256": "9046bc5c475bfc25e9da1e40b71e689c4cab397ba4f5c5de183700d31109faea",
+      "selected_transfer_bytes": 0
+    },
+    {
+      "fused": true,
+      "arm": "disabled",
+      "rank": 1,
+      "exact_steps": 3,
+      "file": "qwen-training/publication-20261011/tp_sp/fused/disabled.rank1.json",
+      "sha256": "2b5497f140add14c4688a9f3b55ec6cc8bb6b4479ad933fec09b343d251229eb",
+      "selected_transfer_bytes": 0
+    },
+    {
+      "fused": true,
+      "arm": "1",
+      "rank": 0,
+      "exact_steps": 3,
+      "file": "qwen-training/publication-20261011/tp_sp/fused/1.rank0.json",
+      "sha256": "93623ca638d34af71789cb8811383163e38b34c7e69b4521c6df2831f21dc1d5",
+      "selected_transfer_bytes": 66015232
+    },
+    {
+      "fused": true,
+      "arm": "1",
+      "rank": 1,
+      "exact_steps": 3,
+      "file": "qwen-training/publication-20261011/tp_sp/fused/1.rank1.json",
+      "sha256": "74c3ef39c5c3367e59017cc7d2c5c91c0d6100e7739bfde17b3fbcc9b33df2a6",
+      "selected_transfer_bytes": 66015232
+    }
+  ]
+}

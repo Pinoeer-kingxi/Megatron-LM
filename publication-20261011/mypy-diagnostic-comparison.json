@@ -1,0 +1,15 @@
+{
+  "diagnostics": 48,
+  "identical_diagnostic_texts": 45,
+  "changed_texts": [
+    "megatron/core/fusions/fused_pre_gated_delta_rule.py: error: Skipping analyzing \"causal_conv1d.cpp_functions\": module is installed, but missing library stubs or py.typed marker  [import-untyped]",
+    "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py: error: Argument \"moe_flex_dispatcher_backend\" to \"MLATransformerConfig\" has incompatible type \"str\"; expected \"Literal['deepep', 'deepepv2', 'hybridep', 'ncclep']\"  [arg-type]",
+    "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py: error: Argument \"moe_flex_dispatcher_backend\" to \"TransformerConfig\" has incompatible type \"str\"; expected \"Literal['deepep', 'deepepv2', 'hybridep', 'ncclep']\"  [arg-type]"
+  ],
+  "change_reasons": [
+    "causal-conv1d is visible in this checker but has no typing stubs",
+    "Current main adds deepepv2 to existing MoE backend Literal choices"
+  ],
+  "no_new_feature_diagnostics": true,
+  "comparison": "The normalized diagnostics match the previously qualified 48 errors; this is not a clean whole-repository mypy result."
+}

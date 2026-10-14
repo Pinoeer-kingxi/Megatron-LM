@@ -1,0 +1,167 @@
+++ git version
+++ awk '{print $3}'
++ GIT_VERSION=2.47.3
+++ echo 2.47.3
+++ awk -F. '{print $1}'
++ GIT_MAJOR=2
+++ echo 2.47.3
+++ awk -F. '{print $2}'
++ GIT_MINOR=47
++ [[ 2 -eq 2 ]]
++ [[ 47 -lt 31 ]]
++++ dirname -- tools/autoformat.sh
+++ cd -- tools
+++ pwd
++ SCRIPT_DIR=/workspace/tools
++ CHECK_ONLY=true
++ SKIP_DOCS=false
++ BASE_REF=main
++ git remote add autoformatter-remote https://github.com/NVIDIA/Megatron-LM.git
+error: remote autoformatter-remote already exists.
++ true
++ git fetch autoformatter-remote main
+From file:///artifacts/publication-20261011/upstream-main-mirror
+ * branch                main       -> FETCH_HEAD
+++ git diff --name-only --diff-filter=d --merge-base autoformatter-remote/main megatron/core tests/
+++ grep '\.py$'
++ CHANGED_FILES='megatron/core/fusions/fused_pre_gated_delta_rule.py
+megatron/core/pipeline_parallel/fine_grained_activation_offload.py
+megatron/core/pipeline_parallel/schedules.py
+megatron/core/ssm/gated_delta_net/gdn.py
+megatron/core/transformer/transformer_config.py
+tests/unit_tests/determinism/kernels/manifest.py
+tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py
+tests/unit_tests/pipeline_parallel/test_schedules.py
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py
+tests/unit_tests/ssm/test_gdn_offload_training.py
+tests/unit_tests/ssm/test_qwen_gdn_offload_training.py'
++ ADDITIONAL_ARGS=
++ ADDITIONAL_BLACK_ARGS=
++ ADDITIONAL_PYLINT_ARGS=
++ ADDITIONAL_RUFF_ARGS=
++ [[ true == true ]]
++ ADDITIONAL_ARGS=--check
++ ADDITIONAL_BLACK_ARGS=--diff
++ ADDITIONAL_RUFF_ARGS=--no-fix
++ [[ false == true ]]
++ [[ -n megatron/core/fusions/fused_pre_gated_delta_rule.py
+megatron/core/pipeline_parallel/fine_grained_activation_offload.py
+megatron/core/pipeline_parallel/schedules.py
+megatron/core/ssm/gated_delta_net/gdn.py
+megatron/core/transformer/transformer_config.py
+tests/unit_tests/determinism/kernels/manifest.py
+tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py
+tests/unit_tests/pipeline_parallel/test_schedules.py
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py
+tests/unit_tests/ssm/test_gdn_offload_training.py
+tests/unit_tests/ssm/test_qwen_gdn_offload_training.py ]]
++ black --skip-magic-trailing-comma --skip-string-normalization --check --diff --verbose megatron/core/fusions/fused_pre_gated_delta_rule.py megatron/core/pipeline_parallel/fine_grained_activation_offload.py megatron/core/pipeline_parallel/schedules.py megatron/core/ssm/gated_delta_net/gdn.py megatron/core/transformer/transformer_config.py tests/unit_tests/determinism/kernels/manifest.py tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py tests/unit_tests/pipeline_parallel/test_schedules.py tests/unit_tests/ssm/test_gated_delta_net_offloading.py tests/unit_tests/ssm/test_gdn_offload_training.py tests/unit_tests/ssm/test_qwen_gdn_offload_training.py
+Identified `/workspace` as project root containing a .git directory.
+Using configuration from project root.
+line_length: 100
+skip_string_normalization: True
+required_version: 26
+skip_magic_trailing_comma: True
+include: \.pyi?$
+exclude: /(
+    \.git
+  | \.venv
+  | build
+)/
+
+target_version: ['py312', 'py313', 'py314']
+Warning: Python 3.12 cannot parse code formatted for Python 3.14. To fix this: run Black with Python 3.14, set --target-version to py312, or use --fast to skip the safety check. Black's safety check verifies equivalence by parsing the AST, which fails when the running Python is older than the target version.
+Found input source: "megatron/core/fusions/fused_pre_gated_delta_rule.py"
+Found input source: "megatron/core/pipeline_parallel/fine_grained_activation_offload.py"
+Found input source: "megatron/core/pipeline_parallel/schedules.py"
+Found input source: "megatron/core/ssm/gated_delta_net/gdn.py"
+Found input source: "megatron/core/transformer/transformer_config.py"
+Found input source: "tests/unit_tests/determinism/kernels/manifest.py"
+Found input source: "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py"
+Found input source: "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py"
+Found input source: "tests/unit_tests/pipeline_parallel/test_schedules.py"
+Found input source: "tests/unit_tests/ssm/test_gated_delta_net_offloading.py"
+Found input source: "tests/unit_tests/ssm/test_gdn_offload_training.py"
+Found input source: "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py"
+tests/unit_tests/ssm/test_qwen_gdn_offload_training.py already well formatted, good job.
+tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py already well formatted, good job.
+tests/unit_tests/ssm/test_gdn_offload_training.py already well formatted, good job.
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py already well formatted, good job.
+tests/unit_tests/determinism/kernels/manifest.py already well formatted, good job.
+megatron/core/ssm/gated_delta_net/gdn.py already well formatted, good job.
+tests/unit_tests/pipeline_parallel/test_schedules.py already well formatted, good job.
+megatron/core/fusions/fused_pre_gated_delta_rule.py already well formatted, good job.
+megatron/core/pipeline_parallel/fine_grained_activation_offload.py already well formatted, good job.
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py already well formatted, good job.
+megatron/core/pipeline_parallel/schedules.py already well formatted, good job.
+megatron/core/transformer/transformer_config.py already well formatted, good job.
+
+All done! ✨ 🍰 ✨
+12 files would be left unchanged.
++ isort --check megatron/core/fusions/fused_pre_gated_delta_rule.py megatron/core/pipeline_parallel/fine_grained_activation_offload.py megatron/core/pipeline_parallel/schedules.py megatron/core/ssm/gated_delta_net/gdn.py megatron/core/transformer/transformer_config.py tests/unit_tests/determinism/kernels/manifest.py tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py tests/unit_tests/pipeline_parallel/test_schedules.py tests/unit_tests/ssm/test_gated_delta_net_offloading.py tests/unit_tests/ssm/test_gdn_offload_training.py tests/unit_tests/ssm/test_qwen_gdn_offload_training.py
++ pylint megatron/core/fusions/fused_pre_gated_delta_rule.py megatron/core/pipeline_parallel/fine_grained_activation_offload.py megatron/core/pipeline_parallel/schedules.py megatron/core/ssm/gated_delta_net/gdn.py megatron/core/transformer/transformer_config.py tests/unit_tests/determinism/kernels/manifest.py tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py tests/unit_tests/pipeline_parallel/test_schedules.py tests/unit_tests/ssm/test_gated_delta_net_offloading.py tests/unit_tests/ssm/test_gdn_offload_training.py tests/unit_tests/ssm/test_qwen_gdn_offload_training.py
+
+------------------------------------
+Your code has been rated at 10.00/10
+
++ ruff check --no-fix megatron/core/fusions/fused_pre_gated_delta_rule.py megatron/core/pipeline_parallel/fine_grained_activation_offload.py megatron/core/pipeline_parallel/schedules.py megatron/core/ssm/gated_delta_net/gdn.py megatron/core/transformer/transformer_config.py tests/unit_tests/determinism/kernels/manifest.py tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py tests/unit_tests/pipeline_parallel/test_schedules.py tests/unit_tests/ssm/test_gated_delta_net_offloading.py tests/unit_tests/ssm/test_gdn_offload_training.py tests/unit_tests/ssm/test_qwen_gdn_offload_training.py
+warning: The top-level linter settings are deprecated in favour of their counterparts in the `lint` section. Please update the following options in `pyproject.toml`:
+  - 'per-file-ignores' -> 'lint.per-file-ignores'
+All checks passed!
++ mypy --explicit-package-bases --follow-imports=skip megatron/core/fusions/fused_pre_gated_delta_rule.py megatron/core/pipeline_parallel/fine_grained_activation_offload.py megatron/core/pipeline_parallel/schedules.py megatron/core/ssm/gated_delta_net/gdn.py megatron/core/transformer/transformer_config.py tests/unit_tests/determinism/kernels/manifest.py tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py tests/unit_tests/pipeline_parallel/test_schedules.py tests/unit_tests/ssm/test_gated_delta_net_offloading.py tests/unit_tests/ssm/test_gdn_offload_training.py tests/unit_tests/ssm/test_qwen_gdn_offload_training.py
+megatron/core/fusions/fused_pre_gated_delta_rule.py:23: error: Skipping analyzing "triton": module is installed, but missing library stubs or py.typed marker  [import-untyped]
+megatron/core/fusions/fused_pre_gated_delta_rule.py:24: error: Skipping analyzing "triton.language": module is installed, but missing library stubs or py.typed marker  [import-untyped]
+megatron/core/fusions/fused_pre_gated_delta_rule.py:24: note: See https://mypy.readthedocs.io/en/stable/running_mypy.html#missing-imports
+megatron/core/fusions/fused_pre_gated_delta_rule.py:28: error: Skipping analyzing "causal_conv1d.cpp_functions": module is installed, but missing library stubs or py.typed marker  [import-untyped]
+megatron/core/fusions/fused_pre_gated_delta_rule.py:1100: error: Item "None" of "Any | None" has no attribute "shape"  [union-attr]
+megatron/core/transformer/transformer_config.py:4047: error: Incompatible types in assignment (expression has type "str", base class "TransformerConfig" defined the type as "Literal['LayerNorm', 'RMSNorm']")  [assignment]
+megatron/core/pipeline_parallel/fine_grained_activation_offload.py:16: error: Cannot find implementation or library stub for module named "nemo.lens.helpers"  [import-not-found]
+megatron/core/pipeline_parallel/fine_grained_activation_offload.py:87: error: Value of type "None" is not indexable  [index]
+megatron/core/pipeline_parallel/fine_grained_activation_offload.py:100: error: Value of type "None" is not indexable  [index]
+megatron/core/pipeline_parallel/fine_grained_activation_offload.py:103: error: Value of type "None" is not indexable  [index]
+megatron/core/pipeline_parallel/fine_grained_activation_offload.py:304: error: Incompatible default for parameter "shape" (default has type "None", parameter has type "tuple[Any, ...]")  [assignment]
+megatron/core/pipeline_parallel/fine_grained_activation_offload.py:304: note: PEP 484 prohibits implicit Optional. Accordingly, mypy has changed its default to no_implicit_optional=True
+megatron/core/pipeline_parallel/fine_grained_activation_offload.py:304: note: Use https://github.com/hauntsaninja/no_implicit_optional to automatically upgrade your codebase
+megatron/core/pipeline_parallel/fine_grained_activation_offload.py:696: error: Need type annotation for "local_duplicate_summary"  [var-annotated]
+megatron/core/pipeline_parallel/fine_grained_activation_offload.py:726: error: Value expression in dictionary comprehension has incompatible type "tuple[int, ...]"; expected type "tuple[int, int]"  [misc]
+megatron/core/pipeline_parallel/fine_grained_activation_offload.py:822: error: Incompatible types in assignment (expression has type "ChunkOffloadHandler", variable has type "None")  [assignment]
+megatron/core/pipeline_parallel/fine_grained_activation_offload.py:823: error: "ChunkOffloadHandler" has no attribute "vpp_rank"  [attr-defined]
+megatron/core/pipeline_parallel/fine_grained_activation_offload.py:985: error: Need type annotation for "offload_groups" (hint: "offload_groups: list[<type>] = ...")  [var-annotated]
+megatron/core/pipeline_parallel/fine_grained_activation_offload.py:988: error: Need type annotation for "_groups_to_offload" (hint: "_groups_to_offload: list[<type>] = ...")  [var-annotated]
+megatron/core/pipeline_parallel/fine_grained_activation_offload.py:990: error: Need type annotation for "_groups_to_reload" (hint: "_groups_to_reload: list[<type>] = ...")  [var-annotated]
+megatron/core/pipeline_parallel/fine_grained_activation_offload.py:996: error: Need type annotation for "_reloading_group" (hint: "_reloading_group: list[<type>] = ...")  [var-annotated]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py:940: error: Argument "moe_flex_dispatcher_backend" to "MLATransformerConfig" has incompatible type "str"; expected "Literal['deepep', 'deepepv2', 'hybridep', 'ncclep']"  [arg-type]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py:940: error: Argument "moe_flex_dispatcher_backend" to "TransformerConfig" has incompatible type "str"; expected "Literal['deepep', 'deepepv2', 'hybridep', 'ncclep']"  [arg-type]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py:1142: error: Argument "cuda_graph_impl" to "MLATransformerConfig" has incompatible type "str"; expected "Literal['none', 'local', 'transformer_engine', 'full_iteration']"  [arg-type]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py:1142: error: Argument "cuda_graph_impl" to "TransformerConfig" has incompatible type "str"; expected "Literal['none', 'local', 'transformer_engine', 'full_iteration']"  [arg-type]
+megatron/core/ssm/gated_delta_net/gdn.py:38: error: Skipping analyzing "fla.modules.convolution": module is installed, but missing library stubs or py.typed marker  [import-untyped]
+megatron/core/ssm/gated_delta_net/gdn.py:39: error: Skipping analyzing "fla.ops.gated_delta_rule": module is installed, but missing library stubs or py.typed marker  [import-untyped]
+megatron/core/ssm/gated_delta_net/gdn.py:58: error: Item "None" of "Any | None" has no attribute "rank"  [union-attr]
+megatron/core/ssm/gated_delta_net/gdn.py:161: error: "tuple[Any]" has no attribute "float"  [attr-defined]
+megatron/core/ssm/gated_delta_net/gdn.py:162: error: "tuple[Any]" has no attribute "float"  [attr-defined]
+megatron/core/pipeline_parallel/schedules.py:46: error: Cannot find implementation or library stub for module named "nemo.lens.helpers"  [import-not-found]
+megatron/core/pipeline_parallel/schedules.py:162: error: Unsupported operand types for < ("int" and "None")  [operator]
+megatron/core/pipeline_parallel/schedules.py:162: note: Left operand is of type "int | None"
+megatron/core/pipeline_parallel/schedules.py:660: error: Need type annotation for "input_tensor_grad" (hint: "input_tensor_grad: dict[<type>, <type>] = ...")  [var-annotated]
+megatron/core/pipeline_parallel/schedules.py:777: error: Need type annotation for "forward_data_store" (hint: "forward_data_store: list[<type>] = ...")  [var-annotated]
+megatron/core/pipeline_parallel/schedules.py:1149: error: Need type annotation for "input_tensors"  [var-annotated]
+megatron/core/pipeline_parallel/schedules.py:1150: error: Need type annotation for "output_tensors"  [var-annotated]
+megatron/core/pipeline_parallel/schedules.py:1153: error: Need type annotation for "forward_data_store" (hint: "forward_data_store: list[<type>] = ...")  [var-annotated]
+megatron/core/pipeline_parallel/schedules.py:1154: error: Need type annotation for "output_tensor_grads"  [var-annotated]
+megatron/core/pipeline_parallel/schedules.py:1571: error: Need type annotation for "recv_prev_wait_handles" (hint: "recv_prev_wait_handles: list[<type>] = ...")  [var-annotated]
+megatron/core/pipeline_parallel/schedules.py:1656: error: Value of type "list[list[Any]] | None" is not indexable  [index]
+megatron/core/pipeline_parallel/schedules.py:1731: error: Value of type "list[list[Any]] | None" is not indexable  [index]
+megatron/core/pipeline_parallel/schedules.py:1952: error: Value of type "list[list[Any]] | None" is not indexable  [index]
+megatron/core/pipeline_parallel/schedules.py:1966: error: Value of type "list[list[Any]] | None" is not indexable  [index]
+megatron/core/pipeline_parallel/schedules.py:2050: error: Value of type "list[list[Any]] | None" is not indexable  [index]
+megatron/core/pipeline_parallel/schedules.py:2061: error: Value of type "list[list[Any]] | None" is not indexable  [index]
+megatron/core/pipeline_parallel/schedules.py:2141: error: Item "None" of "Any | None" has no attribute "size"  [union-attr]
+megatron/core/pipeline_parallel/schedules.py:2144: error: Item "None" of "Any | None" has no attribute "size"  [union-attr]
+megatron/core/pipeline_parallel/schedules.py:2146: error: Argument 1 to "append" of "list" has incompatible type "tuple[Any, int, Any]"; expected "tuple[()]"  [arg-type]
+megatron/core/pipeline_parallel/schedules.py:2322: error: Argument "decoder_seq_length" to "get_tensor_shapes" has incompatible type "int | None"; expected "int"  [arg-type]
+megatron/core/pipeline_parallel/schedules.py:2330: error: Argument "decoder_seq_length" to "get_tensor_shapes" has incompatible type "int | None"; expected "int"  [arg-type]
+megatron/core/pipeline_parallel/schedules.py:2348: error: Need type annotation for "forward_data_store" (hint: "forward_data_store: list[<type>] = ...")  [var-annotated]
+Found 48 errors in 6 files (checked 12 source files)
++ true

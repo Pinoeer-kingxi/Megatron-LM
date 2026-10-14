@@ -1,0 +1,15 @@
+Loading from /artifacts/models/Qwen3.5-0.8B ━━━ 100% 0… (383/383) Qwen35VLBridge
+ > number of parameters on (tensor, gtp_remat, pipeline) model parallel rank (0, 0, 0): 428024608
+
+======================================
+   Activation Offload Summary (MB)    
+======================================
+Rank      gdn_core_attn          Total
+--------------------------------------
+Rank 0            15.07          15.07
+Rank 1            15.07          15.07
+--------------------------------------
+Total             30.15          30.15
+======================================
+
+Rank 0 pinned buffers before each native reset: [0, 0, 0, 0, 0]

@@ -1,0 +1,83 @@
+{
+  "status": "passed",
+  "source_commit": "b22c9f7251a480529a4815c8c5fe0ece64734c03",
+  "fresh_two_rank_runs": 4,
+  "rank_files": 8,
+  "exact_complete_rank_step_states": 24,
+  "all_pre_reset_pool_counts_zero": true,
+  "timed_samples": 0,
+  "results": [
+    {
+      "fused": false,
+      "arm": "disabled",
+      "rank": 0,
+      "exact_steps": 3,
+      "file": "latest-head-20261014/qwen/unfused/disabled.rank0.json",
+      "sha256": "8f16711cc58651f7c6cd20287d1b6fb4099258c91613dd46bbcd447669977298",
+      "selected_transfer_bytes": 0
+    },
+    {
+      "fused": false,
+      "arm": "disabled",
+      "rank": 1,
+      "exact_steps": 3,
+      "file": "latest-head-20261014/qwen/unfused/disabled.rank1.json",
+      "sha256": "07622e55d32ca400b02193bf19b244410204ae54af44328a6b0449958a75814e",
+      "selected_transfer_bytes": 0
+    },
+    {
+      "fused": false,
+      "arm": "1",
+      "rank": 0,
+      "exact_steps": 3,
+      "file": "latest-head-20261014/qwen/unfused/1.rank0.json",
+      "sha256": "fd286801fc25bc280dc04b43ec8f16f2ca38c8e2ed200631d30969c9a464cb58",
+      "selected_transfer_bytes": 66015232
+    },
+    {
+      "fused": false,
+      "arm": "1",
+      "rank": 1,
+      "exact_steps": 3,
+      "file": "latest-head-20261014/qwen/unfused/1.rank1.json",
+      "sha256": "24196f6b846dad181d19d0bb7b62f055c15140d5f239fb977a4fc70747dd321b",
+      "selected_transfer_bytes": 66015232
+    },
+    {
+      "fused": true,
+      "arm": "disabled",
+      "rank": 0,
+      "exact_steps": 3,
+      "file": "latest-head-20261014/qwen/fused/disabled.rank0.json",
+      "sha256": "af0d72e8a0e1b9df5f3e61396b4744f7c3a72a6d01569c57086a983d3a10a269",
+      "selected_transfer_bytes": 0
+    },
+    {
+      "fused": true,
+      "arm": "disabled",
+      "rank": 1,
+      "exact_steps": 3,
+      "file": "latest-head-20261014/qwen/fused/disabled.rank1.json",
+      "sha256": "3062a39facaa438db9123380dfa7aada334331e6cadad7269ef70679142eae5e",
+      "selected_transfer_bytes": 0
+    },
+    {
+      "fused": true,
+      "arm": "1",
+      "rank": 0,
+      "exact_steps": 3,
+      "file": "latest-head-20261014/qwen/fused/1.rank0.json",
+      "sha256": "712f96a96cfae80eab450c6d46fcad75b2d576c0d419423afc8e86103e3c13a4",
+      "selected_transfer_bytes": 66015232
+    },
+    {
+      "fused": true,
+      "arm": "1",
+      "rank": 1,
+      "exact_steps": 3,
+      "file": "latest-head-20261014/qwen/fused/1.rank1.json",
+      "sha256": "563e318d569c78c90e3ce515a2d1384e8e458c03ad02c3b7c122da8299e836ee",
+      "selected_transfer_bytes": 66015232
+    }
+  ]
+}

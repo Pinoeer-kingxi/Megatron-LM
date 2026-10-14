@@ -1,0 +1,71 @@
+{
+  "published": true,
+  "head": "8e8c43c84a4901b8a0d1d68409e6d81e3d33c5ff",
+  "base": "e30d863a6d82a3c45f2d71355dc73fbf5610967b",
+  "signed_and_dco_commits": 25,
+  "related_changed_files": 20,
+  "source_sha256": {
+    "docs/developer/gdn_activation_offload_training.md": "c74a7029e4b39608fde6524ce11b5daa091eec50365acc08d978194cec72fd49",
+    "docs/developer/gdn_activation_offload_training_a6000.csv": "930edcaad76b42886ee9afbb56c895681e15473e06b237bee2f17fc9e6369a83",
+    "docs/developer/gdn_activation_offload_training_fused_a6000.csv": "ac71a355d21ff349c8974c4bd60686917d72830710a237895acfa8128cb49b94",
+    "docs/developer/gdn_activation_offloading.md": "62d7a1807dd16587b37853d8eb334d93b2cb037a3c0c20caf11854d0fb7e8706",
+    "docs/developer/gdn_activation_offloading_a6000.csv": "d976f5ab519caa5b834358b18eefedd0398e2afc0ee397acb96c60a0e1a37426",
+    "docs/user-guide/features/fine_grained_activation_offloading.md": "ea3be177b525769da62e5e2ae91e4a8a3e7db753b625b34b29077e6dba88fac5",
+    "megatron/core/fusions/fused_pre_gated_delta_rule.py": "9edb4bd8e69e331b0876847df80a30eb671132dba5e648c076f96bf3dd67ebbc",
+    "megatron/core/pipeline_parallel/fine_grained_activation_offload.py": "5d4f94fe898d96f8dcd4059c919c152be335866a533a101569c568f25d5c4481",
+    "megatron/core/pipeline_parallel/schedules.py": "071261bfb9c95e91b4d9ee81e09c24ffd4b05515ea4eae7d68e062d15af0ebba",
+    "megatron/core/ssm/gated_delta_net/gdn.py": "b50ad6b0ab115fd03ee5eae2d0a4a75012efe37d2415ebd8812f8ef3b0759839",
+    "megatron/core/transformer/transformer_config.py": "b409d40267c0467b31f90671cfb3dcf8c4255b876011203422250b83c9461cb9",
+    "tests/unit_tests/determinism/kernels/manifest.py": "626978606e2b19494ad06398b6f29703f611c6a4aa7b15eeac2fb7e0eeec7826",
+    "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py": "adb27735903c99595f7c1ade4c890c159ff941299d39b8145d816d6dfecb80df",
+    "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py": "7a34cc6678fb0bc4399b5426a1fb4c03d3ed11dfa55247a4c24b63638f0429b3",
+    "tests/unit_tests/pipeline_parallel/test_schedules.py": "217b6fa073dcefa721b98c0c5240ea31d4cc9322eef127d74ac72fa9c15a0532",
+    "tests/unit_tests/ssm/test_gated_delta_net_offloading.py": "7762ee4c30d4672d5abb0c9f06b75633ac151abafaa7128ec941fbc17fc4c230",
+    "tests/unit_tests/ssm/test_gdn_offload_training.py": "53b5760d1a7b5ae755d3a66b9692c01c5b9925f761dc1149899505a9709160d6",
+    "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py": "419eba0e6ac42767b2adc4d363872d07c73e39822282fc90793dd0186b65a825",
+    "tools/ssm/gdn_activation_offload.py": "da36ed76450b7a1d81ef1d3868d8409f2ec4e37c2e936f57460e3ec365d6f995",
+    "tools/ssm/qwen_gdn_offload_training.py": "1662206a60efbf8376cc05899de0f38393acbe37c5366389101fcf74631c8df3"
+  },
+  "backend_fix": "Use the explicit FLA backend contract; reject Torch/TE; Qwen baselines explicitly choose FLA",
+  "post_rebase_tests": {
+    "gdn_gate_manager_passed_each_rank": 104,
+    "native_training_passed_each_rank": 72,
+    "native_training_skipped_each_rank": 24,
+    "qwen_fresh_two_rank_runs": 4,
+    "qwen_exact_complete_rank_step_states": 24,
+    "manifest_checks": 263,
+    "standalone_mypy_files": 4,
+    "standard_formatter": "Black/isort/Pylint/Ruff passed; 48 explained non-blocking mypy diagnostics"
+  },
+  "historical_gpu_evidence": "Retains original source references; archived validated branch preserves commit URLs. Post-rebase four-rank/performance matrices were not rerun.",
+  "artifacts": {
+    "backend-guard-before-fix.log": "5a525e512bee327040514fb2d2d852b10cd6d08407d30e5e06a36bb55c3d5e1d",
+    "backend-guard-fixed.log": "1956a6bf467a0d9e8af9f4bf107fa13722e7ac493510c8c7f0d996fd117ef579",
+    "rebased-unit-regressions.log": "155d9551af632ef519c17ba3ae6e290886f6ac075e5f635ebfaf2c825f27d56c",
+    "rebased-native-training.log": "5cdb3ad78b796cf647b7a97d7aacd32524a6a61ee59e0470f91e6e5d01673e53",
+    "qwen-rebased-validation.json": "014c2c8cd17ca0806a0e9e57de69eb3ac7cfbf464f1ed294100db5dd77fc7711",
+    "rebased-autoformat-mirror.log": "2e295806a11b1f57d6231f94ff4bd72241017cbdf35e84b4e556c797e2f5357c",
+    "mypy-diagnostic-comparison.json": "be034062510d6b5414a3cbe2d1a315d9e8d32df63b3e8d3076061af52e6bdcb5",
+    "rebased-standalone-mypy.log": "71144743c83babea384888a735db0c4daba3d4d7b7942b6839984bd5c21b52bb",
+    "final-kernel-coverage.log": "1a645588f91ae886e724cf95cab94633205ab5628019e94d7ae5c71ce8ec04c2",
+    "final-kernel-manifest.log": "5479376b0320442d0570ade1b9a2382358e69c7e7dae12a9be57d3f9b106df5c"
+  },
+  "pr_body_sha256": "5c22c61dcd214ff106a3e8518682afcb1652ebacafc06536c8595f897a27c8b9",
+  "remaining_qualification": [
+    "Pretrained CP remains unsupported on the recorded A6000/TE stack",
+    "Upstream GPU CI needs maintainer approval",
+    "GitHub SSH verification currently unknown_key; public signing-key registration pending"
+  ],
+  "publication_verified_utc": "2026-10-12T03:01:03.522778+00:00",
+  "pr_url": "https://github.com/NVIDIA/Megatron-LM/pull/7908",
+  "draft": true,
+  "github_pr_file_count": 20,
+  "github_dco": "SUCCESS",
+  "github_signature": {
+    "reason": "unknown_key",
+    "sha": "8e8c43c84a4901b8a0d1d68409e6d81e3d33c5ff",
+    "verified": false
+  },
+  "historical_baseline_branch": "feat/gdn-offload-a6000-validated",
+  "historical_baseline_commit": "6693e5bcf3cbf96cee3658c97f0949549619e78d"
+}

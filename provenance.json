@@ -1,0 +1,612 @@
+{
+  "assembled_utc": "2026-10-14T09:54:02.012404+00:00",
+  "gpu_run_date_utc": "2026-10-12",
+  "upstream_rebase_base": "e30d863a6d82a3c45f2d71355dc73fbf5610967b",
+  "tested_functional_source_snapshot": "82ac2c88f7ba2f3b9aae3ad779d8575596ec2fec",
+  "original_published_pr_head": "8e8c43c84a4901b8a0d1d68409e6d81e3d33c5ff",
+  "source_at_launch_caveat": "GPU unit/native jobs started with the backend fix as working-tree edits before commit 82ac2c8; Qwen jobs spanned that commit. No clean-HEAD-at-launch attestation was recorded. 82ac2c8 is the committed functional snapshot corresponding to those edits, not a recorded launcher HEAD for every run.",
+  "publication_head_difference": "8e8c43c adds documentation, a config attribute docstring and kernel-registry notes; it does not change training execution. The complete diff and Python-file hashes are supplied.",
+  "artifact_integrity": "Original files are copied byte-for-byte. Paths remain relative to the original artifact root. SHA-256 detects download changes; these author-produced logs are not upstream CI attestations.",
+  "qwen_logging": "Original stdout/stderr are combined per two-rank run. Rank-specific evidence consists of the eight native rank JSON files; separate original Qwen rank log files were not recorded.",
+  "excluded_claims": [
+    "No post-rebase four-rank/performance rerun",
+    "No pretrained CP qualification",
+    "No upstream GPU CI result",
+    "No public pretrained weights or private text dataset"
+  ],
+  "environment": {
+    "gpus": [
+      "NVIDIA RTX A6000",
+      "NVIDIA RTX A6000"
+    ],
+    "physical_gpu_indices": [
+      0,
+      1
+    ],
+    "gpu_uuid_order": [
+      "GPU-a77106b7-62f7-c58e-3fd7-780d7732fc96",
+      "GPU-5e2e1f94-e88e-48e3-247d-328b52fc68db"
+    ],
+    "docker_image_id": "sha256:061e8fda67a4dd1c1c635129d4ba0442b7a093cc6fd737423e9589eb6be22034",
+    "torch": "2.11.0+cu130",
+    "cuda": "13.0",
+    "transformer_engine": "2.20.2",
+    "fla": "0.5.1",
+    "causal_conv1d": "1.6.1",
+    "flash_attention": "2.8.3",
+    "cudnn": "9.19.0",
+    "image_and_optional_bridge_dependencies": "The image and optional dependency overlays were local. Package/source pinning and limitations are described in the source validation document; the image is not hosted here."
+  },
+  "python_source_comparison": [
+    {
+      "file": "megatron/core/fusions/fused_pre_gated_delta_rule.py",
+      "tested_source_sha256": "9edb4bd8e69e331b0876847df80a30eb671132dba5e648c076f96bf3dd67ebbc",
+      "published_source_sha256": "9edb4bd8e69e331b0876847df80a30eb671132dba5e648c076f96bf3dd67ebbc",
+      "byte_identical": true,
+      "executable_ast_equal_after_removing_string_expressions": true
+    },
+    {
+      "file": "megatron/core/pipeline_parallel/fine_grained_activation_offload.py",
+      "tested_source_sha256": "5d4f94fe898d96f8dcd4059c919c152be335866a533a101569c568f25d5c4481",
+      "published_source_sha256": "5d4f94fe898d96f8dcd4059c919c152be335866a533a101569c568f25d5c4481",
+      "byte_identical": true,
+      "executable_ast_equal_after_removing_string_expressions": true
+    },
+    {
+      "file": "megatron/core/pipeline_parallel/schedules.py",
+      "tested_source_sha256": "071261bfb9c95e91b4d9ee81e09c24ffd4b05515ea4eae7d68e062d15af0ebba",
+      "published_source_sha256": "071261bfb9c95e91b4d9ee81e09c24ffd4b05515ea4eae7d68e062d15af0ebba",
+      "byte_identical": true,
+      "executable_ast_equal_after_removing_string_expressions": true
+    },
+    {
+      "file": "megatron/core/ssm/gated_delta_net/gdn.py",
+      "tested_source_sha256": "b50ad6b0ab115fd03ee5eae2d0a4a75012efe37d2415ebd8812f8ef3b0759839",
+      "published_source_sha256": "b50ad6b0ab115fd03ee5eae2d0a4a75012efe37d2415ebd8812f8ef3b0759839",
+      "byte_identical": true,
+      "executable_ast_equal_after_removing_string_expressions": true
+    },
+    {
+      "file": "megatron/core/transformer/transformer_config.py",
+      "tested_source_sha256": "f0a9ac23d646290b8d51e003217694082908e4936066290a5044d0e0ae6e7d6e",
+      "published_source_sha256": "b409d40267c0467b31f90671cfb3dcf8c4255b876011203422250b83c9461cb9",
+      "byte_identical": false,
+      "executable_ast_equal_after_removing_string_expressions": true
+    },
+    {
+      "file": "tests/unit_tests/determinism/kernels/manifest.py",
+      "tested_source_sha256": "19bcf21920f5427fc29a6428a43827416c00fb0e48d243fe72e3f8da8df8f8ea",
+      "published_source_sha256": "626978606e2b19494ad06398b6f29703f611c6a4aa7b15eeac2fb7e0eeec7826",
+      "byte_identical": false,
+      "difference": "Kernel registry notes metadata; see the complete commit diff."
+    },
+    {
+      "file": "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py",
+      "tested_source_sha256": "adb27735903c99595f7c1ade4c890c159ff941299d39b8145d816d6dfecb80df",
+      "published_source_sha256": "adb27735903c99595f7c1ade4c890c159ff941299d39b8145d816d6dfecb80df",
+      "byte_identical": true,
+      "executable_ast_equal_after_removing_string_expressions": true
+    },
+    {
+      "file": "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py",
+      "tested_source_sha256": "7a34cc6678fb0bc4399b5426a1fb4c03d3ed11dfa55247a4c24b63638f0429b3",
+      "published_source_sha256": "7a34cc6678fb0bc4399b5426a1fb4c03d3ed11dfa55247a4c24b63638f0429b3",
+      "byte_identical": true,
+      "executable_ast_equal_after_removing_string_expressions": true
+    },
+    {
+      "file": "tests/unit_tests/pipeline_parallel/test_schedules.py",
+      "tested_source_sha256": "217b6fa073dcefa721b98c0c5240ea31d4cc9322eef127d74ac72fa9c15a0532",
+      "published_source_sha256": "217b6fa073dcefa721b98c0c5240ea31d4cc9322eef127d74ac72fa9c15a0532",
+      "byte_identical": true,
+      "executable_ast_equal_after_removing_string_expressions": true
+    },
+    {
+      "file": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py",
+      "tested_source_sha256": "7762ee4c30d4672d5abb0c9f06b75633ac151abafaa7128ec941fbc17fc4c230",
+      "published_source_sha256": "7762ee4c30d4672d5abb0c9f06b75633ac151abafaa7128ec941fbc17fc4c230",
+      "byte_identical": true,
+      "executable_ast_equal_after_removing_string_expressions": true
+    },
+    {
+      "file": "tests/unit_tests/ssm/test_gdn_offload_training.py",
+      "tested_source_sha256": "53b5760d1a7b5ae755d3a66b9692c01c5b9925f761dc1149899505a9709160d6",
+      "published_source_sha256": "53b5760d1a7b5ae755d3a66b9692c01c5b9925f761dc1149899505a9709160d6",
+      "byte_identical": true,
+      "executable_ast_equal_after_removing_string_expressions": true
+    },
+    {
+      "file": "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py",
+      "tested_source_sha256": "419eba0e6ac42767b2adc4d363872d07c73e39822282fc90793dd0186b65a825",
+      "published_source_sha256": "419eba0e6ac42767b2adc4d363872d07c73e39822282fc90793dd0186b65a825",
+      "byte_identical": true,
+      "executable_ast_equal_after_removing_string_expressions": true
+    },
+    {
+      "file": "tools/ssm/gdn_activation_offload.py",
+      "tested_source_sha256": "da36ed76450b7a1d81ef1d3868d8409f2ec4e37c2e936f57460e3ec365d6f995",
+      "published_source_sha256": "da36ed76450b7a1d81ef1d3868d8409f2ec4e37c2e936f57460e3ec365d6f995",
+      "byte_identical": true,
+      "executable_ast_equal_after_removing_string_expressions": true
+    },
+    {
+      "file": "tools/ssm/qwen_gdn_offload_training.py",
+      "tested_source_sha256": "1662206a60efbf8376cc05899de0f38393acbe37c5366389101fcf74631c8df3",
+      "published_source_sha256": "1662206a60efbf8376cc05899de0f38393acbe37c5366389101fcf74631c8df3",
+      "byte_identical": true,
+      "executable_ast_equal_after_removing_string_expressions": true
+    }
+  ],
+  "original_artifacts": [
+    {
+      "file": "publication-20261011/backend-guard-before-fix.log",
+      "bytes": 5256,
+      "sha256": "5a525e512bee327040514fb2d2d852b10cd6d08407d30e5e06a36bb55c3d5e1d"
+    },
+    {
+      "file": "publication-20261011/backend-guard-fixed.log",
+      "bytes": 4606,
+      "sha256": "1956a6bf467a0d9e8af9f4bf107fa13722e7ac493510c8c7f0d996fd117ef579"
+    },
+    {
+      "file": "publication-20261011/rebased-unit-regressions.log",
+      "bytes": 630161,
+      "sha256": "155d9551af632ef519c17ba3ae6e290886f6ac075e5f635ebfaf2c825f27d56c"
+    },
+    {
+      "file": "publication-20261011/rebased-native-training.log",
+      "bytes": 407459,
+      "sha256": "5cdb3ad78b796cf647b7a97d7aacd32524a6a61ee59e0470f91e6e5d01673e53"
+    },
+    {
+      "file": "publication-20261011/qwen-rebased-check.log",
+      "bytes": 308,
+      "sha256": "17aa4112ab97557de1f09298da19a50ad78e365bc9aec8e8ea8185396f4613cc"
+    },
+    {
+      "file": "publication-20261011/qwen-rebased-validation.json",
+      "bytes": 2718,
+      "sha256": "014c2c8cd17ca0806a0e9e57de69eb3ac7cfbf464f1ed294100db5dd77fc7711"
+    },
+    {
+      "file": "publication-20261011/rebased-autoformat-mirror.log",
+      "bytes": 17259,
+      "sha256": "2e295806a11b1f57d6231f94ff4bd72241017cbdf35e84b4e556c797e2f5357c"
+    },
+    {
+      "file": "publication-20261011/mypy-diagnostic-comparison.json",
+      "bytes": 1173,
+      "sha256": "be034062510d6b5414a3cbe2d1a315d9e8d32df63b3e8d3076061af52e6bdcb5"
+    },
+    {
+      "file": "publication-20261011/rebased-standalone-mypy.log",
+      "bytes": 43,
+      "sha256": "71144743c83babea384888a735db0c4daba3d4d7b7942b6839984bd5c21b52bb"
+    },
+    {
+      "file": "publication-20261011/rebased-tool-format.log",
+      "bytes": 601,
+      "sha256": "224437ee59320ed9727bf7de73af970ef0bf5e02cafb7dc8c4a0b4a821a6be0e"
+    },
+    {
+      "file": "publication-20261011/final-kernel-coverage.log",
+      "bytes": 65,
+      "sha256": "1a645588f91ae886e724cf95cab94633205ab5628019e94d7ae5c71ce8ec04c2"
+    },
+    {
+      "file": "publication-20261011/final-kernel-manifest.log",
+      "bytes": 36342,
+      "sha256": "5479376b0320442d0570ade1b9a2382358e69c7e7dae12a9be57d3f9b106df5c"
+    },
+    {
+      "file": "publication-20261011/publication-checks.json",
+      "bytes": 5352,
+      "sha256": "4aad5f1da5232ec078a8935ce959692dba8db634b32ca6efa1693951e41d57a5"
+    },
+    {
+      "file": "publication-20261011/upstream-mirror.json",
+      "bytes": 356,
+      "sha256": "a5b080ee7ed629dcdf9490c53b49ba89553f5eb242ec364eb4203dd22c305cc8"
+    },
+    {
+      "file": "publication-20261011/qwen_rebased_check.py",
+      "bytes": 3896,
+      "sha256": "4e2f73a104a3f6c95d1a32021d283393d8f68f57ae7fee34150ceab65a0487cc"
+    },
+    {
+      "file": "publication-20261011/rebased-unit-ranks/c9ccdbb2-b48f-46fa-bd5a-83727eb60dd5_zklxe_u9/attempt_0/0/stderr.log",
+      "bytes": 1123,
+      "sha256": "ce4df4b254d1d14fc95dd94c33886b148a2615478b5145107f4cafd635a02a8c"
+    },
+    {
+      "file": "publication-20261011/rebased-unit-ranks/c9ccdbb2-b48f-46fa-bd5a-83727eb60dd5_zklxe_u9/attempt_0/0/stdout.log",
+      "bytes": 228917,
+      "sha256": "408dc7f041e74dea9d914fd2790358459ed80d9395dbc66248a50f7ecc65cd9d"
+    },
+    {
+      "file": "publication-20261011/rebased-unit-ranks/c9ccdbb2-b48f-46fa-bd5a-83727eb60dd5_zklxe_u9/attempt_0/1/stderr.log",
+      "bytes": 908,
+      "sha256": "039bc7edec97db641538cf7064608d179891b28637426cb1ddc511b8a8feb5df"
+    },
+    {
+      "file": "publication-20261011/rebased-unit-ranks/c9ccdbb2-b48f-46fa-bd5a-83727eb60dd5_zklxe_u9/attempt_0/1/stdout.log",
+      "bytes": 268964,
+      "sha256": "552d0c1a111810ee02330a5a2050e9ce63a9f355e037325d4b7cf9974acd87bf"
+    },
+    {
+      "file": "publication-20261011/rebased-training-ranks/9affdebb-1407-427d-9a5a-16dac7109c86_o7tki3q3/attempt_0/0/stderr.log",
+      "bytes": 1576,
+      "sha256": "c32dea8c31c946fdf49bec39649b16488e3583b57f8ed94a463fd766697804d1"
+    },
+    {
+      "file": "publication-20261011/rebased-training-ranks/9affdebb-1407-427d-9a5a-16dac7109c86_o7tki3q3/attempt_0/0/stdout.log",
+      "bytes": 167613,
+      "sha256": "d82c38d93c534141eba1e2b901fd2eb0cbcac03fa4f46975aa3b015cd2b504f2"
+    },
+    {
+      "file": "publication-20261011/rebased-training-ranks/9affdebb-1407-427d-9a5a-16dac7109c86_o7tki3q3/attempt_0/1/stderr.log",
+      "bytes": 1361,
+      "sha256": "c9c3d3e680fd61fd2fe320206436cdfec5b58419f862db7dd9fce9798237a041"
+    },
+    {
+      "file": "publication-20261011/rebased-training-ranks/9affdebb-1407-427d-9a5a-16dac7109c86_o7tki3q3/attempt_0/1/stdout.log",
+      "bytes": 151100,
+      "sha256": "d75c556ce2417806d15a35cdc192858cf39d00c2ffa942f941a8a89f834e342e"
+    },
+    {
+      "file": "qwen-training/publication-20261011/tp_sp/fused/1.log",
+      "bytes": 33908,
+      "sha256": "d996fa4866a6f1d62c5eab49cc954df4a4d6193fd679f8378fa8e192a53a68c6"
+    },
+    {
+      "file": "qwen-training/publication-20261011/tp_sp/fused/disabled.log",
+      "bytes": 33190,
+      "sha256": "069392decea6878b53e7877517f143fc0840242fb1436751e47f950acdb41182"
+    },
+    {
+      "file": "qwen-training/publication-20261011/tp_sp/unfused/1.log",
+      "bytes": 33910,
+      "sha256": "6ae615d4c0be61f39663407430c5b327f3012688c0b0442378c70f8bcbed46bf"
+    },
+    {
+      "file": "qwen-training/publication-20261011/tp_sp/unfused/disabled.log",
+      "bytes": 33192,
+      "sha256": "5805dae23177602cc5ffa87af292ef577f0d3014d4c439424e145429977f9980"
+    },
+    {
+      "file": "qwen-training/publication-20261011/tp_sp/fused/1.rank0.json",
+      "bytes": 940894,
+      "sha256": "93623ca638d34af71789cb8811383163e38b34c7e69b4521c6df2831f21dc1d5"
+    },
+    {
+      "file": "qwen-training/publication-20261011/tp_sp/fused/1.rank1.json",
+      "bytes": 940894,
+      "sha256": "74c3ef39c5c3367e59017cc7d2c5c91c0d6100e7739bfde17b3fbcc9b33df2a6"
+    },
+    {
+      "file": "qwen-training/publication-20261011/tp_sp/fused/disabled.rank0.json",
+      "bytes": 940866,
+      "sha256": "9046bc5c475bfc25e9da1e40b71e689c4cab397ba4f5c5de183700d31109faea"
+    },
+    {
+      "file": "qwen-training/publication-20261011/tp_sp/fused/disabled.rank1.json",
+      "bytes": 940866,
+      "sha256": "2b5497f140add14c4688a9f3b55ec6cc8bb6b4479ad933fec09b343d251229eb"
+    },
+    {
+      "file": "qwen-training/publication-20261011/tp_sp/unfused/1.rank0.json",
+      "bytes": 940896,
+      "sha256": "2181f088a9a9d7ca75d75cf6694f0950e57f5c7370ecbceed5998deeb58488e6"
+    },
+    {
+      "file": "qwen-training/publication-20261011/tp_sp/unfused/1.rank1.json",
+      "bytes": 940896,
+      "sha256": "a6fd3d79d2b8915d3eaba9b4fd7a58a3b68dce9f024a04b798e54d52d8999fda"
+    },
+    {
+      "file": "qwen-training/publication-20261011/tp_sp/unfused/disabled.rank0.json",
+      "bytes": 940868,
+      "sha256": "6a7b963a96cfdfe7cd60722a8a9cc6e9cd6b1d720f7b244ee5a75ec11dfee185"
+    },
+    {
+      "file": "qwen-training/publication-20261011/tp_sp/unfused/disabled.rank1.json",
+      "bytes": 940868,
+      "sha256": "a4732f2d4fa9e86cb520b51694eaea6a320452e4d2eb7ae0fe3d10eb44bc6024"
+    },
+    {
+      "file": "qwen_pool_lifetime_check.py",
+      "bytes": 1144,
+      "sha256": "f97a1d1614f0cee9496b32233531f71d246f68f96f9014beb1cf30cdb8376b45"
+    },
+    {
+      "file": "four-gpu-acceptance-20261008/run_reduced.py",
+      "bytes": 358,
+      "sha256": "6392999bc0859b638e98ff6987c566b7cdb66a3ad5eafe81577d5004bb589db5"
+    }
+  ],
+  "latest_clean_source_commit": "b22c9f7251a480529a4815c8c5fe0ece64734c03",
+  "latest_gpu_run_date_utc": "2026-10-14",
+  "latest_gpu_devices": {
+    "torch": "2.11.0+cu130",
+    "cuda": "13.0",
+    "devices": [
+      {
+        "name": "NVIDIA RTX A6000",
+        "uuid": "c8b76e6b-5a4b-7829-4c91-139b71218405"
+      },
+      {
+        "name": "NVIDIA RTX A6000",
+        "uuid": "40c36f3c-9282-74a6-63d2-077d1e4a1cb7"
+      }
+    ]
+  },
+  "latest_source_sha256": {
+    "docs/developer/gdn_activation_offload_training.md": "716077ae1a37d66307dce012b644bcf745aa46dbf6ab02da57c8a11a01ca9ba8",
+    "docs/developer/gdn_activation_offload_training_a6000.csv": "930edcaad76b42886ee9afbb56c895681e15473e06b237bee2f17fc9e6369a83",
+    "docs/developer/gdn_activation_offload_training_fused_a6000.csv": "ac71a355d21ff349c8974c4bd60686917d72830710a237895acfa8128cb49b94",
+    "docs/developer/gdn_activation_offloading.md": "62d7a1807dd16587b37853d8eb334d93b2cb037a3c0c20caf11854d0fb7e8706",
+    "docs/developer/gdn_activation_offloading_a6000.csv": "d976f5ab519caa5b834358b18eefedd0398e2afc0ee397acb96c60a0e1a37426",
+    "docs/user-guide/features/fine_grained_activation_offloading.md": "ea3be177b525769da62e5e2ae91e4a8a3e7db753b625b34b29077e6dba88fac5",
+    "megatron/core/fusions/fused_pre_gated_delta_rule.py": "9edb4bd8e69e331b0876847df80a30eb671132dba5e648c076f96bf3dd67ebbc",
+    "megatron/core/pipeline_parallel/fine_grained_activation_offload.py": "5d4f94fe898d96f8dcd4059c919c152be335866a533a101569c568f25d5c4481",
+    "megatron/core/pipeline_parallel/schedules.py": "071261bfb9c95e91b4d9ee81e09c24ffd4b05515ea4eae7d68e062d15af0ebba",
+    "megatron/core/ssm/gated_delta_net/gdn.py": "b50ad6b0ab115fd03ee5eae2d0a4a75012efe37d2415ebd8812f8ef3b0759839",
+    "megatron/core/transformer/transformer_config.py": "b409d40267c0467b31f90671cfb3dcf8c4255b876011203422250b83c9461cb9",
+    "tests/unit_tests/determinism/kernels/manifest.py": "626978606e2b19494ad06398b6f29703f611c6a4aa7b15eeac2fb7e0eeec7826",
+    "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py": "adb27735903c99595f7c1ade4c890c159ff941299d39b8145d816d6dfecb80df",
+    "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py": "7a34cc6678fb0bc4399b5426a1fb4c03d3ed11dfa55247a4c24b63638f0429b3",
+    "tests/unit_tests/pipeline_parallel/test_schedules.py": "217b6fa073dcefa721b98c0c5240ea31d4cc9322eef127d74ac72fa9c15a0532",
+    "tests/unit_tests/ssm/test_gated_delta_net_offloading.py": "7762ee4c30d4672d5abb0c9f06b75633ac151abafaa7128ec941fbc17fc4c230",
+    "tests/unit_tests/ssm/test_gdn_offload_training.py": "53b5760d1a7b5ae755d3a66b9692c01c5b9925f761dc1149899505a9709160d6",
+    "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py": "419eba0e6ac42767b2adc4d363872d07c73e39822282fc90793dd0186b65a825",
+    "tools/ssm/gdn_activation_offload.py": "da36ed76450b7a1d81ef1d3868d8409f2ec4e37c2e936f57460e3ec365d6f995",
+    "tools/ssm/qwen_gdn_offload_training.py": "1662206a60efbf8376cc05899de0f38393acbe37c5366389101fcf74631c8df3"
+  },
+  "latest_and_setup_original_artifacts": [
+    {
+      "file": "latest-head-20261014/qwen/fused/1.rank0.json",
+      "bytes": 940879,
+      "sha256": "712f96a96cfae80eab450c6d46fcad75b2d576c0d419423afc8e86103e3c13a4"
+    },
+    {
+      "file": "latest-head-20261014/qwen/fused/1.rank1.json",
+      "bytes": 940879,
+      "sha256": "563e318d569c78c90e3ce515a2d1384e8e458c03ad02c3b7c122da8299e836ee"
+    },
+    {
+      "file": "latest-head-20261014/qwen/fused/disabled.rank0.json",
+      "bytes": 940851,
+      "sha256": "af0d72e8a0e1b9df5f3e61396b4744f7c3a72a6d01569c57086a983d3a10a269"
+    },
+    {
+      "file": "latest-head-20261014/qwen/fused/disabled.rank1.json",
+      "bytes": 940851,
+      "sha256": "3062a39facaa438db9123380dfa7aada334331e6cadad7269ef70679142eae5e"
+    },
+    {
+      "file": "latest-head-20261014/qwen/unfused/1.rank0.json",
+      "bytes": 940881,
+      "sha256": "fd286801fc25bc280dc04b43ec8f16f2ca38c8e2ed200631d30969c9a464cb58"
+    },
+    {
+      "file": "latest-head-20261014/qwen/unfused/1.rank1.json",
+      "bytes": 940881,
+      "sha256": "24196f6b846dad181d19d0bb7b62f055c15140d5f239fb977a4fc70747dd321b"
+    },
+    {
+      "file": "latest-head-20261014/qwen/unfused/disabled.rank0.json",
+      "bytes": 940853,
+      "sha256": "8f16711cc58651f7c6cd20287d1b6fb4099258c91613dd46bbcd447669977298"
+    },
+    {
+      "file": "latest-head-20261014/qwen/unfused/disabled.rank1.json",
+      "bytes": 940853,
+      "sha256": "07622e55d32ca400b02193bf19b244410204ae54af44328a6b0449958a75814e"
+    },
+    {
+      "file": "latest-head-20261014/qwen-fused-1-ranks/fa078ebb-3076-432e-8409-a8484aba8240_viorphkx/attempt_0/0/stderr.log",
+      "bytes": 29256,
+      "sha256": "34a9d1e967367ffeb3c9f0e4fe7e3b41966c652175b366d7a834ed7874d7c5f5"
+    },
+    {
+      "file": "latest-head-20261014/qwen-fused-1-ranks/fa078ebb-3076-432e-8409-a8484aba8240_viorphkx/attempt_0/0/stdout.log",
+      "bytes": 643,
+      "sha256": "a1fa99e1407981c58f52d1b0536c02e9e8d812e29eeeb804c820b0a0276c24c7"
+    },
+    {
+      "file": "latest-head-20261014/qwen-fused-1-ranks/fa078ebb-3076-432e-8409-a8484aba8240_viorphkx/attempt_0/1/stderr.log",
+      "bytes": 3334,
+      "sha256": "234e25847b038edaf448b56282278027f3e00a17776419096568f764af49efcd"
+    },
+    {
+      "file": "latest-head-20261014/qwen-fused-1-ranks/fa078ebb-3076-432e-8409-a8484aba8240_viorphkx/attempt_0/1/stdout.log",
+      "bytes": 162,
+      "sha256": "d1401e921ead8c82c1ab204615ea68999056782cd6b3bc7e5e92220b36e9b958"
+    },
+    {
+      "file": "latest-head-20261014/qwen-fused-1.log",
+      "bytes": 37078,
+      "sha256": "effef416f1ac7eb643be0c68a3e6dcf5891ec199c78ddf00526ac5f3ae2156aa"
+    },
+    {
+      "file": "latest-head-20261014/qwen-fused-disabled-ranks/17121e39-22bb-48c7-9186-f5c7eedc529b_fci4eq66/attempt_0/0/stderr.log",
+      "bytes": 28962,
+      "sha256": "68033233f8ca58460bf523d11918fa7a2e98a8dd6ec34dd157984496e211c664"
+    },
+    {
+      "file": "latest-head-20261014/qwen-fused-disabled-ranks/17121e39-22bb-48c7-9186-f5c7eedc529b_fci4eq66/attempt_0/0/stdout.log",
+      "bytes": 242,
+      "sha256": "647ef1dcc02ff15708bf841f7af355f526f0075c5db0f4ae3a21dfa074af2595"
+    },
+    {
+      "file": "latest-head-20261014/qwen-fused-disabled-ranks/17121e39-22bb-48c7-9186-f5c7eedc529b_fci4eq66/attempt_0/1/stderr.log",
+      "bytes": 3320,
+      "sha256": "f5bfb4f79576addbca0bdcace8276ff2ffa76b09b7b222d5e14412a4202a9b5b"
+    },
+    {
+      "file": "latest-head-20261014/qwen-fused-disabled-ranks/17121e39-22bb-48c7-9186-f5c7eedc529b_fci4eq66/attempt_0/1/stdout.log",
+      "bytes": 153,
+      "sha256": "9f271b5c9ca9fe528a96d9c996831ed7b9794645d071f0ab8520fcd7537bbd21"
+    },
+    {
+      "file": "latest-head-20261014/qwen-fused-disabled.log",
+      "bytes": 36206,
+      "sha256": "6197483d7a4827caf3ac2061adcc5042eb457c9df69a608c5289ed9f489fd1da"
+    },
+    {
+      "file": "latest-head-20261014/qwen-unfused-1-ranks/01ce817b-4225-43c5-bca8-42c545b900d2_g97tbey1/attempt_0/0/stderr.log",
+      "bytes": 29257,
+      "sha256": "dda94ac351af35f628a04681452bf66488b16544b8422134bf8da37adf471e64"
+    },
+    {
+      "file": "latest-head-20261014/qwen-unfused-1-ranks/01ce817b-4225-43c5-bca8-42c545b900d2_g97tbey1/attempt_0/0/stdout.log",
+      "bytes": 643,
+      "sha256": "a1fa99e1407981c58f52d1b0536c02e9e8d812e29eeeb804c820b0a0276c24c7"
+    },
+    {
+      "file": "latest-head-20261014/qwen-unfused-1-ranks/01ce817b-4225-43c5-bca8-42c545b900d2_g97tbey1/attempt_0/1/stderr.log",
+      "bytes": 3335,
+      "sha256": "ae1a3b08a03d318cafbecd19d55f440b75556048175c8e8957bd14902dff6138"
+    },
+    {
+      "file": "latest-head-20261014/qwen-unfused-1-ranks/01ce817b-4225-43c5-bca8-42c545b900d2_g97tbey1/attempt_0/1/stdout.log",
+      "bytes": 162,
+      "sha256": "d1401e921ead8c82c1ab204615ea68999056782cd6b3bc7e5e92220b36e9b958"
+    },
+    {
+      "file": "latest-head-20261014/qwen-unfused-1.log",
+      "bytes": 37080,
+      "sha256": "f908216f3e5ac1a87078e1d44356bc42cd26c5dc7853bb531ee4d615496432ba"
+    },
+    {
+      "file": "latest-head-20261014/qwen-unfused-disabled-ranks/241cec28-5afd-4d9d-ae61-643a36475143_5pswv6g0/attempt_0/0/stderr.log",
+      "bytes": 28963,
+      "sha256": "87c0b6b78986828cfc24653563ba5398833a8a0cd2cc4f98df52956ac441a872"
+    },
+    {
+      "file": "latest-head-20261014/qwen-unfused-disabled-ranks/241cec28-5afd-4d9d-ae61-643a36475143_5pswv6g0/attempt_0/0/stdout.log",
+      "bytes": 242,
+      "sha256": "647ef1dcc02ff15708bf841f7af355f526f0075c5db0f4ae3a21dfa074af2595"
+    },
+    {
+      "file": "latest-head-20261014/qwen-unfused-disabled-ranks/241cec28-5afd-4d9d-ae61-643a36475143_5pswv6g0/attempt_0/1/stderr.log",
+      "bytes": 3321,
+      "sha256": "88f5ec18544cfa88316954bd822bb991b901d333a4c6787b7667c209ad9e6cdd"
+    },
+    {
+      "file": "latest-head-20261014/qwen-unfused-disabled-ranks/241cec28-5afd-4d9d-ae61-643a36475143_5pswv6g0/attempt_0/1/stdout.log",
+      "bytes": 153,
+      "sha256": "9f271b5c9ca9fe528a96d9c996831ed7b9794645d071f0ab8520fcd7537bbd21"
+    },
+    {
+      "file": "latest-head-20261014/qwen-unfused-disabled.log",
+      "bytes": 36208,
+      "sha256": "be6e6da92c91ad81718d782b734ba75ab26e70aafc30bd646c6b4cb61c2a36c3"
+    },
+    {
+      "file": "latest-head-20261014/qwen-validation.json",
+      "bytes": 2547,
+      "sha256": "d9c6990dadccc22532ff70023a1998e9f59d6a7220cf5d9457bc85d74546709c"
+    },
+    {
+      "file": "latest-head-20261014/rebased-training-ranks/fee9b90b-8ed3-49c7-8669-fb0a205902d9_xqmqf_9c/attempt_0/0/stderr.log",
+      "bytes": 1576,
+      "sha256": "b9b8129c254563aa5e5431c6cd285736aeeb9b928f48495fde353b6419bcfa5b"
+    },
+    {
+      "file": "latest-head-20261014/rebased-training-ranks/fee9b90b-8ed3-49c7-8669-fb0a205902d9_xqmqf_9c/attempt_0/0/stdout.log",
+      "bytes": 167613,
+      "sha256": "83ed98d85f8ba29b07718430025baaf294c53ac1353c9b9628993e2779ef98ee"
+    },
+    {
+      "file": "latest-head-20261014/rebased-training-ranks/fee9b90b-8ed3-49c7-8669-fb0a205902d9_xqmqf_9c/attempt_0/1/stderr.log",
+      "bytes": 1361,
+      "sha256": "bbf689621d2d21684cbb8265d249cad27e3f48d14fc2c021d2ebfe7352244d27"
+    },
+    {
+      "file": "latest-head-20261014/rebased-training-ranks/fee9b90b-8ed3-49c7-8669-fb0a205902d9_xqmqf_9c/attempt_0/1/stdout.log",
+      "bytes": 151099,
+      "sha256": "28ec3244b605ec65411bf4d0a75e937ad2c983decd285f46bf84eed2433840f4"
+    },
+    {
+      "file": "latest-head-20261014/rebased-training.log",
+      "bytes": 407458,
+      "sha256": "b2ac0535db35be882bd9b712e5bdcfd160268ab5bb1a66ee7c982f508afb6e3f"
+    },
+    {
+      "file": "latest-head-20261014/rebased-unit-ranks/dabbd27e-467a-4fd5-9b5e-8fa35eb0a530_rycko7lm/attempt_0/0/stderr.log",
+      "bytes": 1123,
+      "sha256": "3b3fa4f7f5cc2c78cd9a0b7d9978307c5525cf4f58a852d04870a31d0fc0925b"
+    },
+    {
+      "file": "latest-head-20261014/rebased-unit-ranks/dabbd27e-467a-4fd5-9b5e-8fa35eb0a530_rycko7lm/attempt_0/0/stdout.log",
+      "bytes": 228921,
+      "sha256": "e818b126426716c0a323039dd52fe80f15348201cca6dc8e3f2c8e25ceec7037"
+    },
+    {
+      "file": "latest-head-20261014/rebased-unit-ranks/dabbd27e-467a-4fd5-9b5e-8fa35eb0a530_rycko7lm/attempt_0/1/stderr.log",
+      "bytes": 908,
+      "sha256": "c52a2cb1f064b4cce07754f98e5b066e834cb15b92fb88b99fdfb0903e4006dd"
+    },
+    {
+      "file": "latest-head-20261014/rebased-unit-ranks/dabbd27e-467a-4fd5-9b5e-8fa35eb0a530_rycko7lm/attempt_0/1/stdout.log",
+      "bytes": 268965,
+      "sha256": "44d73991bed02d78b2fe5a40fae20c44e620fec43781094a2683ef1f208a4284"
+    },
+    {
+      "file": "latest-head-20261014/rebased-unit.log",
+      "bytes": 630166,
+      "sha256": "52c063f5e980013ce5b7b922266cc4b22b8440e9a015081b7c5d63f16d5d21d0"
+    },
+    {
+      "file": "latest-head-20261014/run-provenance.json",
+      "bytes": 12152,
+      "sha256": "c32afea730d8b379291a1a1929dcfa6153d85f4541870584857c7c9facff6abc"
+    },
+    {
+      "file": "failed-attempt-20261014-no-visible-gpus/driver.log",
+      "bytes": 612,
+      "sha256": "061b3ded5ca0cd4b11a18172c193ad09e77f6aed630d8aaacbfe73c81f24f713"
+    },
+    {
+      "file": "failed-attempt-20261014-no-visible-gpus/rebased-unit-ranks/931cb1b2-8a8d-4d45-9ba9-16033050af1b_5lt2wqa4/attempt_0/0/stderr.log",
+      "bytes": 119,
+      "sha256": "83df06c88be823ccffd1675e6be48d54b029a16577c86bddac213a250514ae1a"
+    },
+    {
+      "file": "failed-attempt-20261014-no-visible-gpus/rebased-unit-ranks/931cb1b2-8a8d-4d45-9ba9-16033050af1b_5lt2wqa4/attempt_0/0/stdout.log",
+      "bytes": 17505,
+      "sha256": "ba8c6d1939e23bf73a1ed0feef7299275548db72b9d4b5d55e7494e87205fa94"
+    },
+    {
+      "file": "failed-attempt-20261014-no-visible-gpus/rebased-unit-ranks/931cb1b2-8a8d-4d45-9ba9-16033050af1b_5lt2wqa4/attempt_0/1/stderr.log",
+      "bytes": 119,
+      "sha256": "34293df1759b5dc3ec457fb019d5969ddc7896afcddf7fb0525bdcb56c501346"
+    },
+    {
+      "file": "failed-attempt-20261014-no-visible-gpus/rebased-unit-ranks/931cb1b2-8a8d-4d45-9ba9-16033050af1b_5lt2wqa4/attempt_0/1/stdout.log",
+      "bytes": 17224,
+      "sha256": "17319cd83ad0b107805ed200e5288d53829dd74713d32c648aca81c1d9c9f5d3"
+    },
+    {
+      "file": "failed-attempt-20261014-no-visible-gpus/rebased-unit.log",
+      "bytes": 44103,
+      "sha256": "81af8a91578a3a5256d4a93315315d3a3028be4eacc090baf8f55e000f98a800"
+    },
+    {
+      "file": "failed-attempt-20261014-no-visible-gpus/run-provenance.json",
+      "bytes": 4179,
+      "sha256": "b3a73a0bfd5c710eb122ad6d01b198372090d099a5360a83455edbabca7c0ed7"
+    },
+    {
+      "file": "failed-attempt-20261014-uuid-preflight/driver.log",
+      "bytes": 479,
+      "sha256": "479cfc28409fcbe7ba4923a5757749db222083f2d1d1ffa86115c71dfe660c99"
+    },
+    {
+      "file": "failed-attempt-20261014-uuid-preflight/run-provenance.json",
+      "bytes": 2745,
+      "sha256": "aee2d0b600cebabb36bfdd996003554020e1057201d87121d34b08a34a69a37a"
+    }
+  ]
+}

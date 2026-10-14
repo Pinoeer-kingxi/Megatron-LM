@@ -1,0 +1,74 @@
+$ python3 verify.py
+{
+  "status": "passed",
+  "verification_kind": "CPU verification of recorded GPU artifacts",
+  "tested_functional_source_snapshot": "82ac2c88f7ba2f3b9aae3ad779d8575596ec2fec",
+  "original_published_pr_head": "8e8c43c84a4901b8a0d1d68409e6d81e3d33c5ff",
+  "sha256_files_verified": 97,
+  "earlier_post_rebase": {
+    "rank_test_logs": [
+      {
+        "file": "publication-20261011/rebased-unit-ranks/c9ccdbb2-b48f-46fa-bd5a-83727eb60dd5_zklxe_u9/attempt_0/0/stdout.log",
+        "summary": "104 passed, 24 deselected, 725 warnings in 80.36s (0:01:20)"
+      },
+      {
+        "file": "publication-20261011/rebased-unit-ranks/c9ccdbb2-b48f-46fa-bd5a-83727eb60dd5_zklxe_u9/attempt_0/1/stdout.log",
+        "summary": "104 passed, 24 deselected, 659 warnings in 80.33s (0:01:20)"
+      },
+      {
+        "file": "publication-20261011/rebased-training-ranks/9affdebb-1407-427d-9a5a-16dac7109c86_o7tki3q3/attempt_0/0/stdout.log",
+        "summary": "72 passed, 24 skipped, 5627 warnings in 215.61s (0:03:35)"
+      },
+      {
+        "file": "publication-20261011/rebased-training-ranks/9affdebb-1407-427d-9a5a-16dac7109c86_o7tki3q3/attempt_0/1/stdout.log",
+        "summary": "72 passed, 24 skipped, 5289 warnings in 215.48s (0:03:35)"
+      }
+    ],
+    "qwen": {
+      "fresh_two_rank_runs": 4,
+      "rank_files": 8,
+      "exact_complete_rank_step_states": 24,
+      "all_pre_reset_pool_counts_zero": true,
+      "enabled_transfer_bytes_per_rank": 66015232,
+      "timed_samples": 0
+    }
+  },
+  "latest_clean_source": {
+    "source_commit": "b22c9f7251a480529a4815c8c5fe0ece64734c03",
+    "gpu_launcher_exit_codes": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "rank_test_logs": [
+      {
+        "file": "latest-head-20261014/rebased-unit-ranks/dabbd27e-467a-4fd5-9b5e-8fa35eb0a530_rycko7lm/attempt_0/0/stdout.log",
+        "summary": "104 passed, 24 deselected, 725 warnings in 78.25s (0:01:18)"
+      },
+      {
+        "file": "latest-head-20261014/rebased-unit-ranks/dabbd27e-467a-4fd5-9b5e-8fa35eb0a530_rycko7lm/attempt_0/1/stdout.log",
+        "summary": "104 passed, 24 deselected, 659 warnings in 78.41s (0:01:18)"
+      },
+      {
+        "file": "latest-head-20261014/rebased-training-ranks/fee9b90b-8ed3-49c7-8669-fb0a205902d9_xqmqf_9c/attempt_0/0/stdout.log",
+        "summary": "72 passed, 24 skipped, 5627 warnings in 214.51s (0:03:34)"
+      },
+      {
+        "file": "latest-head-20261014/rebased-training-ranks/fee9b90b-8ed3-49c7-8669-fb0a205902d9_xqmqf_9c/attempt_0/1/stdout.log",
+        "summary": "72 passed, 24 skipped, 5289 warnings in 214.47s (0:03:34)"
+      }
+    ],
+    "qwen": {
+      "fresh_two_rank_runs": 4,
+      "rank_files": 8,
+      "exact_complete_rank_step_states": 24,
+      "all_pre_reset_pool_counts_zero": true,
+      "enabled_transfer_bytes_per_rank": 66015232,
+      "timed_samples": 0
+    }
+  }
+}
+exit_code=0
