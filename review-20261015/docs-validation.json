@@ -1,0 +1,30 @@
+{
+  "source_commit": "a0c0709a05c39fb3400d53cba3eb3d409063a35d",
+  "source_clean_before_run": true,
+  "command": [
+    "docker",
+    "exec",
+    "-w",
+    "/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/feature",
+    "megatron-gdn-split-cpu",
+    "/artifacts/uv-container-bin",
+    "run",
+    "--no-project",
+    "--python",
+    "/artifacts/split-pr-20261015/docs-venv/bin/python",
+    "sphinx-build",
+    "-j",
+    "4",
+    "-b",
+    "html",
+    "-W",
+    "--keep-going",
+    "docs",
+    "/artifacts/split-pr-20261015/docs-build"
+  ],
+  "started_utc": "2026-10-15T03:58:48.946212+00:00",
+  "log": "review-docs.log",
+  "exit_code": 0,
+  "finished_utc": "2026-10-15T04:09:12.277254+00:00",
+  "source_clean_after_run": true
+}

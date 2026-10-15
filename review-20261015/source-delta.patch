@@ -1,0 +1,14 @@
+diff --git a/docs/developer/gdn_activation_offloading.md b/docs/developer/gdn_activation_offloading.md
+index 2085e2c22..ea7d73cfa 100644
+--- a/docs/developer/gdn_activation_offloading.md
++++ b/docs/developer/gdn_activation_offloading.md
+@@ -25,7 +25,8 @@ supported. Configuration rejects GDN2, FP8/FP4, non-BF16 execution, other recurr
+ backends, full-layer recomputation and CUDA graphs.
+ 
+ The manager's minimum tensor size, offload fraction and last-group margin apply.
+-Fraction zero selects no transfers. The default minimum is 1,048,576 elements;
++After warmup, fraction zero selects no transfers. Warmup can still copy eligible
++tensors to collect size statistics. The default minimum is 1,048,576 elements;
+ short correctness tests use 1024 elements to exercise copies. Use multiple GDN
+ layers when measuring steady-state savings: one GDN group is kept resident after
+ warmup. Evaluation, no-grad and fully frozen recurrence execution bypass the scope.

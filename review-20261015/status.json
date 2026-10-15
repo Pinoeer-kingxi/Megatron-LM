@@ -1,0 +1,57 @@
+{
+  "source_commit": "a0c0709a05c39fb3400d53cba3eb3d409063a35d",
+  "cpu_runtime_validation_commit": "8d138829b18fe14f6ea6376d26bf0542ff98b66e",
+  "base_commit": "1e0bb06695eb5c5d34e9d40f5fb2253beb3d06e8",
+  "changed_files_since_cpu_checks": [
+    "docs/developer/gdn_activation_offloading.md"
+  ],
+  "python_files_identical_to_cpu_validated_source": true,
+  "changed_scope_python_sha256": {
+    "megatron/core/fusions/fused_pre_gated_delta_rule.py": "9edb4bd8e69e331b0876847df80a30eb671132dba5e648c076f96bf3dd67ebbc",
+    "megatron/core/pipeline_parallel/fine_grained_activation_offload.py": "60d2d2b4af80c1b391932107a3bdaa8d9b5288de091abc00994f010eafe218e9",
+    "megatron/core/pipeline_parallel/schedules.py": "33a89ebbbdf64852fd86d50033c1ab068a1a7ee229ad2f989b5148b5dd2cddb8",
+    "megatron/core/ssm/gated_delta_net/gdn.py": "b50ad6b0ab115fd03ee5eae2d0a4a75012efe37d2415ebd8812f8ef3b0759839",
+    "megatron/core/transformer/transformer_config.py": "81009e837a54e12fdb2fbbd6e99dad2d4ae3ee1252411238a18d106f3753cad6",
+    "tests/unit_tests/determinism/kernels/manifest.py": "c19800e95e1eb1735418ac7f8f5d84ce271136537aaede08bcc8418d69d023a0",
+    "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py": "adb27735903c99595f7c1ade4c890c159ff941299d39b8145d816d6dfecb80df",
+    "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py": "d29cba5e890a01208babc0c80ac4e56d7ec75f0bc2b27bb8d7c243467dc2c454",
+    "tests/unit_tests/pipeline_parallel/test_schedules.py": "217b6fa073dcefa721b98c0c5240ea31d4cc9322eef127d74ac72fa9c15a0532",
+    "tests/unit_tests/ssm/test_gated_delta_net_offloading.py": "7762ee4c30d4672d5abb0c9f06b75633ac151abafaa7128ec941fbc17fc4c230",
+    "tests/unit_tests/ssm/test_gdn_offload_training.py": "53b5760d1a7b5ae755d3a66b9692c01c5b9925f761dc1149899505a9709160d6",
+    "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py": "419eba0e6ac42767b2adc4d363872d07c73e39822282fc90793dd0186b65a825",
+    "tools/ssm/gdn_activation_offload.py": "da36ed76450b7a1d81ef1d3868d8409f2ec4e37c2e936f57460e3ec365d6f995",
+    "tools/ssm/qwen_gdn_offload_training.py": "1662206a60efbf8376cc05899de0f38393acbe37c5366389101fcf74631c8df3"
+  },
+  "gpu_acceptance": "pending; no GPU tests executed in this follow-up",
+  "prior_cpu_evidence_commit": "cf8df32ec2424bcc6c42a5486d2fe68213c74294",
+  "signatures": "SSH signature locally verified; GitHub has reported unknown_key for this signing key; DCO passed on the prior heads",
+  "review": {
+    "implementation_findings_requiring_code_changes": [],
+    "reviewed_areas": [
+      "shared warmup/chunk lifecycle and D2H/H2D ordering",
+      "FP32 gate-gradient partials, masks and final reduction",
+      "GDN backward anchor, raw-output commit, frozen/eval bypass and storage aliases",
+      "CLI/config wiring, process-group routing and test discovery",
+      "training state recording and CPU/GPU evidence boundaries"
+    ],
+    "documentation_correction": "fraction-zero transfer policy applies after warmup",
+    "pr_body_corrections": [
+      "pin the actual mypy baseline SHA",
+      "state that CPU Qwen preflight constructs no training model",
+      "align pre-check fields with the repository template",
+      "retain unqualified combined use with PR #7852"
+    ],
+    "remaining_acceptance": [
+      "split-revision GPU replay, memory/runtime and four-rank training",
+      "upstream GPU CI approval and results",
+      "maintainer confirmation of scope and dependency integration",
+      "human author review attestation"
+    ]
+  },
+  "documentation_job": "docs-validation.json",
+  "pull_requests": {
+    "shared": 8243,
+    "gate": 8244,
+    "feature": 7908
+  }
+}
