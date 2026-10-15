@@ -1,0 +1,17 @@
+{
+  "historical_bundles": {
+    "split-20261015": {
+      "verified_files": 40,
+      "checksums_unchanged": true
+    },
+    "review-20261015": {
+      "verified_files": 5,
+      "checksums_unchanged": true
+    },
+    "snapshot-check-20261015": {
+      "verified_files": 10,
+      "checksums_unchanged": true
+    }
+  },
+  "historical_performance_guide_unchanged": true
+}

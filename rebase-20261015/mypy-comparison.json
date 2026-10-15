@@ -1,0 +1,32 @@
+[
+  {
+    "branch": "shared",
+    "source_commit": "af9569270f476dc201484296315a9c30dcaa3feb",
+    "baseline": "9131593673d037d360d252904f9198d36bc0c246",
+    "baseline_diagnostics": 34,
+    "candidate_diagnostics": 34,
+    "normalized_diagnostics_equal": true,
+    "introduced": [],
+    "removed": []
+  },
+  {
+    "branch": "gate",
+    "source_commit": "9d54b8729c9277f1e032110c5e1b149e9654bcc5",
+    "baseline": "9131593673d037d360d252904f9198d36bc0c246",
+    "baseline_diagnostics": 4,
+    "candidate_diagnostics": 4,
+    "normalized_diagnostics_equal": true,
+    "introduced": [],
+    "removed": []
+  },
+  {
+    "branch": "feature",
+    "source_commit": "8a2d19894288a8eb890dfdf20c9d54683035de80",
+    "baseline": "9131593673d037d360d252904f9198d36bc0c246",
+    "baseline_diagnostics": 46,
+    "candidate_diagnostics": 46,
+    "normalized_diagnostics_equal": true,
+    "introduced": [],
+    "removed": []
+  }
+]

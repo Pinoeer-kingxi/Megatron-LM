@@ -1,0 +1,13 @@
+{
+  "gpu_run": false,
+  "reason": "No GPUs reserved: all eight A6000 devices have existing compute processes.",
+  "query_command": [
+    "nvidia-smi",
+    "--query-gpu=index,uuid,name,memory.used,memory.total,utilization.gpu",
+    "--format=csv"
+  ],
+  "query_output": "index, uuid, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]\n0, GPU-a77106b7-62f7-c58e-3fd7-780d7732fc96, NVIDIA RTX A6000, 35564 MiB, 49140 MiB, 0 %\n1, GPU-5e2e1f94-e88e-48e3-247d-328b52fc68db, NVIDIA RTX A6000, 35565 MiB, 49140 MiB, 0 %\n2, GPU-df9e07cc-8ebc-3204-fabd-601044f800f8, NVIDIA RTX A6000, 34832 MiB, 49140 MiB, 100 %\n3, GPU-c8b76e6b-5a4b-7829-4c91-139b71218405, NVIDIA RTX A6000, 46233 MiB, 49140 MiB, 100 %\n4, GPU-7595108b-553d-3126-385e-30133180c720, NVIDIA RTX A6000, 41510 MiB, 49140 MiB, 100 %\n5, GPU-2d9608b8-3d63-aa73-214e-dadc8b8f1f76, NVIDIA RTX A6000, 10123 MiB, 49140 MiB, 100 %\n6, GPU-40c36f3c-9282-74a6-63d2-077d1e4a1cb7, NVIDIA RTX A6000, 11052 MiB, 49140 MiB, 100 %\n7, GPU-59be77d4-7713-7d5b-c994-a475ff81556d, NVIDIA RTX A6000, 39815 MiB, 49140 MiB, 100 %\n",
+  "user_confirmed_no_idle_gpu": true,
+  "gpu_acceptance": "pending; no GPU jobs started",
+  "recorded_utc": "2026-10-15T07:49:02.633989+00:00"
+}

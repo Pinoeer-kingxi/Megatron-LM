@@ -1,0 +1,98 @@
+[
+  {
+    "source_commit": "1efcab183160edf392b29e8a1599795cf7897cff",
+    "command": [
+      "git",
+      "-C",
+      "/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/feature",
+      "-c",
+      "gpg.format=ssh",
+      "-c",
+      "gpg.ssh.allowedSignersFile=/home/songbinbin/gdn-offload-artifacts/allowed-signers",
+      "verify-commit",
+      "1efcab183160edf392b29e8a1599795cf7897cff"
+    ],
+    "exit_code": 0,
+    "output": "Good \"git\" signature for 13022943007@163.com with ED25519 key SHA256:TMz6vhytFB32DtSCMyE1ivxzR88zV4sATB5TpWIPMGo\n"
+  },
+  {
+    "source_commit": "536951d586e40f71f52c7752ecd614bb391bd8f1",
+    "command": [
+      "git",
+      "-C",
+      "/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/feature",
+      "-c",
+      "gpg.format=ssh",
+      "-c",
+      "gpg.ssh.allowedSignersFile=/home/songbinbin/gdn-offload-artifacts/allowed-signers",
+      "verify-commit",
+      "536951d586e40f71f52c7752ecd614bb391bd8f1"
+    ],
+    "exit_code": 0,
+    "output": "Good \"git\" signature for 13022943007@163.com with ED25519 key SHA256:TMz6vhytFB32DtSCMyE1ivxzR88zV4sATB5TpWIPMGo\n"
+  },
+  {
+    "source_commit": "7a00bd79bb105fce5a63fa312e50413d0055bff1",
+    "command": [
+      "git",
+      "-C",
+      "/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/feature",
+      "-c",
+      "gpg.format=ssh",
+      "-c",
+      "gpg.ssh.allowedSignersFile=/home/songbinbin/gdn-offload-artifacts/allowed-signers",
+      "verify-commit",
+      "7a00bd79bb105fce5a63fa312e50413d0055bff1"
+    ],
+    "exit_code": 0,
+    "output": "Good \"git\" signature for 13022943007@163.com with ED25519 key SHA256:TMz6vhytFB32DtSCMyE1ivxzR88zV4sATB5TpWIPMGo\n"
+  },
+  {
+    "source_commit": "8a2d19894288a8eb890dfdf20c9d54683035de80",
+    "command": [
+      "git",
+      "-C",
+      "/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/feature",
+      "-c",
+      "gpg.format=ssh",
+      "-c",
+      "gpg.ssh.allowedSignersFile=/home/songbinbin/gdn-offload-artifacts/allowed-signers",
+      "verify-commit",
+      "8a2d19894288a8eb890dfdf20c9d54683035de80"
+    ],
+    "exit_code": 0,
+    "output": "Good \"git\" signature for 13022943007@163.com with ED25519 key SHA256:TMz6vhytFB32DtSCMyE1ivxzR88zV4sATB5TpWIPMGo\n"
+  },
+  {
+    "source_commit": "9d54b8729c9277f1e032110c5e1b149e9654bcc5",
+    "command": [
+      "git",
+      "-C",
+      "/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/feature",
+      "-c",
+      "gpg.format=ssh",
+      "-c",
+      "gpg.ssh.allowedSignersFile=/home/songbinbin/gdn-offload-artifacts/allowed-signers",
+      "verify-commit",
+      "9d54b8729c9277f1e032110c5e1b149e9654bcc5"
+    ],
+    "exit_code": 0,
+    "output": "Good \"git\" signature for 13022943007@163.com with ED25519 key SHA256:TMz6vhytFB32DtSCMyE1ivxzR88zV4sATB5TpWIPMGo\n"
+  },
+  {
+    "source_commit": "af9569270f476dc201484296315a9c30dcaa3feb",
+    "command": [
+      "git",
+      "-C",
+      "/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/feature",
+      "-c",
+      "gpg.format=ssh",
+      "-c",
+      "gpg.ssh.allowedSignersFile=/home/songbinbin/gdn-offload-artifacts/allowed-signers",
+      "verify-commit",
+      "af9569270f476dc201484296315a9c30dcaa3feb"
+    ],
+    "exit_code": 0,
+    "output": "Good \"git\" signature for 13022943007@163.com with ED25519 key SHA256:TMz6vhytFB32DtSCMyE1ivxzR88zV4sATB5TpWIPMGo\n"
+  }
+]

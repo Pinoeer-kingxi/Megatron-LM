@@ -1,0 +1,136 @@
+[
+  {
+    "name": "shared-base-mypy",
+    "source_commit": "9131593673d037d360d252904f9198d36bc0c246",
+    "command": [
+      "docker",
+      "exec",
+      "-w",
+      "/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/base",
+      "-e",
+      "CUDA_VISIBLE_DEVICES=",
+      "-e",
+      "PYTHONPATH=/artifacts/causal-conv1d-python:/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/base",
+      "megatron-gdn-split-cpu",
+      "/artifacts/uv-container-bin",
+      "run",
+      "--no-project",
+      "--active",
+      "mypy",
+      "--explicit-package-bases",
+      "--follow-imports=skip",
+      "megatron/core/pipeline_parallel/fine_grained_activation_offload.py",
+      "megatron/core/pipeline_parallel/schedules.py",
+      "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py",
+      "tests/unit_tests/pipeline_parallel/test_schedules.py"
+    ],
+    "started_utc": "2026-10-15T07:41:06.056283+00:00",
+    "log": "shared-base-mypy.log",
+    "exit_code": 1,
+    "finished_utc": "2026-10-15T07:41:06.352136+00:00"
+  },
+  {
+    "name": "gate-base-mypy",
+    "source_commit": "9131593673d037d360d252904f9198d36bc0c246",
+    "command": [
+      "docker",
+      "exec",
+      "-w",
+      "/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/base",
+      "-e",
+      "CUDA_VISIBLE_DEVICES=",
+      "-e",
+      "PYTHONPATH=/artifacts/causal-conv1d-python:/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/base",
+      "megatron-gdn-split-cpu",
+      "/artifacts/uv-container-bin",
+      "run",
+      "--no-project",
+      "--active",
+      "mypy",
+      "--explicit-package-bases",
+      "--follow-imports=skip",
+      "megatron/core/fusions/fused_pre_gated_delta_rule.py",
+      "tests/unit_tests/determinism/kernels/manifest.py"
+    ],
+    "started_utc": "2026-10-15T07:41:06.358473+00:00",
+    "log": "gate-base-mypy.log",
+    "exit_code": 1,
+    "finished_utc": "2026-10-15T07:41:06.604223+00:00"
+  },
+  {
+    "name": "feature-base-mypy",
+    "source_commit": "9131593673d037d360d252904f9198d36bc0c246",
+    "command": [
+      "docker",
+      "exec",
+      "-w",
+      "/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/base",
+      "-e",
+      "CUDA_VISIBLE_DEVICES=",
+      "-e",
+      "PYTHONPATH=/artifacts/causal-conv1d-python:/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/base",
+      "megatron-gdn-split-cpu",
+      "/artifacts/uv-container-bin",
+      "run",
+      "--no-project",
+      "--active",
+      "mypy",
+      "--explicit-package-bases",
+      "--follow-imports=skip",
+      "megatron/core/fusions/fused_pre_gated_delta_rule.py",
+      "megatron/core/pipeline_parallel/fine_grained_activation_offload.py",
+      "megatron/core/pipeline_parallel/schedules.py",
+      "megatron/core/ssm/gated_delta_net/gdn.py",
+      "megatron/core/transformer/transformer_config.py",
+      "tests/unit_tests/determinism/kernels/manifest.py",
+      "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py",
+      "tests/unit_tests/pipeline_parallel/test_schedules.py"
+    ],
+    "started_utc": "2026-10-15T07:41:06.610465+00:00",
+    "log": "feature-base-mypy.log",
+    "exit_code": 1,
+    "finished_utc": "2026-10-15T07:41:07.047475+00:00"
+  },
+  {
+    "name": "shared-kernel-coverage",
+    "source_commit": "af9569270f476dc201484296315a9c30dcaa3feb",
+    "command": [
+      "/usr/bin/python3",
+      "-S",
+      "tools/check_kernel_determinism_coverage.py",
+      "--base-ref",
+      "9131593673d037d360d252904f9198d36bc0c246"
+    ],
+    "cwd": "/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/shared",
+    "log": "shared-kernel-coverage.log",
+    "exit_code": 0
+  },
+  {
+    "name": "gate-kernel-coverage",
+    "source_commit": "9d54b8729c9277f1e032110c5e1b149e9654bcc5",
+    "command": [
+      "/usr/bin/python3",
+      "-S",
+      "tools/check_kernel_determinism_coverage.py",
+      "--base-ref",
+      "9131593673d037d360d252904f9198d36bc0c246"
+    ],
+    "cwd": "/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/gate",
+    "log": "gate-kernel-coverage.log",
+    "exit_code": 0
+  },
+  {
+    "name": "feature-kernel-coverage",
+    "source_commit": "8a2d19894288a8eb890dfdf20c9d54683035de80",
+    "command": [
+      "/usr/bin/python3",
+      "-S",
+      "tools/check_kernel_determinism_coverage.py",
+      "--base-ref",
+      "9131593673d037d360d252904f9198d36bc0c246"
+    ],
+    "cwd": "/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/feature",
+    "log": "feature-kernel-coverage.log",
+    "exit_code": 0
+  }
+]

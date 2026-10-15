@@ -1,0 +1,19 @@
+{
+  "shared": {
+    "old_head": "fc9e737f49123e690e964d52555ff67bc80485d8",
+    "pr": 8243,
+    "remote_branch": "fix/activation-offload-lifecycle"
+  },
+  "gate": {
+    "old_head": "9ff49d7e857350fbf998371d24d2d7ec7bb8a720",
+    "pr": 8244,
+    "remote_branch": "fix/gdn-gate-backward-replay"
+  },
+  "feature": {
+    "old_head": "ee2e6c1dc8ebab924fdf884a2532b28d7a16adb9",
+    "pr": 7908,
+    "remote_branch": "feat/gdn-core-activation-offload"
+  },
+  "upstream": "9131593673d037d360d252904f9198d36bc0c246",
+  "created_utc": "2026-10-15T07:37:19.252142+00:00"
+}

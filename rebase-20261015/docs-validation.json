@@ -1,0 +1,31 @@
+[
+  {
+    "branch": "feature",
+    "source_commit": "8a2d19894288a8eb890dfdf20c9d54683035de80",
+    "name": "strict-docs",
+    "command": [
+      "docker",
+      "exec",
+      "-w",
+      "/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/feature",
+      "-e",
+      "CUDA_VISIBLE_DEVICES=",
+      "-e",
+      "PYTHONPATH=/artifacts/causal-conv1d-python:/artifacts/bridge-python:/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/bridge/src:/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/feature",
+      "megatron-gdn-split-cpu",
+      "/artifacts/uv-container-bin",
+      "run",
+      "--no-project",
+      "--active",
+      "python",
+      "-c",
+      "import os; os.execv('/artifacts/split-pr-20261015/docs-venv/bin/sphinx-build', ['sphinx-build','-j','4','-b','html','-W','--keep-going','docs','/artifacts/split-pr-20261015/docs-build'])"
+    ],
+    "started_utc": "2026-10-15T07:39:43.921601+00:00",
+    "log": "strict-docs.log",
+    "source_clean_before_run": true,
+    "exit_code": 0,
+    "finished_utc": "2026-10-15T07:52:45.104463+00:00",
+    "source_clean_after_run": true
+  }
+]
