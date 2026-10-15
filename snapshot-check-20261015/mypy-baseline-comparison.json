@@ -1,0 +1,6 @@
+{
+  "upstream_baseline": "1e0bb06695eb5c5d34e9d40f5fb2253beb3d06e8",
+  "diagnostics": 48,
+  "normalized_diagnostics_equal": true,
+  "changed_tool_and_test": "standalone mypy: no issues in two source files"
+}

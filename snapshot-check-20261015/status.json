@@ -1,0 +1,38 @@
+{
+  "source_commit": "ee2e6c1dc8ebab924fdf884a2532b28d7a16adb9",
+  "previous_source_commit": "a0c0709a05c39fb3400d53cba3eb3d409063a35d",
+  "changed_files": [
+    "tests/unit_tests/ssm/test_gdn_activation_offload.py",
+    "tools/ssm/gdn_activation_offload.py"
+  ],
+  "file_sha256": {
+    "tests/unit_tests/ssm/test_gdn_activation_offload.py": "d565d99e0ad7ae3a14083eb398f0c00693931584df1b2c722408d3b7cf1d3699",
+    "tools/ssm/gdn_activation_offload.py": "31459d4c56b2a260836156c20c86a10527e96fc9a87469debc6dfb142048db27"
+  },
+  "core_runtime_sha256": {
+    "megatron/core/fusions/fused_pre_gated_delta_rule.py": "9edb4bd8e69e331b0876847df80a30eb671132dba5e648c076f96bf3dd67ebbc",
+    "megatron/core/pipeline_parallel/fine_grained_activation_offload.py": "60d2d2b4af80c1b391932107a3bdaa8d9b5288de091abc00994f010eafe218e9",
+    "megatron/core/pipeline_parallel/schedules.py": "33a89ebbbdf64852fd86d50033c1ab068a1a7ee229ad2f989b5148b5dd2cddb8",
+    "megatron/core/ssm/gated_delta_net/gdn.py": "b50ad6b0ab115fd03ee5eae2d0a4a75012efe37d2415ebd8812f8ef3b0759839",
+    "megatron/core/transformer/transformer_config.py": "81009e837a54e12fdb2fbbd6e99dad2d4ae3ee1252411238a18d106f3753cad6"
+  },
+  "cpu_validation": "cpu-validation.json",
+  "cpu_outcome": "30 passed, 62 deselected; 9 snapshot cases and 21 existing config/CLI cases",
+  "formatting": {
+    "timing": "pre-commit checks on the identical committed file bytes",
+    "standard_log": "autoformat.log",
+    "tool_and_new_test_log": "standalone-format.log",
+    "tool_and_new_test_mypy": "standalone-mypy.log",
+    "core_mypy_baseline_comparison": "mypy-baseline-comparison.json"
+  },
+  "documentation": {
+    "last_strict_build_source": "a0c0709a05c39fb3400d53cba3eb3d409063a35d",
+    "core_and_docs_unchanged_since_build": true,
+    "evidence": "https://github.com/Pinoeer-kingxi/Megatron-LM/tree/bcaa27c995e5a0ab4b905281027f789506a7df72/review-20261015"
+  },
+  "gpu_acceptance": "pending; no GPU run or performance result is claimed for this revision",
+  "performance_sources_unchanged": {
+    "unfused": "4e18562c6bcf894795d23378a8f1699c79e4b797",
+    "fixed_fused": "2f1ee4f2e3dd6d909d08981338f5879632131139"
+  }
+}

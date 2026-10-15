@@ -1,0 +1,22 @@
+W1015 06:57:18.428000 957 torch/utils/cpp_extension.py:140] No CUDA runtime is found, using CUDA_HOME='/usr/local/cuda'
+/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/fla/utils/_device.py:100: UserWarning: Triton is not supported on current platform, roll back to CPU.
+  _cpu_device_warning()
+{
+  "baseline_predicate": "torch.equal",
+  "baseline_source": "a0c0709a05c39fb3400d53cba3eb3d409063a35d",
+  "baseline_equal": true,
+  "candidate_equal": false,
+  "left_bytes": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "right_bytes": [
+    0,
+    0,
+    0,
+    128
+  ],
+  "cuda_devices": 0
+}

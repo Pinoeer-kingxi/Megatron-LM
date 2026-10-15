@@ -1,0 +1,114 @@
+diff --git a/tests/unit_tests/ssm/test_gdn_activation_offload.py b/tests/unit_tests/ssm/test_gdn_activation_offload.py
+new file mode 100644
+index 000000000..0034b16ac
+--- /dev/null
++++ b/tests/unit_tests/ssm/test_gdn_activation_offload.py
+@@ -0,0 +1,44 @@
++# Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
++
++"""CPU regressions for the GDN profiling tool's snapshot comparison."""
++
++import pytest
++import torch
++
++from tools.ssm.gdn_activation_offload import _snapshot_tensors_equal
++
++
++@pytest.mark.parametrize(
++    "expected,actual,equal",
++    [
++        (torch.tensor([0.0]), torch.tensor([-0.0]), False),
++        (
++            torch.tensor([0.0], dtype=torch.bfloat16),
++            torch.tensor([-0.0], dtype=torch.bfloat16),
++            False,
++        ),
++        (torch.tensor(0.0), torch.tensor(-0.0), False),
++        (torch.tensor([1.0]), torch.tensor([1.0000001192092896]), False),
++        (torch.arange(6.0).view(2, 3).T, torch.arange(6.0).view(2, 3).T.contiguous(), True),
++        (torch.arange(4.0), torch.arange(4.0).view(2, 2), False),
++        (torch.tensor([0.0]), torch.tensor([0], dtype=torch.int32), False),
++        (torch.tensor([float("nan")]), torch.tensor([float("nan")]), False),
++        (torch.tensor([-1.0, 0.0, 1.0]), torch.tensor([-1.0, 0.0, 1.0]), True),
++    ],
++    ids=[
++        "fp32-signed-zero",
++        "bf16-signed-zero",
++        "scalar-signed-zero",
++        "one-ulp",
++        "strided-equal",
++        "different-shapes",
++        "different-dtypes",
++        "nan-rejected",
++        "finite-equal",
++    ],
++)
++def test_snapshot_tensor_equality(
++    expected: torch.Tensor, actual: torch.Tensor, equal: bool
++) -> None:
++    """Exact-value checks also detect differing bit patterns without accepting NaNs."""
++    assert _snapshot_tensors_equal(expected, actual) is equal
+diff --git a/tools/ssm/gdn_activation_offload.py b/tools/ssm/gdn_activation_offload.py
+index 8c2dce9e6..1503d3168 100644
+--- a/tools/ssm/gdn_activation_offload.py
++++ b/tools/ssm/gdn_activation_offload.py
+@@ -191,6 +191,18 @@ def snapshot_step(
+     }
+ 
+ 
++def _snapshot_tensors_equal(expected: torch.Tensor, actual: torch.Tensor) -> bool:
++    """Compare values and bytes, preserving rejection of NaN-containing snapshots."""
++    return (
++        expected.dtype == actual.dtype
++        and torch.equal(expected, actual)
++        and torch.equal(
++            expected.contiguous().reshape(-1).view(torch.uint8),
++            actual.contiguous().reshape(-1).view(torch.uint8),
++        )
++    )
++
++
+ def benchmark_arm(
+     args: argparse.Namespace,
+     inputs_cpu: list[torch.Tensor],
+@@ -208,7 +220,6 @@ def benchmark_arm(
+     end_forward_allocated = []
+     peak_reserved = []
+     snapshots = []
+-    max_pool_in_use = 0
+     for step, input_cpu in enumerate(inputs_cpu):
+         model.zero_grad(set_to_none=True)
+         x = input_cpu.cuda().requires_grad_()
+@@ -244,7 +255,9 @@ def benchmark_arm(
+             if snapshot.keys() != expected.keys():
+                 raise RuntimeError(f"Gradient coverage differs at step {step}.")
+             mismatches = [
+-                name for name in expected if not torch.equal(expected[name], snapshot[name])
++                name
++                for name in expected
++                if not _snapshot_tensors_equal(expected[name], snapshot[name])
+             ]
+             if mismatches:
+                 raise RuntimeError(
+@@ -253,7 +266,6 @@ def benchmark_arm(
+         if offload:
+             pool = PipelineOffloadManager.get_instance().cpu_tensor_pool
+             in_use = pool.get_pool_status()["global_stats"]["current_in_use"]
+-            max_pool_in_use = max(max_pool_in_use, in_use)
+             if in_use:
+                 raise RuntimeError(f"Pinned buffers remain in use after step {step}: {in_use}")
+         del snapshot
+@@ -279,11 +291,12 @@ def benchmark_arm(
+         ),
+     }
+     if reference is not None:
++        # Every checked step has required zero outstanding pooled buffers above.
+         result.update(
+             bitwise_equal=True,
+             checked_steps=len(inputs_cpu),
+             mismatches=[],
+-            max_pinned_buffers_in_use_after_backward=max_pool_in_use,
++            max_pinned_buffers_in_use_after_backward=0,
+         )
+     del model
+     off_interface.reset_instance()
