@@ -191,6 +191,18 @@ def snapshot_step(
     }
 
 
+def _snapshot_tensors_equal(expected: torch.Tensor, actual: torch.Tensor) -> bool:
+    """Compare values and bytes, preserving rejection of NaN-containing snapshots."""
+    return (
+        expected.dtype == actual.dtype
+        and torch.equal(expected, actual)
+        and torch.equal(
+            expected.contiguous().reshape(-1).view(torch.uint8),
+            actual.contiguous().reshape(-1).view(torch.uint8),
+        )
+    )
+
+
 def benchmark_arm(
     args: argparse.Namespace,
     inputs_cpu: list[torch.Tensor],
@@ -208,7 +220,6 @@ def benchmark_arm(
     end_forward_allocated = []
     peak_reserved = []
     snapshots = []
-    max_pool_in_use = 0
     for step, input_cpu in enumerate(inputs_cpu):
         model.zero_grad(set_to_none=True)
         x = input_cpu.cuda().requires_grad_()
@@ -244,7 +255,9 @@ def benchmark_arm(
             if snapshot.keys() != expected.keys():
                 raise RuntimeError(f"Gradient coverage differs at step {step}.")
             mismatches = [
-                name for name in expected if not torch.equal(expected[name], snapshot[name])
+                name
+                for name in expected
+                if not _snapshot_tensors_equal(expected[name], snapshot[name])
             ]
             if mismatches:
                 raise RuntimeError(
@@ -253,7 +266,6 @@ def benchmark_arm(
         if offload:
             pool = PipelineOffloadManager.get_instance().cpu_tensor_pool
             in_use = pool.get_pool_status()["global_stats"]["current_in_use"]
-            max_pool_in_use = max(max_pool_in_use, in_use)
             if in_use:
                 raise RuntimeError(f"Pinned buffers remain in use after step {step}: {in_use}")
         del snapshot
@@ -279,11 +291,12 @@ def benchmark_arm(
         ),
     }
     if reference is not None:
+        # Every checked step has required zero outstanding pooled buffers above.
         result.update(
             bitwise_equal=True,
             checked_steps=len(inputs_cpu),
             mismatches=[],
-            max_pinned_buffers_in_use_after_backward=max_pool_in_use,
+            max_pinned_buffers_in_use_after_backward=0,
         )
     del model
     off_interface.reset_instance()
