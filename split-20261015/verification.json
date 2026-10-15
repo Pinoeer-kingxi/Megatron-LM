@@ -1,0 +1,15 @@
+{
+  "verified_utc": "2026-10-15T02:34:46.433778+00:00",
+  "result": "passed",
+  "checked_files": 40,
+  "cpu_jobs": 6,
+  "source": {
+    "base": "1e0bb06695eb5c5d34e9d40f5fb2253beb3d06e8",
+    "original": "b22c9f7251a480529a4815c8c5fe0ece64734c03",
+    "shared": "fc9e737f49123e690e964d52555ff67bc80485d8",
+    "gate": "9ff49d7e857350fbf998371d24d2d7ec7bb8a720",
+    "feature": "8d138829b18fe14f6ea6376d26bf0542ff98b66e",
+    "feature_prerequisites_commit": "66807198fd8960d7d20e8464a334889ed3dc28b7"
+  },
+  "gpu_qualification": "pending; no split-revision GPU pass is claimed"
+}

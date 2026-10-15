@@ -1,0 +1,7 @@
+All done! ✨ 🍰 ✨
+1 file left unchanged.
+warning: The top-level linter settings are deprecated in favour of their counterparts in the `lint` section. Please update the following options in `pyproject.toml`:
+  - 'per-file-ignores' -> 'lint.per-file-ignores'
+All checks passed!
+{'revision': '1e0bb06695eb5c5d34e9d40f5fb2253beb3d06e8', 'sha256': 'c8a0247766bbc78ee3f98841a3eb9c033109bf3575bb9d2df99b4cbf2a0df920'}
+{'revision': '9ff49d7e857350fbf998371d24d2d7ec7bb8a720', 'sha256': '9edb4bd8e69e331b0876847df80a30eb671132dba5e648c076f96bf3dd67ebbc'}

@@ -1,0 +1,33 @@
+W1015 02:04:27.121000 2350 torch/utils/cpp_extension.py:140] No CUDA runtime is found, using CUDA_HOME='/usr/local/cuda'
+/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/feature/megatron/core/models/mimo/config/base_configs.py:12: UserWarning: MimoModelConfig is experimental and still under active development. The API may change without notice in future releases.
+  class MimoModelConfig:
+/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/fla/utils/_device.py:100: UserWarning: Triton is not supported on current platform, roll back to CPU.
+  _cpu_device_warning()
+INFO:megatron.bridge.models.gemma.gemma2_provider:Gemma2: PyTorch FlexAttention available — softcap+SWA fused via Triton score_mod.
+Traceback (most recent call last):
+  File "/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/feature/tools/ssm/qwen_gdn_offload_training.py", line 416, in <module>
+    main()
+  File "/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/feature/tools/ssm/qwen_gdn_offload_training.py", line 392, in main
+    provider = _provider(args)
+               ^^^^^^^^^^^^^^^
+  File "/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/feature/tools/ssm/qwen_gdn_offload_training.py", line 107, in _provider
+    from megatron.bridge import AutoBridge  # type: ignore[import-untyped]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/artifacts/Megatron-Bridge/src/megatron/bridge/__init__.py", line 21, in <module>
+    import megatron.bridge.diffusion.models  # noqa: F401 — registers diffusion bridges
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/artifacts/Megatron-Bridge/src/megatron/bridge/diffusion/models/__init__.py", line 15, in <module>
+    from megatron.bridge.diffusion.conversion.nemotron_labs_diffusion import (
+  File "/artifacts/Megatron-Bridge/src/megatron/bridge/diffusion/conversion/nemotron_labs_diffusion/__init__.py", line 15, in <module>
+    from megatron.bridge.diffusion.conversion.nemotron_labs_diffusion.nemotron_labs_diffusion_bridge import (
+  File "/artifacts/Megatron-Bridge/src/megatron/bridge/diffusion/conversion/nemotron_labs_diffusion/nemotron_labs_diffusion_bridge.py", line 34, in <module>
+    from megatron.bridge.models.conversion.mapping_registry import MegatronMappingRegistry
+  File "/artifacts/Megatron-Bridge/src/megatron/bridge/models/__init__.py", line 74, in <module>
+    from megatron.bridge.models.gemma import (
+  File "/artifacts/Megatron-Bridge/src/megatron/bridge/models/gemma/__init__.py", line 24, in <module>
+    from megatron.bridge.models.gemma.gemma4_provider import (
+  File "/artifacts/Megatron-Bridge/src/megatron/bridge/models/gemma/gemma4_provider.py", line 33, in <module>
+    from megatron.bridge.models.gemma.modeling_gemma4 import (
+  File "/artifacts/Megatron-Bridge/src/megatron/bridge/models/gemma/modeling_gemma4.py", line 52, in <module>
+    from megatron.core.transformer.moe.moe_layer import MoELayer, te_checkpoint
+ImportError: cannot import name 'te_checkpoint' from 'megatron.core.transformer.moe.moe_layer' (/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/feature/megatron/core/transformer/moe/moe_layer.py)

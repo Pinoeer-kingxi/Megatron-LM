@@ -1,0 +1,125 @@
+W1015 02:15:31.360000 3972 torch/utils/cpp_extension.py:140] No CUDA runtime is found, using CUDA_HOME='/usr/local/cuda'
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-unfused-False-0.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-unfused-False-0.5]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-unfused-False-1.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-unfused-True-0.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-unfused-True-0.5]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-unfused-True-1.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-fused-False-0.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-fused-False-0.5]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-fused-False-1.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-fused-True-0.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-fused-True-0.5]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-fused-True-1.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp-unfused-False-0.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp-unfused-False-0.5]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp-unfused-False-1.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp-unfused-True-0.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp-unfused-True-0.5]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp-unfused-True-1.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp-fused-False-0.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp-fused-False-0.5]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp-fused-False-1.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp-fused-True-0.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp-fused-True-0.5]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp-fused-True-1.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp-unfused-False-0.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp-unfused-False-0.5]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp-unfused-False-1.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp-unfused-True-0.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp-unfused-True-0.5]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp-unfused-True-1.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp-fused-False-0.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp-fused-False-0.5]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp-fused-False-1.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp-fused-True-0.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp-fused-True-0.5]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp-fused-True-1.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[cp-unfused-False-0.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[cp-unfused-False-0.5]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[cp-unfused-False-1.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[cp-unfused-True-0.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[cp-unfused-True-0.5]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[cp-unfused-True-1.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[cp-fused-False-0.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[cp-fused-False-0.5]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[cp-fused-False-1.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[cp-fused-True-0.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[cp-fused-True-0.5]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[cp-fused-True-1.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp-unfused-False-0.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp-unfused-False-0.5]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp-unfused-False-1.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp-unfused-True-0.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp-unfused-True-0.5]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp-unfused-True-1.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp-fused-False-0.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp-fused-False-0.5]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp-fused-False-1.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp-fused-True-0.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp-fused-True-0.5]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp-fused-True-1.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp_vpp-unfused-False-0.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp_vpp-unfused-False-0.5]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp_vpp-unfused-False-1.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp_vpp-unfused-True-0.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp_vpp-unfused-True-0.5]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp_vpp-unfused-True-1.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp_vpp-fused-False-0.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp_vpp-fused-False-0.5]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp_vpp-fused-False-1.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp_vpp-fused-True-0.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp_vpp-fused-True-0.5]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp_vpp-fused-True-1.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-unfused-False-0.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-unfused-False-0.5]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-unfused-False-1.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-unfused-True-0.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-unfused-True-0.5]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-unfused-True-1.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-fused-False-0.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-fused-False-0.5]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-fused-False-1.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-fused-True-0.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-fused-True-0.5]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-fused-True-1.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-unfused-False-0.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-unfused-False-0.5]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-unfused-False-1.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-unfused-True-0.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-unfused-True-0.5]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-unfused-True-1.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-fused-False-0.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-fused-False-0.5]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-fused-False-1.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-fused-True-0.0]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-fused-True-0.5]
+tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-fused-True-1.0]
+
+=============================== warnings summary ===============================
+../../../.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+megatron/core/tensor_parallel/random.py:92
+  /home/songbinbin/gdn-offload-artifacts/split-pr-20261015/feature/megatron/core/tensor_parallel/random.py:92: DeprecationWarning: Using deprecated internal API from Transformer Engine. transformer_engine.pytorch.fp8 will be removed in a future release.
+    from transformer_engine.pytorch.fp8 import FP8GlobalStateManager, fp8_autocast
+
+megatron/core/extensions/transformer_engine.py:4094
+  /home/songbinbin/gdn-offload-artifacts/split-pr-20261015/feature/megatron/core/extensions/transformer_engine.py:4094: DeprecationWarning: transformer_engine.pytorch.float8_tensor is deprecated and will be removed in a future release. Float8Tensor should be imported directly through `from transformer_engine.pytorch import Float8Tensor`
+    from transformer_engine.pytorch.float8_tensor import Float8Tensor
+
+megatron/core/inference/contexts/__init__.py:9
+  /home/songbinbin/gdn-offload-artifacts/split-pr-20261015/feature/megatron/core/inference/contexts/__init__.py:9: DeprecationWarning: The following imports from `dynamic_context.py` will be removed in this file in `megatron-core` 0.14. The imports here result in a cyclic import issue that causes rotary embeddings to import from Apex rather than Transformer Engine.
+    warnings.warn(
+
+../../../.venvs/megatron-gdn-offload/lib/python3.12/site-packages/fla/utils/_device.py:100
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/fla/utils/_device.py:100: UserWarning: Triton is not supported on current platform, roll back to CPU.
+    _cpu_device_warning()
+
+megatron/core/models/mimo/config/base_configs.py:12
+  /home/songbinbin/gdn-offload-artifacts/split-pr-20261015/feature/megatron/core/models/mimo/config/base_configs.py:12: UserWarning: MimoModelConfig is experimental and still under active development. The API may change without notice in future releases.
+    class MimoModelConfig:
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+96 tests collected in 6.48s

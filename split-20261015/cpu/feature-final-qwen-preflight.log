@@ -1,0 +1,10 @@
+W1015 02:15:41.268000 4119 torch/utils/cpp_extension.py:140] No CUDA runtime is found, using CUDA_HOME='/usr/local/cuda'
+/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/feature/megatron/core/models/mimo/config/base_configs.py:12: UserWarning: MimoModelConfig is experimental and still under active development. The API may change without notice in future releases.
+  class MimoModelConfig:
+/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/fla/utils/_device.py:100: UserWarning: Triton is not supported on current platform, roll back to CPU.
+  _cpu_device_warning()
+INFO:megatron.bridge.models.gemma.gemma2_provider:Gemma2: PyTorch FlexAttention available — softcap+SWA fused via Triton score_mod.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/feature/megatron/core/transformer/transformer_config.py:3374: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+  warnings.warn(
+INFO:root:Wrote /artifacts/split-pr-20261015/qwen-final-preflight.rank0.json

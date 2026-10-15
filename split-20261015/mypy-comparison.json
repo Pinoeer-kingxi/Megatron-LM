@@ -1,0 +1,20 @@
+[
+  {
+    "branch": "shared",
+    "baseline_diagnostics": 34,
+    "candidate_diagnostics": 34,
+    "normalized_diagnostics_equal": true
+  },
+  {
+    "branch": "gate",
+    "baseline_diagnostics": 4,
+    "candidate_diagnostics": 4,
+    "normalized_diagnostics_equal": true
+  },
+  {
+    "branch": "feature",
+    "baseline_diagnostics": 48,
+    "candidate_diagnostics": 48,
+    "normalized_diagnostics_equal": true
+  }
+]

@@ -1,0 +1,25 @@
+reformatted /artifacts/split-pr-20261015/benchmark_gate.py
+
+All done! ✨ 🍰 ✨
+1 file reformatted.
+warning: The top-level linter settings are deprecated in favour of their counterparts in the `lint` section. Please update the following options in `pyproject.toml`:
+  - 'per-file-ignores' -> 'lint.per-file-ignores'
+All checks passed!
+usage: benchmark_gate.py [-h] --baseline BASELINE --candidate CANDIDATE
+                         --output OUTPUT --batch-size {1,4} --seq-length
+                         {2048,4096} --value-heads {16,32}
+
+Compare the old and fixed BF16 gate backward on one otherwise idle A6000. Run
+in the validated environment with CUDA_VISIBLE_DEVICES set to one GPU UUID.
+Compilation and numerical checks precede timing. This measures the gate
+wrapper with the preallocated projection-gradient buffer used by its
+production caller.
+
+options:
+  -h, --help            show this help message and exit
+  --baseline BASELINE
+  --candidate CANDIDATE
+  --output OUTPUT
+  --batch-size {1,4}
+  --seq-length {2048,4096}
+  --value-heads {16,32}

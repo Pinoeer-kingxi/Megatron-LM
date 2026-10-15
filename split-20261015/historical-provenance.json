@@ -1,0 +1,37 @@
+{
+  "source_commit": "b22c9f7251a480529a4815c8c5fe0ece64734c03",
+  "source_tag": "gdn-offload-before-split-20261015",
+  "copied_byte_for_byte": true,
+  "files": [
+    {
+      "file": "historical/docs/developer/gdn_activation_offload_training.md",
+      "sha256": "716077ae1a37d66307dce012b644bcf745aa46dbf6ab02da57c8a11a01ca9ba8",
+      "source_commit": "b22c9f7251a480529a4815c8c5fe0ece64734c03"
+    },
+    {
+      "file": "historical/docs/developer/gdn_activation_offloading.md",
+      "sha256": "62d7a1807dd16587b37853d8eb334d93b2cb037a3c0c20caf11854d0fb7e8706",
+      "source_commit": "b22c9f7251a480529a4815c8c5fe0ece64734c03"
+    },
+    {
+      "file": "historical/docs/developer/gdn_activation_offloading_a6000.csv",
+      "sha256": "d976f5ab519caa5b834358b18eefedd0398e2afc0ee397acb96c60a0e1a37426",
+      "source_commit": "b22c9f7251a480529a4815c8c5fe0ece64734c03"
+    },
+    {
+      "file": "historical/docs/developer/gdn_activation_offload_training_a6000.csv",
+      "sha256": "930edcaad76b42886ee9afbb56c895681e15473e06b237bee2f17fc9e6369a83",
+      "source_commit": "b22c9f7251a480529a4815c8c5fe0ece64734c03"
+    },
+    {
+      "file": "historical/docs/developer/gdn_activation_offload_training_fused_a6000.csv",
+      "sha256": "ac71a355d21ff349c8974c4bd60686917d72830710a237895acfa8128cb49b94",
+      "source_commit": "b22c9f7251a480529a4815c8c5fe0ece64734c03"
+    }
+  ],
+  "performance_runtime_sources": {
+    "unfused": "4e18562c6bcf894795d23378a8f1699c79e4b797",
+    "fixed_fused": "2f1ee4f2e3dd6d909d08981338f5879632131139"
+  },
+  "gpu_test_requalification": "Historical results do not qualify the newly split code revisions."
+}
