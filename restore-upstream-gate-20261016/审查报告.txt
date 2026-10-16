@@ -1,0 +1,37 @@
+恢复及必要性审查
+
+审查与实际运行版本：67fb40d842035a8873979759775b4165381ae60e。
+基线：9131593673d037d360d252904f9198d36bc0c246。
+
+已经修正：
+1. #7908 不再包含 gate backward 的数值实现修改。fused_pre_gated_delta_rule.py 与基线逐字节一致，恢复原有 autotune、atomic_add 和 buffer 管理；不是只删除 128、16。
+2. 移除只适用于固定归约实现的 test_gdn_gate_backward.py 和对应 manifest 登记，恢复原有融合路径的确定性豁免。#8244 中的独立实现和测试没有改动。
+3. 更新开发文档：#8244 不再是 offload 的依赖；明确原生融合路径的非确定性、fingerprint 不能衡量数值误差，以及历史固定归约结果的适用版本。
+4. 三个 PR 正文中的依赖关系需要同步纠正；#7908 只依赖 #8243。所有旧测试和性能数字保留原始提交号，不能算作恢复后版本的验收。
+
+对其余最终差异逐文件审查的结论：
+剩余生产修改只有 GDN scope、配置边界、共享 manager 和三个 schedule 的阶段传递，未发现必须继续撤回的无关计算修改。
+
+保留的必要实现：
+- gdn.py：复用现有 saved-tensor hooks、stream 和 pinned pool，仅包围 FLA recurrence。选真实可微输入作为 backward anchor，并在原始输出上 commit。eval/no-grad/全冻结旁路、storage alias 和 norm recomputation 的边界仍有实际作用；不新增数值 kernel 或强制释放 storage。
+- transformer_config.py：新限制仅作用于 opt-in gdn_core_attn。BF16/FLA、GDN 类型、full recomputation 和 CUDA graph 限制对应本次支持范围；两个旧 graph 开关在此处尚未规范化，检查它们不是重复防御。
+- fine_grained_activation_offload.py、schedules.py（#8243）：forward_only 防止初始评估消耗训练 warmup；fraction=0 必须覆盖 warmup 中为空、后续增长的 group；chunk 推进必须按已执行 group 判断。fallback H2D 等待 D2H、池复用等待已入队 H2D 都防止真实异步竞争，不能因恢复 kernel 而删除。
+- manifest：保留 GDN scope 的现有测试关联，撤回 gate 专用登记。没有为恢复后的上游融合 kernel 宣称 bit-exact replay。
+- 测试：scope、native training、异步传输和池归还测试覆盖不同实际行为；CPU routing/configuration/snapshot 测试没有冒充 GPU 端到端验证。已测的小尺寸场景仍使用严格比较，没有为让测试通过而扩大容差。
+- 两个工具：保存张量寿命和本地 Qwen 训练属于已授权的验证范围；Bridge 只由可选工具按需导入。没有把本机路径、卡号或特定 Qwen 层数放进 Core。
+- 文档：保留使用方式、支持边界、复现命令和带版本的历史数据。没有继续把旧固定 kernel 结果标记为恢复后通过。
+
+固定参数检查：
+没有在本次功能新增按 A6000 型号、GPU 编号或固定模型规模分支的生产逻辑。测试的尺寸、seed 和 CUDA sleep 用于确定夹具与构造竞争；工具默认参数可由 CLI 指定。上游已有 kernel 分块及 softplus 阈值不属于本次功能改动，未顺手修改。
+
+本轮实测：
+- 原生 scope/configuration 用例 73 个通过。
+- native 完整缩小 decoder 的单卡 dp 拓扑 12 个用例通过，覆盖 fusion/norm/fraction，比较 loss、完整梯度、更新权重和 Adam 状态。84 个其他拓扑由 -k dp 明确 deselect，不计作通过。
+- 另用序列 2048、4 microbatch、3 optimizer step，分别运行 norm recomputation 关闭/开启；每组包含 disabled、重复 disabled、offload 三个独立模型/optimizer。比较完整真实张量，预先声明 rtol=1e-5、atol=1e-8，两种设置的两个对照实际均无数值差异，每个对照覆盖 1185 个 tensor leaf。每次 offload reset 前 pinned pool 使用数为零，策略实际选择 85852160 字节。
+- 补充长序列脚本的第一次设置错误复用了已被 optimizer 写入回调的配置对象，构建第二个模型时 deepcopy ProcessGroup 失败。原日志保存在 long-initial；脚本改用各自独立的配置后重新执行。生产代码及验收容差没有为此改变。
+- CPU configuration/input/snapshot 30 个通过，manifest 269 个通过；Black/isort/Ruff/Pylint 对最终差异中的 Python 文件检查通过。
+
+限制：
+本轮是当前提交的单卡恢复验证；没有重新跑四卡或完整预训练 Qwen 矩阵，没有重新测性能，没有重新做完整 Sphinx/mypy 检查。旧四卡和性能结果只对应其原始版本。两组长序列对照本次一致，不推出原生 atomic/autotune 具有普遍逐位确定性。上游 GPU CI 和维护者 review 仍待完成。
+
+本轮没有发现应当继续修改的生产代码问题；不为扩大问题数量增加新机制或无依据的兜底。

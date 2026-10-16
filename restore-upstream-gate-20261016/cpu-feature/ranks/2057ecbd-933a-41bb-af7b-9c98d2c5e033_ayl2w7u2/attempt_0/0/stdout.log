@@ -1,0 +1,71 @@
+..............................
+=============================== warnings summary ===============================
+../../../../../../../home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+megatron/core/tensor_parallel/random.py:92
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/restore-upstream-gate-20261016/source/megatron/core/tensor_parallel/random.py:92: DeprecationWarning: Using deprecated internal API from Transformer Engine. transformer_engine.pytorch.fp8 will be removed in a future release.
+    from transformer_engine.pytorch.fp8 import FP8GlobalStateManager, fp8_autocast
+
+megatron/core/extensions/transformer_engine.py:4094
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/restore-upstream-gate-20261016/source/megatron/core/extensions/transformer_engine.py:4094: DeprecationWarning: transformer_engine.pytorch.float8_tensor is deprecated and will be removed in a future release. Float8Tensor should be imported directly through `from transformer_engine.pytorch import Float8Tensor`
+    from transformer_engine.pytorch.float8_tensor import Float8Tensor
+
+megatron/core/inference/contexts/__init__.py:9
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/restore-upstream-gate-20261016/source/megatron/core/inference/contexts/__init__.py:9: DeprecationWarning: The following imports from `dynamic_context.py` will be removed in this file in `megatron-core` 0.14. The imports here result in a cyclic import issue that causes rotary embeddings to import from Apex rather than Transformer Engine.
+    warnings.warn(
+
+../../../../../../../home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/fla/utils/_device.py:100
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/fla/utils/_device.py:100: UserWarning: Triton is not supported on current platform, roll back to CPU.
+    _cpu_device_warning()
+
+megatron/core/models/mimo/config/base_configs.py:12
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/restore-upstream-gate-20261016/source/megatron/core/models/mimo/config/base_configs.py:12: UserWarning: MimoModelConfig is experimental and still under active development. The API may change without notice in future releases.
+    class MimoModelConfig:
+
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/restore-upstream-gate-20261016/source/megatron/core/transformer/transformer_config.py:3427: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+    warnings.warn(
+
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/restore-upstream-gate-20261016/source/megatron/core/transformer/transformer_config.py:1733: DeprecationWarning: experimental_attention_variant='gated_delta_net' is deprecated and will be removed in a future release. Use 'gdn' instead.
+    self.experimental_attention_variant = normalize_experimental_attention_variant(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+============================= slowest 15 durations =============================
+
+(15 durations < 0.005s hidden.  Use -vv to show these durations.)
+=========================== short test summary info ============================
+PASSED tests/unit_tests/ssm/test_gdn_activation_offload.py::test_snapshot_tensor_equality[fp32-signed-zero]
+PASSED tests/unit_tests/ssm/test_gdn_activation_offload.py::test_snapshot_tensor_equality[bf16-signed-zero]
+PASSED tests/unit_tests/ssm/test_gdn_activation_offload.py::test_snapshot_tensor_equality[scalar-signed-zero]
+PASSED tests/unit_tests/ssm/test_gdn_activation_offload.py::test_snapshot_tensor_equality[one-ulp]
+PASSED tests/unit_tests/ssm/test_gdn_activation_offload.py::test_snapshot_tensor_equality[strided-equal]
+PASSED tests/unit_tests/ssm/test_gdn_activation_offload.py::test_snapshot_tensor_equality[different-shapes]
+PASSED tests/unit_tests/ssm/test_gdn_activation_offload.py::test_snapshot_tensor_equality[different-dtypes]
+PASSED tests/unit_tests/ssm/test_gdn_activation_offload.py::test_snapshot_tensor_equality[nan-rejected]
+PASSED tests/unit_tests/ssm/test_gdn_activation_offload.py::test_snapshot_tensor_equality[finite-equal]
+PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs0-only supports GDN]
+PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs1-only supports GDN]
+PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs2-BF16]
+PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs3-BF16]
+PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs4-BF16]
+PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs5-FLA]
+PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs6-FLA]
+PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs7-FLA]
+PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs8-full recomputation]
+PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs9-CUDA graphs]
+PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config
+PASSED tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags0-divisible by TP * CP]
+PASSED tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags1-divisible by TP * CP]
+PASSED tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags2-divisible by --pp]
+PASSED tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags3-divisible by --pp]
+PASSED tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags4-None]
+PASSED tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags5-None]
+PASSED tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags6-None]
+PASSED tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags7-None]
+PASSED tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags8-None]
+PASSED tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags9-None]
+30 passed, 62 deselected, 21 warnings in 7.31s

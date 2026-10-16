@@ -1,0 +1,35 @@
+{
+  "source_commit": "67fb40d842035a8873979759775b4165381ae60e",
+  "sequence": 2048,
+  "steps_per_arm": 3,
+  "microbatches": 4,
+  "fused_pre_gdr": true,
+  "recompute_norm": true,
+  "rtol": 1e-05,
+  "atol": 1e-08,
+  "comparisons": [
+    {
+      "name": "disabled-repeat",
+      "numerically_close": true,
+      "exact": true,
+      "tensor_leaves": 1185,
+      "differing_tensor_leaves": 0,
+      "max_tolerance_ratio": 0.0
+    },
+    {
+      "name": "offload",
+      "numerically_close": true,
+      "exact": true,
+      "tensor_leaves": 1185,
+      "differing_tensor_leaves": 0,
+      "max_tolerance_ratio": 0.0
+    }
+  ],
+  "pool_ownership_before_reset": [
+    0,
+    0,
+    0
+  ],
+  "offload_summary_bytes": 85852160,
+  "scope": "Reduced complete native decoder; this is not pretrained Qwen qualification."
+}

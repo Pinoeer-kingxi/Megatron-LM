@@ -1,0 +1,76 @@
+/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/restore-upstream-gate-20261016/source/megatron/core/models/mimo/config/base_configs.py:12: UserWarning: MimoModelConfig is experimental and still under active development. The API may change without notice in future releases.
+  class MimoModelConfig:
+/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+[rank0]:[W1016 15:38:02.470433942 ProcessGroupNCCL.cpp:5188] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/restore-upstream-gate-20261016/source/megatron/core/transformer/transformer_config.py:3427: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+  warnings.warn(
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/restore-upstream-gate-20261016/scripts/long_fused_training.py", line 34, in <module>
+[rank0]:     arms = [_build_training_model(c, groups) for c in (disabled, disabled, config)]
+[rank0]:             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/restore-upstream-gate-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py", line 134, in _build_training_model
+[rank0]:     model = HybridModel(
+[rank0]:             ^^^^^^^^^^^^
+[rank0]:   File "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/restore-upstream-gate-20261016/source/megatron/core/models/hybrid/hybrid_model.py", line 329, in __init__
+[rank0]:     layer_config_list, layer_offset = select_pipeline_segment(
+[rank0]:                                       ^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/restore-upstream-gate-20261016/source/megatron/core/models/hybrid/hybrid_layer_allocation.py", line 462, in select_pipeline_segment
+[rank0]:     layer_config_list = validate_segment_layers(my_segment, config)
+[rank0]:                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/restore-upstream-gate-20261016/source/megatron/core/models/hybrid/hybrid_layer_allocation.py", line 303, in validate_segment_layers
+[rank0]:     layer_configs.append(layer_utils.create_layer_config(config, layer_symbol))
+[rank0]:                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/restore-upstream-gate-20261016/source/megatron/core/models/hybrid/layers/utils.py", line 83, in create_layer_config
+[rank0]:     layer_config = Symbols.LAYER_CONFIG_MAP[layer_symbol].from_config(config)
+[rank0]:                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/restore-upstream-gate-20261016/source/megatron/core/transformer/transformer_config.py", line 1630, in from_config
+[rank0]:     new_config.__dict__ = deepcopy(config.__dict__, {id(config): new_config})
+[rank0]:                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/data/songbinbin/minicoda/lib/python3.12/copy.py", line 136, in deepcopy
+[rank0]:     y = copier(x, memo)
+[rank0]:         ^^^^^^^^^^^^^^^
+[rank0]:   File "/data/songbinbin/minicoda/lib/python3.12/copy.py", line 221, in _deepcopy_dict
+[rank0]:     y[deepcopy(key, memo)] = deepcopy(value, memo)
+[rank0]:                              ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/data/songbinbin/minicoda/lib/python3.12/copy.py", line 136, in deepcopy
+[rank0]:     y = copier(x, memo)
+[rank0]:         ^^^^^^^^^^^^^^^
+[rank0]:   File "/data/songbinbin/minicoda/lib/python3.12/copy.py", line 226, in _deepcopy_method
+[rank0]:     return type(x)(x.__func__, deepcopy(x.__self__, memo))
+[rank0]:                                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/data/songbinbin/minicoda/lib/python3.12/copy.py", line 162, in deepcopy
+[rank0]:     y = _reconstruct(x, memo, *rv)
+[rank0]:         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/data/songbinbin/minicoda/lib/python3.12/copy.py", line 259, in _reconstruct
+[rank0]:     state = deepcopy(state, memo)
+[rank0]:             ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/data/songbinbin/minicoda/lib/python3.12/copy.py", line 136, in deepcopy
+[rank0]:     y = copier(x, memo)
+[rank0]:         ^^^^^^^^^^^^^^^
+[rank0]:   File "/data/songbinbin/minicoda/lib/python3.12/copy.py", line 221, in _deepcopy_dict
+[rank0]:     y[deepcopy(key, memo)] = deepcopy(value, memo)
+[rank0]:                              ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/data/songbinbin/minicoda/lib/python3.12/copy.py", line 136, in deepcopy
+[rank0]:     y = copier(x, memo)
+[rank0]:         ^^^^^^^^^^^^^^^
+[rank0]:   File "/data/songbinbin/minicoda/lib/python3.12/copy.py", line 196, in _deepcopy_list
+[rank0]:     append(deepcopy(a, memo))
+[rank0]:            ^^^^^^^^^^^^^^^^^
+[rank0]:   File "/data/songbinbin/minicoda/lib/python3.12/copy.py", line 162, in deepcopy
+[rank0]:     y = _reconstruct(x, memo, *rv)
+[rank0]:         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/data/songbinbin/minicoda/lib/python3.12/copy.py", line 259, in _reconstruct
+[rank0]:     state = deepcopy(state, memo)
+[rank0]:             ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/data/songbinbin/minicoda/lib/python3.12/copy.py", line 136, in deepcopy
+[rank0]:     y = copier(x, memo)
+[rank0]:         ^^^^^^^^^^^^^^^
+[rank0]:   File "/data/songbinbin/minicoda/lib/python3.12/copy.py", line 221, in _deepcopy_dict
+[rank0]:     y[deepcopy(key, memo)] = deepcopy(value, memo)
+[rank0]:                              ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/data/songbinbin/minicoda/lib/python3.12/copy.py", line 151, in deepcopy
+[rank0]:     rv = reductor(4)
+[rank0]:          ^^^^^^^^^^^
+[rank0]: TypeError: cannot pickle 'torch._C._distributed_c10d.ProcessGroup' object
+[rank0]:[W1016 15:38:04.960033226 ProcessGroupNCCL.cpp:1575] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())

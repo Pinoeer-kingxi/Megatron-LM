@@ -1,0 +1,72 @@
+[default0]:W1016 15:42:01.902000 5007 torch/utils/cpp_extension.py:140] No CUDA runtime is found, using CUDA_HOME='/usr/local/cuda'
+[default0]:..[default0]:............................
+[default0]:=============================== warnings summary ===============================
+[default0]:../../../../../../../home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+[default0]:  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+[default0]:    warnings.warn(
+[default0]:
+[default0]:megatron/core/tensor_parallel/random.py:92
+[default0]:  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/restore-upstream-gate-20261016/source/megatron/core/tensor_parallel/random.py:92: DeprecationWarning: Using deprecated internal API from Transformer Engine. transformer_engine.pytorch.fp8 will be removed in a future release.
+[default0]:    from transformer_engine.pytorch.fp8 import FP8GlobalStateManager, fp8_autocast
+[default0]:
+[default0]:megatron/core/extensions/transformer_engine.py:4094
+[default0]:  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/restore-upstream-gate-20261016/source/megatron/core/extensions/transformer_engine.py:4094: DeprecationWarning: transformer_engine.pytorch.float8_tensor is deprecated and will be removed in a future release. Float8Tensor should be imported directly through `from transformer_engine.pytorch import Float8Tensor`
+[default0]:    from transformer_engine.pytorch.float8_tensor import Float8Tensor
+[default0]:
+[default0]:megatron/core/inference/contexts/__init__.py:9
+[default0]:  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/restore-upstream-gate-20261016/source/megatron/core/inference/contexts/__init__.py:9: DeprecationWarning: The following imports from `dynamic_context.py` will be removed in this file in `megatron-core` 0.14. The imports here result in a cyclic import issue that causes rotary embeddings to import from Apex rather than Transformer Engine.
+[default0]:    warnings.warn(
+[default0]:
+[default0]:../../../../../../../home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/fla/utils/_device.py:100
+[default0]:  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/fla/utils/_device.py:100: UserWarning: Triton is not supported on current platform, roll back to CPU.
+[default0]:    _cpu_device_warning()
+[default0]:
+[default0]:megatron/core/models/mimo/config/base_configs.py:12
+[default0]:  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/restore-upstream-gate-20261016/source/megatron/core/models/mimo/config/base_configs.py:12: UserWarning: MimoModelConfig is experimental and still under active development. The API may change without notice in future releases.
+[default0]:    class MimoModelConfig:
+[default0]:
+[default0]:tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config
+[default0]:  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/restore-upstream-gate-20261016/source/megatron/core/transformer/transformer_config.py:3427: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+[default0]:    warnings.warn(
+[default0]:
+[default0]:tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config
+[default0]:  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/restore-upstream-gate-20261016/source/megatron/core/transformer/transformer_config.py:1733: DeprecationWarning: experimental_attention_variant='gated_delta_net' is deprecated and will be removed in a future release. Use 'gdn' instead.
+[default0]:    self.experimental_attention_variant = normalize_experimental_attention_variant(
+[default0]:
+[default0]:-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+[default0]:==================================== PASSES ====================================
+[default0]:============================= slowest 15 durations =============================
+[default0]:
+[default0]:(15 durations < 0.005s hidden.  Use -vv to show these durations.)
+[default0]:=========================== short test summary info ============================
+[default0]:PASSED tests/unit_tests/ssm/test_gdn_activation_offload.py::test_snapshot_tensor_equality[fp32-signed-zero]
+[default0]:PASSED tests/unit_tests/ssm/test_gdn_activation_offload.py::test_snapshot_tensor_equality[bf16-signed-zero]
+[default0]:PASSED tests/unit_tests/ssm/test_gdn_activation_offload.py::test_snapshot_tensor_equality[scalar-signed-zero]
+[default0]:PASSED tests/unit_tests/ssm/test_gdn_activation_offload.py::test_snapshot_tensor_equality[one-ulp]
+[default0]:PASSED tests/unit_tests/ssm/test_gdn_activation_offload.py::test_snapshot_tensor_equality[strided-equal]
+[default0]:PASSED tests/unit_tests/ssm/test_gdn_activation_offload.py::test_snapshot_tensor_equality[different-shapes]
+[default0]:PASSED tests/unit_tests/ssm/test_gdn_activation_offload.py::test_snapshot_tensor_equality[different-dtypes]
+[default0]:PASSED tests/unit_tests/ssm/test_gdn_activation_offload.py::test_snapshot_tensor_equality[nan-rejected]
+[default0]:PASSED tests/unit_tests/ssm/test_gdn_activation_offload.py::test_snapshot_tensor_equality[finite-equal]
+[default0]:PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs0-only supports GDN]
+[default0]:PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs1-only supports GDN]
+[default0]:PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs2-BF16]
+[default0]:PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs3-BF16]
+[default0]:PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs4-BF16]
+[default0]:PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs5-FLA]
+[default0]:PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs6-FLA]
+[default0]:PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs7-FLA]
+[default0]:PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs8-full recomputation]
+[default0]:PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs9-CUDA graphs]
+[default0]:PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config
+[default0]:PASSED tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags0-divisible by TP * CP]
+[default0]:PASSED tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags1-divisible by TP * CP]
+[default0]:PASSED tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags2-divisible by --pp]
+[default0]:PASSED tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags3-divisible by --pp]
+[default0]:PASSED tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags4-None]
+[default0]:PASSED tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags5-None]
+[default0]:PASSED tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags6-None]
+[default0]:PASSED tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags7-None]
+[default0]:PASSED tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags8-None]
+[default0]:PASSED tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags9-None]
+[default0]:30 passed, 62 deselected, 21 warnings in 7.31s

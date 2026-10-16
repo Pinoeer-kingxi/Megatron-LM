@@ -1,0 +1,32 @@
+{
+  "long-norm-0/result.arm0.pt": {
+    "sha256": "1fd1b9b205c329a42efb604ee00cb6fd9ffe04a9878ce1ae66088fcc8dd61c7f",
+    "bytes": 656452242,
+    "included_in_public_bundle": false
+  },
+  "long-norm-0/result.arm1.pt": {
+    "sha256": "c0e8479f1330d65cf0ad0d34389bce56b9a911011d7a7a81a63b2c7a91f2e4aa",
+    "bytes": 656452242,
+    "included_in_public_bundle": false
+  },
+  "long-norm-0/result.arm2.pt": {
+    "sha256": "680d4defd3678df4f26ab519b0a1e9afac6a01b0fd11130dd0cfd8c5305032dd",
+    "bytes": 656452242,
+    "included_in_public_bundle": false
+  },
+  "long-norm-1/result.arm0.pt": {
+    "sha256": "1fd1b9b205c329a42efb604ee00cb6fd9ffe04a9878ce1ae66088fcc8dd61c7f",
+    "bytes": 656452242,
+    "included_in_public_bundle": false
+  },
+  "long-norm-1/result.arm1.pt": {
+    "sha256": "c0e8479f1330d65cf0ad0d34389bce56b9a911011d7a7a81a63b2c7a91f2e4aa",
+    "bytes": 656452242,
+    "included_in_public_bundle": false
+  },
+  "long-norm-1/result.arm2.pt": {
+    "sha256": "680d4defd3678df4f26ab519b0a1e9afac6a01b0fd11130dd0cfd8c5305032dd",
+    "bytes": 656452242,
+    "included_in_public_bundle": false
+  }
+}

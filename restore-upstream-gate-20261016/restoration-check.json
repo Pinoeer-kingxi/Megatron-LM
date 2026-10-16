@@ -1,0 +1,8 @@
+{
+  "source_commit": "67fb40d842035a8873979759775b4165381ae60e",
+  "upstream_commit": "9131593673d037d360d252904f9198d36bc0c246",
+  "gate_source_identical": true,
+  "gate_sha256": "c8a0247766bbc78ee3f98841a3eb9c033109bf3575bb9d2df99b4cbf2a0df920",
+  "diff_against_upstream": "A\tdocs/developer/gdn_activation_offloading.md\nM\tdocs/index.md\nM\tdocs/user-guide/features/fine_grained_activation_offloading.md\nM\tmegatron/core/pipeline_parallel/fine_grained_activation_offload.py\nM\tmegatron/core/pipeline_parallel/schedules.py\nM\tmegatron/core/ssm/gated_delta_net/gdn.py\nM\tmegatron/core/transformer/transformer_config.py\nM\ttests/unit_tests/determinism/kernels/manifest.py\nM\ttests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py\nM\ttests/unit_tests/pipeline_parallel/test_schedules.py\nA\ttests/unit_tests/ssm/test_gated_delta_net_offloading.py\nA\ttests/unit_tests/ssm/test_gdn_activation_offload.py\nA\ttests/unit_tests/ssm/test_gdn_offload_training.py\nA\ttests/unit_tests/ssm/test_qwen_gdn_offload_training.py\nA\ttools/ssm/gdn_activation_offload.py\nA\ttools/ssm/qwen_gdn_offload_training.py\n",
+  "exclusive_gate_replay_removed": true
+}

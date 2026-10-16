@@ -1,0 +1,12 @@
+{
+  "torch": "2.11.0+cu130",
+  "cuda": "13.0",
+  "source": "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/restore-upstream-gate-20261016/source/megatron/core/__init__.py",
+  "packages": {
+    "transformer-engine": "2.20.2",
+    "flash-linear-attention": "0.5.1",
+    "triton": "3.6.0",
+    "causal-conv1d": "1.6.1",
+    "flash-attn": "2.8.3"
+  }
+}

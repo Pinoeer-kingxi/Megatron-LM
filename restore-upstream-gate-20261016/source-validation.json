@@ -1,0 +1,9 @@
+{
+  "source_commit": "67fb40d842035a8873979759775b4165381ae60e",
+  "parent_commit": "e9975a744efad181f9ab586ce33f58e7a9649ac8",
+  "upstream_gate_source": "9131593673d037d360d252904f9198d36bc0c246",
+  "archive_files_compared": 3532,
+  "archive_files_unchanged": true,
+  "source_archive_sha256": "6b3a7f56d199ad02aff6c0f2706fdbd27cc2eb447884b733dc235709a9624523",
+  "source_worktree_clean": true
+}
