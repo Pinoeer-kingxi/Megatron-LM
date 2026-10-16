@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-e2e-performance-20261016/scripts/run_performance.py", line 99, in <module>
+    "input_sha256": {str(p): hash_file(p) for p in [DATA, *sorted(WEIGHTS.glob("*.*"))]},
+  File "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-e2e-performance-20261016/scripts/run_performance.py", line 99, in <dictcomp>
+    "input_sha256": {str(p): hash_file(p) for p in [DATA, *sorted(WEIGHTS.glob("*.*"))]},
+  File "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-e2e-performance-20261016/scripts/verify_results.py", line 19, in hash_file
+    with path.open("rb") as stream:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+IsADirectoryError: [Errno 21] Is a directory: '/home/songbinbin/gdn-offload-artifacts/models/Qwen3.5-0.8B/.cache'

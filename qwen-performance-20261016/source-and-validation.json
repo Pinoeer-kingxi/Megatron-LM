@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "source_commit": "e9975a744efad181f9ab586ce33f58e7a9649ac8",
+  "archive_files_unchanged": 3533,
+  "source_worktree_clean": true,
+  "runtime_script_hashes_match_manifest": true,
+  "gpu_container_cleanup_exit_code": 0,
+  "cpu_checks": "passed",
+  "cpu_cases": {
+    "feature": 30,
+    "manifest": 272
+  },
+  "new_source_changes": false,
+  "upstream_gpu_ci_run": false,
+  "comment_posted": false,
+  "reviewer_requested": false,
+  "gpu_performance_verified": true,
+  "runtime_code_tree_identity_to_old_correctness_sha": {
+    "megatron": "0211334025417075902e34e16ffae595f322851d",
+    "tools": "09dc5a2434e69e4606f2b8c7ba9faadb99dfde2c",
+    "tests": "4d002cbf3e063ac7e0ad5e9ee340e107bb6c5cb9"
+  },
+  "analysis_scripts_sha256": {
+    "rank_env.py": "d5eaa99163590e6791a303eab0e870367f586d54fc5aa9f77d182fb4527d0440",
+    "run_cpu_checks.py": "e57a23e9f78876b1fc17c3211f457b6245874adafc78b834458bef3b4f7d3167",
+    "run_gpu_acceptance.py": "f0eb5da97b57c7b6597098cbc3a669569101bd19984a1f83028fcc172babe0f6",
+    "verify_results.py": "929e4b219075e7e2e7eb59da2a732fa58cc2aa087d0f4eb19c40ad1e1c2ef840",
+    "summarize_performance.py": "f50899fd89869ea829e7b91f87305833512786d1b2acff84f93ca795d61878dc",
+    "run_performance.py": "1d67d001e1e202570d7025c9cc26de38f2f12735ebf0f05ecf3002b54ec8d675"
+  }
+}

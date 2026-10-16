@@ -1,0 +1,7 @@
+environment 0
+black 0
+isort 0
+ruff 0
+pylint 0
+feature-cpu 0
+manifest 0

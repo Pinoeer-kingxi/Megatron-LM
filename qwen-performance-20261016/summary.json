@@ -1,0 +1,168 @@
+{
+  "status": "passed",
+  "source_commit": "e9975a744efad181f9ab586ce33f58e7a9649ac8",
+  "gpu": {
+    "uuid": "GPU-40c36f3c-9282-74a6-63d2-077d1e4a1cb7",
+    "minor": 6,
+    "name": "NVIDIA RTX A6000",
+    "driver": "580.178.04"
+  },
+  "environment": {
+    "torch": "2.11.0+cu130",
+    "cuda": "13.0",
+    "megatron_core": "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-e2e-performance-20261016/source/megatron/core/__init__.py",
+    "gpu": "NVIDIA RTX A6000",
+    "packages": {
+      "transformer-engine": "2.20.2",
+      "flash-linear-attention": "0.5.1",
+      "causal-conv1d": "1.6.1",
+      "flash-attn": "2.8.3",
+      "triton": "3.6.0"
+    },
+    "environment": {
+      "CUDA_DEVICE_MAX_CONNECTIONS": "1",
+      "NVTE_CPU_OFFLOAD_V1": "1",
+      "TORCH_COMPILE_DISABLE": null,
+      "OMP_NUM_THREADS": "1"
+    }
+  },
+  "measured_samples": 120,
+  "runs": 12,
+  "optimizer_steps_including_warmup": 156,
+  "scope": "Complete 24-layer Qwen3.5-0.8B text training, single GPU, BF16/FLA; vision/MTP excluded",
+  "correctness_limit": "This performance run compares full-precision logged losses and rounded printed gradient norms, not complete gradient/optimizer fingerprints; full-state correctness evidence is separate.",
+  "performance_limit": "Paired offload on/off at the same current revision. This is not an old/new shared-manager comparison or a controlled comparison of fusion variants.",
+  "statistics": "Median of three paired per-run median-time changes; memory is median of per-run maximum allocated peak.",
+  "results": [
+    {
+      "fused_pre_gdr": false,
+      "disabled_peak_allocated_mib": 31599.1689453125,
+      "enabled_peak_allocated_mib": 30647.16943359375,
+      "memory_saved_mib": 951.99951171875,
+      "memory_saved_pct": 3.0127359151955524,
+      "disabled_median_step_seconds": 1.6803405789542012,
+      "enabled_median_step_seconds": 1.8193811990786344,
+      "paired_runtime_change_pct": 8.522768173429807,
+      "paired_runtime_change_range_pct": [
+        7.599279049708607,
+        8.569307618398758
+      ],
+      "logged_losses_exact_and_printed_gradient_norms_equal_across_six_runs": true,
+      "per_repeat": [
+        {
+          "0": {
+            "median_seconds": 1.682429665059317,
+            "max_peak_allocated_bytes": 33134130176,
+            "max_peak_reserved_bytes": 36022779904,
+            "selected_transfer_bytes": 0
+          },
+          "1": {
+            "median_seconds": 1.8266022385214455,
+            "max_peak_allocated_bytes": 32135886336,
+            "max_peak_reserved_bytes": 34940649472,
+            "selected_transfer_bytes": 4169138176
+          },
+          "runtime_change_pct": 8.569307618398758,
+          "memory_saved_mib": 951.99951171875
+        },
+        {
+          "0": {
+            "median_seconds": 1.6803405789542012,
+            "max_peak_allocated_bytes": 33134130176,
+            "max_peak_reserved_bytes": 36024877056,
+            "selected_transfer_bytes": 0
+          },
+          "1": {
+            "median_seconds": 1.8080343485344201,
+            "max_peak_allocated_bytes": 32135886336,
+            "max_peak_reserved_bytes": 34940649472,
+            "selected_transfer_bytes": 4169138176
+          },
+          "runtime_change_pct": 7.599279049708607,
+          "memory_saved_mib": 951.99951171875
+        },
+        {
+          "0": {
+            "median_seconds": 1.676497226988431,
+            "max_peak_allocated_bytes": 33134130176,
+            "max_peak_reserved_bytes": 36024877056,
+            "selected_transfer_bytes": 0
+          },
+          "1": {
+            "median_seconds": 1.8193811990786344,
+            "max_peak_allocated_bytes": 32135886336,
+            "max_peak_reserved_bytes": 34940649472,
+            "selected_transfer_bytes": 4169138176
+          },
+          "runtime_change_pct": 8.522768173429807,
+          "memory_saved_mib": 951.99951171875
+        }
+      ]
+    },
+    {
+      "fused_pre_gdr": true,
+      "disabled_peak_allocated_mib": 31302.1689453125,
+      "enabled_peak_allocated_mib": 30350.16943359375,
+      "memory_saved_mib": 951.99951171875,
+      "memory_saved_pct": 3.0413212368189946,
+      "disabled_median_step_seconds": 1.5835481850081123,
+      "enabled_median_step_seconds": 1.7653773940401152,
+      "paired_runtime_change_pct": 11.482391931829428,
+      "paired_runtime_change_range_pct": [
+        9.380502814694047,
+        11.84249661936283
+      ],
+      "logged_losses_exact_and_printed_gradient_norms_equal_across_six_runs": true,
+      "per_repeat": [
+        {
+          "0": {
+            "median_seconds": 1.5835481850081123,
+            "max_peak_allocated_bytes": 32822703104,
+            "max_peak_reserved_bytes": 36498833408,
+            "selected_transfer_bytes": 0
+          },
+          "1": {
+            "median_seconds": 1.7653773940401152,
+            "max_peak_allocated_bytes": 31824459264,
+            "max_peak_reserved_bytes": 35525754880,
+            "selected_transfer_bytes": 4169138176
+          },
+          "runtime_change_pct": 11.482391931829428,
+          "memory_saved_mib": 951.99951171875
+        },
+        {
+          "0": {
+            "median_seconds": 1.5894338249927387,
+            "max_peak_allocated_bytes": 32822703104,
+            "max_peak_reserved_bytes": 36517707776,
+            "selected_transfer_bytes": 0
+          },
+          "1": {
+            "median_seconds": 1.777662471984513,
+            "max_peak_allocated_bytes": 31824459264,
+            "max_peak_reserved_bytes": 35525754880,
+            "selected_transfer_bytes": 4169138176
+          },
+          "runtime_change_pct": 11.84249661936283,
+          "memory_saved_mib": 951.99951171875
+        },
+        {
+          "0": {
+            "median_seconds": 1.5784662504447624,
+            "max_peak_allocated_bytes": 32822703104,
+            "max_peak_reserved_bytes": 36517707776,
+            "selected_transfer_bytes": 0
+          },
+          "1": {
+            "median_seconds": 1.7265343214967288,
+            "max_peak_allocated_bytes": 31824459264,
+            "max_peak_reserved_bytes": 35525754880,
+            "selected_transfer_bytes": 4169138176
+          },
+          "runtime_change_pct": 9.380502814694047,
+          "memory_saved_mib": 951.99951171875
+        }
+      ]
+    }
+  ]
+}

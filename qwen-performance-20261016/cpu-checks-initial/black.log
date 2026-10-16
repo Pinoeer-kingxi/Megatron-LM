@@ -1,0 +1,21 @@
+Warning: Python 3.12 cannot parse code formatted for Python 3.14. To fix this: run Black with Python 3.14, set --target-version to py312, or use --fast to skip the safety check. Black's safety check verifies equivalence by parsing the AST, which fails when the running Python is older than the target version.
+Process SyncManager-1:
+Traceback (most recent call last):
+  File "/data/songbinbin/minicoda/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/data/songbinbin/minicoda/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/data/songbinbin/minicoda/lib/python3.12/multiprocessing/managers.py", line 591, in _run_server
+    server = cls._Server(registry, address, authkey, serializer)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/songbinbin/minicoda/lib/python3.12/multiprocessing/managers.py", line 156, in __init__
+    self.listener = Listener(address=address, backlog=128)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/songbinbin/minicoda/lib/python3.12/multiprocessing/connection.py", line 464, in __init__
+    self._listener = SocketListener(address, family, backlog)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/songbinbin/minicoda/lib/python3.12/multiprocessing/connection.py", line 608, in __init__
+    self._socket.bind(address)
+OSError: AF_UNIX path too long
+
+Aborted!

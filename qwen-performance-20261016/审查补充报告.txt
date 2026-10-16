@@ -1,0 +1,64 @@
+本轮完成了当前实现的 GPU 性能补测，并再次审查核心改动、注释、测试、Markdown 和固定参数。没有发现新增的已确认代码 Bug，也没有发现必须删除的无关代码或注释。本轮没有修改三个 PR 的源文件。
+
+审查版本：
+  #8243 af9569270f476dc201484296315a9c30dcaa3feb
+  #8244 9d54b8729c9277f1e032110c5e1b149e9654bcc5
+  #7908 e9975a744efad181f9ab586ce33f58e7a9649ac8
+性能实际执行的是 e9975a744 的独立 git archive 快照。3533 个归档文件在所有执行结束后逐文件核对，内容未变化；原工作树也保持干净。
+
+性能结果：
+  完整 Qwen3.5-0.8B 的 24 层文本模型，含 embedding、混合 attention、MLP、词表 loss 和 BF16 Adam；不含 vision/MTP。
+  一张 RTX A6000；BF16/FLA；sequence=4096；microbatch size=1；每 optimizer step 累积 4 个 microbatch；norm 重计算关闭。
+  offload disabled 对照 fraction=1，使用默认 1048576 元素阈值。融合/未融合各 3 组配对，每臂独立进程，预热 3 步后测 10 步。中间一组反转臂顺序。各融合设置独占并跨臂保留同一个 rank-0 Triton cache。
+  共 12 个成功运行、156 个包含 warmup 的 optimizer step、120 个计时样本。没有 OOM，没有观察到外部进程共享测量卡，GPU 容器已停止，6 卡已释放。
+
+  未融合：峰值 allocated 31599.17 -> 30647.17 MiB，省 952.00 MiB（3.01%）；配对 step time 增加中位数 8.52%，三次范围 7.60%–8.57%。
+  固定归约的融合路径：31302.17 -> 30350.17 MiB，省 952.00 MiB（3.04%）；配对 step time 增加中位数 11.48%，三次范围 9.38%–11.84%。
+
+  时间统计为三个“每次运行中位数之比”的配对变化的中位数；显存统计为三个运行内峰值最大值的中位数。原始每步数据、reserved peak 和每次结果均保留，不使用所有样本混合后的另一种统计替代。
+  每种融合设置内，六个进程的全部 13 步 loss 记录完全一致；打印的梯度范数也一致，但该 tensor 文本有舍入，不能据此宣称完整精度的梯度范数或完整梯度/Adam 状态逐位一致。完整状态验证仍引用独立的既有正确性证据。
+  enabled 每个 optimizer step 的策略 transfer bytes 为 4169138176；disabled 为零。该指标不是净 GPU 显存节省，也不是 pinned CPU 内存峰值。
+
+结果意味着约 3% 的 allocated-memory 节省需要付出约 8.5%–11.5% 的中位数耗时代价。不能把它写成提速或无性能代价。这里比较的是同一当前提交的开关，不隔离旧/新 shared-manager 同步实现，也不是融合与未融合的受控比较。
+历史 +1.58%/+5.80% 结果仍保留各自原始提交号；历史环境、上游代码和当前实验不构成受控的版本回归比较。本次没有额外设定未经约定的性能合格阈值，是否接受这一内存/耗时取舍仍需维护者评估。
+
+核心代码的再次核查：
+  fine_grained_activation_offload.py reset（551 行起）：phase 取自三个 native schedule，不在 manager 中重复维护阶段状态。初次评估产生的空 chunk 不再消费训练 warmup。forward_only 默认值保留旧训练调用契约。
+  post_warmup_callback（666 行起）：零比例必须连空 warmup group 一起禁用，否则后续序列增长会复制数据。finish_all_groups（1033 行起）按剩余 forward group 推进，避免把“没有待传输内容”误当成 forward 完成。这两个处理均有正常可达的反例，不是防御性兜底。
+  tensor_pop（1084 行起）在 fallback H2D 前等待真实 D2H event；bulk_offload_group（1119 行起）在池复用前等待既有 H2D 流。按已入队事件/流工作建立依赖，未发现新环状等待。reload 提前归还池缓冲区是这些等待必要的代码依据。
+  fused_pre_gated_delta_rule.py（675、989 行起）：每个 batch/sequence-block/head 有独占 FP32 partial 槽，序列/head 尾部被 mask，所有有效槽都被写入；同一 launch context 中完成 sum。调用者消费结果前 join gate side stream。没有发现新增索引或低精度归约错误。
+  gdn.py（294 行起）：只包裹 recurrence，group-start 使用真实可微输入；raw output 上 commit 早于 norm/checkpoint；不强制销毁仍被其他 save 引用的 storage。eval/no-grad/全冻结旁路不访问 scope manager。职责没有扩展到 projection/convolution 或 norm 重计算实现。
+  transformer_config.py（2733 行起）：所有新限制只在 opt-in 时执行。CUDA graph 的两个旧开关在配置后段才规范化，因此同时检查新旧开关有必要；不应把这两个条件误删为重复判断。
+
+固定参数和硬编码：
+  #8244 的 128×16 tile 是取消 timing autotune 后的固定算法分块，配合固定 partial 数量实现重复归约；它不是按 GPU 名称写死的 A6000 专用路径。shape、batch、head 数和分配 device 均来自张量/配置。
+  新 GDN 生产逻辑和两个工具没有本机目录、GPU 编号/UUID或固定 24 层实现。Qwen 工具按 provider 元数据构建模型；Qwen3.5 的 model_type 检查是该工具声明的输入范围。24 层是本次 checkpoint 和文档实例，而不是 Core 分支条件。
+  工具固定 seed 用于建立配对基线；默认尺寸、阈值、分区和迭代参数可通过 CLI 指定。无需为了一个验收工具添加通用实验框架。
+  测试的 seed、尺寸、80k 阈值以及 CUDA sleep cycles 分别构造可复现输入、尾部/别名边界、warmup 后跨阈值和异步竞争；这些是测试夹具，不是生产参数。未发现数字与其测试前提不一致。
+  本次机内验收编排脚本包含实际机器路径和所选 GPU 6，这是原始运行记录的一部分，位于仓库之外；没有提交到三个 PR 的运行代码中。
+
+注释与工程习惯：
+  新核心注释主要解释为何不能省略同步、为何不能固定 Q 作为 anchor、为何不能强制释放 alias。这些约束不能从单行实现看出，删除会丢失维护依据。
+  没有发现新增的调试注释、注释掉的代码、TODO 补丁链或无依据的 exception/retry 层。未为减少注释行数进行无收益的格式改动。
+  延用已有 manager、pool、stream、event、checkpoint、ProcessGroupCollection 和测试工具，没有添加 Core 全局 process-group 读取或新资源管理抽象。
+
+测试文件与 CI 约定：
+  异步回归使用真实 CUDA stream/copy/event 和竞争延迟；CPU 路由 mock 只证明参数传递，不充当 GPU 验收。
+  native 完整训练覆盖梯度积累、原生 finalize/optimizer 与 pool reset 前的归属；FP32 master 参数在权重对齐后 reload，snapshot 冻结实际值，避免后续更新污染参考。
+  已追踪根 conftest 的 TE 后端环境与 Utils.initialize_model_parallel：后者已有 clear_nvte_env_vars，因此 CP 测试不需要另加环境清理补丁。
+  gate 测试复用字节比较 harness，同时与 Torch autograd 数值参考比较；manifest 保留完整融合路径的 deterministic_mode 限制。
+  新测试位于现有 ssm、pipeline_parallel 和 determinism/kernels bucket。没有把独立 layer/mock 测试当成端到端成功。
+
+Markdown 核查：
+  新开关、元素阈值单位、fraction 的 warmup 语义、单 group margin、alias、配置边界和 Bridge 的可选工具依赖与实现一致。
+  复现命令在目标解释器导入前隔离 rank cache；历史数据带原始 SHA。文档没有宣称预训练 Qwen CP、长程收敛、restart 或 #7852 组合已通过。
+  三个 PR 的源码文档本轮未改；e9975a744 的严格 Sphinx 和四-worker launcher 检查已经在公开证据中。没有为相同文档再跑一次完整构建。
+
+本轮新执行的工程检查：
+  15 个变更 Python 文件的 Black/isort/Ruff/Pylint 检查通过。
+  CPU configuration/input/snapshot 30 例通过；manifest 272 例通过。CPU 容器确认可见 CUDA device 数为零，随后已清理。
+  第一轮 CPU Black 检查因验收目录的长 TMPDIR 超过 AF_UNIX socket 路径上限而失败；改用容器短 /tmp 后重跑通过，未改生产源码，失败日志仍保留。
+  当前 Core、tools、tests tree 与此前四卡正确性运行的 8a2d19894288a8eb890dfdf20c9d54683035de80 相同；只差文档。本次是单卡性能补测，没有把旧四卡记录改标为本轮重跑。
+
+交付状态：当前实现的完整训练显存/耗时补测已完成。未发现新增代码 Must Fix，没有继续拆分或清理生产代码的必要。实际性能成本已记录，应由维护者评估，不作无回归保证。当前 head 的上游 GPU CI 批准/通过、维护者 scope 确认，以及前置合并后 rebase 和受影响路径验证仍待完成。
+本轮没有源代码提交或推送，没有发布评论、请求 reviewer 或提及任何人。

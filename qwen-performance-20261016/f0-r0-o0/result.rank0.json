@@ -1,0 +1,132 @@
+{
+  "arguments": {
+    "weights": "/home/songbinbin/gdn-offload-artifacts/models/Qwen3.5-0.8B",
+    "data": "/home/songbinbin/gdn-offload-artifacts/training-data/ks-item-sft.jsonl",
+    "output": "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-e2e-performance-20261016/f0-r0-o0/result.json",
+    "dry_run": false,
+    "check_state": false,
+    "fraction": null,
+    "recompute_norm": false,
+    "fused_pre_gdr": false,
+    "tp": 1,
+    "sp": false,
+    "cp": 1,
+    "pp": 1,
+    "vp": null,
+    "seq_length": 4096,
+    "microbatches": 4,
+    "warmup": 3,
+    "iterations": 10,
+    "max_documents": 128,
+    "min_offloaded_tensor_size": 1048576
+  },
+  "text_layers": 24,
+  "text_hidden_size": 1024,
+  "dataset_tokens": 30727,
+  "pipeline_batch_p2p_comm": false,
+  "pipeline_deallocate_outputs": true,
+  "pool_verified_before_reset": false,
+  "torch": "2.11.0+cu130",
+  "cuda": "13.0",
+  "gpu_training_run": true,
+  "rank": 0,
+  "gpu": "NVIDIA RTX A6000",
+  "samples": [
+    {
+      "step": 3,
+      "seconds": 1.6865272159921005,
+      "peak_allocated_bytes": 33134130176,
+      "peak_reserved_bytes": 36022779904,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 4,
+      "seconds": 1.691533261910081,
+      "peak_allocated_bytes": 33134130176,
+      "peak_reserved_bytes": 36022779904,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 5,
+      "seconds": 1.689452697057277,
+      "peak_allocated_bytes": 33134130176,
+      "peak_reserved_bytes": 36022779904,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 6,
+      "seconds": 1.6867921029916033,
+      "peak_allocated_bytes": 33134130176,
+      "peak_reserved_bytes": 36022779904,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 7,
+      "seconds": 1.6810574230039492,
+      "peak_allocated_bytes": 33134130176,
+      "peak_reserved_bytes": 36022779904,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 8,
+      "seconds": 1.6815669039497152,
+      "peak_allocated_bytes": 33134130176,
+      "peak_reserved_bytes": 36022779904,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 9,
+      "seconds": 1.6818932510213926,
+      "peak_allocated_bytes": 33134130176,
+      "peak_reserved_bytes": 36022779904,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 10,
+      "seconds": 1.682430342072621,
+      "peak_allocated_bytes": 33134130176,
+      "peak_reserved_bytes": 36022779904,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 11,
+      "seconds": 1.681117472006008,
+      "peak_allocated_bytes": 33134130176,
+      "peak_reserved_bytes": 36022779904,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 12,
+      "seconds": 1.6824289880460128,
+      "peak_allocated_bytes": 33134130176,
+      "peak_reserved_bytes": 36022779904,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    }
+  ],
+  "states": [],
+  "offload_status": {
+    "selected_group_calls": 0,
+    "selected_transfer_bytes": 0,
+    "offload_summary_bytes": 0
+  }
+}
