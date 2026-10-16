@@ -1,0 +1,22 @@
+{
+  "gpu_tested_implementation": "8a2d19894288a8eb890dfdf20c9d54683035de80",
+  "documentation_head": "e9975a744efad181f9ab586ce33f58e7a9649ac8",
+  "changed_files": [
+    "docs/developer/gdn_activation_offloading.md"
+  ],
+  "identical_git_trees": {
+    "megatron": {
+      "8a2d19894288a8eb890dfdf20c9d54683035de80": "0211334025417075902e34e16ffae595f322851d",
+      "e9975a744efad181f9ab586ce33f58e7a9649ac8": "0211334025417075902e34e16ffae595f322851d"
+    },
+    "tools": {
+      "8a2d19894288a8eb890dfdf20c9d54683035de80": "09dc5a2434e69e4606f2b8c7ba9faadb99dfde2c",
+      "e9975a744efad181f9ab586ce33f58e7a9649ac8": "09dc5a2434e69e4606f2b8c7ba9faadb99dfde2c"
+    },
+    "tests": {
+      "8a2d19894288a8eb890dfdf20c9d54683035de80": "4d002cbf3e063ac7e0ad5e9ee340e107bb6c5cb9",
+      "e9975a744efad181f9ab586ce33f58e7a9649ac8": "4d002cbf3e063ac7e0ad5e9ee340e107bb6c5cb9"
+    }
+  },
+  "gpu_reexecuted": false
+}

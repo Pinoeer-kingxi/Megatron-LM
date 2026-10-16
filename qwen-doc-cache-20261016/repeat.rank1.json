@@ -1,0 +1,33 @@
+{
+  "rank": 1,
+  "cache": "/tmp/qwen-offload-triton.8U7j3u/rank-1",
+  "argv": [
+    "--weights",
+    "/path/to/Qwen3.5-0.8B",
+    "--data",
+    "/path/to/messages.jsonl",
+    "--tp",
+    "2",
+    "--sp",
+    "--pp",
+    "2",
+    "--seq-length",
+    "128",
+    "--min-offloaded-tensor-size",
+    "1024",
+    "--warmup",
+    "1",
+    "--iterations",
+    "2",
+    "--check-state",
+    "--output",
+    "/home/songbinbin/gdn-offload-artifacts/qwen-doc-cache-fix-20261016/repeat.json",
+    "--review-argument",
+    "two words"
+  ],
+  "ownership": {
+    "rank": 1,
+    "created_by": "baseline"
+  },
+  "environment_set_before_target_imports": true
+}

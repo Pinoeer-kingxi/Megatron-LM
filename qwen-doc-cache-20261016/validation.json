@@ -1,0 +1,80 @@
+{
+  "source_commit": "e9975a744efad181f9ab586ce33f58e7a9649ac8",
+  "gpu_used": false,
+  "container_command": [
+    "docker",
+    "run",
+    "--rm",
+    "--detach",
+    "--name",
+    "megatron-gdn-doc-cache-check-20261016",
+    "--network",
+    "none",
+    "--hostname",
+    "gdn-doc-cpu",
+    "--add-host",
+    "gdn-doc-cpu:127.0.0.1",
+    "--mount",
+    "type=bind,source=/home/songbinbin/gdn-offload-artifacts,target=/home/songbinbin/gdn-offload-artifacts,readonly",
+    "--mount",
+    "type=bind,source=/home/songbinbin/gdn-offload-artifacts,target=/artifacts,readonly",
+    "--mount",
+    "type=bind,source=/home/songbinbin/.venvs/megatron-gdn-offload,target=/home/songbinbin/.venvs/megatron-gdn-offload,readonly",
+    "--mount",
+    "type=bind,source=/data/songbinbin/minicoda,target=/data/songbinbin/minicoda,readonly",
+    "--mount",
+    "type=bind,source=/home/songbinbin/gdn-offload-artifacts/qwen-doc-cache-fix-20261016,target=/home/songbinbin/gdn-offload-artifacts/qwen-doc-cache-fix-20261016",
+    "--env",
+    "PATH=/home/songbinbin/.venvs/megatron-gdn-offload/bin:/usr/local/bin:/usr/bin:/bin",
+    "--env",
+    "CUDA_VISIBLE_DEVICES=",
+    "--env",
+    "NVIDIA_VISIBLE_DEVICES=void",
+    "--env",
+    "PYTHONDONTWRITEBYTECODE=1",
+    "--env",
+    "OMP_NUM_THREADS=1",
+    "sha256:061e8fda67a4dd1c1c635129d4ba0442b7a093cc6fd737423e9589eb6be22034",
+    "sleep",
+    "infinity"
+  ],
+  "checks": [
+    {
+      "name": "launcher-smoke",
+      "command": [
+        "docker",
+        "exec",
+        "megatron-gdn-doc-cache-check-20261016",
+        "bash",
+        "/home/songbinbin/gdn-offload-artifacts/qwen-doc-cache-fix-20261016/launcher-smoke.sh"
+      ],
+      "started_utc": "2026-10-16T14:01:19.870069+00:00",
+      "exit_code": 0,
+      "finished_utc": "2026-10-16T14:01:27.352590+00:00"
+    },
+    {
+      "name": "strict-docs",
+      "command": [
+        "docker",
+        "exec",
+        "--workdir",
+        "/home/songbinbin/gdn-offload-artifacts/qwen-doc-cache-fix-20261016/source",
+        "megatron-gdn-doc-cache-check-20261016",
+        "/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/docs-venv/bin/python",
+        "-m",
+        "sphinx",
+        "-j",
+        "4",
+        "-b",
+        "html",
+        "-W",
+        "--keep-going",
+        "docs",
+        "/home/songbinbin/gdn-offload-artifacts/qwen-doc-cache-fix-20261016/html"
+      ],
+      "started_utc": "2026-10-16T14:01:27.353028+00:00",
+      "exit_code": 1,
+      "finished_utc": "2026-10-16T14:03:32.278258+00:00"
+    }
+  ]
+}
