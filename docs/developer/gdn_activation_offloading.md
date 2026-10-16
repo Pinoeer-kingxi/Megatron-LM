@@ -46,9 +46,9 @@ force-release inputs or break their storage aliases. The output norm and its
 optional recomputation checkpoint remain outside the scope.
 
 Shared manager/scheduler lifecycle and transfer-ordering fixes are reviewed
-separately from this integration. Fixed-tile gate backward is also a separate
-numerical change: it affects existing fused execution when offload is disabled.
-The final integration must be validated with both prerequisite fixes present.
+separately from this integration in PR #8243. This feature preserves the upstream
+pre-GDR kernels, including their autotuning and atomic parameter-gradient
+reductions. The separate repeatability change in PR #8244 is not a dependency.
 
 ## Reproduce profiling and training checks
 
@@ -105,8 +105,13 @@ or clear its rank subdirectories between matched runs. Repeat with
 `--recompute-norm` off/on and `--fused-pre-gdr` off/on, using a new root and a
 separate disabled baseline for each fusion/recomputation pair. Keep topology,
 rank mapping and model inputs identical within each pair.
-Require exact equality of recorded losses, gradient norms, all accumulated
-gradients, updated weights and complete Adam/master-weight state on every rank.
+For unfused pre-GDR, require exact equality of recorded losses, gradient norms,
+all accumulated gradients, updated weights and complete Adam/master-weight state
+on every rank. Fused pre-GDR uses native atomic gate-gradient reductions and can
+differ even between disabled baselines. Its fingerprints can detect differences
+but cannot measure their numerical size; a fused correctness comparison must
+inspect the actual tensors against repeated disabled baselines with explicit
+numerical tolerances.
 Check zero pinned-buffer ownership before native schedule resets; positive
 fractions must select transfers. The supplied JSONL must contain a `messages`
 field accepted by the local tokenizer's chat template.
@@ -128,7 +133,9 @@ provide no throughput or convergence qualification.
 Training evidence must identify the exact source commit, launcher commands,
 per-rank outputs and exit codes. CPU configuration, manifest and documentation
 checks do not qualify GPU training. PR descriptions identify the tested revisions;
-historical results do not qualify later source changes.
+historical results do not qualify later source changes. Results recorded with
+the fixed gate reduction from PR #8244 do not qualify the restored upstream fused
+path.
 
 Historical evidence remains useful with its original source identity:
 
