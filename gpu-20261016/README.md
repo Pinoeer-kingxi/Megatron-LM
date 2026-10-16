@@ -102,8 +102,10 @@ python3 -S validate-gpu-results-20261016.py
 
 Both Python commands exit zero. They regenerate derived reports for the local
 directory; they do not change the raw run files. Verify checksums before
-regenerating the reports. The exported bundle was also extracted into a temporary
-directory and rechecked without access to the original workspace, weights or GPUs.
+regenerating the reports. The exported bundle was also rechecked in an isolated CPU container with no
+network, GPU devices or original workspace mounted. Only the extracted bundle
+and a read-only Python runtime were mounted. The [command and result](gpu-export-isolated-20261016.json)
+and [log](gpu-export-isolated-20261016.log) record both verifier exits as zero.
 
 The [Chinese report](gpu-acceptance-20261015/README.md) describes the environment,
 commands and individual runs. GPU replay requires the recorded local container

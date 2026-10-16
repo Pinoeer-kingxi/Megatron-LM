@@ -1,0 +1,33 @@
+{
+  "image": "sha256:061e8fda67a4dd1c1c635129d4ba0442b7a093cc6fd737423e9589eb6be22034",
+  "archive_sha256": "fcfae62d0f8fed9d24cf55a8213f62d733ec458c10d87ea984bc0360f9610bd9",
+  "network": "none",
+  "gpu_devices_mounted": false,
+  "original_workspace_mounted": false,
+  "bind_mounts": [
+    "extracted bundle at /evidence",
+    "read-only Python runtime at /python-runtime (-S)"
+  ],
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--env",
+    "PYTHONDONTWRITEBYTECODE=1",
+    "--mount",
+    "type=bind,source=/tmp/gdn-isolated-export-yq14i_yu/gpu-evidence-20261016,target=/evidence",
+    "--mount",
+    "type=bind,source=/data/songbinbin/minicoda,target=/python-runtime,readonly",
+    "--workdir",
+    "/evidence",
+    "sha256:061e8fda67a4dd1c1c635129d4ba0442b7a093cc6fd737423e9589eb6be22034",
+    "/python-runtime/bin/python3.12",
+    "-S",
+    "-c",
+    "from pathlib import Path\nimport json,subprocess,sys\nassert not Path('/home/songbinbin/gdn-offload-artifacts').exists()\nsubprocess.run(['sha256sum','--check','--quiet','gpu-evidence-20261016.SHA256SUMS'],check=True)\nsubprocess.run([sys.executable,'-S','analyze-qwen-cache-20261016.py'],check=True)\nsubprocess.run([sys.executable,'-S','validate-gpu-results-20261016.py'],check=True)\nr=json.loads(Path('gpu-validation-20261016.json').read_text())\nassert r['acceptance_status']=='passed_current_sources'\nprint('ISOLATED_EXPORT_VERIFIED')\n"
+  ],
+  "exit_code": 0,
+  "acceptance_status": "passed_current_sources"
+}
