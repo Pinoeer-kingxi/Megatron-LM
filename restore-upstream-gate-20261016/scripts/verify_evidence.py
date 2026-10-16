@@ -19,6 +19,16 @@ source = read('source-validation.json')
 assert source['source_commit'] == REVISION
 assert source['archive_files_compared'] == 3532 and source['archive_files_unchanged']
 assert source['source_worktree_clean']
+final = read('final-head.json')
+assert final['final_head'] == 'b113b63614f201572f1e3742b4765449e55ceb3c'
+assert final['executed_source'] == REVISION
+assert final['complete_tree_identical'] and final['removed_gate_fix_revert_history']
+assert final['executed_tree'] == final['final_tree'] == '1265e652350d601b43f66dc8527d6e26f0ac5fe8'
+assert final['feature_commits_above_shared'] == 1
+commits = read('commit-trees.json')
+assert {row['sha'] for row in commits} == {REVISION, final['final_head']}
+assert all(row['tree'] == final['final_tree'] for row in commits)
+assert next(row for row in commits if row['sha'] == final['final_head'])['parents'] == [final['shared_parent']]
 for name in ('checks.json', 'long-checks.json'):
     record = read(name)
     assert record['source_commit'] == REVISION and record['status'] == 'passed'

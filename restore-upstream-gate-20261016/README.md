@@ -7,6 +7,13 @@ SHA-256 `c8a0247766bbc78ee3f98841a3eb9c033109bf3575bb9d2df99b4cbf2a0df920`.
 This restores autotuning, atomic parameter-gradient accumulation and the original
 buffers. PR #7908 no longer depends on the independent #8244 repeatability change.
 
+Final PR head: `b113b63614f201572f1e3742b4765449e55ceb3c`. It removes the gate
+fix/revert from the feature's history, leaving one feature commit above #8243.
+Its complete Git tree is identical to the actually executed commit:
+`1265e652350d601b43f66dc8527d6e26f0ac5fe8`. `final-head.json` and
+`commit-trees.json` retain the mapping and public GitHub commit metadata. No test
+result has been relabeled as execution at the new commit.
+
 All tests import a frozen `git archive` snapshot of the measured commit.
 `source-validation.json` records the archive checksum and comparison of all 3532
 archived files after execution. No production or test source changed during the

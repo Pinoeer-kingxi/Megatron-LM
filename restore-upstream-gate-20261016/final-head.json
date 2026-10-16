@@ -1,0 +1,24 @@
+{
+  "final_head": "b113b63614f201572f1e3742b4765449e55ceb3c",
+  "executed_source": "67fb40d842035a8873979759775b4165381ae60e",
+  "shared_parent": "af9569270f476dc201484296315a9c30dcaa3feb",
+  "executed_tree": "1265e652350d601b43f66dc8527d6e26f0ac5fe8",
+  "final_tree": "1265e652350d601b43f66dc8527d6e26f0ac5fe8",
+  "complete_tree_identical": true,
+  "feature_commits_above_shared": 1,
+  "removed_gate_fix_revert_history": true,
+  "feature_paths": [
+    "docs/developer/gdn_activation_offloading.md",
+    "docs/index.md",
+    "docs/user-guide/features/fine_grained_activation_offloading.md",
+    "megatron/core/ssm/gated_delta_net/gdn.py",
+    "megatron/core/transformer/transformer_config.py",
+    "tests/unit_tests/determinism/kernels/manifest.py",
+    "tests/unit_tests/ssm/test_gated_delta_net_offloading.py",
+    "tests/unit_tests/ssm/test_gdn_activation_offload.py",
+    "tests/unit_tests/ssm/test_gdn_offload_training.py",
+    "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py",
+    "tools/ssm/gdn_activation_offload.py",
+    "tools/ssm/qwen_gdn_offload_training.py"
+  ]
+}
