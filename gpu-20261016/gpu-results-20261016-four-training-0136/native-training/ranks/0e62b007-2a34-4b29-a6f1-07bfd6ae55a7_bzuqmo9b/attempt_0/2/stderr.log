@@ -1,0 +1,7 @@
+[rank2]:W1016 08:45:56.206000 27 torch/_dynamo/convert_frame.py:1743] [10/8] torch._dynamo hit config.recompile_limit (8)
+[rank2]:W1016 08:45:56.206000 27 torch/_dynamo/convert_frame.py:1743] [10/8]    function: 'torch_dynamo_resume_in__apply_gated_norm_unfused_at_177' (/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/feature/megatron/core/ssm/gated_delta_net/gdn.py:177)
+[rank2]:W1016 08:45:56.206000 27 torch/_dynamo/convert_frame.py:1743] [10/8]    last reason: 10/7: GLOBAL_STATE changed: grad_mode 
+[rank2]:W1016 08:45:56.206000 27 torch/_dynamo/convert_frame.py:1743] [10/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+[rank2]:W1016 08:45:56.206000 27 torch/_dynamo/convert_frame.py:1743] [10/8] To diagnose recompilation issues, see https://docs.pytorch.org/docs/main/user_guide/torch_compiler/compile/programming_model.recompilation.html
+[rank2]:[W1016 08:47:44.050607726 ProcessGroupNCCL.cpp:4094] Warning: An unbatched P2P op (send/recv) was called on this ProcessGroup with size 2.  In lazy initialization mode, this will result in a new 2-rank NCCL communicator to be created. (function operator())
+[rank2]:[W1016 08:47:44.148423549 ProcessGroupNCCL.cpp:4094] Warning: An unbatched P2P op (send/recv) was called on this ProcessGroup with size 4.  In lazy initialization mode, this will result in a new 2-rank NCCL communicator to be created. (function operator())

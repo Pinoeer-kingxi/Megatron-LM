@@ -1,0 +1,5 @@
+{
+  "gpu_tests_executed": false,
+  "status": "cpu_plugin_smoke_passed",
+  "intentional_pytest_failure_detected": true
+}

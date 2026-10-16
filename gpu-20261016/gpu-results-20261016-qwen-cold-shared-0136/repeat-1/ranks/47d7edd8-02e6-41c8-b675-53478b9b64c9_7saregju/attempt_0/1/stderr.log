@@ -1,0 +1,23 @@
+INFO:megatron.bridge.models.gemma.gemma2_provider:Gemma2: PyTorch FlexAttention available — softcap+SWA fused via Triton score_mod.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/feature/megatron/core/transformer/transformer_config.py:3427: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+  warnings.warn(
+/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/feature/tools/ssm/qwen_gdn_offload_training.py:262: DeprecationWarning: ModelProviderMixin-based model configuration is deprecated. Migrate to ModelConfig + ModelBuilder.
+  parents = provider.provide_distributed_model(
+/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/_dynamo/variables/functions.py:2202: UserWarning: Dynamo detected a call to a `functools.lru_cache`-wrapped function at '_common.py:101'. Dynamo ignores the cache wrapper and directly traces the wrapped function. Silent incorrectness is only a *potential* risk, not something we have observed. Enable TORCH_LOGS=+dynamo for a DEBUG stack trace.
+
+This call originates from:
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/transformer_engine/pytorch/ops/_common.py", line 101, in maybe_autocast_dtype
+    if torch_version() >= (2, 4, 3):
+
+  torch._dynamo.utils.warn_once(msg)
+/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/_dynamo/variables/functions.py:2082: UserWarning: Dynamo does not know how to trace the builtin `transformer_engine_torch.pybind11_detail_function_record_v1_system_libstdcpp_gxx_abi_1xxx_use_cxx11_abi_1.rmsnorm_fwd.` This function is either a Python builtin (e.g. _warnings.warn) or a third-party C/C++ Python extension (perhaps created with pybind).
+If it is a Python builtin, please file an issue on GitHub so the PyTorch team can add support for it and see the next case for a workaround.
+If it is a third-party C/C++ Python extension, please either wrap it into a PyTorch-understood custom operator (see https://pytorch.org/tutorials/advanced/custom_ops_landing_page.html for more details) or, if it is traceable, use `torch.compiler.allow_in_graph`.
+  torch._dynamo.utils.warn_once(explanation + "\n" + "\n".join(hints))
+[rank1]:[W1016 09:37:44.229746366 ProcessGroupNCCL.cpp:4094] Warning: An unbatched P2P op (send/recv) was called on this ProcessGroup with size 2.  In lazy initialization mode, this will result in a new 2-rank NCCL communicator to be created. (function operator())
+[rank1]:[W1016 09:37:44.418946605 ProcessGroupNCCL.cpp:4094] Warning: An unbatched P2P op (send/recv) was called on this ProcessGroup with size 4.  In lazy initialization mode, this will result in a new 2-rank NCCL communicator to be created. (function operator())
+INFO:root:Rank 1 step 0: losses=[] grad_norm=tensor([55.6546], device='cuda:1') selected_transfer_bytes=0
+INFO:root:Rank 1 step 1: losses=[] grad_norm=tensor([109.3649], device='cuda:1') selected_transfer_bytes=0
+INFO:root:Rank 1 step 2: losses=[] grad_norm=tensor([104.8782], device='cuda:1') selected_transfer_bytes=0
+INFO:root:Wrote /home/songbinbin/gdn-offload-artifacts/gpu-results-20261016-qwen-cold-shared-0136/repeat-1/result.rank1.json

@@ -1,0 +1,19 @@
+test_all_qwen_states_and_gradient_difference (test_acceptance.AcceptanceTests) ... ok
+test_autotune_evidence_keeps_rank_ownership_and_actual_winner (test_acceptance.AcceptanceTests) ... ok
+test_benchmark_reports_regression_without_hiding_it (test_acceptance.AcceptanceTests) ... ok
+test_busy_devices_are_rejected (test_acceptance.AcceptanceTests) ... ok
+test_cuda_and_nvidia_smi_uuid_formats_identify_the_same_device (test_acceptance.AcceptanceTests) ... ok
+test_dirty_source_is_rejected (test_acceptance.AcceptanceTests) ... ok
+test_exported_run_checksums_and_incomplete_plan (test_acceptance.AcceptanceTests) ... ok
+test_job_matrix_and_fresh_qwen_processes (test_acceptance.AcceptanceTests) ... ok
+test_per_rank_counts_and_missing_rank (test_acceptance.AcceptanceTests) ... ok
+test_preflight_and_missing_losses_cannot_qualify_training (test_acceptance.AcceptanceTests) ... ok
+test_qwen_requires_real_transfers_and_finite_gradients (test_acceptance.AcceptanceTests) ... ok
+test_rank_cache_is_set_before_target_and_preserves_argv (test_acceptance.AcceptanceTests) ... ok
+test_skips_do_not_pass_required_tests (test_acceptance.AcceptanceTests) ... ok
+test_teardown_failure_is_not_hidden_by_passed_calls (test_acceptance.AcceptanceTests) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.162s
+
+OK

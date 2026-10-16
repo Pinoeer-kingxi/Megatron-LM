@@ -1,0 +1,6 @@
+usage: run_gpu_acceptance.py [-h] --gpus GPUS --output OUTPUT
+                             [--source-root SOURCE_ROOT] [--weights WEIGHTS]
+                             [--data DATA] [--training-only]
+                             [--timeout TIMEOUT] [--dry-run]
+                             {single,four}
+run_gpu_acceptance.py: error: --training-only requires stage four

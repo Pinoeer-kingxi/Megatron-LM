@@ -1,0 +1,28 @@
+{
+  "command": [
+    "docker",
+    "exec",
+    "--env",
+    "TRITON_PRINT_AUTOTUNING=1",
+    "--workdir",
+    "/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/feature",
+    "--env",
+    "PYTHONPATH=/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/feature:/home/songbinbin/gdn-offload-artifacts/flash-attn-python:/home/songbinbin/gdn-offload-artifacts/causal-conv1d-python:/home/songbinbin/gdn-offload-artifacts/bridge-python:/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/bridge/src",
+    "megatron-gdn-control-112d7bcb19d5",
+    "/home/songbinbin/.venvs/megatron-gdn-offload/bin/python",
+    "-c",
+    "import importlib.metadata as m,json,os,sys; print(json.dumps({'python':sys.version,'packages':{k:m.version(k) for k in ('torch','triton','transformer-engine','flash-linear-attention','causal-conv1d','flash-attn')},'cuda_visible_devices':os.environ['CUDA_VISIBLE_DEVICES']}))"
+  ],
+  "result": {
+    "python": "3.12.4 | packaged by Anaconda, Inc. | (main, Jun 18 2024, 15:12:24) [GCC 11.2.0]",
+    "packages": {
+      "torch": "2.11.0+cu130",
+      "triton": "3.6.0",
+      "transformer-engine": "2.20.2",
+      "flash-linear-attention": "0.5.1",
+      "causal-conv1d": "1.6.1",
+      "flash-attn": "2.8.3"
+    },
+    "cuda_visible_devices": "GPU-5e2e1f94-e88e-48e3-247d-328b52fc68db,GPU-df9e07cc-8ebc-3204-fabd-601044f800f8,GPU-c8b76e6b-5a4b-7829-4c91-139b71218405,GPU-40c36f3c-9282-74a6-63d2-077d1e4a1cb7"
+  }
+}

@@ -1,0 +1,527 @@
+{
+  "acceptance_status": "passed_current_sources",
+  "sources": {
+    "base": "9131593673d037d360d252904f9198d36bc0c246",
+    "shared": "af9569270f476dc201484296315a9c30dcaa3feb",
+    "gate": "9d54b8729c9277f1e032110c5e1b149e9654bcc5",
+    "feature": "8a2d19894288a8eb890dfdf20c9d54683035de80"
+  },
+  "gpus_by_run": {
+    "/home/songbinbin/gdn-offload-artifacts/gpu-results-20261016-four-0136": [
+      {
+        "uuid": "GPU-a77106b7-62f7-c58e-3fd7-780d7732fc96",
+        "minor": 0,
+        "name": "NVIDIA RTX A6000",
+        "driver": "580.178.04"
+      },
+      {
+        "uuid": "GPU-5e2e1f94-e88e-48e3-247d-328b52fc68db",
+        "minor": 1,
+        "name": "NVIDIA RTX A6000",
+        "driver": "580.178.04"
+      },
+      {
+        "uuid": "GPU-c8b76e6b-5a4b-7829-4c91-139b71218405",
+        "minor": 3,
+        "name": "NVIDIA RTX A6000",
+        "driver": "580.178.04"
+      },
+      {
+        "uuid": "GPU-40c36f3c-9282-74a6-63d2-077d1e4a1cb7",
+        "minor": 6,
+        "name": "NVIDIA RTX A6000",
+        "driver": "580.178.04"
+      }
+    ],
+    "/home/songbinbin/gdn-offload-artifacts/gpu-results-20261016-four-training-0136": [
+      {
+        "uuid": "GPU-a77106b7-62f7-c58e-3fd7-780d7732fc96",
+        "minor": 0,
+        "name": "NVIDIA RTX A6000",
+        "driver": "580.178.04"
+      },
+      {
+        "uuid": "GPU-5e2e1f94-e88e-48e3-247d-328b52fc68db",
+        "minor": 1,
+        "name": "NVIDIA RTX A6000",
+        "driver": "580.178.04"
+      },
+      {
+        "uuid": "GPU-c8b76e6b-5a4b-7829-4c91-139b71218405",
+        "minor": 3,
+        "name": "NVIDIA RTX A6000",
+        "driver": "580.178.04"
+      },
+      {
+        "uuid": "GPU-40c36f3c-9282-74a6-63d2-077d1e4a1cb7",
+        "minor": 6,
+        "name": "NVIDIA RTX A6000",
+        "driver": "580.178.04"
+      }
+    ],
+    "/home/songbinbin/gdn-offload-artifacts/gpu-results-20261016-qwen-baseline-repeat-0136": [
+      {
+        "uuid": "GPU-a77106b7-62f7-c58e-3fd7-780d7732fc96",
+        "minor": 0,
+        "name": "NVIDIA RTX A6000",
+        "driver": "580.178.04"
+      },
+      {
+        "uuid": "GPU-5e2e1f94-e88e-48e3-247d-328b52fc68db",
+        "minor": 1,
+        "name": "NVIDIA RTX A6000",
+        "driver": "580.178.04"
+      },
+      {
+        "uuid": "GPU-c8b76e6b-5a4b-7829-4c91-139b71218405",
+        "minor": 3,
+        "name": "NVIDIA RTX A6000",
+        "driver": "580.178.04"
+      },
+      {
+        "uuid": "GPU-40c36f3c-9282-74a6-63d2-077d1e4a1cb7",
+        "minor": 6,
+        "name": "NVIDIA RTX A6000",
+        "driver": "580.178.04"
+      }
+    ],
+    "/home/songbinbin/gdn-offload-artifacts/gpu-results-20261016-qwen-matched-pair-0136": [
+      {
+        "uuid": "GPU-a77106b7-62f7-c58e-3fd7-780d7732fc96",
+        "minor": 0,
+        "name": "NVIDIA RTX A6000",
+        "driver": "580.178.04"
+      },
+      {
+        "uuid": "GPU-5e2e1f94-e88e-48e3-247d-328b52fc68db",
+        "minor": 1,
+        "name": "NVIDIA RTX A6000",
+        "driver": "580.178.04"
+      },
+      {
+        "uuid": "GPU-c8b76e6b-5a4b-7829-4c91-139b71218405",
+        "minor": 3,
+        "name": "NVIDIA RTX A6000",
+        "driver": "580.178.04"
+      },
+      {
+        "uuid": "GPU-40c36f3c-9282-74a6-63d2-077d1e4a1cb7",
+        "minor": 6,
+        "name": "NVIDIA RTX A6000",
+        "driver": "580.178.04"
+      }
+    ],
+    "/home/songbinbin/gdn-offload-artifacts/gpu-results-20261016-single-0": [
+      {
+        "uuid": "GPU-a77106b7-62f7-c58e-3fd7-780d7732fc96",
+        "minor": 0,
+        "name": "NVIDIA RTX A6000",
+        "driver": "580.178.04"
+      }
+    ],
+    "/home/songbinbin/gdn-offload-artifacts/gpu-results-20261016-qwen-cold-isolated-1236": [
+      {
+        "uuid": "GPU-5e2e1f94-e88e-48e3-247d-328b52fc68db",
+        "minor": 1,
+        "name": "NVIDIA RTX A6000",
+        "driver": "580.178.04"
+      },
+      {
+        "uuid": "GPU-df9e07cc-8ebc-3204-fabd-601044f800f8",
+        "minor": 2,
+        "name": "NVIDIA RTX A6000",
+        "driver": "580.178.04"
+      },
+      {
+        "uuid": "GPU-c8b76e6b-5a4b-7829-4c91-139b71218405",
+        "minor": 3,
+        "name": "NVIDIA RTX A6000",
+        "driver": "580.178.04"
+      },
+      {
+        "uuid": "GPU-40c36f3c-9282-74a6-63d2-077d1e4a1cb7",
+        "minor": 6,
+        "name": "NVIDIA RTX A6000",
+        "driver": "580.178.04"
+      }
+    ]
+  },
+  "cold_cache_four_gpu_control": {
+    "directory": "/home/songbinbin/gdn-offload-artifacts/gpu-results-20261016-qwen-cold-isolated-1236",
+    "ranks": 4,
+    "gpus": [
+      {
+        "uuid": "GPU-5e2e1f94-e88e-48e3-247d-328b52fc68db",
+        "minor": 1,
+        "name": "NVIDIA RTX A6000",
+        "driver": "580.178.04"
+      },
+      {
+        "uuid": "GPU-df9e07cc-8ebc-3204-fabd-601044f800f8",
+        "minor": 2,
+        "name": "NVIDIA RTX A6000",
+        "driver": "580.178.04"
+      },
+      {
+        "uuid": "GPU-c8b76e6b-5a4b-7829-4c91-139b71218405",
+        "minor": 3,
+        "name": "NVIDIA RTX A6000",
+        "driver": "580.178.04"
+      },
+      {
+        "uuid": "GPU-40c36f3c-9282-74a6-63d2-077d1e4a1cb7",
+        "minor": 6,
+        "name": "NVIDIA RTX A6000",
+        "driver": "580.178.04"
+      }
+    ],
+    "started_with_empty_cache": true,
+    "three_arms_equal": true,
+    "cache_unchanged_after_first_arm": true,
+    "runtime_configs_match_persisted_choices": 48,
+    "manifest_sha256": "991e84df0b47d40c2148045f9f3f756e830dd62554c79c495deed1d6b8af4af9"
+  },
+  "original_runs": [
+    "/home/songbinbin/gdn-offload-artifacts/gpu-results-20261016-four-0136",
+    "/home/songbinbin/gdn-offload-artifacts/gpu-results-20261016-four-training-0136",
+    "/home/songbinbin/gdn-offload-artifacts/gpu-results-20261016-qwen-baseline-repeat-0136",
+    "/home/songbinbin/gdn-offload-artifacts/gpu-results-20261016-qwen-matched-pair-0136",
+    "/home/songbinbin/gdn-offload-artifacts/gpu-results-20261016-single-0",
+    "/home/songbinbin/gdn-offload-artifacts/gpu-results-20261016-qwen-cold-isolated-1236"
+  ],
+  "original_manifest_sha256": {
+    "/home/songbinbin/gdn-offload-artifacts/gpu-results-20261016-four-0136/manifest.json": "f5bda8fcc84ff8182f4859f2998984cf4e15245b5dd76b405df0dd2600c4e481",
+    "/home/songbinbin/gdn-offload-artifacts/gpu-results-20261016-four-training-0136/manifest.json": "8f86c4654e4fc8c44b8217d3e3b7ea89e1b96387301b23e57dabea04712b2ad4",
+    "/home/songbinbin/gdn-offload-artifacts/gpu-results-20261016-qwen-baseline-repeat-0136/commands.json": "e88c6992d3a9233d13eed02bd6df23cb91e26410626ffa63a2c4fe5a4b6dc4d3",
+    "/home/songbinbin/gdn-offload-artifacts/gpu-results-20261016-qwen-matched-pair-0136/commands.json": "50087084ba120fde809b4be497a5934661fa0491b30eec6a23fc83ee7302494b",
+    "/home/songbinbin/gdn-offload-artifacts/gpu-results-20261016-single-0/manifest.json": "bcdf947467869276770ab32692fa5db2bb64d28a37ae38bd17a535c36394398a",
+    "/home/songbinbin/gdn-offload-artifacts/gpu-results-20261016-qwen-cold-isolated-1236/commands.json": "991e84df0b47d40c2148045f9f3f756e830dd62554c79c495deed1d6b8af4af9"
+  },
+  "raw_four_matrix_status": "failed",
+  "raw_four_matrix_error": "ValueError: Qwen fusion=0, norm=0, rank=0, step=2: grad_norm differs",
+  "raw_single_status": "failed",
+  "raw_single_error": "ValueError: /home/songbinbin/gdn-offload-artifacts/gpu-results-20261016-single-0/gate-bench-1-2048-16-0/result.json: unexpected device or offload setting",
+  "recheck_verifier_sha256": "929e4b219075e7e2e7eb59da2a732fa58cc2aa087d0f4eb19c40ad1e1c2ef840",
+  "cache_diagnosis": "/home/songbinbin/gdn-offload-artifacts/qwen-cache-diagnosis-20261016.json",
+  "cache_diagnosis_sha256": "2eb9f31c5c2ff7d1ff268555b2a02e2a0292c188f5f650613cf946a56969a7cc",
+  "tests": {
+    "shared-groups": {
+      "ranks": [
+        {
+          "rank": 0,
+          "passed": 16,
+          "skipped": []
+        },
+        {
+          "rank": 1,
+          "passed": 16,
+          "skipped": []
+        },
+        {
+          "rank": 2,
+          "passed": 16,
+          "skipped": []
+        },
+        {
+          "rank": 3,
+          "passed": 16,
+          "skipped": []
+        }
+      ],
+      "skipped": 0
+    },
+    "shared-models": {
+      "ranks": [
+        {
+          "rank": 0,
+          "passed": 24,
+          "skipped": []
+        },
+        {
+          "rank": 1,
+          "passed": 24,
+          "skipped": []
+        },
+        {
+          "rank": 2,
+          "passed": 24,
+          "skipped": []
+        },
+        {
+          "rank": 3,
+          "passed": 24,
+          "skipped": []
+        }
+      ],
+      "skipped": 0
+    },
+    "native-training": {
+      "ranks": [
+        {
+          "rank": 0,
+          "passed": 96,
+          "skipped": []
+        },
+        {
+          "rank": 1,
+          "passed": 96,
+          "skipped": []
+        },
+        {
+          "rank": 2,
+          "passed": 96,
+          "skipped": []
+        },
+        {
+          "rank": 3,
+          "passed": 96,
+          "skipped": []
+        }
+      ],
+      "skipped": 0
+    },
+    "single-shared-races": {
+      "ranks": [
+        {
+          "rank": 0,
+          "passed": 4,
+          "skipped": []
+        }
+      ],
+      "skipped": 0
+    },
+    "gate-replay": {
+      "ranks": [
+        {
+          "rank": 0,
+          "passed": 16,
+          "skipped": []
+        }
+      ],
+      "skipped": 0
+    },
+    "gdn-scopes": {
+      "ranks": [
+        {
+          "rank": 0,
+          "passed": 73,
+          "skipped": []
+        }
+      ],
+      "skipped": 0
+    }
+  },
+  "baseline_controls": [
+    {
+      "rank": 0,
+      "repeats_equal": true,
+      "repeat_matches_offload": true,
+      "repeat_matches_original_baseline": false
+    },
+    {
+      "rank": 1,
+      "repeats_equal": true,
+      "repeat_matches_offload": true,
+      "repeat_matches_original_baseline": false
+    },
+    {
+      "rank": 2,
+      "repeats_equal": true,
+      "repeat_matches_offload": true,
+      "repeat_matches_original_baseline": false
+    },
+    {
+      "rank": 3,
+      "repeats_equal": true,
+      "repeat_matches_offload": true,
+      "repeat_matches_original_baseline": false
+    }
+  ],
+  "qwen_reference_map": {
+    "qwen-f0-n0-o0": "/home/songbinbin/gdn-offload-artifacts/gpu-results-20261016-qwen-cold-isolated-1236/repeat-1",
+    "qwen-f0-n0-o1": "/home/songbinbin/gdn-offload-artifacts/gpu-results-20261016-qwen-cold-isolated-1236/repeat-3",
+    "qwen-f0-n1-o0": "/home/songbinbin/gdn-offload-artifacts/gpu-results-20261016-four-training-0136/qwen-f0-n1-o0",
+    "qwen-f0-n1-o1": "/home/songbinbin/gdn-offload-artifacts/gpu-results-20261016-four-training-0136/qwen-f0-n1-o1",
+    "qwen-f1-n0-o0": "/home/songbinbin/gdn-offload-artifacts/gpu-results-20261016-four-training-0136/qwen-f1-n0-o0",
+    "qwen-f1-n0-o1": "/home/songbinbin/gdn-offload-artifacts/gpu-results-20261016-four-training-0136/qwen-f1-n0-o1",
+    "qwen-f1-n1-o0": "/home/songbinbin/gdn-offload-artifacts/gpu-results-20261016-four-training-0136/qwen-f1-n1-o0",
+    "qwen-f1-n1-o1": "/home/songbinbin/gdn-offload-artifacts/gpu-results-20261016-four-training-0136/qwen-f1-n1-o1"
+  },
+  "qualification_limit": "The original first unfused baseline differs at step 2. Two fresh offload-disabled repeats with the populated Triton cache agree with each other and the offload arm. A new direct baseline/offload pair with the populated cache also agrees. An empty shared-cache control reproduced differing runtime/persisted autotune configs and differing offload-disabled baselines. See the cache diagnosis for completed rank-isolation controls and interrupted runs. The original failed matrix is retained; this is not an unconditional cold-start bitwise-determinism guarantee across independently tuned configurations. The four-GPU cold-cache baseline/repeated-baseline/offload control now passes with per-rank cache ownership; the first comparison pair uses that direct control.",
+  "qwen_direct_pairs": {
+    "compared_rank_steps": 48,
+    "recorded_rank_steps": 96,
+    "compared_arms": 4,
+    "ranks": 4,
+    "exact_recorded_state_equal": true
+  },
+  "gate_performance": [
+    {
+      "batch": 1,
+      "sequence": 2048,
+      "value_heads": 16,
+      "fresh_processes": 3,
+      "paired_samples": 9,
+      "median_paired_runtime_change_pct": -6.244706394562794,
+      "paired_runtime_change_range_pct": [
+        -21.444870266846927,
+        -1.6146220377808218
+      ],
+      "median_ms": {
+        "baseline": 0.07656328962184489,
+        "candidate": 0.07114524953067303
+      },
+      "max_extra_peak_bytes": {
+        "baseline": 512,
+        "candidate": 2560
+      }
+    },
+    {
+      "batch": 1,
+      "sequence": 2048,
+      "value_heads": 32,
+      "fresh_processes": 3,
+      "paired_samples": 9,
+      "median_paired_runtime_change_pct": -8.154996529526237,
+      "paired_runtime_change_range_pct": [
+        -10.308951640636133,
+        -6.335382988787175
+      ],
+      "median_ms": {
+        "baseline": 0.07563202059827745,
+        "candidate": 0.06917514023371041
+      },
+      "max_extra_peak_bytes": {
+        "baseline": 512,
+        "candidate": 4608
+      }
+    },
+    {
+      "batch": 1,
+      "sequence": 4096,
+      "value_heads": 16,
+      "fresh_processes": 3,
+      "paired_samples": 9,
+      "median_paired_runtime_change_pct": -5.900961875120991,
+      "paired_runtime_change_range_pct": [
+        -19.777591159624663,
+        12.428795658344317
+      ],
+      "median_ms": {
+        "baseline": 0.0772625906392932,
+        "candidate": 0.07181424996815622
+      },
+      "max_extra_peak_bytes": {
+        "baseline": 512,
+        "candidate": 4608
+      }
+    },
+    {
+      "batch": 1,
+      "sequence": 4096,
+      "value_heads": 32,
+      "fresh_processes": 3,
+      "paired_samples": 9,
+      "median_paired_runtime_change_pct": -8.743213697053054,
+      "paired_runtime_change_range_pct": [
+        -9.128918161943556,
+        -6.845677495035485
+      ],
+      "median_ms": {
+        "baseline": 0.07519226055592299,
+        "candidate": 0.06884724949486554
+      },
+      "max_extra_peak_bytes": {
+        "baseline": 512,
+        "candidate": 8704
+      }
+    },
+    {
+      "batch": 4,
+      "sequence": 2048,
+      "value_heads": 16,
+      "fresh_processes": 3,
+      "paired_samples": 9,
+      "median_paired_runtime_change_pct": -6.99700935882599,
+      "paired_runtime_change_range_pct": [
+        -8.995122986381032,
+        -5.138411498685491
+      ],
+      "median_ms": {
+        "baseline": 0.07491231895983219,
+        "candidate": 0.06914908066391945
+      },
+      "max_extra_peak_bytes": {
+        "baseline": 512,
+        "candidate": 8704
+      }
+    },
+    {
+      "batch": 4,
+      "sequence": 2048,
+      "value_heads": 32,
+      "fresh_processes": 3,
+      "paired_samples": 9,
+      "median_paired_runtime_change_pct": -7.993212116712945,
+      "paired_runtime_change_range_pct": [
+        -9.279451250057647,
+        -5.711157012821477
+      ],
+      "median_ms": {
+        "baseline": 0.07552308030426502,
+        "candidate": 0.06969365989789367
+      },
+      "max_extra_peak_bytes": {
+        "baseline": 512,
+        "candidate": 16896
+      }
+    },
+    {
+      "batch": 4,
+      "sequence": 4096,
+      "value_heads": 16,
+      "fresh_processes": 3,
+      "paired_samples": 9,
+      "median_paired_runtime_change_pct": -7.569576143047351,
+      "paired_runtime_change_range_pct": [
+        -23.644520981339724,
+        5.178864594956889
+      ],
+      "median_ms": {
+        "baseline": 0.07507745991460979,
+        "candidate": 0.06990280002355576
+      },
+      "max_extra_peak_bytes": {
+        "baseline": 512,
+        "candidate": 16896
+      }
+    },
+    {
+      "batch": 4,
+      "sequence": 4096,
+      "value_heads": 32,
+      "fresh_processes": 3,
+      "paired_samples": 9,
+      "median_paired_runtime_change_pct": -7.116564214717935,
+      "paired_runtime_change_range_pct": [
+        -8.593219814793795,
+        -1.0963826945401878
+      ],
+      "median_ms": {
+        "baseline": 0.07478581042960286,
+        "candidate": 0.06944168009795249
+      },
+      "max_extra_peak_bytes": {
+        "baseline": 512,
+        "candidate": 33280
+      }
+    }
+  ],
+  "single_offline_recheck": {
+    "status": "passed",
+    "fix": "Normalize CUDA bare UUID and nvidia-smi GPU-prefixed UUID at the comparison boundary.",
+    "gpu_commands_rerun_for_fix": false,
+    "original_failed_manifest_retained": true
+  },
+  "gate_performance_review": "No obvious regression in the measured gate-wrapper cases: all eight paired runtime medians improved. Individual sample variation is retained in the ranges. The small temporary-buffer increase is reported per shape. This is not an end-to-end offload performance measurement."
+}

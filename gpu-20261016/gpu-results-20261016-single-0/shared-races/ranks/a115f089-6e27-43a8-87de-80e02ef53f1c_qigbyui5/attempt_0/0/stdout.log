@@ -1,0 +1,65 @@
+.Initializing torch.distributed with rank: 0, world_size: 1
+
+====================
+Activation Offload Summary (MB)
+====================
+Rank           Total
+--------------------
+Rank 0          0.00
+--------------------
+Total           0.00
+====================
+
+.
+================================
+Activation Offload Summary (MB) 
+================================
+Rank       core_attn       Total
+--------------------------------
+Rank 0          0.00        0.00
+--------------------------------
+Total           0.00        0.00
+================================
+
+..
+=============================== warnings summary ===============================
+megatron/core/dist_checkpointing/strategies/torch.py:70
+  /home/songbinbin/gdn-offload-artifacts/split-pr-20261015/shared/megatron/core/dist_checkpointing/strategies/torch.py:70: DeprecationWarning: transformer_engine.pytorch.float8_tensor is deprecated and will be removed in a future release. Float8Tensor should be imported directly through `from transformer_engine.pytorch import Float8Tensor`
+    from transformer_engine.pytorch.float8_tensor import Float8Tensor
+
+../../../.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+megatron/core/tensor_parallel/random.py:92
+  /home/songbinbin/gdn-offload-artifacts/split-pr-20261015/shared/megatron/core/tensor_parallel/random.py:92: DeprecationWarning: Using deprecated internal API from Transformer Engine. transformer_engine.pytorch.fp8 will be removed in a future release.
+    from transformer_engine.pytorch.fp8 import FP8GlobalStateManager, fp8_autocast
+
+megatron/core/inference/contexts/__init__.py:9
+  /home/songbinbin/gdn-offload-artifacts/split-pr-20261015/shared/megatron/core/inference/contexts/__init__.py:9: DeprecationWarning: The following imports from `dynamic_context.py` will be removed in this file in `megatron-core` 0.14. The imports here result in a cyclic import issue that causes rotary embeddings to import from Apex rather than Transformer Engine.
+    warnings.warn(
+
+megatron/core/models/mimo/config/base_configs.py:12
+  /home/songbinbin/gdn-offload-artifacts/split-pr-20261015/shared/megatron/core/models/mimo/config/base_configs.py:12: UserWarning: MimoModelConfig is experimental and still under active development. The API may change without notice in future releases.
+    class MimoModelConfig:
+
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_with_growing_microbatches[0.0]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_with_growing_microbatches[1.0]
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+    return func(*args, **kwargs)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+============================= slowest 15 durations =============================
+0.29s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_with_growing_microbatches[0.0]
+0.14s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_tensor_pop_waits_for_delayed_offload
+0.06s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_waits_for_pooled_h2d
+0.04s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_with_growing_microbatches[1.0]
+
+(8 durations < 0.005s hidden.  Use -vv to show these durations.)
+=========================== short test summary info ============================
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_tensor_pop_waits_for_delayed_offload
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_with_growing_microbatches[0.0]
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_with_growing_microbatches[1.0]
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_waits_for_pooled_h2d
+4 passed, 36 deselected, 20 warnings in 7.25s

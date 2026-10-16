@@ -1,0 +1,58 @@
+[default0]:.[default0]:.[default0]:.[default0]:.[default0]:.[default0]:.[default0]:.[default0]:.[default0]:.[default0]:.[default0]:.[default0]:.[default0]:.[default0]:.[default0]:.[default0]:.
+[default0]:=============================== warnings summary ===============================
+[default0]:megatron/core/dist_checkpointing/strategies/torch.py:70
+[default0]:  /home/songbinbin/gdn-offload-artifacts/split-pr-20261015/gate/megatron/core/dist_checkpointing/strategies/torch.py:70: DeprecationWarning: transformer_engine.pytorch.float8_tensor is deprecated and will be removed in a future release. Float8Tensor should be imported directly through `from transformer_engine.pytorch import Float8Tensor`
+[default0]:    from transformer_engine.pytorch.float8_tensor import Float8Tensor
+[default0]:
+[default0]:../../../.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+[default0]:  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+[default0]:    warnings.warn(
+[default0]:
+[default0]:megatron/core/tensor_parallel/random.py:92
+[default0]:  /home/songbinbin/gdn-offload-artifacts/split-pr-20261015/gate/megatron/core/tensor_parallel/random.py:92: DeprecationWarning: Using deprecated internal API from Transformer Engine. transformer_engine.pytorch.fp8 will be removed in a future release.
+[default0]:    from transformer_engine.pytorch.fp8 import FP8GlobalStateManager, fp8_autocast
+[default0]:
+[default0]:megatron/core/inference/contexts/__init__.py:9
+[default0]:  /home/songbinbin/gdn-offload-artifacts/split-pr-20261015/gate/megatron/core/inference/contexts/__init__.py:9: DeprecationWarning: The following imports from `dynamic_context.py` will be removed in this file in `megatron-core` 0.14. The imports here result in a cyclic import issue that causes rotary embeddings to import from Apex rather than Transformer Engine.
+[default0]:    warnings.warn(
+[default0]:
+[default0]:megatron/core/models/mimo/config/base_configs.py:12
+[default0]:  /home/songbinbin/gdn-offload-artifacts/split-pr-20261015/gate/megatron/core/models/mimo/config/base_configs.py:12: UserWarning: MimoModelConfig is experimental and still under active development. The API may change without notice in future releases.
+[default0]:    class MimoModelConfig:
+[default0]:
+[default0]:-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+[default0]:==================================== PASSES ====================================
+[default0]:============================= slowest 15 durations =============================
+[default0]:3.84s call     tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[False-dtype0-1-33-8]
+[default0]:1.25s call     tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[True-dtype0-1-33-8]
+[default0]:1.19s call     tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[False-dtype0-2-2048-16]
+[default0]:1.18s call     tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[False-dtype1-1-33-8]
+[default0]:1.17s call     tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[False-dtype1-2-2048-16]
+[default0]:1.17s call     tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[True-dtype1-1-33-8]
+[default0]:0.77s call     tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[True-dtype1-3-4103-24]
+[default0]:0.77s call     tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[False-dtype0-3-4103-24]
+[default0]:0.77s call     tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[False-dtype1-3-4103-24]
+[default0]:0.77s call     tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[True-dtype0-3-4103-24]
+[default0]:0.76s call     tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[True-dtype1-2-2048-16]
+[default0]:0.76s call     tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[True-dtype1-1-4096-16]
+[default0]:0.76s call     tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[False-dtype1-1-4096-16]
+[default0]:0.76s call     tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[True-dtype0-1-4096-16]
+[default0]:0.76s call     tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[True-dtype0-2-2048-16]
+[default0]:=========================== short test summary info ============================
+[default0]:PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[False-dtype0-1-33-8]
+[default0]:PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[False-dtype0-2-2048-16]
+[default0]:PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[False-dtype0-1-4096-16]
+[default0]:PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[False-dtype0-3-4103-24]
+[default0]:PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[False-dtype1-1-33-8]
+[default0]:PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[False-dtype1-2-2048-16]
+[default0]:PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[False-dtype1-1-4096-16]
+[default0]:PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[False-dtype1-3-4103-24]
+[default0]:PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[True-dtype0-1-33-8]
+[default0]:PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[True-dtype0-2-2048-16]
+[default0]:PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[True-dtype0-1-4096-16]
+[default0]:PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[True-dtype0-3-4103-24]
+[default0]:PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[True-dtype1-1-33-8]
+[default0]:PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[True-dtype1-2-2048-16]
+[default0]:PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[True-dtype1-1-4096-16]
+[default0]:PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[True-dtype1-3-4103-24]
+[default0]:16 passed, 18 warnings in 23.93s

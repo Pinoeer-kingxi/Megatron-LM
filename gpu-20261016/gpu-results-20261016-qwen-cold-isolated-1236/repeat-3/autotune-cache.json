@@ -1,0 +1,1310 @@
+{
+  "rank-0/74SCE5HRQ7YFLNSFSHN6MD4MO7TKRFS5MFRWKRP3CQJRJYNLXPKA/chunk_local_cumsum_scalar_kernel.autotune.json": {
+    "key": [
+      1,
+      8,
+      64,
+      false,
+      true,
+      "torch.float32",
+      "torch.float32"
+    ],
+    "config": {
+      "kwargs": {},
+      "num_warps": 2,
+      "num_ctas": 1,
+      "num_stages": 3,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "8f785953a51b7567af7dcb6ce587a07c2a5c31aa66c02ab2c891ae7c86a35f2b"
+  },
+  "rank-0/BLZTC75RP4E6LD7DCFB6RVC5DWATZP6KYQONKCJ53B5N7HBILNXA/chunk_local_cumsum_scalar_kernel.autotune.json": {
+    "key": [
+      1,
+      8,
+      64,
+      false,
+      false,
+      "torch.float32",
+      "torch.float32"
+    ],
+    "config": {
+      "kwargs": {},
+      "num_warps": 1,
+      "num_ctas": 1,
+      "num_stages": 3,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "edcd5018a787ca17d67f8efeda869693750905717ebb05fe558e21fdf9a97dc7"
+  },
+  "rank-0/ENZTIR5L7BACWS36JFUUDRMVMNLOR6BVOQABEFEJVX3CAC6BNDTA/chunk_gated_delta_rule_bwd_kernel_dhu_blockdim64.autotune.json": {
+    "key": [
+      8,
+      8,
+      128,
+      128,
+      64,
+      true,
+      false,
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16"
+    ],
+    "config": {
+      "kwargs": {
+        "BV": 32
+      },
+      "num_warps": 4,
+      "num_ctas": 1,
+      "num_stages": 1,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "732a447060ae867ae3e698b159dedfb61fb7e5e1057bbbc81b659a78a53074bd"
+  },
+  "rank-0/ETCOXABTAK2J2PGYBLWXMSYD2JRUR7LGO3M7FCCRTIXRS7QHKS7Q/causal_conv1d_fwd_kernel.autotune.json": {
+    "key": [
+      3072,
+      4,
+      1,
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16"
+    ],
+    "config": {
+      "kwargs": {
+        "BD": 16
+      },
+      "num_warps": 8,
+      "num_ctas": 1,
+      "num_stages": 3,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "8acb09104d754736d20b835d44c21d08af7f5a4c527f02eeef81269e7da4f2c1"
+  },
+  "rank-0/EVBCXUJ2YPTWJZV4ZU2CNH72KMPNZAQ323MJMKP5OSPVUDHBY37A/prepare_wy_repr_bwd_kernel.autotune.json": {
+    "key": [
+      8,
+      8,
+      128,
+      128,
+      64,
+      32,
+      32,
+      false,
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32",
+      "torch.float32",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32",
+      "torch.float32"
+    ],
+    "config": {
+      "kwargs": {},
+      "num_warps": 4,
+      "num_ctas": 1,
+      "num_stages": 3,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "ffc61824a66489e9de1a445753437144b79e6cd0de94e231bdec8c098d0199ed"
+  },
+  "rank-0/GOOVD77TWGP5BTS4K3XWFSTXC3XQ5AREHT7LLCIZQBLEUHOFYVMQ/chunk_bwd_kernel_dv_local.autotune.json": {
+    "key": [
+      8,
+      8,
+      128,
+      128,
+      64,
+      64,
+      64,
+      true,
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32",
+      "torch.bfloat16",
+      "torch.bfloat16"
+    ],
+    "config": {
+      "kwargs": {},
+      "num_warps": 4,
+      "num_ctas": 1,
+      "num_stages": 3,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "eb88ff23e3887721c999359196c838d85e560e8628e65060bbeffaa1761aac78"
+  },
+  "rank-0/I5I5OEPTWFT72MJWTBJOL7GE6EKVHJGDAGF7UHGFZMKSJT5PFNLA/chunk_gated_delta_rule_fwd_kernel_h_blockdim64.autotune.json": {
+    "key": [
+      8,
+      8,
+      128,
+      128,
+      64,
+      false,
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32",
+      "torch.bfloat16"
+    ],
+    "config": {
+      "kwargs": {
+        "BV": 32
+      },
+      "num_warps": 4,
+      "num_ctas": 1,
+      "num_stages": 2,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "16d039ff5cc525118a1f789a0d044f11013e907aa8fa46bd5418237baaa0f70e"
+  },
+  "rank-0/JIJMZH6DAX43IWAK6UETYJ5RVMEMV4WNSRKCPMDIGCPUNOU6HNRA/recompute_w_u_fwd_kernel.autotune.json": {
+    "key": [
+      8,
+      8,
+      128,
+      128,
+      64,
+      64,
+      64,
+      false,
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32"
+    ],
+    "config": {
+      "kwargs": {},
+      "num_warps": 4,
+      "num_ctas": 1,
+      "num_stages": 4,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "df19cfdfbe6445ff942bfd9b4b61f23d1b3b94bd36879394438356676c6275f9"
+  },
+  "rank-0/R42MCXIV7O4XWEUFCFRBPCTXOFYHENMEO5XMRIQTEWY7GZYXKA4Q/chunk_bwd_kernel_dqkwg.autotune.json": {
+    "key": [
+      8,
+      8,
+      128,
+      128,
+      64,
+      64,
+      64,
+      true,
+      false,
+      true,
+      false,
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32"
+    ],
+    "config": {
+      "kwargs": {},
+      "num_warps": 4,
+      "num_ctas": 1,
+      "num_stages": 3,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "27fa752c9696805b6365d5eb62f250d410160f51f1620d758063464c6dd03704"
+  },
+  "rank-0/TYDELT2C62XXHSOUJTTW32RKTMURBRCKN4D643LDTJ2GVSTMGM7A/chunk_fwd_kernel_o.autotune.json": {
+    "key": [
+      8,
+      8,
+      128,
+      128,
+      64,
+      false,
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32",
+      "torch.bfloat16"
+    ],
+    "config": {
+      "kwargs": {
+        "BK": 32,
+        "BV": 32
+      },
+      "num_warps": 2,
+      "num_ctas": 1,
+      "num_stages": 3,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "41624066cdce0420959bc4a89d0f99db7564e0abf6fbe359111b7625a25a491a"
+  },
+  "rank-0/WD6F3UKQL5SMZG36RK6JIYTE3BTMKCC3EWVMJRKW7LRAJNG3RQNA/causal_conv1d_bwd_kernel.autotune.json": {
+    "key": [
+      3072,
+      4,
+      1,
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32"
+    ],
+    "config": {
+      "kwargs": {
+        "BD": 32
+      },
+      "num_warps": 4,
+      "num_ctas": 1,
+      "num_stages": 3,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "b35ffbb84867c45c581e9cadc9f6a838276a6cc9e2b39e90a4ffac636f50ebc9"
+  },
+  "rank-0/YYBVHJ3JXLV5GZO5MVDNHHTSQUKNYEJI3GHSZLV5PIDBTPFWWOUA/chunk_gated_delta_rule_fwd_kkt_solve_kernel.autotune.json": {
+    "key": [
+      8,
+      8,
+      128,
+      16,
+      "torch.bfloat16",
+      "torch.float32",
+      "torch.float32",
+      "torch.bfloat16"
+    ],
+    "config": {
+      "kwargs": {
+        "BK": 64
+      },
+      "num_warps": 2,
+      "num_ctas": 1,
+      "num_stages": 3,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "2d93eb9940af71df92643cde4c483805edb3bb49c5cca47a9450f683ecf6a7c1"
+  },
+  "rank-1/74SCE5HRQ7YFLNSFSHN6MD4MO7TKRFS5MFRWKRP3CQJRJYNLXPKA/chunk_local_cumsum_scalar_kernel.autotune.json": {
+    "key": [
+      1,
+      8,
+      64,
+      false,
+      true,
+      "torch.float32",
+      "torch.float32"
+    ],
+    "config": {
+      "kwargs": {},
+      "num_warps": 2,
+      "num_ctas": 1,
+      "num_stages": 3,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "8f785953a51b7567af7dcb6ce587a07c2a5c31aa66c02ab2c891ae7c86a35f2b"
+  },
+  "rank-1/BLZTC75RP4E6LD7DCFB6RVC5DWATZP6KYQONKCJ53B5N7HBILNXA/chunk_local_cumsum_scalar_kernel.autotune.json": {
+    "key": [
+      1,
+      8,
+      64,
+      false,
+      false,
+      "torch.float32",
+      "torch.float32"
+    ],
+    "config": {
+      "kwargs": {},
+      "num_warps": 2,
+      "num_ctas": 1,
+      "num_stages": 3,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "374193be12bd2ac4689cf5b169931dc4ccc9c1bb378a5c7424fea3fd8ae49145"
+  },
+  "rank-1/ENZTIR5L7BACWS36JFUUDRMVMNLOR6BVOQABEFEJVX3CAC6BNDTA/chunk_gated_delta_rule_bwd_kernel_dhu_blockdim64.autotune.json": {
+    "key": [
+      8,
+      8,
+      128,
+      128,
+      64,
+      true,
+      false,
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16"
+    ],
+    "config": {
+      "kwargs": {
+        "BV": 32
+      },
+      "num_warps": 4,
+      "num_ctas": 1,
+      "num_stages": 1,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "4648fd67c939eb3593931c957d1d6868045452b43fac679c5d24d5f016b19ca8"
+  },
+  "rank-1/ETCOXABTAK2J2PGYBLWXMSYD2JRUR7LGO3M7FCCRTIXRS7QHKS7Q/causal_conv1d_fwd_kernel.autotune.json": {
+    "key": [
+      3072,
+      4,
+      1,
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16"
+    ],
+    "config": {
+      "kwargs": {
+        "BD": 32
+      },
+      "num_warps": 4,
+      "num_ctas": 1,
+      "num_stages": 3,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "435942ec6dff3271a75bf6397e03abdf581255a00256afe30174878ac18bfb7b"
+  },
+  "rank-1/EVBCXUJ2YPTWJZV4ZU2CNH72KMPNZAQ323MJMKP5OSPVUDHBY37A/prepare_wy_repr_bwd_kernel.autotune.json": {
+    "key": [
+      8,
+      8,
+      128,
+      128,
+      64,
+      32,
+      32,
+      false,
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32",
+      "torch.float32",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32",
+      "torch.float32"
+    ],
+    "config": {
+      "kwargs": {},
+      "num_warps": 4,
+      "num_ctas": 1,
+      "num_stages": 4,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "91cac1aaa5183143014a6168d75bc6eb794529ea093862b55e99316efeb7ba15"
+  },
+  "rank-1/GOOVD77TWGP5BTS4K3XWFSTXC3XQ5AREHT7LLCIZQBLEUHOFYVMQ/chunk_bwd_kernel_dv_local.autotune.json": {
+    "key": [
+      8,
+      8,
+      128,
+      128,
+      64,
+      64,
+      64,
+      true,
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32",
+      "torch.bfloat16",
+      "torch.bfloat16"
+    ],
+    "config": {
+      "kwargs": {},
+      "num_warps": 4,
+      "num_ctas": 1,
+      "num_stages": 4,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "f1863540f3652263eb3bc1f09068e82bf0e9afc603c09789f7f4a5bf16cb8dcf"
+  },
+  "rank-1/I5I5OEPTWFT72MJWTBJOL7GE6EKVHJGDAGF7UHGFZMKSJT5PFNLA/chunk_gated_delta_rule_fwd_kernel_h_blockdim64.autotune.json": {
+    "key": [
+      8,
+      8,
+      128,
+      128,
+      64,
+      false,
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32",
+      "torch.bfloat16"
+    ],
+    "config": {
+      "kwargs": {
+        "BV": 32
+      },
+      "num_warps": 4,
+      "num_ctas": 1,
+      "num_stages": 2,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "a47f691e2155a9437135d74a147d38982100e2b520d85ac363a9c3ef930a7d94"
+  },
+  "rank-1/JIJMZH6DAX43IWAK6UETYJ5RVMEMV4WNSRKCPMDIGCPUNOU6HNRA/recompute_w_u_fwd_kernel.autotune.json": {
+    "key": [
+      8,
+      8,
+      128,
+      128,
+      64,
+      64,
+      64,
+      false,
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32"
+    ],
+    "config": {
+      "kwargs": {},
+      "num_warps": 4,
+      "num_ctas": 1,
+      "num_stages": 4,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "7aa701320a0a8dcc21f9d158478f1fb00e7db2b93a868ff1c0877d6375197b4b"
+  },
+  "rank-1/R42MCXIV7O4XWEUFCFRBPCTXOFYHENMEO5XMRIQTEWY7GZYXKA4Q/chunk_bwd_kernel_dqkwg.autotune.json": {
+    "key": [
+      8,
+      8,
+      128,
+      128,
+      64,
+      64,
+      64,
+      true,
+      false,
+      true,
+      false,
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32"
+    ],
+    "config": {
+      "kwargs": {},
+      "num_warps": 4,
+      "num_ctas": 1,
+      "num_stages": 3,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "b1aaa99413631ed8ef2e3d4c700e6b632ece7bf11395bd1779b1416a1556e0eb"
+  },
+  "rank-1/TYDELT2C62XXHSOUJTTW32RKTMURBRCKN4D643LDTJ2GVSTMGM7A/chunk_fwd_kernel_o.autotune.json": {
+    "key": [
+      8,
+      8,
+      128,
+      128,
+      64,
+      false,
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32",
+      "torch.bfloat16"
+    ],
+    "config": {
+      "kwargs": {
+        "BK": 32,
+        "BV": 32
+      },
+      "num_warps": 2,
+      "num_ctas": 1,
+      "num_stages": 3,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "2dd65eee1552c037b4ae8392fadf1f0b02c1497fc6139422a16973a391d429ef"
+  },
+  "rank-1/WD6F3UKQL5SMZG36RK6JIYTE3BTMKCC3EWVMJRKW7LRAJNG3RQNA/causal_conv1d_bwd_kernel.autotune.json": {
+    "key": [
+      3072,
+      4,
+      1,
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32"
+    ],
+    "config": {
+      "kwargs": {
+        "BD": 32
+      },
+      "num_warps": 4,
+      "num_ctas": 1,
+      "num_stages": 3,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "7fa1a66216da8bf1bce753f0322bf6101c11feeee248aa7fea6fb1c1d4a62fea"
+  },
+  "rank-1/YYBVHJ3JXLV5GZO5MVDNHHTSQUKNYEJI3GHSZLV5PIDBTPFWWOUA/chunk_gated_delta_rule_fwd_kkt_solve_kernel.autotune.json": {
+    "key": [
+      8,
+      8,
+      128,
+      16,
+      "torch.bfloat16",
+      "torch.float32",
+      "torch.float32",
+      "torch.bfloat16"
+    ],
+    "config": {
+      "kwargs": {
+        "BK": 64
+      },
+      "num_warps": 1,
+      "num_ctas": 1,
+      "num_stages": 3,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "9d01c1b0fafcc134422ecdd656ee57121b698c8f64338f12fb0199f4da59bdf0"
+  },
+  "rank-2/74SCE5HRQ7YFLNSFSHN6MD4MO7TKRFS5MFRWKRP3CQJRJYNLXPKA/chunk_local_cumsum_scalar_kernel.autotune.json": {
+    "key": [
+      1,
+      8,
+      64,
+      false,
+      true,
+      "torch.float32",
+      "torch.float32"
+    ],
+    "config": {
+      "kwargs": {},
+      "num_warps": 4,
+      "num_ctas": 1,
+      "num_stages": 3,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "48ba5b4eccd897f9a70054c226ea90c9a2ff136b6e3d2a21a79a6a7d09243dd3"
+  },
+  "rank-2/BLZTC75RP4E6LD7DCFB6RVC5DWATZP6KYQONKCJ53B5N7HBILNXA/chunk_local_cumsum_scalar_kernel.autotune.json": {
+    "key": [
+      1,
+      8,
+      64,
+      false,
+      false,
+      "torch.float32",
+      "torch.float32"
+    ],
+    "config": {
+      "kwargs": {},
+      "num_warps": 4,
+      "num_ctas": 1,
+      "num_stages": 3,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "bff5f0012270510505fe85f671af184c1185dabb74e55d5c83c674a9ddea4dc4"
+  },
+  "rank-2/ENZTIR5L7BACWS36JFUUDRMVMNLOR6BVOQABEFEJVX3CAC6BNDTA/chunk_gated_delta_rule_bwd_kernel_dhu_blockdim64.autotune.json": {
+    "key": [
+      8,
+      8,
+      128,
+      128,
+      64,
+      true,
+      false,
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16"
+    ],
+    "config": {
+      "kwargs": {
+        "BV": 32
+      },
+      "num_warps": 4,
+      "num_ctas": 1,
+      "num_stages": 1,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "0ddf79bda28825cdc5d56b7230567f9f1b6039291862cb887ba0d84cf1142ea0"
+  },
+  "rank-2/ETCOXABTAK2J2PGYBLWXMSYD2JRUR7LGO3M7FCCRTIXRS7QHKS7Q/causal_conv1d_fwd_kernel.autotune.json": {
+    "key": [
+      3072,
+      4,
+      1,
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16"
+    ],
+    "config": {
+      "kwargs": {
+        "BD": 16
+      },
+      "num_warps": 8,
+      "num_ctas": 1,
+      "num_stages": 3,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "743d2df2205ee68916223555978dff00fa688846da9c2466adbd01919a97ff39"
+  },
+  "rank-2/EVBCXUJ2YPTWJZV4ZU2CNH72KMPNZAQ323MJMKP5OSPVUDHBY37A/prepare_wy_repr_bwd_kernel.autotune.json": {
+    "key": [
+      8,
+      8,
+      128,
+      128,
+      64,
+      32,
+      32,
+      false,
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32",
+      "torch.float32",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32",
+      "torch.float32"
+    ],
+    "config": {
+      "kwargs": {},
+      "num_warps": 4,
+      "num_ctas": 1,
+      "num_stages": 4,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "d9aaf8f0a4ab5b5ffc91a4352a95bb52f2e2015606bc7d13b8a567abfc785590"
+  },
+  "rank-2/GOOVD77TWGP5BTS4K3XWFSTXC3XQ5AREHT7LLCIZQBLEUHOFYVMQ/chunk_bwd_kernel_dv_local.autotune.json": {
+    "key": [
+      8,
+      8,
+      128,
+      128,
+      64,
+      64,
+      64,
+      true,
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32",
+      "torch.bfloat16",
+      "torch.bfloat16"
+    ],
+    "config": {
+      "kwargs": {},
+      "num_warps": 4,
+      "num_ctas": 1,
+      "num_stages": 3,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "9ffd13eca554303278d317feae6828a7c325f23922759843f75eb3274357eac5"
+  },
+  "rank-2/I5I5OEPTWFT72MJWTBJOL7GE6EKVHJGDAGF7UHGFZMKSJT5PFNLA/chunk_gated_delta_rule_fwd_kernel_h_blockdim64.autotune.json": {
+    "key": [
+      8,
+      8,
+      128,
+      128,
+      64,
+      false,
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32",
+      "torch.bfloat16"
+    ],
+    "config": {
+      "kwargs": {
+        "BV": 32
+      },
+      "num_warps": 4,
+      "num_ctas": 1,
+      "num_stages": 2,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "ab7d38279ac9fbd450f764780602d4050ff256873c1fc79f5209456d83876aab"
+  },
+  "rank-2/JIJMZH6DAX43IWAK6UETYJ5RVMEMV4WNSRKCPMDIGCPUNOU6HNRA/recompute_w_u_fwd_kernel.autotune.json": {
+    "key": [
+      8,
+      8,
+      128,
+      128,
+      64,
+      64,
+      64,
+      false,
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32"
+    ],
+    "config": {
+      "kwargs": {},
+      "num_warps": 8,
+      "num_ctas": 1,
+      "num_stages": 4,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "9434249ae5280c0052cc1c0555503f3e865d78605874eb53afad6cdd15d4e79f"
+  },
+  "rank-2/R42MCXIV7O4XWEUFCFRBPCTXOFYHENMEO5XMRIQTEWY7GZYXKA4Q/chunk_bwd_kernel_dqkwg.autotune.json": {
+    "key": [
+      8,
+      8,
+      128,
+      128,
+      64,
+      64,
+      64,
+      true,
+      false,
+      true,
+      false,
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32"
+    ],
+    "config": {
+      "kwargs": {},
+      "num_warps": 4,
+      "num_ctas": 1,
+      "num_stages": 3,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "997958ea7ec7be11e04e368a51203c49137fc055d0fe3547007c78990bb8ae39"
+  },
+  "rank-2/TYDELT2C62XXHSOUJTTW32RKTMURBRCKN4D643LDTJ2GVSTMGM7A/chunk_fwd_kernel_o.autotune.json": {
+    "key": [
+      8,
+      8,
+      128,
+      128,
+      64,
+      false,
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32",
+      "torch.bfloat16"
+    ],
+    "config": {
+      "kwargs": {
+        "BK": 32,
+        "BV": 32
+      },
+      "num_warps": 2,
+      "num_ctas": 1,
+      "num_stages": 3,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "27ff964c9f91d94316d38cfb028f307b885d7a377da26f4996c693d004984562"
+  },
+  "rank-2/WD6F3UKQL5SMZG36RK6JIYTE3BTMKCC3EWVMJRKW7LRAJNG3RQNA/causal_conv1d_bwd_kernel.autotune.json": {
+    "key": [
+      3072,
+      4,
+      1,
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32"
+    ],
+    "config": {
+      "kwargs": {
+        "BD": 32
+      },
+      "num_warps": 4,
+      "num_ctas": 1,
+      "num_stages": 3,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "96919897515c065419a68afe46d45669f4e081287f7101089829952031c36e24"
+  },
+  "rank-2/YYBVHJ3JXLV5GZO5MVDNHHTSQUKNYEJI3GHSZLV5PIDBTPFWWOUA/chunk_gated_delta_rule_fwd_kkt_solve_kernel.autotune.json": {
+    "key": [
+      8,
+      8,
+      128,
+      16,
+      "torch.bfloat16",
+      "torch.float32",
+      "torch.float32",
+      "torch.bfloat16"
+    ],
+    "config": {
+      "kwargs": {
+        "BK": 64
+      },
+      "num_warps": 2,
+      "num_ctas": 1,
+      "num_stages": 3,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "58c4ca744d33a8b811455c90b03e94bdedc28c83a609ee22f2074443a42000b9"
+  },
+  "rank-3/74SCE5HRQ7YFLNSFSHN6MD4MO7TKRFS5MFRWKRP3CQJRJYNLXPKA/chunk_local_cumsum_scalar_kernel.autotune.json": {
+    "key": [
+      1,
+      8,
+      64,
+      false,
+      true,
+      "torch.float32",
+      "torch.float32"
+    ],
+    "config": {
+      "kwargs": {},
+      "num_warps": 4,
+      "num_ctas": 1,
+      "num_stages": 3,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "f26534be51be85b375512771bfa683fac395099b8959026ab07fbc5528fc12d8"
+  },
+  "rank-3/BLZTC75RP4E6LD7DCFB6RVC5DWATZP6KYQONKCJ53B5N7HBILNXA/chunk_local_cumsum_scalar_kernel.autotune.json": {
+    "key": [
+      1,
+      8,
+      64,
+      false,
+      false,
+      "torch.float32",
+      "torch.float32"
+    ],
+    "config": {
+      "kwargs": {},
+      "num_warps": 2,
+      "num_ctas": 1,
+      "num_stages": 3,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "0828901c188cbe8af5ec21febe7ec5ea0365e082ff675ed98b4194ddf10b6098"
+  },
+  "rank-3/ENZTIR5L7BACWS36JFUUDRMVMNLOR6BVOQABEFEJVX3CAC6BNDTA/chunk_gated_delta_rule_bwd_kernel_dhu_blockdim64.autotune.json": {
+    "key": [
+      8,
+      8,
+      128,
+      128,
+      64,
+      true,
+      false,
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16"
+    ],
+    "config": {
+      "kwargs": {
+        "BV": 32
+      },
+      "num_warps": 4,
+      "num_ctas": 1,
+      "num_stages": 1,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "8a149336c70c71bbd6542becc659ec3e2efe270227fca09929a5c08b8b1be0d8"
+  },
+  "rank-3/ETCOXABTAK2J2PGYBLWXMSYD2JRUR7LGO3M7FCCRTIXRS7QHKS7Q/causal_conv1d_fwd_kernel.autotune.json": {
+    "key": [
+      3072,
+      4,
+      1,
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16"
+    ],
+    "config": {
+      "kwargs": {
+        "BD": 16
+      },
+      "num_warps": 8,
+      "num_ctas": 1,
+      "num_stages": 3,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "fa3aeab8e03e7410e5ce5150f5415eee7cde21b9bafafd32ac80ae5e88fae431"
+  },
+  "rank-3/EVBCXUJ2YPTWJZV4ZU2CNH72KMPNZAQ323MJMKP5OSPVUDHBY37A/prepare_wy_repr_bwd_kernel.autotune.json": {
+    "key": [
+      8,
+      8,
+      128,
+      128,
+      64,
+      32,
+      32,
+      false,
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32",
+      "torch.float32",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32",
+      "torch.float32"
+    ],
+    "config": {
+      "kwargs": {},
+      "num_warps": 4,
+      "num_ctas": 1,
+      "num_stages": 4,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "b170f8cb04f4d59c1d3c57e793bf129165ecb819d6fd8d669b32d9d17389f55c"
+  },
+  "rank-3/GOOVD77TWGP5BTS4K3XWFSTXC3XQ5AREHT7LLCIZQBLEUHOFYVMQ/chunk_bwd_kernel_dv_local.autotune.json": {
+    "key": [
+      8,
+      8,
+      128,
+      128,
+      64,
+      64,
+      64,
+      true,
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32",
+      "torch.bfloat16",
+      "torch.bfloat16"
+    ],
+    "config": {
+      "kwargs": {},
+      "num_warps": 2,
+      "num_ctas": 1,
+      "num_stages": 4,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "284356d23921bf97ec72a1447cf60b7a18356c3a3fc8aed5c405b7379c862946"
+  },
+  "rank-3/I5I5OEPTWFT72MJWTBJOL7GE6EKVHJGDAGF7UHGFZMKSJT5PFNLA/chunk_gated_delta_rule_fwd_kernel_h_blockdim64.autotune.json": {
+    "key": [
+      8,
+      8,
+      128,
+      128,
+      64,
+      false,
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32",
+      "torch.bfloat16"
+    ],
+    "config": {
+      "kwargs": {
+        "BV": 32
+      },
+      "num_warps": 4,
+      "num_ctas": 1,
+      "num_stages": 2,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "d75531191b936762caed0b1c14afcc08179e5cb2b3f3b6e2f69f0475fd046876"
+  },
+  "rank-3/JIJMZH6DAX43IWAK6UETYJ5RVMEMV4WNSRKCPMDIGCPUNOU6HNRA/recompute_w_u_fwd_kernel.autotune.json": {
+    "key": [
+      8,
+      8,
+      128,
+      128,
+      64,
+      64,
+      64,
+      false,
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32"
+    ],
+    "config": {
+      "kwargs": {},
+      "num_warps": 8,
+      "num_ctas": 1,
+      "num_stages": 4,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "8002f619e50ccf5652829915577f9620efc2b93231a20aa795454285710c6424"
+  },
+  "rank-3/R42MCXIV7O4XWEUFCFRBPCTXOFYHENMEO5XMRIQTEWY7GZYXKA4Q/chunk_bwd_kernel_dqkwg.autotune.json": {
+    "key": [
+      8,
+      8,
+      128,
+      128,
+      64,
+      64,
+      64,
+      true,
+      false,
+      true,
+      false,
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32"
+    ],
+    "config": {
+      "kwargs": {},
+      "num_warps": 4,
+      "num_ctas": 1,
+      "num_stages": 2,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "88d6c09e6a571f78a66862fe0de9f0306e14c8813b19cc2837e3da9c1b87ea2f"
+  },
+  "rank-3/TYDELT2C62XXHSOUJTTW32RKTMURBRCKN4D643LDTJ2GVSTMGM7A/chunk_fwd_kernel_o.autotune.json": {
+    "key": [
+      8,
+      8,
+      128,
+      128,
+      64,
+      false,
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32",
+      "torch.bfloat16"
+    ],
+    "config": {
+      "kwargs": {
+        "BK": 32,
+        "BV": 32
+      },
+      "num_warps": 2,
+      "num_ctas": 1,
+      "num_stages": 3,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "f9c30842c013dcb5dc3911ce0ff18131f89777733d82f501c4906b02682886f9"
+  },
+  "rank-3/WD6F3UKQL5SMZG36RK6JIYTE3BTMKCC3EWVMJRKW7LRAJNG3RQNA/causal_conv1d_bwd_kernel.autotune.json": {
+    "key": [
+      3072,
+      4,
+      1,
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.bfloat16",
+      "torch.float32"
+    ],
+    "config": {
+      "kwargs": {
+        "BD": 32
+      },
+      "num_warps": 4,
+      "num_ctas": 1,
+      "num_stages": 3,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "124efc466448297e1ec1117b843dfe64292f784310ef29083d9332ae7f7f3632"
+  },
+  "rank-3/YYBVHJ3JXLV5GZO5MVDNHHTSQUKNYEJI3GHSZLV5PIDBTPFWWOUA/chunk_gated_delta_rule_fwd_kkt_solve_kernel.autotune.json": {
+    "key": [
+      8,
+      8,
+      128,
+      16,
+      "torch.bfloat16",
+      "torch.float32",
+      "torch.float32",
+      "torch.bfloat16"
+    ],
+    "config": {
+      "kwargs": {
+        "BK": 64
+      },
+      "num_warps": 2,
+      "num_ctas": 1,
+      "num_stages": 3,
+      "maxnreg": null,
+      "pre_hook": null,
+      "ir_override": null
+    },
+    "sha256": "81431b32f7be19efb2055719e3665b304d378bb3a289a1fae7fc555225a6474c"
+  }
+}

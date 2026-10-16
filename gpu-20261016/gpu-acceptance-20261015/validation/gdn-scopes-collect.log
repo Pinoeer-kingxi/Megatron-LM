@@ -1,0 +1,102 @@
+W1015 09:04:37.405000 372 torch/utils/cpp_extension.py:140] No CUDA runtime is found, using CUDA_HOME='/usr/local/cuda'
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs0-only supports GDN]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs1-only supports GDN]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs2-BF16]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs3-BF16]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs4-BF16]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs5-FLA]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs6-FLA]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs7-FLA]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs8-full recomputation]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs9-CUDA graphs]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[unfused_pre_gdr-shared_qk-False-0.0-1024]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[unfused_pre_gdr-shared_qk-False-0.5-1024]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[unfused_pre_gdr-shared_qk-False-1.0-1024]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[unfused_pre_gdr-shared_qk-False-1.0-1000000000]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[unfused_pre_gdr-shared_qk-True-0.0-1024]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[unfused_pre_gdr-shared_qk-True-0.5-1024]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[unfused_pre_gdr-shared_qk-True-1.0-1024]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[unfused_pre_gdr-shared_qk-True-1.0-1000000000]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[unfused_pre_gdr-expanded_qk-False-0.0-1024]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[unfused_pre_gdr-expanded_qk-False-0.5-1024]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[unfused_pre_gdr-expanded_qk-False-1.0-1024]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[unfused_pre_gdr-expanded_qk-False-1.0-1000000000]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[unfused_pre_gdr-expanded_qk-True-0.0-1024]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[unfused_pre_gdr-expanded_qk-True-0.5-1024]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[unfused_pre_gdr-expanded_qk-True-1.0-1024]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[unfused_pre_gdr-expanded_qk-True-1.0-1000000000]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[fused_pre_gdr-shared_qk-False-0.0-1024]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[fused_pre_gdr-shared_qk-False-0.5-1024]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[fused_pre_gdr-shared_qk-False-1.0-1024]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[fused_pre_gdr-shared_qk-False-1.0-1000000000]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[fused_pre_gdr-shared_qk-True-0.0-1024]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[fused_pre_gdr-shared_qk-True-0.5-1024]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[fused_pre_gdr-shared_qk-True-1.0-1024]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[fused_pre_gdr-shared_qk-True-1.0-1000000000]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[fused_pre_gdr-expanded_qk-False-0.0-1024]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[fused_pre_gdr-expanded_qk-False-0.5-1024]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[fused_pre_gdr-expanded_qk-False-1.0-1024]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[fused_pre_gdr-expanded_qk-False-1.0-1000000000]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[fused_pre_gdr-expanded_qk-True-0.0-1024]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[fused_pre_gdr-expanded_qk-True-0.5-1024]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[fused_pre_gdr-expanded_qk-True-1.0-1024]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[fused_pre_gdr-expanded_qk-True-1.0-1000000000]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_zero_fraction_with_growing_sequence[False]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_zero_fraction_with_growing_sequence[True]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_microbatch_accumulation[False-0.0]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_microbatch_accumulation[False-0.5]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_microbatch_accumulation[False-1.0]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_microbatch_accumulation[True-0.0]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_microbatch_accumulation[True-0.5]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_microbatch_accumulation[True-1.0]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_packed_sequence[unfused_pre_gdr-False]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_packed_sequence[unfused_pre_gdr-True]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_packed_sequence[fused_pre_gdr-False]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_packed_sequence[fused_pre_gdr-True]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_delayed_d2h[False]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_delayed_d2h[True]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_training_after_eval[unfused_pre_gdr-False-False-False]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_training_after_eval[unfused_pre_gdr-False-False-True]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_training_after_eval[unfused_pre_gdr-False-True-False]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_training_after_eval[unfused_pre_gdr-True-False-False]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_training_after_eval[unfused_pre_gdr-True-False-True]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_training_after_eval[unfused_pre_gdr-True-True-False]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_training_after_eval[fused_pre_gdr-False-False-False]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_training_after_eval[fused_pre_gdr-False-False-True]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_training_after_eval[fused_pre_gdr-False-True-False]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_training_after_eval[fused_pre_gdr-True-False-False]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_training_after_eval[fused_pre_gdr-True-False-True]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_training_after_eval[fused_pre_gdr-True-True-False]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_no_grad_bypass[False-True]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_no_grad_bypass[True-False]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_no_grad_bypass[False-False]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_frozen_recurrence_bypass
+
+=============================== warnings summary ===============================
+../../../.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+megatron/core/tensor_parallel/random.py:92
+  /home/songbinbin/gdn-offload-artifacts/split-pr-20261015/feature/megatron/core/tensor_parallel/random.py:92: DeprecationWarning: Using deprecated internal API from Transformer Engine. transformer_engine.pytorch.fp8 will be removed in a future release.
+    from transformer_engine.pytorch.fp8 import FP8GlobalStateManager, fp8_autocast
+
+megatron/core/extensions/transformer_engine.py:4094
+  /home/songbinbin/gdn-offload-artifacts/split-pr-20261015/feature/megatron/core/extensions/transformer_engine.py:4094: DeprecationWarning: transformer_engine.pytorch.float8_tensor is deprecated and will be removed in a future release. Float8Tensor should be imported directly through `from transformer_engine.pytorch import Float8Tensor`
+    from transformer_engine.pytorch.float8_tensor import Float8Tensor
+
+megatron/core/inference/contexts/__init__.py:9
+  /home/songbinbin/gdn-offload-artifacts/split-pr-20261015/feature/megatron/core/inference/contexts/__init__.py:9: DeprecationWarning: The following imports from `dynamic_context.py` will be removed in this file in `megatron-core` 0.14. The imports here result in a cyclic import issue that causes rotary embeddings to import from Apex rather than Transformer Engine.
+    warnings.warn(
+
+../../../.venvs/megatron-gdn-offload/lib/python3.12/site-packages/fla/utils/_device.py:100
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/fla/utils/_device.py:100: UserWarning: Triton is not supported on current platform, roll back to CPU.
+    _cpu_device_warning()
+
+megatron/core/models/mimo/config/base_configs.py:12
+  /home/songbinbin/gdn-offload-artifacts/split-pr-20261015/feature/megatron/core/models/mimo/config/base_configs.py:12: UserWarning: MimoModelConfig is experimental and still under active development. The API may change without notice in future releases.
+    class MimoModelConfig:
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+73 tests collected in 5.94s

@@ -1,0 +1,45 @@
+{
+  "acceptance_status": "passed_current_sources",
+  "raw_four_matrix_status": "failed",
+  "raw_four_matrix_error": "ValueError: Qwen fusion=0, norm=0, rank=0, step=2: grad_norm differs",
+  "baseline_controls": [
+    {
+      "rank": 0,
+      "repeats_equal": true,
+      "repeat_matches_offload": true,
+      "repeat_matches_original_baseline": false
+    },
+    {
+      "rank": 1,
+      "repeats_equal": true,
+      "repeat_matches_offload": true,
+      "repeat_matches_original_baseline": false
+    },
+    {
+      "rank": 2,
+      "repeats_equal": true,
+      "repeat_matches_offload": true,
+      "repeat_matches_original_baseline": false
+    },
+    {
+      "rank": 3,
+      "repeats_equal": true,
+      "repeat_matches_offload": true,
+      "repeat_matches_original_baseline": false
+    }
+  ],
+  "qwen_direct_pairs": {
+    "compared_rank_steps": 48,
+    "recorded_rank_steps": 96,
+    "compared_arms": 4,
+    "ranks": 4,
+    "exact_recorded_state_equal": true
+  },
+  "single_offline_recheck": {
+    "status": "passed",
+    "fix": "Normalize CUDA bare UUID and nvidia-smi GPU-prefixed UUID at the comparison boundary.",
+    "gpu_commands_rerun_for_fix": false,
+    "original_failed_manifest_retained": true
+  },
+  "qualification_limit": "The original first unfused baseline differs at step 2. Two fresh offload-disabled repeats with the populated Triton cache agree with each other and the offload arm. A new direct baseline/offload pair with the populated cache also agrees. An empty shared-cache control reproduced differing runtime/persisted autotune configs and differing offload-disabled baselines. See the cache diagnosis for completed rank-isolation controls and interrupted runs. The original failed matrix is retained; this is not an unconditional cold-start bitwise-determinism guarantee across independently tuned configurations. The four-GPU cold-cache baseline/repeated-baseline/offload control now passes with per-rank cache ownership; the first comparison pair uses that direct control."
+}

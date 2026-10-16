@@ -1,0 +1,29 @@
+{
+  "checked_utc": "2026-10-15T09:15:08.963793+00:00",
+  "gpu_tests_executed": false,
+  "sources": {
+    "base": "9131593673d037d360d252904f9198d36bc0c246",
+    "shared": "af9569270f476dc201484296315a9c30dcaa3feb",
+    "gate": "9d54b8729c9277f1e032110c5e1b149e9654bcc5",
+    "feature": "8a2d19894288a8eb890dfdf20c9d54683035de80"
+  },
+  "bridge": {
+    "revision": "c860f8a5bc5fddd78690f32baa0b8696774308b4",
+    "patch_sha256": "d485a7b8fa3566c78ff602a34582778869c28ba7bcb339cfb51edba740ce3739"
+  },
+  "main_worktree_clean": true,
+  "cpu_unit_tests_passed": 11,
+  "pytest_collection_counts_only": {
+    "shared-races": 4,
+    "gate-replay": 16,
+    "gdn-scopes": 73,
+    "shared-groups": 16,
+    "shared-models": 24,
+    "native-training": 96
+  },
+  "dry_run_jobs": {
+    "single": 27,
+    "four": 11
+  },
+  "gpu_acceptance": "not run"
+}

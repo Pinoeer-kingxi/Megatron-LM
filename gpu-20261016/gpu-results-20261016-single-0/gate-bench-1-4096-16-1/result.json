@@ -1,0 +1,75 @@
+{
+  "sources": {
+    "baseline": {
+      "revision": "9131593673d037d360d252904f9198d36bc0c246",
+      "sha256": "c8a0247766bbc78ee3f98841a3eb9c033109bf3575bb9d2df99b4cbf2a0df920"
+    },
+    "candidate": {
+      "revision": "9d54b8729c9277f1e032110c5e1b149e9654bcc5",
+      "sha256": "9edb4bd8e69e331b0876847df80a30eb671132dba5e648c076f96bf3dd67ebbc"
+    }
+  },
+  "gpu": "NVIDIA RTX A6000",
+  "gpu_uuid": "a77106b7-62f7-c58e-3fd7-780d7732fc96",
+  "torch": "2.11.0+cu130",
+  "offloading": false,
+  "warmup_calls": 20,
+  "calls_per_sample": 100,
+  "repeats": 3,
+  "timing": "synchronized wall time for the full gate wrapper with preallocated projection output",
+  "clock_policy": "shared host; unlocked clocks; pair order alternates",
+  "case": {
+    "batch": 1,
+    "sequence": 4096,
+    "value_heads": 16,
+    "head_dim": 128,
+    "dtype": "bfloat16",
+    "numerical_reference": "passed",
+    "samples": {
+      "baseline": [
+        {
+          "repeat": 0,
+          "wall_ms_per_call": 0.07726572919636965,
+          "extra_peak_allocated_bytes": 512
+        },
+        {
+          "repeat": 1,
+          "wall_ms_per_call": 0.0772625906392932,
+          "extra_peak_allocated_bytes": 512
+        },
+        {
+          "repeat": 2,
+          "wall_ms_per_call": 0.07631773012690246,
+          "extra_peak_allocated_bytes": 512
+        }
+      ],
+      "candidate": [
+        {
+          "repeat": 0,
+          "wall_ms_per_call": 0.0733074895106256,
+          "extra_peak_allocated_bytes": 4608
+        },
+        {
+          "repeat": 1,
+          "wall_ms_per_call": 0.07159784901887178,
+          "extra_peak_allocated_bytes": 4608
+        },
+        {
+          "repeat": 2,
+          "wall_ms_per_call": 0.07181424996815622,
+          "extra_peak_allocated_bytes": 4608
+        }
+      ]
+    },
+    "median_wall_ms": {
+      "baseline": 0.0772625906392932,
+      "candidate": 0.07181424996815622
+    },
+    "paired_runtime_changes_percent": [
+      -5.122891774805161,
+      -7.331803882771326,
+      -5.900961875120991
+    ],
+    "median_paired_runtime_change_percent": -5.900961875120991
+  }
+}

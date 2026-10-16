@@ -1,0 +1,45 @@
+W1015 09:04:27.189000 239 torch/utils/cpp_extension.py:140] No CUDA runtime is found, using CUDA_HOME='/usr/local/cuda'
+tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[False-dtype0-1-33-8]
+tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[False-dtype0-2-2048-16]
+tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[False-dtype0-1-4096-16]
+tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[False-dtype0-3-4103-24]
+tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[False-dtype1-1-33-8]
+tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[False-dtype1-2-2048-16]
+tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[False-dtype1-1-4096-16]
+tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[False-dtype1-3-4103-24]
+tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[True-dtype0-1-33-8]
+tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[True-dtype0-2-2048-16]
+tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[True-dtype0-1-4096-16]
+tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[True-dtype0-3-4103-24]
+tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[True-dtype1-1-33-8]
+tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[True-dtype1-2-2048-16]
+tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[True-dtype1-1-4096-16]
+tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[True-dtype1-3-4103-24]
+
+=============================== warnings summary ===============================
+../../../.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+megatron/core/tensor_parallel/random.py:92
+  /home/songbinbin/gdn-offload-artifacts/split-pr-20261015/gate/megatron/core/tensor_parallel/random.py:92: DeprecationWarning: Using deprecated internal API from Transformer Engine. transformer_engine.pytorch.fp8 will be removed in a future release.
+    from transformer_engine.pytorch.fp8 import FP8GlobalStateManager, fp8_autocast
+
+megatron/core/extensions/transformer_engine.py:4094
+  /home/songbinbin/gdn-offload-artifacts/split-pr-20261015/gate/megatron/core/extensions/transformer_engine.py:4094: DeprecationWarning: transformer_engine.pytorch.float8_tensor is deprecated and will be removed in a future release. Float8Tensor should be imported directly through `from transformer_engine.pytorch import Float8Tensor`
+    from transformer_engine.pytorch.float8_tensor import Float8Tensor
+
+megatron/core/inference/contexts/__init__.py:9
+  /home/songbinbin/gdn-offload-artifacts/split-pr-20261015/gate/megatron/core/inference/contexts/__init__.py:9: DeprecationWarning: The following imports from `dynamic_context.py` will be removed in this file in `megatron-core` 0.14. The imports here result in a cyclic import issue that causes rotary embeddings to import from Apex rather than Transformer Engine.
+    warnings.warn(
+
+megatron/core/models/mimo/config/base_configs.py:12
+  /home/songbinbin/gdn-offload-artifacts/split-pr-20261015/gate/megatron/core/models/mimo/config/base_configs.py:12: UserWarning: MimoModelConfig is experimental and still under active development. The API may change without notice in future releases.
+    class MimoModelConfig:
+
+../../../.venvs/megatron-gdn-offload/lib/python3.12/site-packages/fla/utils/_device.py:100
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/fla/utils/_device.py:100: UserWarning: Triton is not supported on current platform, roll back to CPU.
+    _cpu_device_warning()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+16 tests collected in 7.94s

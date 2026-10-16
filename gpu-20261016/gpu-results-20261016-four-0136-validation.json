@@ -1,0 +1,65 @@
+{
+  "checked_utc": "2026-10-16T08:38:56.838496+00:00",
+  "run": "/home/songbinbin/gdn-offload-artifacts/gpu-results-20261016-four-0136",
+  "sources": {
+    "base": "9131593673d037d360d252904f9198d36bc0c246",
+    "shared": "af9569270f476dc201484296315a9c30dcaa3feb",
+    "gate": "9d54b8729c9277f1e032110c5e1b149e9654bcc5",
+    "feature": "8a2d19894288a8eb890dfdf20c9d54683035de80"
+  },
+  "results": {
+    "shared-groups": {
+      "ranks": [
+        {
+          "rank": 0,
+          "passed": 16,
+          "skipped": []
+        },
+        {
+          "rank": 1,
+          "passed": 16,
+          "skipped": []
+        },
+        {
+          "rank": 2,
+          "passed": 16,
+          "skipped": []
+        },
+        {
+          "rank": 3,
+          "passed": 16,
+          "skipped": []
+        }
+      ],
+      "skipped": 0
+    },
+    "shared-models": {
+      "ranks": [
+        {
+          "rank": 0,
+          "passed": 24,
+          "skipped": []
+        },
+        {
+          "rank": 1,
+          "passed": 24,
+          "skipped": []
+        },
+        {
+          "rank": 2,
+          "passed": 24,
+          "skipped": []
+        },
+        {
+          "rank": 3,
+          "passed": 24,
+          "skipped": []
+        }
+      ],
+      "skipped": 0
+    }
+  },
+  "training_started": false,
+  "overall_acceptance": "incomplete: external process appeared on GPU 6 after shared-models",
+  "original_manifest_unchanged": true
+}

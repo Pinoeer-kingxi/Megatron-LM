@@ -1,0 +1,19 @@
+{
+  "rank": 0,
+  "collected": 2,
+  "exit_code": 0,
+  "outcomes": [
+    {
+      "nodeid": "validation/pytest-report-smoke/clean/test_clean.py::test_pass",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "validation/pytest-report-smoke/clean/test_clean.py::test_skip",
+      "when": "setup",
+      "outcome": "skipped",
+      "detail": "('/home/songbinbin/gdn-offload-artifacts/gpu-acceptance-20261015/validation/pytest-report-smoke/clean/test_clean.py', 4, 'Skipped: explicit CPU smoke skip')"
+    }
+  ]
+}

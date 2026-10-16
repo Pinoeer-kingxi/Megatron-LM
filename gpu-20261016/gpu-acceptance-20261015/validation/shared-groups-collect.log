@@ -1,0 +1,45 @@
+W1015 09:04:47.464000 505 torch/utils/cpp_extension.py:140] No CUDA runtime is found, using CUDA_HOME='/usr/local/cuda'
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_summary_uses_explicit_process_group
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_skips_non_offloadable_tensor_types
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_respects_tensor_opt_out_flags
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_offloads_base_storage_for_covering_views
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_gathers_low_coverage_views
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_tensor_pop_waits_for_delayed_offload
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_with_growing_microbatches[0.0]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_with_growing_microbatches[1.0]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_waits_for_pooled_h2d
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_post_warmup_callback_warns_on_duplicated_storage_offload
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_flags_disjoint_views_taking_the_whole_storage_path
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_counts_full_storage_and_logical_view_duplicates[False]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_counts_full_storage_and_logical_view_duplicates[True]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_does_not_flag_views_copying_their_own_bytes
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_does_not_analyze_logical_view_overlap
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_duplicate_storage_accounting_is_scoped_to_one_group
+
+=============================== warnings summary ===============================
+../../../.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+megatron/core/tensor_parallel/random.py:92
+  /home/songbinbin/gdn-offload-artifacts/split-pr-20261015/shared/megatron/core/tensor_parallel/random.py:92: DeprecationWarning: Using deprecated internal API from Transformer Engine. transformer_engine.pytorch.fp8 will be removed in a future release.
+    from transformer_engine.pytorch.fp8 import FP8GlobalStateManager, fp8_autocast
+
+megatron/core/extensions/transformer_engine.py:4094
+  /home/songbinbin/gdn-offload-artifacts/split-pr-20261015/shared/megatron/core/extensions/transformer_engine.py:4094: DeprecationWarning: transformer_engine.pytorch.float8_tensor is deprecated and will be removed in a future release. Float8Tensor should be imported directly through `from transformer_engine.pytorch import Float8Tensor`
+    from transformer_engine.pytorch.float8_tensor import Float8Tensor
+
+megatron/core/inference/contexts/__init__.py:9
+  /home/songbinbin/gdn-offload-artifacts/split-pr-20261015/shared/megatron/core/inference/contexts/__init__.py:9: DeprecationWarning: The following imports from `dynamic_context.py` will be removed in this file in `megatron-core` 0.14. The imports here result in a cyclic import issue that causes rotary embeddings to import from Apex rather than Transformer Engine.
+    warnings.warn(
+
+megatron/core/models/mimo/config/base_configs.py:12
+  /home/songbinbin/gdn-offload-artifacts/split-pr-20261015/shared/megatron/core/models/mimo/config/base_configs.py:12: UserWarning: MimoModelConfig is experimental and still under active development. The API may change without notice in future releases.
+    class MimoModelConfig:
+
+../../../.venvs/megatron-gdn-offload/lib/python3.12/site-packages/fla/utils/_device.py:100
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/fla/utils/_device.py:100: UserWarning: Triton is not supported on current platform, roll back to CPU.
+    _cpu_device_warning()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+16/40 tests collected (24 deselected) in 7.82s

@@ -1,0 +1,115 @@
+[
+  {
+    "name": "cpu-unit",
+    "command": [
+      "/usr/bin/python3",
+      "-S",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "/home/songbinbin/gdn-offload-artifacts/gpu-acceptance-20261015",
+      "-p",
+      "test_acceptance.py",
+      "-v"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "shell-syntax",
+    "command": [
+      "bash",
+      "-n",
+      "/home/songbinbin/gdn-offload-artifacts/gpu-acceptance-20261015/run.sh"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "python-compile",
+    "command": [
+      "/usr/bin/python3",
+      "-S",
+      "-m",
+      "py_compile",
+      "/home/songbinbin/gdn-offload-artifacts/gpu-acceptance-20261015/run_gpu_acceptance.py",
+      "/home/songbinbin/gdn-offload-artifacts/gpu-acceptance-20261015/rank_pytest.py",
+      "/home/songbinbin/gdn-offload-artifacts/gpu-acceptance-20261015/verify_results.py",
+      "/home/songbinbin/gdn-offload-artifacts/gpu-acceptance-20261015/test_acceptance.py",
+      "/home/songbinbin/gdn-offload-artifacts/gpu-acceptance-20261015/benchmark_gate.py"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "isort",
+    "command": [
+      "docker",
+      "exec",
+      "--workdir",
+      "/data/songbinbin/Proj/Proj_LWX/Megatron-LM",
+      "megatron-gdn-split-cpu",
+      "/artifacts/uv-container-bin",
+      "run",
+      "--no-project",
+      "--active",
+      "isort",
+      "--check-only",
+      "--settings-path",
+      "pyproject.toml",
+      "/home/songbinbin/gdn-offload-artifacts/gpu-acceptance-20261015/run_gpu_acceptance.py",
+      "/home/songbinbin/gdn-offload-artifacts/gpu-acceptance-20261015/rank_pytest.py",
+      "/home/songbinbin/gdn-offload-artifacts/gpu-acceptance-20261015/verify_results.py",
+      "/home/songbinbin/gdn-offload-artifacts/gpu-acceptance-20261015/test_acceptance.py"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "black",
+    "command": [
+      "docker",
+      "exec",
+      "--workdir",
+      "/data/songbinbin/Proj/Proj_LWX/Megatron-LM",
+      "megatron-gdn-split-cpu",
+      "/artifacts/uv-container-bin",
+      "run",
+      "--no-project",
+      "--active",
+      "black",
+      "--check",
+      "--config",
+      "pyproject.toml",
+      "--target-version",
+      "py310",
+      "/home/songbinbin/gdn-offload-artifacts/gpu-acceptance-20261015/run_gpu_acceptance.py",
+      "/home/songbinbin/gdn-offload-artifacts/gpu-acceptance-20261015/rank_pytest.py",
+      "/home/songbinbin/gdn-offload-artifacts/gpu-acceptance-20261015/verify_results.py",
+      "/home/songbinbin/gdn-offload-artifacts/gpu-acceptance-20261015/test_acceptance.py"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "ruff",
+    "command": [
+      "docker",
+      "exec",
+      "--workdir",
+      "/data/songbinbin/Proj/Proj_LWX/Megatron-LM",
+      "megatron-gdn-split-cpu",
+      "/artifacts/uv-container-bin",
+      "run",
+      "--no-project",
+      "--active",
+      "ruff",
+      "check",
+      "--config",
+      "pyproject.toml",
+      "--select",
+      "E9,F",
+      "/home/songbinbin/gdn-offload-artifacts/gpu-acceptance-20261015/run_gpu_acceptance.py",
+      "/home/songbinbin/gdn-offload-artifacts/gpu-acceptance-20261015/rank_pytest.py",
+      "/home/songbinbin/gdn-offload-artifacts/gpu-acceptance-20261015/verify_results.py",
+      "/home/songbinbin/gdn-offload-artifacts/gpu-acceptance-20261015/test_acceptance.py"
+    ],
+    "exit_code": 0
+  }
+]

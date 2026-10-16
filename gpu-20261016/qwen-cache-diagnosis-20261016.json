@@ -1,0 +1,238 @@
+{
+  "sources": {
+    "base": "9131593673d037d360d252904f9198d36bc0c246",
+    "shared": "af9569270f476dc201484296315a9c30dcaa3feb",
+    "gate": "9d54b8729c9277f1e032110c5e1b149e9654bcc5",
+    "feature": "8a2d19894288a8eb890dfdf20c9d54683035de80"
+  },
+  "shared_run": "/home/songbinbin/gdn-offload-artifacts/gpu-results-20261016-qwen-cold-shared-0136",
+  "shared_run_status": "failed",
+  "shared_run_error": "RuntimeError: Selected GPUs have existing compute processes: [['GPU-a77106b7-62f7-c58e-3fd7-780d7732fc96', '74106']]",
+  "shared_cache_choices_not_preserved": [
+    {
+      "rank": 0,
+      "kernel": "causal_conv1d_fwd_kernel",
+      "key": [
+        3072,
+        4,
+        1,
+        "torch.bfloat16",
+        "torch.bfloat16",
+        "torch.bfloat16"
+      ],
+      "runtime_config": "BD: 32, num_warps: 16, num_ctas: 1, num_stages: 3, maxnreg: None",
+      "persisted_config": "BD: 32, num_warps: 4, num_ctas: 1, num_stages: 3, maxnreg: None"
+    },
+    {
+      "rank": 0,
+      "kernel": "recompute_w_u_fwd_kernel",
+      "key": [
+        8,
+        8,
+        128,
+        128,
+        64,
+        64,
+        64,
+        false,
+        "torch.bfloat16",
+        "torch.bfloat16",
+        "torch.float32",
+        "torch.bfloat16",
+        "torch.bfloat16",
+        "torch.bfloat16",
+        "torch.float32"
+      ],
+      "runtime_config": "num_warps: 4, num_ctas: 1, num_stages: 3, maxnreg: None",
+      "persisted_config": "num_warps: 4, num_ctas: 1, num_stages: 4, maxnreg: None"
+    },
+    {
+      "rank": 2,
+      "kernel": "chunk_bwd_kernel_dv_local",
+      "key": [
+        8,
+        8,
+        128,
+        128,
+        64,
+        64,
+        64,
+        true,
+        "torch.bfloat16",
+        "torch.bfloat16",
+        "torch.float32",
+        "torch.bfloat16",
+        "torch.bfloat16"
+      ],
+      "runtime_config": "num_warps: 4, num_ctas: 1, num_stages: 3, maxnreg: None",
+      "persisted_config": "num_warps: 8, num_ctas: 1, num_stages: 3, maxnreg: None"
+    },
+    {
+      "rank": 2,
+      "kernel": "causal_conv1d_bwd_kernel",
+      "key": [
+        3072,
+        4,
+        1,
+        "torch.bfloat16",
+        "torch.bfloat16",
+        "torch.bfloat16",
+        "torch.bfloat16",
+        "torch.bfloat16",
+        "torch.float32"
+      ],
+      "runtime_config": "BD: 32, num_warps: 4, num_ctas: 1, num_stages: 3, maxnreg: None",
+      "persisted_config": "BD: 16, num_warps: 4, num_ctas: 1, num_stages: 3, maxnreg: None"
+    },
+    {
+      "rank": 3,
+      "kernel": "prepare_wy_repr_bwd_kernel",
+      "key": [
+        8,
+        8,
+        128,
+        128,
+        64,
+        32,
+        32,
+        false,
+        "torch.bfloat16",
+        "torch.bfloat16",
+        "torch.float32",
+        "torch.float32",
+        "torch.bfloat16",
+        "torch.bfloat16",
+        "torch.bfloat16",
+        "torch.bfloat16",
+        "torch.bfloat16",
+        "torch.float32",
+        "torch.float32"
+      ],
+      "runtime_config": "num_warps: 4, num_ctas: 1, num_stages: 4, maxnreg: None",
+      "persisted_config": "num_warps: 4, num_ctas: 1, num_stages: 3, maxnreg: None"
+    },
+    {
+      "rank": 3,
+      "kernel": "chunk_local_cumsum_scalar_kernel",
+      "key": [
+        1,
+        8,
+        64,
+        false,
+        true,
+        "torch.float32",
+        "torch.float32"
+      ],
+      "runtime_config": "num_warps: 2, num_ctas: 1, num_stages: 3, maxnreg: None",
+      "persisted_config": "num_warps: 1, num_ctas: 1, num_stages: 3, maxnreg: None"
+    }
+  ],
+  "offload_disabled_repeats": [
+    {
+      "rank": 0,
+      "states_equal": false,
+      "first_grad_norms": [
+        55.65458679199219,
+        55.65776824951172
+      ],
+      "repeat_matches_offload": true
+    },
+    {
+      "rank": 1,
+      "states_equal": false,
+      "first_grad_norms": [
+        55.65458679199219,
+        55.65776824951172
+      ],
+      "repeat_matches_offload": true
+    },
+    {
+      "rank": 2,
+      "states_equal": false,
+      "first_grad_norms": [
+        55.65458679199219,
+        55.65776824951172
+      ],
+      "repeat_matches_offload": true
+    },
+    {
+      "rank": 3,
+      "states_equal": false,
+      "first_grad_norms": [
+        55.65458679199219,
+        55.65776824951172
+      ],
+      "repeat_matches_offload": true
+    }
+  ],
+  "isolated_controls": [
+    {
+      "directory": "/home/songbinbin/gdn-offload-artifacts/gpu-results-20261016-qwen-cold-isolated-16",
+      "ranks": 2,
+      "gpus": [
+        {
+          "uuid": "GPU-5e2e1f94-e88e-48e3-247d-328b52fc68db",
+          "minor": 1,
+          "name": "NVIDIA RTX A6000",
+          "driver": "580.178.04"
+        },
+        {
+          "uuid": "GPU-40c36f3c-9282-74a6-63d2-077d1e4a1cb7",
+          "minor": 6,
+          "name": "NVIDIA RTX A6000",
+          "driver": "580.178.04"
+        }
+      ],
+      "started_with_empty_cache": true,
+      "three_arms_equal": true,
+      "cache_unchanged_after_first_arm": true,
+      "runtime_configs_match_persisted_choices": 24,
+      "manifest_sha256": "c1be8d7ee08fc856fda0e94410ea7ec531e3d7285471be77a89c6f0de9d59d69"
+    },
+    {
+      "directory": "/home/songbinbin/gdn-offload-artifacts/gpu-results-20261016-qwen-cold-isolated-1236",
+      "ranks": 4,
+      "gpus": [
+        {
+          "uuid": "GPU-5e2e1f94-e88e-48e3-247d-328b52fc68db",
+          "minor": 1,
+          "name": "NVIDIA RTX A6000",
+          "driver": "580.178.04"
+        },
+        {
+          "uuid": "GPU-df9e07cc-8ebc-3204-fabd-601044f800f8",
+          "minor": 2,
+          "name": "NVIDIA RTX A6000",
+          "driver": "580.178.04"
+        },
+        {
+          "uuid": "GPU-c8b76e6b-5a4b-7829-4c91-139b71218405",
+          "minor": 3,
+          "name": "NVIDIA RTX A6000",
+          "driver": "580.178.04"
+        },
+        {
+          "uuid": "GPU-40c36f3c-9282-74a6-63d2-077d1e4a1cb7",
+          "minor": 6,
+          "name": "NVIDIA RTX A6000",
+          "driver": "580.178.04"
+        }
+      ],
+      "started_with_empty_cache": true,
+      "three_arms_equal": true,
+      "cache_unchanged_after_first_arm": true,
+      "runtime_configs_match_persisted_choices": 48,
+      "manifest_sha256": "991e84df0b47d40c2148045f9f3f756e830dd62554c79c495deed1d6b8af4af9"
+    }
+  ],
+  "interrupted_controls": [
+    {
+      "directory": "/home/songbinbin/gdn-offload-artifacts/gpu-results-20261016-qwen-cold-isolated-13",
+      "status": "failed",
+      "error": "RuntimeError: Selected GPUs have existing compute processes: [['GPU-c8b76e6b-5a4b-7829-4c91-139b71218405', '103697']]",
+      "completed_arms": 2,
+      "completed_baselines_equal": true
+    }
+  ],
+  "limits": "The shared-cache run is diagnostic: another user occupied GPU 0 during the last arm, so it is not an acceptance pass. The first two offload-disabled arms reproduce the cache mismatch. Separate empty caches may legitimately select different floating-point kernel configurations; the acceptance comparison must preserve each rank's configurations between baseline and offload."
+}

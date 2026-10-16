@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-16",
+  "scope": "CPU-only script verification; GPU evidence is recorded separately",
+  "checks": [
+    {
+      "name": "isort",
+      "command": "docker exec -e VIRTUAL_ENV=/home/songbinbin/.venvs/megatron-gdn-offload megatron-gdn-split-cpu /artifacts/uv-container-bin run --no-project --active isort --check-only --settings-path /data/songbinbin/Proj/Proj_LWX/Megatron-LM/pyproject.toml /artifacts/gpu-acceptance-20261015/run_gpu_acceptance.py /artifacts/gpu-acceptance-20261015/rank_env.py /artifacts/gpu-acceptance-20261015/test_acceptance.py /artifacts/gpu-acceptance-20261015/verify_results.py /artifacts/analyze-qwen-cache-20261016.py /artifacts/validate-gpu-results-20261016.py /artifacts/qwen-baseline-repeat-20261016.py",
+      "exit_code": 0,
+      "log": "isort-20261016.log"
+    },
+    {
+      "name": "black",
+      "command": "docker exec -e VIRTUAL_ENV=/home/songbinbin/.venvs/megatron-gdn-offload megatron-gdn-split-cpu /artifacts/uv-container-bin run --no-project --active black --check --line-length 100 --skip-string-normalization --target-version py310 /artifacts/gpu-acceptance-20261015/run_gpu_acceptance.py /artifacts/gpu-acceptance-20261015/rank_env.py /artifacts/gpu-acceptance-20261015/test_acceptance.py /artifacts/gpu-acceptance-20261015/verify_results.py /artifacts/analyze-qwen-cache-20261016.py /artifacts/validate-gpu-results-20261016.py /artifacts/qwen-baseline-repeat-20261016.py",
+      "exit_code": 0,
+      "log": "black-20261016.log"
+    },
+    {
+      "name": "ruff",
+      "command": "docker exec -e VIRTUAL_ENV=/home/songbinbin/.venvs/megatron-gdn-offload megatron-gdn-split-cpu /artifacts/uv-container-bin run --no-project --active ruff check --select E9,F63,F7,F82 /artifacts/gpu-acceptance-20261015/run_gpu_acceptance.py /artifacts/gpu-acceptance-20261015/rank_env.py /artifacts/gpu-acceptance-20261015/test_acceptance.py /artifacts/gpu-acceptance-20261015/verify_results.py /artifacts/analyze-qwen-cache-20261016.py /artifacts/validate-gpu-results-20261016.py /artifacts/qwen-baseline-repeat-20261016.py",
+      "exit_code": 0,
+      "log": "ruff-20261016.log"
+    },
+    {
+      "name": "cpu-tests",
+      "command": "/usr/bin/python3 -S -m unittest discover -s /home/songbinbin/gdn-offload-artifacts/gpu-acceptance-20261015 -p test_acceptance.py -v",
+      "exit_code": 0,
+      "log": "cpu-tests-20261016.log"
+    }
+  ]
+}

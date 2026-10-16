@@ -1,0 +1,31 @@
+{
+  "rank": 0,
+  "collected": 4,
+  "exit_code": 0,
+  "outcomes": [
+    {
+      "nodeid": "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_tensor_pop_waits_for_delayed_offload",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_with_growing_microbatches[0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_with_growing_microbatches[1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_waits_for_pooled_h2d",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    }
+  ]
+}

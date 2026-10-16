@@ -1,0 +1,19 @@
+{
+  "rank": 0,
+  "collected": 1,
+  "exit_code": 1,
+  "outcomes": [
+    {
+      "nodeid": "validation/pytest-report-smoke/broken/test_broken.py::test_teardown",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "validation/pytest-report-smoke/broken/test_broken.py::test_teardown",
+      "when": "teardown",
+      "outcome": "failed",
+      "detail": "@pytest.fixture\n    def resource():\n        yield\n>       assert False, \"intentional teardown failure\"\nE       AssertionError: intentional teardown failure\nE       assert False\n\nvalidation/pytest-report-smoke/broken/test_broken.py:5: AssertionError"
+    }
+  ]
+}
