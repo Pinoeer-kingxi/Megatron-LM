@@ -81,23 +81,40 @@ It requires a Bridge environment with Qwen3.5 VL mappings; the historical runs
 used revision `c860f8a5bc5fddd78690f32baa0b8696774308b4` and the compatibility
 overlay recorded in the evidence. Bridge is not a core runtime dependency.
 
+Give each rank its own persistent Triton cache before starting the training
+interpreter. Concurrent ranks can select different autotuned configurations for
+the same key; sharing a cache can overwrite those choices and make even repeated
+offload-disabled baselines differ. Create the root once for a fixed
+topology/fusion/norm-recomputation setting and reuse it for both comparison arms:
+
 ```bash
+# Run once for this comparison; preserve this exported root between arms.
+export TRITON_CACHE_DIR="$(mktemp -d /tmp/qwen-offload-triton.XXXXXX)"
 python -m torch.distributed.run --standalone --nproc-per-node=4 \
-  --log-dir /tmp/qwen-disabled-ranks --redirects 3 --tee 3 \
-  tools/ssm/qwen_gdn_offload_training.py \
+  --log-dir /tmp/qwen-disabled-ranks --redirects 3 --tee 3 --no-python \
+  bash -c 'export TRITON_CACHE_DIR="${TRITON_CACHE_DIR}/rank-${RANK}"; exec python "$@"' \
+  qwen-training tools/ssm/qwen_gdn_offload_training.py \
   --weights /path/to/Qwen3.5-0.8B --data /path/to/messages.jsonl \
   --tp 2 --sp --pp 2 --seq-length 128 --min-offloaded-tensor-size 1024 \
   --warmup 1 --iterations 2 --check-state --output /tmp/qwen-disabled.json
 ```
 
-Run a fresh enabled process with the same arguments plus `--fraction 1` and a
-distinct output/log directory. Repeat with `--recompute-norm` off/on and
-`--fused-pre-gdr` off/on, using a separate disabled baseline per fusion variant.
+Run a fresh enabled process with the same exported cache root and arguments plus
+`--fraction 1` and a distinct output/log directory. Do not recreate the cache root
+or clear its rank subdirectories between matched runs. Repeat with
+`--recompute-norm` off/on and `--fused-pre-gdr` off/on, using a new root and a
+separate disabled baseline for each fusion/recomputation pair. Keep topology,
+rank mapping and model inputs identical within each pair.
 Require exact equality of recorded losses, gradient norms, all accumulated
 gradients, updated weights and complete Adam/master-weight state on every rank.
 Check zero pinned-buffer ownership before native schedule resets; positive
 fractions must select transfers. The supplied JSONL must contain a `messages`
 field accepted by the local tokenizer's chat template.
+
+Exact replay assumes the same per-rank tuning choices; independently autotuned
+configurations do not have a global bitwise-reproducibility guarantee.
+[The recorded cold-cache controls](https://github.com/Pinoeer-kingxi/Megatron-LM/tree/8c5cc72379de4e9ef8d80856973dd64f23cc0dac/gpu-20261016)
+include the shared-cache failure and passing isolated-cache runs.
 
 For performance runs, omit `--check-state`, use the default tensor-size threshold,
 warm up three optimizer steps and measure ten, with three fresh-process repeats.
