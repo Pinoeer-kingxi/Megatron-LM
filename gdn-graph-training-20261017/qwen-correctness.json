@@ -1,0 +1,32 @@
+[
+  {
+    "step": 0,
+    "replay": false,
+    "differences": []
+  },
+  {
+    "step": 1,
+    "replay": false,
+    "differences": []
+  },
+  {
+    "step": 2,
+    "replay": false,
+    "differences": []
+  },
+  {
+    "step": 3,
+    "replay": true,
+    "differences": []
+  },
+  {
+    "step": 4,
+    "replay": true,
+    "differences": []
+  },
+  {
+    "step": 5,
+    "replay": true,
+    "differences": []
+  }
+]

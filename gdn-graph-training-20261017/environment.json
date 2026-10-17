@@ -1,0 +1,12 @@
+{
+  "python": "3.12.4",
+  "packages": {
+    "torch": "2.11.0+cu130",
+    "transformer-engine": "2.20.2",
+    "flash-linear-attention": "0.5.1",
+    "triton": "3.6.0",
+    "numpy": "2.5.3",
+    "causal-conv1d": "1.6.1",
+    "flash-attn": "2.8.3"
+  }
+}
