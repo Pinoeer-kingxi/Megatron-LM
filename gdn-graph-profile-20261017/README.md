@@ -1,6 +1,9 @@
 # GDN graph transfer diagnosis and live-gate optimization
 
 Executed fix: [`367d014c7bf74ba3553c9db58da47fa5bcba906e`](https://github.com/Pinoeer-kingxi/Megatron-LM/commit/367d014c7bf74ba3553c9db58da47fa5bcba906e).
+Final PR head: `1f6eab9ce2453cf55cfeac57add2ed80540f31a7`. Only documentation differs from the executed fix;
+`final-source-qualification.json` records the identical runtime/test/tool trees.
+
 Previous source: `d18040ba5a41e69ada77406d74f68295ccb8090b`.
 The previous runtime matches the `f19ebc5b1d` graph-training evidence;
 its published performance figures retain that original revision.

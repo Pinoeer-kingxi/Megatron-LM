@@ -60,6 +60,11 @@ manifest = read('final-manifest.json')
 assert manifest['status'] == 'completed_pending_verification'
 assert len(manifest['jobs']) == 15
 assert manifest['source']['source'] == '367d014c7bf74ba3553c9db58da47fa5bcba906e'
+qualification = read('final-source-qualification.json')
+assert qualification['gpu_source'] == manifest['source']['source']
+assert qualification['changed_files'] == ['docs/developer/gdn_activation_offloading.md']
+for tree in ('megatron', 'tests', 'tools'):
+    assert qualification['identical_trees'][tree] == manifest['source'][tree+'_tree']
 assert manifest['cleanup']['exit_code'] == 0
 assert all(j['exit_code'] == j['expected_exit'] for j in manifest['jobs'])
 for name, expected in (('profile', 4), ('probe', 8), ('threshold', 3), ('equal-heads', 1)):

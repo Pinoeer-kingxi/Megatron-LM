@@ -172,5 +172,9 @@ The verifier checks recorded artifacts only; it does not execute GPU tests.
 Local source archives, model/data contents, caches and superseded attempts are
 excluded from this public bundle.
 '''
+qualification = ROOT/'final-source-qualification.json'
+if qualification.exists():
+    head = json.loads(qualification.read_text())['final_head']
+    text = text.replace('Previous source:', f'Final PR head: `{head}`. Only documentation differs from the executed fix;\n`final-source-qualification.json` records the identical runtime/test/tool trees.\n\nPrevious source:', 1)
 (ROOT/'README.md').write_text(text)
 print('Wrote verified report')
