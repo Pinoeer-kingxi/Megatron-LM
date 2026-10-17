@@ -1,0 +1,85 @@
+{
+  "status": "screening_only_single_process_per_configuration",
+  "results": [
+    {
+      "label": "gdn2-probe-disabled",
+      "median_step_ms": 230.8067225967534,
+      "peak_allocated_bytes": 3367101440,
+      "peak_reserved_bytes": 5454692352,
+      "selected_bytes": 0,
+      "steps": 10
+    },
+    {
+      "label": "gdn2-probe-full",
+      "median_step_ms": 451.03486598236486,
+      "peak_allocated_bytes": 3368150528,
+      "peak_reserved_bytes": 5194645504,
+      "selected_bytes": 419430400,
+      "steps": 10
+    },
+    {
+      "label": "gdn2-probe-full-copy8",
+      "median_step_ms": 454.8598510446027,
+      "peak_allocated_bytes": 3368150528,
+      "peak_reserved_bytes": 5192548352,
+      "selected_bytes": 419430400,
+      "steps": 10
+    },
+    {
+      "label": "gdn2-probe-half",
+      "median_step_ms": 361.5916800335981,
+      "peak_allocated_bytes": 3368150528,
+      "peak_reserved_bytes": 5525995520,
+      "selected_bytes": 251658240,
+      "steps": 10
+    },
+    {
+      "label": "gdn2-threshold4m",
+      "median_step_ms": 424.55829202663153,
+      "peak_allocated_bytes": 3368150528,
+      "peak_reserved_bytes": 5236588544,
+      "selected_bytes": 377487360,
+      "steps": 10
+    },
+    {
+      "label": "qwen-probe-disabled",
+      "median_step_ms": 849.2567505454645,
+      "peak_allocated_bytes": 18948477440,
+      "peak_reserved_bytes": 26031947776,
+      "selected_bytes": 0,
+      "steps": 10
+    },
+    {
+      "label": "qwen-probe-full",
+      "median_step_ms": 1030.1726500038058,
+      "peak_allocated_bytes": 18948477952,
+      "peak_reserved_bytes": 25581060096,
+      "selected_bytes": 499122176,
+      "steps": 10
+    },
+    {
+      "label": "qwen-probe-full-copy8",
+      "median_step_ms": 1033.5975980269723,
+      "peak_allocated_bytes": 18948477952,
+      "peak_reserved_bytes": 25578962944,
+      "selected_bytes": 499122176,
+      "steps": 10
+    },
+    {
+      "label": "qwen-probe-half",
+      "median_step_ms": 943.8136289827526,
+      "peak_allocated_bytes": 18948477952,
+      "peak_reserved_bytes": 26008879104,
+      "selected_bytes": 264241152,
+      "steps": 10
+    },
+    {
+      "label": "qwen-threshold4m",
+      "median_step_ms": 986.1851540044881,
+      "peak_allocated_bytes": 18948477952,
+      "peak_reserved_bytes": 25641877504,
+      "selected_bytes": 427819008,
+      "steps": 10
+    }
+  ]
+}

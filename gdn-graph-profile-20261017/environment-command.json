@@ -1,0 +1,13 @@
+{
+  "command": [
+    "docker",
+    "exec",
+    "--env",
+    "PYTHONPATH=/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-graph-profile-20261017/final-source:/home/songbinbin/gdn-offload-artifacts/flash-attn-python:/home/songbinbin/gdn-offload-artifacts/causal-conv1d-python:/home/songbinbin/gdn-offload-artifacts/bridge-python:/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/bridge/src",
+    "megatron-gdn2-final-20261017",
+    "/home/songbinbin/.venvs/megatron-gdn-offload/bin/python",
+    "-c",
+    "import importlib.metadata as m,json,os,sys,torch; print(json.dumps({\"python\":sys.version,\"torch\":torch.__version__,\"cuda\":torch.version.cuda,\"packages\":{n:m.version(n) for n in (\"transformer-engine\",\"flash-linear-attention\",\"triton\",\"causal-conv1d\",\"flash-attn\")},\"environment\":{n:os.environ.get(n) for n in (\"CUDA_DEVICE_MAX_CONNECTIONS\",\"CUDA_DEVICE_MAX_COPY_CONNECTIONS\",\"NVTE_CPU_OFFLOAD_V1\",\"OMP_NUM_THREADS\")}},indent=2))"
+  ],
+  "exit_code": 0
+}

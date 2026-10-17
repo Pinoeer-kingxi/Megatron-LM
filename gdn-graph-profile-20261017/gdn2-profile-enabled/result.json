@@ -1,0 +1,288 @@
+{
+  "arguments": {
+    "model": "gdn2",
+    "weights": "/home/songbinbin/gdn-offload-artifacts/models/Qwen3.5-0.8B",
+    "data": "/home/songbinbin/gdn-offload-artifacts/training-data/ks-item-sft.jsonl",
+    "output": "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-graph-profile-20261017/gdn2-profile-enabled/result.json",
+    "offload": true,
+    "fraction": 1.0,
+    "profile": true,
+    "min_offloaded_tensor_size": 1048576,
+    "check_state": false,
+    "seq_length": 2048,
+    "warmup": 3,
+    "iterations": 3,
+    "tp": 1,
+    "sp": false,
+    "cp": 1,
+    "pp": 1,
+    "vp": null,
+    "microbatches": 4,
+    "fused_pre_gdr": false,
+    "recompute_norm": false,
+    "max_documents": 128
+  },
+  "torch": "2.11.0+cu130",
+  "cuda": "13.0",
+  "gpu": "NVIDIA RTX A6000",
+  "graph_counts": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "helper_microbatches": 1,
+  "parameters": 175235376,
+  "config": "TransformerConfig(tensor_model_parallel_size=1, tensor_parallel_num_weight_shards=None, gtp_weight_remat_size=1, tensor_parallel_num_sequence_shards=None, pipeline_model_parallel_comm_backend=None, pipeline_model_parallel_size=1, virtual_pipeline_model_parallel_size=None, sequence_parallel=False, context_parallel_size=1, hierarchical_context_parallel_sizes=None, max_seqlen_per_dp_cp_rank=None, hybrid_context_parallel=False, sequence_packing_scheduler=None, expert_model_parallel_size=1, expert_tensor_parallel_size=1, expert_tensor_parallel_num_weight_shards=None, expert_gtp_weight_remat_size=1, perform_initialization=True, use_cpu_initialization=True, fp16=False, bf16=True, params_dtype=torch.float32, timers=None, finalize_model_grads_func=functools.partial(<function run.<locals>.finalize at 0x7f9699c8a3e0>, pg_collection=ProcessGroupCollection(tp(1), pp(1), mp(1), embd(1), pos_embd(1), cp(1), tp_cp(1), ep(1), expt_tp(1), tp_ep(1), tp_ep_pp(1), tp_ep_pp_with_egtp_remat(1), tp_dp_cp(1), dp(1), dp_gtp_remat(1), dp_cp(1), dp_cp_gtp_remat(1), gtp_remat(1), expt_gtp_remat(1), expt_dp(1), expt_dp_gtp_remat(1), intra_dp_cp(1), intra_expt_dp(1), intra_dist_opt(1))), grad_scale_func=<bound method MegatronOptimizer.scale_loss of <megatron.core.optimizer.optimizer.ChainedOptimizer object at 0x7f969de65190>>, moe_grad_scale_func=None, mtp_grad_scale_func=None, no_sync_func=None, grad_sync_func=None, param_sync_func=None, deterministic_mode=False, enable_autocast=False, autocast_dtype=torch.float32, num_microbatches_with_partial_activation_checkpoints=None, gradient_accumulation_fusion=False, use_te_rng_tracker=True, tp_comm_overlap=False, tp_comm_bulk_wgrad=True, tp_comm_bulk_dgrad=True, tp_comm_overlap_ag=True, tp_comm_overlap_rs=True, tp_comm_overlap_rs_dgrad=False, tp_comm_split_ag=True, tp_comm_atomic_ag=False, tp_comm_split_rs=True, tp_comm_atomic_rs=False, cross_entropy_loss_fusion=False, cross_entropy_fusion_impl='native', tp_comm_overlap_disable_qkv=False, tp_comm_overlap_disable_fc1=False, tp_comm_bootstrap_backend='nccl', overlap_moe_expert_parallel_comm=False, delay_wgrad_compute=False, overlap_dispatch_backward_with_experts_wgrad=False, ep_overlap_early_attn_memory_release=False, pipeline_dtype=torch.bfloat16, variable_seq_lengths=False, overlap_p2p_comm=False, batch_p2p_comm=False, batch_p2p_sync=True, use_ring_exchange_p2p=False, deallocate_pipeline_outputs=False, defer_embedding_wgrad_compute=False, wgrad_deferral_limit=0, overlap_p2p_comm_warmup_flush=False, microbatch_group_size_per_vp_stage=1, mtp_standalone=False, cpu_offloading=False, cpu_offloading_num_layers=0, _cpu_offloading_context=None, cpu_offloading_activations=True, cpu_offloading_weights=False, cpu_offloading_double_buffering=False, cpu_offloading_retain_pinned_cpu_buffers=False, barrier_with_L1_time=True, num_layers=8, mtp_num_layers=None, mtp_loss_scaling_factor=0.1, mtp_use_repeated_layer=False, freeze_base_model_for_mtp=False, keep_mtp_in_bf16=False, mtp_detach_heads=False, mtp_hsm=False, mtp_hybrid_override_pattern=None, num_layers_in_first_pipeline_stage=None, num_layers_in_last_pipeline_stage=None, pipeline_model_parallel_layout=None, account_for_embedding_in_pipeline_split=False, account_for_loss_in_pipeline_split=False, hidden_size=1024, num_attention_heads=8, attention_backend=<AttnBackend.auto: 5>, flash_attention_version=None, softmax_scale=None, softmax_type='vanilla', attn_logit_softcapping=None, num_query_groups=2, ffn_hidden_size=3584, kv_channels=128, hidden_dropout=0.0, attention_dropout=0.0, fp32_residual_connection=False, apply_residual_connection_post_layernorm=False, layernorm_epsilon=1e-06, layernorm_zero_centered_gamma=True, add_bias_linear=False, add_qkv_bias=False, gated_linear_unit=True, activation_func=<function silu at 0x7f96d13d23e0>, activation_func_fp8_input_store=False, glu_linear_offset=0.0, activation_func_clamp_value=None, activation_func_tanh_clamp_scale=None, activation_func_tanh_clamp_scale_linear=None, num_moe_experts=None, rotary_interleaved=False, window_size=None, window_attn_skip_freq=None, normalization='RMSNorm', qk_layernorm=True, qk_l2_norm=False, qk_clip=False, qk_clip_alpha=0.5, qk_clip_threshold=100, log_max_attention_logit=False, attention_output_gate=True, test_mode=False, calculate_per_token_loss=False, multi_latent_attention=False, no_rope_freq=None, experimental_attention_variant='gdn2', experimental_attention_variant_loss_scale_func=None, dsa_indexer_n_heads=None, dsa_indexer_head_dim=None, dsa_indexer_topk=None, dsa_indexer_topk_freq=1, dsa_indexer_skip_topk_offset=0, dsa_indexer_loss_coeff=None, dsa_indexer_use_sparse_loss=False, dsa_kernel_backend='none', dsa_indexer_rope_interleaved=False, dsa_indexer_rotate_activation=True, dsa_indexer_scoring_relu=True, dsa_indexer_qk_proj_use_quantization=True, dsa_indexer_k_norm_epsilon=None, dsa_indexer_k_norm_fp32=False, dsa_indexer_weights_proj_use_quantization=True, dsa_indexer_weights_proj_output_dtype='bf16', dsa_indexer_kpool=1, dsa_indexer_kpool_use_quantization=False, dsa_indexer_kpool_always_select_tail=True, csa_window_size=128, csa_compress_ratios=None, csa_compress_rotary_base=40000.0, csa_dense_mode=False, linear_attention_freq=4, gdn_kernel_backend='fla', linear_conv_kernel_dim=4, linear_key_head_dim=128, linear_value_head_dim=128, linear_num_key_heads=8, linear_num_value_heads=16, gdn_pre_gated_delta_rule_fusion=False, gdn_gated_output_norm_fusion=False, init_method=functools.partial(<function normal_ at 0x7f96d124f060>, mean=0.0, std=0.02), output_layer_init_method=functools.partial(<function normal_ at 0x7f96d124f060>, mean=0.0, std=0.005), init_method_std=0.02, embedding_init_method=functools.partial(<function normal_ at 0x7f96d124f060>, mean=0.0, std=0.02), embedding_init_method_std=0.02, init_model_with_meta_device=False, use_mup=False, mup_width_mult=1.0, mup_base_hidden_size=None, mup_embedding_mult=1.0, mup_output_mult=1.0, mup_base_head_dim=None, mup_attn_scale_power=1.0, apply_query_key_layer_scaling=False, attention_softmax_in_fp32=True, disable_bf16_reduced_precision_matmul=False, bias_activation_fusion=False, masked_softmax_fusion=False, persist_layer_norm=False, memory_efficient_layer_norm=False, bias_dropout_fusion=False, apply_rope_fusion=False, use_fused_weighted_squared_relu=False, fused_single_qkv_rope=False, fused_residual_rmsnorm=False, use_transformer_engine_op_fuser=False, recompute_granularity=None, recompute_method=None, recompute_num_layers=None, distribute_saved_activations=False, recompute_modules=[], fp8=None, fp8_recipe='delayed', fp8_param=False, fp8_quantizer_factory=None, fp8_margin=0, fp8_interval=1, fp8_amax_history_len=1, fp8_amax_compute_algo='most_recent', fp8_wgrad=True, fp8_output_proj=False, fp8_dot_product_attention=False, fp8_multi_head_attention=False, tp_only_amax_red=False, first_last_layers_bf16=False, num_layers_at_start_in_bf16=1, num_layers_at_end_in_bf16=1, use_kitchen=False, use_kitchen_attention=False, kitchen_attention_backend='sdpa', fp4=None, fp4_recipe='nvfp4', fp4_param=False, fp4_quantizer_factory=None, high_priority_a2a_comm_stream=False, moe_shared_expert_intermediate_size=None, moe_shared_expert_gate=False, moe_shared_expert_overlap=False, use_grouped_gemm_for_shared_expert=False, moe_shared_expert_glu_interleave_size=None, moe_shortcut_connection=False, moe_shortcut_post_norm=False, moe_shortcut_parallel=False, moe_layer_freq=1, moe_ffn_hidden_size=None, moe_router_load_balancing_type='aux_loss', moe_router_topk=2, moe_enable_routing_replay=False, moe_router_topk_limited_devices=None, moe_router_padding_for_quantization=False, moe_router_padding_for_fp8=False, moe_router_num_groups=None, moe_router_group_topk=None, moe_router_pre_softmax=False, moe_router_topk_scaling_factor=None, moe_router_score_function='softmax', moe_router_dtype=None, moe_router_skip_muon=False, moe_router_enable_expert_bias=False, moe_router_bias_update_rate=0.001, moe_router_quantile_balancing_ema=0.0, moe_router_force_load_balancing=False, moe_router_force_biased=None, moe_num_hash_layers=0, hash_moe_vocab_size=None, use_grouped_gemm_for_dense_mlp=False, moe_grouped_gemm=False, moe_use_grouped_tensor=False, moe_single_grouped_weight=False, moe_single_grouped_bias=False, moe_aux_loss_coeff=0.0, moe_z_loss_coeff=None, moe_input_jitter_eps=None, moe_token_dropping=False, moe_token_dispatcher_type='allgather', moe_enable_deepep=False, moe_flex_dispatcher_backend='deepep', moe_permute_fusion_into_hybridep=False, moe_hybridep_pad_uneven_dispatch_inputs=False, moe_per_layer_logging=False, moe_expert_capacity_factor=None, moe_pad_expert_input_to_capacity=False, moe_pad_experts_for_cuda_graph_inference=False, moe_token_drop_policy='probs', moe_layer_recompute=False, moe_permute_fusion=False, moe_router_fusion=False, moe_router_aux_loss_fusion=False, moe_apply_probs_on_input=False, moe_latent_size=None, moe_use_norm_before_up_proj=False, gtp_remat_opt_in_modules=[], moe_flex_dispatcher_num_sms=None, moe_deepep_num_sms=None, moe_hybridep_num_sms=None, moe_hybridep_num_blocks_permute=None, moe_hybridep_num_blocks_unpermute=None, moe_hybridep_num_sms_preprocessing=108, moe_hybridep_routing_map_mode='indices', moe_ncclep_zero_copy=False, moe_dispatch_fwd_dtype='bf16', moe_combine_bwd_dtype='bf16', moe_mlp_glu_interleave_size=None, moe_expert_rank_capacity_factor=None, cp_comm_type=None, linear_cp_mode='headwise', linear_cp_layout='zigzag', attention_cp_layout='zigzag', enable_cuda_graph=False, cuda_graph_use_single_mempool=True, cuda_graph_retain_backward_graph=False, cuda_graph_warmup_steps=3, external_cuda_graph=False, cuda_graph_impl='transformer_engine', cuda_graph_modules=[], inference_cuda_graph_scope=<InferenceCudaGraphScope.none: 1>, cuda_graph_scope=None, enable_mhc_connections=False, mhc_num_residual_streams=4, mhc_sinkhorn_iterations=20, mhc_init_gating_factor=0.01, use_fused_mhc=False, mhc_fused_backend='auto', mhc_recompute_layer_num=None, wide_residual=None, residual_stream_recompute_num_layers=None, clone_scatter_output_in_embedding=True, disable_parameter_transpose_cache=False, config_logger_dir='', flash_decode=False, batch_invariant_mode=False, batch_invariant_backend='te_native', batch_invariant_collective='ordered', use_te_activation_func=False, inference_rng_tracker=False, inference_sampling_seed=42, symmetric_ar_type=None, nccl_all_reduce_for_prefill=False, use_inference_optimized_layers=False, inference_fuse_tp_communication=False, inference_disable_triton_nvls_kernels=False, inference_grouped_gemm_backend='vllm', inference_moe_disable_fused_quant_kernels=False, inference_flashinfer_mxfp8_token_capacity=None, inference_moe_token_dispatcher_type='nvls', mrope_section=None, is_hybrid_model=False, mamba_state_dim=128, mamba_head_dim=64, mamba_num_groups=8, mamba_num_heads=None, gdp_num_householder=3, mamba_training_ssm_states_dtype=None, use_mamba_mem_eff_path=True, gdp_cutedsl_kernel=False, gdp_num_chunk_states_to_recompute=2, mlp_chunks_for_prefill=1, mlp_chunks_for_training=1, heterogeneous_block_specs=False, hetereogenous_dist_checkpoint=False, quant_recipe=None, transformer_impl='transformer_engine', fine_grained_activation_offloading=True, offload_modules=['gdn_core_attn'], min_offloaded_tensor_size=1048576, delay_offload_until_cuda_graph=False, delta_offload_bytes_across_pp_ranks=0, activation_offload_fraction=1.0, moe_paged_stash=False, moe_paged_stash_page_size=64, moe_paged_stash_buffer_size_factor_cuda=1.1, moe_paged_stash_buffer_size_factor_cpu=0.0, fine_grained_offloading_max_inflight_offloads=None)",
+  "dataset_tokens": 65537,
+  "records": [
+    {
+      "step": 0,
+      "replay": false,
+      "measured": false,
+      "seconds": 6.347724945051596,
+      "peak_allocated_bytes": 3244224512,
+      "peak_reserved_bytes": 4070572032,
+      "allocated_bytes": 3185322496,
+      "reserved_bytes": 4070572032,
+      "input_sha256": "bb93b46fdc248271086d03490dffa8591a9d2285ef73ca9021bf18b139bad9df",
+      "loss": [
+        8.503067970275879,
+        8.537910461425781,
+        8.530195236206055,
+        8.472158432006836
+      ],
+      "grad_norm": 10.803177833557129,
+      "pool": {
+        "total_allocated": 54,
+        "current_in_use": 0,
+        "allocation_requests": 216,
+        "free_requests": 216,
+        "pool_hits": 162,
+        "pool_misses": 54
+      },
+      "selected_bytes": 419430400
+    },
+    {
+      "step": 1,
+      "replay": false,
+      "measured": false,
+      "seconds": 0.4462757429573685,
+      "peak_allocated_bytes": 4645961216,
+      "peak_reserved_bytes": 5114953728,
+      "allocated_bytes": 3185322496,
+      "reserved_bytes": 5114953728,
+      "input_sha256": "adc9875fe7bb6d00e0ab4f2fe00ec7b7974a437a15f75adf98f86428b6d86aa7",
+      "loss": [
+        8.497560501098633,
+        8.525493621826172,
+        8.50016975402832,
+        8.527395248413086
+      ],
+      "grad_norm": 10.81982135772705,
+      "pool": {
+        "total_allocated": 54,
+        "current_in_use": 0,
+        "allocation_requests": 396,
+        "free_requests": 396,
+        "pool_hits": 342,
+        "pool_misses": 54
+      },
+      "selected_bytes": 419430400
+    },
+    {
+      "step": 2,
+      "replay": false,
+      "measured": false,
+      "seconds": 0.3891592340078205,
+      "peak_allocated_bytes": 4645961216,
+      "peak_reserved_bytes": 5114953728,
+      "allocated_bytes": 3185322496,
+      "reserved_bytes": 5114953728,
+      "input_sha256": "96f65510238e33c0de2ad227f0adbeb372cd48ff8a03733f3e259eadf7d878fd",
+      "loss": [
+        8.501510620117188,
+        8.521536827087402,
+        8.532997131347656,
+        8.506612777709961
+      ],
+      "grad_norm": 10.779581069946289,
+      "pool": {
+        "total_allocated": 54,
+        "current_in_use": 0,
+        "allocation_requests": 576,
+        "free_requests": 576,
+        "pool_hits": 522,
+        "pool_misses": 54
+      },
+      "selected_bytes": 419430400
+    },
+    {
+      "step": 3,
+      "replay": true,
+      "measured": false,
+      "seconds": 0.4531984719214961,
+      "peak_allocated_bytes": 3368150528,
+      "peak_reserved_bytes": 5182062592,
+      "allocated_bytes": 3309360640,
+      "reserved_bytes": 5182062592,
+      "input_sha256": "931f81e7317c5d75fe1575bd5a8820e61afdbb119734cdc66034fa342feead02",
+      "loss": [
+        8.537078857421875,
+        8.521940231323242,
+        8.508941650390625,
+        8.537761688232422
+      ],
+      "grad_norm": 10.760882377624512,
+      "pool": {
+        "total_allocated": 54,
+        "current_in_use": 0,
+        "allocation_requests": 621,
+        "free_requests": 621,
+        "pool_hits": 567,
+        "pool_misses": 54
+      },
+      "selected_bytes": 419430400
+    },
+    {
+      "step": 4,
+      "replay": true,
+      "measured": false,
+      "seconds": 0.45041351299732924,
+      "peak_allocated_bytes": 3368150528,
+      "peak_reserved_bytes": 5182062592,
+      "allocated_bytes": 3309360640,
+      "reserved_bytes": 5182062592,
+      "input_sha256": "87991128de396b88df49d052860d7b7837e54be30e5614fe08e27bc428f05909",
+      "loss": [
+        8.514039993286133,
+        8.526018142700195,
+        8.509599685668945,
+        8.547319412231445
+      ],
+      "grad_norm": 10.766069412231445,
+      "pool": {
+        "total_allocated": 54,
+        "current_in_use": 0,
+        "allocation_requests": 621,
+        "free_requests": 621,
+        "pool_hits": 567,
+        "pool_misses": 54
+      },
+      "selected_bytes": 419430400
+    },
+    {
+      "step": 5,
+      "replay": true,
+      "measured": false,
+      "seconds": 0.4503785049309954,
+      "peak_allocated_bytes": 3368150528,
+      "peak_reserved_bytes": 5182062592,
+      "allocated_bytes": 3309360640,
+      "reserved_bytes": 5182062592,
+      "input_sha256": "5b5cdb2625c929e65e3699e0a1c78473863847ce222c718636052f951bba6add",
+      "loss": [
+        8.526485443115234,
+        8.530593872070312,
+        8.52927017211914,
+        8.527511596679688
+      ],
+      "grad_norm": 10.732952117919922,
+      "pool": {
+        "total_allocated": 54,
+        "current_in_use": 0,
+        "allocation_requests": 621,
+        "free_requests": 621,
+        "pool_hits": 567,
+        "pool_misses": 54
+      },
+      "selected_bytes": 419430400
+    },
+    {
+      "step": 6,
+      "replay": true,
+      "measured": true,
+      "seconds": 0.453035130049102,
+      "peak_allocated_bytes": 3368150528,
+      "peak_reserved_bytes": 5182062592,
+      "allocated_bytes": 3309360640,
+      "reserved_bytes": 5182062592,
+      "input_sha256": "13496558d0c3c84c5dff7e87f16164697305e65bfd72ae988bd39f973f260358",
+      "loss": [
+        8.522513389587402,
+        8.528844833374023,
+        8.531599998474121,
+        8.49297046661377
+      ],
+      "grad_norm": 10.740009307861328,
+      "pool": {
+        "total_allocated": 54,
+        "current_in_use": 0,
+        "allocation_requests": 621,
+        "free_requests": 621,
+        "pool_hits": 567,
+        "pool_misses": 54
+      },
+      "selected_bytes": 419430400
+    },
+    {
+      "step": 7,
+      "replay": true,
+      "measured": true,
+      "seconds": 0.4544160070363432,
+      "peak_allocated_bytes": 3368150528,
+      "peak_reserved_bytes": 5182062592,
+      "allocated_bytes": 3309360640,
+      "reserved_bytes": 5182062592,
+      "input_sha256": "25601ea30b2e5f1c5a9e8452df970615bbebac4a4420085ebff903a6b5b101fc",
+      "loss": [
+        8.515708923339844,
+        8.532752990722656,
+        8.504925727844238,
+        8.512505531311035
+      ],
+      "grad_norm": 10.753124237060547,
+      "pool": {
+        "total_allocated": 54,
+        "current_in_use": 0,
+        "allocation_requests": 621,
+        "free_requests": 621,
+        "pool_hits": 567,
+        "pool_misses": 54
+      },
+      "selected_bytes": 419430400
+    },
+    {
+      "step": 8,
+      "replay": true,
+      "measured": true,
+      "seconds": 0.4520504929823801,
+      "peak_allocated_bytes": 3368150528,
+      "peak_reserved_bytes": 5182062592,
+      "allocated_bytes": 3309360640,
+      "reserved_bytes": 5182062592,
+      "input_sha256": "00f2552dd22f9aea9bba9fced90515e28bb50d7fa28f80f6c44f4b8a7d678708",
+      "loss": [
+        5.507540702819824,
+        5.551022052764893,
+        5.529102325439453,
+        5.496713638305664
+      ],
+      "grad_norm": 9.077778816223145,
+      "pool": {
+        "total_allocated": 54,
+        "current_in_use": 0,
+        "allocation_requests": 621,
+        "free_requests": 621,
+        "pool_hits": 567,
+        "pool_misses": 54
+      },
+      "selected_bytes": 419430400
+    }
+  ],
+  "pool_checks": 9
+}

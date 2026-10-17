@@ -1,0 +1,1039 @@
+{
+  "config": {
+    "mode": "profile",
+    "variant": "gdn2",
+    "output": "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-graph-profile-20261017/gdn2-saved-tensors/result.json",
+    "layers": 1,
+    "seq_length": 2048,
+    "batch_size": 1,
+    "hidden_size": 1024,
+    "key_heads": 8,
+    "value_heads": 16,
+    "head_dim": 128,
+    "min_offloaded_tensor_size": 1048576,
+    "fractions": [
+      0.5,
+      1.0
+    ],
+    "warmup": 3,
+    "iterations": 10,
+    "seed": 123,
+    "sync_forward": false
+  },
+  "input_policy": "seeded_distinct_input_per_step",
+  "environment": {
+    "torch": "2.11.0+cu130",
+    "cuda": "13.0",
+    "gpu": "NVIDIA RTX A6000",
+    "fla": "0.5.1",
+    "transformer_engine": "2.20.2",
+    "torch_compile_disable": "0"
+  },
+  "profile": {
+    "forward_done_host_seconds": 668851.786582836,
+    "saved_tensor_bytes_with_aliases": 226799632,
+    "unique_saved_storage_bytes": 210022416,
+    "recurrence_only_storage_bytes": 75497472,
+    "rows": [
+      {
+        "index": 0,
+        "phase": "outside_recurrence",
+        "name": "internal",
+        "shape": [
+          2048,
+          1024
+        ],
+        "stride": [
+          1024,
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "tensor_bytes": 4194304,
+        "storage": 140333132283904,
+        "storage_bytes": 4194304,
+        "parameter_alias": false,
+        "save_host_seconds": 668846.5735267,
+        "first_unpack_host_seconds": 668852.118425212,
+        "last_unpack_host_seconds": 668852.118425212,
+        "unpack_count": 1
+      },
+      {
+        "index": 1,
+        "phase": "outside_recurrence",
+        "name": "internal",
+        "shape": [
+          10240,
+          1024
+        ],
+        "stride": [
+          1024,
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "tensor_bytes": 20971520,
+        "storage": 140333335707648,
+        "storage_bytes": 20971520,
+        "parameter_alias": true,
+        "save_host_seconds": 668846.573556851,
+        "first_unpack_host_seconds": 668852.118436389,
+        "last_unpack_host_seconds": 668852.118436389,
+        "unpack_count": 1
+      },
+      {
+        "index": 2,
+        "phase": "outside_recurrence",
+        "name": "internal",
+        "shape": [
+          10240,
+          1024
+        ],
+        "stride": [
+          1024,
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "tensor_bytes": 20971520,
+        "storage": 140333335707648,
+        "storage_bytes": 20971520,
+        "parameter_alias": true,
+        "save_host_seconds": 668846.573564326,
+        "first_unpack_host_seconds": 668852.118438649,
+        "last_unpack_host_seconds": 668852.118438649,
+        "unpack_count": 1
+      },
+      {
+        "index": 3,
+        "phase": "outside_recurrence",
+        "name": "internal",
+        "shape": [
+          1024
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "tensor_bytes": 2048,
+        "storage": 140333331548672,
+        "storage_bytes": 2048,
+        "parameter_alias": true,
+        "save_host_seconds": 668846.573570735,
+        "first_unpack_host_seconds": 668852.118441078,
+        "last_unpack_host_seconds": 668852.118441078,
+        "unpack_count": 1
+      },
+      {
+        "index": 4,
+        "phase": "outside_recurrence",
+        "name": "internal",
+        "shape": [
+          2048,
+          1024
+        ],
+        "stride": [
+          1024,
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "tensor_bytes": 4194304,
+        "storage": 140333136478208,
+        "storage_bytes": 4194304,
+        "parameter_alias": false,
+        "save_host_seconds": 668846.573581938,
+        "first_unpack_host_seconds": 668852.118443783,
+        "last_unpack_host_seconds": 668852.118443783,
+        "unpack_count": 1
+      },
+      {
+        "index": 5,
+        "phase": "outside_recurrence",
+        "name": "internal",
+        "shape": [
+          2048
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.float32",
+        "tensor_bytes": 8192,
+        "storage": 140333331551232,
+        "storage_bytes": 8192,
+        "parameter_alias": false,
+        "save_host_seconds": 668846.573586708,
+        "first_unpack_host_seconds": 668852.118445422,
+        "last_unpack_host_seconds": 668852.118445422,
+        "unpack_count": 1
+      },
+      {
+        "index": 6,
+        "phase": "outside_recurrence",
+        "name": "internal",
+        "shape": [
+          1,
+          2048,
+          4096
+        ],
+        "stride": [
+          10240,
+          10240,
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "tensor_bytes": 16777216,
+        "storage": 140333144866816,
+        "storage_bytes": 41943040,
+        "parameter_alias": false,
+        "save_host_seconds": 668847.648894031,
+        "first_unpack_host_seconds": 668852.090257862,
+        "last_unpack_host_seconds": 668852.090257862,
+        "unpack_count": 1
+      },
+      {
+        "index": 7,
+        "phase": "outside_recurrence",
+        "name": "internal",
+        "shape": [
+          4096,
+          4
+        ],
+        "stride": [
+          4,
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "tensor_bytes": 32768,
+        "storage": 140333331513344,
+        "storage_bytes": 32768,
+        "parameter_alias": true,
+        "save_host_seconds": 668847.648909487,
+        "first_unpack_host_seconds": 668852.090264426,
+        "last_unpack_host_seconds": 668852.090264426,
+        "unpack_count": 1
+      },
+      {
+        "index": 8,
+        "phase": "outside_recurrence",
+        "name": "internal",
+        "shape": [
+          8
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "tensor_bytes": 16,
+        "storage": 140333331548160,
+        "storage_bytes": 16,
+        "parameter_alias": true,
+        "save_host_seconds": 668849.250180588,
+        "first_unpack_host_seconds": 668852.034109658,
+        "last_unpack_host_seconds": 668852.034109658,
+        "unpack_count": 1
+      },
+      {
+        "index": 9,
+        "phase": "outside_recurrence",
+        "name": "internal",
+        "shape": [
+          1,
+          2048,
+          1024
+        ],
+        "stride": [
+          10240,
+          10240,
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "tensor_bytes": 4194304,
+        "storage": 140333144866816,
+        "storage_bytes": 41943040,
+        "parameter_alias": false,
+        "save_host_seconds": 668849.250218776,
+        "first_unpack_host_seconds": 668852.034122425,
+        "last_unpack_host_seconds": 668852.034122425,
+        "unpack_count": 1
+      },
+      {
+        "index": 10,
+        "phase": "outside_recurrence",
+        "name": "internal",
+        "shape": [
+          1024
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "tensor_bytes": 2048,
+        "storage": 140333331546112,
+        "storage_bytes": 2048,
+        "parameter_alias": true,
+        "save_host_seconds": 668849.250245322,
+        "first_unpack_host_seconds": 668852.034124157,
+        "last_unpack_host_seconds": 668852.034124157,
+        "unpack_count": 1
+      },
+      {
+        "index": 11,
+        "phase": "outside_recurrence",
+        "name": "internal",
+        "shape": [
+          1,
+          2048,
+          1024
+        ],
+        "stride": [
+          10240,
+          10240,
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "tensor_bytes": 4194304,
+        "storage": 140333144866816,
+        "storage_bytes": 41943040,
+        "parameter_alias": false,
+        "save_host_seconds": 668849.250270299,
+        "first_unpack_host_seconds": 668852.034128499,
+        "last_unpack_host_seconds": 668852.034128499,
+        "unpack_count": 1
+      },
+      {
+        "index": 12,
+        "phase": "outside_recurrence",
+        "name": "internal",
+        "shape": [
+          32768,
+          128
+        ],
+        "stride": [
+          128,
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "tensor_bytes": 8388608,
+        "storage": 140333203587072,
+        "storage_bytes": 8388608,
+        "parameter_alias": false,
+        "save_host_seconds": 668849.25029399,
+        "first_unpack_host_seconds": 668852.034130451,
+        "last_unpack_host_seconds": 668852.034130451,
+        "unpack_count": 1
+      },
+      {
+        "index": 13,
+        "phase": "outside_recurrence",
+        "name": "internal",
+        "shape": [
+          1,
+          2048,
+          2048
+        ],
+        "stride": [
+          2048,
+          2048,
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "tensor_bytes": 8388608,
+        "storage": 140333232947200,
+        "storage_bytes": 8388608,
+        "parameter_alias": false,
+        "save_host_seconds": 668849.250316468,
+        "first_unpack_host_seconds": 668852.034132048,
+        "last_unpack_host_seconds": 668852.034132048,
+        "unpack_count": 1
+      },
+      {
+        "index": 14,
+        "phase": "outside_recurrence",
+        "name": "internal",
+        "shape": [
+          1,
+          2048,
+          16
+        ],
+        "stride": [
+          32768,
+          16,
+          1
+        ],
+        "dtype": "torch.float32",
+        "tensor_bytes": 131072,
+        "storage": 140333331559424,
+        "storage_bytes": 131072,
+        "parameter_alias": false,
+        "save_host_seconds": 668849.25033845,
+        "first_unpack_host_seconds": 668852.034133441,
+        "last_unpack_host_seconds": 668852.034133441,
+        "unpack_count": 1
+      },
+      {
+        "index": 15,
+        "phase": "gdn_core_attn.1",
+        "name": "q",
+        "shape": [
+          1,
+          2048,
+          16,
+          128
+        ],
+        "stride": [
+          4194304,
+          2048,
+          128,
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "tensor_bytes": 8388608,
+        "storage": 140333211975680,
+        "storage_bytes": 8388608,
+        "parameter_alias": false,
+        "save_host_seconds": 668849.295334513,
+        "first_unpack_host_seconds": 668851.994213187,
+        "last_unpack_host_seconds": 668851.994213187,
+        "unpack_count": 1
+      },
+      {
+        "index": 16,
+        "phase": "gdn_core_attn.1",
+        "name": "k",
+        "shape": [
+          1,
+          2048,
+          16,
+          128
+        ],
+        "stride": [
+          4194304,
+          2048,
+          128,
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "tensor_bytes": 8388608,
+        "storage": 140333224558592,
+        "storage_bytes": 8388608,
+        "parameter_alias": false,
+        "save_host_seconds": 668849.295351911,
+        "first_unpack_host_seconds": 668851.994222223,
+        "last_unpack_host_seconds": 668851.994222223,
+        "unpack_count": 1
+      },
+      {
+        "index": 17,
+        "phase": "gdn_core_attn.1",
+        "name": "v",
+        "shape": [
+          1,
+          2048,
+          16,
+          128
+        ],
+        "stride": [
+          4194304,
+          2048,
+          128,
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "tensor_bytes": 8388608,
+        "storage": 140333270695936,
+        "storage_bytes": 8388608,
+        "parameter_alias": false,
+        "save_host_seconds": 668849.295357062,
+        "first_unpack_host_seconds": 668851.994225901,
+        "last_unpack_host_seconds": 668851.994225901,
+        "unpack_count": 1
+      },
+      {
+        "index": 18,
+        "phase": "gdn_core_attn.1",
+        "name": "internal",
+        "shape": [
+          1,
+          2048,
+          16,
+          128
+        ],
+        "stride": [
+          4194304,
+          2048,
+          128,
+          1
+        ],
+        "dtype": "torch.float32",
+        "tensor_bytes": 16777216,
+        "storage": 140333304250368,
+        "storage_bytes": 16777216,
+        "parameter_alias": false,
+        "save_host_seconds": 668849.295362281,
+        "first_unpack_host_seconds": 668851.994230053,
+        "last_unpack_host_seconds": 668851.994230053,
+        "unpack_count": 1
+      },
+      {
+        "index": 19,
+        "phase": "gdn_core_attn.1",
+        "name": "g",
+        "shape": [
+          1,
+          2048,
+          16,
+          128
+        ],
+        "stride": [
+          4194304,
+          2048,
+          128,
+          1
+        ],
+        "dtype": "torch.float32",
+        "tensor_bytes": 16777216,
+        "storage": 140333245530112,
+        "storage_bytes": 16777216,
+        "parameter_alias": false,
+        "save_host_seconds": 668849.295366538,
+        "first_unpack_host_seconds": 668851.994233239,
+        "last_unpack_host_seconds": 668851.994233239,
+        "unpack_count": 1
+      },
+      {
+        "index": 20,
+        "phase": "gdn_core_attn.1",
+        "name": "b",
+        "shape": [
+          1,
+          2048,
+          16,
+          128
+        ],
+        "stride": [
+          4194304,
+          2048,
+          128,
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "tensor_bytes": 8388608,
+        "storage": 140333262307328,
+        "storage_bytes": 8388608,
+        "parameter_alias": false,
+        "save_host_seconds": 668849.295370533,
+        "first_unpack_host_seconds": 668851.994237592,
+        "last_unpack_host_seconds": 668851.994237592,
+        "unpack_count": 1
+      },
+      {
+        "index": 21,
+        "phase": "gdn_core_attn.1",
+        "name": "w",
+        "shape": [
+          1,
+          2048,
+          16,
+          128
+        ],
+        "stride": [
+          4194304,
+          2048,
+          128,
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "tensor_bytes": 8388608,
+        "storage": 140333232947200,
+        "storage_bytes": 8388608,
+        "parameter_alias": false,
+        "save_host_seconds": 668849.295374513,
+        "first_unpack_host_seconds": 668851.994239829,
+        "last_unpack_host_seconds": 668851.994239829,
+        "unpack_count": 1
+      },
+      {
+        "index": 22,
+        "phase": "gdn_core_attn.1",
+        "name": "internal",
+        "shape": [
+          1,
+          2048,
+          16,
+          64
+        ],
+        "stride": [
+          2097152,
+          1024,
+          64,
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "tensor_bytes": 4194304,
+        "storage": 140333140672512,
+        "storage_bytes": 4194304,
+        "parameter_alias": false,
+        "save_host_seconds": 668849.295378697,
+        "first_unpack_host_seconds": 668851.99424288,
+        "last_unpack_host_seconds": 668851.99424288,
+        "unpack_count": 1
+      },
+      {
+        "index": 23,
+        "phase": "gdn_core_attn.1",
+        "name": "internal",
+        "shape": [
+          1,
+          2048,
+          16,
+          64
+        ],
+        "stride": [
+          2097152,
+          1024,
+          64,
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "tensor_bytes": 4194304,
+        "storage": 140333220364288,
+        "storage_bytes": 4194304,
+        "parameter_alias": false,
+        "save_host_seconds": 668849.295383742,
+        "first_unpack_host_seconds": 668851.994244573,
+        "last_unpack_host_seconds": 668851.994244573,
+        "unpack_count": 1
+      },
+      {
+        "index": 24,
+        "phase": "outside_recurrence",
+        "name": "internal",
+        "shape": [
+          32768,
+          128
+        ],
+        "stride": [
+          128,
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "tensor_bytes": 8388608,
+        "storage": 140330548592640,
+        "storage_bytes": 8388608,
+        "parameter_alias": false,
+        "save_host_seconds": 668850.699371441,
+        "first_unpack_host_seconds": 668851.841219371,
+        "last_unpack_host_seconds": 668851.841219371,
+        "unpack_count": 1
+      },
+      {
+        "index": 25,
+        "phase": "outside_recurrence",
+        "name": "internal",
+        "shape": [
+          32768
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.float32",
+        "tensor_bytes": 131072,
+        "storage": 140333331690496,
+        "storage_bytes": 131072,
+        "parameter_alias": false,
+        "save_host_seconds": 668851.60347005,
+        "first_unpack_host_seconds": 668851.841225908,
+        "last_unpack_host_seconds": 668851.841225908,
+        "unpack_count": 1
+      },
+      {
+        "index": 26,
+        "phase": "outside_recurrence",
+        "name": "internal",
+        "shape": [
+          1,
+          2048,
+          16,
+          128
+        ],
+        "stride": [
+          4194304,
+          2048,
+          128,
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "tensor_bytes": 8388608,
+        "storage": 140333283278848,
+        "storage_bytes": 8388608,
+        "parameter_alias": false,
+        "save_host_seconds": 668851.785012491,
+        "first_unpack_host_seconds": 668851.840853819,
+        "last_unpack_host_seconds": 668851.840853819,
+        "unpack_count": 1
+      },
+      {
+        "index": 27,
+        "phase": "outside_recurrence",
+        "name": "internal",
+        "shape": [
+          32768,
+          128
+        ],
+        "stride": [
+          128,
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "tensor_bytes": 8388608,
+        "storage": 140330540204032,
+        "storage_bytes": 8388608,
+        "parameter_alias": false,
+        "save_host_seconds": 668851.785054431,
+        "first_unpack_host_seconds": 668851.840859122,
+        "last_unpack_host_seconds": 668851.840859122,
+        "unpack_count": 1
+      },
+      {
+        "index": 28,
+        "phase": "outside_recurrence",
+        "name": "internal",
+        "shape": [
+          2048,
+          1,
+          2048
+        ],
+        "stride": [
+          2048,
+          4194304,
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "tensor_bytes": 8388608,
+        "storage": 140333291667456,
+        "storage_bytes": 8388608,
+        "parameter_alias": false,
+        "save_host_seconds": 668851.786327528,
+        "first_unpack_host_seconds": 668851.839703777,
+        "last_unpack_host_seconds": 668851.839703777,
+        "unpack_count": 1
+      },
+      {
+        "index": 29,
+        "phase": "outside_recurrence",
+        "name": "internal",
+        "shape": [
+          1024,
+          2048
+        ],
+        "stride": [
+          2048,
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "tensor_bytes": 4194304,
+        "storage": 140333123895296,
+        "storage_bytes": 4194304,
+        "parameter_alias": true,
+        "save_host_seconds": 668851.786340952,
+        "first_unpack_host_seconds": 668851.839711088,
+        "last_unpack_host_seconds": 668851.839711088,
+        "unpack_count": 1
+      },
+      {
+        "index": 30,
+        "phase": "outside_recurrence",
+        "name": "internal",
+        "shape": [
+          1024,
+          2048
+        ],
+        "stride": [
+          2048,
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "tensor_bytes": 4194304,
+        "storage": 140333123895296,
+        "storage_bytes": 4194304,
+        "parameter_alias": true,
+        "save_host_seconds": 668851.786346737,
+        "first_unpack_host_seconds": 668851.839715057,
+        "last_unpack_host_seconds": 668851.839715057,
+        "unpack_count": 1
+      },
+      {
+        "index": 31,
+        "phase": "outside_recurrence",
+        "name": "internal",
+        "shape": [
+          2048,
+          1,
+          1024
+        ],
+        "stride": [
+          1024,
+          1024,
+          1
+        ],
+        "dtype": "torch.float32",
+        "tensor_bytes": 8388608,
+        "storage": 140330573758464,
+        "storage_bytes": 8388608,
+        "parameter_alias": false,
+        "save_host_seconds": 668851.791536903,
+        "first_unpack_host_seconds": 668851.839305251,
+        "last_unpack_host_seconds": 668851.839305251,
+        "unpack_count": 1
+      }
+    ],
+    "storages": {
+      "140333132283904": {
+        "bytes": 4194304,
+        "save_indices": [
+          0
+        ],
+        "phases": [
+          "outside_recurrence"
+        ]
+      },
+      "140333335707648": {
+        "bytes": 20971520,
+        "save_indices": [
+          1,
+          2
+        ],
+        "phases": [
+          "outside_recurrence"
+        ]
+      },
+      "140333331548672": {
+        "bytes": 2048,
+        "save_indices": [
+          3
+        ],
+        "phases": [
+          "outside_recurrence"
+        ]
+      },
+      "140333136478208": {
+        "bytes": 4194304,
+        "save_indices": [
+          4
+        ],
+        "phases": [
+          "outside_recurrence"
+        ]
+      },
+      "140333331551232": {
+        "bytes": 8192,
+        "save_indices": [
+          5
+        ],
+        "phases": [
+          "outside_recurrence"
+        ]
+      },
+      "140333144866816": {
+        "bytes": 41943040,
+        "save_indices": [
+          6,
+          9,
+          11
+        ],
+        "phases": [
+          "outside_recurrence"
+        ]
+      },
+      "140333331513344": {
+        "bytes": 32768,
+        "save_indices": [
+          7
+        ],
+        "phases": [
+          "outside_recurrence"
+        ]
+      },
+      "140333331548160": {
+        "bytes": 16,
+        "save_indices": [
+          8
+        ],
+        "phases": [
+          "outside_recurrence"
+        ]
+      },
+      "140333331546112": {
+        "bytes": 2048,
+        "save_indices": [
+          10
+        ],
+        "phases": [
+          "outside_recurrence"
+        ]
+      },
+      "140333203587072": {
+        "bytes": 8388608,
+        "save_indices": [
+          12
+        ],
+        "phases": [
+          "outside_recurrence"
+        ]
+      },
+      "140333232947200": {
+        "bytes": 8388608,
+        "save_indices": [
+          13,
+          21
+        ],
+        "phases": [
+          "outside_recurrence",
+          "gdn_core_attn.1"
+        ]
+      },
+      "140333331559424": {
+        "bytes": 131072,
+        "save_indices": [
+          14
+        ],
+        "phases": [
+          "outside_recurrence"
+        ]
+      },
+      "140333211975680": {
+        "bytes": 8388608,
+        "save_indices": [
+          15
+        ],
+        "phases": [
+          "gdn_core_attn.1"
+        ]
+      },
+      "140333224558592": {
+        "bytes": 8388608,
+        "save_indices": [
+          16
+        ],
+        "phases": [
+          "gdn_core_attn.1"
+        ]
+      },
+      "140333270695936": {
+        "bytes": 8388608,
+        "save_indices": [
+          17
+        ],
+        "phases": [
+          "gdn_core_attn.1"
+        ]
+      },
+      "140333304250368": {
+        "bytes": 16777216,
+        "save_indices": [
+          18
+        ],
+        "phases": [
+          "gdn_core_attn.1"
+        ]
+      },
+      "140333245530112": {
+        "bytes": 16777216,
+        "save_indices": [
+          19
+        ],
+        "phases": [
+          "gdn_core_attn.1"
+        ]
+      },
+      "140333262307328": {
+        "bytes": 8388608,
+        "save_indices": [
+          20
+        ],
+        "phases": [
+          "gdn_core_attn.1"
+        ]
+      },
+      "140333140672512": {
+        "bytes": 4194304,
+        "save_indices": [
+          22
+        ],
+        "phases": [
+          "gdn_core_attn.1"
+        ]
+      },
+      "140333220364288": {
+        "bytes": 4194304,
+        "save_indices": [
+          23
+        ],
+        "phases": [
+          "gdn_core_attn.1"
+        ]
+      },
+      "140330548592640": {
+        "bytes": 8388608,
+        "save_indices": [
+          24
+        ],
+        "phases": [
+          "outside_recurrence"
+        ]
+      },
+      "140333331690496": {
+        "bytes": 131072,
+        "save_indices": [
+          25
+        ],
+        "phases": [
+          "outside_recurrence"
+        ]
+      },
+      "140333283278848": {
+        "bytes": 8388608,
+        "save_indices": [
+          26
+        ],
+        "phases": [
+          "outside_recurrence"
+        ]
+      },
+      "140330540204032": {
+        "bytes": 8388608,
+        "save_indices": [
+          27
+        ],
+        "phases": [
+          "outside_recurrence"
+        ]
+      },
+      "140333291667456": {
+        "bytes": 8388608,
+        "save_indices": [
+          28
+        ],
+        "phases": [
+          "outside_recurrence"
+        ]
+      },
+      "140333123895296": {
+        "bytes": 4194304,
+        "save_indices": [
+          29,
+          30
+        ],
+        "phases": [
+          "outside_recurrence"
+        ]
+      },
+      "140330573758464": {
+        "bytes": 8388608,
+        "save_indices": [
+          31
+        ],
+        "phases": [
+          "outside_recurrence"
+        ]
+      }
+    }
+  }
+}

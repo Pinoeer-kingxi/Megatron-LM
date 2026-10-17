@@ -1,0 +1,28 @@
+{
+  "diagnosis_and_screening": {
+    "source": "d18040ba5a41e69ada77406d74f68295ccb8090b",
+    "runtime_tree": "8bbc503a8e5f829cde583c4f08360bb7afe244fb",
+    "baseline_evidence_source": "f19ebc5b1da1c9b0075eecfd2f93fc6ca4b3ba8d",
+    "benchmark_sha256": "13b114006faad7f347f0bab3bca9280b0ec04f2edcc0a666b874c93fcd328c40",
+    "baseline_benchmark_sha256": "fed5f20d48e40775646bc8acb5d2d964377e821663893ba466f845ef41b97908"
+  },
+  "fix": {
+    "source": "367d014c7bf74ba3553c9db58da47fa5bcba906e",
+    "baseline_source": "d18040ba5a41e69ada77406d74f68295ccb8090b",
+    "megatron_tree": "de7fd8a34aaf538c4855e3a68173a41506d0e55d",
+    "tests_tree": "fa489476793af27d4585ea2bae53b044fa03ec9b",
+    "tools_tree": "fa1ad50495222c76c5fa38e5c2c9ca538c49e291",
+    "archive_sha256": "95aa0a5cc511b7a192432d38f3ce82e89a1e117b5ad54a50715a1f7d4af7d68b",
+    "benchmark_sha256": "10b09f533d4bbaa8090b300f3c7117f9759ef27268d96d3bb4c183ac014e5a39",
+    "files": {
+      "megatron/core/ssm/gated_delta_net/gdn2.py": "d5f04dfb7911b6418b252187d9180349f52ee95e41af36d55af17d234c4b57c9",
+      "tests/unit_tests/ssm/test_gated_delta_net_offloading.py": "1abcc23d4b81577b3e9f57f740c6fa98538f92983f027268e32afb272c73e69b"
+    }
+  },
+  "red_control": {
+    "production_commit": "d18040ba5a41e69ada77406d74f68295ccb8090b",
+    "test_commit": "367d014c7bf74ba3553c9db58da47fa5bcba906e",
+    "production_megatron_tree": "8bbc503a8e5f829cde583c4f08360bb7afe244fb",
+    "test_sha256": "1abcc23d4b81577b3e9f57f740c6fa98538f92983f027268e32afb272c73e69b"
+  }
+}

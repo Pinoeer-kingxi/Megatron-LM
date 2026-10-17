@@ -1,0 +1,118 @@
+{
+  "status": "passed",
+  "source": {
+    "source": "367d014c7bf74ba3553c9db58da47fa5bcba906e",
+    "baseline_source": "d18040ba5a41e69ada77406d74f68295ccb8090b",
+    "megatron_tree": "de7fd8a34aaf538c4855e3a68173a41506d0e55d",
+    "tests_tree": "fa489476793af27d4585ea2bae53b044fa03ec9b",
+    "tools_tree": "fa1ad50495222c76c5fa38e5c2c9ca538c49e291",
+    "archive_sha256": "95aa0a5cc511b7a192432d38f3ce82e89a1e117b5ad54a50715a1f7d4af7d68b",
+    "benchmark_sha256": "10b09f533d4bbaa8090b300f3c7117f9759ef27268d96d3bb4c183ac014e5a39",
+    "files": {
+      "megatron/core/ssm/gated_delta_net/gdn2.py": "d5f04dfb7911b6418b252187d9180349f52ee95e41af36d55af17d234c4b57c9",
+      "tests/unit_tests/ssm/test_gated_delta_net_offloading.py": "1abcc23d4b81577b3e9f57f740c6fa98538f92983f027268e32afb272c73e69b"
+    }
+  },
+  "pytest": {
+    "final-gdn2-scopes": [
+      {
+        "rank": 0,
+        "passed": 20
+      },
+      {
+        "rank": 1,
+        "passed": 20
+      }
+    ],
+    "final-gdn2-native": [
+      {
+        "rank": 0,
+        "passed": 18
+      },
+      {
+        "rank": 1,
+        "passed": 18
+      }
+    ],
+    "final-gdn2-graphs": [
+      {
+        "rank": 0,
+        "passed": 9
+      },
+      {
+        "rank": 1,
+        "passed": 9
+      }
+    ]
+  },
+  "red_control": "old production source fails the targeted live-write-gate copy assertion",
+  "complete_state": {
+    "8": "six steps: exact losses, grad norms, all gradients, weights and complete optimizer fingerprints",
+    "16": "six steps: exact losses, grad norms, all gradients, weights and complete optimizer fingerprints"
+  },
+  "pairs": [
+    {
+      "repeat": 0,
+      "before": {
+        "median_ms": 451.7250095377676,
+        "peak_allocated_bytes": 3368150528,
+        "peak_reserved_bytes": 5200936960,
+        "selected_bytes": 419430400,
+        "pinned_buffers": 54
+      },
+      "after": {
+        "median_ms": 425.09690194856375,
+        "peak_allocated_bytes": 3368150528,
+        "peak_reserved_bytes": 5161091072,
+        "selected_bytes": 377487360,
+        "pinned_buffers": 48
+      },
+      "step_time_change_pct": -5.894760535054577,
+      "reserved_saved_bytes": 39845888
+    },
+    {
+      "repeat": 1,
+      "before": {
+        "median_ms": 451.70809904811904,
+        "peak_allocated_bytes": 3368150528,
+        "peak_reserved_bytes": 5177868288,
+        "selected_bytes": 419430400,
+        "pinned_buffers": 54
+      },
+      "after": {
+        "median_ms": 424.82005554484203,
+        "peak_allocated_bytes": 3368150528,
+        "peak_reserved_bytes": 5156896768,
+        "selected_bytes": 377487360,
+        "pinned_buffers": 48
+      },
+      "step_time_change_pct": -5.952526323955221,
+      "reserved_saved_bytes": 20971520
+    },
+    {
+      "repeat": 2,
+      "before": {
+        "median_ms": 451.6941924812272,
+        "peak_allocated_bytes": 3368150528,
+        "peak_reserved_bytes": 5184159744,
+        "selected_bytes": 419430400,
+        "pinned_buffers": 54
+      },
+      "after": {
+        "median_ms": 424.90909091429785,
+        "peak_allocated_bytes": 3368150528,
+        "peak_reserved_bytes": 5161091072,
+        "selected_bytes": 377487360,
+        "pinned_buffers": 48
+      },
+      "step_time_change_pct": -5.929919404054007,
+      "reserved_saved_bytes": 23068672
+    }
+  ],
+  "paired_median_step_change_pct": -5.929919404054007,
+  "paired_step_change_range_pct": [
+    -5.952526323955221,
+    -5.894760535054577
+  ],
+  "median_reserved_saved_bytes": 23068672
+}
