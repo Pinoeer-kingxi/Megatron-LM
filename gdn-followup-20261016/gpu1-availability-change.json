@@ -1,0 +1,9 @@
+{
+  "pid": 1450301,
+  "gpu": 1,
+  "other_process_started_unix": 1792212922.13,
+  "stability_started_unix": 1792212854.0059237,
+  "stability_finished_unix": 1792213324.3515756,
+  "overlapped_stability": true,
+  "exclusive_runtime_measurement_claimed": false
+}

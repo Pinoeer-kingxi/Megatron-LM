@@ -1,0 +1,57 @@
+{
+  "upstream_base": "9131593673d037d360d252904f9198d36bc0c246",
+  "sources": [
+    {
+      "stage": "stability",
+      "commit": "87c22d1abae13abf375e8ed4ddfe62301cde87f4",
+      "git_tree": "31625c4c7924851b8a820065cec6d35ec95eff27",
+      "production_tree": "b80f676df5fdcb0b6ba1a0337b5034065cb7619d",
+      "core_tree": "7840a43cf86ff1649d39899bf3b5b3271870203b",
+      "source_archive_sha256": "970b16c46895428ac3fdb97a5d808fdd52d58c30b2beb219b5bd00c7f26f4887"
+    },
+    {
+      "stage": "checkpoint",
+      "commit": "485cb5fa2ffedaaaa0a1a4d095e43ddd99487c1d",
+      "git_tree": "debda06249045184b43d2e2e4122d6863a68671a",
+      "production_tree": "b80f676df5fdcb0b6ba1a0337b5034065cb7619d",
+      "core_tree": "7840a43cf86ff1649d39899bf3b5b3271870203b",
+      "source_archive_sha256": "2d0a4cee1820f8a778e0cdf14de25b529ded0c960dc401413c1cc753ec7da1b8"
+    },
+    {
+      "stage": "scopes-and-initial-native",
+      "commit": "5b79fba4c3ff38cd00abafa6c699787e3f9a7054",
+      "git_tree": "eaa496e20196d15690a181c97f985e48553154b2",
+      "production_tree": "33f7e65f8c81916fd624d6576d91ac83cf8deef0",
+      "core_tree": "8dbb2df7e48c1cba925fc3525a526879741a00de",
+      "source_archive_sha256": "b23aab95be47b5386375431965d2d135852a6bdf3ace4b324479a9d1c043efbf"
+    },
+    {
+      "stage": "effective-stream-fix",
+      "commit": "88fc8a84a9ee41d507a4293fe4e9b36b7981b238",
+      "git_tree": "978f55d83ec7b3c8b095aa68b99db6c45d74c268",
+      "production_tree": "4dab26b0015023d29540f937835e5032133cc0a6",
+      "core_tree": "0b545fb8c83bd73c6c1f323f7e7a0bd8aef8ec34",
+      "source_archive_sha256": "192acf7004d16e8e335e25be569d10b3142c62e282a3ba957bb6d5466ce0c837"
+    },
+    {
+      "stage": "single-graphs-with-fraction-zero",
+      "commit": "2e84e21d03904a5c51182e7140c683110e574142",
+      "git_tree": "e026dadff4f67befb75c263eea92d3d5970e261d",
+      "production_tree": "4dab26b0015023d29540f937835e5032133cc0a6",
+      "core_tree": "0b545fb8c83bd73c6c1f323f7e7a0bd8aef8ec34",
+      "source_archive_sha256": "87087386cc0a38d923f7e985a5c1878c6979dc152fec6993c3695bce2334b723"
+    },
+    {
+      "stage": "final-source",
+      "commit": "043e3173451bea74e63c02b197867bf356ad72e9",
+      "git_tree": "7e82c2f6fb830a12965d68187d9c6f65ab34536c",
+      "production_tree": "4dab26b0015023d29540f937835e5032133cc0a6",
+      "core_tree": "0b545fb8c83bd73c6c1f323f7e7a0bd8aef8ec34",
+      "source_archive_sha256": "1c338874fd96b5c6b2d88b6d86eb63947426871407de22c09d40e86f7f9172ba"
+    }
+  ],
+  "notes": [
+    "production_tree means megatron; core_tree means megatron/core.",
+    "Earlier scope/native results retain their executed revisions. Only the final-source row labels the final matrices and benchmark."
+  ]
+}

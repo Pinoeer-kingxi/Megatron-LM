@@ -1,0 +1,24 @@
+{
+  "status": "removed_after_successful_fresh_process_resume_and_state_comparison",
+  "configuration": "f0-n0-o1",
+  "total_bytes": 10536595043,
+  "files": [
+    {
+      "path": ".metadata",
+      "size_bytes": 487511,
+      "sha256": "b436826b182a09c72a46e125186d46458daaa127e74480c60ef4d24133941a0b"
+    },
+    {
+      "path": "__0_0.distcp",
+      "size_bytes": 10536107469,
+      "sha256": "e93715dffffa6b8aa821c7e86ae82f2a651956a7ba5e4e1e0e2a245c34c5c7fa"
+    },
+    {
+      "path": "metadata.json",
+      "size_bytes": 63,
+      "sha256": "56b32e2dfbc0255db319bddf6880c9dfd3475135ca8d5ace23b8a6a384ed63c6"
+    }
+  ],
+  "removed_unix": 1792215069.2110765,
+  "reason": "Preserve disk/shared-memory space; retain rank logs, state fingerprints and RNG checks."
+}

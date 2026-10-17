@@ -1,0 +1,12 @@
+
+======================================
+   Activation Offload Summary (MB)    
+======================================
+Rank      gdn_core_attn          Total
+--------------------------------------
+Rank 0           240.00         240.00
+--------------------------------------
+Total            240.00         240.00
+======================================
+
+Wrote /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-followup-20261016/extensions-ready-benchmark/pair-2/result.json

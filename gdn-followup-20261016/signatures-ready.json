@@ -1,0 +1,40 @@
+{
+  "head": "043e3173451bea74e63c02b197867bf356ad72e9",
+  "verified_commits": [
+    {
+      "commit": "043e3173451bea74e63c02b197867bf356ad72e9",
+      "signature": "Good \"git\" signature for 13022943007@163.com with ED25519 key SHA256:TMz6vhytFB32DtSCMyE1ivxzR88zV4sATB5TpWIPMGo"
+    },
+    {
+      "commit": "2e84e21d03904a5c51182e7140c683110e574142",
+      "signature": "Good \"git\" signature for 13022943007@163.com with ED25519 key SHA256:TMz6vhytFB32DtSCMyE1ivxzR88zV4sATB5TpWIPMGo"
+    },
+    {
+      "commit": "88fc8a84a9ee41d507a4293fe4e9b36b7981b238",
+      "signature": "Good \"git\" signature for 13022943007@163.com with ED25519 key SHA256:TMz6vhytFB32DtSCMyE1ivxzR88zV4sATB5TpWIPMGo"
+    },
+    {
+      "commit": "9b3145584f9776c2239c1c275569c325feada50b",
+      "signature": "Good \"git\" signature for 13022943007@163.com with ED25519 key SHA256:TMz6vhytFB32DtSCMyE1ivxzR88zV4sATB5TpWIPMGo"
+    },
+    {
+      "commit": "ce4899287147b7b3af29e378ff5aa6aa0b42088d",
+      "signature": "Good \"git\" signature for 13022943007@163.com with ED25519 key SHA256:TMz6vhytFB32DtSCMyE1ivxzR88zV4sATB5TpWIPMGo"
+    },
+    {
+      "commit": "5b79fba4c3ff38cd00abafa6c699787e3f9a7054",
+      "signature": "Good \"git\" signature for 13022943007@163.com with ED25519 key SHA256:TMz6vhytFB32DtSCMyE1ivxzR88zV4sATB5TpWIPMGo"
+    },
+    {
+      "commit": "2fb5413be44c812b9d3337d3d3dcb34c77ea366b",
+      "signature": "Good \"git\" signature for 13022943007@163.com with ED25519 key SHA256:TMz6vhytFB32DtSCMyE1ivxzR88zV4sATB5TpWIPMGo"
+    },
+    {
+      "commit": "485cb5fa2ffedaaaa0a1a4d095e43ddd99487c1d",
+      "signature": "Good \"git\" signature for 13022943007@163.com with ED25519 key SHA256:TMz6vhytFB32DtSCMyE1ivxzR88zV4sATB5TpWIPMGo"
+    }
+  ],
+  "effective_replay_method_lines": [
+    2060
+  ]
+}

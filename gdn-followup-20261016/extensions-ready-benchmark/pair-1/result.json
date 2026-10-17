@@ -1,0 +1,109 @@
+{
+  "config": {
+    "mode": "benchmark",
+    "variant": "gdn2",
+    "output": "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-followup-20261016/extensions-ready-benchmark/pair-1/result.json",
+    "layers": 4,
+    "seq_length": 2048,
+    "batch_size": 1,
+    "hidden_size": 1024,
+    "key_heads": 16,
+    "value_heads": 16,
+    "head_dim": 128,
+    "min_offloaded_tensor_size": 1048576,
+    "fractions": [
+      1.0
+    ],
+    "warmup": 3,
+    "iterations": 5,
+    "seed": 123,
+    "sync_forward": false
+  },
+  "input_policy": "seeded_distinct_input_per_step",
+  "environment": {
+    "torch": "2.11.0+cu130",
+    "cuda": "13.0",
+    "gpu": "NVIDIA RTX A6000",
+    "fla": "0.5.1",
+    "transformer_engine": "2.20.2",
+    "torch_compile_disable": "0"
+  },
+  "arms": [
+    {
+      "offload": false,
+      "fraction": 1.0,
+      "step_ms": [
+        33.73007196933031,
+        32.748937024734914,
+        31.490528024733067,
+        34.05362705234438,
+        33.44137209933251
+      ],
+      "median_step_ms": 33.44137209933251,
+      "peak_allocated_bytes": [
+        1192883712,
+        1192883712,
+        1192883712,
+        1192883712,
+        1192883712
+      ],
+      "peak_reserved_bytes": [
+        1304428544,
+        1304428544,
+        1304428544,
+        1304428544,
+        1304428544
+      ],
+      "end_forward_allocated_bytes": [
+        949743616,
+        949743616,
+        949743616,
+        949743616,
+        949743616
+      ],
+      "selected_offload_bytes": {},
+      "steady_offloaded_groups": 0
+    },
+    {
+      "offload": true,
+      "fraction": 1.0,
+      "step_ms": [
+        52.775291027501225,
+        63.24876309372485,
+        53.071325994096696,
+        53.92463400494307,
+        63.16217198036611
+      ],
+      "median_step_ms": 53.92463400494307,
+      "peak_allocated_bytes": [
+        991557632,
+        991557632,
+        991557632,
+        991557632,
+        991557632
+      ],
+      "peak_reserved_bytes": [
+        1212153856,
+        1212153856,
+        1212153856,
+        1212153856,
+        1212153856
+      ],
+      "end_forward_allocated_bytes": [
+        748417536,
+        748417536,
+        748417536,
+        748417536,
+        748417536
+      ],
+      "selected_offload_bytes": {
+        "gdn_core_attn": 251658240
+      },
+      "steady_offloaded_groups": 3,
+      "bitwise_equal": true,
+      "checked_steps": 8,
+      "mismatches": [],
+      "max_pinned_buffers_in_use_after_backward": 0
+    }
+  ]
+}

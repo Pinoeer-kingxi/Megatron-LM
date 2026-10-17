@@ -1,0 +1,123 @@
+{
+  "source": "043e3173451bea74e63c02b197867bf356ad72e9",
+  "checks": [
+    {
+      "command": [
+        "docker",
+        "exec",
+        "--workdir",
+        "/data/songbinbin/Proj/Proj_LWX/Megatron-LM-gdn-extensions",
+        "megatron-gdn-extensions-cpu-20261016",
+        "black",
+        "--check",
+        "megatron/core/ssm/gated_delta_net/common.py",
+        "megatron/core/ssm/gated_delta_net/gdn.py",
+        "megatron/core/ssm/gated_delta_net/gdn2.py",
+        "megatron/core/transformer/transformer_config.py",
+        "megatron/core/transformer/transformer_layer.py",
+        "tests/unit_tests/ssm/test_gated_delta_net_offloading.py",
+        "tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py",
+        "tests/unit_tests/ssm/test_gdn_offload_training.py",
+        "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py",
+        "tools/ssm/gdn_activation_offload.py",
+        "tools/ssm/qwen_gdn_offload_training.py"
+      ],
+      "exit_code": 0,
+      "log": "black-ready.log"
+    },
+    {
+      "command": [
+        "docker",
+        "exec",
+        "--workdir",
+        "/data/songbinbin/Proj/Proj_LWX/Megatron-LM-gdn-extensions",
+        "megatron-gdn-extensions-cpu-20261016",
+        "isort",
+        "--check-only",
+        "megatron/core/ssm/gated_delta_net/common.py",
+        "megatron/core/ssm/gated_delta_net/gdn.py",
+        "megatron/core/ssm/gated_delta_net/gdn2.py",
+        "megatron/core/transformer/transformer_config.py",
+        "megatron/core/transformer/transformer_layer.py",
+        "tests/unit_tests/ssm/test_gated_delta_net_offloading.py",
+        "tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py",
+        "tests/unit_tests/ssm/test_gdn_offload_training.py",
+        "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py",
+        "tools/ssm/gdn_activation_offload.py",
+        "tools/ssm/qwen_gdn_offload_training.py"
+      ],
+      "exit_code": 0,
+      "log": "isort-ready.log"
+    },
+    {
+      "command": [
+        "docker",
+        "exec",
+        "--workdir",
+        "/data/songbinbin/Proj/Proj_LWX/Megatron-LM-gdn-extensions",
+        "megatron-gdn-extensions-cpu-20261016",
+        "ruff",
+        "check",
+        "megatron/core/ssm/gated_delta_net/common.py",
+        "megatron/core/ssm/gated_delta_net/gdn.py",
+        "megatron/core/ssm/gated_delta_net/gdn2.py",
+        "megatron/core/transformer/transformer_config.py",
+        "megatron/core/transformer/transformer_layer.py",
+        "tests/unit_tests/ssm/test_gated_delta_net_offloading.py",
+        "tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py",
+        "tests/unit_tests/ssm/test_gdn_offload_training.py",
+        "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py",
+        "tools/ssm/gdn_activation_offload.py",
+        "tools/ssm/qwen_gdn_offload_training.py"
+      ],
+      "exit_code": 0,
+      "log": "ruff-ready.log"
+    },
+    {
+      "command": [
+        "docker",
+        "exec",
+        "--workdir",
+        "/data/songbinbin/Proj/Proj_LWX/Megatron-LM-gdn-extensions",
+        "--env",
+        "PYTHONPATH=/data/songbinbin/Proj/Proj_LWX/Megatron-LM-gdn-extensions",
+        "megatron-gdn-extensions-cpu-20261016",
+        "pylint",
+        "--disable=unrecognized-option",
+        "megatron/core/ssm/gated_delta_net/common.py",
+        "megatron/core/ssm/gated_delta_net/gdn.py",
+        "megatron/core/ssm/gated_delta_net/gdn2.py",
+        "megatron/core/transformer/transformer_config.py",
+        "megatron/core/transformer/transformer_layer.py",
+        "tests/unit_tests/ssm/test_gated_delta_net_offloading.py",
+        "tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py",
+        "tests/unit_tests/ssm/test_gdn_offload_training.py",
+        "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py",
+        "tools/ssm/gdn_activation_offload.py",
+        "tools/ssm/qwen_gdn_offload_training.py"
+      ],
+      "exit_code": 0,
+      "log": "pylint-ready-project-rules.log"
+    },
+    {
+      "command": [
+        "docker",
+        "exec",
+        "--workdir",
+        "/data/songbinbin/Proj/Proj_LWX/Megatron-LM-gdn-extensions",
+        "megatron-gdn-extensions-cpu-20261016",
+        "python",
+        "tools/check_kernel_determinism_coverage.py",
+        "--base-ref",
+        "485cb5fa2ffedaaaa0a1a4d095e43ddd99487c1d"
+      ],
+      "exit_code": 0,
+      "log": "determinism-ready.log"
+    }
+  ],
+  "pylint_note": "Project .pylintrc enabled messages; omit its obsolete bad-builtins option diagnostic with this installed Pylint. The initial all-E invocation was not the project lint configuration.",
+  "not_run": [
+    "Full upstream autoformat.sh wrapper and optional mypy",
+    "Upstream GPU CI"
+  ]
+}

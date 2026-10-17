@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "rtol": 1e-05,
+  "atol": 1e-08,
+  "comparisons": [
+    {
+      "configuration": "f1-n0-o1",
+      "rank": 0,
+      "arm": "prefix",
+      "compared_steps": 2,
+      "exact": true,
+      "close": true,
+      "rng_exact": true,
+      "tensor_leaves": 2300,
+      "differing_leaves": 0,
+      "max_absolute_difference": 0,
+      "max_tolerance_ratio": 0,
+      "report": "numeric-f1-n0-o1-prefix-rank0.json"
+    },
+    {
+      "configuration": "f1-n0-o1",
+      "rank": 0,
+      "arm": "resumed",
+      "compared_steps": 4,
+      "exact": true,
+      "close": true,
+      "rng_exact": true,
+      "tensor_leaves": 4600,
+      "differing_leaves": 0,
+      "max_absolute_difference": 0,
+      "max_tolerance_ratio": 0,
+      "report": "numeric-f1-n0-o1-resumed-rank0.json"
+    }
+  ],
+  "description": "Native checkpoint restart: all losses, gradients, weights and complete Adam/master states; unfused byte exact, fused vectors numerically close and other tensors byte exact; all five RNG streams restored exactly."
+}

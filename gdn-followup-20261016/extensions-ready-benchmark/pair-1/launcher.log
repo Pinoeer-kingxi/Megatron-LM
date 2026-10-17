@@ -1,0 +1,29 @@
+[default0]:/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-followup-20261016/extensions-ready/source/megatron/core/transformer/transformer_config.py:3428: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+[default0]:  warnings.warn(
+[default0]:/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/_dynamo/variables/functions.py:2202: UserWarning: Dynamo detected a call to a `functools.lru_cache`-wrapped function at '_common.py:101'. Dynamo ignores the cache wrapper and directly traces the wrapped function. Silent incorrectness is only a *potential* risk, not something we have observed. Enable TORCH_LOGS=+dynamo for a DEBUG stack trace.
+[default0]:
+[default0]:This call originates from:
+[default0]:  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/transformer_engine/pytorch/ops/_common.py", line 101, in maybe_autocast_dtype
+[default0]:    if torch_version() >= (2, 4, 3):
+[default0]:
+[default0]:  torch._dynamo.utils.warn_once(msg)
+[default0]:/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/_dynamo/variables/functions.py:2082: UserWarning: Dynamo does not know how to trace the builtin `transformer_engine_torch.pybind11_detail_function_record_v1_system_libstdcpp_gxx_abi_1xxx_use_cxx11_abi_1.rmsnorm_fwd.` This function is either a Python builtin (e.g. _warnings.warn) or a third-party C/C++ Python extension (perhaps created with pybind).
+[default0]:If it is a Python builtin, please file an issue on GitHub so the PyTorch team can add support for it and see the next case for a workaround.
+[default0]:If it is a third-party C/C++ Python extension, please either wrap it into a PyTorch-understood custom operator (see https://pytorch.org/tutorials/advanced/custom_ops_landing_page.html for more details) or, if it is traceable, use `torch.compiler.allow_in_graph`.
+[default0]:  torch._dynamo.utils.warn_once(explanation + "\n" + "\n".join(hints))
+[default0]:/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-followup-20261016/extensions-ready/source/megatron/core/transformer/transformer_config.py:3428: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+[default0]:  warnings.warn(
+[default0]:/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+[default0]:  return func(*args, **kwargs)
+[default0]:
+[default0]:======================================
+[default0]:   Activation Offload Summary (MB)    
+[default0]:======================================
+[default0]:Rank      gdn_core_attn          Total
+[default0]:--------------------------------------
+[default0]:Rank 0           240.00         240.00
+[default0]:--------------------------------------
+[default0]:Total            240.00         240.00
+[default0]:======================================
+[default0]:
+[default0]:Wrote /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-followup-20261016/extensions-ready-benchmark/pair-1/result.json

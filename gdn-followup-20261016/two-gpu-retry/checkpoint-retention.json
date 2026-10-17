@@ -1,0 +1,29 @@
+{
+  "status": "removed_after_successful_fresh_process_resume_and_state_comparison",
+  "path": "/dev/shm/codex-gdn-followup-20261016/two-gpu-native-checkpoint",
+  "total_bytes": 10538732004,
+  "files": [
+    {
+      "path": ".metadata",
+      "size_bytes": 717291,
+      "sha256": "a4ddd62d3b37b372a181d794c5a60abf2cade89db4db049e31c0a6e002bcc1b6"
+    },
+    {
+      "path": "__0_0.distcp",
+      "size_bytes": 5269742285,
+      "sha256": "4d7be3e934552b7ee7d6740106d9ff75c6d40576ca0ba5108fef3266240ed184"
+    },
+    {
+      "path": "__1_0.distcp",
+      "size_bytes": 5268272365,
+      "sha256": "550252116948e997f3a561beaca9de29fcc45cb171c5b594e4a4c233a1778714"
+    },
+    {
+      "path": "metadata.json",
+      "size_bytes": 63,
+      "sha256": "56b32e2dfbc0255db319bddf6880c9dfd3475135ca8d5ace23b8a6a384ed63c6"
+    }
+  ],
+  "removed_unix": 1792219625.7493734,
+  "reason": "Retain logs, state fingerprints and RNG checks; reclaim this task checkpoint shared memory."
+}

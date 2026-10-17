@@ -1,0 +1,43 @@
+{
+  "next_step": 2,
+  "all_rng_states_exact": true,
+  "torch": {
+    "shape": [
+      5056
+    ],
+    "dtype": "torch.uint8",
+    "sha256": "bd08802edbc5420c4dacb2b579d7accd2716b9cd39567a81bea89126a3c37911"
+  },
+  "cuda": {
+    "shape": [
+      16
+    ],
+    "dtype": "torch.uint8",
+    "sha256": "1f017bdaa9a0685aaac25f2fcbf26d2753c8ff19cd91a087a97f51548ee5a8bc"
+  },
+  "tracker": {
+    "data-parallel-rng": {
+      "shape": [
+        16
+      ],
+      "dtype": "torch.uint8",
+      "sha256": "cfa370b9783db513e171993315a9e9e89618231f32b843f98b72f6f812993856"
+    },
+    "model-parallel-rng": {
+      "shape": [
+        16
+      ],
+      "dtype": "torch.uint8",
+      "sha256": "009b9fd11ffa55d819efb878d0df2ad6311bfdd9d0ca1ec14c74cb1cd7d6d945"
+    },
+    "expert-parallel-rng": {
+      "shape": [
+        16
+      ],
+      "dtype": "torch.uint8",
+      "sha256": "3eb9336f6409b0dab85517afe75fcabca4e3596ea1f63b101a5a1de119c9c634"
+    }
+  },
+  "python_sha256": "8b49255c1c4cb2997c9662e8096b4b8355721bc56fd7c7e33f3a432f46c6f536",
+  "numpy_sha256": "e9c3c2570901057e60dc838ce70fe0ff3d1b0ad013db58bd0bcd5ac2bbf67586"
+}

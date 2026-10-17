@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "source": "87c22d1abae13abf375e8ed4ddfe62301cde87f4",
+  "core_tree": "7840a43cf86ff1649d39899bf3b5b3271870203b",
+  "optimizer_steps": 250,
+  "warmup_steps": 3,
+  "timed_samples": 247,
+  "all_losses_and_global_gradient_norms_finite": true,
+  "all_pool_checks_before_schedule_reset": true,
+  "pinned_buffers_allocated": 72,
+  "steady_state": {
+    "allocated_bytes": {
+      "min": 13565697024,
+      "max": 13565697024
+    },
+    "reserved_bytes": {
+      "min": 23840423936,
+      "max": 23840423936
+    },
+    "peak_allocated_bytes": {
+      "min": 22449777664,
+      "max": 22450826752
+    },
+    "peak_reserved_bytes": {
+      "min": 23840423936,
+      "max": 23840423936
+    },
+    "selected_transfer_bytes": {
+      "min": 2084569088,
+      "max": 2084569088
+    }
+  },
+  "limits": [
+    "Unfused BF16/FLA, norm recomputation disabled; full local 24-layer Qwen3.5-0.8B text model, one A6000, sequence 2048, four microbatches.",
+    "A separate user process overlapped this run on GPU 1; timings are not exclusive performance measurements. See gpu1-availability-change.json.",
+    "This checks training/resource stability on a cyclic local dataset; it is not convergence or quality validation."
+  ],
+  "production_tree": "b80f676df5fdcb0b6ba1a0337b5034065cb7619d"
+}

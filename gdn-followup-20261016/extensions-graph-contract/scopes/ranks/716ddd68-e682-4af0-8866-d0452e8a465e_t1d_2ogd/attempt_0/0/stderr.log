@@ -1,0 +1,11 @@
+[rank0]:[W1017 05:17:19.751481250 ProcessGroupNCCL.cpp:5188] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+[rank0]:W1017 05:23:42.387000 182 torch/_dynamo/convert_frame.py:1743] [10/8] torch._dynamo hit config.recompile_limit (8)
+[rank0]:W1017 05:23:42.387000 182 torch/_dynamo/convert_frame.py:1743] [10/8]    function: 'torch_dynamo_resume_in__apply_gated_norm_unfused_at_171' (/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-followup-20261016/extensions-graph-contract/source/megatron/core/ssm/gated_delta_net/gdn.py:171)
+[rank0]:W1017 05:23:42.387000 182 torch/_dynamo/convert_frame.py:1743] [10/8]    last reason: 10/6: gate.stride()[0] == 64*original_shape[1]*original_shape[2]  # (unknown source gate.stride()[0], please file a bug)
+[rank0]:W1017 05:23:42.387000 182 torch/_dynamo/convert_frame.py:1743] [10/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+[rank0]:W1017 05:23:42.387000 182 torch/_dynamo/convert_frame.py:1743] [10/8] To diagnose recompilation issues, see https://docs.pytorch.org/docs/main/user_guide/torch_compiler/compile/programming_model.recompilation.html
+[rank0]:W1017 05:27:45.906000 182 torch/_dynamo/convert_frame.py:1743] [0/8] torch._dynamo hit config.recompile_limit (8)
+[rank0]:W1017 05:27:45.906000 182 torch/_dynamo/convert_frame.py:1743] [0/8]    function: '_prepare_input_for_gated_delta_rule' (/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-followup-20261016/extensions-graph-contract/source/megatron/core/ssm/gated_delta_net/common.py:476)
+[rank0]:W1017 05:27:45.906000 182 torch/_dynamo/convert_frame.py:1743] [0/8]    last reason: 0/7: tensor 'qkv' requires_grad mismatch. expected requires_grad=0
+[rank0]:W1017 05:27:45.906000 182 torch/_dynamo/convert_frame.py:1743] [0/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+[rank0]:W1017 05:27:45.906000 182 torch/_dynamo/convert_frame.py:1743] [0/8] To diagnose recompilation issues, see https://docs.pytorch.org/docs/main/user_guide/torch_compiler/compile/programming_model.recompilation.html

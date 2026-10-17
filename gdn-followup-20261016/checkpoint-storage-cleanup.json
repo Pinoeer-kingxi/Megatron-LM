@@ -1,0 +1,17 @@
+{
+  "finished_unix": 1792217611.2087026,
+  "removed": [
+    {
+      "logical_parent": ".codex-artifacts/gdn-followup-20261016/checkpoint/f0-n1-o1",
+      "removed_empty_temporary_parent": "/dev/shm/codex-gdn-followup-20261016/f0-n1-o1"
+    },
+    {
+      "logical_parent": ".codex-artifacts/gdn-followup-20261016/checkpoint/f1-n0-o1",
+      "removed_empty_temporary_parent": "/dev/shm/codex-gdn-followup-20261016/f1-n0-o1"
+    },
+    {
+      "logical_parent": ".codex-artifacts/gdn-followup-20261016/checkpoint/f1-n1-o1",
+      "removed_empty_temporary_parent": "/dev/shm/codex-gdn-followup-20261016/f1-n1-o1"
+    }
+  ]
+}
