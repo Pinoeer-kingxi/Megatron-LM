@@ -1,0 +1,63 @@
+{
+  "日期": "2026-10-17",
+  "结论": "本轮未确认新的核心代码缺陷；修改限于文档和证据说明。#8308 graph 模式的运行时代价较大，必须与其有限的 reserved 内存收益一起披露。",
+  "审查提交": {
+    "8243": "af9569270f476dc201484296315a9c30dcaa3feb",
+    "8244": "9d54b8729c9277f1e032110c5e1b149e9654bcc5",
+    "7908": "ff3994e08d65249bbbcb08fb2946d51961fd3365",
+    "8308": "d18040ba5a41e69ada77406d74f68295ccb8090b"
+  },
+  "对照上游": "4ab3af12d274b3a9c330b7a88db8f8e2768be971",
+  "审查范围": {
+    "8243": [
+      "evaluation/warmup 阶段及显式 process group 路由",
+      "fraction=0 与后续变长 saved tensors",
+      "forward chunk 推进与传输队列的区分",
+      "fallback H2D 等待 D2H",
+      "pinned pool 复用前等待已排队 H2D"
+    ],
+    "8244": [
+      "sequence/head 尾部索引和 partial-slot 唯一写入",
+      "FP32 partial sum 与固定归约顺序",
+      "side stream 的既有调用契约",
+      "保持独立 PR：其固定 tiling 会改变关闭 offload 时的 fused backward"
+    ],
+    "7908": [
+      "首次可微 recurrence 输入作为 backward prefetch anchor",
+      "eval/no-grad/完全冻结 recurrence 跳过 scope",
+      "在输出 norm 前 commit",
+      "不强制释放共享 storage",
+      "BF16/FLA 与 recomputation/fusion 配置边界",
+      "原生 checkpoint、完整 optimizer/master/RNG 状态及固定数据位置"
+    ],
+    "8308": [
+      "GDN/GDN2 复用现有 recurrence scope",
+      "TE shared graph pool 的 replay 顺序",
+      "仅在实际启用 TE capture 时标记 graph offload",
+      "原生和真实 graph 训练、实际卸载选择及 reset 前 pool ownership",
+      "完整训练步对照中的显存和运行时代价"
+    ]
+  },
+  "本轮文档修正": [
+    "7908：同步原生 kernel 版本的性能、checkpoint 和 250 步稳定性证据，保留历史版本说明",
+    "8308：补齐两类完整 graph 训练步性能与正确性；区分 allocated/reserved",
+    "8308：澄清 GDN 的 graph scope、正 warmup 和 delayed commit；避免套用 MoE router 的 partial-capture 约束"
+  ],
+  "当前验证": {
+    "GPU": "两个模型各六步状态对照，以及各三组 fresh-process 性能配对；16 个合格进程全部退出 0",
+    "状态": "loss、grad norm、完整梯度/权重/optimizer 指纹一致；性能对照的全部16步 loss/grad norm 序列一致",
+    "CPU": "17 个相关运行时/测试/工具文件通过 Black/isort/Ruff；Qwen CLI 12 个边界测试通过",
+    "证据": "verify_graph_training.py 仅复核已记录结果，不执行 GPU 测试"
+  },
+  "性能限制": {
+    "Qwen": "reserved 节省中位数444MiB，step +21.00%；allocated +512 bytes",
+    "GDN2缩小模型": "reserved 节省中位数258MiB，step +96.45%；allocated 约+1MiB",
+    "范围": "单卡、BF16/FLA、whole-layer TE graph、固定长度；不作为其他机器、并行布局、收敛或 graph-vs-eager 的结论"
+  },
+  "合并顺序": "8243 → 7908 → 8308；8244 独立",
+  "未完成的上游事项": [
+    "维护者代码审查与 GPU CI 授权/执行",
+    "依赖合入后的 rebase 和受影响路径检查；当前 PR 均可无冲突合并，但本地数据仍固定在声明的执行版本"
+  ],
+  "动作限制": "未发布评论、未艾特他人、未请求 reviewer 或 GPU CI、未推送 NVIDIA 分支。"
+}

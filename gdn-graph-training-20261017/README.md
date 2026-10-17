@@ -2,6 +2,9 @@
 
 Executed MCore source: `f19ebc5b1da1c9b0075eecfd2f93fc6ca4b3ba8d`.
 Core tree: `966683849709faa700a7347d313c9d29b75fd53f`.
+The final documentation head is `d18040ba5a41e69ada77406d74f68295ccb8090b`.
+`final-source-qualification.json` proves that its complete `megatron`, `tests` and
+`tools` trees are identical to the executed source. Only two Markdown files changed.
 These measurements concern PR #8308. Source and dependency identities are in
 `source-identity.json`, `environment.json`, `input-identity.json` and `manifest.json`.
 
@@ -129,3 +132,6 @@ are recorded separately and are not GPU-training evidence.
 
 Upstream GPU CI, four-card GDN2 composition and pretrained GDN2 training remain
 unqualified by this bundle. Local tests do not grant upstream review/CI approval.
+
+The final scoped review is recorded in `review.zh.json`. Historical stack evidence
+remains pinned in the [earlier bundle](https://github.com/Pinoeer-kingxi/Megatron-LM/tree/34371ca51fa2dffb5c362f1c52c89b1801670226/gdn-followup-20261016).

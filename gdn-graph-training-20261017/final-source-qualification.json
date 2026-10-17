@@ -1,0 +1,25 @@
+{
+  "executed_source": "f19ebc5b1da1c9b0075eecfd2f93fc6ca4b3ba8d",
+  "final_pr_head": "d18040ba5a41e69ada77406d74f68295ccb8090b",
+  "changes_after_gpu_source": [
+    "docs/developer/gdn_activation_offloading.md",
+    "docs/user-guide/features/fine_grained_activation_offloading.md"
+  ],
+  "trees": {
+    "megatron": {
+      "tested": "8bbc503a8e5f829cde583c4f08360bb7afe244fb",
+      "final": "8bbc503a8e5f829cde583c4f08360bb7afe244fb",
+      "identical": true
+    },
+    "tests": {
+      "tested": "b35964abccc83696a6c25724d58483a17829e751",
+      "final": "b35964abccc83696a6c25724d58483a17829e751",
+      "identical": true
+    },
+    "tools": {
+      "tested": "fa1ad50495222c76c5fa38e5c2c9ca538c49e291",
+      "final": "fa1ad50495222c76c5fa38e5c2c9ca538c49e291",
+      "identical": true
+    }
+  }
+}
