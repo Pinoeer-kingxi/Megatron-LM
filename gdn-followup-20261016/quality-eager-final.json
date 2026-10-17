@@ -1,0 +1,74 @@
+{
+  "source": "f19ebc5b1da1c9b0075eecfd2f93fc6ca4b3ba8d",
+  "checks": [
+    {
+      "command": [
+        "docker",
+        "exec",
+        "--workdir",
+        "/data/songbinbin/Proj/Proj_LWX/Megatron-LM-gdn-extensions",
+        "--env",
+        "PYTHONPATH=/data/songbinbin/Proj/Proj_LWX/Megatron-LM-gdn-extensions",
+        "megatron-gdn-extensions-cpu-20261016",
+        "black",
+        "--check",
+        "megatron/core/transformer/transformer_layer.py",
+        "tests/unit_tests/ssm/test_gdn_offload_training.py"
+      ],
+      "exit_code": 0,
+      "log": "black-eager-final.log"
+    },
+    {
+      "command": [
+        "docker",
+        "exec",
+        "--workdir",
+        "/data/songbinbin/Proj/Proj_LWX/Megatron-LM-gdn-extensions",
+        "--env",
+        "PYTHONPATH=/data/songbinbin/Proj/Proj_LWX/Megatron-LM-gdn-extensions",
+        "megatron-gdn-extensions-cpu-20261016",
+        "isort",
+        "--check-only",
+        "megatron/core/transformer/transformer_layer.py",
+        "tests/unit_tests/ssm/test_gdn_offload_training.py"
+      ],
+      "exit_code": 0,
+      "log": "isort-eager-final.log"
+    },
+    {
+      "command": [
+        "docker",
+        "exec",
+        "--workdir",
+        "/data/songbinbin/Proj/Proj_LWX/Megatron-LM-gdn-extensions",
+        "--env",
+        "PYTHONPATH=/data/songbinbin/Proj/Proj_LWX/Megatron-LM-gdn-extensions",
+        "megatron-gdn-extensions-cpu-20261016",
+        "ruff",
+        "check",
+        "megatron/core/transformer/transformer_layer.py",
+        "tests/unit_tests/ssm/test_gdn_offload_training.py"
+      ],
+      "exit_code": 0,
+      "log": "ruff-eager-final.log"
+    },
+    {
+      "command": [
+        "docker",
+        "exec",
+        "--workdir",
+        "/data/songbinbin/Proj/Proj_LWX/Megatron-LM-gdn-extensions",
+        "--env",
+        "PYTHONPATH=/data/songbinbin/Proj/Proj_LWX/Megatron-LM-gdn-extensions",
+        "megatron-gdn-extensions-cpu-20261016",
+        "pylint",
+        "--disable=unrecognized-option",
+        "megatron/core/transformer/transformer_layer.py",
+        "tests/unit_tests/ssm/test_gdn_offload_training.py"
+      ],
+      "exit_code": 0,
+      "log": "pylint-eager-final.log"
+    }
+  ],
+  "previous_checks": "quality-checks.json; all other files unchanged since 043e31734"
+}

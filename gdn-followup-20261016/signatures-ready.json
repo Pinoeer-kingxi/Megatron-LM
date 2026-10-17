@@ -1,6 +1,10 @@
 {
-  "head": "043e3173451bea74e63c02b197867bf356ad72e9",
+  "head": "f19ebc5b1da1c9b0075eecfd2f93fc6ca4b3ba8d",
   "verified_commits": [
+    {
+      "commit": "f19ebc5b1da1c9b0075eecfd2f93fc6ca4b3ba8d",
+      "signature": "Good \"git\" signature for 13022943007@163.com with ED25519 key SHA256:TMz6vhytFB32DtSCMyE1ivxzR88zV4sATB5TpWIPMGo"
+    },
     {
       "commit": "043e3173451bea74e63c02b197867bf356ad72e9",
       "signature": "Good \"git\" signature for 13022943007@163.com with ED25519 key SHA256:TMz6vhytFB32DtSCMyE1ivxzR88zV4sATB5TpWIPMGo"

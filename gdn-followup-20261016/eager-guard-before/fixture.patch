@@ -1,0 +1,10 @@
+--- a/tests/unit_tests/ssm/test_gdn_offload_training.py
++++ b/tests/unit_tests/ssm/test_gdn_offload_training.py
+@@ -107,6 +107,7 @@
+         offload_modules=["gdn_core_attn"],
+         activation_offload_fraction=fraction,
+         min_offloaded_tensor_size=1024,
++        cuda_graph_warmup_steps=0,
+     )
+ 
+ 

@@ -31,6 +31,8 @@ assert read("checkpoint/source.json")["feature"] == "485cb5fa2ffedaaaa0a1a4d095e
 assert read("source.json")["production_tree"] == read("checkpoint/source.json")["production_tree"]
 assert read("extensions-ready/source.json")["feature"] == "043e3173451bea74e63c02b197867bf356ad72e9"
 assert read("extensions-ready/source.json")["core_tree"] == "0b545fb8c83bd73c6c1f323f7e7a0bd8aef8ec34"
+assert read("extensions-eager-guard-final/source.json")["feature"] == "f19ebc5b1da1c9b0075eecfd2f93fc6ca4b3ba8d"
+assert read("extensions-eager-guard-final/source.json")["core_tree"] == "966683849709faa700a7347d313c9d29b75fd53f"
 print("PASS: original, checkpoint and extension source identities")
 
 stability = [json.loads(line) for line in (ROOT / "stability-steps.jsonl").read_text().splitlines()]
@@ -86,7 +88,18 @@ assert read("extensions-ready/manifest.json")["status"] == "passed"
 for rank in range(2):
     rank_report(f"extensions-ready/native-training/reports/rank-{rank}.json", 18)
     rank_report(f"extensions-ready/graphs/reports/rank-{rank}.json", 21)
-print("PASS: recorded scope/native coverage and final-source real TE graph matrices, with no skips; pre-fix graph failure remains labeled")
+print("PASS: recorded scope/native coverage and prior-source real TE graph matrices, with no skips; pre-fix graph failure remains labeled")
+
+assert read("eager-guard-before/manifest.json")["status"] == "expected_regression_reproduced"
+regression = read("eager-guard-before/reports/rank-0.json")
+assert regression["exit_code"] != 0
+assert any(row["outcome"] == "failed" and "cuda_graph_warmup_steps > 0" in row["detail"]
+           for row in regression["outcomes"])
+assert read("extensions-eager-guard-final/manifest.json")["status"] == "passed"
+for rank in range(2):
+    rank_report(f"extensions-eager-guard-final/native-training/reports/rank-{rank}.json", 36)
+    rank_report(f"extensions-eager-guard-final/graphs/reports/rank-{rank}.json", 21)
+print("PASS: reproduced eager warmup-zero failure and final-source native/real-graph matrices, with no skips")
 
 summary = read("extensions-ready-benchmark/comparison.json")
 assert summary["status"] == read("extensions-ready-benchmark/manifest.json")["status"] == "passed"

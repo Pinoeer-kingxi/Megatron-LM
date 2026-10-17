@@ -48,10 +48,40 @@
       "production_tree": "4dab26b0015023d29540f937835e5032133cc0a6",
       "core_tree": "0b545fb8c83bd73c6c1f323f7e7a0bd8aef8ec34",
       "source_archive_sha256": "1c338874fd96b5c6b2d88b6d86eb63947426871407de22c09d40e86f7f9172ba"
+    },
+    {
+      "stage": "eager-boundary-final-source",
+      "commit": "f19ebc5b1da1c9b0075eecfd2f93fc6ca4b3ba8d",
+      "git_tree": "4ed0ded080e4ab238146f43509563250691ecce8",
+      "production_tree": "8bbc503a8e5f829cde583c4f08360bb7afe244fb",
+      "core_tree": "966683849709faa700a7347d313c9d29b75fd53f",
+      "benchmark_note": "GDN2 benchmark executed at 043e31734; recurrence/profiler files are unchanged by the eager graph-flag guard."
     }
   ],
   "notes": [
     "production_tree means megatron; core_tree means megatron/core.",
-    "Earlier scope/native results retain their executed revisions. Only the final-source row labels the final matrices and benchmark."
+    "f19ebc5b1 is the final matrix source; 043e31734 remains the executed GDN2 stack benchmark source."
+  ],
+  "benchmark_unchanged_files": [
+    {
+      "path": "tools/ssm/gdn_activation_offload.py",
+      "git_blob": "105f5e3742b8ae457e3f3c2d6330d17b0419bf17"
+    },
+    {
+      "path": "megatron/core/ssm/gated_delta_net/common.py",
+      "git_blob": "abc8d83310198f001c478932b437f7c9f122b4b0"
+    },
+    {
+      "path": "megatron/core/ssm/gated_delta_net/gdn2.py",
+      "git_blob": "27f98cc7b953cc2bf59e651ed7a36b9277fd03ee"
+    },
+    {
+      "path": "megatron/core/transformer/transformer_config.py",
+      "git_blob": "e02cc17828b97284fbe643a5a6094e4ea0aa4351"
+    },
+    {
+      "path": "megatron/core/pipeline_parallel/fine_grained_activation_offload.py",
+      "git_blob": "fc17c12b7ba0b4d79a6fa4c90a99a1a1b7b81eab"
+    }
   ]
 }

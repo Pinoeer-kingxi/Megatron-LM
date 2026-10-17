@@ -3,6 +3,7 @@ PASS: original, checkpoint and extension source identities
 PASS: 250 finite stability steps and stable pool/memory; shared-device timing caveat retained
 PASS: checkpoint exact restarted loss, gradients, weights, complete optimizer/master states and restored RNG
 PASS: two-gpu-retry exact restarted loss, gradients, weights, complete optimizer/master states and restored RNG
-PASS: recorded scope/native coverage and final-source real TE graph matrices, with no skips; pre-fix graph failure remains labeled
+PASS: recorded scope/native coverage and prior-source real TE graph matrices, with no skips; pre-fix graph failure remains labeled
+PASS: reproduced eager warmup-zero failure and final-source native/real-graph matrices, with no skips
 PASS: three GDN2 stack-only benchmark pairs and their actual memory/runtime trade-off
 PASS: offline evidence validation only; no GPU execution performed

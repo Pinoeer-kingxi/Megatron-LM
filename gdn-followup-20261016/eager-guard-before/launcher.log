@@ -1,0 +1,587 @@
+[default0]:[rank0]:[W1017 07:03:32.592837858 ProcessGroupNCCL.cpp:5188] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+[default0]:Initializing torch.distributed with rank: 0, world_size: 1
+[default0]:F
+[default0]:=================================== FAILURES ===================================
+[default0]:_________________ test_gdn_offload_training[dp-gdn2-False-1.0] _________________
+[default0]:
+[default0]:spec_or_module = ModuleSpec(module=<class 'megatron.core.transformer.transformer_layer.TransformerLayer'>, params={}, submodules=Transf...n_func=None)), mlp_bda=<function get_bias_dropout_add at 0x7f96dc4bd4e0>, sharded_state_dict_keys_map={}), metainfo={})
+[default0]:args = ()
+[default0]:kwargs = {'config': GDNLayerConfig(tensor_model_parallel_size=1, tensor_parallel_num_weight_shards=None, gtp_weight_remat_size=...1), expt_dp(1), expt_dp_gtp_remat(1), intra_dp_cp(1), intra_expt_dp(1), intra_dist_opt(1)), 'is_mtp_layer': False, ...}
+[default0]:
+[default0]:    def build_module(spec_or_module: Union[ModuleSpec, type], *args, **kwargs):
+[default0]:        """Builds an instance of the module from the spec.
+[default0]:    
+[default0]:        Args:
+[default0]:            spec_or_module: The module spec or module class to build.
+[default0]:            *args: Positional arguments to be passed to the module init.
+[default0]:            **kwargs: Keyword arguments to be passed to the module init.
+[default0]:        """
+[default0]:        # If the passed `spec_or_module` is
+[default0]:        # a `Function`, then return it as it is
+[default0]:        # NOTE: to support an already initialized module add the following condition
+[default0]:        # `or isinstance(spec_or_module, torch.nn.Module)` to the following if check
+[default0]:        if isinstance(spec_or_module, types.FunctionType):
+[default0]:            return spec_or_module
+[default0]:    
+[default0]:        # If the passed `spec_or_module` is actually a spec (instance of
+[default0]:        # `ModuleSpec`) and it specifies a `Function` using its `module`
+[default0]:        # field, return the `Function` as it is
+[default0]:        if isinstance(spec_or_module, ModuleSpec) and isinstance(
+[default0]:            spec_or_module.module, types.FunctionType
+[default0]:        ):
+[default0]:            return spec_or_module.module
+[default0]:    
+[default0]:        # Check if a module class is provided as a spec or if the module path
+[default0]:        # itself is a class
+[default0]:        if isinstance(spec_or_module, type):
+[default0]:            module = spec_or_module
+[default0]:        elif hasattr(spec_or_module, "module") and isinstance(spec_or_module.module, type):
+[default0]:            module = spec_or_module.module
+[default0]:        else:
+[default0]:            # Otherwise, dynamically import the module from the module path
+[default0]:            module = import_module(spec_or_module.module)
+[default0]:    
+[default0]:        # If the imported module is actually a `Function` return it as it is
+[default0]:        if isinstance(module, types.FunctionType):
+[default0]:            return module
+[default0]:    
+[default0]:        # Finally return the initialized module with params from the spec as well
+[default0]:        # as those passed as **kwargs from the code
+[default0]:    
+[default0]:        # Add the `submodules` argument to the module init call if it exists in the
+[default0]:        # spec.
+[default0]:        if hasattr(spec_or_module, "submodules") and spec_or_module.submodules is not None:
+[default0]:            kwargs["submodules"] = spec_or_module.submodules
+[default0]:    
+[default0]:        try:
+[default0]:>           return module(
+[default0]:                *args, **spec_or_module.params if hasattr(spec_or_module, "params") else {}, **kwargs
+[default0]:            )
+[default0]:
+[default0]:megatron/core/transformer/spec_utils.py:122: 
+[default0]:_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[default0]:megatron/core/transformer/transformer_layer.py:580: in __init__
+[default0]:    self._set_offload_modules()
+[default0]:_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[default0]:
+[default0]:self = TransformerLayer(
+[default0]:  (input_layernorm): IdentityOp()
+[default0]:  (self_attention): GatedDeltaNet2(
+[default0]:    (in_proj): TELayerNormColu...792, bias=False, TP=1)
+[default0]:    (linear_fc2): TERowParallelLinear(in_features=896, out_features=256, bias=False, TP=1)
+[default0]:  )
+[default0]:)
+[default0]:
+[default0]:    def _set_offload_modules(self):
+[default0]:        """Set the offload modules for the transformer layer."""
+[default0]:        if self.config.fine_grained_activation_offloading:
+[default0]:            self.offload_attn_norm = "attn_norm" in self.config.offload_modules and not isinstance(
+[default0]:                self.input_layernorm, IdentityOp
+[default0]:            )
+[default0]:            self.offload_qkv_linear = "qkv_linear" in self.config.offload_modules
+[default0]:            self.offload_core_attn = "core_attn" in self.config.offload_modules
+[default0]:            self.offload_attn_proj = "attn_proj" in self.config.offload_modules
+[default0]:            self.offload_mlp_norm = "mlp_norm" in self.config.offload_modules and not isinstance(
+[default0]:                self.pre_mlp_layernorm, IdentityOp
+[default0]:            )
+[default0]:        else:
+[default0]:            self.offload_attn_norm = False
+[default0]:            self.offload_qkv_linear = False
+[default0]:            self.offload_core_attn = False
+[default0]:            self.offload_attn_proj = False
+[default0]:            self.offload_mlp_norm = False
+[default0]:        # Check the compatibility of fine-grained activation offloading and cuda graph.
+[default0]:        if self.config.fine_grained_activation_offloading:
+[default0]:            cuda_graph_modules = self.config.cuda_graph_modules or []
+[default0]:            if CudaGraphModule.attn in cuda_graph_modules:
+[default0]:                self.offload_attn_norm = False
+[default0]:                log_single_rank(
+[default0]:                    logger,
+[default0]:                    logging.WARNING,
+[default0]:                    "attn_norm offloading is not supported with attn cudagraph. "
+[default0]:                    "Disabling attn_norm offloading.",
+[default0]:                )
+[default0]:            mark_mlp_norm_offloading_not_supported = False
+[default0]:            # For moe layer, mlp_norm offloading isn't supported with attn or moe_router cudagraph.
+[default0]:            if self.is_moe_layer:
+[default0]:                if (
+[default0]:                    CudaGraphModule.attn in cuda_graph_modules
+[default0]:                    or CudaGraphModule.moe_router in cuda_graph_modules
+[default0]:                ):
+[default0]:                    mark_mlp_norm_offloading_not_supported = True
+[default0]:            # For non-moe layer, mlp_norm is the boundary of attn or mlp cudagraph.
+[default0]:            # The only case where mlp_norm offloading is supported is when whole layer is captured.
+[default0]:            elif (
+[default0]:                CudaGraphModule.attn in cuda_graph_modules
+[default0]:                and CudaGraphModule.mlp not in cuda_graph_modules
+[default0]:            ) or (
+[default0]:                CudaGraphModule.attn not in cuda_graph_modules
+[default0]:                and CudaGraphModule.mlp in cuda_graph_modules
+[default0]:            ):
+[default0]:                mark_mlp_norm_offloading_not_supported = True
+[default0]:            if mark_mlp_norm_offloading_not_supported:
+[default0]:                self.offload_mlp_norm = False
+[default0]:                log_single_rank(
+[default0]:                    logger,
+[default0]:                    logging.WARNING,
+[default0]:                    "mlp_norm offloading is not supported with the current cudagraph scope. "
+[default0]:                    "Disabling mlp_norm offloading.",
+[default0]:                )
+[default0]:        # Set the offload module in cuda graph flag.
+[default0]:        self.offload_module_in_cuda_graph = False
+[default0]:        cuda_graph_modules = self.config.cuda_graph_modules or []
+[default0]:        if (
+[default0]:            (not cuda_graph_modules or CudaGraphModule.attn in cuda_graph_modules)
+[default0]:            and "gdn_core_attn" in (self.config.offload_modules or [])
+[default0]:            and getattr(self.self_attention, "offload_core_attention", False)
+[default0]:        ):
+[default0]:            self.offload_module_in_cuda_graph = True
+[default0]:        if CudaGraphModule.attn in cuda_graph_modules:
+[default0]:            if self.offload_core_attn or self.offload_attn_proj or self.offload_qkv_linear:
+[default0]:                self.offload_module_in_cuda_graph = True
+[default0]:        if not self.is_moe_layer and CudaGraphModule.mlp in cuda_graph_modules:
+[default0]:            if self.offload_mlp_norm:
+[default0]:                self.offload_module_in_cuda_graph = True
+[default0]:        if self.offload_module_in_cuda_graph:
+[default0]:            assert is_torch_min_version(
+[default0]:                "2.9.0a0"
+[default0]:            ), "Offloading modules captured in cuda graph requires torch>=2.9.0."
+[default0]:            assert is_te_min_version(
+[default0]:                "2.14.0"
+[default0]:            ), "Offloading modules captured in cuda graph requires TE>=2.14.0."
+[default0]:            assert (
+[default0]:>               self.config.cuda_graph_warmup_steps > 0
+[default0]:            ), "Fine-grained activation offloading needs cuda_graph_warmup_steps > 0."
+[default0]:E           AssertionError: Fine-grained activation offloading needs cuda_graph_warmup_steps > 0.
+[default0]:
+[default0]:megatron/core/transformer/transformer_layer.py:2233: AssertionError
+[default0]:
+[default0]:During handling of the above exception, another exception occurred:
+[default0]:
+[default0]:spec_or_module = ModuleSpec(module=<class 'megatron.core.models.hybrid.hybrid_block.HybridStack'>, params={}, submodules=HybridStackSub...lass 'megatron.core.transformer.identity_op.IdentityOp'>, mtp_block_spec=None, mtp_stack_submodules=None), metainfo={})
+[default0]:args = (TransformerConfig(tensor_model_parallel_size=1, tensor_parallel_num_weight_shards=None, gtp_weight_remat_size=1, tens...size_factor_cuda=1.1, moe_paged_stash_buffer_size_factor_cpu=0.0, fine_grained_offloading_max_inflight_offloads=None),)
+[default0]:kwargs = {'pre_process': True, 'layer_config_list': [GDNLayerConfig(tensor_model_parallel_size=1, tensor_parallel_num_weight_sh...or_cpu=0.0, fine_grained_offloading_max_inflight_offloads=None), ...], 'pp_layer_offset': 0, 'post_process': True, ...}
+[default0]:
+[default0]:    def build_module(spec_or_module: Union[ModuleSpec, type], *args, **kwargs):
+[default0]:        """Builds an instance of the module from the spec.
+[default0]:    
+[default0]:        Args:
+[default0]:            spec_or_module: The module spec or module class to build.
+[default0]:            *args: Positional arguments to be passed to the module init.
+[default0]:            **kwargs: Keyword arguments to be passed to the module init.
+[default0]:        """
+[default0]:        # If the passed `spec_or_module` is
+[default0]:        # a `Function`, then return it as it is
+[default0]:        # NOTE: to support an already initialized module add the following condition
+[default0]:        # `or isinstance(spec_or_module, torch.nn.Module)` to the following if check
+[default0]:        if isinstance(spec_or_module, types.FunctionType):
+[default0]:            return spec_or_module
+[default0]:    
+[default0]:        # If the passed `spec_or_module` is actually a spec (instance of
+[default0]:        # `ModuleSpec`) and it specifies a `Function` using its `module`
+[default0]:        # field, return the `Function` as it is
+[default0]:        if isinstance(spec_or_module, ModuleSpec) and isinstance(
+[default0]:            spec_or_module.module, types.FunctionType
+[default0]:        ):
+[default0]:            return spec_or_module.module
+[default0]:    
+[default0]:        # Check if a module class is provided as a spec or if the module path
+[default0]:        # itself is a class
+[default0]:        if isinstance(spec_or_module, type):
+[default0]:            module = spec_or_module
+[default0]:        elif hasattr(spec_or_module, "module") and isinstance(spec_or_module.module, type):
+[default0]:            module = spec_or_module.module
+[default0]:        else:
+[default0]:            # Otherwise, dynamically import the module from the module path
+[default0]:            module = import_module(spec_or_module.module)
+[default0]:    
+[default0]:        # If the imported module is actually a `Function` return it as it is
+[default0]:        if isinstance(module, types.FunctionType):
+[default0]:            return module
+[default0]:    
+[default0]:        # Finally return the initialized module with params from the spec as well
+[default0]:        # as those passed as **kwargs from the code
+[default0]:    
+[default0]:        # Add the `submodules` argument to the module init call if it exists in the
+[default0]:        # spec.
+[default0]:        if hasattr(spec_or_module, "submodules") and spec_or_module.submodules is not None:
+[default0]:            kwargs["submodules"] = spec_or_module.submodules
+[default0]:    
+[default0]:        try:
+[default0]:>           return module(
+[default0]:                *args, **spec_or_module.params if hasattr(spec_or_module, "params") else {}, **kwargs
+[default0]:            )
+[default0]:
+[default0]:megatron/core/transformer/spec_utils.py:122: 
+[default0]:_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[default0]:megatron/core/models/hybrid/hybrid_block.py:339: in __init__
+[default0]:    layer = build_module(
+[default0]:megatron/core/transformer/spec_utils.py:129: in build_module
+[default0]:    raise type(e)(f"{str(e)} when instantiating {module.__name__}").with_traceback(
+[default0]:megatron/core/transformer/spec_utils.py:122: in build_module
+[default0]:    return module(
+[default0]:megatron/core/transformer/transformer_layer.py:580: in __init__
+[default0]:    self._set_offload_modules()
+[default0]:_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[default0]:
+[default0]:self = TransformerLayer(
+[default0]:  (input_layernorm): IdentityOp()
+[default0]:  (self_attention): GatedDeltaNet2(
+[default0]:    (in_proj): TELayerNormColu...792, bias=False, TP=1)
+[default0]:    (linear_fc2): TERowParallelLinear(in_features=896, out_features=256, bias=False, TP=1)
+[default0]:  )
+[default0]:)
+[default0]:
+[default0]:    def _set_offload_modules(self):
+[default0]:        """Set the offload modules for the transformer layer."""
+[default0]:        if self.config.fine_grained_activation_offloading:
+[default0]:            self.offload_attn_norm = "attn_norm" in self.config.offload_modules and not isinstance(
+[default0]:                self.input_layernorm, IdentityOp
+[default0]:            )
+[default0]:            self.offload_qkv_linear = "qkv_linear" in self.config.offload_modules
+[default0]:            self.offload_core_attn = "core_attn" in self.config.offload_modules
+[default0]:            self.offload_attn_proj = "attn_proj" in self.config.offload_modules
+[default0]:            self.offload_mlp_norm = "mlp_norm" in self.config.offload_modules and not isinstance(
+[default0]:                self.pre_mlp_layernorm, IdentityOp
+[default0]:            )
+[default0]:        else:
+[default0]:            self.offload_attn_norm = False
+[default0]:            self.offload_qkv_linear = False
+[default0]:            self.offload_core_attn = False
+[default0]:            self.offload_attn_proj = False
+[default0]:            self.offload_mlp_norm = False
+[default0]:        # Check the compatibility of fine-grained activation offloading and cuda graph.
+[default0]:        if self.config.fine_grained_activation_offloading:
+[default0]:            cuda_graph_modules = self.config.cuda_graph_modules or []
+[default0]:            if CudaGraphModule.attn in cuda_graph_modules:
+[default0]:                self.offload_attn_norm = False
+[default0]:                log_single_rank(
+[default0]:                    logger,
+[default0]:                    logging.WARNING,
+[default0]:                    "attn_norm offloading is not supported with attn cudagraph. "
+[default0]:                    "Disabling attn_norm offloading.",
+[default0]:                )
+[default0]:            mark_mlp_norm_offloading_not_supported = False
+[default0]:            # For moe layer, mlp_norm offloading isn't supported with attn or moe_router cudagraph.
+[default0]:            if self.is_moe_layer:
+[default0]:                if (
+[default0]:                    CudaGraphModule.attn in cuda_graph_modules
+[default0]:                    or CudaGraphModule.moe_router in cuda_graph_modules
+[default0]:                ):
+[default0]:                    mark_mlp_norm_offloading_not_supported = True
+[default0]:            # For non-moe layer, mlp_norm is the boundary of attn or mlp cudagraph.
+[default0]:            # The only case where mlp_norm offloading is supported is when whole layer is captured.
+[default0]:            elif (
+[default0]:                CudaGraphModule.attn in cuda_graph_modules
+[default0]:                and CudaGraphModule.mlp not in cuda_graph_modules
+[default0]:            ) or (
+[default0]:                CudaGraphModule.attn not in cuda_graph_modules
+[default0]:                and CudaGraphModule.mlp in cuda_graph_modules
+[default0]:            ):
+[default0]:                mark_mlp_norm_offloading_not_supported = True
+[default0]:            if mark_mlp_norm_offloading_not_supported:
+[default0]:                self.offload_mlp_norm = False
+[default0]:                log_single_rank(
+[default0]:                    logger,
+[default0]:                    logging.WARNING,
+[default0]:                    "mlp_norm offloading is not supported with the current cudagraph scope. "
+[default0]:                    "Disabling mlp_norm offloading.",
+[default0]:                )
+[default0]:        # Set the offload module in cuda graph flag.
+[default0]:        self.offload_module_in_cuda_graph = False
+[default0]:        cuda_graph_modules = self.config.cuda_graph_modules or []
+[default0]:        if (
+[default0]:            (not cuda_graph_modules or CudaGraphModule.attn in cuda_graph_modules)
+[default0]:            and "gdn_core_attn" in (self.config.offload_modules or [])
+[default0]:            and getattr(self.self_attention, "offload_core_attention", False)
+[default0]:        ):
+[default0]:            self.offload_module_in_cuda_graph = True
+[default0]:        if CudaGraphModule.attn in cuda_graph_modules:
+[default0]:            if self.offload_core_attn or self.offload_attn_proj or self.offload_qkv_linear:
+[default0]:                self.offload_module_in_cuda_graph = True
+[default0]:        if not self.is_moe_layer and CudaGraphModule.mlp in cuda_graph_modules:
+[default0]:            if self.offload_mlp_norm:
+[default0]:                self.offload_module_in_cuda_graph = True
+[default0]:        if self.offload_module_in_cuda_graph:
+[default0]:            assert is_torch_min_version(
+[default0]:                "2.9.0a0"
+[default0]:            ), "Offloading modules captured in cuda graph requires torch>=2.9.0."
+[default0]:            assert is_te_min_version(
+[default0]:                "2.14.0"
+[default0]:            ), "Offloading modules captured in cuda graph requires TE>=2.14.0."
+[default0]:            assert (
+[default0]:>               self.config.cuda_graph_warmup_steps > 0
+[default0]:            ), "Fine-grained activation offloading needs cuda_graph_warmup_steps > 0."
+[default0]:E           AssertionError: Fine-grained activation offloading needs cuda_graph_warmup_steps > 0. when instantiating TransformerLayer
+[default0]:
+[default0]:megatron/core/transformer/transformer_layer.py:2233: AssertionError
+[default0]:
+[default0]:During handling of the above exception, another exception occurred:
+[default0]:
+[default0]:tp = 1, sp = False, cp = 1, pp = 1, vp = None, fraction = 1.0
+[default0]:recompute_norm = False, fused_pre_gdr = False, variant = 'gdn2'
+[default0]:monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f96c3d11550>
+[default0]:
+[default0]:    @pytest.mark.skipif(not HAVE_FLA, reason="FLA is not installed.")
+[default0]:    @pytest.mark.parametrize("fraction", [0.0, 0.5, 1.0])
+[default0]:    @pytest.mark.parametrize("recompute_norm", [False, True])
+[default0]:    @pytest.mark.parametrize(
+[default0]:        "variant,fused_pre_gdr",
+[default0]:        [("gdn", False), ("gdn", True), ("gdn2", False)],
+[default0]:        ids=["gdn-unfused", "gdn-fused", "gdn2"],
+[default0]:    )
+[default0]:    @pytest.mark.parametrize(
+[default0]:        "tp,sp,cp,pp,vp",
+[default0]:        [
+[default0]:            (1, False, 1, 1, None),
+[default0]:            (2, False, 1, 1, None),
+[default0]:            (2, True, 1, 1, None),
+[default0]:            (1, False, 2, 1, None),
+[default0]:            (1, False, 1, 2, None),
+[default0]:            (1, False, 1, 2, 2),
+[default0]:            (2, True, 2, 1, None),
+[default0]:            (2, True, 1, 2, None),
+[default0]:        ],
+[default0]:        ids=["dp", "tp", "tp_sp", "cp", "pp", "pp_vpp", "tp_sp_cp", "tp_sp_pp"],
+[default0]:    )
+[default0]:    def test_gdn_offload_training(
+[default0]:        tp: int,
+[default0]:        sp: bool,
+[default0]:        cp: int,
+[default0]:        pp: int,
+[default0]:        vp: int | None,
+[default0]:        fraction: float,
+[default0]:        recompute_norm: bool,
+[default0]:        fused_pre_gdr: bool,
+[default0]:        variant: str,
+[default0]:        monkeypatch: pytest.MonkeyPatch,
+[default0]:    ) -> None:
+[default0]:        """Match losses, accumulated gradients, updated weights and Adam states on every rank."""
+[default0]:        if Utils.world_size % (tp * cp * pp):
+[default0]:            pytest.skip("This topology requires a world size divisible by TP * CP * PP.")
+[default0]:        if variant == "gdn2":
+[default0]:            pytest.importorskip("fla.ops.gdn2")
+[default0]:        if fused_pre_gdr:
+[default0]:            pytest.importorskip("causal_conv1d", minversion="1.6.1")
+[default0]:            monkeypatch.setenv("CAUSAL_CONV1D_DETERMINISTIC", "1")
+[default0]:        # Avoid attention-backward nondeterminism obscuring the offload comparison.
+[default0]:        # GDN still uses FLA: config.deterministic_mode would select its reference path.
+[default0]:        monkeypatch.setenv("NVTE_ALLOW_NONDETERMINISTIC_ALGO", "0")
+[default0]:        Utils.initialize_model_parallel(tp, pp, vp, context_parallel_size=cp)
+[default0]:        off_interface.reset_instance()
+[default0]:        try:
+[default0]:            groups = ProcessGroupCollection.use_mpu_process_groups()
+[default0]:            config = _training_config(
+[default0]:                tp,
+[default0]:                sp,
+[default0]:                cp,
+[default0]:                pp,
+[default0]:                vp,
+[default0]:                fraction,
+[default0]:                recompute_norm,
+[default0]:                fused_pre_gdr=fused_pre_gdr,
+[default0]:                variant=variant,
+[default0]:            )
+[default0]:            baseline_config = replace(
+[default0]:                config, fine_grained_activation_offloading=False, offload_modules=[]
+[default0]:            )
+[default0]:            baseline, baseline_optimizer = _build_training_model(baseline_config, groups)
+[default0]:>           offloaded, offload_optimizer = _build_training_model(config, groups)
+[default0]:                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[default0]:
+[default0]:tests/unit_tests/ssm/test_gdn_offload_training.py:256: 
+[default0]:_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[default0]:tests/unit_tests/ssm/test_gdn_offload_training.py:139: in _build_training_model
+[default0]:    model = HybridModel(
+[default0]:megatron/core/models/hybrid/hybrid_model.py:391: in __init__
+[default0]:    self.decoder = build_module(
+[default0]:megatron/core/transformer/spec_utils.py:129: in build_module
+[default0]:    raise type(e)(f"{str(e)} when instantiating {module.__name__}").with_traceback(
+[default0]:megatron/core/transformer/spec_utils.py:122: in build_module
+[default0]:    return module(
+[default0]:megatron/core/models/hybrid/hybrid_block.py:339: in __init__
+[default0]:    layer = build_module(
+[default0]:megatron/core/transformer/spec_utils.py:129: in build_module
+[default0]:    raise type(e)(f"{str(e)} when instantiating {module.__name__}").with_traceback(
+[default0]:megatron/core/transformer/spec_utils.py:122: in build_module
+[default0]:    return module(
+[default0]:megatron/core/transformer/transformer_layer.py:580: in __init__
+[default0]:    self._set_offload_modules()
+[default0]:_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[default0]:
+[default0]:self = TransformerLayer(
+[default0]:  (input_layernorm): IdentityOp()
+[default0]:  (self_attention): GatedDeltaNet2(
+[default0]:    (in_proj): TELayerNormColu...792, bias=False, TP=1)
+[default0]:    (linear_fc2): TERowParallelLinear(in_features=896, out_features=256, bias=False, TP=1)
+[default0]:  )
+[default0]:)
+[default0]:
+[default0]:    def _set_offload_modules(self):
+[default0]:        """Set the offload modules for the transformer layer."""
+[default0]:        if self.config.fine_grained_activation_offloading:
+[default0]:            self.offload_attn_norm = "attn_norm" in self.config.offload_modules and not isinstance(
+[default0]:                self.input_layernorm, IdentityOp
+[default0]:            )
+[default0]:            self.offload_qkv_linear = "qkv_linear" in self.config.offload_modules
+[default0]:            self.offload_core_attn = "core_attn" in self.config.offload_modules
+[default0]:            self.offload_attn_proj = "attn_proj" in self.config.offload_modules
+[default0]:            self.offload_mlp_norm = "mlp_norm" in self.config.offload_modules and not isinstance(
+[default0]:                self.pre_mlp_layernorm, IdentityOp
+[default0]:            )
+[default0]:        else:
+[default0]:            self.offload_attn_norm = False
+[default0]:            self.offload_qkv_linear = False
+[default0]:            self.offload_core_attn = False
+[default0]:            self.offload_attn_proj = False
+[default0]:            self.offload_mlp_norm = False
+[default0]:        # Check the compatibility of fine-grained activation offloading and cuda graph.
+[default0]:        if self.config.fine_grained_activation_offloading:
+[default0]:            cuda_graph_modules = self.config.cuda_graph_modules or []
+[default0]:            if CudaGraphModule.attn in cuda_graph_modules:
+[default0]:                self.offload_attn_norm = False
+[default0]:                log_single_rank(
+[default0]:                    logger,
+[default0]:                    logging.WARNING,
+[default0]:                    "attn_norm offloading is not supported with attn cudagraph. "
+[default0]:                    "Disabling attn_norm offloading.",
+[default0]:                )
+[default0]:            mark_mlp_norm_offloading_not_supported = False
+[default0]:            # For moe layer, mlp_norm offloading isn't supported with attn or moe_router cudagraph.
+[default0]:            if self.is_moe_layer:
+[default0]:                if (
+[default0]:                    CudaGraphModule.attn in cuda_graph_modules
+[default0]:                    or CudaGraphModule.moe_router in cuda_graph_modules
+[default0]:                ):
+[default0]:                    mark_mlp_norm_offloading_not_supported = True
+[default0]:            # For non-moe layer, mlp_norm is the boundary of attn or mlp cudagraph.
+[default0]:            # The only case where mlp_norm offloading is supported is when whole layer is captured.
+[default0]:            elif (
+[default0]:                CudaGraphModule.attn in cuda_graph_modules
+[default0]:                and CudaGraphModule.mlp not in cuda_graph_modules
+[default0]:            ) or (
+[default0]:                CudaGraphModule.attn not in cuda_graph_modules
+[default0]:                and CudaGraphModule.mlp in cuda_graph_modules
+[default0]:            ):
+[default0]:                mark_mlp_norm_offloading_not_supported = True
+[default0]:            if mark_mlp_norm_offloading_not_supported:
+[default0]:                self.offload_mlp_norm = False
+[default0]:                log_single_rank(
+[default0]:                    logger,
+[default0]:                    logging.WARNING,
+[default0]:                    "mlp_norm offloading is not supported with the current cudagraph scope. "
+[default0]:                    "Disabling mlp_norm offloading.",
+[default0]:                )
+[default0]:        # Set the offload module in cuda graph flag.
+[default0]:        self.offload_module_in_cuda_graph = False
+[default0]:        cuda_graph_modules = self.config.cuda_graph_modules or []
+[default0]:        if (
+[default0]:            (not cuda_graph_modules or CudaGraphModule.attn in cuda_graph_modules)
+[default0]:            and "gdn_core_attn" in (self.config.offload_modules or [])
+[default0]:            and getattr(self.self_attention, "offload_core_attention", False)
+[default0]:        ):
+[default0]:            self.offload_module_in_cuda_graph = True
+[default0]:        if CudaGraphModule.attn in cuda_graph_modules:
+[default0]:            if self.offload_core_attn or self.offload_attn_proj or self.offload_qkv_linear:
+[default0]:                self.offload_module_in_cuda_graph = True
+[default0]:        if not self.is_moe_layer and CudaGraphModule.mlp in cuda_graph_modules:
+[default0]:            if self.offload_mlp_norm:
+[default0]:                self.offload_module_in_cuda_graph = True
+[default0]:        if self.offload_module_in_cuda_graph:
+[default0]:            assert is_torch_min_version(
+[default0]:                "2.9.0a0"
+[default0]:            ), "Offloading modules captured in cuda graph requires torch>=2.9.0."
+[default0]:            assert is_te_min_version(
+[default0]:                "2.14.0"
+[default0]:            ), "Offloading modules captured in cuda graph requires TE>=2.14.0."
+[default0]:            assert (
+[default0]:>               self.config.cuda_graph_warmup_steps > 0
+[default0]:            ), "Fine-grained activation offloading needs cuda_graph_warmup_steps > 0."
+[default0]:E           AssertionError: Fine-grained activation offloading needs cuda_graph_warmup_steps > 0. when instantiating TransformerLayer when instantiating HybridStack
+[default0]:
+[default0]:megatron/core/transformer/transformer_layer.py:2233: AssertionError
+[default0]:=============================== warnings summary ===============================
+[default0]:megatron/core/dist_checkpointing/strategies/torch.py:70
+[default0]:  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-followup-20261016/eager-guard-before/source/megatron/core/dist_checkpointing/strategies/torch.py:70: DeprecationWarning: transformer_engine.pytorch.float8_tensor is deprecated and will be removed in a future release. Float8Tensor should be imported directly through `from transformer_engine.pytorch import Float8Tensor`
+[default0]:    from transformer_engine.pytorch.float8_tensor import Float8Tensor
+[default0]:
+[default0]:../../../../../../../../home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+[default0]:  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+[default0]:    warnings.warn(
+[default0]:
+[default0]:megatron/core/tensor_parallel/random.py:92
+[default0]:  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-followup-20261016/eager-guard-before/source/megatron/core/tensor_parallel/random.py:92: DeprecationWarning: Using deprecated internal API from Transformer Engine. transformer_engine.pytorch.fp8 will be removed in a future release.
+[default0]:    from transformer_engine.pytorch.fp8 import FP8GlobalStateManager, fp8_autocast
+[default0]:
+[default0]:megatron/core/inference/contexts/__init__.py:9
+[default0]:[rank0]:[W1017 07:03:34.725016967 ProcessGroupNCCL.cpp:1575] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+E1017 07:03:37.426000 7 torch/distributed/elastic/multiprocessing/api.py:986] failed (exitcode: 1) local_rank: 0 (pid: 17) of binary: /home/songbinbin/.venvs/megatron-gdn-offload/bin/python
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/run.py", line 994, in <module>
+    main()
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 362, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/run.py", line 990, in main
+    run(args)
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/run.py", line 981, in run
+    elastic_launch(
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 170, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 317, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-followup-20261016/scripts/rank_pytest.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-10-17_07:03:37
+  host      : 190211873a98
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 17)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+[default0]:  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-followup-20261016/eager-guard-before/source/megatron/core/inference/contexts/__init__.py:9: DeprecationWarning: The following imports from `dynamic_context.py` will be removed in this file in `megatron-core` 0.14. The imports here result in a cyclic import issue that causes rotary embeddings to import from Apex rather than Transformer Engine.
+[default0]:    warnings.warn(
+[default0]:
+[default0]:megatron/core/models/mimo/config/base_configs.py:12
+[default0]:  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-followup-20261016/eager-guard-before/source/megatron/core/models/mimo/config/base_configs.py:12: UserWarning: MimoModelConfig is experimental and still under active development. The API may change without notice in future releases.
+[default0]:    class MimoModelConfig:
+[default0]:
+[default0]:tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-gdn2-False-1.0]
+[default0]:  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+[default0]:    return func(*args, **kwargs)
+[default0]:
+[default0]:tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-gdn2-False-1.0]
+[default0]:  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-followup-20261016/eager-guard-before/source/megatron/core/transformer/transformer_config.py:3428: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+[default0]:    warnings.warn(
+[default0]:
+[default0]:tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-gdn2-False-1.0]
+[default0]:tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-gdn2-False-1.0]
+[default0]:tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-gdn2-False-1.0]
+[default0]:tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-gdn2-False-1.0]
+[default0]:tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-gdn2-False-1.0]
+[default0]:tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-gdn2-False-1.0]
+[default0]:tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-gdn2-False-1.0]
+[default0]:tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-gdn2-False-1.0]
+[default0]:tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-gdn2-False-1.0]
+[default0]:  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-followup-20261016/eager-guard-before/source/megatron/core/transformer/mlp.py:447: DeprecationWarning: MLP requires ffn_hidden_size, but it was not provided. Using                     config.ffn_hidden_size by default.
+[default0]:    return cls(
+[default0]:
+[default0]:-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+[default0]:============================= slowest 15 durations =============================
+[default0]:0.77s call     tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-gdn2-False-1.0]
+[default0]:
+[default0]:(2 durations < 0.005s hidden.  Use -vv to show these durations.)
+[default0]:=========================== short test summary info ============================
+[default0]:FAILED tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-gdn2-False-1.0]
+[default0]:!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!
+[default0]:1 failed, 143 deselected, 29 warnings in 8.90s

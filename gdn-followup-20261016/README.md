@@ -11,8 +11,13 @@
 | First effective replay-stream fix | `88fc8a84a9ee41d507a4293fe4e9b36b7981b238` | 6 real graph cases passed on one GPU |
 | Single-GPU graphs including fraction zero | `2e84e21d03904a5c51182e7140c683110e574142` | 7 passed; zero skips |
 | Two-GPU graph matrix before dependency-test guards | `2e84e21d03904a5c51182e7140c683110e574142` | 21 passed per rank; zero skips |
-| Final GDN2 native training and real TE graph matrices | `043e3173451bea74e63c02b197867bf356ad72e9` | 18 native and 21 graph cases passed on each rank; zero skips |
-| Final GDN2 stack benchmark | `043e3173451bea74e63c02b197867bf356ad72e9` | Three fresh-process baseline/offload pairs; all 8 changing-input outputs and input/parameter gradients byte-identical in each pair |
+| Two-GPU matrices before the eager boundary fix | `043e3173451bea74e63c02b197867bf356ad72e9` | 18 native and 21 graph cases passed on each rank; zero skips |
+| GDN2 stack benchmark (unchanged standalone recurrence path) | `043e3173451bea74e63c02b197867bf356ad72e9` | Three fresh-process baseline/offload pairs; all 8 changing-input outputs and input/parameter gradients byte-identical in each pair |
+| Final native/real-graph matrices after the eager-boundary fix | `f19ebc5b1da1c9b0075eecfd2f93fc6ca4b3ba8d` | 36 native and 21 graph cases passed per rank; zero skips |
+
+Final native coverage adds GDN/GDN2 DP2 to the GDN2 TP2+SP/PP2/VPP2 selection and explicitly sets graph warmup to zero. The graph matrix still uses three graph warmup steps.
+
+A final constructor review found that an empty graph-module list had also marked eager GDN layers as graph-offloaded. This incorrectly imposed graph-version and positive-warmup requirements on eager training. The [before-fix regression](eager-guard-before/manifest.json) uses source `043e31734` plus the exported one-line native-fixture patch and fails in a real decoder constructor with graph warmup zero. The final fix adds the missing TE-implementation condition; [final commands and reports](extensions-eager-guard-final/manifest.json) verify the corrected eager boundary and retained real graph behavior.
 
 The two-GPU checkpoint stage also ran 18 GDN2 native cases per rank at
 `9b3145584f9776c2239c1c275569c325feada50b`; the final-source native matrix supersedes those results.
@@ -20,8 +25,8 @@ The two-GPU checkpoint stage also ran 18 GDN2 native cases per rank at
 `485cb5fa2` adds only the checkpoint validation tool, its boundary tests and usage documentation to #7908. Its entire `megatron` production tree is identical to `87c22d1ab`:
 `b80f676df5fdcb0b6ba1a0337b5034065cb7619d`. The corresponding `megatron/core` tree is
 `7840a43cf86ff1649d39899bf3b5b3271870203b`.
-The extension's final Core tree is `0b545fb8c83bd73c6c1f323f7e7a0bd8aef8ec34`.
-The stream fix is already present in `88fc8a84a`; later changes add test coverage and dependency guards.
+The extension's final Core tree is `966683849709faa700a7347d313c9d29b75fd53f`; the earlier `043e31734` Core tree is `0b545fb8c83bd73c6c1f323f7e7a0bd8aef8ec34`.
+The stream fix is already present in `88fc8a84a`; the final `f19ebc5b1` change limits graph flags/requirements to enabled TE graphs.
 [Source identities and tree hashes](source-provenance.json) and per-stage `source-materialization.json` files retain archive hashes and SHA256 file/symlink inventories. Source archives, caches and tensor/checkpoint payloads are not exported.
 
 These results do not replace the [earlier four-card and complete-Qwen performance evidence](../current-head-gpu-20261016/README.md). That bundle retains the executed revisions and historical fixed-reduction kernel measurements. No new four-card result is claimed here.
@@ -60,7 +65,7 @@ Another user's job started on GPU 1 after this run began and overlapped the rema
 
 ## GDN2 and real TE graphs
 
-[Final commands](extensions-ready/manifest.json) and per-rank reports/logs cover GDN2 native TP2+SP, PP2 and interleaved PP2 with norm recomputation off/on and fractions 0/0.5/1. The graph matrix covers DP2, TP2+SP and PP2, both GDN fusion settings, GDN2, attention/whole-layer capture, norm recomputation, delayed offload and fraction zero. The single-GPU run covers seven graph cases separately.
+[Final commands](extensions-eager-guard-final/manifest.json) and per-rank reports/logs cover GDN/GDN2 native DP2 and GDN2 native TP2+SP, PP2 and interleaved PP2 with norm recomputation off/on and fractions 0/0.5/1. The graph matrix covers DP2, TP2+SP and PP2, both GDN fusion settings, GDN2, attention/whole-layer capture, norm recomputation, delayed offload and fraction zero. The single-GPU run covers seven graph cases separately.
 
 Each graph arm performs three native optimizer steps, creates graphs through `TECudaGraphHelper`, asserts that real graphs exist, then performs three replay steps with changing inputs. Complete losses/gradients/weights/optimizer states are compared. Unfused states compare exactly; native fused states use `rtol=1e-5`, `atol=1e-8` because gate-gradient atomic reductions are not globally bitwise deterministic. These graph tests do not claim bitwise determinism for the fused kernel. Enabled nonzero-fraction arms verify actual transfers and every step verifies zero outstanding pinned-buffer ownership before reset.
 
@@ -79,6 +84,8 @@ A test-only wrapper raises the distributed store timeout to 10 minutes before la
 | 1 | 33.441 | 53.925 | +61.25% | 192.000 |
 | 2 | 36.402 | 51.891 | +42.55% | 192.000 |
 
+The benchmark executed at `043e31734`. Its tool, GDN2 recurrence, common scope, configuration and manager files are identical at final `f19ebc5b1`; their Git blob identities are recorded in `source-provenance.json`. This standalone stack does not construct `TransformerLayer`, the only production file changed by the eager-boundary fix. It has not been rerun at the new commit.
+
 Each pair saves approximately 192 MiB (16.88%) of peak allocated GPU memory and selects 240 MiB of transfers over three steady offloaded groups. The median paired runtime change is +58.42%, with range +42.55% to +61.25%. Outputs and all input/parameter gradients match byte-for-byte across eight distinct warmup/measured inputs; no pinned buffer remains in use after backward.
 
 This is a small GDN2 stack benchmark without vocabulary loss, optimizer updates or CUDA graphs. The transfer cost is material. It is not an end-to-end training benefit or a comparison against the historical complete-Qwen measurements.
@@ -93,7 +100,7 @@ With the dependencies and model/data available, the main entry points are:
 # Final GDN2 native training on two GPUs
 python -m torch.distributed.run --standalone --nproc-per-node=2 \
   -m pytest -q tests/unit_tests/ssm/test_gdn_offload_training.py \
-  -k 'gdn2 and (tp_sp or pp) and not tp_sp_cp and not tp_sp_pp'
+  -k 'dp or (gdn2 and (tp_sp or pp) and not tp_sp_cp and not tp_sp_pp)'
 # Final genuine graph matrix on two GPUs
 python -m torch.distributed.run --standalone --nproc-per-node=2 \
   -m pytest -q tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py
@@ -106,4 +113,4 @@ From this bundle, no GPU or PyTorch is needed to recheck the exported hashes, re
 python3 -B -S verify_followup.py
 ```
 
-`SHA256SUMS` covers the exported files except itself and `verification.log`; the latter is generated by that command. The checker validates recorded evidence only and does not execute or independently reproduce GPU training. [Formatting/lint commands](quality-checks.json) record the targeted Black/isort/Ruff/project-Pylint and determinism-association checks. Upstream GPU CI, full-iteration/local graphs, four-card GDN2 combinations, pretrained GDN2 training and composition with #7852 are not qualified here.
+`SHA256SUMS` covers the exported files except itself and `verification.log`; the latter is generated by that command. The checker validates recorded evidence only and does not execute or independently reproduce GPU training. [Formatting/lint commands](quality-checks.json) record the targeted Black/isort/Ruff/project-Pylint and determinism-association checks; `quality-eager-final.json` and the corresponding logs cover the final two changed files. Upstream GPU CI, full-iteration/local graphs, four-card GDN2 combinations, pretrained GDN2 training and composition with #7852 are not qualified here.
