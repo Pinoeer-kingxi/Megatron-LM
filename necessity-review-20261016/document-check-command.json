@@ -1,0 +1,28 @@
+{
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "megatron-gdn-necessity-doc-check-20261016",
+    "--network",
+    "none",
+    "--env",
+    "CUDA_VISIBLE_DEVICES=",
+    "--env",
+    "NVIDIA_VISIBLE_DEVICES=void",
+    "--env",
+    "PYTHONDONTWRITEBYTECODE=1",
+    "--mount",
+    "type=bind,source=/home/songbinbin/gdn-offload-artifacts,target=/home/songbinbin/gdn-offload-artifacts,readonly",
+    "--mount",
+    "type=bind,source=/data/songbinbin/minicoda,target=/data/songbinbin/minicoda,readonly",
+    "--mount",
+    "type=bind,source=/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/necessity-review-20261016,target=/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/necessity-review-20261016",
+    "sha256:061e8fda67a4dd1c1c635129d4ba0442b7a093cc6fd737423e9589eb6be22034",
+    "/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/docs-venv/bin/python",
+    "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/necessity-review-20261016/check_document.py"
+  ],
+  "exit_code": 0,
+  "gpu_used": false
+}

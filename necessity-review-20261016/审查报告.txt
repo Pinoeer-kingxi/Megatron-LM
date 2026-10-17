@@ -1,0 +1,67 @@
+改动必要性复查
+
+审查范围：#8243 af9569270f476dc201484296315a9c30dcaa3feb；#8244 9d54b8729c9277f1e032110c5e1b149e9654bcc5；#7908 b113b63614f201572f1e3742b4765449e55ceb3c。
+修订后 #7908：a8d3a787b7ee24bf8bc1b927f8c3208d63b378fb。本轮只修改 docs/developer/gdn_activation_offloading.md，净删除 18 行，没有修改生产代码、测试或工具。
+
+结论
+
+未发现新的、应当撤回的生产实现。不能为了收敛代码数量删掉已确认修复真实问题的同步和生命周期处理，也不能为了报告新问题而修改上游已有的实现。
+找到并收敛的是开发文档中的过程性内容：五行多轮 rebase 验收矩阵，以及三个 PR 的合并依赖说明。前者与公开证据重复维护，后者属于 PR 评审流程，均非长期使用文档必需。维护者已明确要求详细历史记录放入 pinned evidence。现在保留实际用法、设计边界、复现命令、准确版本的旧性能数据和固定证据链接，不丢弃原始结果。
+
+#7908 逐项核查
+
+gdn.py（两个实际新增代码块）：
+  offload_core_attention 沿用 attention.py 的配置派生习惯；不另外添加 manager 或异步流。
+  选择真实可微输入是为了让 group-start backward hook 实际执行。冻结 projection 后可仅剩可训练 gate，固定用 Q 会漏掉预取；全冻结、eval 和 no-grad 旁路不初始化 manager。这些不是无依据的兜底。
+  scope 只包围 FLA recurrence；commit 位于原始输出、norm checkpoint 之前。这个位置使 H2D 等待先于 FLA backward。输入可能与 scope 外保存张量共享 storage，不使用 forced release 是必要的生命周期边界。
+  未新增 gate、convolution、norm 的数值实现；关闭 offload 时仍复用原来的 kernel_inputs 和原有计算路径。
+
+transformer_config.py：
+  新校验仅作用于 opt-in gdn_core_attn。BF16/FLA/GDN、非 full recomputation、非 CUDA graph 对应明确的初始支持范围。
+  旧 CUDA graph 开关在配置更后面才规范化；同时检查 cuda_graph_impl、enable_cuda_graph、external_cuda_graph 有实际依据，不能当成重复判断删除。
+  没有新增 global process-group 读取，也没有修改其他 offload module 的默认行为。
+
+manifest.py：
+  只增加 GDN scope 的现有测试关联，没有把原生融合 kernel 标为确定性，也没有重新引入 gate 专用 replay 或固定分块。保留关联符合本仓库的 kernel-dispatch CI 约定。
+
+测试文件：
+  scope 测试分别覆盖 warmup/policy/pool reuse、微批累积、packed sequence、延迟拷贝、冻结和评估，不是只验证 mock 的开关值。
+  native training 复用原生 schedule、DDP、梯度 finalization 和 BF16 Adam；对齐权重后 reload_model_params 是同步已经创建的 master weights，不能删掉。
+  pool reset 前的观测避免 reset 清零计数后错误报告“缓冲区已归还”。这是必要观测，不是另一套生产状态。
+  小尺寸 fused 用例本轮未修改比较规则；已有单卡运行在这些输入上通过，不推广成原生 atomic/autotune 的普遍逐位保证。文档仍要求 fused 数值诊断使用重复关闭基线和实际张量；未为让测试通过而改 kernel 或扩大容差。
+  构造竞争的尺寸、seed、CUDA sleep 和阈值是测试夹具；未发现按本机 GPU 型号或用户目录分支的 Core 代码。
+
+两个工具：
+  profiler 是原始任务要求的 saved-tensor lifetime 分析；按 storage 统计是区分逻辑保存与可释放显存的必要步骤。host save/unpack 时间没有被冒充为 CUDA 完成时间。
+  Qwen 工具来自用户明确要求的完整训练验证；Bridge 只在该可选工具中按需导入，没有引入 Core 依赖。模型结构取自 checkpoint provider，不固定 24 层或本机权重路径。
+  控制 P2P ordering、attention backend 和测试随机性均局限于验证工具，不修改真实训练入口的默认设置。
+  snapshot 的 dtype/值/字节检查用于检测真实的传输一致性，不是恢复数值错误的逻辑；指纹本身不被用来衡量融合路径的误差大小。
+
+文档/index：
+  使用指南和目录入口属于新开关的必要说明；没有删除功能范围、限制或复现方法。
+  删掉历史验收矩阵和 PR 合并流程说明，保留两项旧性能结果的提交号、环境和公开历史数据链接。新增指向恢复后验收的固定证据链接。
+
+#8243 核查
+
+  forward_only 明确来自三个 native schedule；共享 manager 不额外猜测训练阶段。forward-only evaluation 创建空 chunks 不应消费训练 warmup。
+  fraction=0 覆盖 warmup 时无合格 tensor、之后尺寸增长的 group，否则后续会实际复制。
+  finish_all_groups 按剩余同名 forward group 判断，避免把“没有待传输数据”当成“forward 已完成”。
+  fallback reload 等待 D2H event，避免读取尚未写完的 host backup。
+  pool buffer 在 H2D 入队后即归还，下一次 D2H 写入前必须建立顺序。所有 chunk 共用 manager 的 H2D/D2H streams 和 pool，当前 wait_stream 能覆盖跨 chunk 复用。没有发现需要另建 per-buffer event 框架的证据。
+  相关测试用已有 core_attn scope 复现，修复没有依赖 GDN。
+
+#8244 核查
+
+  对 offload 功能而言，它已经是独立、可选的数值重复性改进，不再是 #7908 前置依赖。
+  按它自身明确的目标审查：独立 FP32 partial 槽、最终归约、取消 timing autotune 和 replay 测试都围绕原子归约非确定性，没有额外框架或 offload 耦合。
+  固定 128×16 是工程选择，不是数学要求或最优性证明。已有 A6000 八组形状对照支持其在已测范围内可接受，不能据此推广其他设备/所有 head 数都最优。这个限制已在 PR 正文中公开，不为消除常量再引入新配置层。
+  本轮没有再修改 #8244 源码，也没有撤回已独立存在的增强 PR。
+
+本轮验证及边界
+
+  MyST 解析零警告；四个 bash 代码块与上一版逐字节相同，均通过 bash -n；旧性能数值和原始提交号保留。
+  megatron、tools、tests 三个 Git tree 与实际 GPU 执行的 67fb40d842035a8873979759775b4165381ae60e 相同。manifest.json 记录准确 tree ID。
+  本轮没有使用 GPU，没有重跑训练、性能、完整 Sphinx 或 mypy；此前 GPU 结果只按原始执行提交及相同代码树引用。新文档解析不冒充 GPU 验收或全站 Sphinx 通过。
+  上游 GPU CI、维护者对独立 #8244 的取舍，以及恢复路径尚未重跑的四卡/完整 Qwen/性能矩阵仍不算本轮完成。
+
+本轮没有为了“找出更多问题”新增生产分支、状态、抽象或测试框架；源代码与之前已验证的恢复实现保持一致。

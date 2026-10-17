@@ -1,0 +1,20 @@
+{
+  "head": "a8d3a787b7ee24bf8bc1b927f8c3208d63b378fb",
+  "previous_head": "b113b63614f201572f1e3742b4765449e55ceb3c",
+  "gpu_executed_source": "67fb40d842035a8873979759775b4165381ae60e",
+  "unchanged_trees": {
+    "megatron": "b80f676df5fdcb0b6ba1a0337b5034065cb7619d",
+    "tools": "09dc5a2434e69e4606f2b8c7ba9faadb99dfde2c",
+    "tests": "22931d79faae65c08f620728083ff455a95c9707"
+  },
+  "changed_paths": [
+    "docs/developer/gdn_activation_offloading.md"
+  ],
+  "document_sha256": "d14992935cc78f15d9816e4e2a7573fdde7cca9cce1968ace8e87d942830f8ee",
+  "gpu_used_this_round": false,
+  "reviewed_pr_heads": {
+    "7908_before": "b113b63614f201572f1e3742b4765449e55ceb3c",
+    "8243": "af9569270f476dc201484296315a9c30dcaa3feb",
+    "8244": "9d54b8729c9277f1e032110c5e1b149e9654bcc5"
+  }
+}
