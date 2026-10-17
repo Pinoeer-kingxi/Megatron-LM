@@ -1,0 +1,6962 @@
+[
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.0.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.0.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.0.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.0.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.0.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.0.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.0.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.0.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.0.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.0.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.1.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.1.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.1.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.1.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.1.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.1.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.1.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.1.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.1.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.1.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.2.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.2.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.2.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.2.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.2.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.2.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.2.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.2.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.2.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.2.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.3.self_attention.linear_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.3.self_attention.linear_qkv.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.3.self_attention.linear_qkv.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.3.self_attention.q_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.3.self_attention.k_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.3.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.3.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.3.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.4.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.4.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.4.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.4.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.4.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.4.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.4.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.4.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.4.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.4.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.5.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.5.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.5.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.5.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.5.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.5.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.5.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.5.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.5.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.5.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.6.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.6.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.6.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.6.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.6.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.6.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.6.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.6.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.6.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.6.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.7.self_attention.linear_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.7.self_attention.linear_qkv.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.7.self_attention.linear_qkv.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.7.self_attention.q_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.7.self_attention.k_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.7.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.7.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.7.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.8.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.8.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.8.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.8.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.8.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.8.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.8.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.8.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.8.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.8.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.9.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.9.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.9.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.9.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.9.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.9.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.9.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.9.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.9.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.9.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.10.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.10.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.10.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.10.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.10.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.10.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.10.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.10.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.10.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.10.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.11.self_attention.linear_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.11.self_attention.linear_qkv.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.11.self_attention.linear_qkv.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.11.self_attention.q_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.11.self_attention.k_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.11.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.11.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.11.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.decoder.final_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/grads/0.module.module.output_layer.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.0.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.0.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.0.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.0.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.0.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.0.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.0.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.0.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.0.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.0.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.1.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.1.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.1.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.1.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.1.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.1.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.1.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.1.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.1.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.1.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.2.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.2.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.2.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.2.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.2.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.2.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.2.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.2.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.2.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.2.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.3.self_attention.linear_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.3.self_attention.linear_qkv.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.3.self_attention.linear_qkv.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.3.self_attention.q_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.3.self_attention.k_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.3.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.3.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.3.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.4.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.4.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.4.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.4.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.4.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.4.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.4.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.4.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.4.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.4.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.5.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.5.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.5.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.5.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.5.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.5.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.5.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.5.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.5.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.5.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.6.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.6.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.6.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.6.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.6.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.6.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.6.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.6.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.6.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.6.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.7.self_attention.linear_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.7.self_attention.linear_qkv.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.7.self_attention.linear_qkv.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.7.self_attention.q_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.7.self_attention.k_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.7.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.7.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.7.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.8.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.8.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.8.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.8.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.8.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.8.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.8.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.8.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.8.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.8.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.9.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.9.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.9.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.9.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.9.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.9.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.9.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.9.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.9.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.9.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.10.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.10.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.10.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.10.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.10.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.10.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.10.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.10.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.10.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.10.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.11.self_attention.linear_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.11.self_attention.linear_qkv.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.11.self_attention.linear_qkv.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.11.self_attention.q_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.11.self_attention.k_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.11.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.11.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.layers.11.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.decoder.final_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/weights/0.module.module.output_layer.weight",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/0/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/0/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/1/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/1/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/2/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/2/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/3/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/3/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/4/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/4/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/5/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/5/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/6/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/6/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/7/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/7/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/8/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/8/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/9/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/9/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/10/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/10/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/11/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/11/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/12/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/12/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/13/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/13/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/14/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/14/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/15/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/15/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/16/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/16/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/17/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/17/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/18/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/18/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/19/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/19/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/20/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/20/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/21/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/21/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/22/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/22/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/23/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/23/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/24/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/24/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/25/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/25/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/26/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/26/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/27/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/27/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/28/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/28/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/29/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/29/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/30/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/30/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/31/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/31/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/32/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/32/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/33/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/33/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/34/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/34/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/35/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/35/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/36/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/36/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/37/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/37/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/38/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/38/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/39/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/39/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/40/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/40/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/41/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/41/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/42/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/42/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/43/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/43/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/44/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/44/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/45/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/45/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/46/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/46/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/47/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/47/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/48/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/48/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/49/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/49/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/50/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/50/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/51/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/51/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/52/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/52/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/53/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/53/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/54/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/54/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/55/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/55/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/56/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/56/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/57/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/57/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/58/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/58/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/59/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/59/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/60/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/60/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/61/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/61/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/62/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/62/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/63/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/63/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/64/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/64/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/65/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/65/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/66/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/66/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/67/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/67/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/68/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/68/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/69/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/69/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/70/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/70/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/71/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/71/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/72/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/72/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/73/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/73/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/74/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/74/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/75/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/75/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/76/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/76/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/77/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/77/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/78/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/78/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/79/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/79/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/80/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/80/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/81/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/81/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/82/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/82/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/83/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/83/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/84/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/84/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/85/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/85/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/86/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/86/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/87/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/87/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/88/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/88/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/89/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/89/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/90/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/90/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/91/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/91/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/92/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/92/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/93/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/93/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/94/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/94/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/95/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/95/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/96/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/96/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/97/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/97/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/98/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/98/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/99/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/99/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/100/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/100/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/101/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/101/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/102/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/102/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/103/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/103/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/104/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/104/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/105/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/105/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/106/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/106/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/107/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/107/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/108/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/108/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/109/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/109/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/110/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/110/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/111/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/111/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/112/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/112/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/113/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/113/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/114/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/114/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/115/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/115/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/0",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/1",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/2",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/3",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/4",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/5",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/6",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/7",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/8",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/9",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/10",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/11",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/12",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/13",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/14",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/15",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/16",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/17",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/18",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/19",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/20",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/21",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/22",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/23",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/24",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/25",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/26",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/27",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/28",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/29",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/30",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/31",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/32",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/33",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/34",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/35",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/36",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/37",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/38",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/39",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/40",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/41",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/42",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/43",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/44",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/45",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/46",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/47",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/48",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/49",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/50",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/51",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/52",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/53",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/54",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/55",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/56",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/0/57",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/0",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/1",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/2",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/3",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/4",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/5",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/6",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/7",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/8",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/9",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/10",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/11",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/12",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/13",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/14",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/15",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/16",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/17",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/18",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/19",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/20",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/21",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/22",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/23",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/24",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/25",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/26",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/27",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/28",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/29",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/30",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/31",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/32",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/33",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/34",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/35",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/36",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/37",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/38",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/39",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/40",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/41",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/42",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/43",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/44",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/45",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/46",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/47",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/48",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/49",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/50",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/51",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/52",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/53",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/54",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/55",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/56",
+    "exact": true
+  },
+  {
+    "path": "/0/optimizer/fp32_from_fp16_params/1/57",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.0.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.0.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.0.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.0.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.0.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.0.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.0.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.0.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.0.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.0.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.1.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.1.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.1.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.1.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.1.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.1.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.1.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.1.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.1.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.1.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.2.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.2.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.2.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.2.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.2.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.2.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.2.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.2.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.2.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.2.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.3.self_attention.linear_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.3.self_attention.linear_qkv.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.3.self_attention.linear_qkv.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.3.self_attention.q_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.3.self_attention.k_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.3.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.3.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.3.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.4.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.4.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.4.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.4.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.4.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.4.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.4.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.4.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.4.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.4.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.5.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.5.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.5.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.5.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.5.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.5.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.5.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.5.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.5.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.5.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.6.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.6.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.6.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.6.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.6.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.6.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.6.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.6.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.6.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.6.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.7.self_attention.linear_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.7.self_attention.linear_qkv.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.7.self_attention.linear_qkv.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.7.self_attention.q_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.7.self_attention.k_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.7.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.7.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.7.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.8.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.8.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.8.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.8.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.8.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.8.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.8.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.8.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.8.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.8.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.9.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.9.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.9.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.9.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.9.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.9.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.9.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.9.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.9.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.9.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.10.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.10.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.10.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.10.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.10.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.10.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.10.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.10.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.10.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.10.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.11.self_attention.linear_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.11.self_attention.linear_qkv.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.11.self_attention.linear_qkv.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.11.self_attention.q_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.11.self_attention.k_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.11.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.11.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.layers.11.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.decoder.final_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/grads/0.module.module.output_layer.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.0.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.0.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.0.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.0.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.0.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.0.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.0.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.0.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.0.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.0.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.1.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.1.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.1.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.1.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.1.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.1.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.1.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.1.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.1.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.1.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.2.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.2.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.2.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.2.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.2.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.2.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.2.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.2.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.2.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.2.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.3.self_attention.linear_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.3.self_attention.linear_qkv.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.3.self_attention.linear_qkv.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.3.self_attention.q_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.3.self_attention.k_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.3.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.3.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.3.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.4.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.4.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.4.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.4.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.4.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.4.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.4.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.4.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.4.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.4.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.5.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.5.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.5.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.5.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.5.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.5.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.5.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.5.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.5.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.5.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.6.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.6.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.6.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.6.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.6.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.6.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.6.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.6.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.6.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.6.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.7.self_attention.linear_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.7.self_attention.linear_qkv.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.7.self_attention.linear_qkv.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.7.self_attention.q_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.7.self_attention.k_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.7.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.7.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.7.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.8.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.8.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.8.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.8.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.8.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.8.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.8.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.8.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.8.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.8.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.9.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.9.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.9.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.9.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.9.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.9.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.9.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.9.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.9.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.9.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.10.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.10.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.10.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.10.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.10.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.10.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.10.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.10.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.10.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.10.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.11.self_attention.linear_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.11.self_attention.linear_qkv.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.11.self_attention.linear_qkv.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.11.self_attention.q_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.11.self_attention.k_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.11.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.11.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.layers.11.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.decoder.final_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/weights/0.module.module.output_layer.weight",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/0/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/0/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/1/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/1/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/2/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/2/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/3/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/3/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/4/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/4/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/5/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/5/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/6/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/6/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/7/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/7/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/8/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/8/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/9/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/9/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/10/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/10/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/11/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/11/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/12/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/12/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/13/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/13/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/14/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/14/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/15/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/15/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/16/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/16/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/17/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/17/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/18/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/18/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/19/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/19/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/20/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/20/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/21/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/21/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/22/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/22/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/23/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/23/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/24/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/24/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/25/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/25/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/26/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/26/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/27/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/27/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/28/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/28/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/29/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/29/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/30/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/30/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/31/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/31/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/32/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/32/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/33/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/33/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/34/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/34/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/35/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/35/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/36/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/36/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/37/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/37/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/38/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/38/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/39/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/39/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/40/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/40/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/41/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/41/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/42/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/42/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/43/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/43/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/44/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/44/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/45/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/45/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/46/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/46/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/47/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/47/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/48/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/48/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/49/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/49/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/50/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/50/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/51/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/51/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/52/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/52/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/53/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/53/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/54/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/54/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/55/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/55/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/56/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/56/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/57/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/57/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/58/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/58/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/59/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/59/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/60/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/60/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/61/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/61/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/62/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/62/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/63/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/63/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/64/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/64/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/65/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/65/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/66/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/66/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/67/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/67/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/68/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/68/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/69/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/69/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/70/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/70/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/71/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/71/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/72/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/72/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/73/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/73/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/74/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/74/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/75/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/75/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/76/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/76/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/77/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/77/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/78/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/78/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/79/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/79/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/80/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/80/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/81/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/81/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/82/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/82/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/83/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/83/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/84/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/84/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/85/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/85/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/86/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/86/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/87/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/87/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/88/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/88/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/89/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/89/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/90/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/90/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/91/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/91/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/92/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/92/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/93/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/93/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/94/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/94/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/95/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/95/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/96/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/96/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/97/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/97/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/98/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/98/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/99/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/99/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/100/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/100/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/101/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/101/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/102/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/102/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/103/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/103/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/104/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/104/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/105/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/105/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/106/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/106/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/107/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/107/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/108/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/108/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/109/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/109/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/110/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/110/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/111/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/111/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/112/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/112/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/113/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/113/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/114/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/114/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/115/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/115/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/0",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/1",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/2",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/3",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/4",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/5",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/6",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/7",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/8",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/9",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/10",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/11",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/12",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/13",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/14",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/15",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/16",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/17",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/18",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/19",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/20",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/21",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/22",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/23",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/24",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/25",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/26",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/27",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/28",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/29",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/30",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/31",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/32",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/33",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/34",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/35",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/36",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/37",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/38",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/39",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/40",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/41",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/42",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/43",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/44",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/45",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/46",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/47",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/48",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/49",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/50",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/51",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/52",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/53",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/54",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/55",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/56",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/0/57",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/0",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/1",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/2",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/3",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/4",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/5",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/6",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/7",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/8",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/9",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/10",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/11",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/12",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/13",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/14",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/15",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/16",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/17",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/18",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/19",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/20",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/21",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/22",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/23",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/24",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/25",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/26",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/27",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/28",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/29",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/30",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/31",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/32",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/33",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/34",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/35",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/36",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/37",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/38",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/39",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/40",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/41",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/42",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/43",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/44",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/45",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/46",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/47",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/48",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/49",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/50",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/51",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/52",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/53",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/54",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/55",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/56",
+    "exact": true
+  },
+  {
+    "path": "/1/optimizer/fp32_from_fp16_params/1/57",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.0.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.0.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.0.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.0.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.0.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.0.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.0.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.0.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.0.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.0.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.1.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.1.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.1.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.1.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.1.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.1.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.1.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.1.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.1.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.1.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.2.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.2.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.2.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.2.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.2.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.2.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.2.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.2.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.2.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.2.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.3.self_attention.linear_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.3.self_attention.linear_qkv.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.3.self_attention.linear_qkv.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.3.self_attention.q_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.3.self_attention.k_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.3.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.3.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.3.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.4.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.4.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.4.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.4.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.4.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.4.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.4.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.4.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.4.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.4.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.5.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.5.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.5.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.5.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.5.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.5.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.5.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.5.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.5.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.5.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.6.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.6.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.6.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.6.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.6.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.6.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.6.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.6.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.6.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.6.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.7.self_attention.linear_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.7.self_attention.linear_qkv.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.7.self_attention.linear_qkv.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.7.self_attention.q_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.7.self_attention.k_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.7.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.7.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.7.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.8.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.8.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.8.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.8.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.8.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.8.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.8.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.8.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.8.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.8.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.9.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.9.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.9.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.9.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.9.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.9.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.9.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.9.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.9.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.9.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.10.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.10.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.10.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.10.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.10.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.10.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.10.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.10.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.10.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.10.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.11.self_attention.linear_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.11.self_attention.linear_qkv.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.11.self_attention.linear_qkv.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.11.self_attention.q_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.11.self_attention.k_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.11.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.11.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.layers.11.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.decoder.final_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/grads/0.module.module.output_layer.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.0.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.0.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.0.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.0.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.0.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.0.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.0.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.0.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.0.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.0.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.1.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.1.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.1.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.1.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.1.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.1.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.1.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.1.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.1.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.1.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.2.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.2.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.2.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.2.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.2.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.2.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.2.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.2.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.2.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.2.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.3.self_attention.linear_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.3.self_attention.linear_qkv.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.3.self_attention.linear_qkv.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.3.self_attention.q_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.3.self_attention.k_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.3.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.3.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.3.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.4.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.4.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.4.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.4.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.4.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.4.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.4.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.4.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.4.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.4.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.5.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.5.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.5.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.5.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.5.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.5.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.5.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.5.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.5.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.5.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.6.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.6.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.6.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.6.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.6.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.6.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.6.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.6.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.6.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.6.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.7.self_attention.linear_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.7.self_attention.linear_qkv.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.7.self_attention.linear_qkv.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.7.self_attention.q_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.7.self_attention.k_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.7.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.7.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.7.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.8.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.8.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.8.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.8.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.8.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.8.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.8.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.8.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.8.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.8.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.9.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.9.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.9.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.9.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.9.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.9.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.9.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.9.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.9.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.9.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.10.self_attention.dt_bias",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.10.self_attention.A_log",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.10.self_attention.in_proj.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.10.self_attention.in_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.10.self_attention.conv1d.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.10.self_attention.out_norm.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.10.self_attention.out_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.10.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.10.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.10.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.11.self_attention.linear_proj.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.11.self_attention.linear_qkv.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.11.self_attention.linear_qkv.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.11.self_attention.q_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.11.self_attention.k_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.11.mlp.linear_fc1.layer_norm_weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.11.mlp.linear_fc1.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.layers.11.mlp.linear_fc2.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.decoder.final_layernorm.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/weights/0.module.module.output_layer.weight",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/0/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/0/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/1/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/1/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/2/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/2/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/3/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/3/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/4/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/4/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/5/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/5/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/6/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/6/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/7/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/7/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/8/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/8/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/9/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/9/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/10/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/10/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/11/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/11/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/12/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/12/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/13/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/13/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/14/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/14/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/15/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/15/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/16/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/16/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/17/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/17/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/18/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/18/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/19/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/19/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/20/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/20/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/21/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/21/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/22/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/22/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/23/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/23/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/24/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/24/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/25/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/25/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/26/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/26/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/27/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/27/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/28/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/28/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/29/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/29/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/30/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/30/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/31/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/31/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/32/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/32/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/33/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/33/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/34/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/34/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/35/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/35/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/36/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/36/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/37/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/37/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/38/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/38/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/39/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/39/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/40/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/40/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/41/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/41/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/42/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/42/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/43/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/43/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/44/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/44/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/45/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/45/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/46/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/46/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/47/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/47/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/48/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/48/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/49/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/49/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/50/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/50/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/51/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/51/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/52/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/52/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/53/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/53/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/54/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/54/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/55/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/55/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/56/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/56/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/57/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/57/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/58/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/58/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/59/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/59/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/60/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/60/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/61/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/61/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/62/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/62/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/63/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/63/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/64/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/64/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/65/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/65/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/66/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/66/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/67/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/67/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/68/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/68/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/69/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/69/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/70/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/70/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/71/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/71/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/72/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/72/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/73/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/73/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/74/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/74/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/75/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/75/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/76/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/76/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/77/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/77/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/78/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/78/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/79/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/79/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/80/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/80/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/81/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/81/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/82/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/82/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/83/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/83/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/84/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/84/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/85/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/85/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/86/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/86/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/87/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/87/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/88/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/88/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/89/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/89/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/90/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/90/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/91/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/91/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/92/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/92/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/93/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/93/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/94/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/94/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/95/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/95/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/96/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/96/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/97/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/97/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/98/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/98/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/99/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/99/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/100/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/100/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/101/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/101/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/102/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/102/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/103/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/103/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/104/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/104/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/105/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/105/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/106/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/106/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/107/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/107/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/108/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/108/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/109/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/109/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/110/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/110/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/111/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/111/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/112/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/112/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/113/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/113/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/114/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/114/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/115/exp_avg",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/115/exp_avg_sq",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/0",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/1",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/2",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/3",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/4",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/5",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/6",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/7",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/8",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/9",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/10",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/11",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/12",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/13",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/14",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/15",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/16",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/17",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/18",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/19",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/20",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/21",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/22",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/23",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/24",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/25",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/26",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/27",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/28",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/29",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/30",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/31",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/32",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/33",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/34",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/35",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/36",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/37",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/38",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/39",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/40",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/41",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/42",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/43",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/44",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/45",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/46",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/47",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/48",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/49",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/50",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/51",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/52",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/53",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/54",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/55",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/56",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/0/57",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/0",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/1",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/2",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/3",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/4",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/5",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/6",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/7",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/8",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/9",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/10",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/11",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/12",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/13",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/14",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/15",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/16",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/17",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/18",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/19",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/20",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/21",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/22",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/23",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/24",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/25",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/26",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/27",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/28",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/29",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/30",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/31",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/32",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/33",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/34",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/35",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/36",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/37",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/38",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/39",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/40",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/41",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/42",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/43",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/44",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/45",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/46",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/47",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/48",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/49",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/50",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/51",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/52",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/53",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/54",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/55",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/56",
+    "exact": true
+  },
+  {
+    "path": "/2/optimizer/fp32_from_fp16_params/1/57",
+    "exact": true
+  }
+]

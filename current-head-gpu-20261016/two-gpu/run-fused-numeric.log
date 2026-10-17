@@ -1,0 +1,16 @@
+Starting numeric-f1-n0-disabled
+numeric-f1-n0-disabled: 0
+Starting numeric-f1-n0-repeat
+numeric-f1-n0-repeat: 0
+Starting numeric-f1-n0-offload
+numeric-f1-n0-offload: 0
+Starting numeric-f1-n1-disabled
+numeric-f1-n1-disabled: 0
+Starting numeric-f1-n1-repeat
+numeric-f1-n1-repeat: 0
+Starting numeric-f1-n1-offload
+numeric-f1-n1-offload: 0
+Starting compare-fused-numeric
+compare-fused-numeric: 0
+Starting gate-replay
+gate-replay: 0

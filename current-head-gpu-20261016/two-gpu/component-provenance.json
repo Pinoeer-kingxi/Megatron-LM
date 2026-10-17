@@ -1,0 +1,32 @@
+{
+  "source_commit": "fbe4bb03d1c6a60ac4da965ca47bccd47d7ef452",
+  "shared_commit": "af9569270f476dc201484296315a9c30dcaa3feb",
+  "shared_files": [
+    {
+      "file": "megatron/core/pipeline_parallel/fine_grained_activation_offload.py",
+      "sha256": "60d2d2b4af80c1b391932107a3bdaa8d9b5288de091abc00994f010eafe218e9",
+      "same_as_shared_pr": true
+    },
+    {
+      "file": "megatron/core/pipeline_parallel/schedules.py",
+      "sha256": "33a89ebbbdf64852fd86d50033c1ab068a1a7ee229ad2f989b5148b5dd2cddb8",
+      "same_as_shared_pr": true
+    },
+    {
+      "file": "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py",
+      "sha256": "d29cba5e890a01208babc0c80ac4e56d7ec75f0bc2b27bb8d7c243467dc2c454",
+      "same_as_shared_pr": true
+    },
+    {
+      "file": "tests/unit_tests/pipeline_parallel/test_schedules.py",
+      "sha256": "217b6fa073dcefa721b98c0c5240ea31d4cc9322eef127d74ac72fa9c15a0532",
+      "same_as_shared_pr": true
+    }
+  ],
+  "upstream_gate": {
+    "file": "megatron/core/fusions/fused_pre_gated_delta_rule.py",
+    "base_commit": "9131593673d037d360d252904f9198d36bc0c246",
+    "sha256": "c8a0247766bbc78ee3f98841a3eb9c033109bf3575bb9d2df99b4cbf2a0df920",
+    "byte_identical": true
+  }
+}

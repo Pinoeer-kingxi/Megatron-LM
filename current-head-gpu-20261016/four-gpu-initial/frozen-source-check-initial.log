@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-four-current-head-20261016/scripts/check_frozen_source.py", line 22, in <module>
+    assert path.is_symlink() and str(path.readlink()) == member.linkname
+AssertionError

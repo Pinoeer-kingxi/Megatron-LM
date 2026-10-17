@@ -1,0 +1,14 @@
+[
+  {
+    "directory": "source",
+    "source_commit": "fbe4bb03d1c6a60ac4da965ca47bccd47d7ef452",
+    "checked_files": 3532,
+    "archive_files_unchanged": true
+  },
+  {
+    "directory": "gate",
+    "source_commit": "9d54b8729c9277f1e032110c5e1b149e9654bcc5",
+    "checked_files": 3526,
+    "archive_files_unchanged": true
+  }
+]

@@ -1,0 +1,300 @@
+[default0]:[rank0]:[W1017 02:26:23.320230762 ProcessGroupNCCL.cpp:5188] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+[default3]:
+[default3]:================================
+[default3]:Activation Offload Summary (MB) 
+[default3]:================================
+[default3]:Rank         decoder       Total
+[default3]:--------------------------------
+[default3]:Rank 0          0.00        0.00
+[default3]:--------------------------------
+[default3]:Total           0.00        0.00
+[default3]:================================
+[default3]:
+[default3]:....[default3]:.[default0]:
+[default0]:================================
+[default0]:Activation Offload Summary (MB) 
+[default0]:================================
+[default0]:Rank         decoder       Total
+[default0]:--------------------------------
+[default0]:Rank 0          0.00        0.00
+[default0]:--------------------------------
+[default0]:Total           0.00        0.00
+[default0]:================================
+[default0]:
+[default0]:.....[default3]:.[default2]:
+[default2]:================================
+[default2]:Activation Offload Summary (MB) 
+[default2]:================================
+[default2]:Rank         decoder       Total
+[default2]:--------------------------------
+[default2]:Rank 0          0.00        0.00
+[default2]:--------------------------------
+[default2]:Total           0.00        0.00
+[default2]:================================
+[default2]:
+[default2]:...[default2]:..[default0]:.[default2]:.[default1]:
+[default1]:================================
+[default1]:Activation Offload Summary (MB) 
+[default1]:================================
+[default1]:Rank         decoder       Total
+[default1]:--------------------------------
+[default1]:Rank 0          0.00        0.00
+[default1]:--------------------------------
+[default1]:Total           0.00        0.00
+[default1]:================================
+[default1]:
+[default1]:...[default1]:..[default1]:.[default0]:Initializing torch.distributed with rank: 0, world_size: 4
+[default0]:
+[default0]:====================
+[default0]:Activation Offload Summary (MB)
+[default0]:====================
+[default0]:Rank           Total
+[default0]:--------------------
+[default0]:Rank 0          0.00
+[default0]:Rank 1          0.00
+[default0]:Rank 2          0.00
+[default0]:Rank 3          0.00
+[default0]:--------------------
+[default0]:Total           0.00
+[default0]:====================
+[default0]:
+[default0]:.[default1]:Initializing torch.distributed with rank: 1, world_size: 4
+[default1]:.[default3]:Initializing torch.distributed with rank: 3, world_size: 4
+[default3]:.[default2]:Initializing torch.distributed with rank: 2, world_size: 4
+[default2]:.[default0]:
+[default0]:================================
+[default0]:Activation Offload Summary (MB) 
+[default0]:================================
+[default0]:Rank       core_attn       Total
+[default0]:--------------------------------
+[default0]:Rank 0          0.00        0.00
+[default0]:Rank 1          0.00        0.00
+[default0]:Rank 2          0.00        0.00
+[default0]:Rank 3          0.00        0.00
+[default0]:--------------------------------
+[default0]:Total           0.00        0.00
+[default0]:================================
+[default0]:
+[default0]:.[default1]:.[default3]:.[default2]:.[default0]:.[default1]:.[default3]:.[default2]:.[default0]:
+[default0]:================================
+[default0]:Activation Offload Summary (MB) 
+[default0]:================================
+[default0]:Rank       core_attn       Total
+[default0]:--------------------------------
+[default0]:Rank 0          2.00        2.00
+[default0]:Rank 1          4.00        4.00
+[default0]:Rank 2          2.00        2.00
+[default0]:Rank 3          2.00        2.00
+[default0]:--------------------------------
+[default0]:Total          10.00       10.00
+[default0]:================================
+[default0]:
+[default0]:.......[default1]:.....[default3]:.......[default2]:......[default1]:..[default2]:.[default0]:
+[default0]:=============================== warnings summary ===============================
+[default0]:megatron/core/dist_checkpointing/strategies/torch.py:70
+[default0]:  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-four-current-head-20261016/source/megatron/core/dist_checkpointing/strategies/torch.py:70: DeprecationWarning: transformer_engine.pytorch.float8_tensor is deprecated and will be removed in a future release. Float8Tensor should be imported directly through `from transformer_engine.pytorch import Float8Tensor`
+[default0]:    from transformer_engine.pytorch.float8_tensor import Float8Tensor
+[default0]:
+[default0]:../../../../../../../home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+[default0]:  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+[default0]:    warnings.warn(
+[default0]:
+[default0]:megatron/core/tensor_parallel/random.py:92
+[default0]:  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-four-current-head-20261016/source/megatron/core/tensor_parallel/random.py:92: DeprecationWarning: Using deprecated internal API from Transformer Engine. transformer_engine.pytorch.fp8 will be removed in a future release.
+[default0]:    from transformer_engine.pytorch.fp8 import FP8GlobalStateManager, fp8_autocast
+[default0]:
+[default0]:megatron/core/inference/contexts/__init__.py:9
+[default0]:  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-four-current-head-20261016/source/megatron/core/inference/contexts/__init__.py:9: DeprecationWarning: The following imports from `dynamic_context.py` will be removed in this file in `megatron-core` 0.14. The imports here result in a cyclic import issue that causes rotary embeddings to import from Apex rather than Transformer Engine.
+[default0]:    warnings.warn(
+[default0]:
+[default0]:megatron/core/models/mimo/config/base_configs.py:12
+[default0]:  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-four-current-head-20261016/source/megatron/core/models/mimo/config/base_configs.py:12: UserWarning: MimoModelConfig is experimental and still under active development. The API may change without notice in future releases.
+[default0]:    class MimoModelConfig:
+[default0]:
+[default0]:tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_with_growing_microbatches[0.0]
+[default0]:tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_with_growing_microbatches[1.0]
+[default0]:tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_post_warmup_callback_warns_on_duplicated_storage_offload
+[default0]:  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+[default0]:    return func(*args, **kwargs)
+[default0]:
+[default0]:-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+[default0]:==================================== PASSES ====================================
+[default0]:________ test_post_warmup_callback_warns_on_duplicated_storage_offload _________
+[default0]:------------------------------ Captured log call -------------------------------
+[default0]:WARNING  megatron.core.pipeline_parallel.fine_grained_activation_offload:fine_grained_activation_offload.py:93 Fine-grained activation offloading is copying the same tensor storage to CPU more than once within an offload group, wasting host memory and PCIe bandwidth (rank 1, core_attn: 1 redundant copies, 2.00 MB). Offloading proceeds with the duplicated copies.
+[default0]:============================= slowest 15 durations =============================
+[default0]:0.71s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_with_growing_microbatches[0.0]
+[default0]:0.15s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_with_growing_microbatches[1.0]
+[default0]:0.15s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_post_warmup_callback_warns_on_duplicated_storage_offload
+[default0]:0.11s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_tensor_pop_waits_for_delayed_offload
+[default0]:0.06s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_waits_for_pooled_h2d
+[default0]:0.03s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_offloads_base_storage_for_covering_views
+[default0]:0.01s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_gathers_low_coverage_views
+[default0]:0.01s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_skips_non_offloadable_tensor_types
+[default0]:
+[default0]:(7 durations < 0.005s hidden.  Use -vv to show these durations.)
+[default0]:=========================== short test summary info ============================
+[default0]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_summary_uses_explicit_process_group
+[default0]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_skips_non_offloadable_tensor_types
+[default0]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_respects_tensor_opt_out_flags
+[default0]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_offloads_base_storage_for_covering_views
+[default0]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_gathers_low_coverage_views
+[default0]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_tensor_pop_waits_for_delayed_offload
+[default0]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_with_growing_microbatches[0.0]
+[default0]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_with_growing_microbatches[1.0]
+[default0]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_waits_for_pooled_h2d
+[default0]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_post_warmup_callback_warns_on_duplicated_storage_offload
+[default0]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_flags_disjoint_views_taking_the_whole_storage_path
+[default0]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_counts_full_storage_and_logical_view_duplicates[False]
+[default0]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_counts_full_storage_and_logical_view_duplicates[True]
+[default0]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_does_not_flag_views_copying_their_own_bytes
+[default0]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_does_not_analyze_logical_view_overlap
+[default0]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_duplicate_storage_accounting_is_scoped_to_one_group
+[default0]:16 passed, 24 deselected, 21 warnings in 9.26s
+[default1]:
+[default1]:=============================== warnings summary ===============================
+[default1]:megatron/core/dist_checkpointing/strategies/torch.py:70
+[default1]:  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-four-current-head-20261016/source/megatron/core/dist_checkpointing/strategies/torch.py:70: DeprecationWarning: transformer_engine.pytorch.float8_tensor is deprecated and will be removed in a future release. Float8Tensor should be imported directly through `from transformer_engine.pytorch import Float8Tensor`
+[default1]:    from transformer_engine.pytorch.float8_tensor import Float8Tensor
+[default1]:
+[default1]:../../../../../../../home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+[default1]:  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+[default1]:    warnings.warn(
+[default1]:
+[default1]:megatron/core/tensor_parallel/random.py:92
+[default1]:  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-four-current-head-20261016/source/megatron/core/tensor_parallel/random.py:92: DeprecationWarning: Using deprecated internal API from Transformer Engine. transformer_engine.pytorch.fp8 will be removed in a future release.
+[default1]:    from transformer_engine.pytorch.fp8 import FP8GlobalStateManager, fp8_autocast
+[default1]:
+[default1]:megatron/core/inference/contexts/__init__.py:9
+[default1]:  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-four-current-head-20261016/source/megatron/core/inference/contexts/__init__.py:9: DeprecationWarning: The following imports from `dynamic_context.py` will be removed in this file in `megatron-core` 0.14. The imports here result in a cyclic import issue that causes rotary embeddings to import from Apex rather than Transformer Engine.
+[default1]:    warnings.warn(
+[default1]:
+[default1]:-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+[default1]:==================================== PASSES ====================================
+[default1]:============================= slowest 15 durations =============================
+[default1]:0.36s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_with_growing_microbatches[0.0]
+[default1]:0.15s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_with_growing_microbatches[1.0]
+[default1]:0.15s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_post_warmup_callback_warns_on_duplicated_storage_offload
+[default1]:0.11s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_tensor_pop_waits_for_delayed_offload
+[default1]:0.06s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_waits_for_pooled_h2d
+[default1]:0.04s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_offloads_base_storage_for_covering_views
+[default1]:0.01s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_gathers_low_coverage_views
+[default1]:0.01s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_does_not_flag_views_copying_their_own_bytes
+[default1]:0.01s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_does_not_analyze_logical_view_overlap
+[default1]:
+[default1]:(6 durations < 0.005s hidden.  Use -vv to show these durations.)
+[default1]:=========================== short test summary info ============================
+[default1]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_summary_uses_explicit_process_group
+[default1]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_skips_non_offloadable_tensor_types
+[default1]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_respects_tensor_opt_out_flags
+[default1]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_offloads_base_storage_for_covering_views
+[default1]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_gathers_low_coverage_views
+[default1]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_tensor_pop_waits_for_delayed_offload
+[default1]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_with_growing_microbatches[0.0]
+[default1]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_with_growing_microbatches[1.0]
+[default1]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_waits_for_pooled_h2d
+[default1]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_post_warmup_callback_warns_on_duplicated_storage_offload
+[default1]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_flags_disjoint_views_taking_the_whole_storage_path
+[default1]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_counts_full_storage_and_logical_view_duplicates[False]
+[default1]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_counts_full_storage_and_logical_view_duplicates[True]
+[default1]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_does_not_flag_views_copying_their_own_bytes
+[default1]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_does_not_analyze_logical_view_overlap
+[default1]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_duplicate_storage_accounting_is_scoped_to_one_group
+[default1]:16 passed, 24 deselected, 17 warnings in 9.23s
+[default3]:
+[default3]:=============================== warnings summary ===============================
+[default3]:megatron/core/dist_checkpointing/strategies/torch.py:70
+[default3]:  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-four-current-head-20261016/source/megatron/core/dist_checkpointing/strategies/torch.py:70: DeprecationWarning: transformer_engine.pytorch.float8_tensor is deprecated and will be removed in a future release. Float8Tensor should be imported directly through `from transformer_engine.pytorch import Float8Tensor`
+[default3]:    from transformer_engine.pytorch.float8_tensor import Float8Tensor
+[default3]:
+[default3]:../../../../../../../home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+[default3]:  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+[default3]:    warnings.warn(
+[default3]:
+[default3]:megatron/core/tensor_parallel/random.py:92
+[default3]:  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-four-current-head-20261016/source/megatron/core/tensor_parallel/random.py:92: DeprecationWarning: Using deprecated internal API from Transformer Engine. transformer_engine.pytorch.fp8 will be removed in a future release.
+[default3]:    from transformer_engine.pytorch.fp8 import FP8GlobalStateManager, fp8_autocast
+[default3]:
+[default3]:megatron/core/inference/contexts/__init__.py:9
+[default3]:  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-four-current-head-20261016/source/megatron/core/inference/contexts/__init__.py:9: DeprecationWarning: The following imports from `dynamic_context.py` will be removed in this file in `megatron-core` 0.14. The imports here result in a cyclic import issue that causes rotary embeddings to import from Apex rather than Transformer Engine.
+[default3]:    warnings.warn(
+[default3]:
+[default3]:-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+[default3]:==================================== PASSES ====================================
+[default3]:============================= slowest 15 durations =============================
+[default3]:0.92s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_with_growing_microbatches[0.0]
+[default3]:0.15s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_post_warmup_callback_warns_on_duplicated_storage_offload
+[default3]:0.14s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_with_growing_microbatches[1.0]
+[default3]:0.11s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_tensor_pop_waits_for_delayed_offload
+[default3]:0.06s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_waits_for_pooled_h2d
+[default3]:0.04s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_offloads_base_storage_for_covering_views
+[default3]:0.01s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_gathers_low_coverage_views
+[default3]:
+[default3]:(8 durations < 0.005s hidden.  Use -vv to show these durations.)
+[default3]:=========================== short test summary info ============================
+[default3]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_summary_uses_explicit_process_group
+[default3]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_skips_non_offloadable_tensor_types
+[default3]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_respects_tensor_opt_out_flags
+[default3]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_offloads_base_storage_for_covering_views
+[default3]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_gathers_low_coverage_views
+[default3]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_tensor_pop_waits_for_delayed_offload
+[default3]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_with_growing_microbatches[0.0]
+[default3]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_with_growing_microbatches[1.0]
+[default3]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_waits_for_pooled_h2d
+[default3]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_post_warmup_callback_warns_on_duplicated_storage_offload
+[default3]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_flags_disjoint_views_taking_the_whole_storage_path
+[default3]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_counts_full_storage_and_logical_view_duplicates[False]
+[default3]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_counts_full_storage_and_logical_view_duplicates[True]
+[default3]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_does_not_flag_views_copying_their_own_bytes
+[default3]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_does_not_analyze_logical_view_overlap
+[default3]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_duplicate_storage_accounting_is_scoped_to_one_group
+[default3]:16 passed, 24 deselected, 17 warnings in 9.21s
+[default2]:
+[default2]:=============================== warnings summary ===============================
+[default2]:megatron/core/dist_checkpointing/strategies/torch.py:70
+[default2]:  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-four-current-head-20261016/source/megatron/core/dist_checkpointing/strategies/torch.py:70: DeprecationWarning: transformer_engine.pytorch.float8_tensor is deprecated and will be removed in a future release. Float8Tensor should be imported directly through `from transformer_engine.pytorch import Float8Tensor`
+[default2]:    from transformer_engine.pytorch.float8_tensor import Float8Tensor
+[default2]:
+[default2]:../../../../../../../home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+[default2]:  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+[default2]:    warnings.warn(
+[default2]:
+[default2]:megatron/core/tensor_parallel/random.py:92
+[default2]:  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-four-current-head-20261016/source/megatron/core/tensor_parallel/random.py:92: DeprecationWarning: Using deprecated internal API from Transformer Engine. transformer_engine.pytorch.fp8 will be removed in a future release.
+[default2]:    from transformer_engine.pytorch.fp8 import FP8GlobalStateManager, fp8_autocast
+[default2]:
+[default2]:megatron/core/inference/contexts/__init__.py:9
+[default2]:  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-four-current-head-20261016/source/megatron/core/inference/contexts/__init__.py:9: DeprecationWarning: The following imports from `dynamic_context.py` will be removed in this file in `megatron-core` 0.14. The imports here result in a cyclic import issue that causes rotary embeddings to import from Apex rather than Transformer Engine.
+[default2]:    warnings.warn(
+[default2]:
+[default2]:-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+[default2]:==================================== PASSES ====================================
+[default2]:============================= slowest 15 durations =============================
+[default2]:0.69s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_with_growing_microbatches[0.0]
+[default2]:0.15s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_with_growing_microbatches[1.0]
+[default2]:0.15s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_post_warmup_callback_warns_on_duplicated_storage_offload
+[default2]:0.11s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_tensor_pop_waits_for_delayed_offload
+[default2]:0.06s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_waits_for_pooled_h2d
+[default2]:0.03s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_offloads_base_storage_for_covering_views
+[default2]:0.01s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_gathers_low_coverage_views
+[default2]:0.01s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_skips_non_offloadable_tensor_types
+[default2]:
+[default2]:(7 durations < 0.005s hidden.  Use -vv to show these durations.)
+[default2]:=========================== short test summary info ============================
+[default2]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_summary_uses_explicit_process_group
+[default2]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_skips_non_offloadable_tensor_types
+[default2]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_respects_tensor_opt_out_flags
+[default2]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_offloads_base_storage_for_covering_views
+[default2]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_gathers_low_coverage_views
+[default2]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_tensor_pop_waits_for_delayed_offload
+[default2]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_with_growing_microbatches[0.0]
+[default2]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_with_growing_microbatches[1.0]
+[default2]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_waits_for_pooled_h2d
+[default2]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_post_warmup_callback_warns_on_duplicated_storage_offload
+[default2]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_flags_disjoint_views_taking_the_whole_storage_path
+[default2]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_counts_full_storage_and_logical_view_duplicates[False]
+[default2]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_counts_full_storage_and_logical_view_duplicates[True]
+[default2]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_does_not_flag_views_copying_their_own_bytes
+[default2]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_does_not_analyze_logical_view_overlap
+[default2]:PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_duplicate_storage_accounting_is_scoped_to_one_group
+[default2]:16 passed, 24 deselected, 17 warnings in 9.35s

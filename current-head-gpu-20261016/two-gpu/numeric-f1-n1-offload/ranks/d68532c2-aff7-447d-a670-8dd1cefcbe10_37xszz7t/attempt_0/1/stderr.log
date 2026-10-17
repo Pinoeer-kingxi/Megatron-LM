@@ -1,0 +1,19 @@
+INFO:megatron.bridge.models.gemma.gemma2_provider:Gemma2: PyTorch FlexAttention available — softcap+SWA fused via Triton score_mod.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/megatron/core/transformer/transformer_config.py:3427: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+  warnings.warn(
+/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/_dynamo/variables/functions.py:2202: UserWarning: Dynamo detected a call to a `functools.lru_cache`-wrapped function at '_common.py:101'. Dynamo ignores the cache wrapper and directly traces the wrapped function. Silent incorrectness is only a *potential* risk, not something we have observed. Enable TORCH_LOGS=+dynamo for a DEBUG stack trace.
+
+This call originates from:
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/transformer_engine/pytorch/ops/_common.py", line 101, in maybe_autocast_dtype
+    if torch_version() >= (2, 4, 3):
+
+  torch._dynamo.utils.warn_once(msg)
+/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/_dynamo/variables/functions.py:2082: UserWarning: Dynamo does not know how to trace the builtin `transformer_engine_torch.pybind11_detail_function_record_v1_system_libstdcpp_gxx_abi_1xxx_use_cxx11_abi_1.rmsnorm_fwd.` This function is either a Python builtin (e.g. _warnings.warn) or a third-party C/C++ Python extension (perhaps created with pybind).
+If it is a Python builtin, please file an issue on GitHub so the PyTorch team can add support for it and see the next case for a workaround.
+If it is a third-party C/C++ Python extension, please either wrap it into a PyTorch-understood custom operator (see https://pytorch.org/tutorials/advanced/custom_ops_landing_page.html for more details) or, if it is traceable, use `torch.compiler.allow_in_graph`.
+  torch._dynamo.utils.warn_once(explanation + "\n" + "\n".join(hints))
+INFO:root:Rank 1 step 0: losses=[3.5986387729644775, 3.8300323486328125, 3.5701990127563477, 3.8888869285583496] grad_norm=tensor([55.4137], device='cuda:1') selected_transfer_bytes=66015232
+INFO:root:Rank 1 step 1: losses=[8.769563674926758, 7.238433837890625, 8.61441421508789, 5.575708389282227] grad_norm=tensor([109.0591], device='cuda:1') selected_transfer_bytes=66015232
+INFO:root:Rank 1 step 2: losses=[6.081718444824219, 6.450750350952148, 6.971924304962158, 6.9060540199279785] grad_norm=tensor([109.9415], device='cuda:1') selected_transfer_bytes=66015232
+INFO:root:Wrote /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/numeric-f1-n1-offload/result.rank1.json

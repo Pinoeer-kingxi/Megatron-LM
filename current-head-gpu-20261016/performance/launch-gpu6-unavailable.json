@@ -1,0 +1,13 @@
+{
+  "source_commit": "87c22d1abae13abf375e8ed4ddfe62301cde87f4",
+  "status": "not_started",
+  "exit_code": 1,
+  "reason": "GPU 6 was occupied by another user; require_idle rejected the launch before creating a container or any test process.",
+  "gpu_uuid": "GPU-40c36f3c-9282-74a6-63d2-077d1e4a1cb7",
+  "occupant_pid": 1062738,
+  "script_sha256": "1a65884cc7bc201c8cce1c8bc2c739db41a36ea44516b03450cae178f26a6afa",
+  "changes_for_next_attempt": [
+    "GPU selector 6 -> 1",
+    "Use fresh caches on the new measurement GPU; the copied seed was never used."
+  ]
+}

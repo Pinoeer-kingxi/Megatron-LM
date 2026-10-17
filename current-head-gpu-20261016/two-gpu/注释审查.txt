@@ -1,0 +1,21 @@
+审查对象：#7908、#8243、#8244 新增或修改的 Python 注释，不清理无关上游代码。
+
+本轮只收短两处：
+1. test_gdn_offload_training.py 中重复列举八层和 GDN/GQA 比例的注释，改为说明该 fixture 包含完整 decoder blocks；具体比例仍由紧邻的 pattern 唯一表达。
+2. gdn_activation_offload.py 中“上面每步都已检查池使用数为零”的注释。它重复前面的运行时检查，不增加信息，删除。
+
+保留的说明均解释不明显的契约或实验条件：
+- GDN 的 group-start 输入必须可微，及冻结 projection 后仍可能需要 gate anchor。
+- commit 位于 norm/checkpoint 前，以及不能强制释放与 scope 外保存共享的 storage。
+- forward-only 不能消耗训练 warmup，所有 rank 需一致决定是否进入 reporting collective。
+- fraction=0 覆盖 warmup 中为空、后续变大的 group；chunk 前进不能按待传输数量推断。
+- fallback H2D 必须等 D2H；池 buffer 复用必须等已经入队的 H2D。
+- gate replay 的 Torch 数值参考与 byte replay 是不同检查，固定 tiles 只限定已测条件下的分组稳定性。
+- 测试中的延迟传输、GPU snapshot 保留、master-weight reload、reset 前观测和 repeated microbatch 检查。
+- Qwen 的 P2P ordering、attention backend 一致性、全局 MRoPE positions 和 Bridge 的 offload preprocessing。
+- benchmark 的 forward phase 同步会改变 overlap，以及不同输入可暴露 stale activations。
+
+未发现需要继续删除的生产注释、验收口号或实验过程叙述。未修改 #8243、#8244 的代码或注释。
+当前 #7908 提交：fbe4bb03d1c6a60ac4da965ca47bccd47d7ef452。
+两份注释修改文件的 AST 与父提交完全一致；Core 文件未变化。Black/isort/Ruff/Pylint 对两份文件检查通过。
+GPU 测试使用该提交的独立归档；测试结论见本目录的实际 rank 日志和 JSON 结果，不在此预先填写。

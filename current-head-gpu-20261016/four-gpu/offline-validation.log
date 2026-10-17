@@ -1,0 +1,11 @@
+{
+  "source_commit": "87c22d1abae13abf375e8ed4ddfe62301cde87f4",
+  "qwen_topology": "TP2+SP+PP2, CP1, four A6000s",
+  "qwen_recorded_rank_steps": 144,
+  "qwen_compared_rank_steps": 96,
+  "limits": [
+    "Qwen state checks use sequence 128 and three optimizer steps per arm.",
+    "Native fused atomic reductions have no global bitwise guarantee.",
+    "GPU CI, long-run convergence, checkpoint restart and pretrained Qwen CP are not qualified."
+  ]
+}

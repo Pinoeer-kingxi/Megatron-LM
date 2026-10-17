@@ -1,0 +1,38 @@
+{
+  "rank1": [
+    [
+      0,
+      "grads",
+      1,
+      [
+        "0.module.module.decoder.layers.22.self_attention.A_log"
+      ]
+    ],
+    [
+      0,
+      "optimizer",
+      1,
+      [
+        "optimizer"
+      ]
+    ],
+    [
+      1,
+      "optimizer",
+      2,
+      [
+        "optimizer",
+        "fp32_from_fp16_params"
+      ]
+    ],
+    [
+      2,
+      "optimizer",
+      2,
+      [
+        "optimizer",
+        "fp32_from_fp16_params"
+      ]
+    ]
+  ]
+}

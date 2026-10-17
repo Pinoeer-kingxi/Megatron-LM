@@ -1,0 +1,61 @@
+{
+  "rank": 1,
+  "collected": 96,
+  "exit_code": 1,
+  "outcomes": [
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-unfused-False-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-unfused-False-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-unfused-False-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-unfused-True-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-unfused-True-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-unfused-True-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-fused-False-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-fused-False-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-fused-False-1.0]",
+      "when": "call",
+      "outcome": "failed",
+      "detail": "tp = 1, sp = False, cp = 1, pp = 1, vp = None, fraction = 1.0\nrecompute_norm = False, fused_pre_gdr = True\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f76305690d0>\n\n    @pytest.mark.skipif(not HAVE_FLA, reason=\"FLA is not installed.\")\n    @pytest.mark.parametrize(\"fraction\", [0.0, 0.5, 1.0])\n    @pytest.mark.parametrize(\"recompute_norm\", [False, True])\n    @pytest.mark.parametrize(\"fused_pre_gdr\", [False, True], ids=[\"unfused\", \"fused\"])\n    @pytest.mark.parametrize(\n        \"tp,sp,cp,pp,vp\",\n        [\n            (1, False, 1, 1, None),\n            (2, False, 1, 1, None),\n            (2, True, 1, 1, None),\n            (1, False, 2, 1, None),\n            (1, False, 1, 2, None),\n            (1, False, 1, 2, 2),\n            (2, True, 2, 1, None),\n            (2, True, 1, 2, None),\n        ],\n        ids=[\"dp\", \"tp\", \"tp_sp\", \"cp\", \"pp\", \"pp_vpp\", \"tp_sp_cp\", \"tp_sp_pp\"],\n    )\n    def test_gdn_offload_training(\n        tp: int,\n        sp: bool,\n        cp: int,\n        pp: int,\n        vp: int | None,\n        fraction: float,\n        recompute_norm: bool,\n        fused_pre_gdr: bool,\n        monkeypatch: pytest.MonkeyPatch,\n    ) -> None:\n        \"\"\"Match losses, accumulated gradients, updated weights and Adam states on every rank.\"\"\"\n        if Utils.world_size % (tp * cp * pp):\n            pytest.skip(\"This topology requires a world size divisible by TP * CP * PP.\")\n        if fused_pre_gdr:\n            pytest.importorskip(\"causal_conv1d\", minversion=\"1.6.1\")\n            monkeypatch.setenv(\"CAUSAL_CONV1D_DETERMINISTIC\", \"1\")\n        # Avoid attention-backward nondeterminism obscuring the offload comparison.\n        # GDN still uses FLA: config.deterministic_mode would select its reference path.\n        monkeypatch.setenv(\"NVTE_ALLOW_NONDETERMINISTIC_ALGO\", \"0\")\n        Utils.initialize_model_parallel(tp, pp, vp, context_parallel_size=cp)\n        off_interface.reset_instance()\n        try:\n            groups = ProcessGroupCollection.use_mpu_process_groups()\n            config = _training_config(\n                tp, sp, cp, pp, vp, fraction, recompute_norm, fused_pre_gdr=fused_pre_gdr\n            )\n            baseline_config = replace(\n                config, fine_grained_activation_offloading=False, offload_modules=[]\n            )\n            baseline, baseline_optimizer = _build_training_model(baseline_config, groups)\n            offloaded, offload_optimizer = _build_training_model(config, groups)\n            for expected, actual in zip(baseline, offloaded, strict=True):\n                actual.load_state_dict(expected.state_dict())\n            # The optimizer has already created FP32 master weights; reload them\n            # after aligning model weights, before any gradient accumulation.\n            offload_optimizer.reload_model_params()\n            schedule = get_forward_backward_func(pp_size=pp, vp_size=vp)\n            generator = torch.Generator().manual_seed(19 + groups.dp.rank())\n            manager = PipelineOffloadManager.get_instance()\n            pool_before_reset: list[int] = []\n            reset_pool = OffloadTensorPool.reset\n    \n            # The schedule resets counters; observe ownership before they are cleared.\n            def record_pool_reset(pool: OffloadTensorPool) -> None:\n                pool_before_reset.append(pool.get_pool_status()[\"global_stats\"][\"current_in_use\"])\n                reset_pool(pool)\n    \n            monkeypatch.setattr(OffloadTensorPool, \"reset\", record_pool_reset)\n            for _ in range(3):\n                batches = []\n                for _ in range(2):\n                    tokens = torch.randint(0, 512, (1, 129), generator=generator, device=\"cpu\").cuda()\n                    batch = {\n                        \"tokens\": tokens[:, :-1].contiguous(),\n                        \"labels\": tokens[:, 1:].contiguous(),\n                        \"position_ids\": torch.arange(128, device=\"cuda\").unsqueeze(0),\n                    }\n                    batches.append(get_batch_on_this_cp_rank(batch, False, cp_group=groups.cp))\n                # Fixed weights and zero dropout must reproduce each repeated example.\n                # This also catches VPP payload mixups in the disabled baseline.\n                batches = batches * 2\n                snapshots = []\n                for models, optimizer in (\n                    (baseline, baseline_optimizer),\n                    (offloaded, offload_optimizer),\n                ):\n                    pool_before_reset.clear()\n                    optimizer.zero_grad()\n                    for model in models:\n                        model.zero_grad_buffer()\n                    losses = schedule(\n                        forward_step_func=_forward_step,\n                        data_iterator=[iter(batches) for _ in models],\n                        model=models,\n                        num_microbatches=4,\n                        seq_length=128,\n                        micro_batch_size=1,\n                        forward_only=False,\n                        p2p_communicator=P2PCommunicator(groups.pp, models[0].config),\n                        pg_collection=groups,\n                    )\n                    # Reject a bad baseline on every rank before the next collective.\n                    step_valid = torch.tensor(\n                        len(losses) == (4 if is_pp_last_stage(groups.pp) else 0)\n                        and not any(diff(losses[:2], losses[2:]))\n                        and pool_before_reset == ([0] if models is offloaded else []),\n                        dtype=torch.int32,\n                        device=\"cuda\",\n                    )\n                    torch.distributed.all_reduce(step_valid, op=torch.distributed.ReduceOp.MIN)\n                    assert (\n                        step_valid.item()\n                    ), \"Microbatch losses or pre-reset pinned buffers are invalid.\"\n                    grads = {\n                        f\"{stage}.{name}\": parameter.main_grad.detach().clone()\n                        for stage, model in enumerate(models)\n                        for name, parameter in model.named_parameters()\n                    }\n                    success, grad_norm, _ = optimizer.step()\n                    assert success and grad_norm > 0\n                    snapshots.append(\n                        {\n                            \"losses\": losses,\n                            \"grads\": grads,\n                            \"grad_norm\": grad_norm,\n                            \"weights\": {\n                                f\"{stage}.{name}\": parameter.detach().clone()\n                                for stage, model in enumerate(models)\n                                for name, parameter in model.named_parameters()\n                            },\n                            \"optimizer\": dict_list_map_outplace(_snapshot_leaf, optimizer.state_dict()),\n                        }\n                    )\n                torch.cuda.synchronize()\n>               assert not any(diff(snapshots[0], snapshots[1]))\nE               AssertionError: assert not True\nE                +  where True = any(([], [], [(('grads', '0.module.module.decoder.layers.2.self_attention.A_log'), <class 'torch.Tensor'>, <class 'torch.T... 'exp_avg_sq'), <class 'torch.Tensor'>, <class 'torch.Tensor'>, tensor(1, device='cuda:1'), torch.Size([16]), [[14]])]))\nE                +    where ([], [], [(('grads', '0.module.module.decoder.layers.2.self_attention.A_log'), <class 'torch.Tensor'>, <class 'torch.T... 'exp_avg_sq'), <class 'torch.Tensor'>, <class 'torch.Tensor'>, tensor(1, device='cuda:1'), torch.Size([16]), [[14]])]) = diff({'losses': [{'loss': tensor(6.2555, device='cuda:1')}, {'loss': tensor(6.2463, device='cuda:1')}, {'loss': tensor(6.25...62e-04,  1.1063e-03,  1.9379e-03, -2.8687e-03,\\n        -2.9602e-03], device='cuda:1', dtype=torch.bfloat16), ...}, ...}, {'losses': [{'loss': tensor(6.2555, device='cuda:1')}, {'loss': tensor(6.2463, device='cuda:1')}, {'loss': tensor(6.25...62e-04,  1.1063e-03,  1.9379e-03, -2.8687e-03,\\n        -2.9602e-03], device='cuda:1', dtype=torch.bfloat16), ...}, ...})\n\ntests/unit_tests/ssm/test_gdn_offload_training.py:319: AssertionError"
+    }
+  ]
+}

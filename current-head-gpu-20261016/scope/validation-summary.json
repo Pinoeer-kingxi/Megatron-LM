@@ -1,0 +1,13 @@
+{
+  "source_commit": "87c22d1abae13abf375e8ed4ddfe62301cde87f4",
+  "scope": {
+    "ranks": [
+      {
+        "rank": 0,
+        "passed": 73,
+        "skipped": []
+      }
+    ],
+    "skipped": 0
+  }
+}

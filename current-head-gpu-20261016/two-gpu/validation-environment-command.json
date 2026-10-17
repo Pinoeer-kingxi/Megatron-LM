@@ -1,0 +1,25 @@
+{
+  "command": [
+    "docker",
+    "exec",
+    "--workdir",
+    "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source",
+    "--env",
+    "PYTHONPATH=/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source:/home/songbinbin/gdn-offload-artifacts/flash-attn-python:/home/songbinbin/gdn-offload-artifacts/causal-conv1d-python:/home/songbinbin/gdn-offload-artifacts/bridge-python:/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/bridge/src",
+    "--env",
+    "PYTHONDONTWRITEBYTECODE=1",
+    "--env",
+    "TMPDIR=/tmp",
+    "--env",
+    "CUDA_VISIBLE_DEVICES=GPU-df9e07cc-8ebc-3204-fabd-601044f800f8,GPU-40c36f3c-9282-74a6-63d2-077d1e4a1cb7",
+    "--env",
+    "TRITON_CACHE_DIR=/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/cache/validation/triton",
+    "--env",
+    "TORCHINDUCTOR_CACHE_DIR=/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/cache/validation/inductor",
+    "megatron-gdn-current-validation-20261016",
+    "/home/songbinbin/.venvs/megatron-gdn-offload/bin/python",
+    "-c",
+    "import importlib.metadata as m,json,torch,megatron.core,os\nprint(json.dumps({'torch':torch.__version__,'cuda':torch.version.cuda,'megatron_core':megatron.core.__file__,'visible_devices':torch.cuda.device_count(),'packages':{n:m.version(n) for n in ('transformer-engine','flash-linear-attention','causal-conv1d','flash-attn','triton')},'environment':{k:os.environ.get(k) for k in ('CUDA_VISIBLE_DEVICES','CUDA_DEVICE_MAX_CONNECTIONS','NVTE_CPU_OFFLOAD_V1','OMP_NUM_THREADS')}},indent=2))\n"
+  ],
+  "exit_code": 0
+}

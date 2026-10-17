@@ -1,0 +1,61 @@
+
+================================
+Activation Offload Summary (MB) 
+================================
+Rank         decoder       Total
+--------------------------------
+Rank 0          0.00        0.00
+--------------------------------
+Total           0.00        0.00
+================================
+
+......Initializing torch.distributed with rank: 2, world_size: 4
+..........
+=============================== warnings summary ===============================
+megatron/core/dist_checkpointing/strategies/torch.py:70
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-four-current-head-20261016/source/megatron/core/dist_checkpointing/strategies/torch.py:70: DeprecationWarning: transformer_engine.pytorch.float8_tensor is deprecated and will be removed in a future release. Float8Tensor should be imported directly through `from transformer_engine.pytorch import Float8Tensor`
+    from transformer_engine.pytorch.float8_tensor import Float8Tensor
+
+../../../../../../../home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+megatron/core/tensor_parallel/random.py:92
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-four-current-head-20261016/source/megatron/core/tensor_parallel/random.py:92: DeprecationWarning: Using deprecated internal API from Transformer Engine. transformer_engine.pytorch.fp8 will be removed in a future release.
+    from transformer_engine.pytorch.fp8 import FP8GlobalStateManager, fp8_autocast
+
+megatron/core/inference/contexts/__init__.py:9
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-four-current-head-20261016/source/megatron/core/inference/contexts/__init__.py:9: DeprecationWarning: The following imports from `dynamic_context.py` will be removed in this file in `megatron-core` 0.14. The imports here result in a cyclic import issue that causes rotary embeddings to import from Apex rather than Transformer Engine.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+============================= slowest 15 durations =============================
+0.69s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_with_growing_microbatches[0.0]
+0.15s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_with_growing_microbatches[1.0]
+0.15s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_post_warmup_callback_warns_on_duplicated_storage_offload
+0.11s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_tensor_pop_waits_for_delayed_offload
+0.06s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_waits_for_pooled_h2d
+0.03s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_offloads_base_storage_for_covering_views
+0.01s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_gathers_low_coverage_views
+0.01s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_skips_non_offloadable_tensor_types
+
+(7 durations < 0.005s hidden.  Use -vv to show these durations.)
+=========================== short test summary info ============================
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_summary_uses_explicit_process_group
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_skips_non_offloadable_tensor_types
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_respects_tensor_opt_out_flags
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_offloads_base_storage_for_covering_views
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_gathers_low_coverage_views
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_tensor_pop_waits_for_delayed_offload
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_with_growing_microbatches[0.0]
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_with_growing_microbatches[1.0]
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_waits_for_pooled_h2d
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_post_warmup_callback_warns_on_duplicated_storage_offload
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_flags_disjoint_views_taking_the_whole_storage_path
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_counts_full_storage_and_logical_view_duplicates[False]
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_counts_full_storage_and_logical_view_duplicates[True]
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_does_not_flag_views_copying_their_own_bytes
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_does_not_analyze_logical_view_overlap
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_duplicate_storage_accounting_is_scoped_to_one_group
+16 passed, 24 deselected, 17 warnings in 9.35s

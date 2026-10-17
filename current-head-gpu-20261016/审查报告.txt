@@ -1,0 +1,35 @@
+中文审查与 GPU 验证报告
+
+当前 #7908 执行提交：87c22d1abae13abf375e8ed4ddfe62301cde87f4。
+#8243：af9569270f476dc201484296315a9c30dcaa3feb；#8244：9d54b8729c9277f1e032110c5e1b149e9654bcc5。
+上游基线：9131593673d037d360d252904f9198d36bc0c246。
+
+一、修改范围与审查结论
+本轮只改两个已有文件：精简两处重复注释；修正原生训练测试对融合路径逐位一致性的错误要求。未新增生产代码修改，未修改 #8243/#8244 源码。
+#7908 的 pre-GDR kernel 与上游基线逐字节一致，没有重新引入固定 128×16 或修改 autotuning/原子归约。依赖仍为 #8243 → #7908；#8244 独立，不必继续拆分。
+
+二、发现并修正的问题
+fbe4bb03 的首次四卡运行在 dp-fused-False-1.0 失败：A_log 梯度和对应 Adam/master 状态未逐位相同，loss 与 BF16 权重一致。原生融合使用 FP32 原子归约，并无全局逐位确定性契约。
+只在融合分支使用 torch.testing.assert_close(rtol=1e-5, atol=1e-8) 检查完整实际快照，unfused 保持精确比较。目标用例四卡单独复测通过，随后完整矩阵通过。未为通过测试改 kernel，也没有只比较 loss。
+原始失败时的实际张量未保存，不能量化那一次误差；原始失败和后续实张量复测分别保留，不把原始失败改成通过。当前四卡融合比较实际观察到零差异，但不能据此承诺全局逐位确定性。
+
+三、当前提交的实际 GPU 验证
+1. 1、2、3、6 四卡：共享管理器 16 项/每 rank；目标融合回归 1 项/每 rank；原生完整 decoder 矩阵 96 项/每 rank，均零跳过。涵盖 DP、TP、TP+SP、CP、PP、PP+VPP、TP+SP+CP、TP+SP+PP，以及 fusion/norm/fraction 组合。
+2. 真实本地 Qwen3.5-0.8B 全 24 层文本模型，TP2+SP+PP2、CP1，四组 fusion/norm 配置分别跑关闭、重复关闭、开启 offload，共 12 次独立运行；每次 3 个 optimizer step、4 个 microbatch、序列 128。144 份 rank/step 状态及 96 份对照完成校验，当前实际均一致。
+3. 比较 loss、累计梯度、更新后权重、完整 Adam/master 状态；正 fraction 选择实际传输；native reset 前检查 pinned-buffer 所有权归零。融合路径保存实际向量，以既定容差检查不同项，其余矩阵必须完整字节指纹一致。
+4. 单卡 scope/配置回归 73 项，零跳过；覆盖冻结输入、trainable gate anchor、storage alias、packed sequence、norm recomputation 和冻结 recurrence bypass。
+5. 独立 #8244 在自身 9d54b872 源码上完成 16 项 replay/数值测试，零跳过；不是用该 kernel 替代 #7908 的原生融合路径。
+6. 改动文件的 Black/isort/Ruff/Pylint 通过。CPU 离线校验只复核证据，不声称执行 GPU 测试；当前通过运行的源码归档/软链接布局校验均通过。
+
+四、完整 Qwen 性能实测
+当前提交、单张 A6000 1 卡、序列 4096、4 microbatch、fraction=1、默认 1048576 elements 阈值、norm recomputation 关闭。每条路径 3 组独立进程配对，预热 3 步、计时 10 步；共 120 个 timed sample。计时关闭状态快照，覆盖完整 optimizer step，输入准备在计时外。
+unfused：allocated 峰值减少 952.00 MiB（3.01%）；reserved 峰值 34356 → 33322 MiB；step 耗时变化中位数 +1.19%（范围 +0.87%～+1.54%）。
+原生融合：allocated 峰值减少 952.00 MiB（3.04%）；reserved 峰值 34826 → 33880 MiB；step 耗时变化中位数 +1.89%（范围 +1.35%～+2.57%）。
+全部计时作业的 GPU 占用检查未发现外部进程混用，逐步 loss 日志在每条路径的六次运行间一致。计时运行不保存完整梯度/Adam 状态，不用这些 loss 日志替代正确性验证。
+旧 e9975a744/4e18562c6/2f1ee4f2e 数据保留原始版本及 GPU 说明，不能把不同设备、不同时间的结果差异归因于某个代码改动，也不把微基准当完整训练收益。
+
+五、证据与交付边界
+原始命令、各 rank stdout/stderr、状态指纹、输入文件哈希、数值报告和校验输出均包含在本包。权重、私有数据、compiler cache、源码 tar 与大张量快照不公开。
+最初 fbe4bb03 四卡失败副本的 6 个软链接被 copytree 展开为普通文件/目录；全部 3532 个普通源码文件及展开内容与目标一致。严格布局检查失败的原始输出及材料化报告单独保留。当前通过的 87c22d1 使用 tar 提取，严格校验通过。
+当前已完成本地验收，未发现覆盖路径上的新增生产代码问题。原生融合的全局逐位确定性仍不提供；Qwen CP、checkpoint restart、长程收敛、与 #7852 的组合未验证，不属于本轮通过声明。
+#8243 合并后仍需 rebase #7908 并复核受影响路径，上游 GPU CI 仍待维护者批准。本轮不发送评论、不请求 reviewer、不 @ 他人。

@@ -1,0 +1,519 @@
+{
+  "source_commit": "fbe4bb03d1c6a60ac4da965ca47bccd47d7ef452",
+  "gate_source": "9d54b8729c9277f1e032110c5e1b149e9654bcc5",
+  "shared_component_source": "af9569270f476dc201484296315a9c30dcaa3feb",
+  "shared": {
+    "ranks": [
+      {
+        "rank": 0,
+        "passed": 16,
+        "skipped": []
+      },
+      {
+        "rank": 1,
+        "passed": 16,
+        "skipped": []
+      }
+    ],
+    "skipped": 0
+  },
+  "native": {
+    "ranks": [
+      {
+        "rank": 0,
+        "passed": 72,
+        "skipped": [
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-unfused-False-0.0]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-unfused-False-0.5]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-unfused-False-1.0]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-unfused-True-0.0]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-unfused-True-0.5]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-unfused-True-1.0]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-fused-False-0.0]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-fused-False-0.5]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-fused-False-1.0]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-fused-True-0.0]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-fused-True-0.5]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-fused-True-1.0]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-unfused-False-0.0]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-unfused-False-0.5]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-unfused-False-1.0]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-unfused-True-0.0]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-unfused-True-0.5]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-unfused-True-1.0]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-fused-False-0.0]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-fused-False-0.5]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-fused-False-1.0]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-fused-True-0.0]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-fused-True-0.5]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-fused-True-1.0]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          }
+        ]
+      },
+      {
+        "rank": 1,
+        "passed": 72,
+        "skipped": [
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-unfused-False-0.0]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-unfused-False-0.5]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-unfused-False-1.0]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-unfused-True-0.0]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-unfused-True-0.5]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-unfused-True-1.0]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-fused-False-0.0]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-fused-False-0.5]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-fused-False-1.0]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-fused-True-0.0]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-fused-True-0.5]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-fused-True-1.0]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-unfused-False-0.0]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-unfused-False-0.5]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-unfused-False-1.0]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-unfused-True-0.0]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-unfused-True-0.5]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-unfused-True-1.0]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-fused-False-0.0]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-fused-False-0.5]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-fused-False-1.0]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-fused-True-0.0]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-fused-True-0.5]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          },
+          {
+            "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-fused-True-1.0]",
+            "when": "call",
+            "outcome": "skipped",
+            "detail": "('/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source/tests/unit_tests/ssm/test_gdn_offload_training.py', 217, 'Skipped: This topology requires a world size divisible by TP * CP * PP.')"
+          }
+        ]
+      }
+    ],
+    "skipped": 48
+  },
+  "independent_gate_replay": {
+    "ranks": [
+      {
+        "rank": 0,
+        "passed": 16,
+        "skipped": []
+      }
+    ],
+    "skipped": 0
+  },
+  "qwen_comparisons": [
+    {
+      "fused": false,
+      "norm": false,
+      "arm": "repeat",
+      "rank": 0,
+      "compared_steps": 3,
+      "exact_recorded_state": true
+    },
+    {
+      "fused": false,
+      "norm": false,
+      "arm": "repeat",
+      "rank": 1,
+      "compared_steps": 3,
+      "exact_recorded_state": true
+    },
+    {
+      "fused": false,
+      "norm": false,
+      "arm": "offload",
+      "rank": 0,
+      "compared_steps": 3,
+      "exact_recorded_state": true
+    },
+    {
+      "fused": false,
+      "norm": false,
+      "arm": "offload",
+      "rank": 1,
+      "compared_steps": 3,
+      "exact_recorded_state": true
+    },
+    {
+      "fused": false,
+      "norm": true,
+      "arm": "repeat",
+      "rank": 0,
+      "compared_steps": 3,
+      "exact_recorded_state": true
+    },
+    {
+      "fused": false,
+      "norm": true,
+      "arm": "repeat",
+      "rank": 1,
+      "compared_steps": 3,
+      "exact_recorded_state": true
+    },
+    {
+      "fused": false,
+      "norm": true,
+      "arm": "offload",
+      "rank": 0,
+      "compared_steps": 3,
+      "exact_recorded_state": true
+    },
+    {
+      "fused": false,
+      "norm": true,
+      "arm": "offload",
+      "rank": 1,
+      "compared_steps": 3,
+      "exact_recorded_state": true
+    }
+  ],
+  "qwen_recorded_rank_steps": 72,
+  "qwen_compared_rank_steps": 48,
+  "unfused_exact_compared_rank_steps": 24,
+  "fused_numeric_compared_rank_steps": 24,
+  "fused_numeric_comparisons": [
+    {
+      "norm": false,
+      "rank": 0,
+      "arm": "repeat",
+      "compared_steps": 3,
+      "close": true,
+      "exact": true,
+      "tensor_leaves": 3450,
+      "differing_leaves": 0,
+      "max_absolute_difference": 0,
+      "max_tolerance_ratio": 0,
+      "report": "numeric-f1-n0-repeat-rank0-differences.json"
+    },
+    {
+      "norm": false,
+      "rank": 0,
+      "arm": "offload",
+      "compared_steps": 3,
+      "close": true,
+      "exact": true,
+      "tensor_leaves": 3450,
+      "differing_leaves": 0,
+      "max_absolute_difference": 0,
+      "max_tolerance_ratio": 0,
+      "report": "numeric-f1-n0-offload-rank0-differences.json"
+    },
+    {
+      "norm": false,
+      "rank": 1,
+      "arm": "repeat",
+      "compared_steps": 3,
+      "close": true,
+      "exact": true,
+      "tensor_leaves": 3450,
+      "differing_leaves": 0,
+      "max_absolute_difference": 0,
+      "max_tolerance_ratio": 0,
+      "report": "numeric-f1-n0-repeat-rank1-differences.json"
+    },
+    {
+      "norm": false,
+      "rank": 1,
+      "arm": "offload",
+      "compared_steps": 3,
+      "close": true,
+      "exact": true,
+      "tensor_leaves": 3450,
+      "differing_leaves": 0,
+      "max_absolute_difference": 0,
+      "max_tolerance_ratio": 0,
+      "report": "numeric-f1-n0-offload-rank1-differences.json"
+    },
+    {
+      "norm": true,
+      "rank": 0,
+      "arm": "repeat",
+      "compared_steps": 3,
+      "close": true,
+      "exact": true,
+      "tensor_leaves": 3450,
+      "differing_leaves": 0,
+      "max_absolute_difference": 0,
+      "max_tolerance_ratio": 0,
+      "report": "numeric-f1-n1-repeat-rank0-differences.json"
+    },
+    {
+      "norm": true,
+      "rank": 0,
+      "arm": "offload",
+      "compared_steps": 3,
+      "close": true,
+      "exact": true,
+      "tensor_leaves": 3450,
+      "differing_leaves": 0,
+      "max_absolute_difference": 0,
+      "max_tolerance_ratio": 0,
+      "report": "numeric-f1-n1-offload-rank0-differences.json"
+    },
+    {
+      "norm": true,
+      "rank": 1,
+      "arm": "repeat",
+      "compared_steps": 3,
+      "close": true,
+      "exact": true,
+      "tensor_leaves": 3450,
+      "differing_leaves": 0,
+      "max_absolute_difference": 0,
+      "max_tolerance_ratio": 0,
+      "report": "numeric-f1-n1-repeat-rank1-differences.json"
+    },
+    {
+      "norm": true,
+      "rank": 1,
+      "arm": "offload",
+      "compared_steps": 3,
+      "close": true,
+      "exact": true,
+      "tensor_leaves": 3450,
+      "differing_leaves": 0,
+      "max_absolute_difference": 0,
+      "max_tolerance_ratio": 0,
+      "report": "numeric-f1-n1-offload-rank1-differences.json"
+    }
+  ],
+  "initial_exact_probe": "Failed on fused norm-off offload rank 1; raw failure retained in validation.json.",
+  "limits": [
+    "Only two GPUs were available.",
+    "Four-rank combined TP+SP+CP and TP+SP+PP cases are skipped.",
+    "Qwen checks use TP2+SP, PP1, sequence 128 and short training.",
+    "Unfused states match exactly. Native fused states use actual-vector checks with rtol=1e-5, atol=1e-8; tensors not captured as vectors must match full-byte fingerprints. No global bitwise guarantee is made.",
+    "Gate replay tests use independent PR #8244 source, not the restored upstream gate in #7908."
+  ]
+}

@@ -1,0 +1,166 @@
+PASS: 595 exported file checksums
+{
+  "source_commit": "fbe4bb03d1c6a60ac4da965ca47bccd47d7ef452",
+  "qwen_recorded_rank_steps": 72,
+  "qwen_compared_rank_steps": 48,
+  "limits": [
+    "Only two GPUs were available.",
+    "Four-rank combined TP+SP+CP and TP+SP+PP cases are skipped.",
+    "Qwen checks use TP2+SP, PP1, sequence 128 and short training.",
+    "Unfused states match exactly. Native fused states use actual-vector checks with rtol=1e-5, atol=1e-8; tensors not captured as vectors must match full-byte fingerprints. No global bitwise guarantee is made.",
+    "Gate replay tests use independent PR #8244 source, not the restored upstream gate in #7908."
+  ]
+}
+{
+  "source_commit": "87c22d1abae13abf375e8ed4ddfe62301cde87f4",
+  "qwen_topology": "TP2+SP+PP2, CP1, four A6000s",
+  "qwen_recorded_rank_steps": 144,
+  "qwen_compared_rank_steps": 96,
+  "limits": [
+    "Qwen state checks use sequence 128 and three optimizer steps per arm.",
+    "Native fused atomic reductions have no global bitwise guarantee.",
+    "GPU CI, long-run convergence, checkpoint restart and pretrained Qwen CP are not qualified."
+  ]
+}
+PASS: 73 scope/configuration cases, zero skips; source and job exits verified.
+{
+  "source_commit": "87c22d1abae13abf375e8ed4ddfe62301cde87f4",
+  "gpu": {
+    "uuid": "GPU-5e2e1f94-e88e-48e3-247d-328b52fc68db",
+    "minor": 1,
+    "name": "NVIDIA RTX A6000",
+    "driver": "580.178.04"
+  },
+  "runs": 12,
+  "measured_steps": 120,
+  "results": [
+    {
+      "fused_pre_gdr": false,
+      "per_repeat": [
+        {
+          "disabled": {
+            "median_seconds": 1.6880594915128313,
+            "max_peak_allocated_bytes": 33134130176,
+            "max_peak_reserved_bytes": 36022779904,
+            "selected_transfer_bytes": 0
+          },
+          "offload": {
+            "median_seconds": 1.7027663085027598,
+            "max_peak_allocated_bytes": 32135886336,
+            "max_peak_reserved_bytes": 34940649472,
+            "selected_transfer_bytes": 4169138176
+          },
+          "runtime_change_pct": 0.8712262253712577
+        },
+        {
+          "disabled": {
+            "median_seconds": 1.687978075526189,
+            "max_peak_allocated_bytes": 33134130176,
+            "max_peak_reserved_bytes": 36024877056,
+            "selected_transfer_bytes": 0
+          },
+          "offload": {
+            "median_seconds": 1.7080906860064715,
+            "max_peak_allocated_bytes": 32135886336,
+            "max_peak_reserved_bytes": 34940649472,
+            "selected_transfer_bytes": 4169138176
+          },
+          "runtime_change_pct": 1.1915208361940932
+        },
+        {
+          "disabled": {
+            "median_seconds": 1.6864125339780003,
+            "max_peak_allocated_bytes": 33134130176,
+            "max_peak_reserved_bytes": 36024877056,
+            "selected_transfer_bytes": 0
+          },
+          "offload": {
+            "median_seconds": 1.712326647946611,
+            "max_peak_allocated_bytes": 32135886336,
+            "max_peak_reserved_bytes": 34940649472,
+            "selected_transfer_bytes": 4169138176
+          },
+          "runtime_change_pct": 1.5366414472432366
+        }
+      ],
+      "memory_saved_mib": 951.99951171875,
+      "memory_saved_pct": 3.0127359151955546,
+      "disabled_peak_allocated_mib": 31599.1689453125,
+      "enabled_peak_allocated_mib": 30647.16943359375,
+      "paired_runtime_change_pct": 1.1915208361940932,
+      "paired_runtime_change_range_pct": [
+        0.8712262253712577,
+        1.5366414472432366
+      ],
+      "logged_losses_exact_across_six_runs": true,
+      "max_logged_loss_delta": 0.0
+    },
+    {
+      "fused_pre_gdr": true,
+      "per_repeat": [
+        {
+          "disabled": {
+            "median_seconds": 1.603501977515407,
+            "max_peak_allocated_bytes": 32822703104,
+            "max_peak_reserved_bytes": 36498833408,
+            "selected_transfer_bytes": 0
+          },
+          "offload": {
+            "median_seconds": 1.6250931755639613,
+            "max_peak_allocated_bytes": 31824459264,
+            "max_peak_reserved_bytes": 35525754880,
+            "selected_transfer_bytes": 4169138176
+          },
+          "runtime_change_pct": 1.3465027390866968
+        },
+        {
+          "disabled": {
+            "median_seconds": 1.589759652968496,
+            "max_peak_allocated_bytes": 32822703104,
+            "max_peak_reserved_bytes": 36517707776,
+            "selected_transfer_bytes": 0
+          },
+          "offload": {
+            "median_seconds": 1.6305432889494114,
+            "max_peak_allocated_bytes": 31824459264,
+            "max_peak_reserved_bytes": 35525754880,
+            "selected_transfer_bytes": 4169138176
+          },
+          "runtime_change_pct": 2.5653963418156733
+        },
+        {
+          "disabled": {
+            "median_seconds": 1.5947277120430954,
+            "max_peak_allocated_bytes": 32822703104,
+            "max_peak_reserved_bytes": 36517707776,
+            "selected_transfer_bytes": 0
+          },
+          "offload": {
+            "median_seconds": 1.6248562110122293,
+            "max_peak_allocated_bytes": 31824459264,
+            "max_peak_reserved_bytes": 35525754880,
+            "selected_transfer_bytes": 4169138176
+          },
+          "runtime_change_pct": 1.889256626169411
+        }
+      ],
+      "memory_saved_mib": 951.99951171875,
+      "memory_saved_pct": 3.041321236818997,
+      "disabled_peak_allocated_mib": 31302.1689453125,
+      "enabled_peak_allocated_mib": 30350.16943359375,
+      "paired_runtime_change_pct": 1.889256626169411,
+      "paired_runtime_change_range_pct": [
+        1.3465027390866968,
+        2.5653963418156733
+      ],
+      "logged_losses_exact_across_six_runs": true,
+      "max_logged_loss_delta": 0.0
+    }
+  ],
+  "statistics": "Median of three paired per-run median-time changes; memory uses median per-run maximum peaks.",
+  "correctness_limit": "Finite full-precision logged losses are compared; timed runs do not record full gradient/Adam state.",
+  "performance_limit": "Same-revision offload on/off. No cross-version or controlled fusion-to-fusion claim."
+}
+PASS: raw fused retest fingerprints match the recorded zero-difference observation
+PASS: 595 exported file checksums
+PASS: source identities, raw rank outcomes, complete states and all 120 timing samples verified; no GPU execution performed.

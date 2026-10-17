@@ -1,0 +1,12 @@
+{
+  "source_commit": "fbe4bb03d1c6a60ac4da965ca47bccd47d7ef452",
+  "qwen_recorded_rank_steps": 72,
+  "qwen_compared_rank_steps": 48,
+  "limits": [
+    "Only two GPUs were available.",
+    "Four-rank combined TP+SP+CP and TP+SP+PP cases are skipped.",
+    "Qwen checks use TP2+SP, PP1, sequence 128 and short training.",
+    "Unfused states match exactly. Native fused states use actual-vector checks with rtol=1e-5, atol=1e-8; tensors not captured as vectors must match full-byte fingerprints. No global bitwise guarantee is made.",
+    "Gate replay tests use independent PR #8244 source, not the restored upstream gate in #7908."
+  ]
+}

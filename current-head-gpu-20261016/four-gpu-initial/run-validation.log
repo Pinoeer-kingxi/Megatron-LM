@@ -1,0 +1,12 @@
+Starting shared-groups
+shared-groups: 0
+Starting native-training
+native-training: 1
+Traceback (most recent call last):
+  File "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-four-current-head-20261016/scripts/run_validation.py", line 88, in <module>
+    native = pytest('native-training', 'tests/unit_tests/ssm/test_gdn_offload_training.py',
+  File "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-four-current-head-20261016/scripts/run_validation.py", line 67, in pytest
+    run(name, command)
+  File "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-four-current-head-20261016/scripts/run_validation.py", line 45, in run
+    raise RuntimeError(name + ': inspect retained launcher/rank logs')
+RuntimeError: native-training: inspect retained launcher/rank logs

@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-performance-current-head-20261016/scripts/run_performance.py", line 109, in <module>
+    require_idle([GPU])
+  File "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-performance-current-head-20261016/scripts/run_gpu_acceptance.py", line 112, in require_idle
+    raise RuntimeError(f"Selected GPUs have existing compute processes: {busy}")
+RuntimeError: Selected GPUs have existing compute processes: [['GPU-40c36f3c-9282-74a6-63d2-077d1e4a1cb7', '1062738']]

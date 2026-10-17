@@ -1,0 +1,15 @@
+Starting f0-r0-o0
+Traceback (most recent call last):
+  File "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/scripts/run_performance.py", line 145, in <module>
+    results[name] = run_job(name, command)
+  File "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/scripts/run_performance.py", line 57, in run_job
+    telemetry = subprocess.check_output([
+  File "/usr/lib/python3.10/subprocess.py", line 421, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+  File "/usr/lib/python3.10/subprocess.py", line 505, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+  File "/usr/lib/python3.10/subprocess.py", line 1141, in communicate
+    stdout = self.stdout.read()
+  File "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/scripts/run_performance.py", line 87, in interrupted
+    raise KeyboardInterrupt(f"Received {signum}")
+KeyboardInterrupt: Received 15

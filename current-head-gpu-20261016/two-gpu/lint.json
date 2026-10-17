@@ -1,0 +1,93 @@
+{
+  "source_commit": "fbe4bb03d1c6a60ac4da965ca47bccd47d7ef452",
+  "checks": [
+    {
+      "tool": "black",
+      "command": [
+        "docker",
+        "exec",
+        "--workdir",
+        "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source",
+        "--env",
+        "CUDA_VISIBLE_DEVICES=",
+        "--env",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "--env",
+        "TMPDIR=/tmp",
+        "megatron-gdn-current-validation-20261016",
+        "/home/songbinbin/.venvs/megatron-gdn-offload/bin/black",
+        "--check",
+        "--diff",
+        "--workers",
+        "1",
+        "tests/unit_tests/ssm/test_gdn_offload_training.py",
+        "tools/ssm/gdn_activation_offload.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "tool": "isort",
+      "command": [
+        "docker",
+        "exec",
+        "--workdir",
+        "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source",
+        "--env",
+        "CUDA_VISIBLE_DEVICES=",
+        "--env",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "--env",
+        "TMPDIR=/tmp",
+        "megatron-gdn-current-validation-20261016",
+        "/home/songbinbin/.venvs/megatron-gdn-offload/bin/isort",
+        "--check-only",
+        "--diff",
+        "tests/unit_tests/ssm/test_gdn_offload_training.py",
+        "tools/ssm/gdn_activation_offload.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "tool": "ruff",
+      "command": [
+        "docker",
+        "exec",
+        "--workdir",
+        "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source",
+        "--env",
+        "CUDA_VISIBLE_DEVICES=",
+        "--env",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "--env",
+        "TMPDIR=/tmp",
+        "megatron-gdn-current-validation-20261016",
+        "/home/songbinbin/.venvs/megatron-gdn-offload/bin/ruff",
+        "check",
+        "--no-fix",
+        "tests/unit_tests/ssm/test_gdn_offload_training.py",
+        "tools/ssm/gdn_activation_offload.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "tool": "pylint",
+      "command": [
+        "docker",
+        "exec",
+        "--workdir",
+        "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-current-head-20261016/source",
+        "--env",
+        "CUDA_VISIBLE_DEVICES=",
+        "--env",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "--env",
+        "TMPDIR=/tmp",
+        "megatron-gdn-current-validation-20261016",
+        "/home/songbinbin/.venvs/megatron-gdn-offload/bin/pylint",
+        "tests/unit_tests/ssm/test_gdn_offload_training.py",
+        "tools/ssm/gdn_activation_offload.py"
+      ],
+      "exit_code": 0
+    }
+  ]
+}

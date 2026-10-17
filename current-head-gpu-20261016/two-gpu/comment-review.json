@@ -1,0 +1,15 @@
+{
+  "head": "fbe4bb03d1c6a60ac4da965ca47bccd47d7ef452",
+  "comments_changed_only": [
+    {
+      "file": "tests/unit_tests/ssm/test_gdn_offload_training.py",
+      "ast_unchanged": true
+    },
+    {
+      "file": "tools/ssm/gdn_activation_offload.py",
+      "ast_unchanged": true
+    }
+  ],
+  "core_changed": false,
+  "other_pr_comments": "Retained lifecycle, synchronization, alias and numerical-reference explanations."
+}

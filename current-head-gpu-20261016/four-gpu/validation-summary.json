@@ -1,0 +1,436 @@
+{
+  "source_commit": "87c22d1abae13abf375e8ed4ddfe62301cde87f4",
+  "shared": {
+    "ranks": [
+      {
+        "rank": 0,
+        "passed": 16,
+        "skipped": []
+      },
+      {
+        "rank": 1,
+        "passed": 16,
+        "skipped": []
+      },
+      {
+        "rank": 2,
+        "passed": 16,
+        "skipped": []
+      },
+      {
+        "rank": 3,
+        "passed": 16,
+        "skipped": []
+      }
+    ],
+    "skipped": 0
+  },
+  "regression": {
+    "ranks": [
+      {
+        "rank": 0,
+        "passed": 1,
+        "skipped": []
+      },
+      {
+        "rank": 1,
+        "passed": 1,
+        "skipped": []
+      },
+      {
+        "rank": 2,
+        "passed": 1,
+        "skipped": []
+      },
+      {
+        "rank": 3,
+        "passed": 1,
+        "skipped": []
+      }
+    ],
+    "skipped": 0
+  },
+  "regression_numeric": [
+    {
+      "rank": 0,
+      "compared_steps": 3,
+      "differing_leaves": 0,
+      "max_tolerance_ratio": 0
+    },
+    {
+      "rank": 1,
+      "compared_steps": 3,
+      "differing_leaves": 0,
+      "max_tolerance_ratio": 0
+    },
+    {
+      "rank": 2,
+      "compared_steps": 3,
+      "differing_leaves": 0,
+      "max_tolerance_ratio": 0
+    },
+    {
+      "rank": 3,
+      "compared_steps": 3,
+      "differing_leaves": 0,
+      "max_tolerance_ratio": 0
+    }
+  ],
+  "native": {
+    "ranks": [
+      {
+        "rank": 0,
+        "passed": 96,
+        "skipped": []
+      },
+      {
+        "rank": 1,
+        "passed": 96,
+        "skipped": []
+      },
+      {
+        "rank": 2,
+        "passed": 96,
+        "skipped": []
+      },
+      {
+        "rank": 3,
+        "passed": 96,
+        "skipped": []
+      }
+    ],
+    "skipped": 0
+  },
+  "qwen_topology": "TP2+SP+PP2, CP1, four A6000s",
+  "qwen_recorded_rank_steps": 144,
+  "qwen_compared_rank_steps": 96,
+  "unfused_exact_comparisons": [
+    {
+      "norm": false,
+      "rank": 0,
+      "arm": "repeat",
+      "compared_steps": 3,
+      "exact": true
+    },
+    {
+      "norm": false,
+      "rank": 1,
+      "arm": "repeat",
+      "compared_steps": 3,
+      "exact": true
+    },
+    {
+      "norm": false,
+      "rank": 2,
+      "arm": "repeat",
+      "compared_steps": 3,
+      "exact": true
+    },
+    {
+      "norm": false,
+      "rank": 3,
+      "arm": "repeat",
+      "compared_steps": 3,
+      "exact": true
+    },
+    {
+      "norm": false,
+      "rank": 0,
+      "arm": "offload",
+      "compared_steps": 3,
+      "exact": true
+    },
+    {
+      "norm": false,
+      "rank": 1,
+      "arm": "offload",
+      "compared_steps": 3,
+      "exact": true
+    },
+    {
+      "norm": false,
+      "rank": 2,
+      "arm": "offload",
+      "compared_steps": 3,
+      "exact": true
+    },
+    {
+      "norm": false,
+      "rank": 3,
+      "arm": "offload",
+      "compared_steps": 3,
+      "exact": true
+    },
+    {
+      "norm": true,
+      "rank": 0,
+      "arm": "repeat",
+      "compared_steps": 3,
+      "exact": true
+    },
+    {
+      "norm": true,
+      "rank": 1,
+      "arm": "repeat",
+      "compared_steps": 3,
+      "exact": true
+    },
+    {
+      "norm": true,
+      "rank": 2,
+      "arm": "repeat",
+      "compared_steps": 3,
+      "exact": true
+    },
+    {
+      "norm": true,
+      "rank": 3,
+      "arm": "repeat",
+      "compared_steps": 3,
+      "exact": true
+    },
+    {
+      "norm": true,
+      "rank": 0,
+      "arm": "offload",
+      "compared_steps": 3,
+      "exact": true
+    },
+    {
+      "norm": true,
+      "rank": 1,
+      "arm": "offload",
+      "compared_steps": 3,
+      "exact": true
+    },
+    {
+      "norm": true,
+      "rank": 2,
+      "arm": "offload",
+      "compared_steps": 3,
+      "exact": true
+    },
+    {
+      "norm": true,
+      "rank": 3,
+      "arm": "offload",
+      "compared_steps": 3,
+      "exact": true
+    }
+  ],
+  "fused_numeric_comparisons": [
+    {
+      "norm": false,
+      "rank": 0,
+      "arm": "repeat",
+      "compared_steps": 3,
+      "close": true,
+      "exact": true,
+      "tensor_leaves": 1725,
+      "differing_leaves": 0,
+      "max_absolute_difference": 0,
+      "max_tolerance_ratio": 0,
+      "report": "numeric-f1-n0-repeat-rank0-differences.json"
+    },
+    {
+      "norm": false,
+      "rank": 0,
+      "arm": "offload",
+      "compared_steps": 3,
+      "close": true,
+      "exact": true,
+      "tensor_leaves": 1725,
+      "differing_leaves": 0,
+      "max_absolute_difference": 0,
+      "max_tolerance_ratio": 0,
+      "report": "numeric-f1-n0-offload-rank0-differences.json"
+    },
+    {
+      "norm": false,
+      "rank": 1,
+      "arm": "repeat",
+      "compared_steps": 3,
+      "close": true,
+      "exact": true,
+      "tensor_leaves": 1725,
+      "differing_leaves": 0,
+      "max_absolute_difference": 0,
+      "max_tolerance_ratio": 0,
+      "report": "numeric-f1-n0-repeat-rank1-differences.json"
+    },
+    {
+      "norm": false,
+      "rank": 1,
+      "arm": "offload",
+      "compared_steps": 3,
+      "close": true,
+      "exact": true,
+      "tensor_leaves": 1725,
+      "differing_leaves": 0,
+      "max_absolute_difference": 0,
+      "max_tolerance_ratio": 0,
+      "report": "numeric-f1-n0-offload-rank1-differences.json"
+    },
+    {
+      "norm": false,
+      "rank": 2,
+      "arm": "repeat",
+      "compared_steps": 3,
+      "close": true,
+      "exact": true,
+      "tensor_leaves": 1740,
+      "differing_leaves": 0,
+      "max_absolute_difference": 0,
+      "max_tolerance_ratio": 0,
+      "report": "numeric-f1-n0-repeat-rank2-differences.json"
+    },
+    {
+      "norm": false,
+      "rank": 2,
+      "arm": "offload",
+      "compared_steps": 3,
+      "close": true,
+      "exact": true,
+      "tensor_leaves": 1740,
+      "differing_leaves": 0,
+      "max_absolute_difference": 0,
+      "max_tolerance_ratio": 0,
+      "report": "numeric-f1-n0-offload-rank2-differences.json"
+    },
+    {
+      "norm": false,
+      "rank": 3,
+      "arm": "repeat",
+      "compared_steps": 3,
+      "close": true,
+      "exact": true,
+      "tensor_leaves": 1740,
+      "differing_leaves": 0,
+      "max_absolute_difference": 0,
+      "max_tolerance_ratio": 0,
+      "report": "numeric-f1-n0-repeat-rank3-differences.json"
+    },
+    {
+      "norm": false,
+      "rank": 3,
+      "arm": "offload",
+      "compared_steps": 3,
+      "close": true,
+      "exact": true,
+      "tensor_leaves": 1740,
+      "differing_leaves": 0,
+      "max_absolute_difference": 0,
+      "max_tolerance_ratio": 0,
+      "report": "numeric-f1-n0-offload-rank3-differences.json"
+    },
+    {
+      "norm": true,
+      "rank": 0,
+      "arm": "repeat",
+      "compared_steps": 3,
+      "close": true,
+      "exact": true,
+      "tensor_leaves": 1725,
+      "differing_leaves": 0,
+      "max_absolute_difference": 0,
+      "max_tolerance_ratio": 0,
+      "report": "numeric-f1-n1-repeat-rank0-differences.json"
+    },
+    {
+      "norm": true,
+      "rank": 0,
+      "arm": "offload",
+      "compared_steps": 3,
+      "close": true,
+      "exact": true,
+      "tensor_leaves": 1725,
+      "differing_leaves": 0,
+      "max_absolute_difference": 0,
+      "max_tolerance_ratio": 0,
+      "report": "numeric-f1-n1-offload-rank0-differences.json"
+    },
+    {
+      "norm": true,
+      "rank": 1,
+      "arm": "repeat",
+      "compared_steps": 3,
+      "close": true,
+      "exact": true,
+      "tensor_leaves": 1725,
+      "differing_leaves": 0,
+      "max_absolute_difference": 0,
+      "max_tolerance_ratio": 0,
+      "report": "numeric-f1-n1-repeat-rank1-differences.json"
+    },
+    {
+      "norm": true,
+      "rank": 1,
+      "arm": "offload",
+      "compared_steps": 3,
+      "close": true,
+      "exact": true,
+      "tensor_leaves": 1725,
+      "differing_leaves": 0,
+      "max_absolute_difference": 0,
+      "max_tolerance_ratio": 0,
+      "report": "numeric-f1-n1-offload-rank1-differences.json"
+    },
+    {
+      "norm": true,
+      "rank": 2,
+      "arm": "repeat",
+      "compared_steps": 3,
+      "close": true,
+      "exact": true,
+      "tensor_leaves": 1740,
+      "differing_leaves": 0,
+      "max_absolute_difference": 0,
+      "max_tolerance_ratio": 0,
+      "report": "numeric-f1-n1-repeat-rank2-differences.json"
+    },
+    {
+      "norm": true,
+      "rank": 2,
+      "arm": "offload",
+      "compared_steps": 3,
+      "close": true,
+      "exact": true,
+      "tensor_leaves": 1740,
+      "differing_leaves": 0,
+      "max_absolute_difference": 0,
+      "max_tolerance_ratio": 0,
+      "report": "numeric-f1-n1-offload-rank2-differences.json"
+    },
+    {
+      "norm": true,
+      "rank": 3,
+      "arm": "repeat",
+      "compared_steps": 3,
+      "close": true,
+      "exact": true,
+      "tensor_leaves": 1740,
+      "differing_leaves": 0,
+      "max_absolute_difference": 0,
+      "max_tolerance_ratio": 0,
+      "report": "numeric-f1-n1-repeat-rank3-differences.json"
+    },
+    {
+      "norm": true,
+      "rank": 3,
+      "arm": "offload",
+      "compared_steps": 3,
+      "close": true,
+      "exact": true,
+      "tensor_leaves": 1740,
+      "differing_leaves": 0,
+      "max_absolute_difference": 0,
+      "max_tolerance_ratio": 0,
+      "report": "numeric-f1-n1-offload-rank3-differences.json"
+    }
+  ],
+  "limits": [
+    "Qwen state checks use sequence 128 and three optimizer steps per arm.",
+    "Native fused atomic reductions have no global bitwise guarantee.",
+    "GPU CI, long-run convergence, checkpoint restart and pretrained Qwen CP are not qualified."
+  ]
+}

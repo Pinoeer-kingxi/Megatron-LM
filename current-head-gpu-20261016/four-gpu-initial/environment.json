@@ -1,0 +1,19 @@
+{
+  "torch": "2.11.0+cu130",
+  "cuda": "13.0",
+  "megatron_core": "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gpu-four-current-head-20261016/source/megatron/core/__init__.py",
+  "visible_devices": 4,
+  "packages": {
+    "transformer-engine": "2.20.2",
+    "flash-linear-attention": "0.5.1",
+    "causal-conv1d": "1.6.1",
+    "flash-attn": "2.8.3",
+    "triton": "3.6.0"
+  },
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "GPU-5e2e1f94-e88e-48e3-247d-328b52fc68db,GPU-df9e07cc-8ebc-3204-fabd-601044f800f8,GPU-c8b76e6b-5a4b-7829-4c91-139b71218405,GPU-40c36f3c-9282-74a6-63d2-077d1e4a1cb7",
+    "CUDA_DEVICE_MAX_CONNECTIONS": "1",
+    "NVTE_CPU_OFFLOAD_V1": "1",
+    "OMP_NUM_THREADS": "1"
+  }
+}

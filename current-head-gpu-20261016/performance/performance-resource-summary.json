@@ -1,0 +1,50 @@
+{
+  "source_commit": "87c22d1abae13abf375e8ed4ddfe62301cde87f4",
+  "gpu": {
+    "uuid": "GPU-5e2e1f94-e88e-48e3-247d-328b52fc68db",
+    "minor": 1,
+    "name": "NVIDIA RTX A6000",
+    "driver": "580.178.04"
+  },
+  "results": [
+    {
+      "fused_pre_gdr": false,
+      "disabled_peak_reserved_mib": 34356.0,
+      "enabled_peak_reserved_mib": 33322.0,
+      "reserved_saved_mib": 1034.0,
+      "reserved_saved_pct": 3.009663523110956,
+      "memory_saved_mib": 951.99951171875,
+      "memory_saved_pct": 3.0127359151955546,
+      "disabled_peak_allocated_mib": 31599.1689453125,
+      "enabled_peak_allocated_mib": 30647.16943359375,
+      "paired_runtime_change_pct": 1.1915208361940932,
+      "paired_runtime_change_range_pct": [
+        0.8712262253712577,
+        1.5366414472432366
+      ],
+      "logged_losses_exact_across_six_runs": true,
+      "max_logged_loss_delta": 0.0
+    },
+    {
+      "fused_pre_gdr": true,
+      "disabled_peak_reserved_mib": 34826.0,
+      "enabled_peak_reserved_mib": 33880.0,
+      "reserved_saved_mib": 946.0,
+      "reserved_saved_pct": 2.7163613392293113,
+      "memory_saved_mib": 951.99951171875,
+      "memory_saved_pct": 3.041321236818997,
+      "disabled_peak_allocated_mib": 31302.1689453125,
+      "enabled_peak_allocated_mib": 30350.16943359375,
+      "paired_runtime_change_pct": 1.889256626169411,
+      "paired_runtime_change_range_pct": [
+        1.3465027390866968,
+        2.5653963418156733
+      ],
+      "logged_losses_exact_across_six_runs": true,
+      "max_logged_loss_delta": 0.0
+    }
+  ],
+  "statistic": "Median per-run maximum peaks; median of three paired changes between per-run median optimizer-step times.",
+  "cache_policy": "Fresh cache per fusion setting on physical GPU 1; persistent isolated rank-0 cache shared by matched arms and repeats.",
+  "correctness": "All logged microbatch loss values match across six runs per fusion setting. Timed runs do not save full gradient/Adam states; separate four-rank and scope jobs verify correctness."
+}

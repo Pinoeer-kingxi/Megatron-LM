@@ -1,0 +1,20 @@
+[
+  {
+    "passed": true,
+    "rtol": 1e-05,
+    "atol": 1e-08,
+    "differences": []
+  },
+  {
+    "passed": true,
+    "rtol": 1e-05,
+    "atol": 1e-08,
+    "differences": []
+  },
+  {
+    "passed": true,
+    "rtol": 1e-05,
+    "atol": 1e-08,
+    "differences": []
+  }
+]
