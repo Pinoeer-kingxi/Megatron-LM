@@ -1,0 +1,20 @@
+[
+  {
+    "arm": "final",
+    "exact": false,
+    "compared_steps": 3,
+    "differing_leaves": 5,
+    "max_tolerance_ratio": 5.758176841441921,
+    "strict_close": false,
+    "close_under_reported_tolerances": true
+  },
+  {
+    "arm": "control",
+    "exact": false,
+    "compared_steps": 3,
+    "differing_leaves": 10,
+    "max_tolerance_ratio": 117.91451669197897,
+    "strict_close": false,
+    "close_under_reported_tolerances": true
+  }
+]

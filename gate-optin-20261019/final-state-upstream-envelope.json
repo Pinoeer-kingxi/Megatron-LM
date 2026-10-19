@@ -1,0 +1,7 @@
+{
+  "source": "d8115c4c3bf52a868b242d032b5519d7c3331a52",
+  "compared_steps": 3,
+  "all_changed_leaves_exactly_match_unchanged_upstream_control": true,
+  "changed_leaves": 5,
+  "note": "This compares each changed tensor against an actual upstream rerun at the same step; it does not imply byte-exact default training."
+}

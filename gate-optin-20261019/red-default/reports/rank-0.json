@@ -1,0 +1,13 @@
+{
+  "rank": 0,
+  "collected": 1,
+  "exit_code": 1,
+  "outcomes": [
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_runtime_mode[False]",
+      "when": "call",
+      "outcome": "failed",
+      "detail": "deterministic = False\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f5d15940dd0>\n\n    @pytest.mark.parametrize(\"deterministic\", [False, True])\n    def test_gate_backward_runtime_mode(deterministic: bool, monkeypatch: pytest.MonkeyPatch) -> None:\n        \"\"\"Only deterministic execution bypasses the original timing-based autotuner.\"\"\"\n        torch.use_deterministic_algorithms(deterministic)\n        install(AutotunePolicy(mode=\"auto\"))\n        monkeypatch.setattr(_g_beta_backward_kernel, \"best_config\", None, raising=False)\n        heads, dim = 12, 32\n        channels = 2 * 4 * dim + 2 * heads * dim + 2 * heads\n        projection = torch.randn(257, 2, channels, device=\"cuda\")\n        parameter = torch.zeros(heads, device=\"cuda\")\n        grad = torch.ones(2, 257, heads, device=\"cuda\")\n        outputs = _triton_g_beta_backward(\n            projection,\n            parameter,\n            parameter,\n            grad,\n            grad,\n            num_value_heads=heads,\n            key_head_dim=dim,\n            value_head_dim=dim,\n            num_key_heads=4,\n        )\n        torch.cuda.synchronize()\n        assert all(torch.isfinite(tensor).all() for tensor in outputs)\n>       assert (_g_beta_backward_kernel.best_config is None) == deterministic\nE       assert (None is None) == False\nE        +  where None = _g_beta_backward_kernel.best_config\n\ntests/unit_tests/determinism/kernels/test_gdn_gate_backward.py:143: AssertionError"
+    }
+  ]
+}

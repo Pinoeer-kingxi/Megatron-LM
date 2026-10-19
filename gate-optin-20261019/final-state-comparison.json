@@ -1,0 +1,27 @@
+{
+  "rtol": 1e-05,
+  "atol": 1e-08,
+  "gradient_rtol": 1.3e-06,
+  "gradient_atol": 1e-05,
+  "gradient_tolerance_source": "Torch float32 defaults; full default path retains native atomics. Optimizer differences retain original stricter tolerance.",
+  "comparisons": [
+    {
+      "arm": "final",
+      "exact": false,
+      "compared_steps": 3,
+      "differing_leaves": 5,
+      "max_tolerance_ratio": 5.758176841441921,
+      "strict_close": false,
+      "close_under_reported_tolerances": true
+    },
+    {
+      "arm": "control",
+      "exact": false,
+      "compared_steps": 3,
+      "differing_leaves": 10,
+      "max_tolerance_ratio": 117.91451669197897,
+      "strict_close": false,
+      "close_under_reported_tolerances": true
+    }
+  ]
+}

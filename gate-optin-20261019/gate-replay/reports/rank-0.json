@@ -1,0 +1,211 @@
+{
+  "rank": 0,
+  "collected": 34,
+  "exit_code": 0,
+  "outcomes": [
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-False-dtype0-1-33-8]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-False-dtype0-2-2048-16]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-False-dtype0-1-4096-16]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-False-dtype0-3-4103-24]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-False-dtype1-1-33-8]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-False-dtype1-2-2048-16]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-False-dtype1-1-4096-16]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-False-dtype1-3-4103-24]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-True-dtype0-1-33-8]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-True-dtype0-2-2048-16]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-True-dtype0-1-4096-16]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-True-dtype0-3-4103-24]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-True-dtype1-1-33-8]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-True-dtype1-2-2048-16]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-True-dtype1-1-4096-16]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-True-dtype1-3-4103-24]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-False-dtype0-1-33-8]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-False-dtype0-2-2048-16]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-False-dtype0-1-4096-16]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-False-dtype0-3-4103-24]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-False-dtype1-1-33-8]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-False-dtype1-2-2048-16]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-False-dtype1-1-4096-16]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-False-dtype1-3-4103-24]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-True-dtype0-1-33-8]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-True-dtype0-2-2048-16]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-True-dtype0-1-4096-16]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-True-dtype0-3-4103-24]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-True-dtype1-1-33-8]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-True-dtype1-2-2048-16]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-True-dtype1-1-4096-16]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-True-dtype1-3-4103-24]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_runtime_mode[False]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_runtime_mode[True]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    }
+  ]
+}

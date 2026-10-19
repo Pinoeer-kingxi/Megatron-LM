@@ -1,0 +1,73 @@
+{
+  "rank": 0,
+  "collected": 11,
+  "exit_code": 0,
+  "outcomes": [
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net.py::TestFusedPreGatedDeltaRule::test_fused_and_unfused_forward_match",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net.py::TestFusedPreGatedDeltaRule::test_fused_and_unfused_forward_thd_match",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net.py::TestFusedPreGatedDeltaRule::test_fused_and_unfused_forward_thd_padding_match",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net.py::TestFusedPreGatedDeltaRule::test_fused_and_unfused_pre_gated_delta_rule_match",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net.py::TestFusedPreGatedDeltaRule::test_fused_and_unfused_beta_use_fp32_sigmoid",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net.py::TestFusedPreGatedDeltaRule::test_fused_and_unfused_pre_gated_delta_rule_backward_match",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net.py::TestFusedPreGatedDeltaRule::test_fused_and_unfused_packed_pre_gated_delta_rule_forward_match",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net.py::TestFusedPreGatedDeltaRule::test_fused_packed_g_softplus_matches_torch_for_large_alpha",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net.py::TestFusedPreGatedDeltaRule::test_fused_and_unfused_packed_pre_gated_delta_rule_backward_match",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net.py::TestFusedPreGatedDeltaRule::test_fused_packed_conv_forward_boundary_isolation",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net.py::TestFusedPreGatedDeltaRule::test_fused_packed_conv_backward_boundary_isolation",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    }
+  ]
+}

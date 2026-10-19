@@ -1,0 +1,1639 @@
+{
+  "rank": 0,
+  "collected": 272,
+  "exit_code": 0,
+  "outcomes": [
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_names_are_unique",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[fused_bias_swiglu]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[fused_bias_geglu]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[fused_bias_gelu]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[fused_weighted_squared_relu]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[fused_bias_dropout_add]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[compiled_activations]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[attention_kernels_and_dispatch]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[fused_vocab_parallel_cross_entropy]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[te_fused_cross_entropy]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[jit_fuser]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[dsv4_q_rms_norm]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[fused_pad_routing_map]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[fused_indices_to_multihot]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[fused_row_copy]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[fused_moe_residual_add]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[fused_mla_yarn_rope]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[fused_mhc_kernels]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[streamwise_residual_ops]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[fused_layer_norm]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[fused_scale_mask_softmax]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[tensor_parallel_layers]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[vocab_parallel_cross_entropy]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[tensor_parallel_mappings]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[tensor_parallel_random_share_storage]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[transformer_engine_wrappers]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[kitchen_extension]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[moe_utils]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[moe_router]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[moe_token_dispatchers]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[moe_experts]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[moe_fused_a2a]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[moe_shared_experts]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[moe_paged_stash]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[moe_batch_invariant_unpermute]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[inference_routing_mask_kernel]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[triton_autotune_policy]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[ssm_causal_conv1d]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[ssm_mamba2_varlen_kernels]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[ssm_mamba2_batch_invariant_decode]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[ssm_common_kernels]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[ssm_gdp_kernels]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[gated_delta_net]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[gdn_pre_gated_delta_rule_fusion]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[gdn_pre_gated_delta_rule_gate_backward]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[gdn_gated_output_norm_fusion]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[ssm_triton_cache_manager]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[optimizer_kernels]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[tensor_metric_l2]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[ddp_grad_buffer_reductions]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[nccl_allocator]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[vmm_symm_allocator]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[inference_kv_cache_tensor_ops]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[inference_moe_kernels]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[batch_invariant_kernels]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[mtp_speculative_decoding_kernels]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[inference_integer_bookkeeping]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[inference_nvls_symmetric_memory_collectives]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[unified_memory_allocator]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[nvshmem_chunked_copy]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[ssm_mamba_mixer]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[ssm_gated_delta_product]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[rope_dispatch]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[mla_rope_dispatch]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[dsa_indexer_weights_projection]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[fp8_fp4_master_weight_casts]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[inference_mxfp8_quantization]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[inference_request_seed_sampling]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[inference_flashinfer_sampling]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[inference_tp_layers]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[te_tp_collectives]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[te_thd_partitioned_indices]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[cuda_graph_capture]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[muon_newton_schulz_dispatch]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[csa_teacher_lse]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[csa_packed_layout_and_loss]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[dsa_dispatch]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[dsa_tilelang_kernels]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[dsa_min_memory_triton]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_paths_exist[dsa_min_memory_torch]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[fused_bias_swiglu]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[fused_bias_geglu]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[fused_bias_gelu]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[fused_weighted_squared_relu]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[fused_bias_dropout_add]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[compiled_activations]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[attention_kernels_and_dispatch]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[fused_vocab_parallel_cross_entropy]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[te_fused_cross_entropy]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[jit_fuser]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[dsv4_q_rms_norm]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[fused_pad_routing_map]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[fused_indices_to_multihot]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[fused_row_copy]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[fused_moe_residual_add]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[fused_mla_yarn_rope]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[fused_mhc_kernels]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[streamwise_residual_ops]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[fused_layer_norm]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[fused_scale_mask_softmax]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[tensor_parallel_layers]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[vocab_parallel_cross_entropy]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[tensor_parallel_mappings]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[tensor_parallel_random_share_storage]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[transformer_engine_wrappers]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[kitchen_extension]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[moe_utils]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[moe_router]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[moe_token_dispatchers]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[moe_experts]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[moe_fused_a2a]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[moe_shared_experts]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[moe_paged_stash]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[moe_batch_invariant_unpermute]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[inference_routing_mask_kernel]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[triton_autotune_policy]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[ssm_causal_conv1d]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[ssm_mamba2_varlen_kernels]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[ssm_mamba2_batch_invariant_decode]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[ssm_common_kernels]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[ssm_gdp_kernels]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[gated_delta_net]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[gdn_pre_gated_delta_rule_fusion]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[gdn_pre_gated_delta_rule_gate_backward]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[gdn_gated_output_norm_fusion]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[ssm_triton_cache_manager]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[optimizer_kernels]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[tensor_metric_l2]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[ddp_grad_buffer_reductions]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[nccl_allocator]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[vmm_symm_allocator]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[inference_kv_cache_tensor_ops]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[inference_moe_kernels]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[batch_invariant_kernels]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[mtp_speculative_decoding_kernels]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[inference_integer_bookkeeping]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[inference_nvls_symmetric_memory_collectives]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[unified_memory_allocator]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[nvshmem_chunked_copy]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[ssm_mamba_mixer]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[ssm_gated_delta_product]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[rope_dispatch]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[mla_rope_dispatch]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[dsa_indexer_weights_projection]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[fp8_fp4_master_weight_casts]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[inference_mxfp8_quantization]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[inference_request_seed_sampling]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[inference_flashinfer_sampling]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[inference_tp_layers]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[te_tp_collectives]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[te_thd_partitioned_indices]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[cuda_graph_capture]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[muon_newton_schulz_dispatch]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[csa_teacher_lse]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[csa_packed_layout_and_loss]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[dsa_dispatch]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[dsa_tilelang_kernels]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[dsa_min_memory_triton]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_entry_has_test_or_exemption[dsa_min_memory_torch]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[fused_bias_swiglu]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[fused_bias_geglu]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[fused_bias_gelu]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[fused_weighted_squared_relu]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[fused_bias_dropout_add]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[compiled_activations]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[attention_kernels_and_dispatch]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[fused_vocab_parallel_cross_entropy]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[te_fused_cross_entropy]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[jit_fuser]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[dsv4_q_rms_norm]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[fused_pad_routing_map]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[fused_indices_to_multihot]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[fused_row_copy]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[fused_moe_residual_add]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[fused_mla_yarn_rope]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[fused_mhc_kernels]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[streamwise_residual_ops]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[fused_layer_norm]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[fused_scale_mask_softmax]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[tensor_parallel_layers]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[vocab_parallel_cross_entropy]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[tensor_parallel_mappings]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[tensor_parallel_random_share_storage]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[transformer_engine_wrappers]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[kitchen_extension]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[moe_utils]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[moe_router]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[moe_token_dispatchers]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[moe_experts]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[moe_fused_a2a]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[moe_shared_experts]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[moe_paged_stash]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[moe_batch_invariant_unpermute]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[inference_routing_mask_kernel]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[triton_autotune_policy]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[ssm_causal_conv1d]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[ssm_mamba2_varlen_kernels]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[ssm_mamba2_batch_invariant_decode]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[ssm_common_kernels]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[ssm_gdp_kernels]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[gated_delta_net]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[gdn_pre_gated_delta_rule_fusion]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[gdn_pre_gated_delta_rule_gate_backward]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[gdn_gated_output_norm_fusion]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[ssm_triton_cache_manager]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[optimizer_kernels]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[tensor_metric_l2]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[ddp_grad_buffer_reductions]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[nccl_allocator]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[vmm_symm_allocator]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[inference_kv_cache_tensor_ops]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[inference_moe_kernels]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[batch_invariant_kernels]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[mtp_speculative_decoding_kernels]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[inference_integer_bookkeeping]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[inference_nvls_symmetric_memory_collectives]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[unified_memory_allocator]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[nvshmem_chunked_copy]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[ssm_mamba_mixer]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[ssm_gated_delta_product]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[rope_dispatch]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[mla_rope_dispatch]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[dsa_indexer_weights_projection]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[fp8_fp4_master_weight_casts]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[inference_mxfp8_quantization]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[inference_request_seed_sampling]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[inference_flashinfer_sampling]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[inference_tp_layers]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[te_tp_collectives]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[te_thd_partitioned_indices]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[cuda_graph_capture]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[muon_newton_schulz_dispatch]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[csa_teacher_lse]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[csa_packed_layout_and_loss]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[dsa_dispatch]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[dsa_tilelang_kernels]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[dsa_min_memory_triton]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_registered_test_imports_kernel[dsa_min_memory_torch]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_every_kernel_bearing_file_is_registered",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_ci_tool_accepts_a_registered_kernel_change",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_ci_tool_requires_test_update_without_label",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_ci_tool_flags_unregistered_kernel_file",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_dispatch_entries_name_their_kernels",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_external_dispatch_call_sites_are_detected[apex_multi_tensor]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_external_dispatch_call_sites_are_detected[causal_conv1d]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_external_dispatch_call_sites_are_detected[cutile]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_external_dispatch_call_sites_are_detected[deep_ep]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_external_dispatch_call_sites_are_detected[deep_ep_fused]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_external_dispatch_call_sites_are_detected[fla]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_external_dispatch_call_sites_are_detected[fla_l2norm]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_external_dispatch_call_sites_are_detected[flash_attn_rope]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_external_dispatch_call_sites_are_detected[flashinfer]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_external_dispatch_call_sites_are_detected[flashinfer_mxfp8]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_external_dispatch_call_sites_are_detected[fused_rope]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_external_dispatch_call_sites_are_detected[mamba_decode]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_external_dispatch_call_sites_are_detected[mamba_ssm]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_external_dispatch_call_sites_are_detected[te_collective]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_external_dispatch_call_sites_are_detected[te_cuda_graphs]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_external_dispatch_call_sites_are_detected[te_fp8_cast]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_external_dispatch_call_sites_are_detected[transformer_engine_torch]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_non_dispatch_code_is_not_detected[bare_imports]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_non_dispatch_code_is_not_detected[class_only]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_non_dispatch_code_is_not_detected[docstring_and_comment]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_non_dispatch_code_is_not_detected[isinstance_check]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_non_dispatch_code_is_not_detected[plain_rope_caller]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_ci_tool_flags_unregistered_external_dispatch_file",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_known_dispatch_files_stay_kernel_bearing[megatron/core/ssm/mamba_mixer.py]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_known_dispatch_files_stay_kernel_bearing[megatron/core/ssm/gated_delta_product.py]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_known_dispatch_files_stay_kernel_bearing[megatron/core/models/common/embeddings/rope_utils.py]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_known_dispatch_files_stay_kernel_bearing[megatron/core/transformer/multi_latent_attention.py]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_known_dispatch_files_stay_kernel_bearing[megatron/core/fp8_utils.py]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/determinism/kernels/test_manifest.py::test_known_dispatch_files_stay_kernel_bearing[megatron/core/inference/sampling/flashinfer_sampling.py]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "source": "cc09983fd846b7b7f3172fde3580f3ec6bcd161e",
+  "status": "calibration_completed_owner_audit_inconclusive",
+  "jobs": [
+    {
+      "name": "calibration",
+      "source_path": "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gate-optin-20261019/upstream",
+      "command": [
+        "docker",
+        "exec",
+        "--workdir",
+        "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gate-optin-20261019/upstream",
+        "--env",
+        "PYTHONPATH=/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gate-optin-20261019/upstream:/home/songbinbin/gdn-offload-artifacts/flash-attn-python:/home/songbinbin/gdn-offload-artifacts/causal-conv1d-python:/home/songbinbin/gdn-offload-artifacts/bridge-python:/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/bridge/src",
+        "megatron-gate-optin-dev-20261019",
+        "/home/songbinbin/.venvs/megatron-gdn-offload/bin/python",
+        "-B",
+        "-m",
+        "torch.distributed.run",
+        "--standalone",
+        "--nproc-per-node=1",
+        "--log-dir",
+        "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gate-optin-20261019/calibration/ranks",
+        "--redirects",
+        "3",
+        "--tee",
+        "3",
+        "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gate-optin-20261019/scripts/qwen_driver.py",
+        "--record-configs",
+        "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gate-optin-20261019/calibration/configs",
+        "--weights",
+        "/home/songbinbin/gdn-offload-artifacts/models/Qwen3.5-0.8B",
+        "--data",
+        "/home/songbinbin/gdn-offload-artifacts/training-data/ks-item-sft.jsonl",
+        "--seq-length",
+        "2048",
+        "--microbatches",
+        "4",
+        "--fused-pre-gdr",
+        "--output",
+        "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gate-optin-20261019/calibration/result.json",
+        "--warmup",
+        "1",
+        "--iterations",
+        "2"
+      ],
+      "started": "2026-10-19T13:34:05.272582+00:00",
+      "exit_code": 0,
+      "finished": "2026-10-19T13:36:29.462677+00:00",
+      "external_overlap": true
+    }
+  ]
+}

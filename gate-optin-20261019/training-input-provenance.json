@@ -1,0 +1,19 @@
+{
+  "weights_path": "/home/songbinbin/gdn-offload-artifacts/models/Qwen3.5-0.8B",
+  "weights_config_sha256": "b90b86f35c8e6925ef74ee04d0e758f0a845c83a42089ad82bbaa948de9b4204",
+  "weights_files": {
+    "tokenizer.json": 12807982,
+    "tokenizer_config.json": 16709,
+    "merges.txt": 3353259,
+    "model.safetensors-00001-of-00001.safetensors": 1746942600,
+    "chat_template.jinja": 7755,
+    "model.safetensors.index.json": 50900,
+    "config.json": 2907,
+    "vocab.json": 6722759
+  },
+  "data_path": "/home/songbinbin/gdn-offload-artifacts/training-data/ks-item-sft.jsonl",
+  "data_sha256": "94f22b43be94403da5519036c05a40575bb1eed698606c0a7323fa14736ad1f5",
+  "data_size": 141356,
+  "harness_sha256": "59fc563f068d87cd76c68c947dcd8175c13d3beee4c5cd6fac2c0cd88fc58b47",
+  "harness_origin": "#7908 checkpoint/training harness; unchanged copy used only for external acceptance, not added to #8244"
+}

@@ -1,0 +1,96 @@
+[
+  {
+    "command": [
+      "docker",
+      "exec",
+      "--workdir",
+      "/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/gate",
+      "megatron-gate-optin-dev-20261019",
+      "uv",
+      "run",
+      "--active",
+      "--no-sync",
+      "isort",
+      "megatron/core/fusions/fused_pre_gated_delta_rule.py",
+      "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py",
+      "tests/unit_tests/determinism/kernels/manifest.py"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "command": [
+      "docker",
+      "exec",
+      "--workdir",
+      "/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/gate",
+      "megatron-gate-optin-dev-20261019",
+      "python",
+      "-B",
+      "-m",
+      "black",
+      "--target-version",
+      "py312",
+      "megatron/core/fusions/fused_pre_gated_delta_rule.py",
+      "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py",
+      "tests/unit_tests/determinism/kernels/manifest.py"
+    ],
+    "exit_code": 0,
+    "output": "reformatted tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py\n\nAll done! \u2728 \ud83c\udf70 \u2728\n1 file reformatted, 2 files left unchanged.\n"
+  },
+  {
+    "command": [
+      "docker",
+      "exec",
+      "--workdir",
+      "/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/gate",
+      "megatron-gate-optin-dev-20261019",
+      "python",
+      "-B",
+      "-m",
+      "isort",
+      "--check-only",
+      "megatron/core/fusions/fused_pre_gated_delta_rule.py",
+      "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py",
+      "tests/unit_tests/determinism/kernels/manifest.py"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "command": [
+      "docker",
+      "exec",
+      "--workdir",
+      "/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/gate",
+      "megatron-gate-optin-dev-20261019",
+      "python",
+      "-B",
+      "-m",
+      "ruff",
+      "check",
+      "--no-cache",
+      "megatron/core/fusions/fused_pre_gated_delta_rule.py",
+      "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py",
+      "tests/unit_tests/determinism/kernels/manifest.py"
+    ],
+    "exit_code": 0,
+    "output": "All checks passed!\nwarning: The top-level linter settings are deprecated in favour of their counterparts in the `lint` section. Please update the following options in `pyproject.toml`:\n  - 'per-file-ignores' -> 'lint.per-file-ignores'\n"
+  },
+  {
+    "command": [
+      "docker",
+      "exec",
+      "--workdir",
+      "/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/gate",
+      "megatron-gate-optin-dev-20261019",
+      "python",
+      "-B",
+      "tools/check_kernel_determinism_coverage.py",
+      "--base-ref",
+      "9131593673d037d360d252904f9198d36bc0c246"
+    ],
+    "exit_code": 0,
+    "output": "Kernel determinism coverage check passed for 3 changed file(s).\n"
+  }
+]

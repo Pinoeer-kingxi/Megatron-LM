@@ -1,0 +1,102 @@
+E1019 13:28:01.942000 196 torch/distributed/elastic/multiprocessing/api.py:986] failed (exitcode: 1) local_rank: 0 (pid: 206) of binary: /home/songbinbin/.venvs/megatron-gdn-offload/bin/python
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/run.py", line 994, in <module>
+    main()
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 362, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/run.py", line 990, in main
+    run(args)
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/run.py", line 981, in run
+    elastic_launch(
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 170, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 317, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gate-optin-20261019/scripts/rank_pytest.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-10-19_13:28:01
+  host      : ca55fead9053
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 206)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+[default0]:F
+[default0]:=================================== FAILURES ===================================
+[default0]:____________________ test_gate_backward_runtime_mode[False] ____________________
+[default0]:
+[default0]:deterministic = False
+[default0]:monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f5d15940dd0>
+[default0]:
+[default0]:    @pytest.mark.parametrize("deterministic", [False, True])
+[default0]:    def test_gate_backward_runtime_mode(deterministic: bool, monkeypatch: pytest.MonkeyPatch) -> None:
+[default0]:        """Only deterministic execution bypasses the original timing-based autotuner."""
+[default0]:        torch.use_deterministic_algorithms(deterministic)
+[default0]:        install(AutotunePolicy(mode="auto"))
+[default0]:        monkeypatch.setattr(_g_beta_backward_kernel, "best_config", None, raising=False)
+[default0]:        heads, dim = 12, 32
+[default0]:        channels = 2 * 4 * dim + 2 * heads * dim + 2 * heads
+[default0]:        projection = torch.randn(257, 2, channels, device="cuda")
+[default0]:        parameter = torch.zeros(heads, device="cuda")
+[default0]:        grad = torch.ones(2, 257, heads, device="cuda")
+[default0]:        outputs = _triton_g_beta_backward(
+[default0]:            projection,
+[default0]:            parameter,
+[default0]:            parameter,
+[default0]:            grad,
+[default0]:            grad,
+[default0]:            num_value_heads=heads,
+[default0]:            key_head_dim=dim,
+[default0]:            value_head_dim=dim,
+[default0]:            num_key_heads=4,
+[default0]:        )
+[default0]:        torch.cuda.synchronize()
+[default0]:        assert all(torch.isfinite(tensor).all() for tensor in outputs)
+[default0]:>       assert (_g_beta_backward_kernel.best_config is None) == deterministic
+[default0]:E       assert (None is None) == False
+[default0]:E        +  where None = _g_beta_backward_kernel.best_config
+[default0]:
+[default0]:tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py:143: AssertionError
+[default0]:------------------------------ Captured log call -------------------------------
+[default0]:WARNING  megatron.core.tuning.selection:selection.py:221 MAMBA_DETERMINISTIC=1 only affects the external mamba_ssm package. Megatron's Triton kernels, including megatron.core.ssm.ops, follow deterministic_mode (--deterministic-mode) or torch.use_deterministic_algorithms(True); set one of those, or AutotunePolicy(mode='pinned'), to pin their configurations.
+[default0]:=============================== warnings summary ===============================
+[default0]:megatron/core/dist_checkpointing/strategies/torch.py:70
+[default0]:  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gate-optin-20261019/red-source/megatron/core/dist_checkpointing/strategies/torch.py:70: DeprecationWarning: transformer_engine.pytorch.float8_tensor is deprecated and will be removed in a future release. Float8Tensor should be imported directly through `from transformer_engine.pytorch import Float8Tensor`
+[default0]:    from transformer_engine.pytorch.float8_tensor import Float8Tensor
+[default0]:
+[default0]:../../../../../../../home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+[default0]:  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+[default0]:    warnings.warn(
+[default0]:
+[default0]:megatron/core/tensor_parallel/random.py:92
+[default0]:  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gate-optin-20261019/red-source/megatron/core/tensor_parallel/random.py:92: DeprecationWarning: Using deprecated internal API from Transformer Engine. transformer_engine.pytorch.fp8 will be removed in a future release.
+[default0]:    from transformer_engine.pytorch.fp8 import FP8GlobalStateManager, fp8_autocast
+[default0]:
+[default0]:megatron/core/inference/contexts/__init__.py:9
+[default0]:  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gate-optin-20261019/red-source/megatron/core/inference/contexts/__init__.py:9: DeprecationWarning: The following imports from `dynamic_context.py` will be removed in this file in `megatron-core` 0.14. The imports here result in a cyclic import issue that causes rotary embeddings to import from Apex rather than Transformer Engine.
+[default0]:    warnings.warn(
+[default0]:
+[default0]:megatron/core/models/mimo/config/base_configs.py:12
+[default0]:  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gate-optin-20261019/red-source/megatron/core/models/mimo/config/base_configs.py:12: UserWarning: MimoModelConfig is experimental and still under active development. The API may change without notice in future releases.
+[default0]:    class MimoModelConfig:
+[default0]:
+[default0]:-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+[default0]:============================= slowest 15 durations =============================
+[default0]:3.08s call     tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_runtime_mode[False]
+[default0]:
+[default0]:(2 durations < 0.005s hidden.  Use -vv to show these durations.)
+[default0]:=========================== short test summary info ============================
+[default0]:FAILED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_runtime_mode[False]
+[default0]:!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!
+[default0]:1 failed, 18 warnings in 13.92s

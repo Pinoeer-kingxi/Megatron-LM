@@ -1,0 +1,311 @@
+[default0]:/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gate-optin-20261019/source/megatron/core/models/mimo/config/base_configs.py:12: UserWarning: MimoModelConfig is experimental and still under active development. The API may change without notice in future releases.
+[default0]:  class MimoModelConfig:
+[default0]:INFO:megatron.bridge.models.gemma.gemma2_provider:Gemma2: PyTorch FlexAttention available — softcap+SWA fused via Triton score_mod.
+[default0]:[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+[default0]:/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gate-optin-20261019/source/megatron/core/transformer/transformer_config.py:3406: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+[default0]:  warnings.warn(
+[default0]:WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+[default0]:INFO:megatron.core.distributed.distributed_data_parallel:Setting up DistributedDataParallel with config DistributedDataParallelConfig(grad_reduce_in_fp32=True, overlap_grad_reduce=False, overlap_param_gather=False, align_param_gather=False, use_distributed_optimizer=False, num_distributed_optimizer_instances=1, check_for_nan_in_grad=False, check_for_large_grads=False, bucket_size=None, num_buckets=None, pad_buckets_for_high_nccl_busbw=False, reduce_scatter_with_fp32_accumulation=False, param_name_patterns_for_fp32_local_accumulation=(), average_in_collective=False, fp8_param_gather=False, fp4_param_gather=False, reuse_grad_buf_for_mxfp8_param_ag=False, use_megatron_fsdp=False, megatron_fsdp_version=1, use_custom_fsdp=False, data_parallel_sharding_strategy='no_shard', expert_data_parallel_sharding_strategy='no_shard', gradient_reduce_div_fusion=True, suggested_communication_unit_size=None, keep_fp8_transpose_cache=False, nccl_ub=False, fsdp_double_buffer=False, fsdp_db_use_persist_buf_on_alloc_fail=False, fsdp_all_gather_in_start_param_sync=True, outer_dp_sharding_strategy='no_shard', expert_outer_dp_sharding_strategy='no_shard', disable_symmetric_registration=False, fsdp_manual_registration=False, delay_wgrad_compute=False, megatron_fsdp_main_params_dtype=torch.float32, megatron_fsdp_main_grads_dtype=None, megatron_fsdp_grad_comm_dtype=None, megatron_fsdp_use_decoupled_grad=False, megatron_fsdp_cuda_graph_mode=False, megatron_fsdp_enable_fine_grained_param_gather=False, megatron_fsdp_max_pool_double_buffer=False, hfsdp_param_gather_overlap=False)
+[default0]:INFO:megatron.core.distributed.param_and_grad_buffer:Number of buckets for gradient all-reduce / reduce-scatter: 1
+[default0]:Params for bucket 1 (752393024 elements, 752393024 padded size, 0 param(s) with extra main_grads):
+[default0]:	module.decoder.final_layernorm.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.23.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.23.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.23.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.23.self_attention.k_layernorm.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.23.self_attention.q_layernorm.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.23.self_attention.linear_qkv.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.23.self_attention.linear_qkv.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.23.self_attention.linear_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.22.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.22.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.22.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.22.self_attention.out_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.22.self_attention.out_norm.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.22.self_attention.conv1d.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.22.self_attention.in_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.22.self_attention.in_proj.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.22.self_attention.A_log (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.22.self_attention.dt_bias (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.21.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.21.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.21.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.21.self_attention.out_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.21.self_attention.out_norm.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.21.self_attention.conv1d.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.21.self_attention.in_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.21.self_attention.in_proj.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.21.self_attention.A_log (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.21.self_attention.dt_bias (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.20.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.20.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.20.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.20.self_attention.out_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.20.self_attention.out_norm.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.20.self_attention.conv1d.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.20.self_attention.in_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.20.self_attention.in_proj.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.20.self_attention.A_log (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.20.self_attention.dt_bias (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.19.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.19.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.19.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.19.self_attention.k_layernorm.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.19.self_attention.q_layernorm.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.19.self_attention.linear_qkv.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.19.self_attention.linear_qkv.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.19.self_attention.linear_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.18.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.18.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.18.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.18.self_attention.out_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.18.self_attention.out_norm.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.18.self_attention.conv1d.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.18.self_attention.in_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.18.self_attention.in_proj.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.18.self_attention.A_log (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.18.self_attention.dt_bias (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.17.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.17.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.17.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.17.self_attention.out_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.17.self_attention.out_norm.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.17.self_attention.conv1d.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.17.self_attention.in_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.17.self_attention.in_proj.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.17.self_attention.A_log (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.17.self_attention.dt_bias (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.16.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.16.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.16.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.16.self_attention.out_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.16.self_attention.out_norm.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.16.self_attention.conv1d.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.16.self_attention.in_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.16.self_attention.in_proj.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.16.self_attention.A_log (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.16.self_attention.dt_bias (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.15.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.15.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.15.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.15.self_attention.k_layernorm.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.15.self_attention.q_layernorm.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.15.self_attention.linear_qkv.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.15.self_attention.linear_qkv.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.15.self_attention.linear_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.14.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.14.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.14.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.14.self_attention.out_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.14.self_attention.out_norm.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.14.self_attention.conv1d.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.14.self_attention.in_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.14.self_attention.in_proj.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.14.self_attention.A_log (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.14.self_attention.dt_bias (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.13.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.13.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.13.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.13.self_attention.out_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.13.self_attention.out_norm.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.13.self_attention.conv1d.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.13.self_attention.in_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.13.self_attention.in_proj.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.13.self_attention.A_log (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.13.self_attention.dt_bias (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.12.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.12.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.12.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.12.self_attention.out_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.12.self_attention.out_norm.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.12.self_attention.conv1d.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.12.self_attention.in_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.12.self_attention.in_proj.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.12.self_attention.A_log (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.12.self_attention.dt_bias (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.11.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.11.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.11.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.11.self_attention.k_layernorm.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.11.self_attention.q_layernorm.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.11.self_attention.linear_qkv.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.11.self_attention.linear_qkv.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.11.self_attention.linear_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.10.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.10.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.10.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.10.self_attention.out_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.10.self_attention.out_norm.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.10.self_attention.conv1d.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.10.self_attention.in_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.10.self_attention.in_proj.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.10.self_attention.A_log (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.10.self_attention.dt_bias (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.9.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.9.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.9.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.9.self_attention.out_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.9.self_attention.out_norm.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.9.self_attention.conv1d.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.9.self_attention.in_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.9.self_attention.in_proj.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.9.self_attention.A_log (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.9.self_attention.dt_bias (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.8.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.8.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.8.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.8.self_attention.out_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.8.self_attention.out_norm.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.8.self_attention.conv1d.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.8.self_attention.in_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.8.self_attention.in_proj.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.8.self_attention.A_log (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.8.self_attention.dt_bias (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.7.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.7.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.7.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.7.self_attention.k_layernorm.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.7.self_attention.q_layernorm.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.7.self_attention.linear_qkv.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.7.self_attention.linear_qkv.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.7.self_attention.linear_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.6.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.6.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.6.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.6.self_attention.out_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.6.self_attention.out_norm.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.6.self_attention.conv1d.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.6.self_attention.in_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.6.self_attention.in_proj.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.6.self_attention.A_log (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.6.self_attention.dt_bias (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.5.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.5.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.5.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.5.self_attention.out_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.5.self_attention.out_norm.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.5.self_attention.conv1d.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.5.self_attention.in_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.5.self_attention.in_proj.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.5.self_attention.A_log (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.5.self_attention.dt_bias (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.4.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.4.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.4.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.4.self_attention.out_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.4.self_attention.out_norm.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.4.self_attention.conv1d.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.4.self_attention.in_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.4.self_attention.in_proj.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.4.self_attention.A_log (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.4.self_attention.dt_bias (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.3.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.3.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.3.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.3.self_attention.k_layernorm.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.3.self_attention.q_layernorm.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.3.self_attention.linear_qkv.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.3.self_attention.linear_qkv.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.3.self_attention.linear_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.2.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.2.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.2.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.2.self_attention.out_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.2.self_attention.out_norm.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.2.self_attention.conv1d.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.2.self_attention.in_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.2.self_attention.in_proj.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.2.self_attention.A_log (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.2.self_attention.dt_bias (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.1.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.1.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.1.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.1.self_attention.out_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.1.self_attention.out_norm.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.1.self_attention.conv1d.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.1.self_attention.in_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.1.self_attention.in_proj.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.1.self_attention.A_log (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.1.self_attention.dt_bias (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.0.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.0.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.0.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.0.self_attention.out_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.0.self_attention.out_norm.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.0.self_attention.conv1d.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.0.self_attention.in_proj.weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.0.self_attention.in_proj.layer_norm_weight (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.0.self_attention.A_log (param.main_grad.dtype=torch.float32)
+[default0]:	module.decoder.layers.0.self_attention.dt_bias (param.main_grad.dtype=torch.float32)
+[default0]:	module.embedding.word_embeddings.weight (param.main_grad.dtype=torch.float32)
+[default0]:INFO:megatron.core.distributed.param_and_grad_buffer:Using all-reduce for gradient reductions because self.ddp_config.use_distributed_optimizer=False
+[default0]:INFO:megatron.core.optimizer:Setting up optimizer with config OptimizerConfig(lr=0.0001, min_lr=None, decoupled_lr=None, decoupled_min_lr=None, weight_decay=0.01, apply_wd_to_qk_layernorm=False, fp8_recipe=None, fp16=False, bf16=True, reuse_grad_buf_for_mxfp8_param_ag=False, params_dtype=torch.float32, use_precision_aware_optimizer=False, store_param_remainders=True, main_grads_dtype=torch.float32, main_params_dtype=torch.float32, exp_avg_dtype=torch.float32, exp_avg_sq_dtype=torch.float32, optimizer='adam', loss_scale=None, initial_loss_scale=4294967296, min_loss_scale=1.0, loss_scale_window=1000, hysteresis=2, adam_beta1=0.9, adam_beta2=0.999, adam_eps=1e-08, decoupled_weight_decay=True, sgd_momentum=0.9, muon_momentum=0.95, muon_split_qkv=True, muon_nesterov=False, muon_scale_mode='spectral', muon_fp32_matmul_prec='medium', muon_coefficient_type='quintic', muon_num_ns_steps=5, muon_tp_mode='duplicated', muon_use_syrk=False, muon_extra_scale_factor=1.0, muon_ns_batch_size=1, muon_concurrent_groups=True, muon_scalar_optimizer='adam', lion_beta1=0.95, lion_beta2=0.98, soap_shampoo_beta=0.95, soap_use_kl_shampoo=True, adaptive_muon_moment2_method='adamuon', adaptive_muon_beta2=0.95, adaptive_muon_eps=1e-08, use_distributed_optimizer=False, use_layer_wise_distributed_optimizer=False, overlap_param_gather=False, overlap_param_gather_with_optimizer_step=False, optimizer_cpu_offload=False, optimizer_offload_fraction=0.0, use_torch_optimizer_for_cpu_offload=False, overlap_cpu_optimizer_d2h_h2d=False, pin_cpu_grads=True, pin_cpu_params=True, clip_grad=1.0, grad_norm_skip_threshold=inf, log_num_zeros_in_grad=False, barrier_with_L1_time=False, timers=None, config_logger_dir='', optimizer_cuda_graph=False)
+[default0]:/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/_dynamo/variables/functions.py:2202: UserWarning: Dynamo detected a call to a `functools.lru_cache`-wrapped function at '_common.py:101'. Dynamo ignores the cache wrapper and directly traces the wrapped function. Silent incorrectness is only a *potential* risk, not something we have observed. Enable TORCH_LOGS=+dynamo for a DEBUG stack trace.
+[default0]:
+[default0]:This call originates from:
+[default0]:  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/transformer_engine/pytorch/ops/_common.py", line 101, in maybe_autocast_dtype
+[default0]:    if torch_version() >= (2, 4, 3):
+[default0]:
+[default0]:  torch._dynamo.utils.warn_once(msg)
+[default0]:/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/_dynamo/variables/functions.py:2082: UserWarning: Dynamo does not know how to trace the builtin `transformer_engine_torch.pybind11_detail_function_record_v1_system_libstdcpp_gxx_abi_1xxx_use_cxx11_abi_1.rmsnorm_fwd.` This function is either a Python builtin (e.g. _warnings.warn) or a third-party C/C++ Python extension (perhaps created with pybind).
+[default0]:If it is a Python builtin, please file an issue on GitHub so the PyTorch team can add support for it and see the next case for a workaround.
+[default0]:If it is a third-party C/C++ Python extension, please either wrap it into a PyTorch-understood custom operator (see https://pytorch.org/tutorials/advanced/custom_ops_landing_page.html for more details) or, if it is traceable, use `torch.compiler.allow_in_graph`.
+[default0]:  torch._dynamo.utils.warn_once(explanation + "\n" + "\n".join(hints))
+[default0]:INFO:root:Rank 0 step 0: losses=[2.583766460418701, 2.6304128170013428, 2.444108009338379, 2.4719862937927246] grad_norm=tensor([38.9852], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 1: losses=[6.836137771606445, 6.643846035003662, 6.753605842590332, 6.806037902832031] grad_norm=tensor([105.7470], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 2: losses=[4.693747043609619, 4.815160751342773, 4.648519992828369, 4.870355606079102] grad_norm=tensor([41.2199], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 3: losses=[4.323282718658447, 4.416010856628418, 4.365979194641113, 3.563534736633301] grad_norm=tensor([51.3153], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 4: losses=[2.490586519241333, 2.4568405151367188, 2.530423641204834, 3.206796646118164] grad_norm=tensor([17.2473], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 5: losses=[2.6003129482269287, 2.7393155097961426, 2.675898551940918, 2.5674314498901367] grad_norm=tensor([10.3229], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 6: losses=[2.4792227745056152, 2.3974127769470215, 2.4404258728027344, 2.4564623832702637] grad_norm=tensor([16.4845], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 7: losses=[2.4010567665100098, 2.3554253578186035, 1.6765217781066895, 1.5848419666290283] grad_norm=tensor([9.1852], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 8: losses=[1.3130426406860352, 1.3581023216247559, 1.7467427253723145, 1.4779059886932373] grad_norm=tensor([5.9511], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 9: losses=[1.5213812589645386, 1.3818552494049072, 1.4437229633331299, 1.6998668909072876] grad_norm=tensor([7.0341], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 10: losses=[1.6204864978790283, 1.5569519996643066, 1.6515982151031494, 1.5612621307373047] grad_norm=tensor([7.5498], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 11: losses=[1.4087488651275635, 0.9758884906768799, 0.9366006851196289, 0.8449444770812988] grad_norm=tensor([5.7626], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 12: losses=[0.8112716674804688, 0.9893442392349243, 0.807111382484436, 0.9323738217353821] grad_norm=tensor([5.2818], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 13: losses=[0.8289918899536133, 0.8081936836242676, 0.9206230640411377, 0.9315913915634155] grad_norm=tensor([5.1536], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 14: losses=[0.8394362926483154, 0.9123102426528931, 0.8140156865119934, 0.7768301367759705] grad_norm=tensor([5.4735], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 15: losses=[0.6078954935073853, 0.6236343383789062, 0.5155514478683472, 0.49815481901168823] grad_norm=tensor([4.3168], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 16: losses=[0.48480546474456787, 0.41060930490493774, 0.5274301767349243, 0.44872719049453735] grad_norm=tensor([3.2626], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 17: losses=[0.46719056367874146, 0.533032238483429, 0.5094559788703918, 0.48707330226898193] grad_norm=tensor([4.3418], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 18: losses=[0.5528188943862915, 0.44716209173202515, 0.43491247296333313, 0.39574310183525085] grad_norm=tensor([4.0190], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 19: losses=[0.3708548843860626, 0.3364168405532837, 0.33934834599494934, 0.31254157423973083] grad_norm=tensor([3.1405], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 20: losses=[0.2839961349964142, 0.3207070529460907, 0.3083651065826416, 0.31204503774642944] grad_norm=tensor([2.5988], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 21: losses=[0.330234169960022, 0.3467600345611572, 0.311143696308136, 0.3175370693206787] grad_norm=tensor([3.0012], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 22: losses=[0.2801527976989746, 0.2932593822479248, 0.3194524049758911, 0.24723395705223083] grad_norm=tensor([2.8839], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 23: losses=[0.24953673779964447, 0.23819592595100403, 0.22746895253658295, 0.2197788655757904] grad_norm=tensor([2.4829], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 24: losses=[0.2025565505027771, 0.22321093082427979, 0.18973129987716675, 0.2176259458065033] grad_norm=tensor([2.2036], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 25: losses=[0.25792765617370605, 0.2396174967288971, 0.24949751794338226, 0.21513062715530396] grad_norm=tensor([2.8542], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 26: losses=[0.201149120926857, 0.22135290503501892, 0.19904714822769165, 0.1894383728504181] grad_norm=tensor([2.3970], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 27: losses=[0.1759672462940216, 0.19930094480514526, 0.16434921324253082, 0.13861900568008423] grad_norm=tensor([1.8902], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 28: losses=[0.18314582109451294, 0.1481349766254425, 0.19604305922985077, 0.1893763542175293] grad_norm=tensor([2.4611], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 29: losses=[0.1636006087064743, 0.17220425605773926, 0.1564795970916748, 0.1436915397644043] grad_norm=tensor([2.2000], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 30: losses=[0.16911154985427856, 0.13788866996765137, 0.13302668929100037, 0.12347496300935745] grad_norm=tensor([2.2441], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 31: losses=[0.1356046497821808, 0.12810184061527252, 0.08896190673112869, 0.1216716468334198] grad_norm=tensor([1.7937], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 32: losses=[0.12275081872940063, 0.12143898010253906, 0.12365951389074326, 0.09077489376068115] grad_norm=tensor([1.6830], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 33: losses=[0.12398304790258408, 0.1030033677816391, 0.10147563368082047, 0.11000669747591019] grad_norm=tensor([1.7698], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 34: losses=[0.10049518942832947, 0.11556798219680786, 0.09168408811092377, 0.08339235186576843] grad_norm=tensor([1.8869], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 35: losses=[0.07773569226264954, 0.057972222566604614, 0.09302005171775818, 0.07721894234418869] grad_norm=tensor([1.5463], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 36: losses=[0.07731346786022186, 0.07636211067438126, 0.07961064577102661, 0.07609625160694122] grad_norm=tensor([1.4757], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 37: losses=[0.07758098840713501, 0.08148834854364395, 0.06781859695911407, 0.06876597553491592] grad_norm=tensor([1.4655], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 38: losses=[0.09820935130119324, 0.05529894679784775, 0.043971434235572815, 0.05732482671737671] grad_norm=tensor([1.6812], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 39: losses=[0.07272513210773468, 0.07181225717067719, 0.05624246597290039, 0.04494895786046982] grad_norm=tensor([1.5262], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 40: losses=[0.05235546827316284, 0.04969026893377304, 0.04770870879292488, 0.03939272463321686] grad_norm=tensor([1.5125], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 41: losses=[0.05553457885980606, 0.0622989684343338, 0.04460446536540985, 0.04745302349328995] grad_norm=tensor([1.3449], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 42: losses=[0.054857295006513596, 0.038696661591529846, 0.03671522065997124, 0.049844320863485336] grad_norm=tensor([1.2766], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 43: losses=[0.050713151693344116, 0.048107393085956573, 0.03591093420982361, 0.04743378609418869] grad_norm=tensor([1.2818], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 44: losses=[0.0482054278254509, 0.05402672663331032, 0.05125012248754501, 0.048720285296440125] grad_norm=tensor([1.4111], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 45: losses=[0.052425213158130646, 0.0634639635682106, 0.05747998505830765, 0.030086666345596313] grad_norm=tensor([1.5236], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 46: losses=[0.0384853333234787, 0.024847950786352158, 0.039135780185461044, 0.046307485550642014] grad_norm=tensor([1.2166], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 47: losses=[0.05666545033454895, 0.05614094063639641, 0.056577168405056, 0.04576289653778076] grad_norm=tensor([1.7214], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 48: losses=[0.036165621131658554, 0.04708942025899887, 0.030950115993618965, 0.037811003625392914] grad_norm=tensor([1.2697], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 49: losses=[0.05090742185711861, 0.03791893646121025, 0.03405429422855377, 0.051912397146224976] grad_norm=tensor([1.3864], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 50: losses=[0.03565525636076927, 0.03750063478946686, 0.02949349768459797, 0.027678802609443665] grad_norm=tensor([1.1786], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 51: losses=[0.03848963975906372, 0.034919701516628265, 0.03545298054814339, 0.02686786651611328] grad_norm=tensor([1.0086], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 52: losses=[0.047540076076984406, 0.033479828387498856, 0.038387663662433624, 0.026534097269177437] grad_norm=tensor([1.1223], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 53: losses=[0.033779073506593704, 0.03092735819518566, 0.03248751908540726, 0.0337555930018425] grad_norm=tensor([0.9015], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Rank 0 step 54: losses=[0.036852285265922546, 0.03662358969449997, 0.04717685282230377, 0.03434222936630249] grad_norm=tensor([0.9948], device='cuda:0') selected_transfer_bytes=0
+[default0]:INFO:root:Wrote /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gate-optin-20261019/extended-1-candidate/result.rank0.json
+[default0]:Loading from /home/songbinbin/gdn-offload-artifacts/models/Qwen3.… (3… Qwen35VL…
+[default0]: > number of parameters on (tensor, gtp_remat, pipeline) model parallel rank (0, 0, 0): 852985920

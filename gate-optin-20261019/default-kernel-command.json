@@ -1,0 +1,15 @@
+{
+  "command": [
+    "docker",
+    "exec",
+    "--workdir",
+    "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gate-optin-20261019/source-final",
+    "--env",
+    "PYTHONPATH=/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gate-optin-20261019/source-final:/home/songbinbin/gdn-offload-artifacts/flash-attn-python:/home/songbinbin/gdn-offload-artifacts/causal-conv1d-python:/home/songbinbin/gdn-offload-artifacts/bridge-python:/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/bridge/src",
+    "megatron-gate-optin-dev-20261019",
+    "/home/songbinbin/.venvs/megatron-gdn-offload/bin/python",
+    "-B",
+    "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gate-optin-20261019/scripts/compare_default_kernels.py"
+  ],
+  "exit_code": 0
+}

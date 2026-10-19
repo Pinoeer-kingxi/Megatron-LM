@@ -1,0 +1,22 @@
+{
+  "rtol": 1e-05,
+  "atol": 1e-08,
+  "comparisons": [
+    {
+      "arm": "repeat",
+      "exact": true,
+      "compared_steps": 3,
+      "differing_leaves": 0,
+      "max_tolerance_ratio": 0,
+      "close": true
+    },
+    {
+      "arm": "candidate",
+      "exact": true,
+      "compared_steps": 3,
+      "differing_leaves": 0,
+      "max_tolerance_ratio": 0,
+      "close": true
+    }
+  ]
+}

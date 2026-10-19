@@ -1,0 +1,22 @@
+{
+  "source": "d8115c4c3bf52a868b242d032b5519d7c3331a52",
+  "command": [
+    "docker",
+    "exec",
+    "--workdir",
+    "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gate-optin-20261019/format-checkout",
+    "--env",
+    "BASE_REF=main",
+    "--env",
+    "CHECK_ONLY=true",
+    "--env",
+    "SKIP_DOCS=false",
+    "--env",
+    "PYLINTHOME=/tmp/pylint-gate-final",
+    "megatron-gate-optin-dev-20261019",
+    "bash",
+    "tools/autoformat.sh"
+  ],
+  "exit_code": 0,
+  "upstream_main": "d56953fb081ed39aa68a1ca5eca4ebc63e0ef1e3"
+}

@@ -1,0 +1,14 @@
+{
+  "command": [
+    "docker",
+    "exec",
+    "megatron-gate-optin-dev-20261019",
+    "python",
+    "-B",
+    "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gate-optin-20261019/scripts/compare_final_states.py"
+  ],
+  "exit_code": 1,
+  "rtol": 1e-05,
+  "atol": 1e-08,
+  "status": "failed; default atomic path; preserved rather than reported as byte-exact"
+}

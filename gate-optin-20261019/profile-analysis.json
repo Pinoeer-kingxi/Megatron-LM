@@ -1,0 +1,2472 @@
+{
+  "baseline": [
+    {
+      "label": "training_step:3",
+      "wall_ms": 975.134109,
+      "kernel_busy_union_ms": 787.89902,
+      "memcpy_busy_union_ms": 0.04816,
+      "copy_without_kernel_ms": 0.04816,
+      "kernel_copy_overlap_ms": 0.0,
+      "neither_kernel_nor_copy_ms": 187.186929,
+      "copies": {
+        "Host-to-Device": {
+          "count": 4,
+          "bytes": 32,
+          "sum_ms": 0.001792,
+          "union_ms": 0.001792,
+          "streams": [
+            7
+          ]
+        },
+        "Device-to-Host": {
+          "count": 14,
+          "bytes": 38,
+          "sum_ms": 0.046368,
+          "union_ms": 0.046368,
+          "streams": [
+            7
+          ]
+        }
+      },
+      "top_kernels": {
+        "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_tn": {
+          "count": 388,
+          "sum_ms": 105.549386
+        },
+        "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nt": {
+          "count": 264,
+          "sum_ms": 59.68704499999996
+        },
+        "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_nn": {
+          "count": 192,
+          "sum_ms": 55.389455999999974
+        },
+        "triton_red_fused_copy__exp_sub_sum_unsqueeze_2": {
+          "count": 4,
+          "sum_ms": 47.977236
+        },
+        "unrolled_elementwise_kernel": {
+          "count": 937,
+          "sum_ms": 46.24848999999993
+        },
+        "multi_tensor_apply_kernel": {
+          "count": 115,
+          "sum_ms": 44.953612000000014
+        },
+        "vectorized_elementwise_kernel": {
+          "count": 2125,
+          "sum_ms": 43.34162900000013
+        },
+        "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_nt": {
+          "count": 124,
+          "sum_ms": 41.56707799999999
+        },
+        "Kernel2": {
+          "count": 4,
+          "sum_ms": 29.87206
+        },
+        "triton_poi_fused__to_copy_copy__mul_unsqueeze_view_2": {
+          "count": 4,
+          "sum_ms": 29.745563999999998
+        },
+        "triton_poi_fused_copy__div_split_unsqueeze_1": {
+          "count": 4,
+          "sum_ms": 23.976331
+        },
+        "triton_poi_fused__to_copy_arange_index_index_put_rsub_sub_view_0": {
+          "count": 4,
+          "sum_ms": 23.817992999999998
+        },
+        "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nn": {
+          "count": 192,
+          "sum_ms": 22.457409000000006
+        },
+        "triton_red_fused__to_copy_max_0": {
+          "count": 4,
+          "sum_ms": 17.977303999999997
+        },
+        "chunk_gated_delta_rule_bwd_kernel_dhu_blockdim64": {
+          "count": 72,
+          "sum_ms": 13.178763
+        }
+      },
+      "apis": [
+        {
+          "name": "cudaStreamSynchronize_v3020",
+          "count": 18,
+          "sum_ms": 118.4773
+        },
+        {
+          "name": "cudaDeviceSynchronize_v3020",
+          "count": 2,
+          "sum_ms": 55.19081
+        },
+        {
+          "name": "cudaLaunchKernel_v7000",
+          "count": 5604,
+          "sum_ms": 47.188067
+        },
+        {
+          "name": "cuLaunchKernelEx",
+          "count": 1368,
+          "sum_ms": 14.591379
+        },
+        {
+          "name": "cuLaunchKernel",
+          "count": 1420,
+          "sum_ms": 13.204054
+        },
+        {
+          "name": "cudaEventRecordWithFlags_v11010",
+          "count": 1018,
+          "sum_ms": 2.030472
+        },
+        {
+          "name": "cudaStreamWaitEvent_v3020",
+          "count": 1008,
+          "sum_ms": 1.592678
+        },
+        {
+          "name": "cudaStreamIsCapturing_v10000",
+          "count": 2425,
+          "sum_ms": 1.322331
+        },
+        {
+          "name": "cudaEventCreateWithFlags_v3020",
+          "count": 1018,
+          "sum_ms": 1.211498
+        },
+        {
+          "name": "cuKernelGetName",
+          "count": 5604,
+          "sum_ms": 1.08124
+        },
+        {
+          "name": "cudaEventDestroy_v3020",
+          "count": 1018,
+          "sum_ms": 0.670381
+        },
+        {
+          "name": "cudaMemcpyAsync_v3020",
+          "count": 18,
+          "sum_ms": 0.212316
+        }
+      ],
+      "all_kernels": {
+        "CatArrayBatchedCopy": {
+          "count": 148,
+          "sum_ms": 2.029446
+        },
+        "CatArrayBatchedCopy_vectorized": {
+          "count": 24,
+          "sum_ms": 1.493573
+        },
+        "DeviceCompactInitKernel": {
+          "count": 1,
+          "sum_ms": 0.001056
+        },
+        "DeviceReduceSingleTileKernel": {
+          "count": 1,
+          "sum_ms": 0.001824
+        },
+        "DeviceSelectSweepKernel": {
+          "count": 1,
+          "sum_ms": 0.001856
+        },
+        "Kernel2": {
+          "count": 4,
+          "sum_ms": 29.87206
+        },
+        "_compute_g_and_beta_kernel": {
+          "count": 72,
+          "sum_ms": 0.360769
+        },
+        "_conv_silu_project_kernel": {
+          "count": 144,
+          "sum_ms": 7.7815
+        },
+        "_g_beta_backward_kernel": {
+          "count": 72,
+          "sum_ms": 0.803011
+        },
+        "_qk_l2norm_repeat_backward_kernel": {
+          "count": 72,
+          "sum_ms": 8.031863
+        },
+        "_v_layout_to_conv_kernel": {
+          "count": 72,
+          "sum_ms": 3.815978
+        },
+        "_z_layout_to_qkvzba_kernel": {
+          "count": 72,
+          "sum_ms": 3.494056
+        },
+        "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_nn": {
+          "count": 192,
+          "sum_ms": 55.389456
+        },
+        "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_nt": {
+          "count": 124,
+          "sum_ms": 41.567078
+        },
+        "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_tn": {
+          "count": 388,
+          "sum_ms": 105.549386
+        },
+        "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nn": {
+          "count": 192,
+          "sum_ms": 22.457409
+        },
+        "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nt": {
+          "count": 264,
+          "sum_ms": 59.687045
+        },
+        "ampere_bf16_s1688gemm_bf16_64x128_sliced1x2_ldg8_f2f_nn": {
+          "count": 48,
+          "sum_ms": 9.321055
+        },
+        "ampere_bf16_s1688gemm_bf16_64x128_sliced1x2_ldg8_f2f_nt": {
+          "count": 48,
+          "sum_ms": 9.890624
+        },
+        "ampere_bf16_s1688gemm_bf16_64x128_sliced1x2_ldg8_f2f_tn": {
+          "count": 48,
+          "sum_ms": 10.995523
+        },
+        "causal_conv1d_channellast_bwd_kernel": {
+          "count": 72,
+          "sum_ms": 9.41795
+        },
+        "chunk_bwd_kernel_dqkwg": {
+          "count": 72,
+          "sum_ms": 13.05879
+        },
+        "chunk_bwd_kernel_dv_local": {
+          "count": 72,
+          "sum_ms": 3.721515
+        },
+        "chunk_fwd_kernel_o": {
+          "count": 72,
+          "sum_ms": 5.69938
+        },
+        "chunk_gated_delta_rule_bwd_kernel_dhu_blockdim64": {
+          "count": 72,
+          "sum_ms": 13.178763
+        },
+        "chunk_gated_delta_rule_fwd_kernel_h_blockdim64": {
+          "count": 144,
+          "sum_ms": 11.221699
+        },
+        "chunk_gated_delta_rule_fwd_kkt_solve_kernel": {
+          "count": 72,
+          "sum_ms": 2.669706
+        },
+        "chunk_local_cumsum_scalar_kernel": {
+          "count": 144,
+          "sum_ms": 0.392994
+        },
+        "cleanup": {
+          "count": 1,
+          "sum_ms": 0.002272
+        },
+        "elementwise_kernel": {
+          "count": 612,
+          "sum_ms": 6.771505
+        },
+        "elementwise_kernel_with_index": {
+          "count": 48,
+          "sum_ms": 0.056608
+        },
+        "embedding_backward_feature_kernel": {
+          "count": 4,
+          "sum_ms": 0.316545
+        },
+        "gemmk1_kernel": {
+          "count": 4,
+          "sum_ms": 0.009856
+        },
+        "index_elementwise_kernel": {
+          "count": 1,
+          "sum_ms": 0.002912
+        },
+        "multi_tensor_apply_kernel": {
+          "count": 115,
+          "sum_ms": 44.953612
+        },
+        "prepare_wy_repr_bwd_kernel": {
+          "count": 72,
+          "sum_ms": 10.636102
+        },
+        "recompute_w_u_fwd_kernel": {
+          "count": 144,
+          "sum_ms": 8.143353
+        },
+        "reduce_kernel": {
+          "count": 202,
+          "sum_ms": 3.144328
+        },
+        "rmsnorm_bwd_finalize_general_kernel": {
+          "count": 120,
+          "sum_ms": 3.988106
+        },
+        "rmsnorm_bwd_finalize_tuned_kernel": {
+          "count": 196,
+          "sum_ms": 0.665443
+        },
+        "rmsnorm_bwd_general_kernel": {
+          "count": 120,
+          "sum_ms": 4.344719
+        },
+        "rmsnorm_bwd_tuned_kernel": {
+          "count": 196,
+          "sum_ms": 4.068073
+        },
+        "rmsnorm_fwd_general_kernel": {
+          "count": 120,
+          "sum_ms": 2.568076
+        },
+        "rmsnorm_fwd_tuned_kernel": {
+          "count": 196,
+          "sum_ms": 1.479042
+        },
+        "scaled_masked_softmax_warp_backward": {
+          "count": 24,
+          "sum_ms": 7.100501
+        },
+        "scaled_masked_softmax_warp_forward": {
+          "count": 24,
+          "sum_ms": 5.928913
+        },
+        "triton_poi_fused__to_copy_arange_index_index_put_rsub_sub_view_0": {
+          "count": 4,
+          "sum_ms": 23.817993
+        },
+        "triton_poi_fused__to_copy_arange_index_index_put_rsub_sub_view_1": {
+          "count": 4,
+          "sum_ms": 0.013312
+        },
+        "triton_poi_fused__to_copy_copy__mul_unsqueeze_view_2": {
+          "count": 4,
+          "sum_ms": 29.745564
+        },
+        "triton_poi_fused__to_copy_mul_sigmoid_sigmoid_backward_view_0": {
+          "count": 24,
+          "sum_ms": 1.511014
+        },
+        "triton_poi_fused__to_copy_mul_sigmoid_view_0": {
+          "count": 24,
+          "sum_ms": 0.920164
+        },
+        "triton_poi_fused__to_copy_mul_silu_silu_backward_view_0": {
+          "count": 72,
+          "sum_ms": 4.580044
+        },
+        "triton_poi_fused__to_copy_mul_silu_view_0": {
+          "count": 72,
+          "sum_ms": 2.786757
+        },
+        "triton_poi_fused_add_cat_mul_rsub_sigmoid_silu_split_0": {
+          "count": 96,
+          "sum_ms": 10.638684
+        },
+        "triton_poi_fused_arange_bitwise_or_ge_index_index_put_lift_fresh_lt_sub_unsqueeze_view_0": {
+          "count": 4,
+          "sum_ms": 0.012
+        },
+        "triton_poi_fused_arange_cat_index_index_put_lift_fresh_sub_unsqueeze_view_1": {
+          "count": 4,
+          "sum_ms": 0.00576
+        },
+        "triton_poi_fused_copy__div_split_unsqueeze_1": {
+          "count": 4,
+          "sum_ms": 23.976331
+        },
+        "triton_poi_fused_log_split_sub_0": {
+          "count": 4,
+          "sum_ms": 0.007808
+        },
+        "triton_poi_fused_mul_silu_split_0": {
+          "count": 96,
+          "sum_ms": 6.257556
+        },
+        "triton_red_fused__to_copy_max_0": {
+          "count": 4,
+          "sum_ms": 17.977304
+        },
+        "triton_red_fused_copy__exp_sub_sum_unsqueeze_2": {
+          "count": 4,
+          "sum_ms": 47.977236
+        },
+        "unrolled_elementwise_kernel": {
+          "count": 937,
+          "sum_ms": 46.24849
+        },
+        "vectorized_elementwise_kernel": {
+          "count": 2125,
+          "sum_ms": 43.341629
+        },
+        "vectorized_gather_kernel": {
+          "count": 4,
+          "sum_ms": 0.042305
+        }
+      }
+    },
+    {
+      "label": "training_step:4",
+      "wall_ms": 1039.918473,
+      "kernel_busy_union_ms": 787.432752,
+      "memcpy_busy_union_ms": 0.02,
+      "copy_without_kernel_ms": 0.02,
+      "kernel_copy_overlap_ms": 0.0,
+      "neither_kernel_nor_copy_ms": 252.465721,
+      "copies": {
+        "Host-to-Device": {
+          "count": 4,
+          "bytes": 32,
+          "sum_ms": 0.001728,
+          "union_ms": 0.001728,
+          "streams": [
+            7
+          ]
+        },
+        "Device-to-Host": {
+          "count": 14,
+          "bytes": 38,
+          "sum_ms": 0.018272,
+          "union_ms": 0.018272,
+          "streams": [
+            7
+          ]
+        }
+      },
+      "top_kernels": {
+        "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_tn": {
+          "count": 388,
+          "sum_ms": 104.42413000000002
+        },
+        "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nt": {
+          "count": 264,
+          "sum_ms": 60.02919800000004
+        },
+        "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_nn": {
+          "count": 192,
+          "sum_ms": 55.68078200000002
+        },
+        "triton_red_fused_copy__exp_sub_sum_unsqueeze_2": {
+          "count": 4,
+          "sum_ms": 48.003316
+        },
+        "unrolled_elementwise_kernel": {
+          "count": 937,
+          "sum_ms": 46.26237599999997
+        },
+        "multi_tensor_apply_kernel": {
+          "count": 115,
+          "sum_ms": 44.94084300000001
+        },
+        "vectorized_elementwise_kernel": {
+          "count": 2125,
+          "sum_ms": 43.15268200000007
+        },
+        "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_nt": {
+          "count": 124,
+          "sum_ms": 41.684385000000006
+        },
+        "triton_poi_fused__to_copy_copy__mul_unsqueeze_view_2": {
+          "count": 4,
+          "sum_ms": 29.767132
+        },
+        "Kernel2": {
+          "count": 4,
+          "sum_ms": 29.749243999999997
+        },
+        "triton_poi_fused_copy__div_split_unsqueeze_1": {
+          "count": 4,
+          "sum_ms": 23.970539
+        },
+        "triton_poi_fused__to_copy_arange_index_index_put_rsub_sub_view_0": {
+          "count": 4,
+          "sum_ms": 23.791209
+        },
+        "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nn": {
+          "count": 192,
+          "sum_ms": 22.56992700000001
+        },
+        "triton_red_fused__to_copy_max_0": {
+          "count": 4,
+          "sum_ms": 17.983352000000004
+        },
+        "chunk_gated_delta_rule_bwd_kernel_dhu_blockdim64": {
+          "count": 72,
+          "sum_ms": 13.198883
+        }
+      },
+      "apis": [
+        {
+          "name": "cudaStreamSynchronize_v3020",
+          "count": 18,
+          "sum_ms": 118.027684
+        },
+        {
+          "name": "cudaLaunchKernel_v7000",
+          "count": 5604,
+          "sum_ms": 50.037045
+        },
+        {
+          "name": "cudaDeviceSynchronize_v3020",
+          "count": 2,
+          "sum_ms": 45.6981
+        },
+        {
+          "name": "cuLaunchKernelEx",
+          "count": 1368,
+          "sum_ms": 15.542316
+        },
+        {
+          "name": "cuLaunchKernel",
+          "count": 1420,
+          "sum_ms": 13.968779
+        },
+        {
+          "name": "cudaEventRecordWithFlags_v11010",
+          "count": 1018,
+          "sum_ms": 2.160405
+        },
+        {
+          "name": "cudaStreamWaitEvent_v3020",
+          "count": 1008,
+          "sum_ms": 1.737646
+        },
+        {
+          "name": "cudaStreamIsCapturing_v10000",
+          "count": 2425,
+          "sum_ms": 1.380768
+        },
+        {
+          "name": "cudaEventCreateWithFlags_v3020",
+          "count": 1018,
+          "sum_ms": 1.316938
+        },
+        {
+          "name": "cuKernelGetName",
+          "count": 5604,
+          "sum_ms": 1.171855
+        },
+        {
+          "name": "cudaEventDestroy_v3020",
+          "count": 1018,
+          "sum_ms": 0.726156
+        },
+        {
+          "name": "cudaMemcpyAsync_v3020",
+          "count": 18,
+          "sum_ms": 0.246915
+        }
+      ],
+      "all_kernels": {
+        "CatArrayBatchedCopy": {
+          "count": 148,
+          "sum_ms": 2.003429
+        },
+        "CatArrayBatchedCopy_vectorized": {
+          "count": 24,
+          "sum_ms": 1.492676
+        },
+        "DeviceCompactInitKernel": {
+          "count": 1,
+          "sum_ms": 0.001056
+        },
+        "DeviceReduceSingleTileKernel": {
+          "count": 1,
+          "sum_ms": 0.001536
+        },
+        "DeviceSelectSweepKernel": {
+          "count": 1,
+          "sum_ms": 0.001824
+        },
+        "Kernel2": {
+          "count": 4,
+          "sum_ms": 29.749244
+        },
+        "_compute_g_and_beta_kernel": {
+          "count": 72,
+          "sum_ms": 0.335329
+        },
+        "_conv_silu_project_kernel": {
+          "count": 144,
+          "sum_ms": 7.631605
+        },
+        "_g_beta_backward_kernel": {
+          "count": 72,
+          "sum_ms": 0.734628
+        },
+        "_qk_l2norm_repeat_backward_kernel": {
+          "count": 72,
+          "sum_ms": 7.562298
+        },
+        "_v_layout_to_conv_kernel": {
+          "count": 72,
+          "sum_ms": 3.346095
+        },
+        "_z_layout_to_qkvzba_kernel": {
+          "count": 72,
+          "sum_ms": 3.227209
+        },
+        "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_nn": {
+          "count": 192,
+          "sum_ms": 55.680782
+        },
+        "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_nt": {
+          "count": 124,
+          "sum_ms": 41.684385
+        },
+        "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_tn": {
+          "count": 388,
+          "sum_ms": 104.42413
+        },
+        "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nn": {
+          "count": 192,
+          "sum_ms": 22.569927
+        },
+        "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nt": {
+          "count": 264,
+          "sum_ms": 60.029198
+        },
+        "ampere_bf16_s1688gemm_bf16_64x128_sliced1x2_ldg8_f2f_nn": {
+          "count": 48,
+          "sum_ms": 9.27245
+        },
+        "ampere_bf16_s1688gemm_bf16_64x128_sliced1x2_ldg8_f2f_nt": {
+          "count": 48,
+          "sum_ms": 9.927036
+        },
+        "ampere_bf16_s1688gemm_bf16_64x128_sliced1x2_ldg8_f2f_tn": {
+          "count": 48,
+          "sum_ms": 10.977915
+        },
+        "causal_conv1d_channellast_bwd_kernel": {
+          "count": 72,
+          "sum_ms": 9.44345
+        },
+        "chunk_bwd_kernel_dqkwg": {
+          "count": 72,
+          "sum_ms": 13.09275
+        },
+        "chunk_bwd_kernel_dv_local": {
+          "count": 72,
+          "sum_ms": 3.722833
+        },
+        "chunk_fwd_kernel_o": {
+          "count": 72,
+          "sum_ms": 5.68674
+        },
+        "chunk_gated_delta_rule_bwd_kernel_dhu_blockdim64": {
+          "count": 72,
+          "sum_ms": 13.198883
+        },
+        "chunk_gated_delta_rule_fwd_kernel_h_blockdim64": {
+          "count": 144,
+          "sum_ms": 11.209345
+        },
+        "chunk_gated_delta_rule_fwd_kkt_solve_kernel": {
+          "count": 72,
+          "sum_ms": 2.637834
+        },
+        "chunk_local_cumsum_scalar_kernel": {
+          "count": 144,
+          "sum_ms": 0.387841
+        },
+        "cleanup": {
+          "count": 1,
+          "sum_ms": 0.002208
+        },
+        "elementwise_kernel": {
+          "count": 612,
+          "sum_ms": 6.73608
+        },
+        "elementwise_kernel_with_index": {
+          "count": 48,
+          "sum_ms": 0.056704
+        },
+        "embedding_backward_feature_kernel": {
+          "count": 4,
+          "sum_ms": 0.316129
+        },
+        "gemmk1_kernel": {
+          "count": 4,
+          "sum_ms": 0.009152
+        },
+        "index_elementwise_kernel": {
+          "count": 1,
+          "sum_ms": 0.002752
+        },
+        "multi_tensor_apply_kernel": {
+          "count": 115,
+          "sum_ms": 44.940843
+        },
+        "prepare_wy_repr_bwd_kernel": {
+          "count": 72,
+          "sum_ms": 10.685662
+        },
+        "recompute_w_u_fwd_kernel": {
+          "count": 144,
+          "sum_ms": 8.134359
+        },
+        "reduce_kernel": {
+          "count": 202,
+          "sum_ms": 3.140968
+        },
+        "rmsnorm_bwd_finalize_general_kernel": {
+          "count": 120,
+          "sum_ms": 4.009387
+        },
+        "rmsnorm_bwd_finalize_tuned_kernel": {
+          "count": 196,
+          "sum_ms": 0.667009
+        },
+        "rmsnorm_bwd_general_kernel": {
+          "count": 120,
+          "sum_ms": 4.345446
+        },
+        "rmsnorm_bwd_tuned_kernel": {
+          "count": 196,
+          "sum_ms": 4.061905
+        },
+        "rmsnorm_fwd_general_kernel": {
+          "count": 120,
+          "sum_ms": 2.558344
+        },
+        "rmsnorm_fwd_tuned_kernel": {
+          "count": 196,
+          "sum_ms": 1.464811
+        },
+        "scaled_masked_softmax_warp_backward": {
+          "count": 24,
+          "sum_ms": 7.101879
+        },
+        "scaled_masked_softmax_warp_forward": {
+          "count": 24,
+          "sum_ms": 5.931795
+        },
+        "triton_poi_fused__to_copy_arange_index_index_put_rsub_sub_view_0": {
+          "count": 4,
+          "sum_ms": 23.791209
+        },
+        "triton_poi_fused__to_copy_arange_index_index_put_rsub_sub_view_1": {
+          "count": 4,
+          "sum_ms": 0.012768
+        },
+        "triton_poi_fused__to_copy_copy__mul_unsqueeze_view_2": {
+          "count": 4,
+          "sum_ms": 29.767132
+        },
+        "triton_poi_fused__to_copy_mul_sigmoid_sigmoid_backward_view_0": {
+          "count": 24,
+          "sum_ms": 1.511939
+        },
+        "triton_poi_fused__to_copy_mul_sigmoid_view_0": {
+          "count": 24,
+          "sum_ms": 0.920065
+        },
+        "triton_poi_fused__to_copy_mul_silu_silu_backward_view_0": {
+          "count": 72,
+          "sum_ms": 4.571921
+        },
+        "triton_poi_fused__to_copy_mul_silu_view_0": {
+          "count": 72,
+          "sum_ms": 2.78868
+        },
+        "triton_poi_fused_add_cat_mul_rsub_sigmoid_silu_split_0": {
+          "count": 96,
+          "sum_ms": 10.6186
+        },
+        "triton_poi_fused_arange_bitwise_or_ge_index_index_put_lift_fresh_lt_sub_unsqueeze_view_0": {
+          "count": 4,
+          "sum_ms": 0.01216
+        },
+        "triton_poi_fused_arange_cat_index_index_put_lift_fresh_sub_unsqueeze_view_1": {
+          "count": 4,
+          "sum_ms": 0.00576
+        },
+        "triton_poi_fused_copy__div_split_unsqueeze_1": {
+          "count": 4,
+          "sum_ms": 23.970539
+        },
+        "triton_poi_fused_log_split_sub_0": {
+          "count": 4,
+          "sum_ms": 0.007712
+        },
+        "triton_poi_fused_mul_silu_split_0": {
+          "count": 96,
+          "sum_ms": 6.242927
+        },
+        "triton_red_fused__to_copy_max_0": {
+          "count": 4,
+          "sum_ms": 17.983352
+        },
+        "triton_red_fused_copy__exp_sub_sum_unsqueeze_2": {
+          "count": 4,
+          "sum_ms": 48.003316
+        },
+        "unrolled_elementwise_kernel": {
+          "count": 937,
+          "sum_ms": 46.262376
+        },
+        "vectorized_elementwise_kernel": {
+          "count": 2125,
+          "sum_ms": 43.152682
+        },
+        "vectorized_gather_kernel": {
+          "count": 4,
+          "sum_ms": 0.042976
+        }
+      }
+    },
+    {
+      "label": "training_step:5",
+      "wall_ms": 968.058602,
+      "kernel_busy_union_ms": 789.455434,
+      "memcpy_busy_union_ms": 0.020672,
+      "copy_without_kernel_ms": 0.020672,
+      "kernel_copy_overlap_ms": 0.0,
+      "neither_kernel_nor_copy_ms": 178.582496,
+      "copies": {
+        "Host-to-Device": {
+          "count": 4,
+          "bytes": 32,
+          "sum_ms": 0.001792,
+          "union_ms": 0.001792,
+          "streams": [
+            7
+          ]
+        },
+        "Device-to-Host": {
+          "count": 14,
+          "bytes": 38,
+          "sum_ms": 0.01888,
+          "union_ms": 0.01888,
+          "streams": [
+            7
+          ]
+        }
+      },
+      "top_kernels": {
+        "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_tn": {
+          "count": 388,
+          "sum_ms": 105.65018900000003
+        },
+        "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nt": {
+          "count": 264,
+          "sum_ms": 60.116190000000024
+        },
+        "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_nn": {
+          "count": 192,
+          "sum_ms": 55.87051899999999
+        },
+        "triton_red_fused_copy__exp_sub_sum_unsqueeze_2": {
+          "count": 4,
+          "sum_ms": 47.975835
+        },
+        "unrolled_elementwise_kernel": {
+          "count": 937,
+          "sum_ms": 46.28558999999999
+        },
+        "multi_tensor_apply_kernel": {
+          "count": 115,
+          "sum_ms": 44.945327999999996
+        },
+        "vectorized_elementwise_kernel": {
+          "count": 2125,
+          "sum_ms": 43.276661000000026
+        },
+        "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_nt": {
+          "count": 124,
+          "sum_ms": 41.74538000000001
+        },
+        "Kernel2": {
+          "count": 4,
+          "sum_ms": 29.818208000000002
+        },
+        "triton_poi_fused__to_copy_copy__mul_unsqueeze_view_2": {
+          "count": 4,
+          "sum_ms": 29.759743999999998
+        },
+        "triton_poi_fused_copy__div_split_unsqueeze_1": {
+          "count": 4,
+          "sum_ms": 24.003981
+        },
+        "triton_poi_fused__to_copy_arange_index_index_put_rsub_sub_view_0": {
+          "count": 4,
+          "sum_ms": 23.797164
+        },
+        "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nn": {
+          "count": 192,
+          "sum_ms": 22.591753999999995
+        },
+        "triton_red_fused__to_copy_max_0": {
+          "count": 4,
+          "sum_ms": 17.975001
+        },
+        "chunk_gated_delta_rule_bwd_kernel_dhu_blockdim64": {
+          "count": 72,
+          "sum_ms": 13.226248
+        }
+      },
+      "apis": [
+        {
+          "name": "cudaStreamSynchronize_v3020",
+          "count": 18,
+          "sum_ms": 118.345458
+        },
+        {
+          "name": "cudaDeviceSynchronize_v3020",
+          "count": 2,
+          "sum_ms": 49.187772
+        },
+        {
+          "name": "cudaLaunchKernel_v7000",
+          "count": 5604,
+          "sum_ms": 48.11069
+        },
+        {
+          "name": "cuLaunchKernelEx",
+          "count": 1368,
+          "sum_ms": 14.403351
+        },
+        {
+          "name": "cuLaunchKernel",
+          "count": 1420,
+          "sum_ms": 13.349722
+        },
+        {
+          "name": "cudaEventRecordWithFlags_v11010",
+          "count": 1018,
+          "sum_ms": 2.16805
+        },
+        {
+          "name": "cudaStreamWaitEvent_v3020",
+          "count": 1008,
+          "sum_ms": 1.645981
+        },
+        {
+          "name": "cudaStreamIsCapturing_v10000",
+          "count": 2425,
+          "sum_ms": 1.299381
+        },
+        {
+          "name": "cudaEventCreateWithFlags_v3020",
+          "count": 1018,
+          "sum_ms": 1.185843
+        },
+        {
+          "name": "cuKernelGetName",
+          "count": 5604,
+          "sum_ms": 1.166553
+        },
+        {
+          "name": "cudaEventDestroy_v3020",
+          "count": 1018,
+          "sum_ms": 0.654054
+        },
+        {
+          "name": "cudaMemcpyAsync_v3020",
+          "count": 18,
+          "sum_ms": 0.233876
+        }
+      ],
+      "all_kernels": {
+        "CatArrayBatchedCopy": {
+          "count": 148,
+          "sum_ms": 2.029765
+        },
+        "CatArrayBatchedCopy_vectorized": {
+          "count": 24,
+          "sum_ms": 1.49357
+        },
+        "DeviceCompactInitKernel": {
+          "count": 1,
+          "sum_ms": 0.001056
+        },
+        "DeviceReduceSingleTileKernel": {
+          "count": 1,
+          "sum_ms": 0.0016
+        },
+        "DeviceSelectSweepKernel": {
+          "count": 1,
+          "sum_ms": 0.001888
+        },
+        "Kernel2": {
+          "count": 4,
+          "sum_ms": 29.818208
+        },
+        "_compute_g_and_beta_kernel": {
+          "count": 72,
+          "sum_ms": 0.332768
+        },
+        "_conv_silu_project_kernel": {
+          "count": 144,
+          "sum_ms": 7.766075
+        },
+        "_g_beta_backward_kernel": {
+          "count": 72,
+          "sum_ms": 0.806211
+        },
+        "_qk_l2norm_repeat_backward_kernel": {
+          "count": 72,
+          "sum_ms": 8.135735
+        },
+        "_v_layout_to_conv_kernel": {
+          "count": 72,
+          "sum_ms": 3.917674
+        },
+        "_z_layout_to_qkvzba_kernel": {
+          "count": 72,
+          "sum_ms": 3.465095
+        },
+        "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_nn": {
+          "count": 192,
+          "sum_ms": 55.870519
+        },
+        "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_nt": {
+          "count": 124,
+          "sum_ms": 41.74538
+        },
+        "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_tn": {
+          "count": 388,
+          "sum_ms": 105.650189
+        },
+        "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nn": {
+          "count": 192,
+          "sum_ms": 22.591754
+        },
+        "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nt": {
+          "count": 264,
+          "sum_ms": 60.11619
+        },
+        "ampere_bf16_s1688gemm_bf16_64x128_sliced1x2_ldg8_f2f_nn": {
+          "count": 48,
+          "sum_ms": 9.325473
+        },
+        "ampere_bf16_s1688gemm_bf16_64x128_sliced1x2_ldg8_f2f_nt": {
+          "count": 48,
+          "sum_ms": 9.87939
+        },
+        "ampere_bf16_s1688gemm_bf16_64x128_sliced1x2_ldg8_f2f_tn": {
+          "count": 48,
+          "sum_ms": 11.029726
+        },
+        "causal_conv1d_channellast_bwd_kernel": {
+          "count": 72,
+          "sum_ms": 9.456637
+        },
+        "chunk_bwd_kernel_dqkwg": {
+          "count": 72,
+          "sum_ms": 13.099497
+        },
+        "chunk_bwd_kernel_dv_local": {
+          "count": 72,
+          "sum_ms": 3.728686
+        },
+        "chunk_fwd_kernel_o": {
+          "count": 72,
+          "sum_ms": 5.695156
+        },
+        "chunk_gated_delta_rule_bwd_kernel_dhu_blockdim64": {
+          "count": 72,
+          "sum_ms": 13.226248
+        },
+        "chunk_gated_delta_rule_fwd_kernel_h_blockdim64": {
+          "count": 144,
+          "sum_ms": 11.23194
+        },
+        "chunk_gated_delta_rule_fwd_kkt_solve_kernel": {
+          "count": 72,
+          "sum_ms": 2.677098
+        },
+        "chunk_local_cumsum_scalar_kernel": {
+          "count": 144,
+          "sum_ms": 0.39472
+        },
+        "cleanup": {
+          "count": 1,
+          "sum_ms": 0.002304
+        },
+        "elementwise_kernel": {
+          "count": 612,
+          "sum_ms": 6.770778
+        },
+        "elementwise_kernel_with_index": {
+          "count": 48,
+          "sum_ms": 0.056961
+        },
+        "embedding_backward_feature_kernel": {
+          "count": 4,
+          "sum_ms": 0.318466
+        },
+        "gemmk1_kernel": {
+          "count": 4,
+          "sum_ms": 0.009344
+        },
+        "index_elementwise_kernel": {
+          "count": 1,
+          "sum_ms": 0.002816
+        },
+        "multi_tensor_apply_kernel": {
+          "count": 115,
+          "sum_ms": 44.945328
+        },
+        "prepare_wy_repr_bwd_kernel": {
+          "count": 72,
+          "sum_ms": 10.658337
+        },
+        "recompute_w_u_fwd_kernel": {
+          "count": 144,
+          "sum_ms": 8.147543
+        },
+        "reduce_kernel": {
+          "count": 202,
+          "sum_ms": 3.158508
+        },
+        "rmsnorm_bwd_finalize_general_kernel": {
+          "count": 120,
+          "sum_ms": 4.018895
+        },
+        "rmsnorm_bwd_finalize_tuned_kernel": {
+          "count": 196,
+          "sum_ms": 0.668098
+        },
+        "rmsnorm_bwd_general_kernel": {
+          "count": 120,
+          "sum_ms": 4.341582
+        },
+        "rmsnorm_bwd_tuned_kernel": {
+          "count": 196,
+          "sum_ms": 4.078185
+        },
+        "rmsnorm_fwd_general_kernel": {
+          "count": 120,
+          "sum_ms": 2.56622
+        },
+        "rmsnorm_fwd_tuned_kernel": {
+          "count": 196,
+          "sum_ms": 1.481348
+        },
+        "scaled_masked_softmax_warp_backward": {
+          "count": 24,
+          "sum_ms": 7.101367
+        },
+        "scaled_masked_softmax_warp_forward": {
+          "count": 24,
+          "sum_ms": 5.935989
+        },
+        "triton_poi_fused__to_copy_arange_index_index_put_rsub_sub_view_0": {
+          "count": 4,
+          "sum_ms": 23.797164
+        },
+        "triton_poi_fused__to_copy_arange_index_index_put_rsub_sub_view_1": {
+          "count": 4,
+          "sum_ms": 0.012768
+        },
+        "triton_poi_fused__to_copy_copy__mul_unsqueeze_view_2": {
+          "count": 4,
+          "sum_ms": 29.759744
+        },
+        "triton_poi_fused__to_copy_mul_sigmoid_sigmoid_backward_view_0": {
+          "count": 24,
+          "sum_ms": 1.512004
+        },
+        "triton_poi_fused__to_copy_mul_sigmoid_view_0": {
+          "count": 24,
+          "sum_ms": 0.921251
+        },
+        "triton_poi_fused__to_copy_mul_silu_silu_backward_view_0": {
+          "count": 72,
+          "sum_ms": 4.571981
+        },
+        "triton_poi_fused__to_copy_mul_silu_view_0": {
+          "count": 72,
+          "sum_ms": 2.785416
+        },
+        "triton_poi_fused_add_cat_mul_rsub_sigmoid_silu_split_0": {
+          "count": 96,
+          "sum_ms": 10.644645
+        },
+        "triton_poi_fused_arange_bitwise_or_ge_index_index_put_lift_fresh_lt_sub_unsqueeze_view_0": {
+          "count": 4,
+          "sum_ms": 0.012096
+        },
+        "triton_poi_fused_arange_cat_index_index_put_lift_fresh_sub_unsqueeze_view_1": {
+          "count": 4,
+          "sum_ms": 0.005824
+        },
+        "triton_poi_fused_copy__div_split_unsqueeze_1": {
+          "count": 4,
+          "sum_ms": 24.003981
+        },
+        "triton_poi_fused_log_split_sub_0": {
+          "count": 4,
+          "sum_ms": 0.007872
+        },
+        "triton_poi_fused_mul_silu_split_0": {
+          "count": 96,
+          "sum_ms": 6.257174
+        },
+        "triton_red_fused__to_copy_max_0": {
+          "count": 4,
+          "sum_ms": 17.975001
+        },
+        "triton_red_fused_copy__exp_sub_sum_unsqueeze_2": {
+          "count": 4,
+          "sum_ms": 47.975835
+        },
+        "unrolled_elementwise_kernel": {
+          "count": 937,
+          "sum_ms": 46.28559
+        },
+        "vectorized_elementwise_kernel": {
+          "count": 2125,
+          "sum_ms": 43.276661
+        },
+        "vectorized_gather_kernel": {
+          "count": 4,
+          "sum_ms": 0.042432
+        }
+      }
+    }
+  ],
+  "candidate": [
+    {
+      "label": "training_step:3",
+      "wall_ms": 1129.819157,
+      "kernel_busy_union_ms": 785.127118,
+      "memcpy_busy_union_ms": 0.030624,
+      "copy_without_kernel_ms": 0.030624,
+      "kernel_copy_overlap_ms": 0.0,
+      "neither_kernel_nor_copy_ms": 344.661415,
+      "copies": {
+        "Host-to-Device": {
+          "count": 4,
+          "bytes": 32,
+          "sum_ms": 0.001792,
+          "union_ms": 0.001792,
+          "streams": [
+            7
+          ]
+        },
+        "Device-to-Host": {
+          "count": 14,
+          "bytes": 38,
+          "sum_ms": 0.028832,
+          "union_ms": 0.028832,
+          "streams": [
+            7
+          ]
+        }
+      },
+      "top_kernels": {
+        "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_tn": {
+          "count": 388,
+          "sum_ms": 104.58775300000009
+        },
+        "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nt": {
+          "count": 264,
+          "sum_ms": 59.399184999999974
+        },
+        "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_nn": {
+          "count": 192,
+          "sum_ms": 54.75516700000003
+        },
+        "triton_red_fused_copy__exp_sub_sum_unsqueeze_2": {
+          "count": 4,
+          "sum_ms": 47.95380299999999
+        },
+        "unrolled_elementwise_kernel": {
+          "count": 937,
+          "sum_ms": 46.204835999999915
+        },
+        "multi_tensor_apply_kernel": {
+          "count": 115,
+          "sum_ms": 44.973696000000004
+        },
+        "vectorized_elementwise_kernel": {
+          "count": 2125,
+          "sum_ms": 43.32846300000002
+        },
+        "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_nt": {
+          "count": 124,
+          "sum_ms": 41.588181
+        },
+        "Kernel2": {
+          "count": 4,
+          "sum_ms": 29.877227
+        },
+        "triton_poi_fused__to_copy_copy__mul_unsqueeze_view_2": {
+          "count": 4,
+          "sum_ms": 29.742729999999998
+        },
+        "triton_poi_fused_copy__div_split_unsqueeze_1": {
+          "count": 4,
+          "sum_ms": 24.003415
+        },
+        "triton_poi_fused__to_copy_arange_index_index_put_rsub_sub_view_0": {
+          "count": 4,
+          "sum_ms": 23.854709
+        },
+        "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nn": {
+          "count": 192,
+          "sum_ms": 22.284395
+        },
+        "triton_red_fused__to_copy_max_0": {
+          "count": 4,
+          "sum_ms": 17.976447999999998
+        },
+        "chunk_gated_delta_rule_bwd_kernel_dhu_blockdim64": {
+          "count": 72,
+          "sum_ms": 13.087311
+        }
+      },
+      "apis": [
+        {
+          "name": "cudaStreamSynchronize_v3020",
+          "count": 18,
+          "sum_ms": 117.772941
+        },
+        {
+          "name": "cudaDeviceSynchronize_v3020",
+          "count": 2,
+          "sum_ms": 58.048988
+        },
+        {
+          "name": "cudaLaunchKernel_v7000",
+          "count": 5604,
+          "sum_ms": 52.548391
+        },
+        {
+          "name": "cuLaunchKernelEx",
+          "count": 1368,
+          "sum_ms": 16.917098
+        },
+        {
+          "name": "cuLaunchKernel",
+          "count": 1420,
+          "sum_ms": 15.416905
+        },
+        {
+          "name": "cudaEventRecordWithFlags_v11010",
+          "count": 1018,
+          "sum_ms": 2.316752
+        },
+        {
+          "name": "cudaStreamWaitEvent_v3020",
+          "count": 1008,
+          "sum_ms": 1.742849
+        },
+        {
+          "name": "cudaStreamIsCapturing_v10000",
+          "count": 2425,
+          "sum_ms": 1.538377
+        },
+        {
+          "name": "cudaEventCreateWithFlags_v3020",
+          "count": 1018,
+          "sum_ms": 1.39941
+        },
+        {
+          "name": "cuKernelGetName",
+          "count": 5604,
+          "sum_ms": 1.249682
+        },
+        {
+          "name": "cudaEventDestroy_v3020",
+          "count": 1018,
+          "sum_ms": 0.764372
+        },
+        {
+          "name": "cudaMemcpyAsync_v3020",
+          "count": 18,
+          "sum_ms": 0.246193
+        }
+      ],
+      "all_kernels": {
+        "CatArrayBatchedCopy": {
+          "count": 148,
+          "sum_ms": 1.999307
+        },
+        "CatArrayBatchedCopy_vectorized": {
+          "count": 24,
+          "sum_ms": 1.492777
+        },
+        "DeviceCompactInitKernel": {
+          "count": 1,
+          "sum_ms": 0.001056
+        },
+        "DeviceReduceSingleTileKernel": {
+          "count": 1,
+          "sum_ms": 0.001728
+        },
+        "DeviceSelectSweepKernel": {
+          "count": 1,
+          "sum_ms": 0.001888
+        },
+        "Kernel2": {
+          "count": 4,
+          "sum_ms": 29.877227
+        },
+        "_compute_g_and_beta_kernel": {
+          "count": 72,
+          "sum_ms": 0.333218
+        },
+        "_conv_silu_project_kernel": {
+          "count": 144,
+          "sum_ms": 7.587835
+        },
+        "_g_beta_backward_kernel": {
+          "count": 72,
+          "sum_ms": 1.15757
+        },
+        "_qk_l2norm_repeat_backward_kernel": {
+          "count": 72,
+          "sum_ms": 8.514326
+        },
+        "_v_layout_to_conv_kernel": {
+          "count": 72,
+          "sum_ms": 3.183943
+        },
+        "_z_layout_to_qkvzba_kernel": {
+          "count": 72,
+          "sum_ms": 3.148712
+        },
+        "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_nn": {
+          "count": 192,
+          "sum_ms": 54.755167
+        },
+        "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_nt": {
+          "count": 124,
+          "sum_ms": 41.588181
+        },
+        "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_tn": {
+          "count": 388,
+          "sum_ms": 104.587753
+        },
+        "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nn": {
+          "count": 192,
+          "sum_ms": 22.284395
+        },
+        "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nt": {
+          "count": 264,
+          "sum_ms": 59.399185
+        },
+        "ampere_bf16_s1688gemm_bf16_64x128_sliced1x2_ldg8_f2f_nn": {
+          "count": 48,
+          "sum_ms": 9.204449
+        },
+        "ampere_bf16_s1688gemm_bf16_64x128_sliced1x2_ldg8_f2f_nt": {
+          "count": 48,
+          "sum_ms": 9.744195
+        },
+        "ampere_bf16_s1688gemm_bf16_64x128_sliced1x2_ldg8_f2f_tn": {
+          "count": 48,
+          "sum_ms": 10.887752
+        },
+        "causal_conv1d_channellast_bwd_kernel": {
+          "count": 72,
+          "sum_ms": 9.443623
+        },
+        "chunk_bwd_kernel_dqkwg": {
+          "count": 72,
+          "sum_ms": 13.01995
+        },
+        "chunk_bwd_kernel_dv_local": {
+          "count": 72,
+          "sum_ms": 3.718671
+        },
+        "chunk_fwd_kernel_o": {
+          "count": 72,
+          "sum_ms": 5.69016
+        },
+        "chunk_gated_delta_rule_bwd_kernel_dhu_blockdim64": {
+          "count": 72,
+          "sum_ms": 13.087311
+        },
+        "chunk_gated_delta_rule_fwd_kernel_h_blockdim64": {
+          "count": 144,
+          "sum_ms": 11.207536
+        },
+        "chunk_gated_delta_rule_fwd_kkt_solve_kernel": {
+          "count": 72,
+          "sum_ms": 2.645351
+        },
+        "chunk_local_cumsum_scalar_kernel": {
+          "count": 144,
+          "sum_ms": 0.385827
+        },
+        "cleanup": {
+          "count": 1,
+          "sum_ms": 0.002304
+        },
+        "elementwise_kernel": {
+          "count": 612,
+          "sum_ms": 6.725202
+        },
+        "elementwise_kernel_with_index": {
+          "count": 48,
+          "sum_ms": 0.055808
+        },
+        "embedding_backward_feature_kernel": {
+          "count": 4,
+          "sum_ms": 0.319745
+        },
+        "gemmk1_kernel": {
+          "count": 4,
+          "sum_ms": 0.009728
+        },
+        "index_elementwise_kernel": {
+          "count": 1,
+          "sum_ms": 0.002912
+        },
+        "multi_tensor_apply_kernel": {
+          "count": 115,
+          "sum_ms": 44.973696
+        },
+        "prepare_wy_repr_bwd_kernel": {
+          "count": 72,
+          "sum_ms": 10.657195
+        },
+        "recompute_w_u_fwd_kernel": {
+          "count": 144,
+          "sum_ms": 8.121722
+        },
+        "reduce_kernel": {
+          "count": 202,
+          "sum_ms": 3.111052
+        },
+        "rmsnorm_bwd_finalize_general_kernel": {
+          "count": 120,
+          "sum_ms": 3.958258
+        },
+        "rmsnorm_bwd_finalize_tuned_kernel": {
+          "count": 196,
+          "sum_ms": 0.663206
+        },
+        "rmsnorm_bwd_general_kernel": {
+          "count": 120,
+          "sum_ms": 4.343788
+        },
+        "rmsnorm_bwd_tuned_kernel": {
+          "count": 196,
+          "sum_ms": 4.064306
+        },
+        "rmsnorm_fwd_general_kernel": {
+          "count": 120,
+          "sum_ms": 2.560428
+        },
+        "rmsnorm_fwd_tuned_kernel": {
+          "count": 196,
+          "sum_ms": 1.464872
+        },
+        "scaled_masked_softmax_warp_backward": {
+          "count": 24,
+          "sum_ms": 7.09052
+        },
+        "scaled_masked_softmax_warp_forward": {
+          "count": 24,
+          "sum_ms": 5.934166
+        },
+        "triton_poi_fused__to_copy_arange_index_index_put_rsub_sub_view_0": {
+          "count": 4,
+          "sum_ms": 23.854709
+        },
+        "triton_poi_fused__to_copy_arange_index_index_put_rsub_sub_view_1": {
+          "count": 4,
+          "sum_ms": 0.012736
+        },
+        "triton_poi_fused__to_copy_copy__mul_unsqueeze_view_2": {
+          "count": 4,
+          "sum_ms": 29.74273
+        },
+        "triton_poi_fused__to_copy_mul_sigmoid_sigmoid_backward_view_0": {
+          "count": 24,
+          "sum_ms": 1.513094
+        },
+        "triton_poi_fused__to_copy_mul_sigmoid_view_0": {
+          "count": 24,
+          "sum_ms": 0.917349
+        },
+        "triton_poi_fused__to_copy_mul_silu_silu_backward_view_0": {
+          "count": 72,
+          "sum_ms": 4.565715
+        },
+        "triton_poi_fused__to_copy_mul_silu_view_0": {
+          "count": 72,
+          "sum_ms": 2.777901
+        },
+        "triton_poi_fused_add_cat_mul_rsub_sigmoid_silu_split_0": {
+          "count": 96,
+          "sum_ms": 10.659911
+        },
+        "triton_poi_fused_arange_bitwise_or_ge_index_index_put_lift_fresh_lt_sub_unsqueeze_view_0": {
+          "count": 4,
+          "sum_ms": 0.012384
+        },
+        "triton_poi_fused_arange_cat_index_index_put_lift_fresh_sub_unsqueeze_view_1": {
+          "count": 4,
+          "sum_ms": 0.005792
+        },
+        "triton_poi_fused_copy__div_split_unsqueeze_1": {
+          "count": 4,
+          "sum_ms": 24.003415
+        },
+        "triton_poi_fused_log_split_sub_0": {
+          "count": 4,
+          "sum_ms": 0.007808
+        },
+        "triton_poi_fused_mul_silu_split_0": {
+          "count": 96,
+          "sum_ms": 6.234039
+        },
+        "triton_red_fused__to_copy_max_0": {
+          "count": 4,
+          "sum_ms": 17.976448
+        },
+        "triton_red_fused_copy__exp_sub_sum_unsqueeze_2": {
+          "count": 4,
+          "sum_ms": 47.953803
+        },
+        "unrolled_elementwise_kernel": {
+          "count": 937,
+          "sum_ms": 46.204836
+        },
+        "vectorized_elementwise_kernel": {
+          "count": 2125,
+          "sum_ms": 43.328463
+        },
+        "vectorized_gather_kernel": {
+          "count": 4,
+          "sum_ms": 0.04224
+        }
+      }
+    },
+    {
+      "label": "training_step:4",
+      "wall_ms": 1036.1765,
+      "kernel_busy_union_ms": 786.453097,
+      "memcpy_busy_union_ms": 0.03216,
+      "copy_without_kernel_ms": 0.03216,
+      "kernel_copy_overlap_ms": 0.0,
+      "neither_kernel_nor_copy_ms": 249.691243,
+      "copies": {
+        "Host-to-Device": {
+          "count": 4,
+          "bytes": 32,
+          "sum_ms": 0.001824,
+          "union_ms": 0.001824,
+          "streams": [
+            7
+          ]
+        },
+        "Device-to-Host": {
+          "count": 14,
+          "bytes": 38,
+          "sum_ms": 0.030336,
+          "union_ms": 0.030336,
+          "streams": [
+            7
+          ]
+        }
+      },
+      "top_kernels": {
+        "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_tn": {
+          "count": 388,
+          "sum_ms": 104.91565400000002
+        },
+        "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nt": {
+          "count": 264,
+          "sum_ms": 59.457015000000034
+        },
+        "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_nn": {
+          "count": 192,
+          "sum_ms": 55.11309699999997
+        },
+        "triton_red_fused_copy__exp_sub_sum_unsqueeze_2": {
+          "count": 4,
+          "sum_ms": 47.952556
+        },
+        "unrolled_elementwise_kernel": {
+          "count": 937,
+          "sum_ms": 46.24706299999993
+        },
+        "multi_tensor_apply_kernel": {
+          "count": 115,
+          "sum_ms": 44.958895999999996
+        },
+        "vectorized_elementwise_kernel": {
+          "count": 2125,
+          "sum_ms": 43.64632900000008
+        },
+        "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_nt": {
+          "count": 124,
+          "sum_ms": 41.71605399999997
+        },
+        "Kernel2": {
+          "count": 4,
+          "sum_ms": 29.933998
+        },
+        "triton_poi_fused__to_copy_copy__mul_unsqueeze_view_2": {
+          "count": 4,
+          "sum_ms": 29.743021
+        },
+        "triton_poi_fused_copy__div_split_unsqueeze_1": {
+          "count": 4,
+          "sum_ms": 23.971829
+        },
+        "triton_poi_fused__to_copy_arange_index_index_put_rsub_sub_view_0": {
+          "count": 4,
+          "sum_ms": 23.833909
+        },
+        "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nn": {
+          "count": 192,
+          "sum_ms": 22.363683
+        },
+        "triton_red_fused__to_copy_max_0": {
+          "count": 4,
+          "sum_ms": 17.98272
+        },
+        "chunk_gated_delta_rule_bwd_kernel_dhu_blockdim64": {
+          "count": 72,
+          "sum_ms": 13.163249999999998
+        }
+      },
+      "apis": [
+        {
+          "name": "cudaStreamSynchronize_v3020",
+          "count": 18,
+          "sum_ms": 118.071424
+        },
+        {
+          "name": "cudaDeviceSynchronize_v3020",
+          "count": 2,
+          "sum_ms": 52.093443
+        },
+        {
+          "name": "cudaLaunchKernel_v7000",
+          "count": 5604,
+          "sum_ms": 50.80817
+        },
+        {
+          "name": "cuLaunchKernelEx",
+          "count": 1368,
+          "sum_ms": 15.41515
+        },
+        {
+          "name": "cuLaunchKernel",
+          "count": 1420,
+          "sum_ms": 13.929189
+        },
+        {
+          "name": "cudaEventRecordWithFlags_v11010",
+          "count": 1018,
+          "sum_ms": 2.067776
+        },
+        {
+          "name": "cudaStreamWaitEvent_v3020",
+          "count": 1008,
+          "sum_ms": 1.615608
+        },
+        {
+          "name": "cudaStreamIsCapturing_v10000",
+          "count": 2425,
+          "sum_ms": 1.332586
+        },
+        {
+          "name": "cudaEventCreateWithFlags_v3020",
+          "count": 1018,
+          "sum_ms": 1.25322
+        },
+        {
+          "name": "cuKernelGetName",
+          "count": 5604,
+          "sum_ms": 1.176727
+        },
+        {
+          "name": "cudaEventDestroy_v3020",
+          "count": 1018,
+          "sum_ms": 0.686906
+        },
+        {
+          "name": "cudaMemcpyAsync_v3020",
+          "count": 18,
+          "sum_ms": 0.273342
+        }
+      ],
+      "all_kernels": {
+        "CatArrayBatchedCopy": {
+          "count": 148,
+          "sum_ms": 2.010982
+        },
+        "CatArrayBatchedCopy_vectorized": {
+          "count": 24,
+          "sum_ms": 1.494182
+        },
+        "DeviceCompactInitKernel": {
+          "count": 1,
+          "sum_ms": 0.001056
+        },
+        "DeviceReduceSingleTileKernel": {
+          "count": 1,
+          "sum_ms": 0.001568
+        },
+        "DeviceSelectSweepKernel": {
+          "count": 1,
+          "sum_ms": 0.001984
+        },
+        "Kernel2": {
+          "count": 4,
+          "sum_ms": 29.933998
+        },
+        "_compute_g_and_beta_kernel": {
+          "count": 72,
+          "sum_ms": 0.338785
+        },
+        "_conv_silu_project_kernel": {
+          "count": 144,
+          "sum_ms": 7.641368
+        },
+        "_g_beta_backward_kernel": {
+          "count": 72,
+          "sum_ms": 1.129924
+        },
+        "_qk_l2norm_repeat_backward_kernel": {
+          "count": 72,
+          "sum_ms": 8.645763
+        },
+        "_v_layout_to_conv_kernel": {
+          "count": 72,
+          "sum_ms": 3.288428
+        },
+        "_z_layout_to_qkvzba_kernel": {
+          "count": 72,
+          "sum_ms": 3.30555
+        },
+        "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_nn": {
+          "count": 192,
+          "sum_ms": 55.113097
+        },
+        "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_nt": {
+          "count": 124,
+          "sum_ms": 41.716054
+        },
+        "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_tn": {
+          "count": 388,
+          "sum_ms": 104.915654
+        },
+        "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nn": {
+          "count": 192,
+          "sum_ms": 22.363683
+        },
+        "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nt": {
+          "count": 264,
+          "sum_ms": 59.457015
+        },
+        "ampere_bf16_s1688gemm_bf16_64x128_sliced1x2_ldg8_f2f_nn": {
+          "count": 48,
+          "sum_ms": 9.243326
+        },
+        "ampere_bf16_s1688gemm_bf16_64x128_sliced1x2_ldg8_f2f_nt": {
+          "count": 48,
+          "sum_ms": 9.786214
+        },
+        "ampere_bf16_s1688gemm_bf16_64x128_sliced1x2_ldg8_f2f_tn": {
+          "count": 48,
+          "sum_ms": 10.88749
+        },
+        "causal_conv1d_channellast_bwd_kernel": {
+          "count": 72,
+          "sum_ms": 9.434367
+        },
+        "chunk_bwd_kernel_dqkwg": {
+          "count": 72,
+          "sum_ms": 13.026667
+        },
+        "chunk_bwd_kernel_dv_local": {
+          "count": 72,
+          "sum_ms": 3.719017
+        },
+        "chunk_fwd_kernel_o": {
+          "count": 72,
+          "sum_ms": 5.685107
+        },
+        "chunk_gated_delta_rule_bwd_kernel_dhu_blockdim64": {
+          "count": 72,
+          "sum_ms": 13.16325
+        },
+        "chunk_gated_delta_rule_fwd_kernel_h_blockdim64": {
+          "count": 144,
+          "sum_ms": 11.22827
+        },
+        "chunk_gated_delta_rule_fwd_kkt_solve_kernel": {
+          "count": 72,
+          "sum_ms": 2.652777
+        },
+        "chunk_local_cumsum_scalar_kernel": {
+          "count": 144,
+          "sum_ms": 0.387459
+        },
+        "cleanup": {
+          "count": 1,
+          "sum_ms": 0.002272
+        },
+        "elementwise_kernel": {
+          "count": 612,
+          "sum_ms": 6.730228
+        },
+        "elementwise_kernel_with_index": {
+          "count": 48,
+          "sum_ms": 0.055872
+        },
+        "embedding_backward_feature_kernel": {
+          "count": 4,
+          "sum_ms": 0.318209
+        },
+        "gemmk1_kernel": {
+          "count": 4,
+          "sum_ms": 0.009376
+        },
+        "index_elementwise_kernel": {
+          "count": 1,
+          "sum_ms": 0.002784
+        },
+        "multi_tensor_apply_kernel": {
+          "count": 115,
+          "sum_ms": 44.958896
+        },
+        "prepare_wy_repr_bwd_kernel": {
+          "count": 72,
+          "sum_ms": 10.673163
+        },
+        "recompute_w_u_fwd_kernel": {
+          "count": 144,
+          "sum_ms": 8.133597
+        },
+        "reduce_kernel": {
+          "count": 202,
+          "sum_ms": 3.130163
+        },
+        "rmsnorm_bwd_finalize_general_kernel": {
+          "count": 120,
+          "sum_ms": 3.99134
+        },
+        "rmsnorm_bwd_finalize_tuned_kernel": {
+          "count": 196,
+          "sum_ms": 0.661251
+        },
+        "rmsnorm_bwd_general_kernel": {
+          "count": 120,
+          "sum_ms": 4.341133
+        },
+        "rmsnorm_bwd_tuned_kernel": {
+          "count": 196,
+          "sum_ms": 4.062346
+        },
+        "rmsnorm_fwd_general_kernel": {
+          "count": 120,
+          "sum_ms": 2.559336
+        },
+        "rmsnorm_fwd_tuned_kernel": {
+          "count": 196,
+          "sum_ms": 1.467685
+        },
+        "scaled_masked_softmax_warp_backward": {
+          "count": 24,
+          "sum_ms": 7.094588
+        },
+        "scaled_masked_softmax_warp_forward": {
+          "count": 24,
+          "sum_ms": 5.919319
+        },
+        "triton_poi_fused__to_copy_arange_index_index_put_rsub_sub_view_0": {
+          "count": 4,
+          "sum_ms": 23.833909
+        },
+        "triton_poi_fused__to_copy_arange_index_index_put_rsub_sub_view_1": {
+          "count": 4,
+          "sum_ms": 0.012928
+        },
+        "triton_poi_fused__to_copy_copy__mul_unsqueeze_view_2": {
+          "count": 4,
+          "sum_ms": 29.743021
+        },
+        "triton_poi_fused__to_copy_mul_sigmoid_sigmoid_backward_view_0": {
+          "count": 24,
+          "sum_ms": 1.512325
+        },
+        "triton_poi_fused__to_copy_mul_sigmoid_view_0": {
+          "count": 24,
+          "sum_ms": 0.919907
+        },
+        "triton_poi_fused__to_copy_mul_silu_silu_backward_view_0": {
+          "count": 72,
+          "sum_ms": 4.568021
+        },
+        "triton_poi_fused__to_copy_mul_silu_view_0": {
+          "count": 72,
+          "sum_ms": 2.779561
+        },
+        "triton_poi_fused_add_cat_mul_rsub_sigmoid_silu_split_0": {
+          "count": 96,
+          "sum_ms": 10.676359
+        },
+        "triton_poi_fused_arange_bitwise_or_ge_index_index_put_lift_fresh_lt_sub_unsqueeze_view_0": {
+          "count": 4,
+          "sum_ms": 0.012032
+        },
+        "triton_poi_fused_arange_cat_index_index_put_lift_fresh_sub_unsqueeze_view_1": {
+          "count": 4,
+          "sum_ms": 0.00576
+        },
+        "triton_poi_fused_copy__div_split_unsqueeze_1": {
+          "count": 4,
+          "sum_ms": 23.971829
+        },
+        "triton_poi_fused_log_split_sub_0": {
+          "count": 4,
+          "sum_ms": 0.007808
+        },
+        "triton_poi_fused_mul_silu_split_0": {
+          "count": 96,
+          "sum_ms": 6.254517
+        },
+        "triton_red_fused__to_copy_max_0": {
+          "count": 4,
+          "sum_ms": 17.98272
+        },
+        "triton_red_fused_copy__exp_sub_sum_unsqueeze_2": {
+          "count": 4,
+          "sum_ms": 47.952556
+        },
+        "unrolled_elementwise_kernel": {
+          "count": 937,
+          "sum_ms": 46.247063
+        },
+        "vectorized_elementwise_kernel": {
+          "count": 2125,
+          "sum_ms": 43.646329
+        },
+        "vectorized_gather_kernel": {
+          "count": 4,
+          "sum_ms": 0.042272
+        }
+      }
+    },
+    {
+      "label": "training_step:5",
+      "wall_ms": 1075.458186,
+      "kernel_busy_union_ms": 785.869688,
+      "memcpy_busy_union_ms": 0.02112,
+      "copy_without_kernel_ms": 0.02112,
+      "kernel_copy_overlap_ms": 0.0,
+      "neither_kernel_nor_copy_ms": 289.567378,
+      "copies": {
+        "Host-to-Device": {
+          "count": 4,
+          "bytes": 32,
+          "sum_ms": 0.001824,
+          "union_ms": 0.001824,
+          "streams": [
+            7
+          ]
+        },
+        "Device-to-Host": {
+          "count": 14,
+          "bytes": 38,
+          "sum_ms": 0.019296,
+          "union_ms": 0.019296,
+          "streams": [
+            7
+          ]
+        }
+      },
+      "top_kernels": {
+        "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_tn": {
+          "count": 388,
+          "sum_ms": 104.19315900000001
+        },
+        "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nt": {
+          "count": 264,
+          "sum_ms": 59.524035999999995
+        },
+        "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_nn": {
+          "count": 192,
+          "sum_ms": 55.145843000000006
+        },
+        "triton_red_fused_copy__exp_sub_sum_unsqueeze_2": {
+          "count": 4,
+          "sum_ms": 47.92934
+        },
+        "unrolled_elementwise_kernel": {
+          "count": 937,
+          "sum_ms": 46.22883599999992
+        },
+        "multi_tensor_apply_kernel": {
+          "count": 115,
+          "sum_ms": 44.97550299999999
+        },
+        "vectorized_elementwise_kernel": {
+          "count": 2125,
+          "sum_ms": 43.31236300000005
+        },
+        "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_nt": {
+          "count": 124,
+          "sum_ms": 41.75769599999999
+        },
+        "Kernel2": {
+          "count": 4,
+          "sum_ms": 29.996405000000003
+        },
+        "triton_poi_fused__to_copy_copy__mul_unsqueeze_view_2": {
+          "count": 4,
+          "sum_ms": 29.734196
+        },
+        "triton_poi_fused_copy__div_split_unsqueeze_1": {
+          "count": 4,
+          "sum_ms": 23.978302
+        },
+        "triton_poi_fused__to_copy_arange_index_index_put_rsub_sub_view_0": {
+          "count": 4,
+          "sum_ms": 23.834429
+        },
+        "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nn": {
+          "count": 192,
+          "sum_ms": 22.409450000000007
+        },
+        "triton_red_fused__to_copy_max_0": {
+          "count": 4,
+          "sum_ms": 17.983174
+        },
+        "chunk_gated_delta_rule_bwd_kernel_dhu_blockdim64": {
+          "count": 72,
+          "sum_ms": 13.152504000000002
+        }
+      },
+      "apis": [
+        {
+          "name": "cudaStreamSynchronize_v3020",
+          "count": 18,
+          "sum_ms": 118.287445
+        },
+        {
+          "name": "cudaDeviceSynchronize_v3020",
+          "count": 2,
+          "sum_ms": 53.751364
+        },
+        {
+          "name": "cudaLaunchKernel_v7000",
+          "count": 5604,
+          "sum_ms": 51.337823
+        },
+        {
+          "name": "cuLaunchKernelEx",
+          "count": 1368,
+          "sum_ms": 15.875763
+        },
+        {
+          "name": "cuLaunchKernel",
+          "count": 1420,
+          "sum_ms": 14.435751
+        },
+        {
+          "name": "cudaEventRecordWithFlags_v11010",
+          "count": 1018,
+          "sum_ms": 2.358837
+        },
+        {
+          "name": "cudaStreamWaitEvent_v3020",
+          "count": 1008,
+          "sum_ms": 1.730925
+        },
+        {
+          "name": "cudaStreamIsCapturing_v10000",
+          "count": 2425,
+          "sum_ms": 1.441868
+        },
+        {
+          "name": "cudaEventCreateWithFlags_v3020",
+          "count": 1018,
+          "sum_ms": 1.365492
+        },
+        {
+          "name": "cuKernelGetName",
+          "count": 5604,
+          "sum_ms": 1.190394
+        },
+        {
+          "name": "cudaEventDestroy_v3020",
+          "count": 1018,
+          "sum_ms": 0.76542
+        },
+        {
+          "name": "cudaMemcpyAsync_v3020",
+          "count": 18,
+          "sum_ms": 0.20855
+        }
+      ],
+      "all_kernels": {
+        "CatArrayBatchedCopy": {
+          "count": 148,
+          "sum_ms": 1.990953
+        },
+        "CatArrayBatchedCopy_vectorized": {
+          "count": 24,
+          "sum_ms": 1.493413
+        },
+        "DeviceCompactInitKernel": {
+          "count": 1,
+          "sum_ms": 0.001056
+        },
+        "DeviceReduceSingleTileKernel": {
+          "count": 1,
+          "sum_ms": 0.001568
+        },
+        "DeviceSelectSweepKernel": {
+          "count": 1,
+          "sum_ms": 0.001984
+        },
+        "Kernel2": {
+          "count": 4,
+          "sum_ms": 29.996405
+        },
+        "_compute_g_and_beta_kernel": {
+          "count": 72,
+          "sum_ms": 0.33533
+        },
+        "_conv_silu_project_kernel": {
+          "count": 144,
+          "sum_ms": 7.618749
+        },
+        "_g_beta_backward_kernel": {
+          "count": 72,
+          "sum_ms": 1.022754
+        },
+        "_qk_l2norm_repeat_backward_kernel": {
+          "count": 72,
+          "sum_ms": 8.010152
+        },
+        "_v_layout_to_conv_kernel": {
+          "count": 72,
+          "sum_ms": 3.032529
+        },
+        "_z_layout_to_qkvzba_kernel": {
+          "count": 72,
+          "sum_ms": 2.844334
+        },
+        "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_nn": {
+          "count": 192,
+          "sum_ms": 55.145843
+        },
+        "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_nt": {
+          "count": 124,
+          "sum_ms": 41.757696
+        },
+        "ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_32x3_tn": {
+          "count": 388,
+          "sum_ms": 104.193159
+        },
+        "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nn": {
+          "count": 192,
+          "sum_ms": 22.40945
+        },
+        "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nt": {
+          "count": 264,
+          "sum_ms": 59.524036
+        },
+        "ampere_bf16_s1688gemm_bf16_64x128_sliced1x2_ldg8_f2f_nn": {
+          "count": 48,
+          "sum_ms": 9.20394
+        },
+        "ampere_bf16_s1688gemm_bf16_64x128_sliced1x2_ldg8_f2f_nt": {
+          "count": 48,
+          "sum_ms": 9.811848
+        },
+        "ampere_bf16_s1688gemm_bf16_64x128_sliced1x2_ldg8_f2f_tn": {
+          "count": 48,
+          "sum_ms": 10.871627
+        },
+        "causal_conv1d_channellast_bwd_kernel": {
+          "count": 72,
+          "sum_ms": 9.444159
+        },
+        "chunk_bwd_kernel_dqkwg": {
+          "count": 72,
+          "sum_ms": 13.049008
+        },
+        "chunk_bwd_kernel_dv_local": {
+          "count": 72,
+          "sum_ms": 3.714953
+        },
+        "chunk_fwd_kernel_o": {
+          "count": 72,
+          "sum_ms": 5.686005
+        },
+        "chunk_gated_delta_rule_bwd_kernel_dhu_blockdim64": {
+          "count": 72,
+          "sum_ms": 13.152504
+        },
+        "chunk_gated_delta_rule_fwd_kernel_h_blockdim64": {
+          "count": 144,
+          "sum_ms": 11.203693
+        },
+        "chunk_gated_delta_rule_fwd_kkt_solve_kernel": {
+          "count": 72,
+          "sum_ms": 2.631816
+        },
+        "chunk_local_cumsum_scalar_kernel": {
+          "count": 144,
+          "sum_ms": 0.386276
+        },
+        "cleanup": {
+          "count": 1,
+          "sum_ms": 0.002272
+        },
+        "elementwise_kernel": {
+          "count": 612,
+          "sum_ms": 6.716216
+        },
+        "elementwise_kernel_with_index": {
+          "count": 48,
+          "sum_ms": 0.055392
+        },
+        "embedding_backward_feature_kernel": {
+          "count": 4,
+          "sum_ms": 0.311075
+        },
+        "gemmk1_kernel": {
+          "count": 4,
+          "sum_ms": 0.009216
+        },
+        "index_elementwise_kernel": {
+          "count": 1,
+          "sum_ms": 0.002688
+        },
+        "multi_tensor_apply_kernel": {
+          "count": 115,
+          "sum_ms": 44.975503
+        },
+        "prepare_wy_repr_bwd_kernel": {
+          "count": 72,
+          "sum_ms": 10.662566
+        },
+        "recompute_w_u_fwd_kernel": {
+          "count": 144,
+          "sum_ms": 8.122652
+        },
+        "reduce_kernel": {
+          "count": 202,
+          "sum_ms": 3.130156
+        },
+        "rmsnorm_bwd_finalize_general_kernel": {
+          "count": 120,
+          "sum_ms": 3.984972
+        },
+        "rmsnorm_bwd_finalize_tuned_kernel": {
+          "count": 196,
+          "sum_ms": 0.664515
+        },
+        "rmsnorm_bwd_general_kernel": {
+          "count": 120,
+          "sum_ms": 4.341682
+        },
+        "rmsnorm_bwd_tuned_kernel": {
+          "count": 196,
+          "sum_ms": 4.062924
+        },
+        "rmsnorm_fwd_general_kernel": {
+          "count": 120,
+          "sum_ms": 2.554953
+        },
+        "rmsnorm_fwd_tuned_kernel": {
+          "count": 196,
+          "sum_ms": 1.463941
+        },
+        "scaled_masked_softmax_warp_backward": {
+          "count": 24,
+          "sum_ms": 7.092124
+        },
+        "scaled_masked_softmax_warp_forward": {
+          "count": 24,
+          "sum_ms": 5.922072
+        },
+        "triton_poi_fused__to_copy_arange_index_index_put_rsub_sub_view_0": {
+          "count": 4,
+          "sum_ms": 23.834429
+        },
+        "triton_poi_fused__to_copy_arange_index_index_put_rsub_sub_view_1": {
+          "count": 4,
+          "sum_ms": 0.013248
+        },
+        "triton_poi_fused__to_copy_copy__mul_unsqueeze_view_2": {
+          "count": 4,
+          "sum_ms": 29.734196
+        },
+        "triton_poi_fused__to_copy_mul_sigmoid_sigmoid_backward_view_0": {
+          "count": 24,
+          "sum_ms": 1.509828
+        },
+        "triton_poi_fused__to_copy_mul_sigmoid_view_0": {
+          "count": 24,
+          "sum_ms": 0.920259
+        },
+        "triton_poi_fused__to_copy_mul_silu_silu_backward_view_0": {
+          "count": 72,
+          "sum_ms": 4.56408
+        },
+        "triton_poi_fused__to_copy_mul_silu_view_0": {
+          "count": 72,
+          "sum_ms": 2.782738
+        },
+        "triton_poi_fused_add_cat_mul_rsub_sigmoid_silu_split_0": {
+          "count": 96,
+          "sum_ms": 10.678832
+        },
+        "triton_poi_fused_arange_bitwise_or_ge_index_index_put_lift_fresh_lt_sub_unsqueeze_view_0": {
+          "count": 4,
+          "sum_ms": 0.012352
+        },
+        "triton_poi_fused_arange_cat_index_index_put_lift_fresh_sub_unsqueeze_view_1": {
+          "count": 4,
+          "sum_ms": 0.005824
+        },
+        "triton_poi_fused_copy__div_split_unsqueeze_1": {
+          "count": 4,
+          "sum_ms": 23.978302
+        },
+        "triton_poi_fused_log_split_sub_0": {
+          "count": 4,
+          "sum_ms": 0.007648
+        },
+        "triton_poi_fused_mul_silu_split_0": {
+          "count": 96,
+          "sum_ms": 6.248947
+        },
+        "triton_red_fused__to_copy_max_0": {
+          "count": 4,
+          "sum_ms": 17.983174
+        },
+        "triton_red_fused_copy__exp_sub_sum_unsqueeze_2": {
+          "count": 4,
+          "sum_ms": 47.92934
+        },
+        "unrolled_elementwise_kernel": {
+          "count": 937,
+          "sum_ms": 46.228836
+        },
+        "vectorized_elementwise_kernel": {
+          "count": 2125,
+          "sum_ms": 43.312363
+        },
+        "vectorized_gather_kernel": {
+          "count": 4,
+          "sum_ms": 0.042432
+        }
+      }
+    }
+  ]
+}

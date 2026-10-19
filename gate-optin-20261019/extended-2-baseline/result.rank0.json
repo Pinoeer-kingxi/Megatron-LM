@@ -1,0 +1,496 @@
+{
+  "arguments": {
+    "weights": "/home/songbinbin/gdn-offload-artifacts/models/Qwen3.5-0.8B",
+    "data": "/home/songbinbin/gdn-offload-artifacts/training-data/ks-item-sft.jsonl",
+    "output": "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gate-optin-20261019/extended-2-baseline/result.json",
+    "save_checkpoint": null,
+    "load_checkpoint": null,
+    "dry_run": false,
+    "check_state": false,
+    "fraction": null,
+    "recompute_norm": false,
+    "fused_pre_gdr": true,
+    "tp": 1,
+    "sp": false,
+    "cp": 1,
+    "pp": 1,
+    "vp": null,
+    "seq_length": 2048,
+    "microbatches": 4,
+    "warmup": 5,
+    "iterations": 50,
+    "max_documents": 128,
+    "min_offloaded_tensor_size": 1048576
+  },
+  "text_layers": 24,
+  "text_hidden_size": 1024,
+  "dataset_tokens": 30727,
+  "pipeline_batch_p2p_comm": false,
+  "pipeline_deallocate_outputs": true,
+  "pool_verified_before_reset": false,
+  "torch": "2.11.0+cu130",
+  "cuda": "13.0",
+  "gpu_training_run": true,
+  "rank": 0,
+  "gpu": "NVIDIA RTX A6000",
+  "samples": [
+    {
+      "step": 5,
+      "seconds": 0.9113041850505397,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 6,
+      "seconds": 0.9959336910396814,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 7,
+      "seconds": 1.0849450409878045,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 8,
+      "seconds": 0.9503135110717267,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 9,
+      "seconds": 1.0031868310179561,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 10,
+      "seconds": 1.0139468980487436,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 11,
+      "seconds": 0.9042862870264798,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 12,
+      "seconds": 0.8873031159164384,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 13,
+      "seconds": 0.8995349520118907,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 14,
+      "seconds": 0.9949752029497176,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 15,
+      "seconds": 0.9682218849193305,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 16,
+      "seconds": 0.9307184999343008,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 17,
+      "seconds": 0.8869934428948909,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 18,
+      "seconds": 0.9708349170396104,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 19,
+      "seconds": 0.8891702339751646,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 20,
+      "seconds": 0.9267444560537115,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 21,
+      "seconds": 0.8943424309836701,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 22,
+      "seconds": 0.9827587091131136,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 23,
+      "seconds": 1.0403694490669295,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 24,
+      "seconds": 0.8980742529965937,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 25,
+      "seconds": 0.9898802619427443,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 26,
+      "seconds": 0.9923923389287665,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 27,
+      "seconds": 0.8818842220352963,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 28,
+      "seconds": 0.8945455580251291,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 29,
+      "seconds": 0.9000855929916725,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 30,
+      "seconds": 0.9181734940502793,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 31,
+      "seconds": 0.8921875589294359,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 32,
+      "seconds": 0.8884594510309398,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 33,
+      "seconds": 0.8999465060187504,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 34,
+      "seconds": 0.9734550570137799,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 35,
+      "seconds": 0.8931439010193571,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 36,
+      "seconds": 0.9272108719451353,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 37,
+      "seconds": 0.9074909730115905,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 38,
+      "seconds": 1.0199015960097313,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 39,
+      "seconds": 1.1252111230278388,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 40,
+      "seconds": 0.8940778468968347,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 41,
+      "seconds": 0.94419575703796,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 42,
+      "seconds": 1.0230276170186698,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 43,
+      "seconds": 0.9059954639524221,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 44,
+      "seconds": 0.8809399650199339,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 45,
+      "seconds": 0.8983942130580544,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 46,
+      "seconds": 0.8895362549228594,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 47,
+      "seconds": 0.9213057520100847,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 48,
+      "seconds": 0.882215715944767,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 49,
+      "seconds": 0.8699492819141597,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 50,
+      "seconds": 0.8871349919354543,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 51,
+      "seconds": 0.9221492450451478,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 52,
+      "seconds": 0.9406196390045807,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 53,
+      "seconds": 0.9045181949622929,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    },
+    {
+      "step": 54,
+      "seconds": 0.8855926509713754,
+      "peak_allocated_bytes": 22793579520,
+      "peak_reserved_bytes": 23228055552,
+      "selected_group_calls": 0,
+      "selected_transfer_bytes": 0,
+      "offload_summary_bytes": 0
+    }
+  ],
+  "states": [],
+  "offload_status": {
+    "selected_group_calls": 0,
+    "selected_transfer_bytes": 0,
+    "offload_summary_bytes": 0
+  },
+  "first_step": 0,
+  "next_step": 55
+}

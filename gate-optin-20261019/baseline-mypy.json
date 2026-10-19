@@ -1,0 +1,20 @@
+{
+  "source": "9131593673d037d360d252904f9198d36bc0c246",
+  "command": [
+    "docker",
+    "exec",
+    "--workdir",
+    "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gate-optin-20261019/upstream",
+    "megatron-gate-optin-dev-20261019",
+    "python",
+    "-B",
+    "-m",
+    "mypy",
+    "--cache-dir=/tmp/gdn-base-mypy",
+    "--explicit-package-bases",
+    "--follow-imports=skip",
+    "megatron/core/fusions/fused_pre_gated_delta_rule.py"
+  ],
+  "exit_code": 1,
+  "output": "megatron/core/fusions/fused_pre_gated_delta_rule.py:23: error: Skipping analyzing \"triton\": module is installed, but missing library stubs or py.typed marker  [import-untyped]\nmegatron/core/fusions/fused_pre_gated_delta_rule.py:24: error: Skipping analyzing \"triton.language\": module is installed, but missing library stubs or py.typed marker  [import-untyped]\nmegatron/core/fusions/fused_pre_gated_delta_rule.py:24: note: See https://mypy.readthedocs.io/en/stable/running_mypy.html#missing-imports\nmegatron/core/fusions/fused_pre_gated_delta_rule.py:28: error: Cannot find implementation or library stub for module named \"causal_conv1d.cpp_functions\"  [import-not-found]\nmegatron/core/fusions/fused_pre_gated_delta_rule.py:1104: error: Item \"None\" of \"Any | None\" has no attribute \"shape\"  [union-attr]\nFound 4 errors in 1 file (checked 1 source file)\n"
+}

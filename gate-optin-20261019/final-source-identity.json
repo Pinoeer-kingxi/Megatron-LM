@@ -1,0 +1,19 @@
+{
+  "source": "d8115c4c3bf52a868b242d032b5519d7c3331a52",
+  "base": "9131593673d037d360d252904f9198d36bc0c246",
+  "previous": "9d54b8729c9277f1e032110c5e1b149e9654bcc5",
+  "files": {
+    "megatron/core/fusions/fused_pre_gated_delta_rule.py": "711903959056a83c45402f62d328b65150ecad8f32955604d23e3539d7580d2b",
+    "tests/unit_tests/determinism/kernels/manifest.py": "ffd5d2142f084a4860e9e2ff8dca0c68b16fd050f711aa03b3e1ca3dc7022d20",
+    "tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py": "f34be26207f44641d537c3f8f7dc022b85d2f41fd02447a8612fdd69513481a6"
+  },
+  "trees": {
+    "megatron": "e5c0a5094958de4a1ac10be19dc9092d6d735af6",
+    "tests": "b83eec9c345e7745a680fb650123762ced93eece"
+  },
+  "red_control": {
+    "production": "9d54b8729c9277f1e032110c5e1b149e9654bcc5",
+    "test_sha256": "f34be26207f44641d537c3f8f7dc022b85d2f41fd02447a8612fdd69513481a6"
+  },
+  "previous_runtime_tested": "cc09983fd846b7b7f3172fde3580f3ec6bcd161e"
+}

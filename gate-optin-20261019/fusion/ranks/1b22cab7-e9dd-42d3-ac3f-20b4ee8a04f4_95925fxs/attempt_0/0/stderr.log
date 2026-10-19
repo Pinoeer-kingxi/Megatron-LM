@@ -1,0 +1,1 @@
+[rank0]:[W1019 13:29:35.687204357 ProcessGroupNCCL.cpp:5188] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()

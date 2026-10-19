@@ -1,0 +1,34 @@
+{
+  "final_source": "d8115c4c3bf52a868b242d032b5519d7c3331a52",
+  "baseline_source": "9131593673d037d360d252904f9198d36bc0c246",
+  "sequence": 2048,
+  "batch": 1,
+  "value_heads": 16,
+  "key_heads": 16,
+  "key_dim": 128,
+  "value_dim": 128,
+  "deterministic_arithmetic": false,
+  "arms": {
+    "base": {
+      "source": "upstream",
+      "source_sha256": "c8a0247766bbc78ee3f98841a3eb9c033109bf3575bb9d2df99b4cbf2a0df920",
+      "selected_config": "BLOCK_S: 32, BLOCK_H: 16, num_warps: 2, num_ctas: 1, num_stages: 2, maxnreg: None",
+      "registers": 63,
+      "spills": 0,
+      "instruction_words": 1920,
+      "instruction_sha256": "ffb434a8353b6fd1366b470346046eb7f000c36a295380c5d24dc0ed00341625"
+    },
+    "candidate": {
+      "source": "source-final",
+      "source_sha256": "711903959056a83c45402f62d328b65150ecad8f32955604d23e3539d7580d2b",
+      "selected_config": "BLOCK_S: 32, BLOCK_H: 16, num_warps: 2, num_ctas: 1, num_stages: 2, maxnreg: None",
+      "registers": 63,
+      "spills": 0,
+      "instruction_words": 1920,
+      "instruction_sha256": "ffb434a8353b6fd1366b470346046eb7f000c36a295380c5d24dc0ed00341625"
+    }
+  },
+  "instruction_words_equal": true
+}
+nvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Old format
+nvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Old format

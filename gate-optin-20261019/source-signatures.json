@@ -1,0 +1,12 @@
+{
+  "command": [
+    "git",
+    "-c",
+    "gpg.ssh.allowedSignersFile=/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gate-optin-20261019/allowed-signers",
+    "verify-commit",
+    "HEAD",
+    "HEAD~1"
+  ],
+  "exit_code": 0,
+  "output": "Good \"git\" signature for 13022943007@163.com with ED25519 key SHA256:TMz6vhytFB32DtSCMyE1ivxzR88zV4sATB5TpWIPMGo\nGood \"git\" signature for 13022943007@163.com with ED25519 key SHA256:TMz6vhytFB32DtSCMyE1ivxzR88zV4sATB5TpWIPMGo\n"
+}

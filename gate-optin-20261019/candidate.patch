@@ -1,0 +1,288 @@
+diff --git a/megatron/core/fusions/fused_pre_gated_delta_rule.py b/megatron/core/fusions/fused_pre_gated_delta_rule.py
+index 42502b249..9c6ab337e 100644
+--- a/megatron/core/fusions/fused_pre_gated_delta_rule.py
++++ b/megatron/core/fusions/fused_pre_gated_delta_rule.py
+@@ -24,6 +24,8 @@ import triton
+ import triton.language as tl
+ from torch import Tensor
+ 
++from megatron.core.tuning import autotune_configs, use_deterministic_mode
++
+ try:
+     from causal_conv1d.cpp_functions import causal_conv1d_bwd_function
+ except ImportError:
+@@ -705,6 +707,7 @@ def _g_beta_backward_kernel(
+     d_beta_h_stride,
+     BLOCK_S: tl.constexpr,
+     BLOCK_H: tl.constexpr,
++    DETERMINISTIC: tl.constexpr,
+ ):
+     """Backward for ``_compute_g_and_beta_kernel``.
+ 
+@@ -721,8 +724,8 @@ def _g_beta_backward_kernel(
+         d_A_log[h]   = Σ_{b,s} d_g[b,s,h] * g[b,s,h]
+ 
+     ``d_alpha`` and ``d_beta_raw`` are written into the matching channel slices
+-    of ``d_qkvzba``. ``d_A_log`` and ``d_dt_bias`` are reduced via per-element
+-    atomic_add to fp32 buffers; the caller casts those to the parameter dtype.
++    of ``d_qkvzba``. Parameter gradients use atomic accumulation by default.
++    Deterministic execution writes separate FP32 partials for the caller to reduce.
+     """
+ 
+     pid_b = tl.program_id(0)
+@@ -802,9 +805,13 @@ def _g_beta_backward_kernel(
+     tl.store(d_alpha_ptrs, d_alpha.to(d_qkvzba_ptr.dtype.element_ty), mask=mask)
+     tl.store(d_beta_ptrs, d_beta_raw.to(d_qkvzba_ptr.dtype.element_ty), mask=mask)
+ 
+-    # ----- Atomic-add (b, s) partials into per-head accumulators -----
+-    tl.atomic_add(d_A_log_ptr + h_offs, d_A_log_partial, mask=h_mask)
+-    tl.atomic_add(d_dt_bias_ptr + h_offs, d_dt_bias_partial, mask=h_mask)
++    if DETERMINISTIC:
++        partial_offset = (pid_b * tl.num_programs(1) + pid_s) * num_v_heads + h_offs
++        tl.store(d_A_log_ptr + partial_offset, d_A_log_partial, mask=h_mask)
++        tl.store(d_dt_bias_ptr + partial_offset, d_dt_bias_partial, mask=h_mask)
++    else:
++        tl.atomic_add(d_A_log_ptr + h_offs, d_A_log_partial, mask=h_mask)
++        tl.atomic_add(d_dt_bias_ptr + h_offs, d_dt_bias_partial, mask=h_mask)
+ 
+ 
+ # ---------------------------------------------------------------------------
+@@ -996,25 +1003,41 @@ def _triton_g_beta_backward(
+ 
+     device = qkvzba.device
+ 
++    deterministic = use_deterministic_mode()
++    kernel = _g_beta_backward_kernel
++    launch_kwargs = {}
++    if deterministic:
++        config = autotune_configs(_g_beta_autotune_configs())[0]
++        launch_kwargs = {
++            **config.kwargs,
++            "num_warps": config.num_warps,
++            "num_stages": config.num_stages,
++        }
++        sequence_blocks = triton.cdiv(seq_len, config.kwargs["BLOCK_S"])
++        grad_shape: tuple[int, ...] = (2, batch, sequence_blocks, num_value_heads)
++        # Launch the selected config directly, including when mode changes after import.
++        kernel = kernel.fn
++    else:
++        grad_shape = (2, num_value_heads)
++
+     g_beta_grid = lambda meta: (
+         batch,
+         triton.cdiv(seq_len, meta["BLOCK_S"]),
+         triton.cdiv(num_value_heads, meta["BLOCK_H"]),
+     )
+     with _launch_context(device, stream):
+-        d_param_grads = torch.empty((2, num_value_heads), dtype=torch.float32, device=device)
+-        d_param_grads.zero_()
+-        d_A_log = d_param_grads[0]
+-        d_dt_bias = d_param_grads[1]
+-        _g_beta_backward_kernel[g_beta_grid](
++        d_param_grads = torch.empty(grad_shape, dtype=torch.float32, device=device)
++        if not deterministic:
++            d_param_grads.zero_()
++        kernel[g_beta_grid](
+             qkvzba,
+             A_log,
+             dt_bias,
+             d_g,
+             d_beta_out,
+             d_qkvzba_out,
+-            d_A_log,
+-            d_dt_bias,
++            d_param_grads[0],
++            d_param_grads[1],
+             seq_len,
+             num_value_heads,
+             beta_channel_offset,
+@@ -1028,8 +1051,12 @@ def _triton_g_beta_backward(
+             d_beta_out.stride(0),
+             d_beta_out.stride(1),
+             d_beta_out.stride(2),
++            DETERMINISTIC=deterministic,
++            **launch_kwargs,
+         )
+-    return d_qkvzba_out, d_A_log, d_dt_bias
++        if deterministic:
++            d_param_grads = d_param_grads.sum(dim=(1, 2))
++    return d_qkvzba_out, d_param_grads[0], d_param_grads[1]
+ 
+ 
+ def _launch_context(device: torch.device, stream: Optional["torch.cuda.Stream"]):
+diff --git a/tests/unit_tests/determinism/kernels/manifest.py b/tests/unit_tests/determinism/kernels/manifest.py
+index 49848bc3a..7020f2b1c 100644
+--- a/tests/unit_tests/determinism/kernels/manifest.py
++++ b/tests/unit_tests/determinism/kernels/manifest.py
+@@ -483,9 +483,19 @@ KERNELS: Tuple[KernelEntry, ...] = (
+         name="gdn_pre_gated_delta_rule_fusion",
+         sources=("megatron/core/fusions/fused_pre_gated_delta_rule.py",),
+         kind="triton",
+-        exempt_reason="Pre-GDR fusion is explicitly rejected with deterministic_mode=True. "
+-        "Its backward uses atomic parameter-gradient reductions and timing-based autotuning; "
+-        "numerical parity and the rejection guard are covered by the GDN fusion unit tests.",
++        exempt_reason="Full pre-GDR fusion still rejects deterministic_mode=True. "
++        "Other kernels use timing-based autotuning and convolution backward needs its external "
++        "determinism setting. Gate backward is tested separately; full-path numerical parity "
++        "and the rejection guard remain covered by the GDN fusion unit tests.",
++    ),
++    KernelEntry(
++        name="gdn_pre_gated_delta_rule_gate_backward",
++        sources=("megatron/core/fusions/fused_pre_gated_delta_rule.py",),
++        tests=(K + "test_gdn_gate_backward.py",),
++        kind="triton",
++        notes="Gate backward retains autotuned atomics by default; deterministic execution "
++        "selects a tile through the shared policy and reduces independent FP32 partials. "
++        "Replay checks both policy-selected tiles before the caller's BF16 cast.",
+     ),
+     KernelEntry(
+         name="gdn_gated_output_norm_fusion",
+diff --git a/tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py b/tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py
+new file mode 100644
+index 000000000..936b88b50
+--- /dev/null
++++ b/tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py
+@@ -0,0 +1,143 @@
++# Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
++
++"""Replay the pre-GDR gate gradients before casting away FP32 reduction differences."""
++
++from collections.abc import Iterator
++
++import pytest
++import torch
++import torch.nn.functional as F
++
++from megatron.core.fusions.fused_pre_gated_delta_rule import (
++    _g_beta_backward_kernel,
++    _triton_g_beta_backward,
++)
++from megatron.core.tuning import AutotunePolicy, active_policy, install
++from megatron.core.tuning import policy as tuning_policy
++from tests.unit_tests.determinism.kernels.harness import (
++    assert_replays_bit_exact,
++    deterministic_algorithms,
++    seeded,
++)
++
++pytestmark = pytest.mark.skipif(not torch.cuda.is_available(), reason="CUDA is unavailable")
++
++
++@pytest.fixture(autouse=True)
++def restore_gate_policy(monkeypatch: pytest.MonkeyPatch) -> Iterator[None]:
++    """Restore the real runtime policy and Torch flag after each kernel test."""
++    previous_policy = active_policy()
++    monkeypatch.setattr(tuning_policy, "_deterministic_override", None)
++    try:
++        with deterministic_algorithms(False):
++            yield
++    finally:
++        install(previous_policy)
++
++
++@pytest.mark.parametrize(
++    "batch,length,heads", [(1, 33, 8), (2, 2048, 16), (1, 4096, 16), (3, 4103, 24)]
++)
++@pytest.mark.parametrize("dtype", [torch.bfloat16, torch.float32])
++@pytest.mark.parametrize("strided", [False, True])
++@pytest.mark.parametrize(
++    "block_sizes",
++    [(), (("BLOCK_S", 256), ("BLOCK_H", 32))],
++    ids=["policy_default", "policy_override"],
++)
++def test_gate_backward_replays(
++    batch: int,
++    length: int,
++    heads: int,
++    dtype: torch.dtype,
++    strided: bool,
++    block_sizes: tuple[tuple[str, int], ...],
++) -> None:
++    """Compare all gradients bit-exactly under contention, and against Torch autograd."""
++    torch.use_deterministic_algorithms(True)
++    install(AutotunePolicy(mode="pinned", block_sizes=block_sizes))
++    seeded()
++    key_heads, dim = 4, 32
++    beta_offset = 2 * key_heads * dim + 2 * heads * dim
++    channels = beta_offset + 2 * heads
++    qkvzba = torch.randn(length, batch, channels, dtype=dtype, device="cuda")
++    A_log = torch.randn(heads, dtype=dtype, device="cuda") * 0.2
++    dt_bias = torch.randn(heads, dtype=dtype, device="cuda") * 0.2
++    d_g = torch.randn(batch, length, heads * (2 if strided else 1), device="cuda")
++    d_beta = torch.randn_like(d_g)
++    d_g, d_beta = d_g[..., :heads], d_beta[..., :heads]
++    stream = torch.cuda.Stream() if strided else None
++
++    def backward(
++        qkvzba: torch.Tensor,
++        A_log: torch.Tensor,
++        dt_bias: torch.Tensor,
++        d_g: torch.Tensor,
++        d_beta: torch.Tensor,
++    ) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
++        result = _triton_g_beta_backward(
++            qkvzba,
++            A_log,
++            dt_bias,
++            d_g,
++            d_beta,
++            num_value_heads=heads,
++            key_head_dim=dim,
++            value_head_dim=dim,
++            num_key_heads=key_heads,
++            d_qkvzba_out=torch.zeros_like(qkvzba) if strided else None,
++            stream=stream,
++        )
++        if stream is not None:
++            torch.cuda.current_stream().wait_stream(stream)
++        return result
++
++    outputs, _ = assert_replays_bit_exact(
++        backward,
++        (qkvzba, A_log, dt_bias, d_g, d_beta),
++        backward=False,
++        replays=5,
++        contention=True,
++        what="pre-GDR gate backward",
++    )
++
++    projection = qkvzba.float().detach().requires_grad_()
++    a = A_log.float().detach().requires_grad_()
++    bias = dt_bias.float().detach().requires_grad_()
++    beta = projection[..., beta_offset : beta_offset + heads].permute(1, 0, 2).sigmoid()
++    alpha = projection[..., beta_offset + heads :].permute(1, 0, 2)
++    g = -a.exp() * F.softplus(alpha + bias)
++    reference = torch.autograd.grad((g, beta), (projection, a, bias), (d_g, d_beta))
++    reference = (reference[0].to(dtype), reference[1], reference[2])
++    torch.testing.assert_close(outputs["out[0]"], reference[0])
++    for index in (1, 2):
++        # Torch's exp/sigmoid approximations and reduction tree differ from
++        # Triton's. This numerical reference is separate from the byte replay.
++        torch.testing.assert_close(outputs[f"out[{index}]"], reference[index], atol=1e-4, rtol=2e-5)
++
++
++@pytest.mark.parametrize("deterministic", [False, True])
++def test_gate_backward_runtime_mode(deterministic: bool, monkeypatch: pytest.MonkeyPatch) -> None:
++    """Only deterministic execution bypasses the original timing-based autotuner."""
++    torch.use_deterministic_algorithms(deterministic)
++    install(AutotunePolicy(mode="auto"))
++    monkeypatch.setattr(_g_beta_backward_kernel, "best_config", None, raising=False)
++    heads, dim = 12, 32
++    channels = 2 * 4 * dim + 2 * heads * dim + 2 * heads
++    projection = torch.randn(257, 2, channels, device="cuda")
++    parameter = torch.zeros(heads, device="cuda")
++    grad = torch.ones(2, 257, heads, device="cuda")
++    outputs = _triton_g_beta_backward(
++        projection,
++        parameter,
++        parameter,
++        grad,
++        grad,
++        num_value_heads=heads,
++        key_head_dim=dim,
++        value_head_dim=dim,
++        num_key_heads=4,
++    )
++    torch.cuda.synchronize()
++    assert all(torch.isfinite(tensor).all() for tensor in outputs)
++    assert (_g_beta_backward_kernel.best_config is None) == deterministic

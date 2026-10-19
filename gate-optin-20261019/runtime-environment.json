@@ -1,0 +1,22 @@
+{
+  "python": "3.12.4 | packaged by Anaconda, Inc. | (main, Jun 18 2024, 15:12:24) [GCC 11.2.0]",
+  "platform": "Linux-5.15.0-43-generic-x86_64-with-glibc2.41",
+  "packages": {
+    "torch": "2.11.0+cu130",
+    "triton": "3.6.0",
+    "transformer-engine": "2.20.2",
+    "flash-linear-attention": "0.5.1",
+    "pytest": "9.1.1",
+    "black": "26.3.0",
+    "isort": "5.13.2",
+    "pylint": "3.2.6",
+    "ruff": "0.9.10",
+    "mypy": "2.4.0"
+  },
+  "causal-conv1d": "1.6.1; import overlay for its binary extension; no distribution metadata in this venv",
+  "flash-attn": "2.8.3; import overlay; version from validated dependency manifest",
+  "container_image": "sha256:061e8fda67a4dd1c1c635129d4ba0442b7a093cc6fd737423e9589eb6be22034",
+  "gpu_inventory": "0, GPU-a77106b7-62f7-c58e-3fd7-780d7732fc96, NVIDIA RTX A6000, 580.178.04, 49140 MiB\n1, GPU-5e2e1f94-e88e-48e3-247d-328b52fc68db, NVIDIA RTX A6000, 580.178.04, 49140 MiB\n2, GPU-df9e07cc-8ebc-3204-fabd-601044f800f8, NVIDIA RTX A6000, 580.178.04, 49140 MiB\n3, GPU-c8b76e6b-5a4b-7829-4c91-139b71218405, NVIDIA RTX A6000, 580.178.04, 49140 MiB\n4, GPU-7595108b-553d-3126-385e-30133180c720, NVIDIA RTX A6000, 580.178.04, 49140 MiB\n5, GPU-2d9608b8-3d63-aa73-214e-dadc8b8f1f76, NVIDIA RTX A6000, 580.178.04, 49140 MiB\n6, GPU-40c36f3c-9282-74a6-63d2-077d1e4a1cb7, NVIDIA RTX A6000, 580.178.04, 49140 MiB\n7, GPU-59be77d4-7713-7d5b-c994-a475ff81556d, NVIDIA RTX A6000, 580.178.04, 49140 MiB\n",
+  "selected_physical_gpu": "1",
+  "source": "d8115c4c3bf52a868b242d032b5519d7c3331a52"
+}

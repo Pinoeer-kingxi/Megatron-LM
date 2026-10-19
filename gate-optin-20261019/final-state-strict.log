@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gate-optin-20261019/scripts/compare_final_states.py", line 73, in <module>
+    rows=[];compare(left['states'],right['states'],left_vectors,right_vectors,'',rows)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gate-optin-20261019/scripts/compare_final_states.py", line 52, in compare
+    compare(left, right, left_vectors, right_vectors, path + '/' + str(index), rows)
+  File "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gate-optin-20261019/scripts/compare_final_states.py", line 48, in compare
+    compare(expected[key], actual[key], left_vectors, right_vectors, path + '/' + str(key), rows)
+  File "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gate-optin-20261019/scripts/compare_final_states.py", line 48, in compare
+    compare(expected[key], actual[key], left_vectors, right_vectors, path + '/' + str(key), rows)
+  File "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gate-optin-20261019/scripts/compare_final_states.py", line 42, in compare
+    torch.testing.assert_close(right, left, rtol=RTOL, atol=ATOL, msg=path)
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/testing/_comparison.py", line 1600, in assert_close
+    raise error_metas[0].to_error(msg)
+AssertionError: /1/grads/0.module.module.decoder.layers.5.self_attention.dt_bias

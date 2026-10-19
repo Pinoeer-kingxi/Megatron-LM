@@ -1,0 +1,5 @@
+{
+  "previous": "cc09983fd846b7b7f3172fde3580f3ec6bcd161e",
+  "change": "Local grad_shape annotation for the two scratch ranks; executable AST unchanged when local AnnAssign is normalized to Assign.",
+  "normalized_wrapper_ast_equal": true
+}

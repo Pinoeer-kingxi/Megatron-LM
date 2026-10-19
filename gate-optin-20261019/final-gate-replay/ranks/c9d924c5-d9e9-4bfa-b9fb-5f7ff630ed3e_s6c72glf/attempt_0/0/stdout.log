@@ -1,0 +1,79 @@
+..................................
+=============================== warnings summary ===============================
+megatron/core/dist_checkpointing/strategies/torch.py:70
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gate-optin-20261019/source-final/megatron/core/dist_checkpointing/strategies/torch.py:70: DeprecationWarning: transformer_engine.pytorch.float8_tensor is deprecated and will be removed in a future release. Float8Tensor should be imported directly through `from transformer_engine.pytorch import Float8Tensor`
+    from transformer_engine.pytorch.float8_tensor import Float8Tensor
+
+../../../../../../../home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+megatron/core/tensor_parallel/random.py:92
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gate-optin-20261019/source-final/megatron/core/tensor_parallel/random.py:92: DeprecationWarning: Using deprecated internal API from Transformer Engine. transformer_engine.pytorch.fp8 will be removed in a future release.
+    from transformer_engine.pytorch.fp8 import FP8GlobalStateManager, fp8_autocast
+
+megatron/core/inference/contexts/__init__.py:9
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gate-optin-20261019/source-final/megatron/core/inference/contexts/__init__.py:9: DeprecationWarning: The following imports from `dynamic_context.py` will be removed in this file in `megatron-core` 0.14. The imports here result in a cyclic import issue that causes rotary embeddings to import from Apex rather than Transformer Engine.
+    warnings.warn(
+
+megatron/core/models/mimo/config/base_configs.py:12
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gate-optin-20261019/source-final/megatron/core/models/mimo/config/base_configs.py:12: UserWarning: MimoModelConfig is experimental and still under active development. The API may change without notice in future releases.
+    class MimoModelConfig:
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+____________________ test_gate_backward_runtime_mode[False] ____________________
+------------------------------ Captured log call -------------------------------
+WARNING  megatron.core.tuning.selection:selection.py:221 MAMBA_DETERMINISTIC=1 only affects the external mamba_ssm package. Megatron's Triton kernels, including megatron.core.ssm.ops, follow deterministic_mode (--deterministic-mode) or torch.use_deterministic_algorithms(True); set one of those, or AutotunePolicy(mode='pinned'), to pin their configurations.
+============================= slowest 15 durations =============================
+2.25s call     tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-False-dtype0-1-33-8]
+0.87s call     tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_runtime_mode[False]
+0.86s call     tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-False-dtype0-1-4096-16]
+0.86s call     tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-False-dtype0-2-2048-16]
+0.85s call     tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-True-dtype1-3-4103-24]
+0.84s call     tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-False-dtype0-2-2048-16]
+0.84s call     tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-True-dtype1-3-4103-24]
+0.84s call     tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-False-dtype0-1-4096-16]
+0.84s call     tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-False-dtype1-3-4103-24]
+0.84s call     tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-True-dtype0-2-2048-16]
+0.84s call     tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-False-dtype0-1-33-8]
+0.84s call     tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-False-dtype1-3-4103-24]
+0.84s call     tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-True-dtype1-1-4096-16]
+0.84s call     tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-False-dtype0-3-4103-24]
+0.84s call     tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-True-dtype0-3-4103-24]
+=========================== short test summary info ============================
+PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-False-dtype0-1-33-8]
+PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-False-dtype0-2-2048-16]
+PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-False-dtype0-1-4096-16]
+PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-False-dtype0-3-4103-24]
+PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-False-dtype1-1-33-8]
+PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-False-dtype1-2-2048-16]
+PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-False-dtype1-1-4096-16]
+PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-False-dtype1-3-4103-24]
+PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-True-dtype0-1-33-8]
+PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-True-dtype0-2-2048-16]
+PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-True-dtype0-1-4096-16]
+PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-True-dtype0-3-4103-24]
+PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-True-dtype1-1-33-8]
+PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-True-dtype1-2-2048-16]
+PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-True-dtype1-1-4096-16]
+PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_default-True-dtype1-3-4103-24]
+PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-False-dtype0-1-33-8]
+PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-False-dtype0-2-2048-16]
+PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-False-dtype0-1-4096-16]
+PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-False-dtype0-3-4103-24]
+PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-False-dtype1-1-33-8]
+PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-False-dtype1-2-2048-16]
+PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-False-dtype1-1-4096-16]
+PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-False-dtype1-3-4103-24]
+PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-True-dtype0-1-33-8]
+PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-True-dtype0-2-2048-16]
+PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-True-dtype0-1-4096-16]
+PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-True-dtype0-3-4103-24]
+PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-True-dtype1-1-33-8]
+PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-True-dtype1-2-2048-16]
+PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-True-dtype1-1-4096-16]
+PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_replays[policy_override-True-dtype1-3-4103-24]
+PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_runtime_mode[False]
+PASSED tests/unit_tests/determinism/kernels/test_gdn_gate_backward.py::test_gate_backward_runtime_mode[True]
+34 passed, 18 warnings in 36.61s
