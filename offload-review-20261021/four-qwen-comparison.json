@@ -1,0 +1,29 @@
+{
+  "revision": "1adb1f6e31256f89659991f36c40b70c27abfc81",
+  "comparisons": [
+    {
+      "fused": false,
+      "recompute_norm": false,
+      "ranks": 4,
+      "steps": 3,
+      "disabled_repeat_exact": true,
+      "offloaded_exact": true
+    },
+    {
+      "fused": false,
+      "recompute_norm": true,
+      "ranks": 4,
+      "steps": 3,
+      "disabled_repeat_exact": true,
+      "offloaded_exact": true
+    },
+    {
+      "fused": true,
+      "recompute_norm": false,
+      "ranks": 4,
+      "steps": 3,
+      "disabled_repeat_exact": false,
+      "offloaded_exact": false
+    }
+  ]
+}

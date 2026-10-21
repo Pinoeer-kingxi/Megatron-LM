@@ -1,0 +1,134 @@
+Initializing torch.distributed with rank: 1, world_size: 2
+Test store timeout: 10 minutes for cold compilation before lazy PP initialization
+F
+=================================== FAILURES ===================================
+__________ test_offload_after_evaluation_with_growing_sequences[0.0] ___________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fd7c1857a10>
+fraction = 0.0
+
+    @pytest.mark.skipif(not torch.cuda.is_available(), reason="CUDA is required for offloading.")
+    @pytest.mark.parametrize("fraction", [0.0, 1.0])
+    def test_offload_after_evaluation_with_growing_sequences(monkeypatch, fraction):
+        """Exercise evaluation, warmup and changing tensor sizes through the native GPT schedule."""
+        Utils.initialize_model_parallel()
+        off_interface.reset_instance()
+        try:
+            groups = ProcessGroupCollection.use_mpu_process_groups()
+            snapshots = []
+            transfers = []
+            original_offload = ChunkOffloadHandler.offload
+    
+            def record_transfer(handler, *args, **kwargs):
+                transfers.append(handler.is_warmup)
+                return original_offload(handler, *args, **kwargs)
+    
+            monkeypatch.setattr(ChunkOffloadHandler, "offload", record_transfer)
+            for enabled in (False, True):
+                config = TransformerConfig(
+                    num_layers=4,
+                    hidden_size=128,
+                    num_attention_heads=4,
+                    use_cpu_initialization=True,
+                    attention_backend=AttnBackend.unfused,
+                    attention_dropout=0.0,
+                    hidden_dropout=0.0,
+                    bf16=True,
+                    fine_grained_activation_offloading=enabled,
+                    offload_modules=["core_attn", "attn_proj"] if enabled else [],
+                    activation_offload_fraction=fraction,
+                    min_offloaded_tensor_size=65536,
+                )
+                torch.manual_seed(31)
+                model_parallel_cuda_manual_seed(31)
+                model = (
+                    GPTModel(
+                        config=config,
+                        transformer_layer_spec=get_gpt_layer_with_transformer_engine_spec(),
+                        vocab_size=256,
+                        max_sequence_length=128,
+                    )
+                    .bfloat16()
+                    .cuda()
+                )
+    
+                def forward_step(batches, model):
+                    tokens, positions, mask = next(batches)
+                    output = model(tokens, positions, mask)
+    
+                    def loss_func(logits):
+                        loss = logits.float().square().mean()
+                        return loss, {"loss": loss.detach().clone()}
+    
+                    return output, loss_func
+    
+                results = []
+                for forward_only, seq_length in ((True, 8), (False, 8), (False, 128), (False, 64)):
+                    model.train(not forward_only)
+                    model.zero_grad(set_to_none=True)
+                    inputs = _make_gpt_inputs(
+                        seq_length=seq_length, micro_batch_size=1, device=torch.device("cuda")
+                    )
+                    inputs[2].copy_(torch.triu(torch.ones_like(inputs[2]), diagonal=1))
+                    with torch.no_grad() if forward_only else nullcontext():
+                        losses = get_forward_backward_func()(
+                            forward_step_func=forward_step,
+                            data_iterator=iter([inputs] * 2),
+                            model=model,
+                            num_microbatches=2,
+                            seq_length=seq_length,
+                            micro_batch_size=1,
+                            forward_only=forward_only,
+                            pg_collection=groups,
+                        )
+                    torch.cuda.synchronize()
+                    results.append(
+                        (
+                            [item["loss"].cpu() for item in losses],
+                            {
+                                name: p.grad.cpu().clone()
+                                for name, p in model.named_parameters()
+                                if p.grad is not None
+                            },
+                        )
+                    )
+                    if enabled:
+                        manager = PipelineOffloadManager.get_instance()
+>                       assert manager._is_warmup == forward_only
+E                       assert False == True
+E                        +  where False = <megatron.core.pipeline_parallel.fine_grained_activation_offload.PipelineOffloadManager object at 0x7fd7c1d9be90>._is_warmup
+
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py:287: AssertionError
+=============================== warnings summary ===============================
+../../../.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/config/__init__.py:1345
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/config/__init__.py:1345: PytestAssertRewriteWarning: Module already imported so cannot be rewritten; anyio
+    self._mark_plugins_for_rewrite(hook, disable_autoload)
+
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_after_evaluation_with_growing_sequences[0.0]
+  /home/songbinbin/gdn-offload-artifacts/review-20261021/control-eval/megatron/core/transformer/transformer_config.py:3573: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+    warnings.warn(
+
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_after_evaluation_with_growing_sequences[0.0]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_after_evaluation_with_growing_sequences[0.0]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_after_evaluation_with_growing_sequences[0.0]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_after_evaluation_with_growing_sequences[0.0]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_after_evaluation_with_growing_sequences[0.0]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_after_evaluation_with_growing_sequences[0.0]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_after_evaluation_with_growing_sequences[0.0]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_after_evaluation_with_growing_sequences[0.0]
+  /home/songbinbin/gdn-offload-artifacts/review-20261021/control-eval/megatron/core/transformer/mlp.py:447: DeprecationWarning: MLP requires ffn_hidden_size, but it was not provided. Using                     config.ffn_hidden_size by default.
+    return cls(
+
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py: 40 warnings
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/transformer_engine/pytorch/attention/dot_product_attention/dot_product_attention.py:2624: DeprecationWarning: Relying on pointer-based detection of packed q/k/v layouts (detected 'sbh3d') is deprecated: pass the packed buffer explicitly via qkv_layer/kv_layer (with qkv_interleave_dim) to DotProductAttention instead.
+    ) = dpa_utils.get_qkv_layout(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================= slowest 15 durations =============================
+2.21s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_after_evaluation_with_growing_sequences[0.0]
+
+(2 durations < 0.005s hidden.  Use -vv to show these durations.)
+=========================== short test summary info ============================
+FAILED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_after_evaluation_with_growing_sequences[0.0]
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!
+1 failed, 38 deselected, 50 warnings in 2.39s

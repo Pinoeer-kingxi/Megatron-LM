@@ -1,0 +1,23 @@
+{
+  "torch": "2.11.0+cu130",
+  "cuda": "13.0",
+  "devices": [
+    "NVIDIA RTX A6000",
+    "NVIDIA RTX A6000"
+  ],
+  "packages": {
+    "transformer-engine": "2.20.2",
+    "flash-linear-attention": "0.5.1",
+    "triton": "3.6.0"
+  },
+  "modules": {
+    "causal_conv1d": {
+      "version": "1.6.1",
+      "file": "/home/songbinbin/gdn-offload-artifacts/causal-conv1d-python/causal_conv1d/__init__.py"
+    },
+    "flash_attn": {
+      "version": "2.8.3",
+      "file": "/home/songbinbin/gdn-offload-artifacts/flash-attn-python/flash_attn/__init__.py"
+    }
+  }
+}

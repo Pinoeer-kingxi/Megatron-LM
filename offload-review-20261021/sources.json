@@ -1,0 +1,34 @@
+{
+  "base": {
+    "revision": "0a9f3e55459175d7e5621a99efb2d6f5b8378a8e",
+    "tree": "3e808ae3839ee5a4bef55711f443a599f5921e2b",
+    "core_tree": "c73ba553631206dd1fc2a57d56cc3838ad7ee9a2",
+    "status": "",
+    "parents": "6c956376e3ef22528413ff35412ad8b938272986 73ac08c254a0ff8997a0ff559799a4d7f073248b",
+    "native_gate_unchanged": true
+  },
+  "shared": {
+    "revision": "fb271ebdd3fbd151f67e87647ada589c098438d2",
+    "tree": "aa474865349515d82e060517d9c8382c1bcf604d",
+    "core_tree": "8b0bc141083befcec860cb35c206f17c48fc3578",
+    "status": "",
+    "parents": "0a9f3e55459175d7e5621a99efb2d6f5b8378a8e",
+    "native_gate_unchanged": true
+  },
+  "feature": {
+    "revision": "1adb1f6e31256f89659991f36c40b70c27abfc81",
+    "tree": "47e495a3353f6dac815ade167ec11359300d0471",
+    "core_tree": "1a175b858cd059bbca5fb15b465e4b502456e495",
+    "status": "",
+    "parents": "fb271ebdd3fbd151f67e87647ada589c098438d2",
+    "native_gate_unchanged": true
+  },
+  "extensions": {
+    "revision": "8002cd3a294767e8c93756d09342bad55eaa0ec1",
+    "tree": "1ba50c3085ffe067a577008c3be1159671b5f694",
+    "core_tree": "20477a1fc9536898f016a700ef1ac85d141adf20",
+    "status": "",
+    "parents": "1adb1f6e31256f89659991f36c40b70c27abfc81",
+    "native_gate_unchanged": true
+  }
+}

@@ -1,0 +1,25 @@
+[rank1]:W1021 15:35:54.915000 18 torch/_dynamo/convert_frame.py:1743] [10/8] torch._dynamo hit config.recompile_limit (8)
+[rank1]:W1021 15:35:54.915000 18 torch/_dynamo/convert_frame.py:1743] [10/8]    function: 'torch_dynamo_resume_in__apply_gated_norm_unfused_at_187' (/home/songbinbin/gdn-offload-artifacts/review-20261021/feature/megatron/core/ssm/gated_delta_net/gdn.py:187)
+[rank1]:W1021 15:35:54.915000 18 torch/_dynamo/convert_frame.py:1743] [10/8]    last reason: 10/6: gate.stride()[0] == 64*original_shape[1]*original_shape[2]  # (unknown source gate.stride()[0], please file a bug)
+[rank1]:W1021 15:35:54.915000 18 torch/_dynamo/convert_frame.py:1743] [10/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+[rank1]:W1021 15:35:54.915000 18 torch/_dynamo/convert_frame.py:1743] [10/8] To diagnose recompilation issues, see https://docs.pytorch.org/docs/main/user_guide/torch_compiler/compile/programming_model.recompilation.html
+usage: qwen-training [-h] --weights WEIGHTS --data DATA --output OUTPUT
+                     [--save-checkpoint SAVE_CHECKPOINT]
+                     [--load-checkpoint LOAD_CHECKPOINT] [--dry-run]
+                     [--check-state] [--fraction {0.0,0.5,1.0}]
+                     [--recompute-norm] [--fused-pre-gdr] [--tp TP] [--sp]
+                     [--cp CP] [--pp PP] [--vp VP] [--seq-length SEQ_LENGTH]
+                     [--microbatches MICROBATCHES] [--warmup WARMUP]
+                     [--iterations ITERATIONS] [--max-documents MAX_DOCUMENTS]
+                     [--min-offloaded-tensor-size MIN_OFFLOADED_TENSOR_SIZE]
+qwen-training: error: --load-checkpoint must name an existing checkpoint directory
+usage: qwen-training [-h] --weights WEIGHTS --data DATA --output OUTPUT
+                     [--save-checkpoint SAVE_CHECKPOINT]
+                     [--load-checkpoint LOAD_CHECKPOINT] [--dry-run]
+                     [--check-state] [--fraction {0.0,0.5,1.0}]
+                     [--recompute-norm] [--fused-pre-gdr] [--tp TP] [--sp]
+                     [--cp CP] [--pp PP] [--vp VP] [--seq-length SEQ_LENGTH]
+                     [--microbatches MICROBATCHES] [--warmup WARMUP]
+                     [--iterations ITERATIONS] [--max-documents MAX_DOCUMENTS]
+                     [--min-offloaded-tensor-size MIN_OFFLOADED_TENSOR_SIZE]
+qwen-training: error: --save-checkpoint must name a new directory

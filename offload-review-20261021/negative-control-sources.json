@@ -1,0 +1,17 @@
+{
+  "eval": {
+    "revision": "cf1ce98a551accf5d6c03c1bfe37e2136f48d820",
+    "native_regression_blob": "799582b209337fba6d88c399a7dbf07391ad46e1",
+    "same_regression_as_shared": true
+  },
+  "fraction": {
+    "revision": "316a6263769e6e89d297c1a4760954243fe6b02b",
+    "native_regression_blob": "799582b209337fba6d88c399a7dbf07391ad46e1",
+    "same_regression_as_shared": true
+  },
+  "progress": {
+    "revision": "d932e8d4a851fc6d4db3fc77da50b62bb24ad2ef",
+    "native_regression_blob": "799582b209337fba6d88c399a7dbf07391ad46e1",
+    "same_regression_as_shared": true
+  }
+}

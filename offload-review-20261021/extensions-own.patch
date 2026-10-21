@@ -1,0 +1,941 @@
+diff --git a/docs/developer/gdn_activation_offloading.md b/docs/developer/gdn_activation_offloading.md
+index ef5f44f8e..5552f088a 100644
+--- a/docs/developer/gdn_activation_offloading.md
++++ b/docs/developer/gdn_activation_offloading.md
+@@ -1,6 +1,6 @@
+ # GDN recurrence activation offloading
+ 
+-`gdn_core_attn` offloads tensors saved by the BF16/FLA GatedDeltaNet recurrence.
++`gdn_core_attn` offloads tensors saved by BF16/FLA GatedDeltaNet and GatedDeltaNet2 recurrences.
+ It reuses the existing activation-offload manager, streams and pinned-memory pool.
+ The option is disabled by default. Projection and convolution/QKV recomputation
+ and convolution-input offload are separate scopes proposed in
+@@ -21,8 +21,14 @@ The training CLI requires `NVTE_CPU_OFFLOAD_V1=1` with Transformer Engine 2.10
+ or newer. Programmatic configurations set `fine_grained_activation_offloading=True`,
+ `offload_modules=["gdn_core_attn"]` and `gdn_kernel_backend="fla"`.
+ Selective `gdn_norm_out` recomputation and the existing opt-in pre-GDR fusion are
+-supported. Configuration rejects GDN2, FP8/FP4, non-BF16 execution, other recurrence
+-backends, full-layer recomputation and CUDA graphs.
++supported for GDN. GDN2 supports `gdn_norm_out` recomputation and requires FLA's
++`fla.ops.gdn2` kernel. Configuration rejects FP8/FP4, non-BF16 execution, other
++recurrence backends and full-layer recomputation. CUDA graphs require
++`cuda_graph_impl="transformer_engine"`; attention or whole-layer capture uses the
++existing transfer stream/event callbacks. Replay stays on the caller's autograd
++stream to preserve the order of layer graphs sharing a memory pool. Local and
++full-iteration graphs remain unsupported.
++`delay_offload_until_cuda_graph` uses the existing replay flush.
+ 
+ The manager's minimum tensor size, offload fraction and last-group margin apply.
+ After warmup, fraction zero selects no transfers. Warmup can still copy eligible
+@@ -38,6 +44,10 @@ backward access. The recurrence saves Q/K/V, gates and its internal WY
+ representation. Some saves alias inputs retained by neighboring operations;
+ moving one saved reference does not free a storage still used on GPU.
+ 
++GDN2 keeps differentiable write-gate outputs on GPU because sigmoid backward
++also retains their storage. The erase gate stays on GPU when its heads do not
++need expansion; expanded and frozen gates remain eligible for offloading.
++
+ The offload scope wraps only the FLA recurrence. A differentiable recurrence input
+ anchors backward prefetch, including a trainable gate when Q is frozen. The scope
+ commits on the raw recurrence output, before gated output normalization, so reload
+@@ -62,10 +72,13 @@ python -m torch.distributed.run --standalone --nproc-per-node=1 \
+   --output /tmp/gdn-benchmark.json
+ ```
+ 
++Add `--variant gdn2` to profile or benchmark the GDN2 recurrence. These stack
++benchmarks exclude vocabulary loss and optimizer updates.
++
+ The reduced-model test trains complete GDN/attention decoder blocks, embeddings,
+ MLPs and vocabulary loss with the native schedules and BF16 Adam. Four ranks
+-cover DP, TP, TP+SP, CP, PP, PP+VPP, TP+SP+CP and TP+SP+PP, with both fusion
+-variants, both norm-recomputation settings and fractions 0/0.5/1:
++cover DP, TP, TP+SP, CP, PP, PP+VPP, TP+SP+CP and TP+SP+PP, with GDN's two fusion
++settings and unfused GDN2, both norm-recomputation settings and fractions 0/0.5/1:
+ 
+ ```bash
+ python -m torch.distributed.run --standalone --nproc-per-node=4 \
+@@ -73,6 +86,18 @@ python -m torch.distributed.run --standalone --nproc-per-node=4 \
+   -m pytest -q tests/unit_tests/ssm/test_gdn_offload_training.py
+ ```
+ 
++The TE graph test captures attention or whole layers after three native optimizer
++steps, verifies that graphs were created, then compares three replay steps with
++offloading disabled and enabled. It covers GDN/GDN2, norm recomputation and
++delayed offload on single-stage DP, TP2+SP and PP2 configurations:
++
++```bash
++python -m torch.distributed.run --standalone --nproc-per-node=2 \
++  -m pytest -q tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py
++```
++
++For a one-GPU check, use `--nproc-per-node=1` and select `-k tp1`.
++
+ The optional Qwen tool imports local Hugging Face Qwen3.5-0.8B weights through
+ Megatron Bridge and trains all 24 text decoder blocks. Vision and MTP are excluded.
+ It requires a Bridge environment with Qwen3.5 VL mappings; the historical runs
+@@ -174,6 +199,59 @@ retain earlier results, including the fixed-reduction fused implementation at
+ `2f1ee4f2e` and unfused measurements at `4e18562c6`. Those results do not qualify
+ the restored native fused implementation or establish a cross-version speedup.
+ 
++Whole-layer TE graph measurements at
++`f19ebc5b1da1c9b0075eecfd2f93fc6ca4b3ba8d` cover the complete Qwen text model
++and a randomly initialized eight-block GDN2/attention model. Both include
++embeddings, MLPs, vocabulary loss and native BF16 Adam. Each model uses one A6000,
++sequence 2048, four microbatches, unfused pre-GDR, norm recomputation off, fraction 1
++and the default tensor threshold. Three fresh-process pairs alternate arm order;
++each arm trains three native steps, captures graphs, then trains three replay
++warmup and ten timed optimizer steps. Input preparation, capture and state
++fingerprints are outside performance timing. The optimizer remains eager.
++
++| Model | Allocated-peak change | Reserved-peak reduction, median [range] | Paired step-time increase, median [range] |
++| --- | --- | --- | --- |
++| Qwen3.5-0.8B, 24 text blocks | +512 bytes | 444 MiB [442, 446] | +21.00% [20.68%, 21.11%] |
++| GDN2, 8 blocks, hidden size 1024, vocabulary 4096 | approximately +1 MiB | 258 MiB [248, 286] | +96.45% [96.05%, 96.66%] |
++
++These graph runs reduce reserved memory but show no allocated-peak reduction and
++substantial runtime cost. Evaluate the trade-off on the target workload before
++enabling graph offloading. The pairs hold TE graph mode fixed. Six-step
++correctness runs match losses, gradients, weights and complete optimizer-state
++fingerprints; all performance pairs also match their loss and gradient-norm
++sequences. Pinned-buffer ownership returns to zero before schedule resets and
++pool allocation counters stay constant during replay.
++[Commands, raw timings, rank logs and verification](https://github.com/Pinoeer-kingxi/Megatron-LM/tree/6ec7df0dc5adcd9f704077636398999ebdfea027/gdn-graph-training-20261017)
++identify the exact source, environment and workload. These measurements precede
++the GDN2 live-gate change below; `d18040ba5a` used the same runtime as this source.
++
++Profiling at `d18040ba5a` identifies transfer time without overlapping kernels as
++the main graph-offload cost. GDN2 copies 1600 MiB in each direction per optimizer
++step; its write-gate storage is also retained by sigmoid backward outside the
++recurrence. At `367d014c7bf74ba3553c9db58da47fa5bcba906e`, keeping live sigmoid
++gates resident reduces each direction to 1440 MiB with unchanged kernel call counts.
++
++Three fresh-process pairs compare the previous and adjusted GDN2 implementations,
++both with offloading enabled and the same whole-layer graph workload above.
++Paired median step time falls by 5.93% (5.89–5.95%); the medians of process-median
++times are 451.71 and 424.91 ms. Peak reserved falls by an additional paired median
++22 MiB (20–38 MiB); allocated peaks are unchanged. The retained pinned-buffer count
++falls from 54 to 48. These results measure the gate-selection adjustment, not a
++speedup from enabling offloading. Transfer overhead remains substantial.
++
++At the adjusted source, two ranks each pass 20 scope, 18 native training and nine
++real TE graph cases without skips. Separate complete-model comparisons with
++linear key/value heads 8/16 and 16/16 match all six steps of losses, gradients,
++weights and complete optimizer/master-state fingerprints. Evaluation and frozen
++gate regressions exercise the resident-gate boundary.
++[Transfer traces, paired samples, rank logs and verification](https://github.com/Pinoeer-kingxi/Megatron-LM/tree/a2cd3e9ddc1bfefe92c2a2b4052251c996c16544/gdn-graph-profile-20261017)
++retain exact commands, source identities and the earlier configuration probes.
++
++The earlier GDN2 stack result at `043e3173451bea74e63c02b197867bf356ad72e9`
++saved 192 MiB allocated (16.88%), with +58.42% median runtime. It excludes
++vocabulary loss, optimizer updates and CUDA graphs and remains a separate
++historical measurement in the linked evidence.
++
+ Pretrained Qwen CP remains unqualified: the recorded disabled baseline cannot
+ select an attention backend for head dimension 256 on A6000. This does not qualify
+ new environments or other CP configurations. Local results do not replace
+diff --git a/docs/user-guide/features/fine_grained_activation_offloading.md b/docs/user-guide/features/fine_grained_activation_offloading.md
+index f677c1815..f51a890b0 100644
+--- a/docs/user-guide/features/fine_grained_activation_offloading.md
++++ b/docs/user-guide/features/fine_grained_activation_offloading.md
+@@ -13,7 +13,7 @@ Contributed in collaboration with RedNote.
+ 
+ Fine-grained activation offloading reduces GPU memory by asynchronously transferring activations to CPU at the granularity of individual submodules within a transformer layer. Unlike layer-level offloading, it allows precise control over which activations to offload, enabling a tradeoff between memory savings and PCIe bandwidth overhead.
+ 
+-Supported offloading modules are `"attn_norm"`, `"qkv_linear"`, `"core_attn"`, `"attn_proj"`, `"mlp_norm"`, `"expert_fc1"`, `"moe_act"`, `"fused_group_mlp"`, `"shortcut_post_norm"`, and `"gdn_core_attn"`. They can be combined with fine-grained recomputation to free almost all activations for a transformer layer on the device. `fused_group_mlp` requires `--use-transformer-engine-op-fuser` and offloads the whole fused grouped MLP, so it cannot be combined with `expert_fc1` or `moe_act`. `shortcut_post_norm` requires `--moe-shortcut-connection`. `gdn_core_attn` requires BF16 GDN with the FLA recurrence.
++Supported offloading modules are `"attn_norm"`, `"qkv_linear"`, `"core_attn"`, `"attn_proj"`, `"mlp_norm"`, `"expert_fc1"`, `"moe_act"`, `"fused_group_mlp"`, `"shortcut_post_norm"`, and `"gdn_core_attn"`. They can be combined with fine-grained recomputation to free almost all activations for a transformer layer on the device. `fused_group_mlp` requires `--use-transformer-engine-op-fuser` and offloads the whole fused grouped MLP, so it cannot be combined with `expert_fc1` or `moe_act`. `shortcut_post_norm` requires `--moe-shortcut-connection`. `gdn_core_attn` requires BF16 GDN/GDN2 with the FLA recurrence.
+ 
+ ## User Guide
+ 
+@@ -43,7 +43,7 @@ Each scope offloads saved activations to CPU during forward and reloads them bef
+ | `moe_act` | Activation function in MoE experts | MoE models only |
+ | `fused_group_mlp` | Whole fused grouped MLP | Requires `--use-transformer-engine-op-fuser`; cannot be combined with `expert_fc1` or `moe_act` |
+ | `shortcut_post_norm` | Shortcut post-combine normalization | Requires `--moe-shortcut-connection` |
+-| `gdn_core_attn` | Tensors saved inside the FLA GDN recurrence | BF16 GDN only; no full recomputation or CUDA graphs |
++| `gdn_core_attn` | Tensors saved inside the FLA GDN/GDN2 recurrence | BF16 only; no full recomputation; TE CUDA graphs supported |
+ 
+ When selective `residual_stream` replay is active, its shared checkpoint manager owns the
+ connected ShortcutMoE post-norm. In that case `shortcut_post_norm` offloading is skipped for the
+@@ -53,9 +53,10 @@ replay-owned forward so that replay and offloading do not release the same activ
+ 
+ Use `--fine-grained-activation-offloading --offload-modules gdn_core_attn` with BF16
+ GDN (`--experimental-attention-variant gdn`, including the legacy `gated_delta_net`
+-alias). This scope captures tensors saved by FLA's chunked gated delta rule, including
+-Q/K/V and its internal WY representation. It commits the transfer on the recurrence
+-output, before the gated output norm, and reloads before recurrence backward.
++alias), or `--experimental-attention-variant gdn2`. This scope captures tensors saved
++by FLA's recurrence, including Q/K/V and its internal WY representation. It commits
++the transfer on the recurrence output, before the gated output norm, and reloads
++before recurrence backward.
+ 
+ Megatron's training CLI requires `NVTE_CPU_OFFLOAD_V1=1` with Transformer Engine
+ 2.10 or newer. Set it before starting the training process.
+@@ -68,7 +69,11 @@ inputs bypass the offload scope. When Q is frozen, the first differentiable inpu
+ anchors the backward prefetch callback.
+ 
+ Initial support requires BF16 without FP8/FP4, the FLA recurrence (not the deterministic
+-Torch reference), and no CUDA graphs or full-layer recomputation. GDN2 is not included.
++Torch reference), and no full-layer recomputation. CUDA graphs require
++`--cuda-graph-impl transformer_engine`; the existing graph stream/event integration
++also covers captured GDN recurrence groups. Choose attention or whole-layer
++capture and set a positive `--cuda-graph-warmup-steps`. Local and full-iteration
++graphs are not supported by this scope. GDN2 requires FLA's `fla.ops.gdn2` kernel.
+ Saved inputs are not force-released: any storage still held by another operation stays
+ on GPU. The manager's minimum size, fraction, and last-group margin still apply; a
+ single GDN group is kept resident after warmup. Use multiple layers when evaluating
+@@ -125,7 +130,8 @@ from all configured offload modules after those filters.
+ 
+ ### CUDA Graph Integration
+ 
+-Fine-grained offloading is compatible with CUDA graphs. When CUDA graph is enabled, the following constraints apply:
++Fine-grained offloading is compatible with CUDA graphs. The following partial-capture
++recipe covers MoE attention/router offloading; GDN's supported scopes are described above:
+ 
+ - `attn_norm` and `mlp_norm` **cannot** be offloaded (they cross CUDA graph boundaries).
+ - `cuda_graph_scope` must include `attn` and `moe_router`.
+@@ -143,7 +149,7 @@ Fine-grained offloading is compatible with CUDA graphs. When CUDA graph is enabl
+ 
+ Boundaries that run **outside** the captured region still execute as normal eager PyTorch each forward—for the recommended MoE setup, that includes expert compute after a graphed `moe_router` (e.g. offloading `expert_fc1` / `moe_act`). For those groups, each `group_offload` would otherwise submit D2H work from the host as soon as the forward hits the commit point.
+ 
+-**What this flag does.** It only affects offload commits that are explicitly wired with **delayed** group commit (currently the MoE expert path: `expert_fc1`, `moe_act`). Around each layer’s `TransformerEngine` CUDA graph replay, the offload manager enters **replay mode**; delayed commits **enqueue** `(callback, group name, forced tensors)` instead of launching D2H immediately, then **flush_delayed_groups** runs **after** that graph replay returns and issues the queued D2H copies in forward order, without changing the offload/reload semantics.
++**What this flag does.** It only affects offload commits explicitly wired with **delayed** group commit: `expert_fc1`, `moe_act`, and `gdn_core_attn`. Around each layer’s `TransformerEngine` CUDA graph replay, the offload manager enters **replay mode**; delayed commits **enqueue** `(callback, group name, forced tensors)` instead of launching D2H immediately, then **flush_delayed_groups** runs **after** that graph replay returns and issues the queued D2H copies in forward order, without changing the offload/reload semantics. Transfers captured inside a GDN graph remain part of that graph; selecting the flag does not move captured transfers back to Python.
+ 
+ **When this actually buys time (EP A2A after replay).** The benefit assumes a **real CPU/GPU synchronization gap right after graph replay**—in the usual MoE training layout, **expert parallel (EP) all-to-all** and related dispatch follows the graphed `moe_router` region. That A2A path typically needs the host to coordinate collectives and to **sync with the GPU** (e.g. wait for graph work to finish or for communication staging), so the CPU is not fully overlapped with useful launch work during that interval. Scheduling `flush_delayed_groups` **immediately after** `cudaGraphLaunch` returns uses that window to issue D2H copies from the host: the enqueue cost is largely **hidden** in slack that EP A2A would already incur. If there were no such post-replay sync (or expert work were fully captured inside the graph with no host-visible gap), deferring commits would not provide the same “free” host time.
+ 
+diff --git a/megatron/core/ssm/gated_delta_net/common.py b/megatron/core/ssm/gated_delta_net/common.py
+index c472a8287..abc8d8331 100644
+--- a/megatron/core/ssm/gated_delta_net/common.py
++++ b/megatron/core/ssm/gated_delta_net/common.py
+@@ -20,6 +20,9 @@ from megatron.core.fp8_utils import get_fp8_align_size
+ from megatron.core.inference.contexts import BaseInferenceContext
+ from megatron.core.jit import jit_fuser
+ from megatron.core.packed_seq_params import PackedSeqParams
++from megatron.core.pipeline_parallel.fine_grained_activation_offload import (
++    FineGrainedActivationOffloadingInterface as off_interface,
++)
+ from megatron.core.process_groups_config import ProcessGroupCollection
+ from megatron.core.ssm.mamba_context_parallel import (
+     _all_to_all_cp2hp,
+@@ -205,6 +208,9 @@ class _GDNBase(MegatronModule, TwoStageAttentionLayer):
+ 
+         # Attributes from config
+         self.config = config
++        self.offload_core_attention = config.fine_grained_activation_offloading and (
++            "gdn_core_attn" in config.offload_modules
++        )
+         self.hidden_size = config.hidden_size
+         self.act_fn = config.activation_func
+         self.activation = self.act_fn.__name__
+@@ -326,6 +332,34 @@ class _GDNBase(MegatronModule, TwoStageAttentionLayer):
+         """Output-norm recomputation requires the original atomic forward path."""
+         return not self.recompute_norm_out
+ 
++    def _run_gated_delta_rule(
++        self, kernel_inputs: dict[str, torch.Tensor], cu_seqlens: torch.Tensor | None
++    ) -> torch.Tensor:
++        """Run the family recurrence with a differentiable anchor for offload prefetch."""
++        offload_input_name = None
++        if self.offload_core_attention and self.training and torch.is_grad_enabled():
++            offload_input_name = next(
++                (name for name, tensor in kernel_inputs.items() if tensor.requires_grad), None
++            )
++        input_name = offload_input_name or "q"
++        manager = off_interface(
++            offload_input_name is not None, kernel_inputs[input_name], "gdn_core_attn"
++        )
++        nvtx_range_push(suffix="gated_delta_rule")
++        with manager as offload_input:
++            core_attn_out, _ = self.gated_delta_rule(
++                **{**kernel_inputs, input_name: offload_input},
++                initial_state=None,
++                output_final_state=False,
++                use_qk_l2norm_in_kernel=False,
++                cu_seqlens=cu_seqlens,
++            )
++        nvtx_range_pop(suffix="gated_delta_rule")
++        # Commit before output normalization; its saves can alias recurrence inputs.
++        return manager.group_offload(
++            core_attn_out, delay_offload=self.config.delay_offload_until_cuda_graph
++        )
++
+     def forward_post_core_attn(
+         self, norm_out: torch.Tensor
+     ) -> tuple[torch.Tensor, torch.Tensor | None]:
+diff --git a/megatron/core/ssm/gated_delta_net/gdn.py b/megatron/core/ssm/gated_delta_net/gdn.py
+index eb87dacce..eef28bf20 100644
+--- a/megatron/core/ssm/gated_delta_net/gdn.py
++++ b/megatron/core/ssm/gated_delta_net/gdn.py
+@@ -20,9 +20,6 @@ from megatron.core.inference.contexts.attention_context.triton.tensor_ops import
+ from megatron.core.inference.utils import InferenceMode
+ from megatron.core.jit import jit_fuser
+ from megatron.core.packed_seq_params import PackedSeqParams
+-from megatron.core.pipeline_parallel.fine_grained_activation_offload import (
+-    FineGrainedActivationOffloadingInterface as off_interface,
+-)
+ from megatron.core.ssm.gated_delta_net.common import (
+     _GDNBase,
+     a2a_cp_to_hp,
+@@ -77,9 +74,6 @@ class GatedDeltaNet(SSMDynamicInferenceMixin, _GDNBase):
+     # pylint: disable=missing-class-docstring
+     def _setup_variant_attrs(self):
+         """Set the GDN in_proj sizing, split tables, gate parameter dims, and kernel."""
+-        self.offload_core_attention = self.config.fine_grained_activation_offloading and (
+-            "gdn_core_attn" in self.config.offload_modules
+-        )
+         self.gdn_pre_gated_delta_rule_fusion = self.config.gdn_pre_gated_delta_rule_fusion
+         if self.config.deterministic_mode and self.gdn_pre_gated_delta_rule_fusion:
+             raise ValueError(
+@@ -301,34 +295,7 @@ class GatedDeltaNet(SSMDynamicInferenceMixin, _GDNBase):
+             kernel_inputs = {"q": query, "k": key, "v": value, "g": g, "beta": beta}
+             nvtx_range_pop(suffix="pre_gated_delta_rule")
+ 
+-        nvtx_range_push(suffix="gated_delta_rule")
+-        # The group-start input must participate in backward to trigger prefetch.
+-        # Frozen projections can leave only a gate differentiable; a completely
+-        # frozen recurrence has no saved tensors to offload.
+-        offload_input_name = None
+-        if self.offload_core_attention and self.training and torch.is_grad_enabled():
+-            offload_input_name = next(
+-                (name for name, tensor in kernel_inputs.items() if tensor.requires_grad), None
+-            )
+-        core_attn_manager = off_interface(
+-            offload_input_name is not None,
+-            kernel_inputs[offload_input_name or "q"],
+-            "gdn_core_attn",
+-        )
+-        with core_attn_manager as offload_input:
+-            kernel_inputs[offload_input_name or "q"] = offload_input
+-            core_attn_out, _ = self.gated_delta_rule(
+-                **kernel_inputs,
+-                initial_state=None,
+-                output_final_state=False,
+-                use_qk_l2norm_in_kernel=False,
+-                cu_seqlens=cu_seqlens_q,
+-            )
+-        nvtx_range_pop(suffix="gated_delta_rule")
+-        # Commit before the output norm so backward reloads precede the FLA kernel.
+-        # Do not force-release inputs: gates and normalized Q/K can share storage
+-        # with saves outside this scope, including the fused pre-GDR path.
+-        core_attn_out = core_attn_manager.group_offload(core_attn_out)
++        core_attn_out = self._run_gated_delta_rule(kernel_inputs, cu_seqlens_q)
+ 
+         if self.recompute_norm_out:
+             self.norm_out_checkpoint = tensor_parallel.CheckpointWithoutOutput()
+diff --git a/megatron/core/ssm/gated_delta_net/gdn2.py b/megatron/core/ssm/gated_delta_net/gdn2.py
+index cb3c7a970..2a69e50bc 100644
+--- a/megatron/core/ssm/gated_delta_net/gdn2.py
++++ b/megatron/core/ssm/gated_delta_net/gdn2.py
+@@ -16,6 +16,9 @@ from megatron.core import tensor_parallel
+ from megatron.core.inference.contexts import BaseInferenceContext
+ from megatron.core.jit import jit_fuser
+ from megatron.core.packed_seq_params import PackedSeqParams
++from megatron.core.pipeline_parallel.fine_grained_activation_offload import (
++    FineGrainedActivationOffloadingInterface as off_interface,
++)
+ from megatron.core.ssm.gated_delta_net.common import (
+     _GDNBase,
+     a2a_cp_to_hp,
+@@ -310,15 +313,14 @@ class GatedDeltaNet2(_GDNBase):
+         gate = kernel_inputs.pop("gate")
+         nvtx_range_pop(suffix="prepare_input_for_gated_delta_rule")
+ 
+-        nvtx_range_push(suffix="gated_delta_rule")
+-        core_attn_out, _ = self.gated_delta_rule(
+-            **kernel_inputs,
+-            initial_state=None,
+-            output_final_state=False,
+-            use_qk_l2norm_in_kernel=False,
+-            cu_seqlens=cu_seqlens_q,
+-        )
+-        nvtx_range_pop(suffix="gated_delta_rule")
++        if self.offload_core_attention and self.training:
++            # Sigmoid backward retains these unexpanded gates outside the recurrence.
++            if kernel_inputs["w"].requires_grad:
++                off_interface.mark_not_offload(kernel_inputs["w"])
++            if self.num_value_heads == self.num_key_heads and kernel_inputs["b"].requires_grad:
++                off_interface.mark_not_offload(kernel_inputs["b"])
++
++        core_attn_out = self._run_gated_delta_rule(kernel_inputs, cu_seqlens_q)
+ 
+         if self.recompute_norm_out:
+             self.norm_out_checkpoint = tensor_parallel.CheckpointWithoutOutput()
+diff --git a/megatron/core/transformer/transformer_config.py b/megatron/core/transformer/transformer_config.py
+index 196590ccd..ccbddf4f9 100644
+--- a/megatron/core/transformer/transformer_config.py
++++ b/megatron/core/transformer/transformer_config.py
+@@ -1608,8 +1608,8 @@ class TransformerConfig(ModelParallelConfig):
+     "shortcut_post_norm": offload the input of the shortcut output normalization.
+             Requires moe_shortcut_connection=True.
+     "gdn_core_attn": offload tensors saved by the FLA GatedDeltaNet recurrence.
+-            Requires BF16 GDN and gdn_kernel_backend="fla", with no CUDA graphs
+-            or full recomputation.
++            Requires BF16 GDN/GDN2 and gdn_kernel_backend="fla", with no full
++            recomputation. CUDA graphs require the Transformer Engine implementation.
+     """
+     min_offloaded_tensor_size: int = 1024 * 1024
+     """The minimum size of the tensor to be offloaded."""
+@@ -2875,8 +2875,8 @@ class TransformerConfig(ModelParallelConfig):
+                 f'Allowed modules are: {allowed_modules}'
+             )
+             if "gdn_core_attn" in self.offload_modules:
+-                if self.experimental_attention_variant != "gdn":
+-                    raise ValueError("gdn_core_attn offloading only supports GDN (gdn).")
++                if self.experimental_attention_variant not in ("gdn", "gdn2"):
++                    raise ValueError("gdn_core_attn offloading only supports GDN (gdn or gdn2).")
+                 if not self.bf16 or self.fp8 or self.fp4:
+                     raise ValueError("gdn_core_attn offloading requires BF16 without FP8 or FP4.")
+                 if self.gdn_kernel_backend != "fla":
+@@ -2886,11 +2886,12 @@ class TransformerConfig(ModelParallelConfig):
+                         "gdn_core_attn offloading does not support full recomputation."
+                     )
+                 if (
+-                    self.cuda_graph_impl != "none"
++                    self.cuda_graph_impl not in ("none", "transformer_engine")
+                     or self.enable_cuda_graph
+-                    or self.external_cuda_graph
+                 ):
+-                    raise ValueError("gdn_core_attn offloading does not yet support CUDA graphs.")
++                    raise ValueError(
++                        "gdn_core_attn offloading only supports Transformer Engine CUDA graphs."
++                    )
+             if "attn_proj" in self.offload_modules and "core_attn" not in self.offload_modules:
+                 raise ValueError(
+                     "attn_proj cannot be set to offload_modules alone without core_attn "
+diff --git a/megatron/core/transformer/transformer_layer.py b/megatron/core/transformer/transformer_layer.py
+index de62c15d0..e3d172edf 100644
+--- a/megatron/core/transformer/transformer_layer.py
++++ b/megatron/core/transformer/transformer_layer.py
+@@ -2064,6 +2064,10 @@ class TransformerLayer(GraphableMegatronModule, BaseTransformerLayer, TwoStageAt
+     def _get_te_cuda_graph_replay_args(self, *args, **kwargs):
+         """Helper function to get tensor arguments for TE CUDA graph."""
+         cudagraph_args, cudagraph_kwargs = super()._get_te_cuda_graph_replay_args(*args, **kwargs)
++        if "gdn_core_attn" in (self.config.offload_modules or []):
++            # TE shares graph memory pools, so preserve replay order on the caller's stream.
++            cudagraph_kwargs.pop("cuda_graph_stream", None)
++            cudagraph_kwargs.pop("cuda_graph_event", None)
+ 
+         assert (
+             len(cudagraph_args) == 1
+@@ -2210,6 +2214,13 @@ class TransformerLayer(GraphableMegatronModule, BaseTransformerLayer, TwoStageAt
+         # Set the offload module in cuda graph flag.
+         self.offload_module_in_cuda_graph = False
+         cuda_graph_modules = self.config.cuda_graph_modules or []
++        if (
++            self.config.cuda_graph_impl == "transformer_engine"
++            and (not cuda_graph_modules or CudaGraphModule.attn in cuda_graph_modules)
++            and "gdn_core_attn" in (self.config.offload_modules or [])
++            and getattr(self.self_attention, "offload_core_attention", False)
++        ):
++            self.offload_module_in_cuda_graph = True
+         if CudaGraphModule.attn in cuda_graph_modules:
+             if self.offload_core_attn or self.offload_attn_proj or self.offload_qkv_linear:
+                 self.offload_module_in_cuda_graph = True
+diff --git a/tests/unit_tests/ssm/test_gated_delta_net_offloading.py b/tests/unit_tests/ssm/test_gated_delta_net_offloading.py
+index 26b1312e4..8b5b8136d 100644
+--- a/tests/unit_tests/ssm/test_gated_delta_net_offloading.py
++++ b/tests/unit_tests/ssm/test_gated_delta_net_offloading.py
+@@ -23,7 +23,7 @@ from megatron.core.pipeline_parallel.fine_grained_activation_offload import (
+     PipelineOffloadManager,
+ )
+ from megatron.core.process_groups_config import ProcessGroupCollection
+-from megatron.core.ssm.gated_delta_net import HAVE_FLA
++from megatron.core.ssm.gated_delta_net import HAVE_FLA, GatedDeltaNet2
+ from megatron.core.tensor_parallel.random import model_parallel_cuda_manual_seed
+ from megatron.core.transformer import TransformerConfig
+ from tests.unit_tests.test_utilities import Utils
+@@ -58,7 +58,6 @@ def _config(**kwargs: Any) -> TransformerConfig:
+     "kwargs,match",
+     [
+         ({"experimental_attention_variant": None}, "only supports GDN"),
+-        ({"experimental_attention_variant": "gdn2"}, "only supports GDN"),
+         ({"bf16": False, "params_dtype": torch.float32}, "BF16"),
+         ({"fp8": "e4m3"}, "BF16"),
+         ({"fp4": "e2m1"}, "BF16"),
+@@ -73,7 +72,9 @@ def _config(**kwargs: Any) -> TransformerConfig:
+             },
+             "full recomputation",
+         ),
+-        ({"cuda_graph_impl": "transformer_engine"}, "CUDA graphs"),
++        ({"cuda_graph_impl": "local"}, "Transformer Engine CUDA graphs"),
++        ({"cuda_graph_impl": "full_iteration"}, "Transformer Engine CUDA graphs"),
++        ({"enable_cuda_graph": True}, "Transformer Engine CUDA graphs"),
+     ],
+ )
+ def test_reject_unsupported_gdn_offload(kwargs: dict[str, Any], match: str) -> None:
+@@ -89,6 +90,7 @@ def test_gdn_offload_config() -> None:
+         assert config.experimental_attention_variant == "gdn"
+     config = _config(recompute_granularity="selective", recompute_modules=["gdn_norm_out"])
+     assert config.offload_modules == ["gdn_core_attn"]
++    assert _config(experimental_attention_variant="gdn2").offload_modules == ["gdn_core_attn"]
+     assert not TransformerConfig(
+         num_layers=1, hidden_size=128, num_attention_heads=2
+     ).offload_modules
+@@ -109,6 +111,18 @@ def gdn_offload_groups() -> Iterator[ProcessGroupCollection]:
+     Utils.destroy_model_parallel()
+ 
+ 
++@pytest.mark.parametrize("variant", ["gdn", "gdn2"])
++def test_gdn_offload_te_graph_config(variant: str) -> None:
++    """Both recurrence variants accept TE graphs while retaining BF16/FLA constraints."""
++    config = _config(
++        experimental_attention_variant=variant,
++        cuda_graph_impl="transformer_engine",
++        cuda_graph_modules=["attn"],
++        cuda_graph_warmup_steps=3,
++    )
++    assert config.cuda_graph_impl == "transformer_engine"
++
++
+ def _build(config: TransformerConfig, groups: ProcessGroupCollection) -> torch.nn.ModuleList:
+     spec = get_gated_delta_net_module_spec(config)
+     return (
+@@ -258,6 +272,79 @@ def test_gdn_zero_fraction_with_growing_sequence(
+         off_interface.reset(process_group=torch.distributed.group.WORLD)
+ 
+ 
++@pytest.mark.skipif(not HAVE_FLA, reason="FLA is not installed.")
++def test_gdn2_eval_bypasses_offload_manager(
++    gdn_offload_groups: ProcessGroupCollection, monkeypatch: pytest.MonkeyPatch
++) -> None:
++    """Evaluation with gradients does not initialize the offload manager."""
++    pytest.importorskip("fla.ops.gdn2")
++    baseline, offloaded = _build_pair(
++        _config(experimental_attention_variant="gdn2"), gdn_offload_groups
++    )
++    baseline.eval()
++    offloaded.eval()
++    source = torch.randn(128, 1, 256, device="cuda", dtype=torch.bfloat16)
++    monkeypatch.setattr(PipelineOffloadManager, "OFFLOAD_MGR", None)
++    _assert_step_equal(_run(baseline, source), _run(offloaded, source))
++    assert PipelineOffloadManager.OFFLOAD_MGR is None
++
++
++@pytest.mark.skipif(not HAVE_FLA, reason="FLA is not installed.")
++@pytest.mark.parametrize("value_heads", [4, 8])
++@pytest.mark.parametrize("frozen_gates", [False, True])
++def test_gdn2_offload_retains_live_sigmoid_gates(
++    gdn_offload_groups: ProcessGroupCollection,
++    value_heads: int,
++    frozen_gates: bool,
++    monkeypatch: pytest.MonkeyPatch,
++) -> None:
++    """Skip copies of live sigmoid outputs while allowing expanded or frozen gates."""
++    pytest.importorskip("fla.ops.gdn2")
++    config = _config(experimental_attention_variant="gdn2", linear_num_value_heads=value_heads)
++    baseline, offloaded = _build_pair(config, gdn_offload_groups)
++    if frozen_gates:
++        for model in (baseline, offloaded):
++            for layer in model:
++                layer.in_proj.requires_grad_(False)
++                layer.conv1d.requires_grad_(False)
++
++    gate_storages: dict[str, int] = {}
++    copied_gates: list[set[str]] = []
++    run_core = GatedDeltaNet2._run_gated_delta_rule
++    offload_tensor = ChunkOffloadHandler.offload
++
++    def record_gates(
++        layer: GatedDeltaNet2,
++        kernel_inputs: dict[str, torch.Tensor],
++        cu_seqlens: torch.Tensor | None,
++    ) -> torch.Tensor:
++        if layer.offload_core_attention:
++            gate_storages.update(
++                {name: kernel_inputs[name].untyped_storage().data_ptr() for name in ("b", "w")}
++            )
++            copied_gates.append(set())
++        return run_core(layer, kernel_inputs, cu_seqlens)
++
++    def record_copy(handler: ChunkOffloadHandler, tensor: torch.Tensor, **kwargs: Any) -> Any:
++        copied_gates[-1].update(
++            name
++            for name, pointer in gate_storages.items()
++            if pointer == tensor.untyped_storage().data_ptr()
++        )
++        return offload_tensor(handler, tensor, **kwargs)
++
++    monkeypatch.setattr(GatedDeltaNet2, "_run_gated_delta_rule", record_gates)
++    monkeypatch.setattr(ChunkOffloadHandler, "offload", record_copy)
++    source = torch.randn(128, 1, 256, device="cuda", dtype=torch.bfloat16)
++    reference = _run(baseline, source, detached_inputs=frozen_gates)
++    result = _run(offloaded, source, offload=True, detached_inputs=frozen_gates)
++    _assert_step_equal(reference, result)
++    assert len(copied_gates) == config.num_layers
++    for names in copied_gates:
++        assert ("w" in names) == frozen_gates
++        assert ("b" in names) == (frozen_gates or value_heads != 4)
++
++
+ @pytest.mark.skipif(not HAVE_FLA, reason="FLA is not installed.")
+ @pytest.mark.parametrize("fraction", [0.0, 0.5, 1.0])
+ @pytest.mark.parametrize("recompute_norm", [False, True])
+@@ -365,11 +452,17 @@ def test_gdn_offload_packed_sequence(
+ 
+ @pytest.mark.skipif(not HAVE_FLA, reason="FLA is not installed.")
+ @pytest.mark.parametrize("frozen_query", [False, True])
++@pytest.mark.parametrize("variant", ["gdn", "gdn2"])
+ def test_gdn_offload_delayed_d2h(
+-    gdn_offload_groups: ProcessGroupCollection, monkeypatch: pytest.MonkeyPatch, frozen_query: bool
++    gdn_offload_groups: ProcessGroupCollection,
++    monkeypatch: pytest.MonkeyPatch,
++    frozen_query: bool,
++    variant: str,
+ ) -> None:
+     """Warmup and missing query gradients still order fallback H2D after delayed D2H."""
+-    config = _config()
++    if variant == "gdn2":
++        pytest.importorskip("fla.ops.gdn2")
++    config = _config(experimental_attention_variant=variant)
+     baseline, offloaded = _build_pair(config, gdn_offload_groups)
+     if frozen_query:
+         for model in (baseline, offloaded):
+@@ -485,3 +578,34 @@ def test_gdn_offload_frozen_recurrence_bypass(
+         for layer in model:
+             source, _ = layer(source, None)
+     assert not source.requires_grad
++
++
++@pytest.mark.skipif(not HAVE_FLA, reason="FLA is not installed.")
++@pytest.mark.parametrize("fraction", [0.0, 0.5, 1.0])
++@pytest.mark.parametrize("recompute_norm", [False, True])
++@pytest.mark.parametrize("packed", [False, True])
++def test_gdn2_offload_replay(
++    gdn_offload_groups: ProcessGroupCollection, fraction: float, recompute_norm: bool, packed: bool
++) -> None:
++    """GDN2 channel-wise gates retain outputs and all gradients through pool reuse."""
++    pytest.importorskip("fla.ops.gdn2")
++    config = _config(
++        experimental_attention_variant="gdn2",
++        activation_offload_fraction=fraction,
++        recompute_granularity="selective" if recompute_norm else None,
++        recompute_modules=["gdn_norm_out"] if recompute_norm else [],
++    )
++    baseline, offloaded = _build_pair(config, gdn_offload_groups)
++    sequence = None
++    if packed:
++        cu = torch.tensor([0, 64, 128], device="cuda", dtype=torch.int32)
++        sequence = PackedSeqParams(qkv_format="thd", cu_seqlens_q=cu, cu_seqlens_kv=cu)
++    manager = PipelineOffloadManager.get_instance()
++    for _ in range(3):
++        source = torch.randn(128, 1, 256, device="cuda", dtype=torch.bfloat16)
++        reference = _run(baseline, source, sequence)
++        result = _run(offloaded, source, sequence, offload=True, fraction=fraction)
++        _assert_step_equal(reference, result)
++        assert manager.cpu_tensor_pool.get_pool_status()["global_stats"]["current_in_use"] == 0
++        off_interface.reset(process_group=torch.distributed.group.WORLD)
++        assert (manager.offload_summary_total_bytes > 0) == (fraction > 0)
+diff --git a/tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py b/tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py
+new file mode 100644
+index 000000000..cc610582a
+--- /dev/null
++++ b/tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py
+@@ -0,0 +1,202 @@
++# Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
++
++"""Train through real TE graph capture/replay with recurrence offloading."""
++
++from dataclasses import replace
++from functools import partial
++
++import pytest
++import torch
++
++from megatron.core.dist_checkpointing.dict_utils import dict_list_map_outplace, diff
++from megatron.core.distributed.finalize_model_grads import finalize_model_grads
++from megatron.core.num_microbatches_calculator import (
++    destroy_num_microbatches_calculator,
++    init_num_microbatches_calculator,
++)
++from megatron.core.pipeline_parallel.fine_grained_activation_offload import (
++    FineGrainedActivationOffloadingInterface as off_interface,
++)
++from megatron.core.pipeline_parallel.fine_grained_activation_offload import PipelineOffloadManager
++from megatron.core.pipeline_parallel.p2p_communication import P2PCommunicator
++from megatron.core.pipeline_parallel.schedules import get_forward_backward_func
++from megatron.core.process_groups_config import ProcessGroupCollection
++from megatron.core.ssm.gated_delta_net import HAVE_FLA
++from megatron.core.tensor_parallel.random import initialize_rng_tracker
++from megatron.core.transformer.cuda_graphs import TECudaGraphHelper
++from megatron.core.transformer.enums import CudaGraphModule
++from megatron.core.utils import is_te_min_version, is_torch_min_version, unwrap_model
++from tests.unit_tests.ssm.test_gdn_offload_training import (
++    _build_training_model,
++    _forward_step,
++    _snapshot_leaf,
++    _training_config,
++)
++from tests.unit_tests.test_utilities import Utils
++
++
++@pytest.mark.skipif(not HAVE_FLA, reason="FLA is not installed.")
++@pytest.mark.skipif(
++    not is_torch_min_version("2.9.0a0") or not is_te_min_version("2.14.0"),
++    reason="CUDA graph offloading requires PyTorch >= 2.9 and TE >= 2.14.",
++)
++@pytest.mark.parametrize("tp,pp", [(1, 1), (2, 1), (1, 2)], ids=["tp1", "tp2-sp", "pp2"])
++@pytest.mark.parametrize(
++    "variant,fused,recompute_norm,whole_layer,delay,fraction",
++    [
++        ("gdn", False, False, False, False, 1.0),
++        ("gdn", True, True, False, True, 1.0),
++        ("gdn", True, False, True, False, 1.0),
++        ("gdn", False, True, True, True, 1.0),
++        ("gdn2", False, False, True, False, 1.0),
++        ("gdn2", False, True, False, True, 1.0),
++        ("gdn2", False, False, True, False, 0.0),
++    ],
++)
++def test_gdn_offload_with_te_graphs(
++    variant: str,
++    fused: bool,
++    recompute_norm: bool,
++    whole_layer: bool,
++    delay: bool,
++    fraction: float,
++    tp: int,
++    pp: int,
++    monkeypatch: pytest.MonkeyPatch,
++) -> None:
++    """Compare complete optimizer states after captured backward on changing inputs."""
++    if Utils.world_size % (tp * pp):
++        pytest.skip("This topology requires two GPUs.")
++    if variant == "gdn2":
++        pytest.importorskip("fla.ops.gdn2")
++    if fused:
++        pytest.importorskip("causal_conv1d", minversion="1.6.1")
++        monkeypatch.setenv("CAUSAL_CONV1D_DETERMINISTIC", "1")
++    monkeypatch.setenv("NVTE_ALLOW_NONDETERMINISTIC_ALGO", "0")
++    Utils.initialize_model_parallel(tp, pp)
++    initialize_rng_tracker(use_te_rng_tracker=True, force_reset=True)
++    init_num_microbatches_calculator(
++        rank=torch.distributed.get_rank(),
++        global_batch_size=4 * (Utils.world_size // (tp * pp)),
++        micro_batch_size=1,
++        data_parallel_size=Utils.world_size // (tp * pp),
++        decrease_batch_size_if_needed=False,
++    )
++    helper = None
++    try:
++        groups = ProcessGroupCollection.use_mpu_process_groups()
++        references = []
++        for enabled in (False, True):
++            off_interface.reset_instance()
++            config = replace(
++                _training_config(
++                    tp,
++                    tp > 1,
++                    1,
++                    pp,
++                    None,
++                    fraction,
++                    recompute_norm,
++                    fused_pre_gdr=fused,
++                    variant=variant,
++                ),
++                fine_grained_activation_offloading=enabled,
++                offload_modules=["gdn_core_attn"] if enabled else [],
++                cuda_graph_impl="transformer_engine",
++                cuda_graph_modules=[] if whole_layer else [CudaGraphModule.attn],
++                cuda_graph_warmup_steps=3,
++                use_te_rng_tracker=True,
++                delay_offload_until_cuda_graph=delay,
++            )
++            # Match native training: DDP's retained AccumulateGrad nodes must use a side stream.
++            current_stream = torch.cuda.current_stream()
++            init_stream = torch.cuda.Stream()
++            init_stream.wait_stream(current_stream)
++            with torch.cuda.stream(init_stream):
++                models, optimizer = _build_training_model(config, groups)
++            current_stream.wait_stream(init_stream)
++            manager = PipelineOffloadManager.get_instance()
++            pool_checks = []
++
++            def finalize(*args, **kwargs):
++                finalize_model_grads(*args, **kwargs)
++                in_use = manager.cpu_tensor_pool.get_pool_status()["global_stats"]["current_in_use"]
++                assert in_use == 0
++                pool_checks.append(in_use)
++
++            config.finalize_model_grads_func = partial(finalize, pg_collection=groups)
++            schedule = get_forward_backward_func(pp_size=pp, vp_size=None)
++            generator = torch.Generator().manual_seed(19 + groups.dp.rank())
++            states = []
++            for step in range(6):
++                if step == 3:
++                    helper = TECudaGraphHelper(
++                        models, config, 128, 1, optimizers=[optimizer], pg_collection=groups
++                    )
++                    helper.create_cudagraphs()
++                    assert helper.graphs_created()
++                    assert all(
++                        len(layer.cuda_graphs) == helper.num_microbatches
++                        for layer in unwrap_model(models[0]).decoder.layers
++                    )
++                batches = []
++                for _ in range(4):
++                    tokens = torch.randint(0, 512, (1, 129), generator=generator).cuda()
++                    batches.append(
++                        {
++                            "tokens": tokens[:, :-1].contiguous(),
++                            "labels": tokens[:, 1:].contiguous(),
++                            "position_ids": torch.arange(128, device="cuda").unsqueeze(0),
++                        }
++                    )
++                optimizer.zero_grad()
++                for model in models:
++                    model.zero_grad_buffer()
++                losses = schedule(
++                    forward_step_func=_forward_step,
++                    data_iterator=[iter(batches)],
++                    model=models,
++                    num_microbatches=4,
++                    seq_length=128,
++                    micro_batch_size=1,
++                    forward_only=False,
++                    p2p_communicator=P2PCommunicator(groups.pp, config),
++                    pg_collection=groups,
++                )
++                gradients = {
++                    name: p.main_grad.detach().clone() for name, p in models[0].named_parameters()
++                }
++                success, grad_norm, _ = optimizer.step()
++                assert success and grad_norm > 0, (variant, enabled, step)
++                states.append(
++                    {
++                        "losses": losses,
++                        "grads": gradients,
++                        "grad_norm": grad_norm,
++                        "weights": {
++                            name: p.detach().clone() for name, p in models[0].named_parameters()
++                        },
++                        "optimizer": dict_list_map_outplace(_snapshot_leaf, optimizer.state_dict()),
++                    }
++                )
++            assert len(pool_checks) == 6
++            if enabled:
++                assert (manager.offload_summary_total_bytes > 0) == (fraction > 0)
++                if fused:
++                    torch.testing.assert_close(states, references, rtol=1e-5, atol=1e-8)
++                else:
++                    assert not any(diff(references, states))
++            else:
++                references = states
++            helper.delete_cuda_graphs()
++            helper = None
++            del models, optimizer, states
++            torch.cuda.synchronize()
++    finally:
++        if helper is not None and helper.graphs_created():
++            helper.delete_cuda_graphs()
++        torch.cuda.synchronize()
++        off_interface.reset_instance()
++        destroy_num_microbatches_calculator()
++        initialize_rng_tracker(force_reset=True)
++        Utils.destroy_model_parallel()
+diff --git a/tests/unit_tests/ssm/test_gdn_offload_training.py b/tests/unit_tests/ssm/test_gdn_offload_training.py
+index 424d921fb..29334c4a0 100644
+--- a/tests/unit_tests/ssm/test_gdn_offload_training.py
++++ b/tests/unit_tests/ssm/test_gdn_offload_training.py
+@@ -60,6 +60,7 @@ def _training_config(
+     recompute_norm: bool,
+     *,
+     fused_pre_gdr: bool = False,
++    variant: str = "gdn",
+ ) -> TransformerConfig:
+     """Configure the reduced-size complete decoder and its parallel topology."""
+     return TransformerConfig(
+@@ -91,7 +92,7 @@ def _training_config(
+         # PP=2/VPP requires the native ordering for both directions to the same peer.
+         batch_p2p_comm=False,
+         attention_backend=AttnBackend.auto if cp > 1 else AttnBackend.unfused,
+-        experimental_attention_variant="gdn",
++        experimental_attention_variant=variant,
+         linear_attention_freq=4,
+         linear_conv_kernel_dim=4,
+         linear_key_head_dim=64,
+@@ -106,6 +107,7 @@ def _training_config(
+         offload_modules=["gdn_core_attn"],
+         activation_offload_fraction=fraction,
+         min_offloaded_tensor_size=1024,
++        cuda_graph_warmup_steps=0,
+     )
+ 
+ 
+@@ -117,7 +119,11 @@ def _build_training_model(
+     layer_specs = get_transformer_layer_with_experimental_attention_variant_spec(config)
+     stack_spec = ModuleSpec(
+         module=HybridStack,
+-        submodules=HybridStackSubmodules(gdn_layer=layer_specs[0], attention_layer=layer_specs[3]),
++        submodules=HybridStackSubmodules(
++            gdn_layer=layer_specs[0],
++            gdn2_layer=layer_specs[0] if config.experimental_attention_variant == "gdn2" else None,
++            attention_layer=layer_specs[3],
++        ),
+     )
+     torch.manual_seed(31)
+     model_parallel_cuda_manual_seed(31)
+@@ -186,7 +192,11 @@ def _snapshot_leaf(value: Any) -> Any:
+ @pytest.mark.skipif(not HAVE_FLA, reason="FLA is not installed.")
+ @pytest.mark.parametrize("fraction", [0.0, 0.5, 1.0])
+ @pytest.mark.parametrize("recompute_norm", [False, True])
+-@pytest.mark.parametrize("fused_pre_gdr", [False, True], ids=["unfused", "fused"])
++@pytest.mark.parametrize(
++    "variant,fused_pre_gdr",
++    [("gdn", False), ("gdn", True), ("gdn2", False)],
++    ids=["gdn-unfused", "gdn-fused", "gdn2"],
++)
+ @pytest.mark.parametrize(
+     "tp,sp,cp,pp,vp",
+     [
+@@ -210,11 +220,14 @@ def test_gdn_offload_training(
+     fraction: float,
+     recompute_norm: bool,
+     fused_pre_gdr: bool,
++    variant: str,
+     monkeypatch: pytest.MonkeyPatch,
+ ) -> None:
+     """Match losses, accumulated gradients, updated weights and Adam states on every rank."""
+     if Utils.world_size % (tp * cp * pp):
+         pytest.skip("This topology requires a world size divisible by TP * CP * PP.")
++    if variant == "gdn2":
++        pytest.importorskip("fla.ops.gdn2")
+     if fused_pre_gdr:
+         pytest.importorskip("causal_conv1d", minversion="1.6.1")
+         monkeypatch.setenv("CAUSAL_CONV1D_DETERMINISTIC", "1")
+@@ -226,7 +239,15 @@ def test_gdn_offload_training(
+     try:
+         groups = ProcessGroupCollection.use_mpu_process_groups()
+         config = _training_config(
+-            tp, sp, cp, pp, vp, fraction, recompute_norm, fused_pre_gdr=fused_pre_gdr
++            tp,
++            sp,
++            cp,
++            pp,
++            vp,
++            fraction,
++            recompute_norm,
++            fused_pre_gdr=fused_pre_gdr,
++            variant=variant,
+         )
+         baseline_config = replace(
+             config, fine_grained_activation_offloading=False, offload_modules=[]
+diff --git a/tools/ssm/gdn_activation_offload.py b/tools/ssm/gdn_activation_offload.py
+index ff6434ab7..105f5e374 100644
+--- a/tools/ssm/gdn_activation_offload.py
++++ b/tools/ssm/gdn_activation_offload.py
+@@ -49,7 +49,7 @@ def build_model(
+         bf16=True,
+         params_dtype=torch.bfloat16,
+         use_cpu_initialization=True,
+-        experimental_attention_variant="gdn",
++        experimental_attention_variant=args.variant,
+         linear_attention_freq=[1] * args.layers,
+         fine_grained_activation_offloading=offload,
+         offload_modules=["gdn_core_attn"] if offload else [],
+@@ -306,6 +306,7 @@ def main() -> None:
+     """Write machine-readable profile or comparison evidence."""
+     parser = argparse.ArgumentParser(description=__doc__)
+     parser.add_argument("--mode", choices=["profile", "benchmark"], required=True)
++    parser.add_argument("--variant", choices=["gdn", "gdn2"], default="gdn")
+     parser.add_argument("--output", type=Path, required=True)
+     parser.add_argument("--layers", type=int, default=4)
+     parser.add_argument("--seq-length", type=int, default=2048)

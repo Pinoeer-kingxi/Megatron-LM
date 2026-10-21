@@ -1,0 +1,82 @@
+Initializing torch.distributed with rank: 1, world_size: 2
+Test store timeout: 10 minutes for cold compilation before lazy PP initialization
+CUDA Graph + Offload test (fraction=1.0, delay=True): base_peak=938.59MiB, off_peak=854.59MiB, saved=84.00MiB
+.CUDA Graph + Offload test (fraction=0.0, delay=True): base_peak=938.59MiB, off_peak=938.59MiB, saved=0.00MiB
+.CUDA Graph + Offload test (fraction=1.0, delay=False): base_peak=938.59MiB, off_peak=842.59MiB, saved=96.00MiB
+.
+=============================== warnings summary ===============================
+../../../.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/config/__init__.py:1345
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/config/__init__.py:1345: PytestAssertRewriteWarning: Module already imported so cannot be rewritten; anyio
+    self._mark_plugins_for_rewrite(hook, disable_autoload)
+
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules0-cuda_graph_scope0-1.0-True]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules0-cuda_graph_scope0-1.0-True]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules6-cuda_graph_scope6-0.0-True]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules8-cuda_graph_scope8-1.0-False]
+  /home/songbinbin/gdn-offload-artifacts/review-20261021/shared/megatron/core/transformer/transformer_config.py:2221: UserWarning: moe_ffn_hidden_size is not set, using ffn_hidden_size instead.
+    warnings.warn("moe_ffn_hidden_size is not set, using ffn_hidden_size instead.")
+
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules0-cuda_graph_scope0-1.0-True]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules0-cuda_graph_scope0-1.0-True]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules6-cuda_graph_scope6-0.0-True]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules6-cuda_graph_scope6-0.0-True]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules8-cuda_graph_scope8-1.0-False]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules8-cuda_graph_scope8-1.0-False]
+  <string>:364: DeprecationWarning: cuda_graph_scope is deprecated, use cuda_graph_modules instead.
+
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py: 60 warnings
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/transformer_engine/pytorch/attention/dot_product_attention/dot_product_attention.py:2624: DeprecationWarning: Relying on pointer-based detection of packed q/k/v layouts (detected 'sbh3d') is deprecated: pass the packed buffer explicitly via qkv_layer/kv_layer (with qkv_interleave_dim) to DotProductAttention instead.
+    ) = dpa_utils.get_qkv_layout(
+
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py: 120 warnings
+  /home/songbinbin/gdn-offload-artifacts/review-20261021/shared/megatron/core/tensor_parallel/random.py:833: DeprecationWarning: fp8_autocast is deprecated and will be removed in a future release. Use autocast(enabled=..., calibrating=..., recipe=..., group=..., _graph=...) instead.
+    with fp8_autocast(enabled=self.fp8_enabled, fp8_recipe=self.fp8_recipe):
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+_ test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules0-cuda_graph_scope0-1.0-True] _
+------------------------------ Captured log call -------------------------------
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126
+============================= slowest 15 durations =============================
+8.84s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules0-cuda_graph_scope0-1.0-True]
+7.31s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules8-cuda_graph_scope8-1.0-False]
+7.06s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules6-cuda_graph_scope6-0.0-True]
+
+(6 durations < 0.005s hidden.  Use -vv to show these durations.)
+=========================== short test summary info ============================
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules0-cuda_graph_scope0-1.0-True]
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules6-cuda_graph_scope6-0.0-True]
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules8-cuda_graph_scope8-1.0-False]
+3 passed, 36 deselected, 191 warnings in 23.31s

@@ -1,0 +1,163 @@
+{
+  "rank": 1,
+  "collected": 26,
+  "exit_code": 0,
+  "outcomes": [
+    {
+      "nodeid": "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_summary_uses_explicit_process_group",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_skips_non_offloadable_tensor_types",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_respects_tensor_opt_out_flags",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_offloads_base_storage_for_covering_views",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_gathers_low_coverage_views",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_after_evaluation_with_growing_sequences[0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_after_evaluation_with_growing_sequences[1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_post_warmup_callback_warns_on_duplicated_storage_offload",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_flags_disjoint_views_taking_the_whole_storage_path",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_counts_full_storage_and_logical_view_duplicates[False]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_counts_full_storage_and_logical_view_duplicates[True]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_does_not_flag_views_copying_their_own_bytes",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_does_not_analyze_logical_view_overlap",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_duplicate_storage_accounting_is_scoped_to_one_group",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_gpt_fine_grained_activation_offloading_correctness_and_memory[False-True-offload_modules0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_gpt_fine_grained_activation_offloading_correctness_and_memory[True-False-offload_modules1]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_gpt_fine_grained_activation_offloading_correctness_and_memory[True-False-offload_modules2]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_gpt_fine_grained_activation_offloading_correctness_and_memory[True-True-offload_modules3]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_gpt_fine_grained_activation_offloading_correctness_and_memory[True-False-offload_modules4]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_gpt_fine_grained_activation_offloading_correctness_and_memory[True-False-offload_modules5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_gpt_fine_grained_activation_offloading_correctness_and_memory[True-False-offload_modules6]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_inline_reload_is_ordered_after_the_groups_offload",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/pipeline_parallel/test_schedules.py::test_reset_activation_offload_uses_language_model_group[False-False]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/pipeline_parallel/test_schedules.py::test_reset_activation_offload_uses_language_model_group[False-True]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/pipeline_parallel/test_schedules.py::test_reset_activation_offload_uses_language_model_group[True-False]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/pipeline_parallel/test_schedules.py::test_reset_activation_offload_uses_language_model_group[True-True]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    }
+  ]
+}

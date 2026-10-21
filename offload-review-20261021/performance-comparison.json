@@ -1,0 +1,22 @@
+{
+  "revision": "1adb1f6e31256f89659991f36c40b70c27abfc81",
+  "pairs": 1,
+  "rows": [
+    {
+      "enabled": false,
+      "median_ms": 1686.2125379266217,
+      "peak_allocated_bytes": 33134130176,
+      "peak_reserved_bytes": 36022779904
+    },
+    {
+      "enabled": true,
+      "median_ms": 1700.9120545117185,
+      "peak_allocated_bytes": 32135886336,
+      "peak_reserved_bytes": 34940649472
+    }
+  ],
+  "allocated_saved_bytes": 998243840,
+  "median_step_time_change_percent": 0.8717475558076115,
+  "exact_logged_losses_and_reported_norms_equal": true,
+  "limitation": "One fresh-process pair; no statistical speedup or cross-version claim. Logged gradient norms have print precision; complete state checks are separate."
+}

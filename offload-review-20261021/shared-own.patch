@@ -1,0 +1,319 @@
+diff --git a/megatron/core/pipeline_parallel/fine_grained_activation_offload.py b/megatron/core/pipeline_parallel/fine_grained_activation_offload.py
+index 89e0e8556..45f3aa50e 100644
+--- a/megatron/core/pipeline_parallel/fine_grained_activation_offload.py
++++ b/megatron/core/pipeline_parallel/fine_grained_activation_offload.py
+@@ -550,8 +550,13 @@ class PipelineOffloadManager:
+             group_hook(name, forced_released_tensors)
+         self._delayed_offload_groups = []
+ 
+-    def reset(self, process_group: Optional[torch.distributed.ProcessGroup] = None):
+-        """Reset manager state for a new training iteration."""
++    def reset(
++        self,
++        process_group: Optional[torch.distributed.ProcessGroup] = None,
++        *,
++        forward_only: bool = False,
++    ):
++        """Reset iteration state, preserving training warmup after forward-only passes."""
+         self._inside_context = False
+         self._cur_forward_chunk = None
+         self._cur_backward_chunk = None
+@@ -559,9 +564,18 @@ class PipelineOffloadManager:
+         if hasattr(self, '_cpu_tensor_pool'):
+             self._cpu_tensor_pool.reset()
+ 
+-        # Call post_warmup_callback after warmup to collect the offload information.
++        # Evaluation can create chunks without training saves. Discard them so
++        # training discovers its own policy, and use the scheduler phase so all
++        # ranks agree on entering the post-warmup reporting collective.
+         if self._is_warmup and len(self._cached_chunks_forward) > 0:
+-            self.post_warmup_callback(process_group=process_group)
++            if forward_only:
++                self._cached_chunks_forward.clear()
++                self._cached_chunks_backward.clear()
++                self._queue.clear()
++                for stage in self._stages:
++                    stage.clear()
++            else:
++                self.post_warmup_callback(process_group=process_group)
+         self._cached_chunks_index_backward = 0
+         self._cached_chunks_index_forward = 0
+ 
+@@ -650,6 +664,12 @@ class PipelineOffloadManager:
+                     group.offload = False
+         # Disable the later groups to meet the activation offload fraction.
+         for chunk in self._cached_chunks_backward:
++            # An empty warmup group may gain eligible tensors when sequence
++            # lengths grow. Fraction zero must keep even those groups on GPU.
++            if self._activation_offload_fraction == 0:
++                for group in chunk.offload_groups:
++                    group.offload = False
++                continue
+             eligible_offload_groups = [
+                 group
+                 for group in chunk.offload_groups
+@@ -1014,20 +1034,13 @@ class ChunkOffloadHandler:
+             return self.find_group_with_name(self.offload_groups, name) is None
+         return self._max_group_size == 0
+ 
+-    def finish_all_groups(self, name=None) -> bool:
+-        """Finish all groups."""
++    def finish_all_groups(self, name: str) -> bool:
++        """Return whether this chunk has no remaining forward group of this name."""
+         debug_rank(
+             f"------finish_all_groups {self} {self._max_group_size} {self._offloaded_group_index}"
+         )
+-        # TODO: check if this is correct
+-        # Mark it as finished when there are no groups to offload or reload
+-        if (
+-            len(self._groups_to_reload) == 0
+-            and len(self._groups_to_offload) == 0
+-            and self._offloaded_group_index > 0
+-        ):
+-            return True
+-        assert name is not None, "Name is required"
++        # Forward progress depends on scheduled groups, not pending transfers:
++        # fraction zero can keep every group on GPU before the chunk is complete.
+         return (
+             self.find_group_with_name(self.offload_groups, name, self._offloaded_group_index)
+             is None
+@@ -1593,9 +1606,15 @@ class FineGrainedActivationOffloadingInterface:
+         return FineGrainedOffloadingBackwardRecordFunction.apply(tensor)
+ 
+     @staticmethod
+-    def reset(process_group: Optional[torch.distributed.ProcessGroup] = None):
+-        """Reset the chunk handler."""
+-        PipelineOffloadManager.get_instance().reset(process_group=process_group)
++    def reset(
++        process_group: Optional[torch.distributed.ProcessGroup] = None,
++        *,
++        forward_only: bool = False,
++    ):
++        """Reset iteration state; pass forward_only=True for evaluation passes."""
++        PipelineOffloadManager.get_instance().reset(
++            process_group=process_group, forward_only=forward_only
++        )
+ 
+     @staticmethod
+     def reset_instance():
+diff --git a/megatron/core/pipeline_parallel/schedules.py b/megatron/core/pipeline_parallel/schedules.py
+index b1b89ce0d..01b5ac3a3 100644
+--- a/megatron/core/pipeline_parallel/schedules.py
++++ b/megatron/core/pipeline_parallel/schedules.py
+@@ -712,13 +712,15 @@ def _build_default_pg_collection() -> ProcessGroupCollection:
+ 
+ def _reset_activation_offload(
+     pg_collection: Union[ProcessGroupCollection, MultiModuleProcessGroupCollection],
++    *,
++    forward_only: bool = False,
+ ) -> None:
+-    """Reset activation offload state for single-model and MIMO language ranks."""
++    """Reset offload state for the scheduler phase on participating language ranks."""
+     if isinstance(pg_collection, MultiModuleProcessGroupCollection):
+         if not pg_collection.has_language_model():
+             return
+         pg_collection = pg_collection.get_language_model_collection()
+-    off_interface.reset(process_group=pg_collection.tp_dp_cp)
++    off_interface.reset(process_group=pg_collection.tp_dp_cp, forward_only=forward_only)
+ 
+ 
+ def forward_backward_no_pipelining(
+@@ -872,7 +874,7 @@ def forward_backward_no_pipelining(
+         )
+ 
+     if getattr(config, 'fine_grained_activation_offloading', False):
+-        _reset_activation_offload(pg_collection)
++        _reset_activation_offload(pg_collection, forward_only=forward_only)
+     # Reset all_gather_pipeline bucket status before next validation iteration
+     if forward_only:
+         for model_chunk in [model]:
+@@ -2098,7 +2100,7 @@ def forward_backward_pipelining_with_interleaving(
+         )
+ 
+     if getattr(config, 'fine_grained_activation_offloading', False):
+-        _reset_activation_offload(pg_collection)
++        _reset_activation_offload(pg_collection, forward_only=forward_only)
+     # Restore config.grad_sync_func and config.param_sync_func.
+     if forward_only:
+         config.grad_sync_func, config.param_sync_func = grad_sync_func, param_sync_func
+@@ -2541,7 +2543,7 @@ def forward_backward_pipelining_without_interleaving(
+         )
+ 
+     if getattr(config, 'fine_grained_activation_offloading', False):
+-        _reset_activation_offload(pg_collection)
++        _reset_activation_offload(pg_collection, forward_only=forward_only)
+ 
+     if config.timers is not None:
+         config.timers('forward-backward').stop()
+diff --git a/tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py b/tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py
+index fd1140e7b..799582b20 100644
+--- a/tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py
++++ b/tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py
+@@ -21,6 +21,8 @@ from megatron.core.pipeline_parallel.fine_grained_activation_offload import (
+     OffloadTensorPool,
+     PipelineOffloadManager,
+ )
++from megatron.core.pipeline_parallel.schedules import get_forward_backward_func
++from megatron.core.process_groups_config import ProcessGroupCollection
+ from megatron.core.tensor_parallel.random import model_parallel_cuda_manual_seed
+ from megatron.core.transformer.enums import AttnBackend
+ from megatron.core.transformer.moe.fused_a2a import reset_hybrid_ep_buffer
+@@ -195,6 +197,111 @@ def _make_warmup_chunk(groups: List["OffloadTensorGroup"]) -> ChunkOffloadHandle
+     return handler
+ 
+ 
++@pytest.mark.skipif(not torch.cuda.is_available(), reason="CUDA is required for offloading.")
++@pytest.mark.parametrize("fraction", [0.0, 1.0])
++def test_offload_after_evaluation_with_growing_sequences(monkeypatch, fraction):
++    """Exercise evaluation, warmup and changing tensor sizes through the native GPT schedule."""
++    Utils.initialize_model_parallel()
++    off_interface.reset_instance()
++    try:
++        groups = ProcessGroupCollection.use_mpu_process_groups()
++        snapshots = []
++        transfers = []
++        original_offload = ChunkOffloadHandler.offload
++
++        def record_transfer(handler, *args, **kwargs):
++            transfers.append(handler.is_warmup)
++            return original_offload(handler, *args, **kwargs)
++
++        monkeypatch.setattr(ChunkOffloadHandler, "offload", record_transfer)
++        for enabled in (False, True):
++            config = TransformerConfig(
++                num_layers=4,
++                hidden_size=128,
++                num_attention_heads=4,
++                use_cpu_initialization=True,
++                attention_backend=AttnBackend.unfused,
++                attention_dropout=0.0,
++                hidden_dropout=0.0,
++                bf16=True,
++                fine_grained_activation_offloading=enabled,
++                offload_modules=["core_attn", "attn_proj"] if enabled else [],
++                activation_offload_fraction=fraction,
++                min_offloaded_tensor_size=65536,
++            )
++            torch.manual_seed(31)
++            model_parallel_cuda_manual_seed(31)
++            model = (
++                GPTModel(
++                    config=config,
++                    transformer_layer_spec=get_gpt_layer_with_transformer_engine_spec(),
++                    vocab_size=256,
++                    max_sequence_length=128,
++                )
++                .bfloat16()
++                .cuda()
++            )
++
++            def forward_step(batches, model):
++                tokens, positions, mask = next(batches)
++                output = model(tokens, positions, mask)
++
++                def loss_func(logits):
++                    loss = logits.float().square().mean()
++                    return loss, {"loss": loss.detach().clone()}
++
++                return output, loss_func
++
++            results = []
++            for forward_only, seq_length in ((True, 8), (False, 8), (False, 128), (False, 64)):
++                model.train(not forward_only)
++                model.zero_grad(set_to_none=True)
++                inputs = _make_gpt_inputs(
++                    seq_length=seq_length, micro_batch_size=1, device=torch.device("cuda")
++                )
++                inputs[2].copy_(torch.triu(torch.ones_like(inputs[2]), diagonal=1))
++                with torch.no_grad() if forward_only else nullcontext():
++                    losses = get_forward_backward_func()(
++                        forward_step_func=forward_step,
++                        data_iterator=iter([inputs] * 2),
++                        model=model,
++                        num_microbatches=2,
++                        seq_length=seq_length,
++                        micro_batch_size=1,
++                        forward_only=forward_only,
++                        pg_collection=groups,
++                    )
++                torch.cuda.synchronize()
++                results.append(
++                    (
++                        [item["loss"].cpu() for item in losses],
++                        {
++                            name: p.grad.cpu().clone()
++                            for name, p in model.named_parameters()
++                            if p.grad is not None
++                        },
++                    )
++                )
++                if enabled:
++                    manager = PipelineOffloadManager.get_instance()
++                    assert manager._is_warmup == forward_only
++                    assert len(manager._cached_chunks_forward) == (0 if forward_only else 2)
++                    if not forward_only:
++                        assert all(
++                            len(chunk.offload_groups) == 8
++                            for chunk in manager._cached_chunks_forward
++                        )
++            snapshots.append(results)
++            del model
++        torch.testing.assert_close(snapshots[1], snapshots[0], rtol=0, atol=0)
++        assert bool(transfers) == (fraction > 0)
++        assert not any(transfers), "The tiny warmup must not copy eligible tensors."
++    finally:
++        torch.cuda.synchronize()
++        off_interface.reset_instance()
++        Utils.destroy_model_parallel()
++
++
+ def _run_post_warmup_callback(chunk: ChunkOffloadHandler) -> None:
+     """Drive post_warmup_callback over a single hand-built chunk."""
+     manager = PipelineOffloadManager.__new__(PipelineOffloadManager)
+diff --git a/tests/unit_tests/pipeline_parallel/test_schedules.py b/tests/unit_tests/pipeline_parallel/test_schedules.py
+index 6c12a049a..5067eb2cc 100644
+--- a/tests/unit_tests/pipeline_parallel/test_schedules.py
++++ b/tests/unit_tests/pipeline_parallel/test_schedules.py
+@@ -39,25 +39,30 @@ def reset_dsa_loss_scale():
+     DSAIndexerLossAutoScaler.main_loss_backward_scale = None
+ 
+ 
+-def test_reset_activation_offload_uses_language_model_group(mocker):
++@pytest.mark.parametrize("forward_only", [False, True])
++@pytest.mark.parametrize("multi_module", [False, True])
++def test_reset_activation_offload_uses_language_model_group(mocker, forward_only, multi_module):
+     reset = mocker.patch.object(schedule.off_interface, "reset")
+     language_group = object()
+-    collection = MultiModuleProcessGroupCollection(
+-        module_pgs={
+-            "encoder_1": object(),
+-            "encoder_2": object(),
+-            "llm": SimpleNamespace(tp_dp_cp=language_group),
+-        },
+-        language_model_module_name="llm",
+-    )
+-    schedule._reset_activation_offload(collection)
+-    reset.assert_called_once_with(process_group=language_group)
++    if multi_module:
++        collection = MultiModuleProcessGroupCollection(
++            module_pgs={
++                "encoder_1": object(),
++                "encoder_2": object(),
++                "llm": SimpleNamespace(tp_dp_cp=language_group),
++            },
++            language_model_module_name="llm",
++        )
++    else:
++        collection = ProcessGroupCollection(tp_dp_cp=language_group)
++    schedule._reset_activation_offload(collection, forward_only=forward_only)
++    reset.assert_called_once_with(process_group=language_group, forward_only=forward_only)
+ 
+     reset.reset_mock()
+     collection = MultiModuleProcessGroupCollection(
+         module_pgs={"encoder_1": object(), "encoder_2": object()}
+     )
+-    schedule._reset_activation_offload(collection)
++    schedule._reset_activation_offload(collection, forward_only=forward_only)
+     reset.assert_not_called()
+ 
+ 

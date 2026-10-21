@@ -1,0 +1,15 @@
+{
+  "revision": "1adb1f6e31256f89659991f36c40b70c27abfc81",
+  "topology": "tp-sp",
+  "ranks": 2,
+  "steps": 3,
+  "disabled_repeat_exact": true,
+  "offloaded_exact": true,
+  "fields": [
+    "losses",
+    "grad_norm",
+    "grads",
+    "weights",
+    "optimizer"
+  ]
+}

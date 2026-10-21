@@ -1,0 +1,27 @@
+INFO:megatron.bridge.models.gemma.gemma2_provider:Gemma2: PyTorch FlexAttention available — softcap+SWA fused via Triton score_mod.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+/home/songbinbin/gdn-offload-artifacts/review-20261021/feature/megatron/core/transformer/transformer_config.py:3594: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+  warnings.warn(
+/home/songbinbin/gdn-offload-artifacts/review-20261021/feature/tools/ssm/qwen_gdn_offload_training.py:338: DeprecationWarning: ModelProviderMixin-based model configuration is deprecated. Migrate to ModelConfig + ModelBuilder.
+  parents = provider.provide_distributed_model(
+/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/transformer_engine/pytorch/module/base.py:1682: UserWarning: To guarantee overlapping TP and SP collectives with the backwardGEMMs, set environment variable CUDA_DEVICE_MAX_CONNECTIONS = 1
+  warnings.warn(
+[rank3]:[W1021 16:05:22.173386591 ProcessGroupNCCL.cpp:4094] Warning: An unbatched P2P op (send/recv) was called on this ProcessGroup with size 2.  In lazy initialization mode, this will result in a new 2-rank NCCL communicator to be created. (function operator())
+/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/_dynamo/variables/functions.py:2202: UserWarning: Dynamo detected a call to a `functools.lru_cache`-wrapped function at '_common.py:101'. Dynamo ignores the cache wrapper and directly traces the wrapped function. Silent incorrectness is only a *potential* risk, not something we have observed. Enable TORCH_LOGS=+dynamo for a DEBUG stack trace.
+
+This call originates from:
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/transformer_engine/pytorch/ops/_common.py", line 101, in maybe_autocast_dtype
+    if torch_version() >= (2, 4, 3):
+
+  torch._dynamo.utils.warn_once(msg)
+/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/_dynamo/variables/functions.py:2082: UserWarning: Dynamo does not know how to trace the builtin `transformer_engine_torch.pybind11_detail_function_record_v1_system_libstdcpp_gxx_abi_1xxx_use_cxx11_abi_1.rmsnorm_fwd.` This function is either a Python builtin (e.g. _warnings.warn) or a third-party C/C++ Python extension (perhaps created with pybind).
+If it is a Python builtin, please file an issue on GitHub so the PyTorch team can add support for it and see the next case for a workaround.
+If it is a third-party C/C++ Python extension, please either wrap it into a PyTorch-understood custom operator (see https://pytorch.org/tutorials/advanced/custom_ops_landing_page.html for more details) or, if it is traceable, use `torch.compiler.allow_in_graph`.
+  torch._dynamo.utils.warn_once(explanation + "\n" + "\n".join(hints))
+/home/songbinbin/gdn-offload-artifacts/review-20261021/feature/megatron/core/tensor_parallel/layers.py:1086: UserWarning: When using sequence parallelism it is recommended to set the environment variable CUDA_DEVICE_MAX_CONNECTIONS to 1 for maximum speedup
+  warnings.warn(
+[rank3]:[W1021 16:05:32.497194620 ProcessGroupNCCL.cpp:4094] Warning: An unbatched P2P op (send/recv) was called on this ProcessGroup with size 4.  In lazy initialization mode, this will result in a new 2-rank NCCL communicator to be created. (function operator())
+INFO:root:Rank 3 step 0: losses=[3.5961973667144775, 3.83115816116333, 3.5618934631347656, 3.8910064697265625] grad_norm=tensor([55.6107], device='cuda:3') selected_transfer_bytes=32542720
+INFO:root:Rank 3 step 1: losses=[8.77281665802002, 7.236856937408447, 8.640693664550781, 5.588418006896973] grad_norm=tensor([109.2422], device='cuda:3') selected_transfer_bytes=32542720
+INFO:root:Rank 3 step 2: losses=[6.060239791870117, 6.140263080596924, 6.954030513763428, 6.676993370056152] grad_norm=tensor([106.1922], device='cuda:3') selected_transfer_bytes=32542720
+INFO:root:Wrote /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/offload-review-20261021/four-qwen-f0-n0-offloaded/result.rank3.json

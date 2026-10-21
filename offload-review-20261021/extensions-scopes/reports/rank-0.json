@@ -1,0 +1,127 @@
+{
+  "rank": 0,
+  "collected": 20,
+  "exit_code": 0,
+  "outcomes": [
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_te_graph_config[gdn2]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_eval_bypasses_offload_manager",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_offload_retains_live_sigmoid_gates[False-4]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_offload_retains_live_sigmoid_gates[False-8]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_offload_retains_live_sigmoid_gates[True-4]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_offload_retains_live_sigmoid_gates[True-8]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_delayed_d2h[gdn2-False]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_delayed_d2h[gdn2-True]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_offload_replay[False-False-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_offload_replay[False-False-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_offload_replay[False-False-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_offload_replay[False-True-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_offload_replay[False-True-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_offload_replay[False-True-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_offload_replay[True-False-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_offload_replay[True-False-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_offload_replay[True-False-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_offload_replay[True-True-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_offload_replay[True-True-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_offload_replay[True-True-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    }
+  ]
+}

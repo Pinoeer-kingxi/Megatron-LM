@@ -1,0 +1,12 @@
+ > number of parameters on (tensor, gtp_remat, pipeline) model parallel rank (0, 0, 1): 503336864
+
+======================================
+   Activation Offload Summary (MB)    
+======================================
+Rank      gdn_core_attn          Total
+--------------------------------------
+Rank 0            14.19          14.19
+--------------------------------------
+Total             14.19          14.19
+======================================
+

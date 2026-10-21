@@ -1,0 +1,19 @@
+{
+  "revision": "fb271ebdd3fbd151f67e87647ada589c098438d2",
+  "command": [
+    "docker",
+    "exec",
+    "--workdir",
+    "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/offload-review-20261021/lint-shared",
+    "--env",
+    "CHECK_ONLY=true",
+    "--env",
+    "PYTHONPATH=/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/offload-review-20261021/lint-shared",
+    "megatron-offload-review-20261021",
+    "bash",
+    "tools/autoformat.sh"
+  ],
+  "exit_code": 0,
+  "main": "6c956376e3ef22528413ff35412ad8b938272986",
+  "exit_code_source": "Observed tools/autoformat.sh process exit; full shell trace in lint-shared.log."
+}

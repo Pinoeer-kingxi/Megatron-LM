@@ -1,0 +1,37 @@
+[
+  {
+    "path": "/0/grads/0.module.module.decoder.layers.1.self_attention.A_log/sha256",
+    "left": "539bfc8ff63d5423f0256272644cc730b355346b037f2a8d43dbc1730b1f3e73",
+    "right": "406bdc0ddb85c959ba59fd6cdc2d201cc228307f1184f9114b1cdcb2a6fd028c"
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/64/exp_avg/sha256",
+    "left": "8abfdee731f665028f56586985419f7e597b43994dc398694fb350ab2d4f4c17",
+    "right": "e9517d351d9f8d6046e6c3bf2e875cf9d662c0d34fbef61e3260261b0dd221f8"
+  },
+  {
+    "path": "/0/optimizer/optimizer/state/64/exp_avg_sq/sha256",
+    "left": "f01f276d8ed7b2da8fea412494d39ed9c6d4f413cad0b7ff9765aca1333683ee",
+    "right": "5596b796bef11d8565708320fabc8b24fcafaa7877f097d9c0b1eebda3af627d"
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/64/exp_avg/sha256",
+    "left": "b22d4429b4e645b78c70d13d96a7fd84ef800e6d5123175f6faaec7c1ff42944",
+    "right": "56337d82f48b13c6f4f6f8d297fc29a749c6c3c68d25bf7689023bac524736dd"
+  },
+  {
+    "path": "/1/optimizer/optimizer/state/64/exp_avg_sq/sha256",
+    "left": "1b5631de641e074e1e561b61102833946345d831a7d549b4ff859c430ae95269",
+    "right": "a86b3ca04a6e144b3fe30fa8f0f6fa069ad00aaa82e6720659b0109ada62e964"
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/64/exp_avg/sha256",
+    "left": "5a6879902e4be51e326bbf29f6c8bf48dd069805be6ecd613cf3c955a9d2e288",
+    "right": "91d8e53780a8983915301979365eff8804d2a0aa723e5555ef4bba4f88ebb808"
+  },
+  {
+    "path": "/2/optimizer/optimizer/state/64/exp_avg_sq/sha256",
+    "left": "a9b186f9e59dc00e3ab1411544b6976f55418df04a18dd9d64fbb7e631f8cfe2",
+    "right": "40b8925b45a78f849723784bbfb23cbdac3b1c4695c59be229f5499a3847bfa7"
+  }
+]

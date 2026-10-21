@@ -1,0 +1,18 @@
+{
+  "revision": "1adb1f6e31256f89659991f36c40b70c27abfc81",
+  "command": [
+    "docker",
+    "exec",
+    "--workdir",
+    "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/offload-review-20261021/lint-feature",
+    "--env",
+    "CHECK_ONLY=true",
+    "--env",
+    "PYTHONPATH=/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/offload-review-20261021/lint-feature",
+    "megatron-offload-review-20261021",
+    "bash",
+    "tools/autoformat.sh"
+  ],
+  "exit_code": 0,
+  "main": "6c956376e3ef22528413ff35412ad8b938272986"
+}

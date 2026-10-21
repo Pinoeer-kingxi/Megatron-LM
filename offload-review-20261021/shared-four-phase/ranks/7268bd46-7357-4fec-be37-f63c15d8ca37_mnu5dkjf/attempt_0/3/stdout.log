@@ -1,0 +1,38 @@
+Initializing torch.distributed with rank: 3, world_size: 4
+Test store timeout: 10 minutes for cold compilation before lazy PP initialization
+.......
+=============================== warnings summary ===============================
+../../../.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/config/__init__.py:1345
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/config/__init__.py:1345: PytestAssertRewriteWarning: Module already imported so cannot be rewritten; anyio
+    self._mark_plugins_for_rewrite(hook, disable_autoload)
+
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_after_evaluation_with_growing_sequences[0.0]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_after_evaluation_with_growing_sequences[1.0]
+  /home/songbinbin/gdn-offload-artifacts/review-20261021/shared/megatron/core/transformer/transformer_config.py:3573: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+    warnings.warn(
+
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py: 16 warnings
+  /home/songbinbin/gdn-offload-artifacts/review-20261021/shared/megatron/core/transformer/mlp.py:447: DeprecationWarning: MLP requires ffn_hidden_size, but it was not provided. Using                     config.ffn_hidden_size by default.
+    return cls(
+
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py: 80 warnings
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/transformer_engine/pytorch/attention/dot_product_attention/dot_product_attention.py:2624: DeprecationWarning: Relying on pointer-based detection of packed q/k/v layouts (detected 'sbh3d') is deprecated: pass the packed buffer explicitly via qkv_layer/kv_layer (with qkv_interleave_dim) to DotProductAttention instead.
+    ) = dpa_utils.get_qkv_layout(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+============================= slowest 15 durations =============================
+2.28s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_after_evaluation_with_growing_sequences[0.0]
+0.66s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_after_evaluation_with_growing_sequences[1.0]
+0.58s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_inline_reload_is_ordered_after_the_groups_offload
+
+(12 durations < 0.005s hidden.  Use -vv to show these durations.)
+=========================== short test summary info ============================
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_after_evaluation_with_growing_sequences[0.0]
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_after_evaluation_with_growing_sequences[1.0]
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_inline_reload_is_ordered_after_the_groups_offload
+PASSED tests/unit_tests/pipeline_parallel/test_schedules.py::test_reset_activation_offload_uses_language_model_group[False-False]
+PASSED tests/unit_tests/pipeline_parallel/test_schedules.py::test_reset_activation_offload_uses_language_model_group[False-True]
+PASSED tests/unit_tests/pipeline_parallel/test_schedules.py::test_reset_activation_offload_uses_language_model_group[True-False]
+PASSED tests/unit_tests/pipeline_parallel/test_schedules.py::test_reset_activation_offload_uses_language_model_group[True-True]
+7 passed, 112 deselected, 99 warnings in 3.66s

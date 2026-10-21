@@ -1,0 +1,13 @@
+{
+  "rank": 1,
+  "collected": 1,
+  "exit_code": 0,
+  "outcomes": [
+    {
+      "nodeid": "test_combined_pool.py::test_combined_pool",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    }
+  ]
+}

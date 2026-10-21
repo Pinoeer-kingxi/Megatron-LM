@@ -1,0 +1,372 @@
+{
+  "status": "passed",
+  "pytest": [
+    {
+      "name": "shared-final-targeted",
+      "revision": "fb271ebdd3fbd151f67e87647ada589c098438d2",
+      "ranks": [
+        {
+          "rank": 0,
+          "passed": 26,
+          "skipped": 0
+        },
+        {
+          "rank": 1,
+          "passed": 26,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "name": "shared-combined-trace",
+      "revision": "fb271ebdd3fbd151f67e87647ada589c098438d2",
+      "ranks": [
+        {
+          "rank": 0,
+          "passed": 1,
+          "skipped": 0
+        },
+        {
+          "rank": 1,
+          "passed": 1,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "name": "shared-graphs",
+      "revision": "fb271ebdd3fbd151f67e87647ada589c098438d2",
+      "ranks": [
+        {
+          "rank": 0,
+          "passed": 3,
+          "skipped": 0
+        },
+        {
+          "rank": 1,
+          "passed": 3,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "name": "shared-four-phase",
+      "revision": "fb271ebdd3fbd151f67e87647ada589c098438d2",
+      "ranks": [
+        {
+          "rank": 0,
+          "passed": 7,
+          "skipped": 0
+        },
+        {
+          "rank": 1,
+          "passed": 7,
+          "skipped": 0
+        },
+        {
+          "rank": 2,
+          "passed": 7,
+          "skipped": 0
+        },
+        {
+          "rank": 3,
+          "passed": 7,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "name": "feature-final-native",
+      "revision": "1adb1f6e31256f89659991f36c40b70c27abfc81",
+      "ranks": [
+        {
+          "rank": 0,
+          "passed": 72,
+          "skipped": 0
+        },
+        {
+          "rank": 1,
+          "passed": 72,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "name": "feature-four-native",
+      "revision": "1adb1f6e31256f89659991f36c40b70c27abfc81",
+      "ranks": [
+        {
+          "rank": 0,
+          "passed": 96,
+          "skipped": 0
+        },
+        {
+          "rank": 1,
+          "passed": 96,
+          "skipped": 0
+        },
+        {
+          "rank": 2,
+          "passed": 96,
+          "skipped": 0
+        },
+        {
+          "rank": 3,
+          "passed": 96,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "name": "feature-pp-pool-trace",
+      "revision": "1adb1f6e31256f89659991f36c40b70c27abfc81",
+      "ranks": [
+        {
+          "rank": 0,
+          "passed": 2,
+          "skipped": 0
+        },
+        {
+          "rank": 1,
+          "passed": 2,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "name": "feature-scopes",
+      "revision": "1adb1f6e31256f89659991f36c40b70c27abfc81",
+      "ranks": [
+        {
+          "rank": 0,
+          "passed": 94,
+          "skipped": 0
+        },
+        {
+          "rank": 1,
+          "passed": 94,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "name": "extensions-scopes",
+      "revision": "8002cd3a294767e8c93756d09342bad55eaa0ec1",
+      "ranks": [
+        {
+          "rank": 0,
+          "passed": 20,
+          "skipped": 0
+        },
+        {
+          "rank": 1,
+          "passed": 20,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "name": "extensions-native",
+      "revision": "8002cd3a294767e8c93756d09342bad55eaa0ec1",
+      "ranks": [
+        {
+          "rank": 0,
+          "passed": 18,
+          "skipped": 0
+        },
+        {
+          "rank": 1,
+          "passed": 18,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "name": "extensions-graphs",
+      "revision": "8002cd3a294767e8c93756d09342bad55eaa0ec1",
+      "ranks": [
+        {
+          "rank": 0,
+          "passed": 21,
+          "skipped": 0
+        },
+        {
+          "rank": 1,
+          "passed": 21,
+          "skipped": 0
+        }
+      ]
+    }
+  ],
+  "negative_controls": [
+    {
+      "name": "negative-final-eval",
+      "revision": "cf1ce98a551accf5d6c03c1bfe37e2136f48d820",
+      "failure": "assert manager._is_warmup == forward_only"
+    },
+    {
+      "name": "negative-final-fraction",
+      "revision": "316a6263769e6e89d297c1a4760954243fe6b02b",
+      "failure": "assert bool(transfers) == (fraction > 0)"
+    },
+    {
+      "name": "negative-final-progress",
+      "revision": "d932e8d4a851fc6d4db3fc77da50b62bb24ad2ef",
+      "failure": "Chunk mismatch"
+    }
+  ],
+  "qwen": [
+    {
+      "arms": [
+        "qwen-tp-sp-disabled",
+        "qwen-tp-sp-repeat-disabled",
+        "qwen-tp-sp-offloaded"
+      ],
+      "ranks": 2,
+      "steps": 3,
+      "complete_recorded_states_exact": true,
+      "actual_vector_capture": false
+    },
+    {
+      "arms": [
+        "qwen-pp-disabled",
+        "qwen-pp-repeat-disabled",
+        "qwen-pp-offloaded"
+      ],
+      "ranks": 2,
+      "steps": 3,
+      "complete_recorded_states_exact": true,
+      "actual_vector_capture": false
+    },
+    {
+      "arms": [
+        "four-qwen-f0-n0-disabled",
+        "four-qwen-f0-n0-repeat-disabled",
+        "four-qwen-f0-n0-offloaded"
+      ],
+      "ranks": 4,
+      "steps": 3,
+      "complete_recorded_states_exact": true,
+      "actual_vector_capture": false
+    },
+    {
+      "arms": [
+        "four-qwen-f0-n1-disabled",
+        "four-qwen-f0-n1-repeat-disabled",
+        "four-qwen-f0-n1-offloaded"
+      ],
+      "ranks": 4,
+      "steps": 3,
+      "complete_recorded_states_exact": true,
+      "actual_vector_capture": false
+    },
+    {
+      "arms": [
+        "four-qwen-captured-f1-n0-disabled",
+        "four-qwen-captured-f1-n0-repeat-disabled",
+        "four-qwen-captured-f1-n0-offloaded"
+      ],
+      "ranks": 4,
+      "steps": 3,
+      "complete_recorded_states_exact": true,
+      "actual_vector_capture": true
+    },
+    {
+      "arms": [
+        "four-qwen-captured-f1-n1-disabled",
+        "four-qwen-captured-f1-n1-repeat-disabled",
+        "four-qwen-captured-f1-n1-offloaded"
+      ],
+      "ranks": 4,
+      "steps": 3,
+      "complete_recorded_states_exact": true,
+      "actual_vector_capture": true
+    }
+  ],
+  "observed_pool_reuse": [
+    {
+      "job": "shared-final-targeted",
+      "report": "pool-rank-0.jsonl",
+      "observed_reuses": 140,
+      "minimum_ms": 10.80684757232666
+    },
+    {
+      "job": "shared-final-targeted",
+      "report": "pool-rank-1.jsonl",
+      "observed_reuses": 140,
+      "minimum_ms": 14.288064002990723
+    },
+    {
+      "job": "shared-combined-trace",
+      "report": "pool-rank-0.jsonl",
+      "observed_reuses": 169,
+      "minimum_ms": 13.427167892456055
+    },
+    {
+      "job": "shared-combined-trace",
+      "report": "pool-rank-1.jsonl",
+      "observed_reuses": 169,
+      "minimum_ms": 16.35318374633789
+    },
+    {
+      "job": "feature-pp-pool-trace",
+      "report": "pool-rank-0.jsonl",
+      "observed_reuses": 448,
+      "minimum_ms": 0.9319360256195068
+    },
+    {
+      "job": "feature-pp-pool-trace",
+      "report": "pool-rank-1.jsonl",
+      "observed_reuses": 266,
+      "minimum_ms": 8.555520057678223
+    }
+  ],
+  "performance": {
+    "revision": "1adb1f6e31256f89659991f36c40b70c27abfc81",
+    "pairs": 1,
+    "rows": [
+      {
+        "enabled": false,
+        "median_ms": 1686.2125379266217,
+        "peak_allocated_bytes": 33134130176,
+        "peak_reserved_bytes": 36022779904
+      },
+      {
+        "enabled": true,
+        "median_ms": 1700.9120545117185,
+        "peak_allocated_bytes": 32135886336,
+        "peak_reserved_bytes": 34940649472
+      }
+    ],
+    "allocated_saved_bytes": 998243840,
+    "median_step_time_change_percent": 0.8717475558076115,
+    "exact_logged_losses_and_reported_norms_equal": true,
+    "limitation": "One fresh-process pair; no statistical speedup or cross-version claim. Logged gradient norms have print precision; complete state checks are separate."
+  },
+  "lint": [
+    {
+      "source": "shared",
+      "autoformat_exit_code": 0
+    },
+    {
+      "source": "feature",
+      "autoformat_exit_code": 0
+    },
+    {
+      "source": "extensions",
+      "autoformat_exit_code": 0
+    }
+  ],
+  "diagnostics": [
+    {
+      "name": "original-fused-fingerprint-comparison",
+      "status": "strict equality failed, including unchanged disabled control",
+      "record": "four-qwen-comparison.json"
+    }
+  ],
+  "limits": [
+    "Local RTX A6000 evidence; upstream GPU CI not executed.",
+    "One current-head performance pair; historical repeated measurements retain their original revisions.",
+    "Pool timing observations do not prove all possible schedules race-free."
+  ]
+}
