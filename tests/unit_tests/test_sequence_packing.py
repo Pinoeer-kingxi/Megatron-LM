@@ -202,6 +202,60 @@ def test_dcp_schedule_stats_cli_switch():
     assert parser.parse_args(['--log-dcp-stats']).log_dcp_stats is True
 
 
+def test_dcp_schedule_stats_evaluation_does_not_collect(monkeypatch, run_config):
+    from megatron.training import training
+
+    run_config.logger.log_dcp_stats = True
+    args = SimpleNamespace(
+        eval_global_batch_size=2,
+        eval_micro_batch_size=1,
+        data_parallel_size=1,
+        gtp_weight_remat_size=1,
+        cuda_graph_impl='none',
+        moe_expert_rank_capacity_factor=None,
+        seq_length=8,
+        decoder_seq_length=None,
+        eval_iters=2,
+        empty_unused_memory_level=0,
+        consumed_valid_samples=0,
+        exit_duration_in_mins=None,
+    )
+    window = DcpStatsAccumulator()
+    window.update(compute_schedule_stats([[[0], [1]]], {0: 4, 1: 2}))
+    before = window.metrics(reset=False)
+    wrapper = mock.Mock(return_value=(None, 3, 8.0, 64.0))
+    forward = mock.Mock(return_value=[])
+    monkeypatch.setattr(training, 'get_args', lambda: args)
+    monkeypatch.setattr(
+        training, 'get_train_state', lambda: SimpleNamespace(consumed_valid_samples=0)
+    )
+    monkeypatch.setattr(training, 'get_timers', mock.MagicMock())
+    monkeypatch.setattr(training, 'get_rerun_state_machine', mock.Mock())
+    monkeypatch.setattr(training, 'get_forward_backward_func', lambda **kw: forward)
+    monkeypatch.setattr(
+        training, 'get_attr_wrapped_model', lambda *a: SimpleNamespace(pp=object(), dp_cp=object())
+    )
+    monkeypatch.setattr(training, 'is_pp_last_stage', lambda *a: False)
+    monkeypatch.setattr(training, 'has_nvidia_modelopt', False)
+    monkeypatch.setattr(training, 'ft_integration', mock.Mock())
+    monkeypatch.setattr(training, 'wrap_data_iterator', wrapper)
+    model = mock.Mock()
+    result = training.evaluate(
+        None,
+        object(),
+        [model],
+        None,
+        SimpleNamespace(sequence_packing_scheduler='default_dynamic_cp'),
+    )
+    assert not result[2]
+    assert wrapper.call_count == 2
+    assert all('schedule_stats' not in call.kwargs for call in wrapper.call_args_list)
+    assert all(call.kwargs['forward_only'] for call in forward.call_args_list)
+    assert window.metrics() == before
+    model.eval.assert_called_once()
+    model.train.assert_called_once()
+
+
 def test_dcp_schedule_stats_training_log(monkeypatch, run_config):
     from argparse import ArgumentParser
 
