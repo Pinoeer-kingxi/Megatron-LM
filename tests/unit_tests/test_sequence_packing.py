@@ -13,6 +13,7 @@ from megatron.core.datasets.data_schedule import (
     DefaultDynamicCPScheduler,
     _build_thd_padding_mask,
     _get_scheduler_max_real_num_seqs,
+    _has_thd_inter_sequence_padding,
     _sanitize_thd_padding_values,
     get_batch_on_this_rank_for_sequence_packing,
     wrap_data_iterator,
@@ -24,6 +25,18 @@ from megatron.core.datasets.data_schedule_utils import (
 from megatron.core.rerun_state_machine import RerunDataIterator
 from megatron.training.global_vars import unset_global_variables
 from tests.unit_tests.test_utilities import Utils
+
+
+@pytest.mark.parametrize('graph', ['none', 'local', 'transformer_engine'])
+@pytest.mark.parametrize('has_gaps', [False, True])
+def test_scheduler_thd_padding_backend_metadata(graph, has_gaps):
+    valid = torch.tensor([0, 4, 8], dtype=torch.int32)
+    padded = torch.tensor([0, 4, 12] if has_gaps else [0, 4, 8], dtype=torch.int32)
+    original = (valid.clone(), padded.clone())
+    assert _has_thd_inter_sequence_padding(
+        valid, padded, SimpleNamespace(cuda_graph_impl=graph)
+    ) is (has_gaps or graph != 'none')
+    assert torch.equal(valid, original[0]) and torch.equal(padded, original[1])
 
 
 def test_scheduler_max_real_num_seqs_reserves_dummy_sequence():
@@ -588,7 +601,7 @@ def test_dsv4_thd_dynamic_cp_pads_before_slicing(
         assert torch.equal(packed_seq_params.cu_seqlens_q, expected_final_cu)
         assert torch.equal(packed_seq_params.cu_seqlens_q_padded, expected_final_cu)
         assert packed_seq_params.max_seqlen_q == max(total_tokens, global_target - total_tokens)
-        assert packed_seq_params.pad_between_seqs is True
+        assert packed_seq_params.pad_between_seqs is (cuda_graph_impl != 'none')
     else:
         assert torch.equal(
             packed_seq_params.cu_seqlens_q, torch.tensor([0, total_tokens], dtype=torch.int32)

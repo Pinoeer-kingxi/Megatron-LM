@@ -68,6 +68,18 @@ def _build_thd_padding_mask(
     return positions >= valid_ends[seq_indices]
 
 
+def _has_thd_inter_sequence_padding(cu_seqlens, cu_seqlens_padded, config):
+    """Report physical gaps accurately in eager mode for TE backend selection.
+
+    Graph capture needs a stable conservative flag because replay can change
+    valid lengths. Eager batches without gaps can use FlashAttention 2 on
+    Ampere; supplying padded boundary tensors alone does not imply gaps.
+    """
+    if getattr(config, 'cuda_graph_impl', 'none') != 'none':
+        return True
+    return not torch.equal(cu_seqlens, cu_seqlens_padded)
+
+
 def _sanitize_thd_padding_values(batch: Dict[str, Any], padding_mask: torch.Tensor) -> None:
     """Replace padded token-like slots with safe neutral values in-place."""
     assert padding_mask.dim() == 1
@@ -847,7 +859,7 @@ def get_batch_on_this_rank_for_sequence_packing(
         cp_group=cp_group,
         cp_singleton_group=runtime_cp_group if local_cp_size == 1 else None,
         cp_partition_mode=cp_partition_mode,
-        pad_between_seqs=True,
+        pad_between_seqs=_has_thd_inter_sequence_padding(cu_seqlens, cu_seqlens_padded, config),
     )
 
     # Dummy metadata is appended after CP slicing as an ordinary sequence.
