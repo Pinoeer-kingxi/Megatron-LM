@@ -1,0 +1,8 @@
+{
+  "source": "../offload-review-20261021/cache",
+  "copied": [
+    "triton",
+    "four-qwen-f0-n1 -> qwen"
+  ],
+  "purpose": "Reuse compiled native kernels and preserve per-rank choices across fresh-process comparisons; native arithmetic unchanged."
+}

@@ -1,0 +1,25 @@
+{
+  "rank": 0,
+  "collected": 3,
+  "exit_code": 0,
+  "outcomes": [
+    {
+      "nodeid": "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules0-cuda_graph_scope0-1.0-True]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules6-cuda_graph_scope6-0.0-True]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules8-cuda_graph_scope8-1.0-False]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "base": "0a9f3e55459175d7e5621a99efb2d6f5b8378a8e",
+  "files": [
+    "megatron/core/pipeline_parallel/fine_grained_activation_offload.py",
+    "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py"
+  ],
+  "baseline_errors": 13,
+  "candidate_errors": 13,
+  "unchanged": true
+}

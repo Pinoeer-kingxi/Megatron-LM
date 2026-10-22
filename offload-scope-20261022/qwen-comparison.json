@@ -1,0 +1,12 @@
+{
+  "revision": "e96793feecb0fdd54ce00ef09a67e28fce940d06",
+  "ranks": 4,
+  "steps": 3,
+  "arms": [
+    "disabled",
+    "repeat-disabled",
+    "fraction-zero",
+    "offloaded"
+  ],
+  "complete_recorded_states_exact": true
+}

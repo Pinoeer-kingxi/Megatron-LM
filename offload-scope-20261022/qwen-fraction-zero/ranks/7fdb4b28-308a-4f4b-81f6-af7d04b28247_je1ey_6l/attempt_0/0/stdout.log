@@ -1,0 +1,14 @@
+Loading from /home/songbinbin/gdn-offload-artifacts/models/Qwen3.… (3… Qwen35VL…
+ > number of parameters on (tensor, gtp_remat, pipeline) model parallel rank (0, 0, 0): 303481872
+
+====================
+Activation Offload Summary (MB)
+====================
+Rank           Total
+--------------------
+Rank 0          0.00
+Rank 1          0.00
+--------------------
+Total           0.00
+====================
+

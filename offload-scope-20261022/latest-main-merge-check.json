@@ -1,0 +1,26 @@
+[
+  {
+    "source": "shared",
+    "revision": "d8be77f56f4d38713cb0306c5c4893aa3cb2331a",
+    "main": "ede2c586cf70dd452f93b9726b31cbedc8df0dd0",
+    "merged_tree": "b0bebdf629f3e9a9edc8a5538dae9e86e693e1e7",
+    "clean_merge": true,
+    "core_unchanged": true
+  },
+  {
+    "source": "feature",
+    "revision": "e96793feecb0fdd54ce00ef09a67e28fce940d06",
+    "main": "ede2c586cf70dd452f93b9726b31cbedc8df0dd0",
+    "merged_tree": "fed549c5b3c7e03482778e4fe49ee85c8eca0bc6",
+    "clean_merge": true,
+    "core_unchanged": true
+  },
+  {
+    "source": "extensions",
+    "revision": "3b6f5e66f64bd381893e0ea814511031c9b5e4af",
+    "main": "ede2c586cf70dd452f93b9726b31cbedc8df0dd0",
+    "merged_tree": "b2ba98a08cba6743f397807fc4e23f0f9a5973c2",
+    "clean_merge": true,
+    "core_unchanged": true
+  }
+]

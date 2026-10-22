@@ -1,0 +1,1806 @@
+Initializing torch.distributed with rank: 1, world_size: 2
+Test store timeout: 10 minutes for cold compilation before lazy PP initialization
+
+================================
+Activation Offload Summary (MB) 
+================================
+Rank         decoder       Total
+--------------------------------
+Rank 0          0.00        0.00
+--------------------------------
+Total           0.00        0.00
+================================
+
+...............WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+Rank 1: Saved 59.50MiB, expected 56.00MiB
+.WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+Rank 1: Saved 56.11MiB, expected 56.11MiB
+.WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+Rank 1: Saved 644.00MiB, expected 644.00MiB
+.WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+Rank 1: Saved 700.00MiB, expected 700.00MiB
+.WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+Rank 1: Saved 28.00MiB, expected 28.00MiB
+.WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+Rank 1: Saved 56.00MiB, expected 56.00MiB
+.WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+WARNING:megatron.core.tensor_parallel.random:CPU RNG state changed within GPU RNG context
+Rank 1: Saved 224.00MiB, expected 224.05MiB
+..
+=============================== warnings summary ===============================
+../../../.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/config/__init__.py:1345
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/config/__init__.py:1345: PytestAssertRewriteWarning: Module already imported so cannot be rewritten; anyio
+    self._mark_plugins_for_rewrite(hook, disable_autoload)
+
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py: 11 warnings
+  /home/songbinbin/gdn-offload-artifacts/scope-20261022/shared/megatron/core/transformer/transformer_config.py:3573: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+    warnings.warn(
+
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py: 40 warnings
+  /home/songbinbin/gdn-offload-artifacts/scope-20261022/shared/megatron/core/transformer/mlp.py:447: DeprecationWarning: MLP requires ffn_hidden_size, but it was not provided. Using                     config.ffn_hidden_size by default.
+    return cls(
+
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py: 216 warnings
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/transformer_engine/pytorch/attention/dot_product_attention/dot_product_attention.py:2624: DeprecationWarning: Relying on pointer-based detection of packed q/k/v layouts (detected 'sbh3d') is deprecated: pass the packed buffer explicitly via qkv_layer/kv_layer (with qkv_interleave_dim) to DotProductAttention instead.
+    ) = dpa_utils.get_qkv_layout(
+
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py: 448 warnings
+  /home/songbinbin/gdn-offload-artifacts/scope-20261022/shared/megatron/core/tensor_parallel/random.py:833: DeprecationWarning: fp8_autocast is deprecated and will be removed in a future release. Use autocast(enabled=..., calibrating=..., recipe=..., group=..., _graph=...) instead.
+    with fp8_autocast(enabled=self.fp8_enabled, fp8_recipe=self.fp8_recipe):
+
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_gpt_fine_grained_activation_offloading_correctness_and_memory[True-False-offload_modules1]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_gpt_fine_grained_activation_offloading_correctness_and_memory[True-False-offload_modules2]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_gpt_fine_grained_activation_offloading_correctness_and_memory[True-True-offload_modules3]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_gpt_fine_grained_activation_offloading_correctness_and_memory[True-False-offload_modules4]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_gpt_fine_grained_activation_offloading_correctness_and_memory[True-False-offload_modules5]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_gpt_fine_grained_activation_offloading_correctness_and_memory[True-False-offload_modules6]
+  /home/songbinbin/gdn-offload-artifacts/scope-20261022/shared/megatron/core/transformer/transformer_config.py:2221: UserWarning: moe_ffn_hidden_size is not set, using ffn_hidden_size instead.
+    warnings.warn("moe_ffn_hidden_size is not set, using ffn_hidden_size instead.")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+_ test_gpt_fine_grained_activation_offloading_correctness_and_memory[False-True-offload_modules0] _
+------------------------------ Captured log call -------------------------------
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+_ test_gpt_fine_grained_activation_offloading_correctness_and_memory[True-False-offload_modules1] _
+------------------------------ Captured log call -------------------------------
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+_ test_gpt_fine_grained_activation_offloading_correctness_and_memory[True-False-offload_modules2] _
+------------------------------ Captured log call -------------------------------
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+_ test_gpt_fine_grained_activation_offloading_correctness_and_memory[True-True-offload_modules3] _
+------------------------------ Captured log call -------------------------------
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+_ test_gpt_fine_grained_activation_offloading_correctness_and_memory[True-False-offload_modules4] _
+------------------------------ Captured log call -------------------------------
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+_ test_gpt_fine_grained_activation_offloading_correctness_and_memory[True-False-offload_modules5] _
+------------------------------ Captured log call -------------------------------
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+_ test_gpt_fine_grained_activation_offloading_correctness_and_memory[True-False-offload_modules6] _
+------------------------------ Captured log call -------------------------------
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+WARNING  megatron.core.tensor_parallel.random:random.py:340 CPU RNG state changed within GPU RNG context
+============================= slowest 15 durations =============================
+25.52s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_gpt_fine_grained_activation_offloading_correctness_and_memory[False-True-offload_modules0]
+16.08s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_gpt_fine_grained_activation_offloading_correctness_and_memory[True-False-offload_modules1]
+15.61s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_gpt_fine_grained_activation_offloading_correctness_and_memory[True-True-offload_modules3]
+15.15s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_gpt_fine_grained_activation_offloading_correctness_and_memory[True-False-offload_modules2]
+14.64s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_gpt_fine_grained_activation_offloading_correctness_and_memory[True-False-offload_modules4]
+14.40s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_gpt_fine_grained_activation_offloading_correctness_and_memory[True-False-offload_modules6]
+14.08s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_gpt_fine_grained_activation_offloading_correctness_and_memory[True-False-offload_modules5]
+1.71s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[0.0]
+0.54s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_inline_reload_is_ordered_after_the_groups_offload
+0.40s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[0.5]
+0.39s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[1.0]
+0.06s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_post_warmup_callback_warns_on_duplicated_storage_offload
+0.03s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_offloads_base_storage_for_covering_views
+0.01s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_gathers_low_coverage_views
+
+(1 durations < 0.005s hidden.  Use -vv to show these durations.)
+=========================== short test summary info ============================
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_summary_uses_explicit_process_group
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_skips_non_offloadable_tensor_types
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_respects_tensor_opt_out_flags
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_offloads_base_storage_for_covering_views
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_gathers_low_coverage_views
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[0.0]
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[0.5]
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[1.0]
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_post_warmup_callback_warns_on_duplicated_storage_offload
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_flags_disjoint_views_taking_the_whole_storage_path
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_counts_full_storage_and_logical_view_duplicates[False]
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_counts_full_storage_and_logical_view_duplicates[True]
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_does_not_flag_views_copying_their_own_bytes
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_bulk_offload_group_does_not_analyze_logical_view_overlap
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_duplicate_storage_accounting_is_scoped_to_one_group
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_gpt_fine_grained_activation_offloading_correctness_and_memory[False-True-offload_modules0]
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_gpt_fine_grained_activation_offloading_correctness_and_memory[True-False-offload_modules1]
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_gpt_fine_grained_activation_offloading_correctness_and_memory[True-False-offload_modules2]
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_gpt_fine_grained_activation_offloading_correctness_and_memory[True-True-offload_modules3]
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_gpt_fine_grained_activation_offloading_correctness_and_memory[True-False-offload_modules4]
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_gpt_fine_grained_activation_offloading_correctness_and_memory[True-False-offload_modules5]
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_gpt_fine_grained_activation_offloading_correctness_and_memory[True-False-offload_modules6]
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_inline_reload_is_ordered_after_the_groups_offload
+23 passed, 17 deselected, 722 warnings in 118.77s (0:01:58)

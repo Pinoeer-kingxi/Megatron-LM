@@ -1,0 +1,56 @@
+[
+  {
+    "source": "shared",
+    "revision": "d8be77f56f4d38713cb0306c5c4893aa3cb2331a",
+    "command": [
+      "docker",
+      "exec",
+      "--workdir",
+      "/home/songbinbin/gdn-offload-artifacts/scope-20261022/shared",
+      "--env",
+      "PYTHONPATH=/home/songbinbin/gdn-offload-artifacts/scope-20261022/shared",
+      "megatron-offload-scope-20261022",
+      "python",
+      "tools/check_kernel_determinism_coverage.py",
+      "--base-ref",
+      "origin/main"
+    ],
+    "exit_code": 0
+  },
+  {
+    "source": "feature",
+    "revision": "e96793feecb0fdd54ce00ef09a67e28fce940d06",
+    "command": [
+      "docker",
+      "exec",
+      "--workdir",
+      "/home/songbinbin/gdn-offload-artifacts/scope-20261022/feature",
+      "--env",
+      "PYTHONPATH=/home/songbinbin/gdn-offload-artifacts/scope-20261022/feature",
+      "megatron-offload-scope-20261022",
+      "python",
+      "tools/check_kernel_determinism_coverage.py",
+      "--base-ref",
+      "origin/main"
+    ],
+    "exit_code": 0
+  },
+  {
+    "source": "extensions",
+    "revision": "3b6f5e66f64bd381893e0ea814511031c9b5e4af",
+    "command": [
+      "docker",
+      "exec",
+      "--workdir",
+      "/home/songbinbin/gdn-offload-artifacts/scope-20261022/extensions",
+      "--env",
+      "PYTHONPATH=/home/songbinbin/gdn-offload-artifacts/scope-20261022/extensions",
+      "megatron-offload-scope-20261022",
+      "python",
+      "tools/check_kernel_determinism_coverage.py",
+      "--base-ref",
+      "origin/main"
+    ],
+    "exit_code": 0
+  }
+]

@@ -1,0 +1,124 @@
+{
+  "status": "passed",
+  "positive_jobs": [
+    {
+      "name": "control-positive-fractions",
+      "source": "control",
+      "revision": "0b30779a83a939757beb84b8226874262dd396f7",
+      "ranks": 2,
+      "cases_per_rank": 2,
+      "status": "passed",
+      "skipped": 0
+    },
+    {
+      "name": "shared-core",
+      "source": "shared",
+      "revision": "d8be77f56f4d38713cb0306c5c4893aa3cb2331a",
+      "ranks": 2,
+      "cases_per_rank": 23,
+      "status": "passed",
+      "skipped": 0
+    },
+    {
+      "name": "shared-four-fixed",
+      "source": "shared",
+      "revision": "d8be77f56f4d38713cb0306c5c4893aa3cb2331a",
+      "ranks": 4,
+      "cases_per_rank": 4,
+      "status": "passed",
+      "skipped": 0
+    },
+    {
+      "name": "feature-four-native",
+      "source": "feature",
+      "revision": "e96793feecb0fdd54ce00ef09a67e28fce940d06",
+      "ranks": 4,
+      "cases_per_rank": 96,
+      "status": "passed",
+      "skipped": 0
+    },
+    {
+      "name": "feature-scopes",
+      "source": "feature",
+      "revision": "e96793feecb0fdd54ce00ef09a67e28fce940d06",
+      "ranks": 2,
+      "cases_per_rank": 92,
+      "status": "passed",
+      "skipped": 0
+    },
+    {
+      "name": "extensions-scopes",
+      "source": "extensions",
+      "revision": "3b6f5e66f64bd381893e0ea814511031c9b5e4af",
+      "ranks": 2,
+      "cases_per_rank": 20,
+      "status": "passed",
+      "skipped": 0
+    },
+    {
+      "name": "extensions-native",
+      "source": "extensions",
+      "revision": "3b6f5e66f64bd381893e0ea814511031c9b5e4af",
+      "ranks": 2,
+      "cases_per_rank": 18,
+      "status": "passed",
+      "skipped": 0
+    },
+    {
+      "name": "extensions-graphs",
+      "source": "extensions",
+      "revision": "3b6f5e66f64bd381893e0ea814511031c9b5e4af",
+      "ranks": 2,
+      "cases_per_rank": 21,
+      "status": "passed",
+      "skipped": 0
+    },
+    {
+      "name": "shared-graphs",
+      "source": "shared",
+      "revision": "d8be77f56f4d38713cb0306c5c4893aa3cb2331a",
+      "ranks": 2,
+      "cases_per_rank": 3,
+      "status": "passed",
+      "skipped": 0
+    }
+  ],
+  "negative_controls": [
+    {
+      "name": "control-final-zero",
+      "source": "control",
+      "revision": "0b30779a83a939757beb84b8226874262dd396f7",
+      "ranks": 2,
+      "cases_per_rank": 1,
+      "status": "expected old-code failure",
+      "skipped": 0
+    },
+    {
+      "name": "gdn-old-chunk-control",
+      "source": "feature-control",
+      "revision": "f9c607f5e3d16a7609bea8f77c76b87eeba87653",
+      "ranks": 2,
+      "cases_per_rank": 1,
+      "status": "expected old-code failure",
+      "skipped": 0
+    }
+  ],
+  "qwen": {
+    "revision": "e96793feecb0fdd54ce00ef09a67e28fce940d06",
+    "ranks": 4,
+    "steps": 3,
+    "arms": [
+      "disabled",
+      "repeat-disabled",
+      "fraction-zero",
+      "offloaded"
+    ],
+    "complete_recorded_states_exact": true
+  },
+  "limits": [
+    "Fixed-length training-first validation; evaluation-first and tensor-size growth changes withdrawn.",
+    "Current full-Qwen check is unfused with norm recomputation; other full-model settings remain historical.",
+    "No current-head throughput benchmark or pretrained CUDA-graph training run.",
+    "Local A6000 evidence; upstream GPU CI pending."
+  ]
+}

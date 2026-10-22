@@ -1,0 +1,17 @@
+megatron/core/pipeline_parallel/fine_grained_activation_offload.py:16: error: Cannot find implementation or library stub for module named "nemo.lens.helpers"  [import-not-found]
+megatron/core/pipeline_parallel/fine_grained_activation_offload.py:16: note: See https://mypy.readthedocs.io/en/stable/running_mypy.html#missing-imports
+megatron/core/pipeline_parallel/fine_grained_activation_offload.py:87: error: Value of type "None" is not indexable  [index]
+megatron/core/pipeline_parallel/fine_grained_activation_offload.py:100: error: Value of type "None" is not indexable  [index]
+megatron/core/pipeline_parallel/fine_grained_activation_offload.py:103: error: Value of type "None" is not indexable  [index]
+megatron/core/pipeline_parallel/fine_grained_activation_offload.py:304: error: Incompatible default for parameter "shape" (default has type "None", parameter has type "tuple[Any, ...]")  [assignment]
+megatron/core/pipeline_parallel/fine_grained_activation_offload.py:304: note: PEP 484 prohibits implicit Optional. Accordingly, mypy has changed its default to no_implicit_optional=True
+megatron/core/pipeline_parallel/fine_grained_activation_offload.py:304: note: Use https://github.com/hauntsaninja/no_implicit_optional to automatically upgrade your codebase
+megatron/core/pipeline_parallel/fine_grained_activation_offload.py:676: error: Need type annotation for "local_duplicate_summary"  [var-annotated]
+megatron/core/pipeline_parallel/fine_grained_activation_offload.py:706: error: Value expression in dictionary comprehension has incompatible type "tuple[int, ...]"; expected type "tuple[int, int]"  [misc]
+megatron/core/pipeline_parallel/fine_grained_activation_offload.py:802: error: Incompatible types in assignment (expression has type "ChunkOffloadHandler", variable has type "None")  [assignment]
+megatron/core/pipeline_parallel/fine_grained_activation_offload.py:803: error: "ChunkOffloadHandler" has no attribute "vpp_rank"  [attr-defined]
+megatron/core/pipeline_parallel/fine_grained_activation_offload.py:965: error: Need type annotation for "offload_groups" (hint: "offload_groups: list[<type>] = ...")  [var-annotated]
+megatron/core/pipeline_parallel/fine_grained_activation_offload.py:968: error: Need type annotation for "_groups_to_offload" (hint: "_groups_to_offload: list[<type>] = ...")  [var-annotated]
+megatron/core/pipeline_parallel/fine_grained_activation_offload.py:970: error: Need type annotation for "_groups_to_reload" (hint: "_groups_to_reload: list[<type>] = ...")  [var-annotated]
+megatron/core/pipeline_parallel/fine_grained_activation_offload.py:976: error: Need type annotation for "_reloading_group" (hint: "_reloading_group: list[<type>] = ...")  [var-annotated]
+Found 13 errors in 1 file (checked 2 source files)

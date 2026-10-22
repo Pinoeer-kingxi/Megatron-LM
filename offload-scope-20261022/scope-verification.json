@@ -1,0 +1,31 @@
+{
+  "checks": [
+    {
+      "source": "shared",
+      "revision": "d8be77f56f4d38713cb0306c5c4893aa3cb2331a",
+      "only_manager_function_changed_from_prerequisite": "finish_all_groups",
+      "schedules_unchanged": true,
+      "native_fused_kernel_unchanged": true
+    },
+    {
+      "source": "feature",
+      "revision": "e96793feecb0fdd54ce00ef09a67e28fce940d06",
+      "only_manager_function_changed_from_prerequisite": "finish_all_groups",
+      "schedules_unchanged": true,
+      "native_fused_kernel_unchanged": true
+    },
+    {
+      "source": "extensions",
+      "revision": "3b6f5e66f64bd381893e0ea814511031c9b5e4af",
+      "only_manager_function_changed_from_prerequisite": "finish_all_groups",
+      "schedules_unchanged": true,
+      "native_fused_kernel_unchanged": true
+    }
+  ],
+  "own_shared_files": [
+    "megatron/core/pipeline_parallel/fine_grained_activation_offload.py",
+    "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py"
+  ],
+  "identical_fixed_gpt_regression_blob": "8995dfa27a7fa6d6483b54eeff76897d767d83c8",
+  "identical_native_gdn_test_blob": "424d921fb27bf63885b1a1be6ceb88f0a0dc2464"
+}

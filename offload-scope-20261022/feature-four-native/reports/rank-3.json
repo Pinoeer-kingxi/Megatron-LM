@@ -1,0 +1,583 @@
+{
+  "rank": 3,
+  "collected": 96,
+  "exit_code": 0,
+  "outcomes": [
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-unfused-False-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-unfused-False-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-unfused-False-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-unfused-True-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-unfused-True-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-unfused-True-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-fused-False-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-fused-False-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-fused-False-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-fused-True-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-fused-True-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[dp-fused-True-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp-unfused-False-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp-unfused-False-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp-unfused-False-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp-unfused-True-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp-unfused-True-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp-unfused-True-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp-fused-False-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp-fused-False-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp-fused-False-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp-fused-True-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp-fused-True-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp-fused-True-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp-unfused-False-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp-unfused-False-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp-unfused-False-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp-unfused-True-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp-unfused-True-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp-unfused-True-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp-fused-False-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp-fused-False-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp-fused-False-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp-fused-True-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp-fused-True-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp-fused-True-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[cp-unfused-False-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[cp-unfused-False-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[cp-unfused-False-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[cp-unfused-True-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[cp-unfused-True-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[cp-unfused-True-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[cp-fused-False-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[cp-fused-False-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[cp-fused-False-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[cp-fused-True-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[cp-fused-True-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[cp-fused-True-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp-unfused-False-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp-unfused-False-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp-unfused-False-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp-unfused-True-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp-unfused-True-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp-unfused-True-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp-fused-False-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp-fused-False-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp-fused-False-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp-fused-True-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp-fused-True-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp-fused-True-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp_vpp-unfused-False-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp_vpp-unfused-False-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp_vpp-unfused-False-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp_vpp-unfused-True-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp_vpp-unfused-True-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp_vpp-unfused-True-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp_vpp-fused-False-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp_vpp-fused-False-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp_vpp-fused-False-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp_vpp-fused-True-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp_vpp-fused-True-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[pp_vpp-fused-True-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-unfused-False-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-unfused-False-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-unfused-False-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-unfused-True-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-unfused-True-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-unfused-True-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-fused-False-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-fused-False-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-fused-False-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-fused-True-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-fused-True-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_cp-fused-True-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-unfused-False-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-unfused-False-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-unfused-False-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-unfused-True-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-unfused-True-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-unfused-True-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-fused-False-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-fused-False-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-fused-False-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-fused-True-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-fused-True-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[tp_sp_pp-fused-True-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    }
+  ]
+}

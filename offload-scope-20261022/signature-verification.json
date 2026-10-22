@@ -1,0 +1,17 @@
+[
+  {
+    "revision": "d8be77f56f4d38713cb0306c5c4893aa3cb2331a",
+    "exit_code": 0,
+    "output": "Good \"git\" signature for 13022943007@163.com with ED25519 key SHA256:TMz6vhytFB32DtSCMyE1ivxzR88zV4sATB5TpWIPMGo\n"
+  },
+  {
+    "revision": "e96793feecb0fdd54ce00ef09a67e28fce940d06",
+    "exit_code": 0,
+    "output": "Good \"git\" signature for 13022943007@163.com with ED25519 key SHA256:TMz6vhytFB32DtSCMyE1ivxzR88zV4sATB5TpWIPMGo\n"
+  },
+  {
+    "revision": "3b6f5e66f64bd381893e0ea814511031c9b5e4af",
+    "exit_code": 0,
+    "output": "Good \"git\" signature for 13022943007@163.com with ED25519 key SHA256:TMz6vhytFB32DtSCMyE1ivxzR88zV4sATB5TpWIPMGo\n"
+  }
+]
