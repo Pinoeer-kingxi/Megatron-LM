@@ -1,0 +1,65 @@
+[
+  {
+    "name": "perf-0-off",
+    "repeat": 0,
+    "arm": "off",
+    "start_unix": 1792669714.5670364,
+    "end_unix": 1792669748.029707
+  },
+  {
+    "name": "perf-0-on",
+    "repeat": 0,
+    "arm": "on",
+    "start_unix": 1792669748.030217,
+    "end_unix": 1792669781.1973324
+  },
+  {
+    "name": "perf-0-fixed",
+    "repeat": 0,
+    "arm": "fixed",
+    "start_unix": 1792669781.1980877,
+    "end_unix": 1792669816.1436348
+  },
+  {
+    "name": "perf-1-on",
+    "repeat": 1,
+    "arm": "on",
+    "start_unix": 1792669816.1440394,
+    "end_unix": 1792669849.9713514
+  },
+  {
+    "name": "perf-1-fixed",
+    "repeat": 1,
+    "arm": "fixed",
+    "start_unix": 1792669849.9716442,
+    "end_unix": 1792669884.6254628
+  },
+  {
+    "name": "perf-1-off",
+    "repeat": 1,
+    "arm": "off",
+    "start_unix": 1792669884.6258836,
+    "end_unix": 1792669918.072241
+  },
+  {
+    "name": "perf-2-fixed",
+    "repeat": 2,
+    "arm": "fixed",
+    "start_unix": 1792669918.072645,
+    "end_unix": 1792669952.1127622
+  },
+  {
+    "name": "perf-2-off",
+    "repeat": 2,
+    "arm": "off",
+    "start_unix": 1792669952.1133778,
+    "end_unix": 1792669986.7385154
+  },
+  {
+    "name": "perf-2-on",
+    "repeat": 2,
+    "arm": "on",
+    "start_unix": 1792669986.7390547,
+    "end_unix": 1792670020.3107471
+  }
+]

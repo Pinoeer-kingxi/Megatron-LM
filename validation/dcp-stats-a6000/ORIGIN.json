@@ -1,0 +1,222 @@
+{
+  "upstream_dev": "a5aa637fa5dbe2b08af7b413e32306dbc086aa01",
+  "metrics_code_commit": "d994cdcbfa14016f3079f047114fdc2fbfa69142",
+  "local_compatibility_commit": "6702d59d8",
+  "integration_code_commit": "2cd55a5493643a13a7f04cefd3d9c7a63d9b4c5b",
+  "upstream_compatibility_pr": "https://github.com/NVIDIA/Megatron-LM/pull/7417",
+  "upstream_compatibility_head": "8b8c0277c560ab9945f0c2de18f05842e4c20646",
+  "checkpoint_hashes": {
+    "initial-aligned/checkpoints/latest_train_state.pt": {
+      "bytes": 3461,
+      "sha256": "03f5abd3ed595d78d50e009539923949a7160aee74f685e26fb5a55f2a49d763"
+    },
+    "initial-aligned/checkpoints/latest_checkpointed_iteration.txt": {
+      "bytes": 1,
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    "initial-aligned/checkpoints/iter_0000001/run_config.yaml": {
+      "bytes": 28366,
+      "sha256": "a1ebbb21d0009190fe37981cf621a02d17a94d5fdead903129d8c82b6d4bd0e2"
+    },
+    "initial-aligned/checkpoints/iter_0000001/train_state.pt": {
+      "bytes": 3461,
+      "sha256": "03f5abd3ed595d78d50e009539923949a7160aee74f685e26fb5a55f2a49d763"
+    },
+    "initial-aligned/checkpoints/iter_0000001/mp_rank_00/model_optim_rng.pt": {
+      "bytes": 13535339,
+      "sha256": "ea29bedce2c3cba1c7e15a24f939b8284e05a0bf9a151c1a93ec7770d5cc6d11"
+    },
+    "initial-tp/checkpoints/latest_train_state.pt": {
+      "bytes": 3461,
+      "sha256": "03f5abd3ed595d78d50e009539923949a7160aee74f685e26fb5a55f2a49d763"
+    },
+    "initial-tp/checkpoints/latest_checkpointed_iteration.txt": {
+      "bytes": 1,
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    "initial-tp/checkpoints/iter_0000001/run_config.yaml": {
+      "bytes": 28378,
+      "sha256": "b9e38c071917e240401a87dbfebf5b9841643f19b17dd29186c564ad67847be6"
+    },
+    "initial-tp/checkpoints/iter_0000001/train_state.pt": {
+      "bytes": 3461,
+      "sha256": "03f5abd3ed595d78d50e009539923949a7160aee74f685e26fb5a55f2a49d763"
+    },
+    "initial-tp/checkpoints/iter_0000001/mp_rank_00/model_optim_rng.pt": {
+      "bytes": 7775723,
+      "sha256": "acebb99cfe94aa5cc5582d15b8ac504056ee83370f1b9ce22ec77a710a179061"
+    },
+    "initial-tp/checkpoints/iter_0000001/mp_rank_01/model_optim_rng.pt": {
+      "bytes": 7775723,
+      "sha256": "23c5fb491bf2a92d61b32d6bb88f19b1120399b22a75ba5355148f75d8270382"
+    },
+    "initial-pp-v2/checkpoints/latest_train_state.pt": {
+      "bytes": 3461,
+      "sha256": "03f5abd3ed595d78d50e009539923949a7160aee74f685e26fb5a55f2a49d763"
+    },
+    "initial-pp-v2/checkpoints/latest_checkpointed_iteration.txt": {
+      "bytes": 1,
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    "initial-pp-v2/checkpoints/iter_0000001/run_config.yaml": {
+      "bytes": 28381,
+      "sha256": "a4261343bffb28183735a8a6b8434987596180d2c3b1e7af26fa836312b0aa7d"
+    },
+    "initial-pp-v2/checkpoints/iter_0000001/train_state.pt": {
+      "bytes": 3461,
+      "sha256": "03f5abd3ed595d78d50e009539923949a7160aee74f685e26fb5a55f2a49d763"
+    },
+    "initial-pp-v2/checkpoints/iter_0000001/mp_rank_00_001/model_optim_rng.pt": {
+      "bytes": 6109207,
+      "sha256": "0b4ee5ad4274f1d8cb9f67a8b34660ca1f813f41160e37c11bf6452305260a85"
+    },
+    "initial-pp-v2/checkpoints/iter_0000001/mp_rank_00_000/model_optim_rng.pt": {
+      "bytes": 7939129,
+      "sha256": "6c66d4d77fe298384026e960b475280118c72a3da12a9b9cf8db5868f37d7ba8"
+    },
+    "final-2-off/checkpoints/latest_train_state.pt": {
+      "bytes": 3461,
+      "sha256": "49ffb85609b0ca0e6edb928b8620ed62a5fa7cecc68cbbf3d740f90647897be4"
+    },
+    "final-2-off/checkpoints/latest_checkpointed_iteration.txt": {
+      "bytes": 1,
+      "sha256": "e7f6c011776e8db7cd330b54174fd76f7d0216b612387a5ffcfb81e6f0919683"
+    },
+    "final-2-off/checkpoints/iter_0000006/run_config.yaml": {
+      "bytes": 28463,
+      "sha256": "038c935fa08bcacc8cc172d9f1798f3b1a67c591186a7bd59b830c82ec899019"
+    },
+    "final-2-off/checkpoints/iter_0000006/train_state.pt": {
+      "bytes": 3461,
+      "sha256": "49ffb85609b0ca0e6edb928b8620ed62a5fa7cecc68cbbf3d740f90647897be4"
+    },
+    "final-2-off/checkpoints/iter_0000006/mp_rank_00/model_optim_rng.pt": {
+      "bytes": 13535531,
+      "sha256": "1db79096339f3388415d2e1c47610f88c7089e1f60042f2f95075c6b249c12c0"
+    },
+    "final-2-on/checkpoints/latest_train_state.pt": {
+      "bytes": 3461,
+      "sha256": "49ffb85609b0ca0e6edb928b8620ed62a5fa7cecc68cbbf3d740f90647897be4"
+    },
+    "final-2-on/checkpoints/latest_checkpointed_iteration.txt": {
+      "bytes": 1,
+      "sha256": "e7f6c011776e8db7cd330b54174fd76f7d0216b612387a5ffcfb81e6f0919683"
+    },
+    "final-2-on/checkpoints/iter_0000006/run_config.yaml": {
+      "bytes": 28460,
+      "sha256": "2173a149d2507a965b62bef2ea919dd5a96d10e56fb7900d69f61bc9b7527853"
+    },
+    "final-2-on/checkpoints/iter_0000006/train_state.pt": {
+      "bytes": 3461,
+      "sha256": "49ffb85609b0ca0e6edb928b8620ed62a5fa7cecc68cbbf3d740f90647897be4"
+    },
+    "final-2-on/checkpoints/iter_0000006/mp_rank_00/model_optim_rng.pt": {
+      "bytes": 13535531,
+      "sha256": "ef7a3c04abceb067a2c482719571eb91345188c74df06ecd71d23bfb7ca759f8"
+    },
+    "final-tp-off/checkpoints/latest_train_state.pt": {
+      "bytes": 3461,
+      "sha256": "49ffb85609b0ca0e6edb928b8620ed62a5fa7cecc68cbbf3d740f90647897be4"
+    },
+    "final-tp-off/checkpoints/latest_checkpointed_iteration.txt": {
+      "bytes": 1,
+      "sha256": "e7f6c011776e8db7cd330b54174fd76f7d0216b612387a5ffcfb81e6f0919683"
+    },
+    "final-tp-off/checkpoints/iter_0000006/run_config.yaml": {
+      "bytes": 28459,
+      "sha256": "fc846b3cb591ef5cf5572bccd80907bb00fcf19daba00d5c4bbfea10557c4c78"
+    },
+    "final-tp-off/checkpoints/iter_0000006/train_state.pt": {
+      "bytes": 3461,
+      "sha256": "49ffb85609b0ca0e6edb928b8620ed62a5fa7cecc68cbbf3d740f90647897be4"
+    },
+    "final-tp-off/checkpoints/iter_0000006/mp_rank_00/model_optim_rng.pt": {
+      "bytes": 7775915,
+      "sha256": "9e5a89fdc9facd79d8e0b2046a0d01e3005d0f5cd61f2b33621cd9e9ea9b29d5"
+    },
+    "final-tp-off/checkpoints/iter_0000006/mp_rank_01/model_optim_rng.pt": {
+      "bytes": 7775915,
+      "sha256": "b151df56169f4abc271755b431135be644c8764b5272cb5b7e24ffbbbef1fd77"
+    },
+    "final-tp-on/checkpoints/latest_train_state.pt": {
+      "bytes": 3461,
+      "sha256": "49ffb85609b0ca0e6edb928b8620ed62a5fa7cecc68cbbf3d740f90647897be4"
+    },
+    "final-tp-on/checkpoints/latest_checkpointed_iteration.txt": {
+      "bytes": 1,
+      "sha256": "e7f6c011776e8db7cd330b54174fd76f7d0216b612387a5ffcfb81e6f0919683"
+    },
+    "final-tp-on/checkpoints/iter_0000006/run_config.yaml": {
+      "bytes": 28456,
+      "sha256": "3db134895329632db20ea3bdd392d2c346f38514e1dca667d828f614a507062e"
+    },
+    "final-tp-on/checkpoints/iter_0000006/train_state.pt": {
+      "bytes": 3461,
+      "sha256": "49ffb85609b0ca0e6edb928b8620ed62a5fa7cecc68cbbf3d740f90647897be4"
+    },
+    "final-tp-on/checkpoints/iter_0000006/mp_rank_00/model_optim_rng.pt": {
+      "bytes": 7775915,
+      "sha256": "e6a658d471552fb4ff079c2367673c09f668783d9b276014c7fe4f2ae76ce2cf"
+    },
+    "final-tp-on/checkpoints/iter_0000006/mp_rank_01/model_optim_rng.pt": {
+      "bytes": 7775915,
+      "sha256": "607d782986e303d66a71b540f99a764d8cc70fa9fc12440623503c56f26ea24e"
+    },
+    "final-pp-off/checkpoints/latest_train_state.pt": {
+      "bytes": 3461,
+      "sha256": "49ffb85609b0ca0e6edb928b8620ed62a5fa7cecc68cbbf3d740f90647897be4"
+    },
+    "final-pp-off/checkpoints/latest_checkpointed_iteration.txt": {
+      "bytes": 1,
+      "sha256": "e7f6c011776e8db7cd330b54174fd76f7d0216b612387a5ffcfb81e6f0919683"
+    },
+    "final-pp-off/checkpoints/iter_0000006/run_config.yaml": {
+      "bytes": 28459,
+      "sha256": "4d158a01657cf81a6c84bf73b519e0e0b9568296260f151d776a4af2f13e5c1a"
+    },
+    "final-pp-off/checkpoints/iter_0000006/train_state.pt": {
+      "bytes": 3461,
+      "sha256": "49ffb85609b0ca0e6edb928b8620ed62a5fa7cecc68cbbf3d740f90647897be4"
+    },
+    "final-pp-off/checkpoints/iter_0000006/mp_rank_00_001/model_optim_rng.pt": {
+      "bytes": 6109399,
+      "sha256": "07b69c9c2229c448868641e742e6f4efa0619188042fb0bddbb656b07d8c2aef"
+    },
+    "final-pp-off/checkpoints/iter_0000006/mp_rank_00_000/model_optim_rng.pt": {
+      "bytes": 7939321,
+      "sha256": "ff5d1592a162e0f9325662afd1865174342a98de05bdc37360bc3465d690315b"
+    },
+    "final-pp-on/checkpoints/latest_train_state.pt": {
+      "bytes": 3461,
+      "sha256": "49ffb85609b0ca0e6edb928b8620ed62a5fa7cecc68cbbf3d740f90647897be4"
+    },
+    "final-pp-on/checkpoints/latest_checkpointed_iteration.txt": {
+      "bytes": 1,
+      "sha256": "e7f6c011776e8db7cd330b54174fd76f7d0216b612387a5ffcfb81e6f0919683"
+    },
+    "final-pp-on/checkpoints/iter_0000006/run_config.yaml": {
+      "bytes": 28456,
+      "sha256": "d020ecf45731d8b28cd5af3e09cbf6d00108a18ba1a5b968f61fb2cc2483a829"
+    },
+    "final-pp-on/checkpoints/iter_0000006/train_state.pt": {
+      "bytes": 3461,
+      "sha256": "49ffb85609b0ca0e6edb928b8620ed62a5fa7cecc68cbbf3d740f90647897be4"
+    },
+    "final-pp-on/checkpoints/iter_0000006/mp_rank_00_001/model_optim_rng.pt": {
+      "bytes": 6109399,
+      "sha256": "25be4bfedc06a29afccbd43cc81c99f5d76f5c4b95a3e896b26b88d7e56fc56c"
+    },
+    "final-pp-on/checkpoints/iter_0000006/mp_rank_00_000/model_optim_rng.pt": {
+      "bytes": 7939321,
+      "sha256": "21e6b6dddd1ba793a4fb2e5e8b6427cbff0581b628414eea7afb2cb224ec70fe"
+    }
+  },
+  "original_artifact_directory": "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/dcp-stats-20261022",
+  "tests": {
+    "standalone_passed_per_rank": 84,
+    "integration_passed_per_rank": 49,
+    "ranks": 4
+  },
+  "note": "The local prerequisite adapts the eager rule of #7417 while preserving conservative graph metadata. It is excluded from the metrics PR. This evidence branch is the validation integration.",
+  "metrics_pr_head": "a56739da6d046951ef4b1947e6d8541bd3429381"
+}
