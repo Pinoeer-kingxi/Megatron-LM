@@ -47,7 +47,7 @@ def compute_schedule_stats(
     """
     lengths = dict(global_id_seqlens)
     rank_work = []
-    cp_sample_counts = Counter()
+    cp_sample_counts: Counter[int] = Counter()
     num_ranks = len(sample_id_groups[0]) if sample_id_groups else 0
     for microbatch in sample_id_groups:
         if len(microbatch) != num_ranks:

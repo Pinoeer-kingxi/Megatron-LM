@@ -32,7 +32,7 @@ class DcpStatsAccumulator:
         """Discard the completed logging window."""
         self.numerator = 0.0
         self.denominator = 0.0
-        self.cp_sample_counts = Counter()
+        self.cp_sample_counts: Counter[int] = Counter()
 
     def update(self, stats, skipped=False):
         """Commit a successful step's summary exactly once, without collectives."""
