@@ -387,15 +387,16 @@ def test_dcp_schedule_stats_rerun_and_abort(monkeypatch, outcome):
 
 @pytest.mark.parametrize('vpp', [False, True])
 def test_dcp_schedule_stats_distributed(vpp):
-    """Cover TP2 x CP2 and PP2 x CP2/VPP2, with two-rank smoke variants."""
+    """Cover TP/PP replicas with CP2, including the standard eight-rank CI job."""
     world_size = Utils.world_size
-    if world_size not in (2, 4):
-        pytest.skip('requires two or four ranks')
+    if world_size not in (2, 4, 8):
+        pytest.skip('requires two, four or eight ranks')
+    cp_size = 2 if world_size >= 4 else 1
     Utils.initialize_model_parallel(
-        1 if vpp else 2,
-        2 if vpp else 1,
+        1 if vpp else world_size // cp_size,
+        world_size // cp_size if vpp else 1,
         2 if vpp else None,
-        context_parallel_size=world_size // 2,
+        context_parallel_size=cp_size,
         dynamic_context_parallel=True,
     )
     try:
@@ -408,10 +409,10 @@ def test_dcp_schedule_stats_distributed(vpp):
             mtp_num_layers=None,
             min_dynamic_context_parallel_size=1,
         )
-        lengths = [512, 128, 128, 128, 128] if world_size == 4 else [256, 128, 128]
+        lengths = [512, 128, 128, 128, 128] if world_size >= 4 else [256, 128, 128]
         if vpp:
-            if world_size != 4:
-                pytest.skip('VPP alignment case requires four ranks')
+            if world_size < 4:
+                pytest.skip('VPP alignment case requires at least four ranks')
             lengths = [512, 256, 128, 128, 256, 128, 128]
             unaligned = DefaultDynamicCPScheduler(256, 2, 1, None).get_groups_and_subsamples(
                 list(enumerate(lengths))
@@ -442,7 +443,7 @@ def test_dcp_schedule_stats_distributed(vpp):
         assert all(s == summary for s in summaries)
         assert summary['balance_numerator'] == sum(length**2 for length in lengths)
         assert bool('rank_work' in stats) == source
-        if world_size == 4:
+        if world_size >= 4:
             assert stats['cp_sample_counts'][1] > 0 and stats['cp_sample_counts'][2] > 0
         if vpp:
             assert result[1] == 4
