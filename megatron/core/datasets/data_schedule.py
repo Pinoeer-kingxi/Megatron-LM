@@ -409,7 +409,7 @@ class DpBalancedScheduler(BasePackingScheduler):
             ) = (None, None, None, None)
 
         # Broadcast to TP group (for non-TP-0 ranks)
-        metadata: List[Any] = [
+        metadata: list[Any] = [
             num_micro_batches,
             seqlen_sum_this_global_batch,
             seqlen_squared_sum_this_global_batch,
