@@ -1,0 +1,144 @@
+{
+  "metrics_head": "87d6973da13d49bbcf4f8f35579481ca3aaf25fd",
+  "dev_base": "dd8f93b57cdd09a87fd0c1a10cb46b7ff1610a9a",
+  "integration_commit": "a5aaf5ea66a9da10551354c5168dfa11a14e2ff2",
+  "image": "sha256:070e339faa1fb4fec1c630f7bcc77c97ebd7eb138bc81802feac567aa011bcb8",
+  "correctness_gpu_indices": [
+    2,
+    4,
+    5,
+    6
+  ],
+  "performance_gpu_indices": [
+    2,
+    4
+  ],
+  "compatibility_patch_sha256": "ecc75fd6758e31dd295d3ef5e19e0ff5837b9f0529046c9cda07882467cfef18",
+  "checkpoints": [
+    {
+      "path": "initial-aligned/checkpoints/iter_0000001/mp_rank_00/model_optim_rng.pt",
+      "bytes": 13535467,
+      "sha256": "79d4487b4ad5e87c893d64c122e92970273aa297e0c7b4b34bda6d5e40b87ecb"
+    },
+    {
+      "path": "initial-aligned/checkpoints/iter_0000001/run_config.yaml",
+      "bytes": 28533,
+      "sha256": "ffd145d30abea57a8db7bad93d68301ff78d77fc75bc1859ea568aeb975c7c7a"
+    },
+    {
+      "path": "initial-aligned/checkpoints/iter_0000001/train_state.pt",
+      "bytes": 2949,
+      "sha256": "de217ac72ba021a1485c8206ab4df150e9157207f8885254a38b83e811fa1e93"
+    },
+    {
+      "path": "initial-aligned/checkpoints/latest_checkpointed_iteration.txt",
+      "bytes": 1,
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    {
+      "path": "initial-aligned/checkpoints/latest_train_state.pt",
+      "bytes": 2949,
+      "sha256": "de217ac72ba021a1485c8206ab4df150e9157207f8885254a38b83e811fa1e93"
+    },
+    {
+      "path": "initial-pp-v2/checkpoints/iter_0000001/mp_rank_00_000/model_optim_rng.pt",
+      "bytes": 7939193,
+      "sha256": "0dba7a1fb28786198e114650e6b6ad1b978a41b08b768629e3345be15c3ffeeb"
+    },
+    {
+      "path": "initial-pp-v2/checkpoints/iter_0000001/mp_rank_00_001/model_optim_rng.pt",
+      "bytes": 6109271,
+      "sha256": "45872a2d79f64fe46cfc7dfbac8fa40538b7b96c2437787514459c32cfe5e95d"
+    },
+    {
+      "path": "initial-pp-v2/checkpoints/iter_0000001/run_config.yaml",
+      "bytes": 28525,
+      "sha256": "c31cf21ae3ddf2d5ff6003a987b6546fb549404f4835478fd00bb2e8ad8c5627"
+    },
+    {
+      "path": "initial-pp-v2/checkpoints/iter_0000001/train_state.pt",
+      "bytes": 2949,
+      "sha256": "de217ac72ba021a1485c8206ab4df150e9157207f8885254a38b83e811fa1e93"
+    },
+    {
+      "path": "initial-pp-v2/checkpoints/latest_checkpointed_iteration.txt",
+      "bytes": 1,
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    {
+      "path": "initial-pp-v2/checkpoints/latest_train_state.pt",
+      "bytes": 2949,
+      "sha256": "de217ac72ba021a1485c8206ab4df150e9157207f8885254a38b83e811fa1e93"
+    },
+    {
+      "path": "initial-tp/checkpoints/iter_0000001/mp_rank_00/model_optim_rng.pt",
+      "bytes": 7775851,
+      "sha256": "dc49b09c7df017fee8c326f3d2221ab263237cb0035e9cdd43fb36d8be9753dd"
+    },
+    {
+      "path": "initial-tp/checkpoints/iter_0000001/mp_rank_01/model_optim_rng.pt",
+      "bytes": 7775851,
+      "sha256": "6157db6479478af4d0752c37aeef47a85f2f2175807b933a0d1638c0f028f854"
+    },
+    {
+      "path": "initial-tp/checkpoints/iter_0000001/run_config.yaml",
+      "bytes": 28522,
+      "sha256": "2a39a7c93211f00a16eae66eaa11cba45e61485ec06e6f62c45c524b065040ea"
+    },
+    {
+      "path": "initial-tp/checkpoints/iter_0000001/train_state.pt",
+      "bytes": 2949,
+      "sha256": "de217ac72ba021a1485c8206ab4df150e9157207f8885254a38b83e811fa1e93"
+    },
+    {
+      "path": "initial-tp/checkpoints/latest_checkpointed_iteration.txt",
+      "bytes": 1,
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    {
+      "path": "initial-tp/checkpoints/latest_train_state.pt",
+      "bytes": 2949,
+      "sha256": "de217ac72ba021a1485c8206ab4df150e9157207f8885254a38b83e811fa1e93"
+    }
+  ],
+  "production_source_hashes": {
+    "megatron/core/datasets/data_schedule.py": "7e29be595d33ef50702be7e2e2155ee211837b8b13d0d3fea296f74a4f1228c4",
+    "megatron/core/datasets/data_schedule_utils.py": "666793f14d4fa94304f4ea4fc0e84cf8cbe157054de9f1ccfd93926be77e4e98",
+    "megatron/training/config/training_config.py": "cbd44de04d2c3582d6da69f81e2ef00373c79c2fc08177ef0c97e99780e8c141",
+    "megatron/training/logging/packed_sequence_stats.py": "5e09e63783e56d787f0ed257a4e476bfbbc88073c85b59d44f0ea6c83ee6feb6",
+    "megatron/training/training.py": "c275e2cb2782bf30ef03557c2ab37d61bab42f6f7e5af2e1c1a236de8468d527"
+  },
+  "metrics_production_source_hashes": {
+    "megatron/core/datasets/data_schedule.py": "b1927f57ecf1685319a568cf4f121d53e93b38b5b5bd9963e9bc359e43aa82ff",
+    "megatron/core/datasets/data_schedule_utils.py": "666793f14d4fa94304f4ea4fc0e84cf8cbe157054de9f1ccfd93926be77e4e98",
+    "megatron/training/config/training_config.py": "cbd44de04d2c3582d6da69f81e2ef00373c79c2fc08177ef0c97e99780e8c141",
+    "megatron/training/logging/packed_sequence_stats.py": "5e09e63783e56d787f0ed257a4e476bfbbc88073c85b59d44f0ea6c83ee6feb6",
+    "megatron/training/training.py": "c275e2cb2782bf30ef03557c2ab37d61bab42f6f7e5af2e1c1a236de8468d527"
+  },
+  "performance_cpu_bindings": [
+    [
+      0,
+      2,
+      32,
+      34
+    ],
+    [
+      4,
+      15,
+      36,
+      47
+    ]
+  ],
+  "workload": {
+    "layers": 4,
+    "hidden": 128,
+    "ffn": 512,
+    "heads": 4,
+    "vocab": 256,
+    "sequence_limit": 1024,
+    "dropout": 0,
+    "precision": "BF16",
+    "effective_tokens_per_step": 2560,
+    "seed": 1234
+  }
+}

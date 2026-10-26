@@ -1,0 +1,2427 @@
+[
+  {
+    "function": "gc_generation_1",
+    "iteration": null,
+    "microseconds": 1548.878
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 154.345
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 142.099
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 4245.496
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 3189.801
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 152.772
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 117.026
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 265.276
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 80.253
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 62.403
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 165.537
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 102.099
+  },
+  {
+    "function": "gc_generation_1",
+    "iteration": null,
+    "microseconds": 888.714
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 55.745
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 152.054
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 155.343
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 51.765
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 63.773
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 165.346
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 200.821
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 173.172
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 70.509
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 38.831
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 439.251
+  },
+  {
+    "function": "gc_generation_1",
+    "iteration": null,
+    "microseconds": 5199.373
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 3632.667
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 144.85
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 271.767
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 189.112
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 80.145
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 58.43
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 164.905
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 114.032
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 82.065
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 55.793
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 168.248
+  },
+  {
+    "function": "gc_generation_1",
+    "iteration": null,
+    "microseconds": 330.046
+  },
+  {
+    "function": "gc_generation_2",
+    "iteration": null,
+    "microseconds": 299114.111
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 68.868
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 177.299
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 157.441
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 201.459
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 142.303
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 3319.847
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 2905.566
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 140.76
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 120.007
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 202.17
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 79.751
+  },
+  {
+    "function": "gc_generation_1",
+    "iteration": null,
+    "microseconds": 505.006
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 160.186
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 103.708
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 81.215
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 61.828
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 163.83
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 158.0
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 49.866
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 63.622
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 175.305
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 172.129
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 176.079
+  },
+  {
+    "function": "gc_generation_1",
+    "iteration": null,
+    "microseconds": 261.973
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 121.53
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 95.467
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 528.483
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 507.16
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 108.489
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 75.005
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 128.341
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 176.749
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 178.082
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 173.137
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 193.676
+  },
+  {
+    "function": "gc_generation_1",
+    "iteration": null,
+    "microseconds": 2542.371
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 321.632
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 269.348
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 156.314
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 143.301
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 102.083
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 117.124
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 112.861
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 290.322
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 123.356
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 139.227
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 279.607
+  },
+  {
+    "function": "gc_generation_1",
+    "iteration": null,
+    "microseconds": 1250.806
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 124.95
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 167.596
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 234.609
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 140.217
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 130.342
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 97.467
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 95.415
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 61.037
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 36.862
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 40.451
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 45.176
+  },
+  {
+    "function": "gc_generation_1",
+    "iteration": null,
+    "microseconds": 1002.455
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 48.269
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 27.069
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 38.589
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 33.965
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 43.624
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 28.79
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 32.358
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 39.358
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 25.138
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 43.901
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 25.882
+  },
+  {
+    "function": "gc_generation_1",
+    "iteration": null,
+    "microseconds": 378.374
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 28.001
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 23.866
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 41.275
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 25.335
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 48.931
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 26.439
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 46.381
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 28.851
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 23.438
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 47.627
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 44.647
+  },
+  {
+    "function": "gc_generation_1",
+    "iteration": null,
+    "microseconds": 374.782
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 46.756
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 33.412
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 30.022
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 51.24
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 27.419
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 24.8
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 23.848
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 23.219
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 23.764
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 24.485
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 58.382
+  },
+  {
+    "function": "gc_generation_1",
+    "iteration": null,
+    "microseconds": 375.919
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 32.119
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 54.952
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 37.707
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 33.749
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 38.488
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 34.203
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 33.302
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 73.499
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 39.5
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 35.874
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 52.639
+  },
+  {
+    "function": "gc_generation_1",
+    "iteration": null,
+    "microseconds": 401.359
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 31.348
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 47.437
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 25.181
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 22.978
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 22.822
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 56.303
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 27.551
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 26.42
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 24.21
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 48.182
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 28.105
+  },
+  {
+    "function": "gc_generation_1",
+    "iteration": null,
+    "microseconds": 415.79
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 26.024
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 25.64
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 46.655
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 44.406
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 27.208
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 24.283
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 24.165
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 24.614
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 47.387
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 27.242
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 24.957
+  },
+  {
+    "function": "gc_generation_1",
+    "iteration": null,
+    "microseconds": 399.765
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 44.506
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 35.872
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 25.772
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 24.606
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 23.413
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 81.859
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 90.42
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 110.281
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 109.235
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 100.287
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 92.061
+  },
+  {
+    "function": "gc_generation_1",
+    "iteration": null,
+    "microseconds": 654.116
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 167.309
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 94.064
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 106.027
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 43.69
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 116.956
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 181.563
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 207.974
+  },
+  {
+    "function": "gc_generation_1",
+    "iteration": null,
+    "microseconds": 754.51
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 159.424
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 179.814
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 168.818
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 198.117
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 203.522
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 150.25
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 193.648
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 161.88
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 29.939
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 127.607
+  },
+  {
+    "function": "gc_generation_1",
+    "iteration": null,
+    "microseconds": 1361.999
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 169.001
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 138.271
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 71.647
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 24.794
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 155.322
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 267.302
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 230.204
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 245.381
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 154.564
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 259.451
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 196.314
+  },
+  {
+    "function": "gc_generation_1",
+    "iteration": null,
+    "microseconds": 1198.129
+  },
+  {
+    "function": "gc_generation_1",
+    "iteration": null,
+    "microseconds": 254.029
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 193.192
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 160.955
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 230.599
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 197.967
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 266.67
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 101.812
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 246.019
+  },
+  {
+    "function": "gc_generation_1",
+    "iteration": null,
+    "microseconds": 937.958
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 212.086
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 181.136
+  },
+  {
+    "function": "gc_generation_1",
+    "iteration": null,
+    "microseconds": 404.689
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 216.401
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 136.161
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 214.254
+  },
+  {
+    "function": "gc_generation_1",
+    "iteration": null,
+    "microseconds": 437.199
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 340.359
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 129.52
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 128.903
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 63.593
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 83.161
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 67.859
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 141.424
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 185.934
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 140.034
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 228.366
+  },
+  {
+    "function": "gc_generation_1",
+    "iteration": null,
+    "microseconds": 1539.417
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 180.934
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 122.735
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 173.579
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 172.025
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 155.331
+  },
+  {
+    "function": "gc_generation_1",
+    "iteration": null,
+    "microseconds": 593.36
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 193.178
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 131.188
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 194.99
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 201.238
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 227.466
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 269.384
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 162.233
+  },
+  {
+    "function": "gc_generation_1",
+    "iteration": null,
+    "microseconds": 801.875
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 158.108
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 139.662
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 226.141
+  },
+  {
+    "function": "gc_generation_1",
+    "iteration": null,
+    "microseconds": 548.619
+  },
+  {
+    "function": "gc_generation_2",
+    "iteration": null,
+    "microseconds": 297686.664
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 107.094
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 89.095
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 73.255
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 92.091
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 133.425
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 193.394
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 71.789
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 74.079
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 244.381
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 143.851
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 50.779
+  },
+  {
+    "function": "gc_generation_1",
+    "iteration": null,
+    "microseconds": 1310.228
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 42.474
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 37.211
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 42.569
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 39.626
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": null,
+    "microseconds": 41.867
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 2,
+    "microseconds": 187.426
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 2,
+    "microseconds": 626.285
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 2,
+    "microseconds": 446.669
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 2,
+    "microseconds": 178.423
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 2,
+    "microseconds": 267.372
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 2,
+    "microseconds": 212.267
+  },
+  {
+    "function": "gc_generation_1",
+    "iteration": 2,
+    "microseconds": 1309.246
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 2,
+    "microseconds": 193.344
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 2,
+    "microseconds": 169.763
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 2,
+    "microseconds": 146.808
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 2,
+    "microseconds": 205.571
+  },
+  {
+    "function": "gc_generation_1",
+    "iteration": 2,
+    "microseconds": 706.922
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 2,
+    "microseconds": 204.892
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 2,
+    "microseconds": 142.817
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 2,
+    "microseconds": 139.131
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 2,
+    "microseconds": 208.474
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 2,
+    "microseconds": 257.168
+  },
+  {
+    "function": "gc_generation_1",
+    "iteration": 2,
+    "microseconds": 1042.552
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 2,
+    "microseconds": 270.731
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 2,
+    "microseconds": 216.227
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 2,
+    "microseconds": 309.331
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 2,
+    "microseconds": 261.361
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 2,
+    "microseconds": 309.909
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 2,
+    "microseconds": 220.072
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 2,
+    "microseconds": 96.883
+  },
+  {
+    "function": "gc_generation_1",
+    "iteration": 2,
+    "microseconds": 1390.886
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 2,
+    "microseconds": 265.278
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 2,
+    "microseconds": 217.424
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 2,
+    "microseconds": 244.114
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 2,
+    "microseconds": 245.178
+  },
+  {
+    "function": "gc_generation_1",
+    "iteration": 2,
+    "microseconds": 954.268
+  },
+  {
+    "function": "update",
+    "iteration": 2,
+    "microseconds": 16.291
+  },
+  {
+    "function": "metrics",
+    "iteration": 2,
+    "microseconds": 23.296
+  },
+  {
+    "function": "training_log",
+    "iteration": 2,
+    "microseconds": 2486.77
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 3,
+    "microseconds": 55.242
+  },
+  {
+    "function": "update",
+    "iteration": 3,
+    "microseconds": 15.022
+  },
+  {
+    "function": "metrics",
+    "iteration": 3,
+    "microseconds": 21.585
+  },
+  {
+    "function": "training_log",
+    "iteration": 3,
+    "microseconds": 2179.332
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 4,
+    "microseconds": 53.639
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 4,
+    "microseconds": 525.666
+  },
+  {
+    "function": "update",
+    "iteration": 4,
+    "microseconds": 15.911
+  },
+  {
+    "function": "metrics",
+    "iteration": 4,
+    "microseconds": 19.041
+  },
+  {
+    "function": "training_log",
+    "iteration": 4,
+    "microseconds": 1301.687
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 5,
+    "microseconds": 84.169
+  },
+  {
+    "function": "update",
+    "iteration": 5,
+    "microseconds": 14.817
+  },
+  {
+    "function": "metrics",
+    "iteration": 5,
+    "microseconds": 29.67
+  },
+  {
+    "function": "training_log",
+    "iteration": 5,
+    "microseconds": 1453.481
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 6,
+    "microseconds": 53.772
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 6,
+    "microseconds": 191.266
+  },
+  {
+    "function": "update",
+    "iteration": 6,
+    "microseconds": 13.535
+  },
+  {
+    "function": "metrics",
+    "iteration": 6,
+    "microseconds": 18.179
+  },
+  {
+    "function": "training_log",
+    "iteration": 6,
+    "microseconds": 1205.719
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 7,
+    "microseconds": 51.911
+  },
+  {
+    "function": "update",
+    "iteration": 7,
+    "microseconds": 13.631
+  },
+  {
+    "function": "metrics",
+    "iteration": 7,
+    "microseconds": 18.803
+  },
+  {
+    "function": "training_log",
+    "iteration": 7,
+    "microseconds": 1259.911
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 8,
+    "microseconds": 52.841
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 8,
+    "microseconds": 190.062
+  },
+  {
+    "function": "update",
+    "iteration": 8,
+    "microseconds": 14.143
+  },
+  {
+    "function": "metrics",
+    "iteration": 8,
+    "microseconds": 18.784
+  },
+  {
+    "function": "training_log",
+    "iteration": 8,
+    "microseconds": 1182.42
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 9,
+    "microseconds": 54.31
+  },
+  {
+    "function": "update",
+    "iteration": 9,
+    "microseconds": 13.787
+  },
+  {
+    "function": "metrics",
+    "iteration": 9,
+    "microseconds": 19.176
+  },
+  {
+    "function": "training_log",
+    "iteration": 9,
+    "microseconds": 1407.905
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 10,
+    "microseconds": 51.375
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 10,
+    "microseconds": 196.653
+  },
+  {
+    "function": "update",
+    "iteration": 10,
+    "microseconds": 14.873
+  },
+  {
+    "function": "metrics",
+    "iteration": 10,
+    "microseconds": 18.894
+  },
+  {
+    "function": "training_log",
+    "iteration": 10,
+    "microseconds": 1436.11
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 11,
+    "microseconds": 49.645
+  },
+  {
+    "function": "update",
+    "iteration": 11,
+    "microseconds": 13.645
+  },
+  {
+    "function": "metrics",
+    "iteration": 11,
+    "microseconds": 18.215
+  },
+  {
+    "function": "training_log",
+    "iteration": 11,
+    "microseconds": 1160.059
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 12,
+    "microseconds": 56.656
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 12,
+    "microseconds": 218.416
+  },
+  {
+    "function": "update",
+    "iteration": 12,
+    "microseconds": 13.178
+  },
+  {
+    "function": "metrics",
+    "iteration": 12,
+    "microseconds": 19.416
+  },
+  {
+    "function": "training_log",
+    "iteration": 12,
+    "microseconds": 1103.046
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 13,
+    "microseconds": 49.994
+  },
+  {
+    "function": "update",
+    "iteration": 13,
+    "microseconds": 20.281
+  },
+  {
+    "function": "metrics",
+    "iteration": 13,
+    "microseconds": 20.166
+  },
+  {
+    "function": "training_log",
+    "iteration": 13,
+    "microseconds": 1611.932
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 14,
+    "microseconds": 40.061
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 14,
+    "microseconds": 159.606
+  },
+  {
+    "function": "update",
+    "iteration": 14,
+    "microseconds": 13.205
+  },
+  {
+    "function": "metrics",
+    "iteration": 14,
+    "microseconds": 15.252
+  },
+  {
+    "function": "training_log",
+    "iteration": 14,
+    "microseconds": 1210.562
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 15,
+    "microseconds": 38.602
+  },
+  {
+    "function": "update",
+    "iteration": 15,
+    "microseconds": 13.839
+  },
+  {
+    "function": "metrics",
+    "iteration": 15,
+    "microseconds": 16.765
+  },
+  {
+    "function": "training_log",
+    "iteration": 15,
+    "microseconds": 1103.049
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 16,
+    "microseconds": 37.71
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 16,
+    "microseconds": 275.437
+  },
+  {
+    "function": "update",
+    "iteration": 16,
+    "microseconds": 10.863
+  },
+  {
+    "function": "metrics",
+    "iteration": 16,
+    "microseconds": 15.42
+  },
+  {
+    "function": "training_log",
+    "iteration": 16,
+    "microseconds": 1428.257
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 17,
+    "microseconds": 42.254
+  },
+  {
+    "function": "update",
+    "iteration": 17,
+    "microseconds": 11.412
+  },
+  {
+    "function": "metrics",
+    "iteration": 17,
+    "microseconds": 14.73
+  },
+  {
+    "function": "training_log",
+    "iteration": 17,
+    "microseconds": 1222.438
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 18,
+    "microseconds": 39.129
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 18,
+    "microseconds": 210.997
+  },
+  {
+    "function": "update",
+    "iteration": 18,
+    "microseconds": 11.754
+  },
+  {
+    "function": "metrics",
+    "iteration": 18,
+    "microseconds": 16.048
+  },
+  {
+    "function": "training_log",
+    "iteration": 18,
+    "microseconds": 1228.37
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 19,
+    "microseconds": 37.464
+  },
+  {
+    "function": "update",
+    "iteration": 19,
+    "microseconds": 12.03
+  },
+  {
+    "function": "metrics",
+    "iteration": 19,
+    "microseconds": 16.363
+  },
+  {
+    "function": "training_log",
+    "iteration": 19,
+    "microseconds": 1176.452
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 20,
+    "microseconds": 37.681
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 20,
+    "microseconds": 169.532
+  },
+  {
+    "function": "update",
+    "iteration": 20,
+    "microseconds": 13.171
+  },
+  {
+    "function": "metrics",
+    "iteration": 20,
+    "microseconds": 22.683
+  },
+  {
+    "function": "training_log",
+    "iteration": 20,
+    "microseconds": 1468.854
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 21,
+    "microseconds": 39.412
+  },
+  {
+    "function": "update",
+    "iteration": 21,
+    "microseconds": 11.488
+  },
+  {
+    "function": "metrics",
+    "iteration": 21,
+    "microseconds": 15.069
+  },
+  {
+    "function": "training_log",
+    "iteration": 21,
+    "microseconds": 1314.868
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 22,
+    "microseconds": 38.932
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 22,
+    "microseconds": 161.708
+  },
+  {
+    "function": "update",
+    "iteration": 22,
+    "microseconds": 13.868
+  },
+  {
+    "function": "metrics",
+    "iteration": 22,
+    "microseconds": 16.817
+  },
+  {
+    "function": "training_log",
+    "iteration": 22,
+    "microseconds": 1688.173
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 23,
+    "microseconds": 38.14
+  },
+  {
+    "function": "update",
+    "iteration": 23,
+    "microseconds": 11.087
+  },
+  {
+    "function": "metrics",
+    "iteration": 23,
+    "microseconds": 14.612
+  },
+  {
+    "function": "training_log",
+    "iteration": 23,
+    "microseconds": 1077.711
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 24,
+    "microseconds": 35.436
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 24,
+    "microseconds": 154.593
+  },
+  {
+    "function": "update",
+    "iteration": 24,
+    "microseconds": 12.873
+  },
+  {
+    "function": "metrics",
+    "iteration": 24,
+    "microseconds": 16.04
+  },
+  {
+    "function": "training_log",
+    "iteration": 24,
+    "microseconds": 1266.977
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 25,
+    "microseconds": 38.687
+  },
+  {
+    "function": "update",
+    "iteration": 25,
+    "microseconds": 10.495
+  },
+  {
+    "function": "metrics",
+    "iteration": 25,
+    "microseconds": 15.414
+  },
+  {
+    "function": "training_log",
+    "iteration": 25,
+    "microseconds": 1039.437
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 26,
+    "microseconds": 37.881
+  },
+  {
+    "function": "gc_generation_1",
+    "iteration": 26,
+    "microseconds": 169.798
+  },
+  {
+    "function": "update",
+    "iteration": 26,
+    "microseconds": 11.991
+  },
+  {
+    "function": "metrics",
+    "iteration": 26,
+    "microseconds": 16.301
+  },
+  {
+    "function": "training_log",
+    "iteration": 26,
+    "microseconds": 1263.371
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 27,
+    "microseconds": 40.474
+  },
+  {
+    "function": "update",
+    "iteration": 27,
+    "microseconds": 10.875
+  },
+  {
+    "function": "metrics",
+    "iteration": 27,
+    "microseconds": 15.863
+  },
+  {
+    "function": "training_log",
+    "iteration": 27,
+    "microseconds": 1321.245
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 28,
+    "microseconds": 35.325
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 28,
+    "microseconds": 157.3
+  },
+  {
+    "function": "update",
+    "iteration": 28,
+    "microseconds": 11.979
+  },
+  {
+    "function": "metrics",
+    "iteration": 28,
+    "microseconds": 16.183
+  },
+  {
+    "function": "training_log",
+    "iteration": 28,
+    "microseconds": 1516.607
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 29,
+    "microseconds": 39.588
+  },
+  {
+    "function": "update",
+    "iteration": 29,
+    "microseconds": 12.934
+  },
+  {
+    "function": "metrics",
+    "iteration": 29,
+    "microseconds": 15.49
+  },
+  {
+    "function": "training_log",
+    "iteration": 29,
+    "microseconds": 1612.909
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 30,
+    "microseconds": 37.017
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 30,
+    "microseconds": 173.994
+  },
+  {
+    "function": "update",
+    "iteration": 30,
+    "microseconds": 10.792
+  },
+  {
+    "function": "metrics",
+    "iteration": 30,
+    "microseconds": 16.694
+  },
+  {
+    "function": "training_log",
+    "iteration": 30,
+    "microseconds": 1183.258
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 31,
+    "microseconds": 38.613
+  },
+  {
+    "function": "update",
+    "iteration": 31,
+    "microseconds": 11.733
+  },
+  {
+    "function": "metrics",
+    "iteration": 31,
+    "microseconds": 16.708
+  },
+  {
+    "function": "training_log",
+    "iteration": 31,
+    "microseconds": 1519.095
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 32,
+    "microseconds": 41.516
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 32,
+    "microseconds": 162.087
+  },
+  {
+    "function": "update",
+    "iteration": 32,
+    "microseconds": 11.15
+  },
+  {
+    "function": "metrics",
+    "iteration": 32,
+    "microseconds": 20.239
+  },
+  {
+    "function": "training_log",
+    "iteration": 32,
+    "microseconds": 1341.025
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 33,
+    "microseconds": 38.628
+  },
+  {
+    "function": "update",
+    "iteration": 33,
+    "microseconds": 12.8
+  },
+  {
+    "function": "metrics",
+    "iteration": 33,
+    "microseconds": 16.497
+  },
+  {
+    "function": "training_log",
+    "iteration": 33,
+    "microseconds": 1309.45
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 34,
+    "microseconds": 38.505
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 34,
+    "microseconds": 171.092
+  },
+  {
+    "function": "update",
+    "iteration": 34,
+    "microseconds": 12.213
+  },
+  {
+    "function": "metrics",
+    "iteration": 34,
+    "microseconds": 17.784
+  },
+  {
+    "function": "training_log",
+    "iteration": 34,
+    "microseconds": 1764.322
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 35,
+    "microseconds": 41.636
+  },
+  {
+    "function": "update",
+    "iteration": 35,
+    "microseconds": 13.0
+  },
+  {
+    "function": "metrics",
+    "iteration": 35,
+    "microseconds": 17.118
+  },
+  {
+    "function": "training_log",
+    "iteration": 35,
+    "microseconds": 1248.855
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 36,
+    "microseconds": 37.877
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 36,
+    "microseconds": 205.6
+  },
+  {
+    "function": "update",
+    "iteration": 36,
+    "microseconds": 11.731
+  },
+  {
+    "function": "metrics",
+    "iteration": 36,
+    "microseconds": 16.989
+  },
+  {
+    "function": "training_log",
+    "iteration": 36,
+    "microseconds": 1396.397
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 37,
+    "microseconds": 38.47
+  },
+  {
+    "function": "update",
+    "iteration": 37,
+    "microseconds": 13.055
+  },
+  {
+    "function": "metrics",
+    "iteration": 37,
+    "microseconds": 16.86
+  },
+  {
+    "function": "training_log",
+    "iteration": 37,
+    "microseconds": 1389.141
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 38,
+    "microseconds": 42.764
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 38,
+    "microseconds": 205.354
+  },
+  {
+    "function": "update",
+    "iteration": 38,
+    "microseconds": 12.089
+  },
+  {
+    "function": "metrics",
+    "iteration": 38,
+    "microseconds": 18.388
+  },
+  {
+    "function": "training_log",
+    "iteration": 38,
+    "microseconds": 1335.817
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 39,
+    "microseconds": 38.764
+  },
+  {
+    "function": "update",
+    "iteration": 39,
+    "microseconds": 11.826
+  },
+  {
+    "function": "metrics",
+    "iteration": 39,
+    "microseconds": 17.819
+  },
+  {
+    "function": "training_log",
+    "iteration": 39,
+    "microseconds": 1301.677
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 40,
+    "microseconds": 37.837
+  },
+  {
+    "function": "gc_generation_0",
+    "iteration": 40,
+    "microseconds": 162.446
+  },
+  {
+    "function": "update",
+    "iteration": 40,
+    "microseconds": 11.157
+  },
+  {
+    "function": "metrics",
+    "iteration": 40,
+    "microseconds": 15.035
+  },
+  {
+    "function": "training_log",
+    "iteration": 40,
+    "microseconds": 1560.453
+  },
+  {
+    "function": "compute_schedule_stats",
+    "iteration": 41,
+    "microseconds": 38.369
+  },
+  {
+    "function": "update",
+    "iteration": 41,
+    "microseconds": 10.4
+  },
+  {
+    "function": "metrics",
+    "iteration": 41,
+    "microseconds": 15.456
+  },
+  {
+    "function": "training_log",
+    "iteration": 41,
+    "microseconds": 1098.102
+  }
+]

@@ -1,0 +1,65 @@
+[
+  {
+    "name": "bound-0-off",
+    "repeat": 0,
+    "arm": "off",
+    "start_unix": 1792997513.939724,
+    "end_unix": 1792997553.274453
+  },
+  {
+    "name": "bound-0-on",
+    "repeat": 0,
+    "arm": "on",
+    "start_unix": 1792997553.2749596,
+    "end_unix": 1792997593.4114676
+  },
+  {
+    "name": "bound-0-fixed",
+    "repeat": 0,
+    "arm": "fixed",
+    "start_unix": 1792997593.412022,
+    "end_unix": 1792997636.052546
+  },
+  {
+    "name": "bound-1-on",
+    "repeat": 1,
+    "arm": "on",
+    "start_unix": 1792997636.0530927,
+    "end_unix": 1792997674.390659
+  },
+  {
+    "name": "bound-1-fixed",
+    "repeat": 1,
+    "arm": "fixed",
+    "start_unix": 1792997674.39125,
+    "end_unix": 1792997716.445806
+  },
+  {
+    "name": "bound-1-off",
+    "repeat": 1,
+    "arm": "off",
+    "start_unix": 1792997716.446411,
+    "end_unix": 1792997755.837275
+  },
+  {
+    "name": "bound-2-fixed",
+    "repeat": 2,
+    "arm": "fixed",
+    "start_unix": 1792997755.8377535,
+    "end_unix": 1792997797.7408931
+  },
+  {
+    "name": "bound-2-off",
+    "repeat": 2,
+    "arm": "off",
+    "start_unix": 1792997797.741337,
+    "end_unix": 1792997837.8936872
+  },
+  {
+    "name": "bound-2-on",
+    "repeat": 2,
+    "arm": "on",
+    "start_unix": 1792997837.894073,
+    "end_unix": 1792997877.8624866
+  }
+]
