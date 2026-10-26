@@ -1,6 +1,6 @@
 # Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
 
-"""Compare complete BF16 Qwen3.5 text training from local Hugging Face weights.
+"""Compare complete Qwen3.5 text training with BF16 recurrence activations from local Hugging Face weights.
 
 Run each arm in a separate torchrun process. Correctness fingerprints and timed
 measurements use separate runs so snapshots do not affect memory/runtime claims.
@@ -28,6 +28,7 @@ from megatron.core.dist_checkpointing.dict_utils import dict_list_map_outplace
 from megatron.core.dist_checkpointing.mapping import ShardedObject
 from megatron.core.distributed import DistributedDataParallel, DistributedDataParallelConfig
 from megatron.core.distributed.finalize_model_grads import finalize_model_grads
+from megatron.core.enums import Fp8Recipe
 from megatron.core.optimizer import MegatronOptimizer, OptimizerConfig, get_megatron_optimizer
 from megatron.core.pipeline_parallel.fine_grained_activation_offload import (
     FineGrainedActivationOffloadingInterface as off_interface,
@@ -68,6 +69,9 @@ def _arguments() -> argparse.Namespace:
     )
     parser.add_argument(
         "--check-state", action="store_true", help="Fingerprint every training step"
+    )
+    parser.add_argument(
+        "--precision", choices=["bf16", "fp8-delayed", "fp8-tensorwise", "fp4"], default="bf16"
     )
     parser.add_argument("--fraction", type=float, choices=[0.0, 0.5, 1.0], default=None)
     parser.add_argument("--recompute-norm", action="store_true")
@@ -141,6 +145,11 @@ def _provider(args: argparse.Namespace) -> Any:
             "pipeline_model_parallel_size": args.pp,
             "virtual_pipeline_model_parallel_size": args.vp,
             "pipeline_dtype": torch.bfloat16,
+            "fp8": "hybrid" if args.precision.startswith("fp8") else None,
+            "fp8_recipe": (
+                Fp8Recipe.tensorwise if args.precision == "fp8-tensorwise" else Fp8Recipe.delayed
+            ),
+            "fp4": "e2m1" if args.precision == "fp4" else None,
             # PP=2/VPP sends both directions to one peer; native unbatched P2P orders them.
             "batch_p2p_comm": False,
             "use_cpu_initialization": False,

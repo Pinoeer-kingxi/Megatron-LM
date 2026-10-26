@@ -60,8 +60,6 @@ def _config(**kwargs: Any) -> TransformerConfig:
         ({"experimental_attention_variant": None}, "only supports GDN"),
         ({"experimental_attention_variant": "gdn2"}, "only supports GDN"),
         ({"bf16": False, "params_dtype": torch.float32}, "BF16"),
-        ({"fp8": "e4m3"}, "BF16"),
-        ({"fp4": "e2m1"}, "BF16"),
         ({"gdn_kernel_backend": "torch"}, "FLA"),
         ({"gdn_kernel_backend": "transformer_engine"}, "FLA"),
         ({"deterministic_mode": True, "gdn_kernel_backend": "torch"}, "FLA"),
@@ -82,10 +80,11 @@ def test_reject_unsupported_gdn_offload(kwargs: dict[str, Any], match: str) -> N
         _config(**kwargs)
 
 
-def test_gdn_offload_config() -> None:
+@pytest.mark.parametrize("precision", [{}, {"fp8": "hybrid"}, {"fp4": "e2m1"}])
+def test_gdn_offload_config(precision: dict[str, Any]) -> None:
     """Canonical and legacy GDN names accept the new opt-in module."""
     for variant in ("gdn", "gated_delta_net"):
-        config = _config(experimental_attention_variant=variant)
+        config = _config(experimental_attention_variant=variant, **precision)
         assert config.experimental_attention_variant == "gdn"
     config = _config(recompute_granularity="selective", recompute_modules=["gdn_norm_out"])
     assert config.offload_modules == ["gdn_core_attn"]

@@ -17,6 +17,7 @@ import torch
 from megatron.core.dist_checkpointing.dict_utils import dict_list_map_outplace, diff
 from megatron.core.distributed import DistributedDataParallel, DistributedDataParallelConfig
 from megatron.core.distributed.finalize_model_grads import finalize_model_grads
+from megatron.core.enums import Fp8Recipe
 from megatron.core.models.gpt.experimental_attention_variant_module_specs import (
     get_transformer_layer_with_experimental_attention_variant_spec,
 )
@@ -60,6 +61,7 @@ def _training_config(
     recompute_norm: bool,
     *,
     fused_pre_gdr: bool = False,
+    precision: str = "bf16",
 ) -> TransformerConfig:
     """Configure the reduced-size complete decoder and its parallel topology."""
     return TransformerConfig(
@@ -80,6 +82,9 @@ def _training_config(
         attention_dropout=0.0,
         hidden_dropout=0.0,
         bf16=True,
+        fp8="hybrid" if precision.startswith("fp8") else None,
+        fp8_recipe=Fp8Recipe.tensorwise if precision == "fp8-tensorwise" else Fp8Recipe.delayed,
+        fp4="e2m1" if precision == "fp4" else None,
         pipeline_dtype=torch.bfloat16,
         use_cpu_initialization=True,
         gradient_accumulation_fusion=False,
@@ -188,18 +193,33 @@ def _snapshot_leaf(value: Any) -> Any:
 @pytest.mark.parametrize("recompute_norm", [False, True])
 @pytest.mark.parametrize("fused_pre_gdr", [False, True], ids=["unfused", "fused"])
 @pytest.mark.parametrize(
-    "tp,sp,cp,pp,vp",
+    "tp,sp,cp,pp,vp,precision",
     [
-        (1, False, 1, 1, None),
-        (2, False, 1, 1, None),
-        (2, True, 1, 1, None),
-        (1, False, 2, 1, None),
-        (1, False, 1, 2, None),
-        (1, False, 1, 2, 2),
-        (2, True, 2, 1, None),
-        (2, True, 1, 2, None),
+        (1, False, 1, 1, None, "bf16"),
+        (2, False, 1, 1, None, "bf16"),
+        (2, True, 1, 1, None, "bf16"),
+        (1, False, 2, 1, None, "bf16"),
+        (1, False, 1, 2, None, "bf16"),
+        (1, False, 1, 2, 2, "bf16"),
+        (2, True, 2, 1, None, "bf16"),
+        (2, True, 1, 2, None, "bf16"),
+        (1, False, 1, 1, None, "fp8-delayed"),
+        (1, False, 1, 1, None, "fp8-tensorwise"),
+        (1, False, 1, 1, None, "fp4"),
     ],
-    ids=["dp", "tp", "tp_sp", "cp", "pp", "pp_vpp", "tp_sp_cp", "tp_sp_pp"],
+    ids=[
+        "dp",
+        "tp",
+        "tp_sp",
+        "cp",
+        "pp",
+        "pp_vpp",
+        "tp_sp_cp",
+        "tp_sp_pp",
+        "fp8_delayed",
+        "fp8_tensorwise",
+        "fp4",
+    ],
 )
 def test_gdn_offload_training(
     tp: int,
@@ -207,6 +227,7 @@ def test_gdn_offload_training(
     cp: int,
     pp: int,
     vp: int | None,
+    precision: str,
     fraction: float,
     recompute_norm: bool,
     fused_pre_gdr: bool,
@@ -215,6 +236,20 @@ def test_gdn_offload_training(
     """Match losses, accumulated gradients, updated weights and Adam states on every rank."""
     if Utils.world_size % (tp * cp * pp):
         pytest.skip("This topology requires a world size divisible by TP * CP * PP.")
+    if precision != "bf16":
+        from transformer_engine.common.recipe import NVFP4BlockScaling
+        from transformer_engine.pytorch.fp8 import check_fp8_support, check_nvfp4_support
+
+        supported, reason = check_nvfp4_support() if precision == "fp4" else check_fp8_support()
+        if not supported:
+            pytest.skip(reason)
+        if precision == "fp4":
+            recipe = NVFP4BlockScaling()
+            if not recipe.disable_rht or not recipe.disable_stochastic_rounding:
+                pytest.skip(
+                    "Exact replay requires NVTE_NVFP4_DISABLE_RHT=1 and "
+                    "NVTE_NVFP4_DISABLE_STOCHASTIC_ROUNDING=1 before Python starts."
+                )
     if fused_pre_gdr:
         pytest.importorskip("causal_conv1d", minversion="1.6.1")
         monkeypatch.setenv("CAUSAL_CONV1D_DETERMINISTIC", "1")
@@ -226,7 +261,15 @@ def test_gdn_offload_training(
     try:
         groups = ProcessGroupCollection.use_mpu_process_groups()
         config = _training_config(
-            tp, sp, cp, pp, vp, fraction, recompute_norm, fused_pre_gdr=fused_pre_gdr
+            tp,
+            sp,
+            cp,
+            pp,
+            vp,
+            fraction,
+            recompute_norm,
+            fused_pre_gdr=fused_pre_gdr,
+            precision=precision,
         )
         baseline_config = replace(
             config, fine_grained_activation_offloading=False, offload_modules=[]

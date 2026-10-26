@@ -21,8 +21,22 @@ The training CLI requires `NVTE_CPU_OFFLOAD_V1=1` with Transformer Engine 2.10
 or newer. Programmatic configurations set `fine_grained_activation_offloading=True`,
 `offload_modules=["gdn_core_attn"]` and `gdn_kernel_backend="fla"`.
 Selective `gdn_norm_out` recomputation and the existing opt-in pre-GDR fusion are
-supported. Configuration rejects GDN2, FP8/FP4, non-BF16 execution, other recurrence
+supported. Configuration rejects GDN2, non-BF16 recurrence activations, other recurrence
 backends, full-layer recomputation and CUDA graphs.
+
+Transformer Engine projections and MLPs may use FP8 or NVFP4 while the FLA
+recurrence and its offloaded tensors remain BF16/FP32. Use the existing
+`--fp8 hybrid --fp8-recipe delayed` or `--fp8 hybrid --fp8-recipe tensorwise`
+training options. The Qwen validation tool accepts `--precision fp8-delayed`,
+`--precision fp8-tensorwise` and `--precision fp4`; its default remains BF16.
+These options do not quantize the recurrence or host transfers.
+
+On RTX PRO 6000 (SM120), NVFP4 validation uses
+`NVTE_NVFP4_DISABLE_RHT=1` and `NVTE_NVFP4_DISABLE_STOCHASTIC_ROUNDING=1`,
+set before Python starts. This changes the recipe and does not qualify the full
+NVFP4 recipe or convergence. MXFP8 is unavailable on SM120 with the tested
+Transformer Engine version. Hardware and recipe support remain Transformer
+Engine's responsibility; offloading does not override them.
 
 The manager's minimum tensor size, offload fraction and last-group margin apply.
 After warmup, fraction zero selects no transfers. Warmup can still copy eligible
