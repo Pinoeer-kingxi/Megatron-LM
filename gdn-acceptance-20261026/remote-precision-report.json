@@ -1,0 +1,79 @@
+{
+  "rank": 0,
+  "collected": 12,
+  "exit_code": 0,
+  "outcomes": [
+    {
+      "nodeid": "test_gdn_precision.py::test_native_precision[False-False-fp8-delayed]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "test_gdn_precision.py::test_native_precision[False-False-fp8-tensorwise]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "test_gdn_precision.py::test_native_precision[False-False-fp4-sm120]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "test_gdn_precision.py::test_native_precision[False-True-fp8-delayed]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "test_gdn_precision.py::test_native_precision[False-True-fp8-tensorwise]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "test_gdn_precision.py::test_native_precision[False-True-fp4-sm120]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "test_gdn_precision.py::test_native_precision[True-False-fp8-delayed]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "test_gdn_precision.py::test_native_precision[True-False-fp8-tensorwise]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "test_gdn_precision.py::test_native_precision[True-False-fp4-sm120]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "test_gdn_precision.py::test_native_precision[True-True-fp8-delayed]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "test_gdn_precision.py::test_native_precision[True-True-fp8-tensorwise]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "test_gdn_precision.py::test_native_precision[True-True-fp4-sm120]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    }
+  ]
+}

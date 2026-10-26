@@ -1,0 +1,30 @@
+{
+  "case": "resize_after_warmup",
+  "lengths": [
+    8,
+    256,
+    64,
+    256
+  ],
+  "threshold": 131072,
+  "fraction": 0.0,
+  "rank": 0,
+  "states_exact": true,
+  "state_differences": [],
+  "pool_before_reset": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "transfers": [],
+  "pool": {
+    "total_allocated": 0,
+    "current_in_use": 0,
+    "allocation_requests": 0,
+    "free_requests": 0,
+    "pool_hits": 0,
+    "pool_misses": 0
+  },
+  "selected_summary_bytes": 0
+}

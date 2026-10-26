@@ -1,0 +1,41 @@
+Updating de15602b6..7bc25161e
+Fast-forward
+ docs/developer/gdn_activation_offloading.md        | 16 +++++-
+ .../ssm/test_gated_delta_net_offloading.py         |  7 +--
+ tests/unit_tests/ssm/test_gdn_offload_training.py  | 65 ++++++++++++++++++----
+ tools/ssm/qwen_gdn_offload_training.py             | 11 +++-
+ 4 files changed, 82 insertions(+), 17 deletions(-)
+E1026 15:18:35.840000 1311054 torch/distributed/elastic/multiprocessing/api.py:986] failed (exitcode: 1) local_rank: 0 (pid: 1311065) of binary: /home/songbinbin/.venvs/megatron-gdn-offload/bin/python
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/run.py", line 994, in <module>
+    main()
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 362, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/run.py", line 990, in main
+    run(args)
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/run.py", line 981, in run
+    elastic_launch(
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 170, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 317, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/home/lwx/.cache/megatron-gdn-20261026/rank_env.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-10-26_15:18:35
+  host      : lthpc
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 1311065)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

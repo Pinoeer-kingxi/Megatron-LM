@@ -1,0 +1,31 @@
+/home/lwx/.cache/megatron-gdn-20261026/test_remote_precision.py:25: DeprecationWarning: fp8_autocast is deprecated and will be removed in a future release. Use autocast(enabled=..., calibrating=..., recipe=..., group=..., _graph=...) instead.
+  with te.fp8_autocast(enabled=True, fp8_recipe=recipe):
+{
+  "torch": "2.11.0+cu130",
+  "cuda": "13.0",
+  "te": "2.20.2",
+  "device": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "capability": [
+    12,
+    0
+  ],
+  "recipe": "recipe_type=NVFP4BlockScaling, fp4_format=E2M1, fp8_format=E4M3, fp8_dpa=False, fp8_mha=False, backward_override=None, row_scaled_activation=False, nvfp4_4over6=none, nvfp4_4over6_e4m3_use_256=all, nvfp4_4over6_err_mode=MAE, fp4_quant_fwd_inp=Qparams(\npower_2_scale=False,\namax_epsilon=0.0,\nrandom_hadamard_transform=True,\nstochastic_rounding=False,\nfp4_2d_quantization=False\n), fp4_quant_fwd_weight=Qparams(\npower_2_scale=False,\namax_epsilon=0.0,\nrandom_hadamard_transform=False,\nstochastic_rounding=False,\nfp4_2d_quantization=True\n), fp4_quant_bwd_grad=Qparams(\npower_2_scale=False,\namax_epsilon=0.0,\nrandom_hadamard_transform=True,\nstochastic_rounding=True,\nfp4_2d_quantization=False\n), ",
+  "samples": [
+    {
+      "step": 0,
+      "loss": 0.26735010743141174,
+      "input_grad_norm": 0.0029650514479726553
+    },
+    {
+      "step": 1,
+      "loss": 0.2703522741794586,
+      "input_grad_norm": 0.0029906772542744875
+    },
+    {
+      "step": 2,
+      "loss": 0.2676534056663513,
+      "input_grad_norm": 0.0029759423341602087
+    }
+  ]
+}
+

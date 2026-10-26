@@ -1,0 +1,49 @@
+Initializing torch.distributed with rank: 0, world_size: 1
+Test store timeout: 10 minutes for cold compilation before lazy PP initialization
+............                                                             [100%]
+=============================== warnings summary ===============================
+../../../../songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/config/__init__.py:1345
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/config/__init__.py:1345: PytestAssertRewriteWarning: Module already imported so cannot be rewritten; anyio
+    self._mark_plugins_for_rewrite(hook, disable_autoload)
+
+test_gdn_precision.py: 16 warnings
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+    return func(*args, **kwargs)
+
+test_gdn_precision.py: 16 warnings
+  /home/lwx/.cache/megatron-gdn-20261026/precision/megatron/core/transformer/transformer_config.py:3778: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+    warnings.warn(
+
+test_gdn_precision.py: 384 warnings
+  /home/lwx/.cache/megatron-gdn-20261026/precision/megatron/core/transformer/mlp.py:447: DeprecationWarning: MLP requires ffn_hidden_size, but it was not provided. Using                     config.ffn_hidden_size by default.
+    return cls(
+
+test_gdn_precision.py: 1728 warnings
+  /home/lwx/.cache/megatron-gdn-20261026/precision/megatron/core/fp8_utils.py:882: DeprecationWarning: fp8_autocast is deprecated and will be removed in a future release. Use autocast(enabled=..., calibrating=..., recipe=..., group=..., _graph=...) instead.
+    fp8_context = transformer_engine.pytorch.fp8_autocast(
+
+test_gdn_precision.py::test_native_precision[False-False-fp8-delayed]
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/_dynamo/variables/functions.py:2202: UserWarning: Dynamo detected a call to a `functools.lru_cache`-wrapped function at '_common.py:101'. Dynamo ignores the cache wrapper and directly traces the wrapped function. Silent incorrectness is only a *potential* risk, not something we have observed. Enable TORCH_LOGS=+dynamo for a DEBUG stack trace.
+  
+  This call originates from:
+    File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/transformer_engine/pytorch/ops/_common.py", line 101, in maybe_autocast_dtype
+      if torch_version() >= (2, 4, 3):
+  
+    torch._dynamo.utils.warn_once(msg)
+
+test_gdn_precision.py::test_native_precision[False-False-fp8-delayed]
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/_dynamo/variables/functions.py:2082: UserWarning: Dynamo does not know how to trace the builtin `transformer_engine_torch.pybind11_detail_function_record_v1_system_libstdcpp_gxx_abi_1xxx_use_cxx11_abi_1.rmsnorm_fwd.` This function is either a Python builtin (e.g. _warnings.warn) or a third-party C/C++ Python extension (perhaps created with pybind).
+  If it is a Python builtin, please file an issue on GitHub so the PyTorch team can add support for it and see the next case for a workaround.
+  If it is a third-party C/C++ Python extension, please either wrap it into a PyTorch-understood custom operator (see https://pytorch.org/tutorials/advanced/custom_ops_landing_page.html for more details) or, if it is traceable, use `torch.compiler.allow_in_graph`.
+    torch._dynamo.utils.warn_once(explanation + "\n" + "\n".join(hints))
+
+test_gdn_precision.py: 1536 warnings
+  /home/lwx/.cache/megatron-gdn-20261026/precision/megatron/core/fp4_utils.py:274: DeprecationWarning: fp8_autocast is deprecated and will be removed in a future release. Use autocast(enabled=..., calibrating=..., recipe=..., group=..., _graph=...) instead.
+    fp4_context = transformer_engine.pytorch.fp8_autocast(
+
+test_gdn_precision.py: 1728 warnings
+  /home/lwx/.cache/megatron-gdn-20261026/precision/megatron/core/tensor_parallel/random.py:833: DeprecationWarning: fp8_autocast is deprecated and will be removed in a future release. Use autocast(enabled=..., calibrating=..., recipe=..., group=..., _graph=...) instead.
+    with fp8_autocast(enabled=self.fp8_enabled, fp8_recipe=self.fp8_recipe):
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+12 passed, 5411 warnings in 283.62s (0:04:43)

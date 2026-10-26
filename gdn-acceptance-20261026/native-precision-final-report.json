@@ -1,0 +1,223 @@
+{
+  "rank": 0,
+  "collected": 36,
+  "exit_code": 0,
+  "outcomes": [
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fp8_delayed-unfused-False-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fp8_delayed-unfused-False-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fp8_delayed-unfused-False-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fp8_delayed-unfused-True-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fp8_delayed-unfused-True-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fp8_delayed-unfused-True-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fp8_delayed-fused-False-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fp8_delayed-fused-False-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fp8_delayed-fused-False-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fp8_delayed-fused-True-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fp8_delayed-fused-True-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fp8_delayed-fused-True-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fp8_tensorwise-unfused-False-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fp8_tensorwise-unfused-False-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fp8_tensorwise-unfused-False-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fp8_tensorwise-unfused-True-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fp8_tensorwise-unfused-True-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fp8_tensorwise-unfused-True-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fp8_tensorwise-fused-False-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fp8_tensorwise-fused-False-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fp8_tensorwise-fused-False-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fp8_tensorwise-fused-True-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fp8_tensorwise-fused-True-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fp8_tensorwise-fused-True-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fp4-unfused-False-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fp4-unfused-False-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fp4-unfused-False-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fp4-unfused-True-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fp4-unfused-True-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fp4-unfused-True-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fp4-fused-False-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fp4-fused-False-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fp4-fused-False-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fp4-fused-True-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fp4-fused-True-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gdn_offload_training.py::test_gdn_offload_training[fp4-fused-True-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+Initializing torch.distributed with rank: 0, world_size: 1
+Test store timeout: 10 minutes for cold compilation before lazy PP initialization
+F
+=================================== FAILURES ===================================
+__ test_offload_resident_groups_preserve_forward_chunks[evaluation_first-0.5] __
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fe6aab96720>
+fraction = 0.5, lifecycle = 'evaluation_first'
+
+    @pytest.mark.skipif(not torch.cuda.is_available(), reason="CUDA is required for offloading.")
+    @pytest.mark.parametrize("fraction", [0.0, 0.5, 1.0])
+    @pytest.mark.parametrize("lifecycle", ["fixed", "evaluation_first", "resize_after_warmup"])
+    def test_offload_resident_groups_preserve_forward_chunks(monkeypatch, fraction, lifecycle):
+        """Exercise resident groups and warmup boundaries through native GPT training."""
+        Utils.initialize_model_parallel()
+        off_interface.reset_instance()
+        try:
+            groups = ProcessGroupCollection.use_mpu_process_groups()
+            snapshots = []
+            transfers = []
+            original_offload = ChunkOffloadHandler.offload
+    
+            def record_transfer(handler, *args, **kwargs):
+                transfers.append(handler.is_warmup)
+                return original_offload(handler, *args, **kwargs)
+    
+            monkeypatch.setattr(ChunkOffloadHandler, "offload", record_transfer)
+            for enabled in (False, True):
+                config = TransformerConfig(
+                    num_layers=4,
+                    hidden_size=128,
+                    num_attention_heads=4,
+                    use_cpu_initialization=True,
+                    attention_backend=AttnBackend.unfused,
+                    attention_dropout=0.0,
+                    hidden_dropout=0.0,
+                    bf16=True,
+                    fine_grained_activation_offloading=enabled,
+                    offload_modules=["core_attn", "attn_proj"] if enabled else [],
+                    activation_offload_fraction=fraction,
+                    min_offloaded_tensor_size=131072 if lifecycle == "resize_after_warmup" else 1024,
+                )
+                torch.manual_seed(31)
+                model_parallel_cuda_manual_seed(31)
+                model = (
+                    GPTModel(
+                        config=config,
+                        transformer_layer_spec=get_gpt_layer_with_transformer_engine_spec(),
+                        vocab_size=256,
+                        max_sequence_length=256,
+                    )
+                    .bfloat16()
+                    .cuda()
+                )
+                optimizer = torch.optim.SGD(model.parameters(), lr=1e-2)
+    
+                def forward_step(batches, model):
+                    tokens, positions, mask = next(batches)
+                    output = model(tokens, positions, mask)
+    
+                    def loss_func(logits):
+                        loss = logits.float().square().mean()
+                        return loss, {"loss": loss.detach().clone()}
+    
+                    return output, loss_func
+    
+                results = []
+                if lifecycle == "evaluation_first":
+                    model.eval()
+                    inputs = _make_gpt_inputs(
+                        seq_length=128, micro_batch_size=1, device=torch.device("cuda")
+                    )
+                    inputs[2].copy_(torch.triu(torch.ones_like(inputs[2]), diagonal=1))
+                    with torch.no_grad():
+                        results.append(
+                            get_forward_backward_func()(
+                                forward_step_func=forward_step,
+                                data_iterator=iter([inputs] * 2),
+                                model=model,
+                                num_microbatches=2,
+                                seq_length=128,
+                                micro_batch_size=1,
+                                forward_only=True,
+                                pg_collection=groups,
+                            )
+                        )
+                    model.train()
+                lengths = [8, 256, 64, 256] if lifecycle == "resize_after_warmup" else [128] * 3
+                for seq_length in lengths:
+                    optimizer.zero_grad(set_to_none=True)
+                    inputs = _make_gpt_inputs(
+                        seq_length=seq_length, micro_batch_size=1, device=torch.device("cuda")
+                    )
+                    inputs[2].copy_(torch.triu(torch.ones_like(inputs[2]), diagonal=1))
+                    losses = get_forward_backward_func()(
+                        forward_step_func=forward_step,
+                        data_iterator=iter([inputs] * 2),
+                        model=model,
+                        num_microbatches=2,
+                        seq_length=seq_length,
+                        micro_batch_size=1,
+                        forward_only=False,
+                        pg_collection=groups,
+                    )
+                    results.append(
+                        (
+                            [item["loss"].cpu() for item in losses],
+                            {
+                                name: p.grad.cpu().clone()
+                                for name, p in model.named_parameters()
+                                if p.grad is not None
+                            },
+                        )
+                    )
+                    optimizer.step()
+                snapshots.append(results)
+                del optimizer, model
+            torch.testing.assert_close(snapshots[1], snapshots[0], rtol=0, atol=0)
+            if lifecycle != "resize_after_warmup":
+>               assert any(transfers), "Training warmup must exercise actual transfers."
+E               AssertionError: Training warmup must exercise actual transfers.
+E               assert False
+E                +  where False = any([])
+
+../scripts/test_shared_lifecycle_controls.py:310: AssertionError
+----------------------------- Captured stdout call -----------------------------
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+
+================================
+Activation Offload Summary (MB) 
+================================
+Rank       attn_proj       Total
+--------------------------------
+Rank 0          0.00        0.00
+--------------------------------
+Total           0.00        0.00
+================================
+
+------------------------------ Captured log call -------------------------------
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+=============================== warnings summary ===============================
+../../../../../../../home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/config/__init__.py:1345
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/config/__init__.py:1345: PytestAssertRewriteWarning: Module already imported so cannot be rewritten; anyio
+    self._mark_plugins_for_rewrite(hook, disable_autoload)
+
+../scripts/test_shared_lifecycle_controls.py:815
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-final-acceptance-20261026/scripts/test_shared_lifecycle_controls.py:815: PytestUnknownMarkWarning: Unknown pytest.mark.flaky_in_dev - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.flaky_in_dev
+
+scripts/test_shared_lifecycle_controls.py::test_offload_resident_groups_preserve_forward_chunks[evaluation_first-0.5]
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+    return func(*args, **kwargs)
+
+scripts/test_shared_lifecycle_controls.py::test_offload_resident_groups_preserve_forward_chunks[evaluation_first-0.5]
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-final-acceptance-20261026/shared-control-final/megatron/core/transformer/transformer_config.py:3757: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+    warnings.warn(
+
+scripts/test_shared_lifecycle_controls.py::test_offload_resident_groups_preserve_forward_chunks[evaluation_first-0.5]
+scripts/test_shared_lifecycle_controls.py::test_offload_resident_groups_preserve_forward_chunks[evaluation_first-0.5]
+scripts/test_shared_lifecycle_controls.py::test_offload_resident_groups_preserve_forward_chunks[evaluation_first-0.5]
+scripts/test_shared_lifecycle_controls.py::test_offload_resident_groups_preserve_forward_chunks[evaluation_first-0.5]
+scripts/test_shared_lifecycle_controls.py::test_offload_resident_groups_preserve_forward_chunks[evaluation_first-0.5]
+scripts/test_shared_lifecycle_controls.py::test_offload_resident_groups_preserve_forward_chunks[evaluation_first-0.5]
+scripts/test_shared_lifecycle_controls.py::test_offload_resident_groups_preserve_forward_chunks[evaluation_first-0.5]
+scripts/test_shared_lifecycle_controls.py::test_offload_resident_groups_preserve_forward_chunks[evaluation_first-0.5]
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-final-acceptance-20261026/shared-control-final/megatron/core/transformer/mlp.py:447: DeprecationWarning: MLP requires ffn_hidden_size, but it was not provided. Using                     config.ffn_hidden_size by default.
+    return cls(
+
+scripts/test_shared_lifecycle_controls.py: 64 warnings
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/transformer_engine/pytorch/attention/dot_product_attention/dot_product_attention.py:2624: DeprecationWarning: Relying on pointer-based detection of packed q/k/v layouts (detected 'sbh3d') is deprecated: pass the packed buffer explicitly via qkv_layer/kv_layer (with qkv_interleave_dim) to DotProductAttention instead.
+    ) = dpa_utils.get_qkv_layout(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED ../scripts/test_shared_lifecycle_controls.py::test_offload_resident_groups_preserve_forward_chunks[evaluation_first-0.5]
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!
+1 failed, 45 deselected, 76 warnings in 1.52s

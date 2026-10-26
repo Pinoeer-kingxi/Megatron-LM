@@ -1,0 +1,37 @@
+Initializing torch.distributed with rank: 0, world_size: 1
+Test store timeout: 10 minutes for cold compilation before lazy PP initialization
+.........                                                                [100%]
+=============================== warnings summary ===============================
+../../../../../../../home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/config/__init__.py:1345
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/config/__init__.py:1345: PytestAssertRewriteWarning: Module already imported so cannot be rewritten; anyio
+    self._mark_plugins_for_rewrite(hook, disable_autoload)
+
+scripts/test_gdn_lifecycle.py: 12 warnings
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+    return func(*args, **kwargs)
+
+scripts/test_gdn_lifecycle.py: 12 warnings
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-final-acceptance-20261026/feature-final/megatron/core/transformer/transformer_config.py:3778: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+    warnings.warn(
+
+scripts/test_gdn_lifecycle.py: 288 warnings
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-final-acceptance-20261026/feature-final/megatron/core/transformer/mlp.py:447: DeprecationWarning: MLP requires ffn_hidden_size, but it was not provided. Using                     config.ffn_hidden_size by default.
+    return cls(
+
+scripts/test_gdn_lifecycle.py::test_native_lifecycle[fixed-lengths0-1024-0.0]
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/_dynamo/variables/functions.py:2202: UserWarning: Dynamo detected a call to a `functools.lru_cache`-wrapped function at '_common.py:101'. Dynamo ignores the cache wrapper and directly traces the wrapped function. Silent incorrectness is only a *potential* risk, not something we have observed. Enable TORCH_LOGS=+dynamo for a DEBUG stack trace.
+  
+  This call originates from:
+    File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/transformer_engine/pytorch/ops/_common.py", line 101, in maybe_autocast_dtype
+      if torch_version() >= (2, 4, 3):
+  
+    torch._dynamo.utils.warn_once(msg)
+
+scripts/test_gdn_lifecycle.py::test_native_lifecycle[fixed-lengths0-1024-0.0]
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/_dynamo/variables/functions.py:2082: UserWarning: Dynamo does not know how to trace the builtin `transformer_engine_torch.pybind11_detail_function_record_v1_system_libstdcpp_gxx_abi_1xxx_use_cxx11_abi_1.rmsnorm_fwd.` This function is either a Python builtin (e.g. _warnings.warn) or a third-party C/C++ Python extension (perhaps created with pybind).
+  If it is a Python builtin, please file an issue on GitHub so the PyTorch team can add support for it and see the next case for a workaround.
+  If it is a third-party C/C++ Python extension, please either wrap it into a PyTorch-understood custom operator (see https://pytorch.org/tutorials/advanced/custom_ops_landing_page.html for more details) or, if it is traceable, use `torch.compiler.allow_in_graph`.
+    torch._dynamo.utils.warn_once(explanation + "\n" + "\n".join(hints))
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+9 passed, 315 warnings in 64.23s (0:01:04)

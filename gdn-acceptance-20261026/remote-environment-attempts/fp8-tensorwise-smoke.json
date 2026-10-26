@@ -1,0 +1,28 @@
+{
+  "torch": "2.11.0+cu130",
+  "cuda": "13.0",
+  "te": "2.20.2",
+  "device": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "capability": [
+    12,
+    0
+  ],
+  "recipe": "recipe_type=Float8CurrentScaling, format=HYBRID, fp8_quant_fwd_inp=Qparams(\npower_2_scale=False,\namax_epsilon=0.0,\nrandom_hadamard_transform=False,\nstochastic_rounding=False,\nfp4_2d_quantization=False\n), fp8_quant_fwd_weight=Qparams(\npower_2_scale=False,\namax_epsilon=0.0,\nrandom_hadamard_transform=False,\nstochastic_rounding=False,\nfp4_2d_quantization=False\n), fp8_quant_bwd_grad=Qparams(\npower_2_scale=False,\namax_epsilon=0.0,\nrandom_hadamard_transform=False,\nstochastic_rounding=False,\nfp4_2d_quantization=False\n), fp8_gemm_fprop=MMParams(use_split_accumulator=False), fp8_gemm_dgrad=MMParams(use_split_accumulator=True), fp8_gemm_wgrad=MMParams(use_split_accumulator=True), fp8_dpa=False, fp8_mha=False, backward_override=None",
+  "samples": [
+    {
+      "step": 0,
+      "loss": 0.2688137888908386,
+      "input_grad_norm": 0.0029765102081000805
+    },
+    {
+      "step": 1,
+      "loss": 0.2730490565299988,
+      "input_grad_norm": 0.003015802940353751
+    },
+    {
+      "step": 2,
+      "loss": 0.275398850440979,
+      "input_grad_norm": 0.003013090929016471
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+From /home/lwx/.cache/megatron-gdn-20261026/precision-replay.bundle
+ * branch                experiment/gdn-low-precision-20261026 -> FETCH_HEAD
+Updating 7bc25161e..c169da398
+Fast-forward
+ tests/unit_tests/ssm/test_gdn_offload_training.py | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)

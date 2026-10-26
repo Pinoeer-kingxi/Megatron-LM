@@ -1,0 +1,49 @@
+{
+  "source": "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-final-acceptance-20261026/shared-control-final",
+  "revision": "f9d0b7afd150caf5f323346f8cddd3c5e6200b1d",
+  "command": [
+    "docker",
+    "exec",
+    "--workdir",
+    "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-final-acceptance-20261026/shared-control-final",
+    "--env",
+    "PYTHONPATH=/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-final-acceptance-20261026/shared-control-final:/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-final-acceptance-20261026/scripts:/home/songbinbin/gdn-offload-artifacts/flash-attn-python:/home/songbinbin/gdn-offload-artifacts/causal-conv1d-python:/home/songbinbin/gdn-offload-artifacts/bridge-python:/home/songbinbin/gdn-offload-artifacts/split-pr-20261015/bridge/src",
+    "--env",
+    "LIFECYCLE_OUTPUT=/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-final-acceptance-20261026/shared-control-evaluation/observations",
+    "--env",
+    "CUDA_VISIBLE_DEVICES=GPU-df9e07cc-8ebc-3204-fabd-601044f800f8",
+    "megatron-gdn-final-20261026",
+    "/home/songbinbin/.venvs/megatron-gdn-offload/bin/python",
+    "-m",
+    "torch.distributed.run",
+    "--standalone",
+    "--nproc-per-node=1",
+    "--log-dir",
+    "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-final-acceptance-20261026/shared-control-evaluation/ranks",
+    "--redirects",
+    "3",
+    "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-final-acceptance-20261026/scripts/rank_env.py",
+    "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-final-acceptance-20261026/scripts/rank_distributed_pytest.py",
+    "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-final-acceptance-20261026/shared-control-evaluation/reports",
+    "-q",
+    "-x",
+    "-p",
+    "no:cacheprovider",
+    "--confcutdir=tests/unit_tests/pipeline_parallel",
+    "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-final-acceptance-20261026/scripts/test_shared_lifecycle_controls.py",
+    "-k",
+    "offload_resident_groups and evaluation_first and 0.5"
+  ],
+  "started_unix": 1793029254.2328846,
+  "harness_sha256": "7902a6c9e63b1b4e15403aae374ad26714977325feda0625f803e29b9f0a89bc",
+  "external_sources": [
+    {
+      "path": "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-final-acceptance-20261026/scripts/test_shared_lifecycle_controls.py",
+      "sha256": "e7921d664a4621f7208f2fa5d17b7594d118ecf4c93366832d58e28209c82fb0"
+    }
+  ],
+  "exit_code": 1,
+  "finished_unix": 1793029271.473502,
+  "revision_after": "f9d0b7afd150caf5f323346f8cddd3c5e6200b1d",
+  "dirty_after": ""
+}

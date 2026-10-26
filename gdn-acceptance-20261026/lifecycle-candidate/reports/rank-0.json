@@ -1,0 +1,61 @@
+{
+  "rank": 0,
+  "collected": 9,
+  "exit_code": 0,
+  "outcomes": [
+    {
+      "nodeid": "scripts/test_gdn_lifecycle.py::test_native_lifecycle[fixed-lengths0-1024-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "scripts/test_gdn_lifecycle.py::test_native_lifecycle[fixed-lengths0-1024-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "scripts/test_gdn_lifecycle.py::test_native_lifecycle[fixed-lengths0-1024-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "scripts/test_gdn_lifecycle.py::test_native_lifecycle[evaluation_first-lengths1-1024-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "scripts/test_gdn_lifecycle.py::test_native_lifecycle[evaluation_first-lengths1-1024-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "scripts/test_gdn_lifecycle.py::test_native_lifecycle[evaluation_first-lengths1-1024-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "scripts/test_gdn_lifecycle.py::test_native_lifecycle[resize_after_warmup-lengths2-131072-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "scripts/test_gdn_lifecycle.py::test_native_lifecycle[resize_after_warmup-lengths2-131072-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "scripts/test_gdn_lifecycle.py::test_native_lifecycle[resize_after_warmup-lengths2-131072-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    }
+  ]
+}

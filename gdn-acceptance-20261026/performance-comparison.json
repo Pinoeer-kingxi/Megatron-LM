@@ -1,0 +1,83 @@
+{
+  "revision": "1f2c9ae4f7e617b12caa115e387d95e668517c62",
+  "settings": [
+    {
+      "fused": false,
+      "pairs": [
+        {
+          "repetition": 0,
+          "median_ms": [
+            1643.5404480434954,
+            1639.3400018569082
+          ],
+          "time_change_percent": -0.2555730339090512,
+          "allocated_saved_bytes": 998243840,
+          "reserved_saved_bytes": -683671552,
+          "exact_logged_losses_and_norms": true
+        },
+        {
+          "repetition": 1,
+          "median_ms": [
+            1633.8973720557988,
+            1642.129076528363
+          ],
+          "time_change_percent": 0.5038079265778483,
+          "allocated_saved_bytes": 998243840,
+          "reserved_saved_bytes": -681574400,
+          "exact_logged_losses_and_norms": true
+        },
+        {
+          "repetition": 2,
+          "median_ms": [
+            1634.4095050590113,
+            1643.3334584580734
+          ],
+          "time_change_percent": 0.5460047418617942,
+          "allocated_saved_bytes": 998243840,
+          "reserved_saved_bytes": -681574400,
+          "exact_logged_losses_and_norms": true
+        }
+      ],
+      "median_paired_change_percent": 0.5038079265778483
+    },
+    {
+      "fused": true,
+      "pairs": [
+        {
+          "repetition": 0,
+          "median_ms": [
+            1549.4402054464445,
+            1613.0615614820272
+          ],
+          "time_change_percent": 4.106086560291056,
+          "allocated_saved_bytes": 998243840,
+          "reserved_saved_bytes": -792723456,
+          "exact_logged_losses_and_norms": true
+        },
+        {
+          "repetition": 1,
+          "median_ms": [
+            1558.5922250756994,
+            1614.3905009375885
+          ],
+          "time_change_percent": 3.5800432572528074,
+          "allocated_saved_bytes": 998243840,
+          "reserved_saved_bytes": -773849088,
+          "exact_logged_losses_and_norms": true
+        },
+        {
+          "repetition": 2,
+          "median_ms": [
+            1554.0041700005531,
+            1648.9165369421244
+          ],
+          "time_change_percent": 6.107600531183732,
+          "allocated_saved_bytes": 998243840,
+          "reserved_saved_bytes": -773849088,
+          "exact_logged_losses_and_norms": true
+        }
+      ],
+      "median_paired_change_percent": 4.106086560291056
+    }
+  ]
+}

@@ -1,0 +1,869 @@
+{
+  "case": "evaluation_first",
+  "lengths": [
+    128,
+    128,
+    128
+  ],
+  "threshold": 1024,
+  "fraction": 0.0,
+  "rank": 0,
+  "states_exact": true,
+  "state_differences": [],
+  "pool_before_reset": [
+    0,
+    0,
+    0
+  ],
+  "transfers": [
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 8192
+    },
+    {
+      "phase": "train-0",
+      "warmup": true,
+      "bytes": 262144
+    }
+  ],
+  "pool": {
+    "total_allocated": 42,
+    "current_in_use": 0,
+    "allocation_requests": 168,
+    "free_requests": 168,
+    "pool_hits": 126,
+    "pool_misses": 42
+  },
+  "selected_summary_bytes": 0
+}

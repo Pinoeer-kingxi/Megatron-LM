@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/lwx/.cache/megatron-gdn-20261026/run_remote_qwen.py", line 32, in <module>
+    assert result.returncode==0 and manifest['revision_after']==revision and not manifest['dirty_after'],directory
+AssertionError: /home/lwx/.cache/megatron-gdn-20261026/qwen-cudnn-fp8-delayed-disabled

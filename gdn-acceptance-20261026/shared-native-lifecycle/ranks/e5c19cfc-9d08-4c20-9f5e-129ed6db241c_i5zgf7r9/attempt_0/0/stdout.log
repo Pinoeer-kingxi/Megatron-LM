@@ -1,0 +1,218 @@
+Initializing torch.distributed with rank: 0, world_size: 1
+Test store timeout: 10 minutes for cold compilation before lazy PP initialization
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+
+====================
+Activation Offload Summary (MB)
+====================
+Rank           Total
+--------------------
+Rank 0          0.00
+--------------------
+Total           0.00
+====================
+
+.WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+
+============================================
+      Activation Offload Summary (MB)       
+============================================
+Rank       attn_proj   core_attn       Total
+--------------------------------------------
+Rank 0          0.03        0.69        0.72
+--------------------------------------------
+Total           0.03        0.69        0.72
+============================================
+
+.WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+
+============================================
+      Activation Offload Summary (MB)       
+============================================
+Rank       attn_proj   core_attn       Total
+--------------------------------------------
+Rank 0          0.09        1.03        1.12
+--------------------------------------------
+Total           0.09        1.03        1.12
+============================================
+
+.WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+
+====================
+Activation Offload Summary (MB)
+====================
+Rank           Total
+--------------------
+Rank 0          0.00
+--------------------
+Total           0.00
+====================
+
+.WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+
+============================================
+      Activation Offload Summary (MB)       
+============================================
+Rank       attn_proj   core_attn       Total
+--------------------------------------------
+Rank 0          0.03        0.69        0.72
+--------------------------------------------
+Total           0.03        0.69        0.72
+============================================
+
+.WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+
+============================================
+      Activation Offload Summary (MB)       
+============================================
+Rank       attn_proj   core_attn       Total
+--------------------------------------------
+Rank 0          0.09        1.03        1.12
+--------------------------------------------
+Total           0.09        1.03        1.12
+============================================
+
+.WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+
+====================
+Activation Offload Summary (MB)
+====================
+Rank           Total
+--------------------
+Rank 0          0.00
+--------------------
+Total           0.00
+====================
+
+.WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+
+============================================
+      Activation Offload Summary (MB)       
+============================================
+Rank       attn_proj   core_attn       Total
+--------------------------------------------
+Rank 0          0.00        0.00        0.00
+--------------------------------------------
+Total           0.00        0.00        0.00
+============================================
+
+.WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+
+============================================
+      Activation Offload Summary (MB)       
+============================================
+Rank       attn_proj   core_attn       Total
+--------------------------------------------
+Rank 0          0.00        0.00        0.00
+--------------------------------------------
+Total           0.00        0.00        0.00
+============================================
+
+.
+=============================== warnings summary ===============================
+../../../../../../../home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/config/__init__.py:1345
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/config/__init__.py:1345: PytestAssertRewriteWarning: Module already imported so cannot be rewritten; anyio
+    self._mark_plugins_for_rewrite(hook, disable_autoload)
+
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[fixed-0.0]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[fixed-0.5]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[fixed-1.0]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[evaluation_first-0.0]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[evaluation_first-0.5]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[evaluation_first-1.0]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[resize_after_warmup-0.0]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[resize_after_warmup-0.5]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[resize_after_warmup-1.0]
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+    return func(*args, **kwargs)
+
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[fixed-0.0]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[fixed-0.5]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[fixed-1.0]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[evaluation_first-0.0]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[evaluation_first-0.5]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[evaluation_first-1.0]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[resize_after_warmup-0.0]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[resize_after_warmup-0.5]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[resize_after_warmup-1.0]
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-final-acceptance-20261026/shared-final/megatron/core/transformer/transformer_config.py:3757: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+    warnings.warn(
+
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py: 72 warnings
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-final-acceptance-20261026/shared-final/megatron/core/transformer/mlp.py:447: DeprecationWarning: MLP requires ffn_hidden_size, but it was not provided. Using                     config.ffn_hidden_size by default.
+    return cls(
+
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py: 288 warnings
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/transformer_engine/pytorch/attention/dot_product_attention/dot_product_attention.py:2624: DeprecationWarning: Relying on pointer-based detection of packed q/k/v layouts (detected 'sbh3d') is deprecated: pass the packed buffer explicitly via qkv_layer/kv_layer (with qkv_interleave_dim) to DotProductAttention instead.
+    ) = dpa_utils.get_qkv_layout(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+_______ test_offload_resident_groups_preserve_forward_chunks[fixed-0.0] ________
+------------------------------ Captured log call -------------------------------
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+_______ test_offload_resident_groups_preserve_forward_chunks[fixed-0.5] ________
+------------------------------ Captured log call -------------------------------
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+_______ test_offload_resident_groups_preserve_forward_chunks[fixed-1.0] ________
+------------------------------ Captured log call -------------------------------
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+__ test_offload_resident_groups_preserve_forward_chunks[evaluation_first-0.0] __
+------------------------------ Captured log call -------------------------------
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+__ test_offload_resident_groups_preserve_forward_chunks[evaluation_first-0.5] __
+------------------------------ Captured log call -------------------------------
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+__ test_offload_resident_groups_preserve_forward_chunks[evaluation_first-1.0] __
+------------------------------ Captured log call -------------------------------
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+_ test_offload_resident_groups_preserve_forward_chunks[resize_after_warmup-0.0] _
+------------------------------ Captured log call -------------------------------
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+_ test_offload_resident_groups_preserve_forward_chunks[resize_after_warmup-0.5] _
+------------------------------ Captured log call -------------------------------
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+_ test_offload_resident_groups_preserve_forward_chunks[resize_after_warmup-1.0] _
+------------------------------ Captured log call -------------------------------
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+============================= slowest 15 durations =============================
+1.61s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[fixed-0.0]
+1.05s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[resize_after_warmup-0.0]
+0.66s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[evaluation_first-1.0]
+0.54s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[resize_after_warmup-1.0]
+0.51s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[resize_after_warmup-0.5]
+0.48s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[evaluation_first-0.0]
+0.47s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[fixed-0.5]
+0.46s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[evaluation_first-0.5]
+0.38s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[fixed-1.0]
+
+(6 durations < 0.005s hidden.  Use -vv to show these durations.)
+=========================== short test summary info ============================
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[fixed-0.0]
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[fixed-0.5]
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[fixed-1.0]
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[evaluation_first-0.0]
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[evaluation_first-0.5]
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[evaluation_first-1.0]
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[resize_after_warmup-0.0]
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[resize_after_warmup-0.5]
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[resize_after_warmup-1.0]
+9 passed, 37 deselected, 379 warnings in 6.26s

@@ -1,0 +1,23 @@
+++ git version
+++ awk '{print $3}'
++ GIT_VERSION=2.47.3
+++ echo 2.47.3
+++ awk -F. '{print $1}'
++ GIT_MAJOR=2
+++ echo 2.47.3
+++ awk -F. '{print $2}'
++ GIT_MINOR=47
++ [[ 2 -eq 2 ]]
++ [[ 47 -lt 31 ]]
++++ dirname -- tools/autoformat.sh
+++ cd -- tools
+++ pwd
++ SCRIPT_DIR=/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-final-acceptance-20261026/shared-final/tools
++ CHECK_ONLY=true
++ SKIP_DOCS=true
++ BASE_REF=f9d0b7afd150caf5f323346f8cddd3c5e6200b1d
++ git remote add autoformatter-remote https://github.com/NVIDIA/Megatron-LM.git
+error: remote autoformatter-remote already exists.
++ true
++ git fetch autoformatter-remote f9d0b7afd150caf5f323346f8cddd3c5e6200b1d
+error: cannot open '/data/songbinbin/Proj/Proj_LWX/Megatron-LM/.git/worktrees/shared-final/FETCH_HEAD': Read-only file system

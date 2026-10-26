@@ -1,0 +1,43 @@
+/home/lwx/.cache/megatron-gdn-20261026/precision/megatron/core/models/mimo/config/base_configs.py:12: UserWarning: MimoModelConfig is experimental and still under active development. The API may change without notice in future releases.
+  class MimoModelConfig:
+INFO:fla.utils._device:Blackwell detected: registering default global_scratch allocator.
+INFO:megatron.bridge.models.gemma.gemma2_provider:Gemma2: PyTorch FlexAttention available — softcap+SWA fused via Triton score_mod.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+/home/lwx/.cache/megatron-gdn-20261026/precision/megatron/core/transformer/transformer_config.py:3778: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+  warnings.warn(
+/home/lwx/.cache/megatron-gdn-20261026/precision/tools/ssm/qwen_gdn_offload_training.py:347: DeprecationWarning: ModelProviderMixin-based model configuration is deprecated. Migrate to ModelConfig + ModelBuilder.
+  parents = provider.provide_distributed_model(
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/home/lwx/.cache/megatron-gdn-20261026/precision/tools/ssm/qwen_gdn_offload_training.py", line 516, in <module>
+[rank0]:     main()
+[rank0]:   File "/home/lwx/.cache/megatron-gdn-20261026/precision/tools/ssm/qwen_gdn_offload_training.py", line 507, in main
+[rank0]:     result.update(_train(args, provider, token_ids))
+[rank0]:                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/lwx/.cache/megatron-gdn-20261026/precision/tools/ssm/qwen_gdn_offload_training.py", line 347, in _train
+[rank0]:     parents = provider.provide_distributed_model(
+[rank0]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/lwx/.cache/megatron-gdn-20261026/imports/src/megatron/bridge/models/model_provider.py", line 290, in provide_distributed_model
+[rank0]:     model = get_model(
+[rank0]:             ^^^^^^^^^^
+[rank0]:   File "/home/lwx/.cache/megatron-gdn-20261026/imports/src/megatron/bridge/models/model_provider.py", line 682, in get_model
+[rank0]:     model = _create_model(model_provider, model_type, pg_collection=pg_collection)
+[rank0]:             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/lwx/.cache/megatron-gdn-20261026/imports/src/megatron/bridge/models/model_provider.py", line 781, in _create_model
+[rank0]:     model = model_provider.provide(
+[rank0]:             ^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/lwx/.cache/megatron-gdn-20261026/imports/src/megatron/bridge/models/qwen_vl/qwen35_vl_provider.py", line 258, in provide
+[rank0]:     model = model_class(
+[rank0]:             ^^^^^^^^^^^^
+[rank0]:   File "/home/lwx/.cache/megatron-gdn-20261026/imports/src/megatron/bridge/models/qwen_vl/modelling_qwen3_vl/model.py", line 363, in __init__
+[rank0]:     self.vision_model = Qwen3VLVisionModel(
+[rank0]:                         ^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/lwx/.cache/megatron-gdn-20261026/imports/src/megatron/bridge/models/qwen_vl/modelling_qwen3_vl/vision_model.py", line 131, in __init__
+[rank0]:     super().__init__(config=transformer_config)
+[rank0]:   File "/home/lwx/.cache/megatron-gdn-20261026/precision/megatron/core/models/common/vision_module/vision_module.py", line 19, in __init__
+[rank0]:     set_attention_backend(self.config)
+[rank0]:   File "/home/lwx/.cache/megatron-gdn-20261026/precision/megatron/core/transformer/utils.py", line 72, in set_attention_backend
+[rank0]:     check_and_set_env_variable('NVTE_FLASH_ATTN', flash, attention_backend)
+[rank0]:   File "/home/lwx/.cache/megatron-gdn-20261026/precision/megatron/core/transformer/utils.py", line 54, in check_and_set_env_variable
+[rank0]:     assert current_value is None or current_value == str(expected_value), (
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]: AssertionError: NVTE_FLASH_ATTN is set to 0, but attention_backend='auto' and flash_attention_version=None require 1. Transformer Engine attention backend and FlashAttention version controls are process-wide; all models constructed in one process must use compatible settings. Unset the NVTE attention environment variables before model construction to let the configs set them.

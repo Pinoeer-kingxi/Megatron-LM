@@ -1,0 +1,26 @@
+{
+  "shared-final": {
+    "commit": "041a5014201f5175048536b906d22f50d7e0f3c8",
+    "production_tree": "3b10b7e2b1ddc0afc99b349fe461d1ccfb226c68",
+    "tests_tree": "fb8a622617138b6f626b5e4a43f3a88fb863d0be",
+    "dirty": ""
+  },
+  "feature-final": {
+    "commit": "ef431833044fc1a180186ee14beb0aa4e8c98e3e",
+    "production_tree": "54dfd5b94a4c04a48ff437ac1ae39899ea924a76",
+    "tests_tree": "26a47e27c3e5bf0d819da2c0bb53e708cac4534f",
+    "dirty": ""
+  },
+  "candidate": {
+    "commit": "cf46967b23c12fdc7ce1b92eb793d1a779f24f14",
+    "production_tree": "b9ab8cbcd04308b4d86df43faccd3b612bc5acec",
+    "tests_tree": "e6ac9ab59a3d33b64f0247a9b422be5ec009e9f5",
+    "dirty": ""
+  },
+  "precision": {
+    "commit": "ebdb25fc493b528764a4116313effaf8504eec3d",
+    "production_tree": "be398775ddab3d6d9cc3ed8fc609fcfe2262ec5c",
+    "tests_tree": "f02998cdfc3bc83a252b5975be4c3de73a2cf2c7",
+    "dirty": ""
+  }
+}
