@@ -303,8 +303,8 @@ def test_gdn_offload_training(
                     "position_ids": torch.arange(128, device="cuda").unsqueeze(0),
                 }
                 batches.append(get_batch_on_this_cp_rank(batch, False, cp_group=groups.cp))
-            # Fixed weights and zero dropout must reproduce each repeated example.
-            # This also catches VPP payload mixups in the disabled baseline.
+            # BF16 repeats catch VPP payload mixups. FP8 scaling can change between
+            # identical microbatches, so compare those losses across model arms instead.
             batches = batches * 2
             snapshots = []
             for models, optimizer in (
@@ -329,7 +329,7 @@ def test_gdn_offload_training(
                 # Reject a bad baseline on every rank before the next collective.
                 step_valid = torch.tensor(
                     len(losses) == (4 if is_pp_last_stage(groups.pp) else 0)
-                    and not any(diff(losses[:2], losses[2:]))
+                    and (precision != "bf16" or not any(diff(losses[:2], losses[2:])))
                     and pool_before_reset == ([0] if models is offloaded else []),
                     dtype=torch.int32,
                     device="cuda",
