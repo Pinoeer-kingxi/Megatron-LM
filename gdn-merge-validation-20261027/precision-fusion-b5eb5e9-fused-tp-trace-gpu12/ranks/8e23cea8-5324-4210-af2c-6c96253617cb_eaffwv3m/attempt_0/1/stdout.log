@@ -1,0 +1,2497 @@
+Initializing torch.distributed with rank: 1, world_size: 2
+Test store timeout: 10 minutes for cold compilation before lazy PP initialization
+TRACE GEMM FAILURE rank 1 operands [('torch.Size([128, 448])', 'NVFP4TensorStorage'), ('torch.Size([128, 256])', 'NVFP4TensorStorage')] out_shape (256, 448) out_stride (448, 1) out_ptr_mod_256 8 dtype torch.float32 accumulate True
+F
+=================================== FAILURES ===================================
+_ test_gdn_offload_with_te_graphs[gdn2-False-True-True-True-1.0-fp4-True-tp2-sp] _
+
+variant = 'gdn2', fused = False, recompute_norm = True, whole_layer = True
+delay = True, fraction = 1.0, precision = 'fp4'
+gradient_accumulation_fusion = True, tp = 2, pp = 1
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x743f591033b0>
+
+    @pytest.mark.skipif(not HAVE_FLA, reason="FLA is not installed.")
+    @pytest.mark.skipif(
+        not is_torch_min_version("2.9.0a0") or not is_te_min_version("2.14.0"),
+        reason="CUDA graph offloading requires PyTorch >= 2.9 and TE >= 2.14.",
+    )
+    @pytest.mark.parametrize("tp,pp", [(1, 1), (2, 1), (1, 2)], ids=["tp1", "tp2-sp", "pp2"])
+    @pytest.mark.parametrize(
+        "variant,fused,recompute_norm,whole_layer,delay,fraction,precision,gradient_accumulation_fusion",
+        [
+            ("gdn", False, False, False, False, 1.0, "bf16", False),
+            ("gdn", True, True, False, True, 1.0, "bf16", False),
+            ("gdn", True, False, True, False, 1.0, "bf16", False),
+            ("gdn", False, True, True, True, 1.0, "bf16", False),
+            ("gdn2", False, False, True, False, 1.0, "bf16", False),
+            ("gdn2", False, True, False, True, 1.0, "bf16", False),
+            ("gdn2", False, False, True, False, 0.0, "bf16", False),
+            ("gdn", False, False, False, False, 1.0, "fp8-delayed", False),
+            ("gdn", False, True, True, True, 1.0, "fp8-tensorwise", False),
+            ("gdn2", False, True, True, True, 1.0, "fp8-delayed", False),
+            ("gdn2", False, False, False, False, 1.0, "fp8-tensorwise", False),
+            ("gdn2", False, True, True, False, 0.0, "fp8-tensorwise", False),
+            ("gdn2", False, True, False, False, 0.5, "fp8-tensorwise", False),
+            ("gdn", True, False, True, False, 1.0, "fp8-tensorwise", False),
+            ("gdn", False, False, False, False, 1.0, "fp4", False),
+            ("gdn", False, True, True, True, 1.0, "fp4", False),
+            ("gdn2", False, True, True, True, 1.0, "fp4", False),
+            ("gdn2", False, False, False, False, 1.0, "fp4", False),
+            ("gdn2", False, True, True, False, 0.0, "fp4", False),
+            ("gdn2", False, True, False, False, 0.5, "fp4", False),
+            ("gdn", True, False, True, False, 1.0, "fp4", False),
+            ("gdn", False, False, False, False, 1.0, "fp4", True),
+            ("gdn2", False, True, True, True, 1.0, "fp4", True),
+        ],
+    )
+    def test_gdn_offload_with_te_graphs(
+        variant: str,
+        fused: bool,
+        recompute_norm: bool,
+        whole_layer: bool,
+        delay: bool,
+        fraction: float,
+        precision: str,
+        gradient_accumulation_fusion: bool,
+        tp: int,
+        pp: int,
+        monkeypatch: pytest.MonkeyPatch,
+    ) -> None:
+        """Compare complete optimizer states after captured backward on changing inputs."""
+        if Utils.world_size % (tp * pp):
+            pytest.skip("This topology requires two GPUs.")
+        _require_precision(precision)
+        if gradient_accumulation_fusion:
+            pytest.importorskip("fused_weight_gradient_mlp_cuda")
+        if variant == "gdn2":
+            pytest.importorskip("fla.ops.gdn2")
+        if fused:
+            pytest.importorskip("causal_conv1d", minversion="1.6.1")
+            monkeypatch.setenv("CAUSAL_CONV1D_DETERMINISTIC", "1")
+        from transformer_engine.pytorch.fp8 import FP8GlobalStateManager  # type: ignore[import-untyped]
+    
+        monkeypatch.setenv("NVTE_ALLOW_NONDETERMINISTIC_ALGO", "0")
+        Utils.initialize_model_parallel(tp, pp)
+        initialize_rng_tracker(use_te_rng_tracker=True, force_reset=True)
+        init_num_microbatches_calculator(
+            rank=torch.distributed.get_rank(),
+            global_batch_size=4 * (Utils.world_size // (tp * pp)),
+            micro_batch_size=1,
+            data_parallel_size=Utils.world_size // (tp * pp),
+            decrease_batch_size_if_needed=False,
+        )
+        helper = None
+        try:
+            groups = ProcessGroupCollection.use_mpu_process_groups()
+            references = []
+            # NVFP4 also needs an eager reference to detect stale cached graph weights.
+            arms = (
+                [(False, False), (True, False), (True, True)]
+                if precision == "fp4"
+                else [(True, False), (True, True)]
+            )
+            for capture_graphs, enabled in arms:
+                # Each arm creates fresh modules; discard the previous arm's amax groups.
+                FP8GlobalStateManager.reset()
+                off_interface.reset_instance()
+                config = replace(
+                    _training_config(
+                        tp,
+                        tp > 1,
+                        1,
+                        pp,
+                        None,
+                        fraction,
+                        recompute_norm,
+                        fused_pre_gdr=fused,
+                        variant=variant,
+                        precision=precision,
+                    ),
+                    fine_grained_activation_offloading=enabled,
+                    offload_modules=["gdn_core_attn"] if enabled else [],
+                    cuda_graph_impl="transformer_engine",
+                    cuda_graph_modules=[] if whole_layer else [CudaGraphModule.attn],
+                    cuda_graph_warmup_steps=3,
+                    use_te_rng_tracker=True,
+                    delay_offload_until_cuda_graph=delay,
+                    disable_parameter_transpose_cache=precision == "fp4",
+                    gradient_accumulation_fusion=gradient_accumulation_fusion,
+                )
+                # Match native training: DDP's retained AccumulateGrad nodes must use a side stream.
+                current_stream = torch.cuda.current_stream()
+                init_stream = torch.cuda.Stream()
+                init_stream.wait_stream(current_stream)
+                with torch.cuda.stream(init_stream):
+                    models, optimizer = _build_training_model(config, groups)
+                current_stream.wait_stream(init_stream)
+                manager = PipelineOffloadManager.get_instance()
+                pool_checks = []
+    
+                def finalize(*args, **kwargs):
+                    finalize_model_grads(*args, **kwargs)
+                    in_use = manager.cpu_tensor_pool.get_pool_status()["global_stats"]["current_in_use"]
+                    assert in_use == 0
+                    pool_checks.append(in_use)
+    
+                config.finalize_model_grads_func = partial(finalize, pg_collection=groups)
+                schedule = get_forward_backward_func(pp_size=pp, vp_size=None)
+                generator = torch.Generator().manual_seed(19 + groups.dp.rank())
+                states = []
+                for step in range(6):
+                    if step == 3 and capture_graphs:
+                        helper = TECudaGraphHelper(
+                            models, config, 128, 1, optimizers=[optimizer], pg_collection=groups
+                        )
+                        helper.create_cudagraphs()
+                        assert helper.graphs_created()
+                        assert all(
+                            len(layer.cuda_graphs) == helper.num_microbatches
+                            for layer in unwrap_model(models[0]).decoder.layers
+                        )
+                    batches = []
+                    for _ in range(4):
+                        tokens = torch.randint(0, 512, (1, 129), generator=generator).cuda()
+                        batches.append(
+                            {
+                                "tokens": tokens[:, :-1].contiguous(),
+                                "labels": tokens[:, 1:].contiguous(),
+                                "position_ids": torch.arange(128, device="cuda").unsqueeze(0),
+                            }
+                        )
+                    optimizer.zero_grad()
+                    for model in models:
+                        model.zero_grad_buffer()
+>                   losses = schedule(
+                        forward_step_func=_forward_step,
+                        data_iterator=[iter(batches)],
+                        model=models,
+                        num_microbatches=4,
+                        seq_length=128,
+                        micro_batch_size=1,
+                        forward_only=False,
+                        p2p_communicator=P2PCommunicator(groups.pp, config),
+                        pg_collection=groups,
+                    )
+
+FP8GlobalStateManager = <class 'transformer_engine.pytorch.quantization.FP8GlobalStateManager'>
+_          = 3
+arms       = [(False, False), (True, False), (True, True)]
+batches    = [{'tokens': tensor([[ 93, 110, 245, 354, 424,  19, 308, 330, 159, 322, 440,  22, 162, 389,
+          97, 266, 342, 306...
+         112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125,
+         126, 127]], device='cuda:1')}]
+capture_graphs = False
+config     = TransformerConfig(tensor_model_parallel_size=2, tensor_parallel_num_weight_shards=None, gtp_weight_remat_size=1, tenso...r_size_factor_cuda=1.1, moe_paged_stash_buffer_size_factor_cpu=0.0, fine_grained_offloading_max_inflight_offloads=None)
+current_stream = <torch.cuda.Stream device=cuda:1 cuda_stream=0x0>
+delay      = True
+enabled    = False
+finalize   = <function test_gdn_offload_with_te_graphs.<locals>.finalize at 0x743f583944a0>
+fraction   = 1.0
+fused      = False
+generator  = <torch._C.Generator object at 0x743f583a5df0>
+gradient_accumulation_fusion = True
+groups     = ProcessGroupCollection(tp(2), pp(1), mp(2), embd(1), pos_embd(1), cp(1), tp_cp(2), ep(1), expt_tp(2), tp_ep(2), tp_ep_...gtp_remat(1), expt_gtp_remat(1), expt_dp(1), expt_dp_gtp_remat(1), intra_dp_cp(1), intra_expt_dp(1), intra_dist_opt(2))
+helper     = None
+init_stream = <torch.cuda.Stream device=cuda:1 cuda_stream=0x17964020>
+manager    = <megatron.core.pipeline_parallel.fine_grained_activation_offload.PipelineOffloadManager object at 0x743f5951c530>
+model      = DistributedDataParallel(
+  (module): Float16Module(
+    (module): HybridModel(
+      (embedding): LanguageModelEmbeddi...m()
+      )
+      (output_layer): ColumnParallelLinear(in_features=256, out_features=512, bias=False, TP=2)
+    )
+  )
+)
+models     = [DistributedDataParallel(
+  (module): Float16Module(
+    (module): HybridModel(
+      (embedding): LanguageModelEmbedd...()
+      )
+      (output_layer): ColumnParallelLinear(in_features=256, out_features=512, bias=False, TP=2)
+    )
+  )
+)]
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x743f591033b0>
+optimizer  = <megatron.core.optimizer.optimizer.ChainedOptimizer object at 0x743f5dd89ac0>
+pool_checks = []
+pp         = 1
+precision  = 'fp4'
+recompute_norm = True
+references = []
+schedule   = <function forward_backward_no_pipelining at 0x743f71db3d80>
+states     = []
+step       = 0
+tokens     = tensor([[ 92, 486, 397, 289, 314, 225, 495, 374, 311, 368, 147, 115, 165,  29,
+          14, 265, 131, 428, 357, 212, ...       417, 196, 275, 128,  13, 330, 139, 313, 118, 468, 395, 210,   8, 118,
+         350,  81, 130]], device='cuda:1')
+tp         = 2
+variant    = 'gdn2'
+whole_layer = True
+
+tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py:190: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+megatron/core/pipeline_parallel/schedules.py:823: in forward_backward_no_pipelining
+    backward_step(input_tensor, output_tensor, output_tensor_grad, config)
+        adjust_tensor_shapes_fn = None
+        collect_non_loss_data = False
+        config     = TransformerConfig(tensor_model_parallel_size=2, tensor_parallel_num_weight_shards=None, gtp_weight_remat_size=1, tenso...r_size_factor_cuda=1.1, moe_paged_stash_buffer_size_factor_cpu=0.0, fine_grained_offloading_max_inflight_offloads=None)
+        data_iterator = <list_iterator object at 0x743f5910ceb0>
+        decoder_seq_length = None
+        first_val_step = None
+        force_all_reduce = False
+        forward_data_store = [{'loss': tensor(6.3293, device='cuda:1')}]
+        forward_only = False
+        forward_step_func = <function _forward_step at 0x743f58485ee0>
+        i          = 0
+        input_tensor = None
+        micro_batch_size = 1
+        model      = DistributedDataParallel(
+  (module): Float16Module(
+    (module): HybridModel(
+      (embedding): LanguageModelEmbeddi...m()
+      )
+      (output_layer): ColumnParallelLinear(in_features=256, out_features=512, bias=False, TP=2)
+    )
+  )
+)
+        model_type = <ModelType.encoder_or_decoder: 1>
+        no_sync_func = <class 'contextlib.nullcontext'>
+        num_microbatches = 4
+        num_tokens = tensor(0, dtype=torch.int32)
+        output_tensor = tensor(1.5823, device='cuda:1', grad_fn=<DivBackward0>)
+        output_tensor_grad = None
+        p2p_communicator = <megatron.core.pipeline_parallel.p2p_communication.P2PCommunicator object at 0x743f5910d430>
+        pg_collection = ProcessGroupCollection(tp(2), pp(1), mp(2), embd(1), pos_embd(1), cp(1), tp_cp(2), ep(1), expt_tp(2), tp_ep(2), tp_ep_...gtp_remat(1), expt_gtp_remat(1), expt_dp(1), expt_dp_gtp_remat(1), intra_dp_cp(1), intra_expt_dp(1), intra_dist_opt(2))
+        seq_length = 128
+        total_num_tokens = tensor(0, device='cuda:1', dtype=torch.int32)
+megatron/core/pipeline_parallel/schedules.py:591: in backward_step
+    torch.autograd.backward(output_tensor[0], grad_tensors=output_tensor_grad[0])
+        config     = TransformerConfig(tensor_model_parallel_size=2, tensor_parallel_num_weight_shards=None, gtp_weight_remat_size=1, tenso...r_size_factor_cuda=1.1, moe_paged_stash_buffer_size_factor_cpu=0.0, fine_grained_offloading_max_inflight_offloads=None)
+        input_tensor = [None]
+        output_tensor = [tensor([1.5823], device='cuda:1', grad_fn=<MulBackward0>)]
+        output_tensor_grad = [None]
+        unwrap_input_tensor_grad = True
+        x          = None
+/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/autograd/__init__.py:381: in backward
+    _engine_run_backward(
+        create_graph = False
+        grad_tensors = None
+        grad_tensors_ = (tensor([1.], device='cuda:1'),)
+        grad_variables = None
+        inputs     = None
+        inputs_tuple = ()
+        overridable_args = (tensor([1.5823], device='cuda:1', grad_fn=<MulBackward0>),)
+        retain_graph = False
+        t_inputs   = ()
+        t_tensors  = (tensor([1.5823], device='cuda:1', grad_fn=<MulBackward0>),)
+        tensors    = (tensor([1.5823], device='cuda:1', grad_fn=<MulBackward0>),)
+/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/autograd/graph.py:869: in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+        args       = ((tensor([1.], device='cuda:1'),), False, False, ())
+        attach_logging_hooks = False
+        kwargs     = {'allow_unreachable': True, 'accumulate_grad': True}
+        t_outputs  = (tensor([1.5823], device='cuda:1', grad_fn=<MulBackward0>),)
+/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/autograd/function.py:317: in apply
+    return user_fn(self, *args)
+           ^^^^^^^^^^^^^^^^^^^^
+        args       = (tensor([[[-9.5844e-05, -4.2534e-04,  9.7275e-05,  ..., -1.5030e-03,
+          -1.1215e-03, -6.8665e-04]],
+
+        [[...3,  1.2665e-03,  ...,  1.1673e-03,
+          -1.3351e-03,  7.6675e-04]]], device='cuda:1', dtype=torch.bfloat16), None)
+        backward_fn = <function _Linear.backward at 0x744192762340>
+        self       = <torch.autograd.function._LinearBackward object at 0x743f475a3460>
+        user_fn    = <function _Linear.backward at 0x744192762340>
+        vjp_fn     = <function _SingleLevelFunction.backward at 0x74425e287420>
+/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/transformer_engine/pytorch/module/linear.py:1881: in backward
+    result = _linear_backward_impl(bwd_args) + (None,)  # fwd_args grad slot
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        _grad_weight_workspace = None
+        bwd_args   = LinearBwdArgs(grad_output=tensor([[[-9.5844e-05, -4.2534e-04,  9.7275e-05,  ..., -1.5030e-03,
+          -1.1215e-03, -...t 0x743f200791c0>, reduce_and_update_bwd_fp8_tensors=False, cpu_offloading=False, owns_input=True, ub_obj_gradout=None)
+        ctx        = <torch.autograd.function._LinearBackward object at 0x743f475a3460>
+        grad_output = tensor([[[-9.5844e-05, -4.2534e-04,  9.7275e-05,  ..., -1.5030e-03,
+          -1.1215e-03, -6.8665e-04]],
+
+        [[ ...1826e-03,  1.2665e-03,  ...,  1.1673e-03,
+          -1.3351e-03,  7.6675e-04]]], device='cuda:1', dtype=torch.bfloat16)
+        nvtx_label = 'transformer_engine._Linear.backward'
+/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/transformer_engine/pytorch/module/linear.py:1650: in _linear_backward_impl
+    wgrad, grad_bias_ = wgrad_gemm(inputmat_total, grad_output)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        _          = [None, None]
+        accumulate_wgrad_into_param_main_grad = True
+        args       = LinearBwdArgs(grad_output=tensor([[[-9.5844e-05, -4.2534e-04,  9.7275e-05,  ..., -1.5030e-03,
+          -1.1215e-03, -...t 0x743f200791c0>, reduce_and_update_bwd_fp8_tensors=False, cpu_offloading=False, owns_input=True, ub_obj_gradout=None)
+        bias       = None
+        bwd_args   = LinearBwdArgs(grad_output=tensor([[[-9.5844e-05, -4.2534e-04,  9.7275e-05,  ..., -1.5030e-03,
+          -1.1215e-03, -...t 0x743f200791c0>, reduce_and_update_bwd_fp8_tensors=False, cpu_offloading=False, owns_input=True, ub_obj_gradout=None)
+        dgrad      = tensor([[-3.0041e-05,  2.2602e-04,  8.2493e-05,  ..., -3.1888e-06,
+         -7.4804e-06,  1.8501e-04],
+        [ 1.773...1.2302e-04, -6.6280e-05,  ...,  3.5465e-06,
+          7.1049e-05,  8.5831e-06]], device='cuda:1', dtype=torch.bfloat16)
+        dgrad_shape = [128, 448]
+        dgrad_work = None
+        gemm_out   = tensor([[-3.0041e-05,  2.2602e-04,  8.2493e-05,  ..., -3.1888e-06,
+         -7.4804e-06,  1.8501e-04],
+        [ 1.773...1.2302e-04, -6.6280e-05,  ...,  3.5465e-06,
+          7.1049e-05,  8.5831e-06]], device='cuda:1', dtype=torch.bfloat16)
+        grad_bias  = None
+        grad_input_quantizer = None
+        grad_output = NVFP4TensorStorage(rowwise_scaled_data=tensor([[-5.4169e-04,  4.0627e-04,  1.6251e-03,  ..., -1.4648e-03,
+         -1....  dtype=torch.uint8),amax_rowwise=tensor([0.0045], device='cuda:1'),amax_columnwise=tensor([0.0045], device='cuda:1'),)
+        grad_output_arg = tensor([[[-9.5844e-05, -4.2534e-04,  9.7275e-05,  ..., -1.5030e-03,
+          -1.1215e-03, -6.8665e-04]],
+
+        [[ ...1826e-03,  1.2665e-03,  ...,  1.1673e-03,
+          -1.3351e-03,  7.6675e-04]]], device='cuda:1', dtype=torch.bfloat16)
+        grad_output_quantizer = NVFP4Quantizer(rowwise_usage=True, columnwise_usage=True, internal=True, )
+        grad_weight_quantizer = None
+        in_features = 448
+        inp_leading = 128
+        input_quantizer = NVFP4Quantizer(rowwise_usage=True, columnwise_usage=True, internal=True, )
+        inputmat   = NVFP4TensorStorage(shape=(128, 448), data=<unmaterialized: NotImplementedError: Dequantizing column-wise NVFP4 data is not implemented yet!>)
+        inputmat_total = NVFP4TensorStorage(shape=(128, 448), data=<unmaterialized: NotImplementedError: Dequantizing column-wise NVFP4 data is not implemented yet!>)
+        inputmat_total_work = None
+        is_dist_weight = False
+        main_grad  = tensor([[0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.]....,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.]], device='cuda:1')
+        nvtx_label = 'transformer_engine._Linear.backward'
+        origin_weight_overwrites_main_grad = False
+        origin_weight_python_object = Parameter containing:
+tensor([[-9.9487e-03, -7.9956e-03, -3.9978e-03,  ..., -4.2114e-03,
+          1.9531e-03, -1.2934....., -1.6251e-03,
+         -2.0313e-04, -1.9531e-03]], device='cuda:1', dtype=torch.bfloat16,
+       requires_grad=True)
+        origin_weight_ref = <weakref at 0x743f20449440; to 'Parameter' at 0x74425f110e10>
+        quantizer  = NVFP4Quantizer(rowwise_usage=True, columnwise_usage=True, internal=True, )
+        reduce_scatter_out = None
+        saved_weight = Parameter containing:
+tensor([[-9.9487e-03, -7.9956e-03, -3.9978e-03,  ..., -4.2114e-03,
+          1.9531e-03, -1.2934....., -1.6251e-03,
+         -2.0313e-04, -1.9531e-03]], device='cuda:1', dtype=torch.bfloat16,
+       requires_grad=True)
+        ub_obj_dgrad = None
+        ub_obj_wgrad = None
+        ub_type_dgrad = None
+        ub_type_wgrad = None
+        use_split_accumulator = True
+        weight_for_dgrad = NVFP4TensorStorage(rowwise_scaled_data=tensor([[-0.0096, -0.0072, -0.0036,  ..., -0.0036,  0.0024, -0.0000],
+        [...  dtype=torch.uint8),amax_rowwise=tensor([0.0203], device='cuda:1'),amax_columnwise=tensor([0.0203], device='cuda:1'),)
+        weight_fp8 = NVFP4TensorStorage(rowwise_scaled_data=tensor([[-0.0096, -0.0072, -0.0036,  ..., -0.0036,  0.0024, -0.0000],
+        [...  dtype=torch.uint8),amax_rowwise=tensor([0.0203], device='cuda:1'),amax_columnwise=tensor([0.0203], device='cuda:1'),)
+        weight_quantizer = NVFP4Quantizer(rowwise_usage=True, columnwise_usage=True, internal=True, )
+        wgrad      = None
+        wgrad_gemm = <function _linear_backward_impl.<locals>.wgrad_gemm at 0x743f295b71a0>
+        wgrad_gemm_kwargs = {'out_dtype': torch.float32, 'quantization_params': None, 'accumulate': True, 'layout': 'NT', ...}
+/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/transformer_engine/pytorch/module/linear.py:1630: in wgrad_gemm
+    dw, db, *_ = general_gemm(x, dy, **wgrad_gemm_kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        dy         = NVFP4TensorStorage(rowwise_scaled_data=tensor([[-5.4169e-04,  4.0627e-04,  1.6251e-03,  ..., -1.4648e-03,
+         -1....  dtype=torch.uint8),amax_rowwise=tensor([0.0045], device='cuda:1'),amax_columnwise=tensor([0.0045], device='cuda:1'),)
+        nvtx_label = 'transformer_engine._Linear.backward'
+        wgrad_gemm_kwargs = {'out_dtype': torch.float32, 'quantization_params': None, 'accumulate': True, 'layout': 'NT', ...}
+        x          = NVFP4TensorStorage(shape=(128, 448), data=<unmaterialized: NotImplementedError: Dequantizing column-wise NVFP4 data is not implemented yet!>)
+../trace_te_gemm.py:12: in trace
+    return original(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+        args       = (NVFP4TensorStorage(shape=(128, 448), data=<unmaterialized: NotImplementedError: Dequantizing column-wise NVFP4 data i... dtype=torch.uint8),amax_rowwise=tensor([0.0045], device='cuda:1'),amax_columnwise=tensor([0.0045], device='cuda:1'),))
+        kwargs     = {'out_dtype': torch.float32, 'quantization_params': None, 'accumulate': True, 'layout': 'NT', ...}
+        out        = tensor([[0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.]....,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.]], device='cuda:1')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+A = NVFP4TensorStorage(shape=(128, 448), data=<unmaterialized: NotImplementedError: Dequantizing column-wise NVFP4 data is not implemented yet!>)
+B = NVFP4TensorStorage(rowwise_scaled_data=tensor([[-5.4169e-04,  4.0627e-04,  1.6251e-03,  ..., -1.4648e-03,
+         -1....  dtype=torch.uint8),amax_rowwise=tensor([0.0045], device='cuda:1'),amax_columnwise=tensor([0.0045], device='cuda:1'),)
+out_dtype = torch.float32, quantization_params = None, gelu = False
+gelu_in = None, alpha = 1.0, beta = 1.0, accumulate = True, layout = 'NT'
+out = tensor([[0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.]....,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.]], device='cuda:1')
+bias = None, use_split_accumulator = True, grad = True, ub = None
+ub_type = None, extra_output = None, bulk_overlap = False
+
+    def general_gemm(
+        A: torch.Tensor,
+        B: torch.Tensor,
+        out_dtype: Optional[torch.dtype] = None,
+        quantization_params: Optional[Quantizer] = None,
+        gelu: bool = False,
+        gelu_in: torch.Tensor = None,
+        alpha: float = 1.0,
+        beta: Optional[float] = None,
+        accumulate: bool = False,
+        layout: str = "TN",
+        out: Optional[torch.Tensor] = None,
+        bias: Optional[torch.Tensor] = None,
+        use_split_accumulator: bool = False,
+        grad: bool = False,
+        ub: Union[tex.CommOverlap, tex.CommOverlapP2P] = None,
+        ub_type: tex.CommOverlapType = None,
+        extra_output: Optional[torch.Tensor] = None,
+        bulk_overlap: bool = False,
+    ) -> Iterable[Optional[torch.Tensor]]:
+        """GEMM supporting fp8 inputs."""
+    
+        assert layout in ("TN", "NN", "NT"), f"GEMM layout {layout} not supported."
+        transa = layout[0] == "T"
+        transb = layout[1] == "T"
+    
+        debug_quantizer = None
+        if isinstance(quantization_params, DebugQuantizer):
+            debug_quantizer = quantization_params
+            quantization_params = quantization_params.parent_quantizer
+    
+        A = _unwrap_tensor(A, "rowwise" if transa else "columnwise")
+        B = _unwrap_tensor(B, "columnwise" if transb else "rowwise")
+    
+        alpha = validate_gemm_scale(alpha, True)
+        beta = validate_gemm_scale(beta, accumulate)
+        workspace = get_cublas_workspace(A.device.index, ub is not None, False)
+    
+        if ub_type is not None:
+            assert ub is not None, (
+                f"{'AG+GEMM' if ub_type == tex.CommOverlapType.AG else 'GEMM+RS'} overlap requires"
+                + "a valid `ub` communicator object."
+            )
+    
+        if ub is not None:
+            assert ub_type is not None, "Comm+GEMM overlap requires a valid `comm_type` argument."
+            if ub_type == tex.CommOverlapType.RS:
+                if not (bulk_overlap and not ub.is_fp8_ubuf()):
+                    assert extra_output is not None, "GEMM+RS overlap requires extra output tensor."
+    
+        if out is not None:
+            if not out.is_contiguous():
+                raise ValueError("Output tensor is not contiguous.")
+    
+        # If A or B are custom tensors -> dispatch to quantizers's qgemm implementation
+        if is_custom(A) or is_custom(B):
+            return custom_gemm(
+                A,
+                B,
+                workspace,
+                out_dtype,
+                quantization_params,
+                gelu,
+                gelu_in,
+                accumulate,
+                layout,
+                out,
+                bias,
+                use_split_accumulator,
+                grad,
+            )
+    
+        _validate_native_gemm_output_quantizer(quantization_params)
+    
+        # Use bfloat16 as default bias_dtype
+        bias_dtype = TE_DType[torch.bfloat16 if bias is None else bias.dtype]
+    
+        if isinstance(A, Float8BlockwiseQTensorStorage) or isinstance(B, Float8BlockwiseQTensorStorage):
+            # FP8 block-scaling requires split accumulator
+            use_split_accumulator = True
+    
+        args = (
+            A,
+            transa,  # transa
+            B,
+            transb,  # transb
+            out,
+            quantization_params,
+            TE_DType[out_dtype] if out_dtype is not None else None,
+            bias,
+            bias_dtype,
+            gelu,
+            gelu_in,
+            grad,  # grad
+            workspace,
+            workspace.shape[0],
+            accumulate,
+            use_split_accumulator,
+        )
+        kwargs = {
+            "comm_overlap": ub,
+            "comm_type": ub_type,
+            "extra_output": extra_output,
+            "bulk_overlap": bulk_overlap,
+            "alpha": alpha,
+            "beta": beta,
+        }
+    
+        if not _is_nvfp4_row_scaled_tensor(A) and not _is_nvfp4_row_scaled_tensor(B):
+>           out, bias_grad, gelu_input, extra_output = tex.generic_gemm(*args, **kwargs)
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           RuntimeError: /TransformerEngine/transformer_engine/common/gemm/cublaslt_gemm.cu:778 in function cublas_gemm: Assertion failed: status != CUBLAS_STATUS_NOT_SUPPORTED. Unable to find suitable cuBLAS GEMM algorithm
+
+A          = NVFP4TensorStorage(shape=(128, 448), data=<unmaterialized: NotImplementedError: Dequantizing column-wise NVFP4 data is not implemented yet!>)
+B          = NVFP4TensorStorage(rowwise_scaled_data=tensor([[-5.4169e-04,  4.0627e-04,  1.6251e-03,  ..., -1.4648e-03,
+         -1....  dtype=torch.uint8),amax_rowwise=tensor([0.0045], device='cuda:1'),amax_columnwise=tensor([0.0045], device='cuda:1'),)
+accumulate = True
+alpha      = 1.0
+args       = (NVFP4TensorStorage(shape=(128, 448), data=<unmaterialized: NotImplementedError: Dequantizing column-wise NVFP4 data i... 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.]], device='cuda:1'), None, ...)
+beta       = 1.0
+bias       = None
+bias_dtype = <DType.kBFloat16: 6>
+bulk_overlap = False
+debug_quantizer = None
+extra_output = None
+gelu       = False
+gelu_in    = None
+grad       = True
+kwargs     = {'comm_overlap': None, 'comm_type': None, 'extra_output': None, 'bulk_overlap': False, ...}
+layout     = 'NT'
+out        = tensor([[0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.]....,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.],
+        [0., 0., 0.,  ..., 0., 0., 0.]], device='cuda:1')
+out_dtype  = torch.float32
+quantization_params = None
+transa     = False
+transb     = True
+ub         = None
+ub_type    = None
+use_split_accumulator = True
+workspace  = tensor([  0,   0,   0,  ..., 116, 232,  47], device='cuda:1',
+       dtype=torch.uint8)
+
+/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/transformer_engine/pytorch/cpp_extensions/gemm.py:301: RuntimeError
+------------------------------ Captured log call -------------------------------
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:output_graph.py:2423 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2452 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2483 
+DEBUG    torch.__trace:utils.py:2165 
+DEBUG    torch.__trace:autograd_cache.py:892 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:graph_compile.py:1619 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:graph_compile.py:1640 
+DEBUG    torch.__trace:graph_compile.py:1690 
+DEBUG    torch.__trace:graph_compile.py:1708 
+DEBUG    torch.__trace:graph_compile.py:1712 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:1279 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:1330 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:1368 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:graph.py:2575 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:async_compile.py:122 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2165 
+DEBUG    torch.__trace:compile_fx.py:1120 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:guards.py:3977 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:symbolic_convert.py:5101 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:output_graph.py:2423 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2452 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2483 
+DEBUG    torch.__trace:utils.py:2165 
+DEBUG    torch.__trace:autograd_cache.py:892 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:graph_capture.py:337 
+DEBUG    torch.__trace:graph_capture.py:355 
+DEBUG    torch.__trace:graph_compile.py:380 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2314 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2328 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:1279 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:1330 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:1368 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:graph.py:2575 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2165 
+DEBUG    torch.__trace:compile_fx.py:1120 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:guards.py:3977 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:symbolic_convert.py:5101 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:side_effects.py:1313 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:guards.py:3977 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:symbolic_convert.py:5101 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:guards.py:3977 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:symbolic_convert.py:5101 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:convert_frame.py:1858 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:symbolic_convert.py:5101 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:guards.py:3977 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:symbolic_convert.py:5101 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:convert_frame.py:1858 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:symbolic_convert.py:5101 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:guards.py:3977 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:symbolic_convert.py:5101 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:output_graph.py:2423 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2452 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2483 
+DEBUG    torch.__trace:utils.py:2165 
+DEBUG    torch.__trace:autograd_cache.py:892 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:graph_capture.py:337 
+DEBUG    torch.__trace:graph_capture.py:355 
+DEBUG    torch.__trace:graph_compile.py:380 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2314 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2328 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2165 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:guards.py:3977 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:output_graph.py:2423 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2452 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2483 
+DEBUG    torch.__trace:utils.py:2165 
+DEBUG    torch.__trace:autograd_cache.py:892 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:graph_capture.py:337 
+DEBUG    torch.__trace:graph_capture.py:355 
+DEBUG    torch.__trace:graph_compile.py:380 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2314 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2328 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2165 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:guards.py:3977 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:output_graph.py:2423 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2452 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2483 
+DEBUG    torch.__trace:utils.py:2165 
+DEBUG    torch.__trace:autograd_cache.py:892 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:graph_capture.py:337 
+DEBUG    torch.__trace:graph_capture.py:355 
+DEBUG    torch.__trace:graph_compile.py:380 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2314 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2328 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:1279 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:1330 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:1368 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:graph.py:2575 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:async_compile.py:122 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2165 
+DEBUG    torch.__trace:compile_fx.py:1120 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:guards.py:3977 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:output_graph.py:2423 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2452 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2483 
+DEBUG    torch.__trace:utils.py:2165 
+DEBUG    torch.__trace:autograd_cache.py:892 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:graph_compile.py:1619 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:graph_compile.py:1640 
+DEBUG    torch.__trace:graph_compile.py:1690 
+DEBUG    torch.__trace:graph_compile.py:1708 
+DEBUG    torch.__trace:graph_compile.py:1712 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:1279 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:1330 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:1368 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:graph.py:2575 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:async_compile.py:122 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2165 
+DEBUG    torch.__trace:compile_fx.py:1120 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:guards.py:3977 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:1279 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:1330 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:1368 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:graph.py:2575 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:async_compile.py:122 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2165 
+DEBUG    torch.__trace:compile_fx.py:1120 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:guards.py:4764 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:symbolic_convert.py:5101 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:output_graph.py:2423 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2452 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2483 
+DEBUG    torch.__trace:utils.py:2165 
+DEBUG    torch.__trace:autograd_cache.py:892 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:graph_capture.py:337 
+DEBUG    torch.__trace:graph_capture.py:355 
+DEBUG    torch.__trace:graph_compile.py:380 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2314 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2328 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:codecache.py:1350 
+DEBUG    torch.__trace:codecache.py:1358 
+DEBUG    torch.__trace:codecache.py:1362 
+DEBUG    torch.__trace:codecache.py:1370 
+DEBUG    torch.__trace:codecache.py:1378 
+DEBUG    torch.__trace:utils.py:2165 
+DEBUG    torch.__trace:compile_fx.py:1120 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:guards.py:3977 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:guards.py:4764 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:symbolic_convert.py:5101 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:side_effects.py:1313 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:guards.py:3977 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:guards.py:4764 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:symbolic_convert.py:5101 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:guards.py:3977 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:guards.py:4764 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2165 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:symbolic_shapes.py:5388 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:symbolic_shapes.py:7493 
+DEBUG    torch.__trace:symbolic_convert.py:5101 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:symbolic_shapes.py:5388 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:output_graph.py:2423 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2452 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2483 
+DEBUG    torch.__trace:utils.py:2165 
+DEBUG    torch.__trace:autograd_cache.py:892 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:graph_capture.py:337 
+DEBUG    torch.__trace:graph_capture.py:355 
+DEBUG    torch.__trace:graph_compile.py:380 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2314 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2328 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2165 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:guards.py:3977 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:guards.py:4764 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:symbolic_convert.py:5101 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:output_graph.py:2423 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2452 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2483 
+DEBUG    torch.__trace:utils.py:2165 
+DEBUG    torch.__trace:autograd_cache.py:892 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:graph_capture.py:337 
+DEBUG    torch.__trace:graph_capture.py:355 
+DEBUG    torch.__trace:graph_compile.py:380 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2314 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2328 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2165 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:guards.py:3977 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:guards.py:4764 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:side_effects.py:1313 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:output_graph.py:2423 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2452 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2483 
+DEBUG    torch.__trace:utils.py:2165 
+DEBUG    torch.__trace:autograd_cache.py:892 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:graph_capture.py:337 
+DEBUG    torch.__trace:graph_capture.py:355 
+DEBUG    torch.__trace:graph_compile.py:380 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2314 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2328 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2165 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:guards.py:3977 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:guards.py:4764 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:output_graph.py:2423 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2452 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:2483 
+DEBUG    torch.__trace:utils.py:2165 
+DEBUG    torch.__trace:autograd_cache.py:892 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:graph_compile.py:1619 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:graph_compile.py:1640 
+DEBUG    torch.__trace:graph_compile.py:1690 
+DEBUG    torch.__trace:graph_compile.py:1708 
+DEBUG    torch.__trace:graph_compile.py:1712 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:1279 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:1330 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:1368 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:graph.py:2575 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:async_compile.py:122 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2165 
+DEBUG    torch.__trace:compile_fx.py:1120 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:guards.py:3977 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:1279 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:1330 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:1368 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:graph.py:2575 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:async_compile.py:122 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2165 
+DEBUG    torch.__trace:compile_fx.py:1120 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:1279 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:1330 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:compile_fx.py:1368 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:graph.py:2575 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:async_compile.py:122 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2165 
+DEBUG    torch.__trace:compile_fx.py:1120 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796
+=============================== warnings summary ===============================
+../../../../songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/config/__init__.py:1345
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/config/__init__.py:1345: PytestAssertRewriteWarning: Module already imported so cannot be rewritten; anyio
+    self._mark_plugins_for_rewrite(hook, disable_autoload)
+
+tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-True-True-True-1.0-fp4-True-tp2-sp]
+  /home/lwx/.cache/megatron-gdn-20261026/precision-fusion-b5eb5e9/megatron/core/transformer/transformer_config.py:3806: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+    warnings.warn(
+
+tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-True-True-True-1.0-fp4-True-tp2-sp]
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/transformer_engine/pytorch/module/base.py:1682: UserWarning: To guarantee overlapping TP and SP collectives with the backwardGEMMs, set environment variable CUDA_DEVICE_MAX_CONNECTIONS = 1
+    warnings.warn(
+
+tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-True-True-True-1.0-fp4-True-tp2-sp]
+tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-True-True-True-1.0-fp4-True-tp2-sp]
+tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-True-True-True-1.0-fp4-True-tp2-sp]
+tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-True-True-True-1.0-fp4-True-tp2-sp]
+tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-True-True-True-1.0-fp4-True-tp2-sp]
+tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-True-True-True-1.0-fp4-True-tp2-sp]
+tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-True-True-True-1.0-fp4-True-tp2-sp]
+tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-True-True-True-1.0-fp4-True-tp2-sp]
+  /home/lwx/.cache/megatron-gdn-20261026/precision-fusion-b5eb5e9/megatron/core/transformer/mlp.py:447: DeprecationWarning: MLP requires ffn_hidden_size, but it was not provided. Using                     config.ffn_hidden_size by default.
+    return cls(
+
+tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-True-True-True-1.0-fp4-True-tp2-sp]
+tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-True-True-True-1.0-fp4-True-tp2-sp]
+tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-True-True-True-1.0-fp4-True-tp2-sp]
+tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-True-True-True-1.0-fp4-True-tp2-sp]
+tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-True-True-True-1.0-fp4-True-tp2-sp]
+tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-True-True-True-1.0-fp4-True-tp2-sp]
+tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-True-True-True-1.0-fp4-True-tp2-sp]
+tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-True-True-True-1.0-fp4-True-tp2-sp]
+  /home/lwx/.cache/megatron-gdn-20261026/precision-fusion-b5eb5e9/megatron/core/fp4_utils.py:274: DeprecationWarning: fp8_autocast is deprecated and will be removed in a future release. Use autocast(enabled=..., calibrating=..., recipe=..., group=..., _graph=...) instead.
+    fp4_context = transformer_engine.pytorch.fp8_autocast(
+
+tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-True-True-True-1.0-fp4-True-tp2-sp]
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/_dynamo/variables/functions.py:2202: UserWarning: Dynamo detected a call to a `functools.lru_cache`-wrapped function at '_common.py:101'. Dynamo ignores the cache wrapper and directly traces the wrapped function. Silent incorrectness is only a *potential* risk, not something we have observed. Enable TORCH_LOGS=+dynamo for a DEBUG stack trace.
+  
+  This call originates from:
+    File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/transformer_engine/pytorch/ops/_common.py", line 101, in maybe_autocast_dtype
+      if torch_version() >= (2, 4, 3):
+  
+    torch._dynamo.utils.warn_once(msg)
+
+tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-True-True-True-1.0-fp4-True-tp2-sp]
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/_dynamo/variables/functions.py:2082: UserWarning: Dynamo does not know how to trace the builtin `transformer_engine_torch.pybind11_detail_function_record_v1_system_libstdcpp_gxx_abi_1xxx_use_cxx11_abi_1.rmsnorm_fwd.` This function is either a Python builtin (e.g. _warnings.warn) or a third-party C/C++ Python extension (perhaps created with pybind).
+  If it is a Python builtin, please file an issue on GitHub so the PyTorch team can add support for it and see the next case for a workaround.
+  If it is a third-party C/C++ Python extension, please either wrap it into a PyTorch-understood custom operator (see https://pytorch.org/tutorials/advanced/custom_ops_landing_page.html for more details) or, if it is traceable, use `torch.compiler.allow_in_graph`.
+    torch._dynamo.utils.warn_once(explanation + "\n" + "\n".join(hints))
+
+tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-True-True-True-1.0-fp4-True-tp2-sp]
+  /home/lwx/.cache/megatron-gdn-20261026/precision-fusion-b5eb5e9/megatron/core/tensor_parallel/layers.py:1086: UserWarning: When using sequence parallelism it is recommended to set the environment variable CUDA_DEVICE_MAX_CONNECTIONS to 1 for maximum speedup
+    warnings.warn(
+
+tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-True-True-True-1.0-fp4-True-tp2-sp]
+  /home/lwx/.cache/megatron-gdn-20261026/precision-fusion-b5eb5e9/megatron/core/tensor_parallel/random.py:860: DeprecationWarning: fp8_autocast is deprecated and will be removed in a future release. Use autocast(enabled=..., calibrating=..., recipe=..., group=..., _graph=...) instead.
+    with fp8_autocast(enabled=self.fp8_enabled, fp8_recipe=self.fp8_recipe):
+
+tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-True-True-True-1.0-fp4-True-tp2-sp]
+tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-True-True-True-1.0-fp4-True-tp2-sp]
+tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-True-True-True-1.0-fp4-True-tp2-sp]
+tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-True-True-True-1.0-fp4-True-tp2-sp]
+tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-True-True-True-1.0-fp4-True-tp2-sp]
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/transformer_engine/pytorch/tensor/storage/nvfp4_tensor_storage.py:254: UserWarning: Attempting to get shape of NVFP4 tensor with only column-wise data.
+    warnings.warn("Attempting to get shape of NVFP4 tensor with only column-wise data.")
+
+tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-True-True-True-1.0-fp4-True-tp2-sp]
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/autograd/graph.py:869: UserWarning: The AccumulateGrad node's stream does not match the stream of the node that produced the incoming gradient. This may incur unnecessary synchronization and break CUDA graph capture if the AccumulateGrad node's stream is the default stream. This mismatch is caused by an AccumulateGrad node created prior to the current iteration being kept alive. This can happen if the autograd graph is still being kept alive by tensors such as the loss, or if you are using DDP, which will stash a reference to the node. To resolve the mismatch, delete all references to the autograd graph or ensure that DDP initialization is performed under the same stream as subsequent forwards. If the mismatch is intentional, you can use torch.autograd.graph.set_warn_on_accumulate_grad_stream_mismatch(False) to suppress this warning. (Triggered internally at /pytorch/torch/csrc/autograd/input_buffer.cpp:240.)
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================= slowest 15 durations =============================
+9.24s call     tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-True-True-True-1.0-fp4-True-tp2-sp]
+
+(2 durations < 0.005s hidden.  Use -vv to show these durations.)
+=========================== short test summary info ============================
+FAILED tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-True-True-True-1.0-fp4-True-tp2-sp]
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!
+1 failed, 68 deselected, 29 warnings in 9.55s

@@ -1,0 +1,46 @@
+/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated
+!!
+
+        ********************************************************************************
+        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+        By 2027-Feb-18, you need to update your project and remove deprecated calls
+        or your builds will no longer be supported.
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  corresp(dist, value, root_dir)
+/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/setuptools/config/_apply_pyprojecttoml.py:61: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: BSD License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  dist._finalize_license_expression()
+/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/setuptools/dist.py:765: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: BSD License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  self._finalize_license_expression()
+running build_ext
+building 'fused_weight_gradient_mlp_cuda' extension
+[1/2] /home/lwx/.cache/megatron-gdn-20261026/apex-wgrad-build/cuda/bin/nvcc -MD -MF /home/lwx/.cache/megatron-gdn-20261026/apex-wgrad-build/temp/home/lwx/.cache/megatron-gdn-20261026/apex-wgrad-build/fp16.o.d -I/home/lwx/.cache/megatron-gdn-20261026/apex-wgrad-build -I/home/lwx/.cache/megatron-gdn-20261026/apex-wgrad-build/cuda-include -I/home/lwx/.cache/megatron-gdn-20261026/apex-wgrad-build/cuda-include/cccl -I/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/include -I/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/include/torch/csrc/api/include -I/home/lwx/.cache/megatron-gdn-20261026/apex-wgrad-build/cuda/include -I/home/songbinbin/.venvs/megatron-gdn-offload/include -I/data/songbinbin/minicoda/include/python3.12 -c -c /home/lwx/.cache/megatron-gdn-20261026/apex-wgrad-build/fp16.cu -o /home/lwx/.cache/megatron-gdn-20261026/apex-wgrad-build/temp/home/lwx/.cache/megatron-gdn-20261026/apex-wgrad-build/fp16.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -O3 -U__CUDA_NO_HALF_OPERATORS__ -U__CUDA_NO_HALF_CONVERSIONS__ --expt-relaxed-constexpr --expt-extended-lambda --use_fast_math -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=fused_weight_gradient_mlp_cuda -gencode=arch=compute_120,code=sm_120 -std=c++17
+[2/2] /home/lwx/.cache/megatron-gdn-20261026/apex-wgrad-build/cuda/bin/nvcc -MD -MF /home/lwx/.cache/megatron-gdn-20261026/apex-wgrad-build/temp/home/lwx/.cache/megatron-gdn-20261026/apex-wgrad-build/fp32.o.d -I/home/lwx/.cache/megatron-gdn-20261026/apex-wgrad-build -I/home/lwx/.cache/megatron-gdn-20261026/apex-wgrad-build/cuda-include -I/home/lwx/.cache/megatron-gdn-20261026/apex-wgrad-build/cuda-include/cccl -I/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/include -I/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/include/torch/csrc/api/include -I/home/lwx/.cache/megatron-gdn-20261026/apex-wgrad-build/cuda/include -I/home/songbinbin/.venvs/megatron-gdn-offload/include -I/data/songbinbin/minicoda/include/python3.12 -c -c /home/lwx/.cache/megatron-gdn-20261026/apex-wgrad-build/fp32.cu -o /home/lwx/.cache/megatron-gdn-20261026/apex-wgrad-build/temp/home/lwx/.cache/megatron-gdn-20261026/apex-wgrad-build/fp32.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -O3 -U__CUDA_NO_HALF_OPERATORS__ -U__CUDA_NO_HALF_CONVERSIONS__ --expt-relaxed-constexpr --expt-extended-lambda --use_fast_math -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=fused_weight_gradient_mlp_cuda -gencode=arch=compute_120,code=sm_120 -std=c++17
+creating /home/lwx/.cache/megatron-gdn-20261026/apex-wgrad-build/out
+g++ -pthread -B /data/songbinbin/minicoda/compiler_compat -fno-strict-overflow -DNDEBUG -O2 -Wall -fPIC -O2 -isystem /data/songbinbin/minicoda/include -fPIC -O2 -isystem /data/songbinbin/minicoda/include -shared /home/lwx/.cache/megatron-gdn-20261026/apex-wgrad-build/temp/home/lwx/.cache/megatron-gdn-20261026/apex-wgrad-build/binding.o /home/lwx/.cache/megatron-gdn-20261026/apex-wgrad-build/temp/home/lwx/.cache/megatron-gdn-20261026/apex-wgrad-build/fp16.o /home/lwx/.cache/megatron-gdn-20261026/apex-wgrad-build/temp/home/lwx/.cache/megatron-gdn-20261026/apex-wgrad-build/fp32.o -L/home/lwx/.cache/megatron-gdn-20261026/apex-wgrad-build/lib -L/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/lib -L/home/lwx/.cache/megatron-gdn-20261026/apex-wgrad-build/cuda/lib64 -lcublas -lcudart -lc10_cuda -ltorch_cuda -lc10 -ltorch -ltorch_cpu -ltorch_python -lcudart -lc10_cuda -ltorch_cuda -o /home/lwx/.cache/megatron-gdn-20261026/apex-wgrad-build/out/fused_weight_gradient_mlp_cuda.cpython-312-x86_64-linux-gnu.so

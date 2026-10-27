@@ -1,0 +1,37 @@
+{
+  "revision": "bb346eb1c3461f471c420bcb7691b425863df3f5",
+  "command": [
+    "/usr/bin/python3",
+    "/home/lwx/.cache/megatron-gdn-20261026/precision_graph_container_gpu12_apex.py",
+    "/home/songbinbin/.venvs/megatron-gdn-offload/bin/python",
+    "-m",
+    "torch.distributed.run",
+    "--standalone",
+    "--nproc-per-node=2",
+    "--log-dir",
+    "/home/lwx/.cache/megatron-gdn-20261026/graph-merge-bb346eb-gdn2-graph-gpu12/ranks",
+    "--redirects",
+    "3",
+    "/home/lwx/.cache/megatron-gdn-20261026/rank_env_precision_graph.py",
+    "/home/lwx/.cache/megatron-gdn-20261026/rank_distributed_pytest.py",
+    "/home/lwx/.cache/megatron-gdn-20261026/graph-merge-bb346eb-gdn2-graph-gpu12/reports",
+    "-q",
+    "-x",
+    "-p",
+    "no:cacheprovider",
+    "--confcutdir=tests/unit_tests/pipeline_parallel",
+    "tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py",
+    "-k",
+    "tp2-sp or pp2"
+  ],
+  "started_unix": 1793091274.4654787,
+  "shared_gpus": true,
+  "gpu_uuids": [
+    "GPU-5ceca9be-9cf0-99be-0868-915db7531fae",
+    "GPU-fa4310c6-b684-22a7-6878-e8f0f86cf214"
+  ],
+  "exit_code": 0,
+  "finished_unix": 1793091463.586712,
+  "revision_after": "bb346eb1c3461f471c420bcb7691b425863df3f5",
+  "dirty_after": ""
+}

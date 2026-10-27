@@ -1,0 +1,4 @@
+main_grad pointer modulo 256: 0
+/home/lwx/.cache/megatron-gdn-20261026/nvfp4_te_wgrad_control.py:15: DeprecationWarning: fp8_autocast is deprecated and will be removed in a future release. Use autocast(enabled=..., calibrating=..., recipe=..., group=..., _graph=...) instead.
+  with te.fp8_autocast(enabled=True, fp8_recipe=NVFP4BlockScaling()):
+PASS 448 256 1

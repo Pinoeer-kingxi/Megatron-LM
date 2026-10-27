@@ -1,0 +1,25 @@
+--- a/tests/unit_tests/ssm/test_gated_delta_net_offloading.py
++++ b/tests/unit_tests/ssm/test_gated_delta_net_offloading.py
+@@ -78,6 +78,10 @@
+             "disable_parameter_transpose_cache=True",
+         ),
+         (
++            {"fp4": "e2m1", "external_cuda_graph": True},
++            "disable_parameter_transpose_cache=True",
++        ),
++        (
+             {
+                 "experimental_attention_variant": "gdn2",
+                 "fp4": "e2m1",
+@@ -104,6 +108,11 @@
+             "cuda_graph_impl": "transformer_engine",
+             "disable_parameter_transpose_cache": True,
+         },
++        {
++            "fp4": "e2m1",
++            "external_cuda_graph": True,
++            "disable_parameter_transpose_cache": True,
++        },
+     ],
+ )
+ def test_gdn_offload_config(precision: dict[str, Any]) -> None:

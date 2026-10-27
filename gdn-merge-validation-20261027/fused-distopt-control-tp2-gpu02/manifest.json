@@ -1,0 +1,40 @@
+{
+  "revision": "5267f8517db5095b476cc3dba49086a4562ae134",
+  "command": [
+    "/usr/bin/python3",
+    "/home/lwx/.cache/megatron-gdn-20261026/precision_graph_container_gpu02_apex.py",
+    "/home/songbinbin/.venvs/megatron-gdn-offload/bin/python",
+    "-m",
+    "torch.distributed.run",
+    "--standalone",
+    "--nproc-per-node=2",
+    "--log-dir",
+    "/home/lwx/.cache/megatron-gdn-20261026/fused-distopt-control-tp2-gpu02/ranks",
+    "--redirects",
+    "3",
+    "/home/lwx/.cache/megatron-gdn-20261026/rank_env_precision_graph.py",
+    "/home/lwx/.cache/megatron-gdn-20261026/rank_distributed_pytest.py",
+    "/home/lwx/.cache/megatron-gdn-20261026/fused-distopt-control-tp2-gpu02/reports",
+    "-q",
+    "-x",
+    "-p",
+    "no:cacheprovider",
+    "--confcutdir=tests/unit_tests/pipeline_parallel",
+    "tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py",
+    "-k",
+    "gdn2-False-True-True-True-1.0-fp4-True-tp2-sp",
+    "--showlocals"
+  ],
+  "started_unix": 1793091039.089127,
+  "gpu_uuids": [
+    "GPU-69c3be35-a9f7-eae1-6746-0f1e08f57e9a",
+    "GPU-fa4310c6-b684-22a7-6878-e8f0f86cf214"
+  ],
+  "shared_gpus": true,
+  "nvfp4_disable_rht": true,
+  "nvfp4_disable_stochastic_rounding": true,
+  "exit_code": 0,
+  "finished_unix": 1793091087.1999803,
+  "revision_after": "5267f8517db5095b476cc3dba49086a4562ae134",
+  "dirty_after": ""
+}

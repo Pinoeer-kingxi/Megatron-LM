@@ -1,0 +1,13 @@
+diff --git a/tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py b/tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py
+index 54af7ce47..f3f09e15c 100644
+--- a/tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py
++++ b/tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py
+@@ -133,6 +133,8 @@ def test_gdn_offload_with_te_graphs(
+                     variant=variant,
+                     precision=precision,
+                 ),
++                # Keep TP2 FFN shards aligned for SM120 NVFP4 fused weight gradients.
++                ffn_hidden_size=1024,
+                 fine_grained_activation_offloading=enabled,
+                 offload_modules=["gdn_core_attn"] if enabled else [],
+                 cuda_graph_impl="transformer_engine",

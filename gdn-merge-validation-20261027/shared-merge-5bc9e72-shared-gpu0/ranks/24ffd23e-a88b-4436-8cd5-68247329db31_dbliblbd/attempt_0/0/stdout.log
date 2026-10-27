@@ -1,0 +1,307 @@
+Initializing torch.distributed with rank: 0, world_size: 1
+Test store timeout: 10 minutes for cold compilation before lazy PP initialization
+.WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+
+====================
+Activation Offload Summary (MB)
+====================
+Rank           Total
+--------------------
+Rank 0          0.00
+--------------------
+Total           0.00
+====================
+
+.WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+
+============================================
+      Activation Offload Summary (MB)       
+============================================
+Rank       attn_proj   core_attn       Total
+--------------------------------------------
+Rank 0          0.03        0.69        0.72
+--------------------------------------------
+Total           0.03        0.69        0.72
+============================================
+
+.WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+
+============================================
+      Activation Offload Summary (MB)       
+============================================
+Rank       attn_proj   core_attn       Total
+--------------------------------------------
+Rank 0          0.09        1.03        1.12
+--------------------------------------------
+Total           0.09        1.03        1.12
+============================================
+
+.WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING:megatron.core.transformer.transformer_layer:pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING:megatron.core.transformer.transformer_layer:pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING:megatron.core.transformer.transformer_layer:pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING:megatron.core.transformer.transformer_layer:pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING:megatron.core.transformer.transformer_layer:pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING:megatron.core.transformer.transformer_layer:attn_norm offloading is not supported with attn cudagraph. Disabling attn_norm offloading.
+WARNING:megatron.core.transformer.transformer_layer:mlp_norm offloading is not supported with the current cudagraph scope. Disabling mlp_norm offloading.
+WARNING:megatron.core.transformer.transformer_layer:pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING:megatron.core.transformer.transformer_layer:attn_norm offloading is not supported with attn cudagraph. Disabling attn_norm offloading.
+WARNING:megatron.core.transformer.transformer_layer:mlp_norm offloading is not supported with the current cudagraph scope. Disabling mlp_norm offloading.
+WARNING:megatron.core.transformer.transformer_layer:pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING:megatron.core.transformer.transformer_layer:attn_norm offloading is not supported with attn cudagraph. Disabling attn_norm offloading.
+WARNING:megatron.core.transformer.transformer_layer:mlp_norm offloading is not supported with the current cudagraph scope. Disabling mlp_norm offloading.
+WARNING:megatron.core.transformer.transformer_layer:pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING:megatron.core.transformer.transformer_layer:attn_norm offloading is not supported with attn cudagraph. Disabling attn_norm offloading.
+WARNING:megatron.core.transformer.transformer_layer:mlp_norm offloading is not supported with the current cudagraph scope. Disabling mlp_norm offloading.
+
+====================
+Activation Offload Summary (MB)
+====================
+Rank           Total
+--------------------
+Rank 0          0.00
+--------------------
+Total           0.00
+====================
+
+CUDA Graph + Offload test (fraction=0.0, delay=True): base_peak=1078.59MiB, off_peak=1078.59MiB, saved=0.00MiB
+.WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING:megatron.core.transformer.transformer_layer:pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING:megatron.core.transformer.transformer_layer:pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING:megatron.core.transformer.transformer_layer:pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING:megatron.core.transformer.transformer_layer:pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING:megatron.core.transformer.transformer_layer:pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING:megatron.core.transformer.transformer_layer:attn_norm offloading is not supported with attn cudagraph. Disabling attn_norm offloading.
+WARNING:megatron.core.transformer.transformer_layer:mlp_norm offloading is not supported with the current cudagraph scope. Disabling mlp_norm offloading.
+WARNING:megatron.core.transformer.transformer_layer:pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING:megatron.core.transformer.transformer_layer:attn_norm offloading is not supported with attn cudagraph. Disabling attn_norm offloading.
+WARNING:megatron.core.transformer.transformer_layer:mlp_norm offloading is not supported with the current cudagraph scope. Disabling mlp_norm offloading.
+WARNING:megatron.core.transformer.transformer_layer:pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING:megatron.core.transformer.transformer_layer:attn_norm offloading is not supported with attn cudagraph. Disabling attn_norm offloading.
+WARNING:megatron.core.transformer.transformer_layer:mlp_norm offloading is not supported with the current cudagraph scope. Disabling mlp_norm offloading.
+WARNING:megatron.core.transformer.transformer_layer:pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING:megatron.core.transformer.transformer_layer:attn_norm offloading is not supported with attn cudagraph. Disabling attn_norm offloading.
+WARNING:megatron.core.transformer.transformer_layer:mlp_norm offloading is not supported with the current cudagraph scope. Disabling mlp_norm offloading.
+
+========================================================
+            Activation Offload Summary (MB)             
+========================================================
+Rank       attn_proj   core_attn  expert_fc1       Total
+--------------------------------------------------------
+Rank 0          4.00       52.00        4.00       60.00
+--------------------------------------------------------
+Total           4.00       52.00        4.00       60.00
+========================================================
+
+CUDA Graph + Offload test (fraction=0.5, delay=True): base_peak=1078.59MiB, off_peak=1018.59MiB, saved=60.00MiB
+.WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING:megatron.core.transformer.transformer_layer:pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING:megatron.core.transformer.transformer_layer:pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING:megatron.core.transformer.transformer_layer:pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING:megatron.core.transformer.transformer_layer:pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING:megatron.core.transformer.transformer_layer:pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING:megatron.core.transformer.transformer_layer:attn_norm offloading is not supported with attn cudagraph. Disabling attn_norm offloading.
+WARNING:megatron.core.transformer.transformer_layer:mlp_norm offloading is not supported with the current cudagraph scope. Disabling mlp_norm offloading.
+WARNING:megatron.core.transformer.transformer_layer:pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING:megatron.core.transformer.transformer_layer:attn_norm offloading is not supported with attn cudagraph. Disabling attn_norm offloading.
+WARNING:megatron.core.transformer.transformer_layer:mlp_norm offloading is not supported with the current cudagraph scope. Disabling mlp_norm offloading.
+WARNING:megatron.core.transformer.transformer_layer:pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING:megatron.core.transformer.transformer_layer:attn_norm offloading is not supported with attn cudagraph. Disabling attn_norm offloading.
+WARNING:megatron.core.transformer.transformer_layer:mlp_norm offloading is not supported with the current cudagraph scope. Disabling mlp_norm offloading.
+WARNING:megatron.core.transformer.transformer_layer:pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING:megatron.core.transformer.transformer_layer:attn_norm offloading is not supported with attn cudagraph. Disabling attn_norm offloading.
+WARNING:megatron.core.transformer.transformer_layer:mlp_norm offloading is not supported with the current cudagraph scope. Disabling mlp_norm offloading.
+
+========================================================
+            Activation Offload Summary (MB)             
+========================================================
+Rank       attn_proj   core_attn  expert_fc1       Total
+--------------------------------------------------------
+Rank 0          6.00       78.00       12.00       96.00
+--------------------------------------------------------
+Total           6.00       78.00       12.00       96.00
+========================================================
+
+CUDA Graph + Offload test (fraction=1.0, delay=False): base_peak=1078.59MiB, off_peak=982.59MiB, saved=96.00MiB
+.
+=============================== warnings summary ===============================
+../../../../songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/config/__init__.py:1345
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/config/__init__.py:1345: PytestAssertRewriteWarning: Module already imported so cannot be rewritten; anyio
+    self._mark_plugins_for_rewrite(hook, disable_autoload)
+
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_skips_checkpoint_without_output_storage
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[0.0]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[0.5]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[1.0]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules6-cuda_graph_scope6-0.0-True]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules6-cuda_graph_scope6-0.0-True]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules7-cuda_graph_scope7-0.5-True]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules8-cuda_graph_scope8-1.0-False]
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+    return func(*args, **kwargs)
+
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[0.0]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[0.5]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[1.0]
+  /home/lwx/.cache/megatron-gdn-20261026/shared-merge-5bc9e72/megatron/core/transformer/transformer_config.py:3775: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+    warnings.warn(
+
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py: 24 warnings
+  /home/lwx/.cache/megatron-gdn-20261026/shared-merge-5bc9e72/megatron/core/transformer/mlp.py:447: DeprecationWarning: MLP requires ffn_hidden_size, but it was not provided. Using                     config.ffn_hidden_size by default.
+    return cls(
+
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py: 132 warnings
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/transformer_engine/pytorch/attention/dot_product_attention/dot_product_attention.py:2624: DeprecationWarning: Relying on pointer-based detection of packed q/k/v layouts (detected 'sbh3d') is deprecated: pass the packed buffer explicitly via qkv_layer/kv_layer (with qkv_interleave_dim) to DotProductAttention instead.
+    ) = dpa_utils.get_qkv_layout(
+
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules6-cuda_graph_scope6-0.0-True]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules6-cuda_graph_scope6-0.0-True]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules7-cuda_graph_scope7-0.5-True]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules8-cuda_graph_scope8-1.0-False]
+  /home/lwx/.cache/megatron-gdn-20261026/shared-merge-5bc9e72/megatron/core/transformer/transformer_config.py:2305: UserWarning: moe_ffn_hidden_size is not set, using ffn_hidden_size instead.
+    warnings.warn("moe_ffn_hidden_size is not set, using ffn_hidden_size instead.")
+
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules6-cuda_graph_scope6-0.0-True]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules6-cuda_graph_scope6-0.0-True]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules7-cuda_graph_scope7-0.5-True]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules7-cuda_graph_scope7-0.5-True]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules8-cuda_graph_scope8-1.0-False]
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules8-cuda_graph_scope8-1.0-False]
+  <string>:371: DeprecationWarning: cuda_graph_scope is deprecated, use cuda_graph_modules instead.
+
+tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py: 120 warnings
+  /home/lwx/.cache/megatron-gdn-20261026/shared-merge-5bc9e72/megatron/core/tensor_parallel/random.py:860: DeprecationWarning: fp8_autocast is deprecated and will be removed in a future release. Use autocast(enabled=..., calibrating=..., recipe=..., group=..., _graph=...) instead.
+    with fp8_autocast(enabled=self.fp8_enabled, fp8_recipe=self.fp8_recipe):
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+__________ test_offload_resident_groups_preserve_forward_chunks[0.0] ___________
+------------------------------ Captured log call -------------------------------
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+__________ test_offload_resident_groups_preserve_forward_chunks[0.5] ___________
+------------------------------ Captured log call -------------------------------
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+__________ test_offload_resident_groups_preserve_forward_chunks[1.0] ___________
+------------------------------ Captured log call -------------------------------
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+_ test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules6-cuda_graph_scope6-0.0-True] _
+------------------------------ Captured log call -------------------------------
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:structured.py:28 
+DEBUG    torch.__trace:convert_frame.py:276 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:meta_utils.py:276 
+DEBUG    torch.__trace:meta_utils.py:499 
+DEBUG    torch.__trace:meta_utils.py:2107 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:2126 
+DEBUG    torch.__trace:utils.py:1796 
+DEBUG    torch.__trace:utils.py:2126 
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 attn_norm offloading is not supported with attn cudagraph. Disabling attn_norm offloading.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 mlp_norm offloading is not supported with the current cudagraph scope. Disabling mlp_norm offloading.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 attn_norm offloading is not supported with attn cudagraph. Disabling attn_norm offloading.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 mlp_norm offloading is not supported with the current cudagraph scope. Disabling mlp_norm offloading.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 attn_norm offloading is not supported with attn cudagraph. Disabling attn_norm offloading.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 mlp_norm offloading is not supported with the current cudagraph scope. Disabling mlp_norm offloading.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 attn_norm offloading is not supported with attn cudagraph. Disabling attn_norm offloading.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 mlp_norm offloading is not supported with the current cudagraph scope. Disabling mlp_norm offloading.
+_ test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules7-cuda_graph_scope7-0.5-True] _
+------------------------------ Captured log call -------------------------------
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 attn_norm offloading is not supported with attn cudagraph. Disabling attn_norm offloading.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 mlp_norm offloading is not supported with the current cudagraph scope. Disabling mlp_norm offloading.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 attn_norm offloading is not supported with attn cudagraph. Disabling attn_norm offloading.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 mlp_norm offloading is not supported with the current cudagraph scope. Disabling mlp_norm offloading.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 attn_norm offloading is not supported with attn cudagraph. Disabling attn_norm offloading.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 mlp_norm offloading is not supported with the current cudagraph scope. Disabling mlp_norm offloading.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 attn_norm offloading is not supported with attn cudagraph. Disabling attn_norm offloading.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 mlp_norm offloading is not supported with the current cudagraph scope. Disabling mlp_norm offloading.
+_ test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules8-cuda_graph_scope8-1.0-False] _
+------------------------------ Captured log call -------------------------------
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 attn_norm offloading is not supported with attn cudagraph. Disabling attn_norm offloading.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 mlp_norm offloading is not supported with the current cudagraph scope. Disabling mlp_norm offloading.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 attn_norm offloading is not supported with attn cudagraph. Disabling attn_norm offloading.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 mlp_norm offloading is not supported with the current cudagraph scope. Disabling mlp_norm offloading.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 attn_norm offloading is not supported with attn cudagraph. Disabling attn_norm offloading.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 mlp_norm offloading is not supported with the current cudagraph scope. Disabling mlp_norm offloading.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 pre_mlp_layernorm recompute is only supported with moe router + preprocess cudagraph will alltoall token dispatcher or latent MoE. Disabling pre_mlp_layernorm recompute.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 attn_norm offloading is not supported with attn cudagraph. Disabling attn_norm offloading.
+WARNING  megatron.core.transformer.transformer_layer:_rank_utils.py:127 mlp_norm offloading is not supported with the current cudagraph scope. Disabling mlp_norm offloading.
+============================= slowest 15 durations =============================
+9.15s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules6-cuda_graph_scope6-0.0-True]
+7.46s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules7-cuda_graph_scope7-0.5-True]
+7.38s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules8-cuda_graph_scope8-1.0-False]
+2.05s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[0.0]
+0.65s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[0.5]
+0.63s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[1.0]
+0.06s call     tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_skips_checkpoint_without_output_storage
+
+(8 durations < 0.005s hidden.  Use -vv to show these durations.)
+=========================== short test summary info ============================
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_chunk_offload_handler_skips_checkpoint_without_output_storage
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[0.0]
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[0.5]
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_offload_resident_groups_preserve_forward_chunks[1.0]
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules6-cuda_graph_scope6-0.0-True]
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules7-cuda_graph_scope7-0.5-True]
+PASSED tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py::test_fine_grained_activation_offloading_with_cuda_graph[False-offload_modules8-cuda_graph_scope8-1.0-False]
+7 passed, 34 deselected, 298 warnings in 27.68s

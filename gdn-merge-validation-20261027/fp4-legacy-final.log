@@ -1,0 +1,67 @@
+.................
+=============================== warnings summary ===============================
+megatron/core/dist_checkpointing/strategies/torch.py:71
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-low-precision-extension-20261026/source/megatron/core/dist_checkpointing/strategies/torch.py:71: DeprecationWarning: transformer_engine.pytorch.float8_tensor is deprecated and will be removed in a future release. Float8Tensor should be imported directly through `from transformer_engine.pytorch import Float8Tensor`
+    from transformer_engine.pytorch.float8_tensor import Float8Tensor
+
+../../../../../../../home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+megatron/core/tensor_parallel/random.py:121
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-low-precision-extension-20261026/source/megatron/core/tensor_parallel/random.py:121: DeprecationWarning: Using deprecated internal API from Transformer Engine. transformer_engine.pytorch.fp8 will be removed in a future release.
+    from transformer_engine.pytorch.fp8 import FP8GlobalStateManager, fp8_autocast
+
+megatron/core/inference/contexts/__init__.py:9
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-low-precision-extension-20261026/source/megatron/core/inference/contexts/__init__.py:9: DeprecationWarning: The following imports from `dynamic_context.py` will be removed in this file in `megatron-core` 0.14. The imports here result in a cyclic import issue that causes rotary embeddings to import from Apex rather than Transformer Engine.
+    warnings.warn(
+
+megatron/core/models/mimo/config/base_configs.py:12
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-low-precision-extension-20261026/source/megatron/core/models/mimo/config/base_configs.py:12: UserWarning: MimoModelConfig is experimental and still under active development. The API may change without notice in future releases.
+    class MimoModelConfig:
+
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config[precision0]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config[precision1]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config[precision2]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config[precision3]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config[precision4]
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-low-precision-extension-20261026/source/megatron/core/transformer/transformer_config.py:3806: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+    warnings.warn(
+
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config[precision0]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config[precision1]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config[precision2]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config[precision3]
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config[precision4]
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-low-precision-extension-20261026/source/megatron/core/transformer/transformer_config.py:1825: DeprecationWarning: experimental_attention_variant='gated_delta_net' is deprecated and will be removed in a future release. Use 'gdn' instead.
+    self.experimental_attention_variant = normalize_experimental_attention_variant(
+
+tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config[precision4]
+  /data/songbinbin/Proj/Proj_LWX/.codex-artifacts/gdn-low-precision-extension-20261026/source/megatron/core/transformer/transformer_config.py:3754: UserWarning: external_cuda_graph is deprecated, use cuda_graph_impl=transformer_engine instead.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+============================= slowest 15 durations =============================
+0.17s setup    tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs0-only supports GDN]
+
+(14 durations < 0.005s hidden.  Use -vv to show these durations.)
+=========================== short test summary info ============================
+PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs0-only supports GDN]
+PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs1-BF16]
+PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs2-FLA]
+PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs3-FLA]
+PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs4-FLA]
+PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs5-full recomputation]
+PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs6-Transformer Engine CUDA graphs]
+PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs7-Transformer Engine CUDA graphs]
+PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs8-Transformer Engine CUDA graphs]
+PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs9-disable_parameter_transpose_cache=True]
+PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs10-disable_parameter_transpose_cache=True]
+PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs11-disable_parameter_transpose_cache=True]
+PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config[precision0]
+PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config[precision1]
+PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config[precision2]
+PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config[precision3]
+PASSED tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config[precision4]
+17 passed, 81 deselected, 29 warnings in 7.20s

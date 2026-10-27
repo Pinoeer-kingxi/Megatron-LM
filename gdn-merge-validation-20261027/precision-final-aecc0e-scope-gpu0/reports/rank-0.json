@@ -1,0 +1,673 @@
+{
+  "rank": 0,
+  "collected": 111,
+  "exit_code": 0,
+  "outcomes": [
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs0-only supports GDN]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs1-BF16]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs2-FLA]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs3-FLA]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs4-FLA]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs5-full recomputation]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs6-Transformer Engine CUDA graphs]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs7-Transformer Engine CUDA graphs]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs8-Transformer Engine CUDA graphs]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs9-disable_parameter_transpose_cache=True]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs10-disable_parameter_transpose_cache=True]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_reject_unsupported_gdn_offload[kwargs11-disable_parameter_transpose_cache=True]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config[precision0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config[precision1]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config[precision2]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config[precision3]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_config[precision4]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_te_graph_config[gdn]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_te_graph_config[gdn2]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[unfused_pre_gdr-shared_qk-False-0.0-1024]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[unfused_pre_gdr-shared_qk-False-0.5-1024]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[unfused_pre_gdr-shared_qk-False-1.0-1024]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[unfused_pre_gdr-shared_qk-False-1.0-1000000000]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[unfused_pre_gdr-shared_qk-True-0.0-1024]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[unfused_pre_gdr-shared_qk-True-0.5-1024]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[unfused_pre_gdr-shared_qk-True-1.0-1024]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[unfused_pre_gdr-shared_qk-True-1.0-1000000000]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[unfused_pre_gdr-expanded_qk-False-0.0-1024]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[unfused_pre_gdr-expanded_qk-False-0.5-1024]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[unfused_pre_gdr-expanded_qk-False-1.0-1024]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[unfused_pre_gdr-expanded_qk-False-1.0-1000000000]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[unfused_pre_gdr-expanded_qk-True-0.0-1024]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[unfused_pre_gdr-expanded_qk-True-0.5-1024]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[unfused_pre_gdr-expanded_qk-True-1.0-1024]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[unfused_pre_gdr-expanded_qk-True-1.0-1000000000]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[fused_pre_gdr-shared_qk-False-0.0-1024]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[fused_pre_gdr-shared_qk-False-0.5-1024]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[fused_pre_gdr-shared_qk-False-1.0-1024]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[fused_pre_gdr-shared_qk-False-1.0-1000000000]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[fused_pre_gdr-shared_qk-True-0.0-1024]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[fused_pre_gdr-shared_qk-True-0.5-1024]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[fused_pre_gdr-shared_qk-True-1.0-1024]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[fused_pre_gdr-shared_qk-True-1.0-1000000000]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[fused_pre_gdr-expanded_qk-False-0.0-1024]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[fused_pre_gdr-expanded_qk-False-0.5-1024]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[fused_pre_gdr-expanded_qk-False-1.0-1024]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[fused_pre_gdr-expanded_qk-False-1.0-1000000000]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[fused_pre_gdr-expanded_qk-True-0.0-1024]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[fused_pre_gdr-expanded_qk-True-0.5-1024]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[fused_pre_gdr-expanded_qk-True-1.0-1024]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_replay[fused_pre_gdr-expanded_qk-True-1.0-1000000000]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_eval_bypasses_offload_manager",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_offload_retains_live_sigmoid_gates[False-4]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_offload_retains_live_sigmoid_gates[False-8]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_offload_retains_live_sigmoid_gates[True-4]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_offload_retains_live_sigmoid_gates[True-8]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_microbatch_accumulation[False-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_microbatch_accumulation[False-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_microbatch_accumulation[False-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_microbatch_accumulation[True-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_microbatch_accumulation[True-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_microbatch_accumulation[True-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_packed_sequence[unfused_pre_gdr-False]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_packed_sequence[unfused_pre_gdr-True]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_packed_sequence[fused_pre_gdr-False]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_packed_sequence[fused_pre_gdr-True]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_delayed_d2h[gdn-False]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_delayed_d2h[gdn-True]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_delayed_d2h[gdn2-False]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_delayed_d2h[gdn2-True]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_training_eval_training[unfused_pre_gdr-False-False-False]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_training_eval_training[unfused_pre_gdr-False-False-True]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_training_eval_training[unfused_pre_gdr-False-True-False]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_training_eval_training[unfused_pre_gdr-True-False-False]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_training_eval_training[unfused_pre_gdr-True-False-True]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_training_eval_training[unfused_pre_gdr-True-True-False]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_training_eval_training[fused_pre_gdr-False-False-False]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_training_eval_training[fused_pre_gdr-False-False-True]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_training_eval_training[fused_pre_gdr-False-True-False]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_training_eval_training[fused_pre_gdr-True-False-False]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_training_eval_training[fused_pre_gdr-True-False-True]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_training_eval_training[fused_pre_gdr-True-True-False]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_no_grad_bypass[False-True]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_no_grad_bypass[True-False]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_no_grad_bypass[False-False]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn_offload_frozen_recurrence_bypass",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_offload_replay[False-False-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_offload_replay[False-False-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_offload_replay[False-False-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_offload_replay[False-True-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_offload_replay[False-True-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_offload_replay[False-True-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_offload_replay[True-False-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_offload_replay[True-False-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_offload_replay[True-False-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_offload_replay[True-True-0.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_offload_replay[True-True-0.5]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_gated_delta_net_offloading.py::test_gdn2_offload_replay[True-True-1.0]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags0-divisible by TP * CP]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags1-divisible by TP * CP]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags2-divisible by --pp]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags3-divisible by --pp]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags4-None]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags5-None]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags6-None]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags7-None]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags8-None]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags9-None]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_checkpoint_path_boundaries[False]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_checkpoint_path_boundaries[True]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_forward_step_activates_nvfp4",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "old_source": "43e77e7e5fbb53cd86449fc36c841c13ffbc69a3",
+  "test_patch": "fp4-legacy-test.diff",
+  "old_result": "test expecting rejection fails because no ValueError was raised",
+  "fixed_source": "b5eb5e9166326826839ebc667b112858c7ec8e2a",
+  "fixed_result": "17 passed; includes legacy graph option rejection and acceptance",
+  "old_log": "fp4-legacy-old.log",
+  "fixed_log": "fp4-legacy-final.log",
+  "old_test_file_sha256": "0fc3fea10c412f00fc985f2c2b5ed2ef63c9f62a076ae9e4e392bcb23aed5c4e"
+}

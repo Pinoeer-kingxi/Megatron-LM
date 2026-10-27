@@ -1,0 +1,52 @@
+diff --git a/tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py b/tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py
+index 54af7ce47..812fed109 100644
+--- a/tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py
++++ b/tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py
+@@ -148,7 +148,9 @@ def test_gdn_offload_with_te_graphs(
+             init_stream = torch.cuda.Stream()
+             init_stream.wait_stream(current_stream)
+             with torch.cuda.stream(init_stream):
+-                models, optimizer = _build_training_model(config, groups)
++                models, optimizer = _build_training_model(
++                    config, groups, distributed_optimizer=gradient_accumulation_fusion and tp > 1
++                )
+             current_stream.wait_stream(init_stream)
+             manager = PipelineOffloadManager.get_instance()
+             pool_checks = []
+diff --git a/tests/unit_tests/ssm/test_gdn_offload_training.py b/tests/unit_tests/ssm/test_gdn_offload_training.py
+index e83179a63..36f87970c 100644
+--- a/tests/unit_tests/ssm/test_gdn_offload_training.py
++++ b/tests/unit_tests/ssm/test_gdn_offload_training.py
+@@ -117,7 +117,10 @@ def _training_config(
+ 
+ 
+ def _build_training_model(
+-    config: TransformerConfig, groups: ProcessGroupCollection
++    config: TransformerConfig,
++    groups: ProcessGroupCollection,
++    *,
++    distributed_optimizer: bool = False,
+ ) -> tuple[list[DistributedDataParallel], MegatronOptimizer]:
+     """Construct full decoder blocks, DDP gradient buffers and the BF16 Adam optimizer."""
+     # Both recipes include MLPs, so this fixture exercises complete decoder blocks.
+@@ -159,14 +162,18 @@ def _build_training_model(
+         models.append(
+             DistributedDataParallel(
+                 config,
+-                DistributedDataParallelConfig(grad_reduce_in_fp32=True),
++                DistributedDataParallelConfig(
++                    grad_reduce_in_fp32=True, use_distributed_optimizer=distributed_optimizer
++                ),
+                 Float16Module(config, model),
+                 pg_collection=groups,
+             )
+         )
+         models[-1].broadcast_params()
+     optimizer = get_megatron_optimizer(
+-        OptimizerConfig(bf16=True, lr=1e-3, clip_grad=1.0),
++        OptimizerConfig(
++            bf16=True, lr=1e-3, clip_grad=1.0, use_distributed_optimizer=distributed_optimizer
++        ),
+         models,
+         use_gloo_process_groups=False,
+         pg_collection=groups,

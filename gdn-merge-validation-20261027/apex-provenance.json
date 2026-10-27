@@ -1,0 +1,11 @@
+{
+  "apex_source": "575968bc1f9127ccd61003a681472a83af4ff1a1",
+  "source_hashes": {
+    "fused_weight_gradient_dense.cpp": "bafe90bbd1b7fd6db988ffaf85cbec7547326439734a31db5d8dc48abbd15d63",
+    "fused_weight_gradient_dense_cuda.cu": "dbc1e5e3dca1105ea0e89bb3d159459c1f85ac7ae98a7e3bc357b58f3d68344c",
+    "fused_weight_gradient_dense_16bit_prec_cuda.cu": "c04cf20f83d3dcb5b086dc5cdfee664a23c6fe61f768be3a6cef6a2ff5dae33d",
+    "type_shim.h": "fb7da5e7d24fe3f5583b59bf88598f5f5d37037d655a5f19fd71cb91d0c381fe"
+  },
+  "compiled_extension_sha256": "c87132964459919a79480c3b12c1e1a953983fd8934b4446aa5fd5c85053076f",
+  "nvfp4_standalone_probe_sha256": "b7a4a40d916c3225cc71a2ff5883342d65966827f3431c106f3cfef8f0ee332a"
+}

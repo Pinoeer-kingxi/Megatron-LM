@@ -1,0 +1,2 @@
+Imported Megatron Core from /home/lwx/.cache/megatron-gdn-20261026/feature-merge-b6fa63/megatron/core/__init__.py
+ > number of parameters on (tensor, gtp_remat, pipeline) model parallel rank (1, 0, 0): 428024608

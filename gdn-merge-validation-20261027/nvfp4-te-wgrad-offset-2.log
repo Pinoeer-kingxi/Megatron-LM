@@ -1,0 +1,29 @@
+main_grad pointer modulo 256: 8
+/home/lwx/.cache/megatron-gdn-20261026/nvfp4_te_wgrad_control.py:15: DeprecationWarning: fp8_autocast is deprecated and will be removed in a future release. Use autocast(enabled=..., calibrating=..., recipe=..., group=..., _graph=...) instead.
+  with te.fp8_autocast(enabled=True, fp8_recipe=NVFP4BlockScaling()):
+Traceback (most recent call last):
+  File "/home/lwx/.cache/megatron-gdn-20261026/nvfp4_te_wgrad_control.py", line 17, in <module>
+    output.float().square().mean().backward()
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/_tensor.py", line 631, in backward
+    torch.autograd.backward(
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/autograd/__init__.py", line 381, in backward
+    _engine_run_backward(
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/autograd/graph.py", line 869, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/autograd/function.py", line 317, in apply
+    return user_fn(self, *args)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/transformer_engine/pytorch/module/linear.py", line 1881, in backward
+    result = _linear_backward_impl(bwd_args) + (None,)  # fwd_args grad slot
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/transformer_engine/pytorch/module/linear.py", line 1650, in _linear_backward_impl
+    wgrad, grad_bias_ = wgrad_gemm(inputmat_total, grad_output)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/transformer_engine/pytorch/module/linear.py", line 1630, in wgrad_gemm
+    dw, db, *_ = general_gemm(x, dy, **wgrad_gemm_kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/transformer_engine/pytorch/cpp_extensions/gemm.py", line 301, in general_gemm
+    out, bias_grad, gelu_input, extra_output = tex.generic_gemm(*args, **kwargs)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: /TransformerEngine/transformer_engine/common/gemm/cublaslt_gemm.cu:778 in function cublas_gemm: Assertion failed: status != CUBLAS_STATUS_NOT_SUPPORTED. Unable to find suitable cuBLAS GEMM algorithm
