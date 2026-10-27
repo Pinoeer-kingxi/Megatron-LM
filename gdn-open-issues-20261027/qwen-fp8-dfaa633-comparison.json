@@ -1,0 +1,309 @@
+{
+  "revision": "dfaa6338c65edab118ba415fcc14c73241f503a6",
+  "results": {
+    "fp8-delayed": {
+      "graph-off": {
+        "input_sha256": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "loss": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "grad_norm": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "gradients": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "weights": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "optimizer": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "graph-on": {
+        "input_sha256": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "loss": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "grad_norm": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "gradients": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "weights": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "optimizer": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "offload_vs_graph": {
+        "input_sha256": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "loss": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "grad_norm": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "gradients": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "weights": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "optimizer": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    "fp8-tensorwise": {
+      "graph-off": {
+        "input_sha256": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "loss": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "grad_norm": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "gradients": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "weights": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "optimizer": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "graph-on": {
+        "input_sha256": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "loss": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "grad_norm": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "gradients": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "weights": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "optimizer": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "offload_vs_graph": {
+        "input_sha256": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "loss": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "grad_norm": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "gradients": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "weights": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "optimizer": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    }
+  }
+}

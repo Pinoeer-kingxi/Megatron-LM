@@ -1,6 +1,9 @@
 """Check recorded GPU outcomes, full training fingerprints, and file integrity."""
+import ast
 import hashlib
 import json
+import math
+import re
 import subprocess
 import sys
 from collections import Counter
@@ -88,6 +91,22 @@ for arm in ('eager', 'graph-disabled', 'graph-repeat', 'graph-offloaded'):
     states.append([{k: step[k] for k in keys} for step in data['records']])
 assert states[0] == states[1] == states[2] == states[3]
 
+for precision in ('fp8-delayed', 'fp8-tensorwise'):
+    states = []
+    for arm in ('eager', 'graph-off', 'graph-on'):
+        folder = root / f'qwen-{precision}-{arm}-dfaa633-gpu0'
+        manifest = json.loads((folder / 'manifest.json').read_text())
+        assert manifest['revision'] == manifest['revision_after'] == revision
+        assert manifest['exit_code'] == 0 and not manifest['dirty_after']
+        assert hashlib.sha256((root / 'benchmark_fp8_qwen.py').read_bytes()).hexdigest() == manifest['script_sha256']
+        data = json.loads((folder / 'result.json').read_text())
+        assert data['arguments']['precision'] == precision
+        assert len(data['records']) == 6 and len(data['graph_counts']) == (0 if arm == 'eager' else 24)
+        assert all((x['selected_bytes'] > 0) == (arm == 'graph-on') for x in data['records'][3:])
+        assert data['pool_checks'] == 6 and all(x['pool']['current_in_use'] == 0 for x in data['records'])
+        states.append([{k: step[k] for k in keys} for step in data['records']])
+    assert states[0] == states[1] == states[2]
+
 for model, layers in (('qwen', 24), ('gdn2', 8)):
     states = []
     for arm in ('eager', 'off', 'on'):
@@ -136,6 +155,42 @@ for arm in ('high-precision', 'high-precision-offload'):
         assert bool(output['offload_status']['selected_transfer_bytes']) == (arm == 'high-precision-offload')
     states.append([output['states'] for output in outputs])
 assert states[0] == states[1]
+
+folder = root / 'qwen-bf16-stability-203-b6fa63-gpu3'
+manifest = json.loads((folder / 'manifest.json').read_text())
+assert manifest['revision'] == manifest['revision_after'] == 'b6fa63ab8c2cb855f0368cd8455245c295cde234'
+assert manifest['exit_code'] == 0 and not manifest['dirty_after']
+assert hashlib.sha256((root / 'qwen_stability_observer.py').read_bytes()).hexdigest() == manifest['script_sha256']
+data = json.loads((folder / 'result.rank0.json').read_text())
+pool = json.loads((folder / 'pool.rank0.json').read_text())
+assert data['text_layers'] == 24 and len(data['samples']) == 200 and len(pool) == 203
+assert all(x['selected_transfer_bytes'] > 0 for x in data['samples'])
+assert {x['peak_allocated_bytes'] for x in data['samples']} == {14614417920}
+assert {x['peak_reserved_bytes'] for x in data['samples']} == {15195963392}
+assert all(x['stats']['current_in_use'] == 0 for x in pool)
+assert {x['stats']['total_allocated'] for x in pool} == {126}
+assert {x['retained_pinned_bytes'] for x in pool} == {33472512}
+logs = list((folder / 'ranks').glob('**/0/stderr.log'))
+assert len(logs) == 1
+rows = re.findall(r'Rank 0 step (\d+): losses=(\[.*?\]) grad_norm=(.*?) selected_transfer_bytes=(\d+)', logs[0].read_text())
+assert [int(row[0]) for row in rows] == list(range(203))
+assert all(all(math.isfinite(value) for value in ast.literal_eval(row[1])) for row in rows)
+norms = [re.fullmatch(r"tensor\(\[([-+0-9.eE]+)\], device='cuda:[0-9]+'\)", row[2]) for row in rows]
+assert all(match and math.isfinite(float(match.group(1))) and float(match.group(1)) > 0 for match in norms)
+
+states = []
+for arm, first, last in (('continuous', 0, 6), ('save', 0, 3), ('resume', 3, 6)):
+    folder = root / f'qwen-bf16-checkpoint-{arm}-b6fa63-gpu3'
+    manifest = json.loads((folder / 'manifest.json').read_text())
+    assert manifest['revision'] == manifest['revision_after'] == 'b6fa63ab8c2cb855f0368cd8455245c295cde234'
+    assert manifest['exit_code'] == 0 and not manifest['dirty_after']
+    assert hashlib.sha256((root / 'qwen_gdn_offload_training_b6fa63.py').read_bytes()).hexdigest() == manifest['script_sha256']
+    data = json.loads((folder / 'result.rank0.json').read_text())
+    assert data['text_layers'] == 24 and data['first_step'] == first and data['next_step'] == last
+    assert len(data['states']) == last - first and data['pool_verified_before_reset']
+    assert data['offload_status']['selected_transfer_bytes'] > 0
+    states.append(data['states'])
+assert states[0] == states[1] + states[2]
 
 summary = json.loads(subprocess.check_output([sys.executable, '-S', str(root / 'summarize_performance.py')], text=True))
 assert summary == json.loads((root / 'performance-summary.json').read_text())

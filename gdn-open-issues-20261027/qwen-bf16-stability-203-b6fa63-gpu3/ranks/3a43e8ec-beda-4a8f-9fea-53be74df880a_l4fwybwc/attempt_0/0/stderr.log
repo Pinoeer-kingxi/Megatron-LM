@@ -1,0 +1,462 @@
+/home/lwx/.cache/megatron-gdn-20261026/feature-merge-b6fa63/megatron/core/models/mimo/config/base_configs.py:12: UserWarning: MimoModelConfig is experimental and still under active development. The API may change without notice in future releases.
+  class MimoModelConfig:
+INFO:fla.utils._device:Blackwell detected: registering default global_scratch allocator.
+INFO:megatron.bridge.models.gemma.gemma2_provider:Gemma2: PyTorch FlexAttention available — softcap+SWA fused via Triton score_mod.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+/home/lwx/.cache/megatron-gdn-20261026/feature-merge-b6fa63/megatron/core/transformer/transformer_config.py:3796: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+  warnings.warn(
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+INFO:megatron.core.distributed.distributed_data_parallel:Setting up DistributedDataParallel with config DistributedDataParallelConfig(grad_reduce_in_fp32=True, overlap_grad_reduce=False, overlap_param_gather=False, align_param_gather=False, use_distributed_optimizer=False, num_distributed_optimizer_instances=1, check_for_nan_in_grad=False, check_for_large_grads=False, bucket_size=None, num_buckets=None, pad_buckets_for_high_nccl_busbw=False, reduce_scatter_with_fp32_accumulation=False, param_name_patterns_for_fp32_local_accumulation=(), average_in_collective=False, fp8_param_gather=False, fp4_param_gather=False, reuse_grad_buf_for_mxfp8_param_ag=False, use_megatron_fsdp=False, megatron_fsdp_version=1, use_custom_fsdp=False, data_parallel_sharding_strategy='no_shard', expert_data_parallel_sharding_strategy='no_shard', gradient_reduce_div_fusion=True, suggested_communication_unit_size=None, keep_fp8_transpose_cache=False, nccl_ub=False, grad_buffer_offload=False, fsdp_double_buffer=False, fsdp_db_use_persist_buf_on_alloc_fail=False, fsdp_all_gather_in_start_param_sync=True, outer_dp_sharding_strategy='no_shard', expert_outer_dp_sharding_strategy='no_shard', disable_symmetric_registration=False, fsdp_manual_registration=False, delay_wgrad_compute=False, megatron_fsdp_main_params_dtype=torch.float32, megatron_fsdp_main_grads_dtype=None, megatron_fsdp_grad_comm_dtype=None, megatron_fsdp_use_decoupled_grad=False, megatron_fsdp_cuda_graph_mode=False, megatron_fsdp_enable_fine_grained_param_gather=False, megatron_fsdp_max_pool_double_buffer=False, hfsdp_param_gather_overlap=False)
+INFO:megatron.core.distributed.param_and_grad_buffer:Number of buckets for gradient all-reduce / reduce-scatter: 1
+Params for bucket 1 (752393024 elements, 752393024 padded size, 0 param(s) with extra main_grads):
+	module.decoder.final_layernorm.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.23.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.23.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.23.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.23.self_attention.k_layernorm.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.23.self_attention.q_layernorm.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.23.self_attention.linear_qkv.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.23.self_attention.linear_qkv.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.23.self_attention.linear_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.22.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.22.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.22.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.22.self_attention.out_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.22.self_attention.out_norm.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.22.self_attention.conv1d.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.22.self_attention.in_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.22.self_attention.in_proj.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.22.self_attention.A_log (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.22.self_attention.dt_bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.21.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.21.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.21.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.21.self_attention.out_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.21.self_attention.out_norm.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.21.self_attention.conv1d.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.21.self_attention.in_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.21.self_attention.in_proj.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.21.self_attention.A_log (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.21.self_attention.dt_bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.20.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.20.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.20.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.20.self_attention.out_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.20.self_attention.out_norm.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.20.self_attention.conv1d.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.20.self_attention.in_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.20.self_attention.in_proj.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.20.self_attention.A_log (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.20.self_attention.dt_bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.19.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.19.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.19.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.19.self_attention.k_layernorm.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.19.self_attention.q_layernorm.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.19.self_attention.linear_qkv.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.19.self_attention.linear_qkv.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.19.self_attention.linear_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.18.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.18.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.18.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.18.self_attention.out_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.18.self_attention.out_norm.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.18.self_attention.conv1d.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.18.self_attention.in_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.18.self_attention.in_proj.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.18.self_attention.A_log (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.18.self_attention.dt_bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.17.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.17.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.17.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.17.self_attention.out_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.17.self_attention.out_norm.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.17.self_attention.conv1d.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.17.self_attention.in_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.17.self_attention.in_proj.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.17.self_attention.A_log (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.17.self_attention.dt_bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.16.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.16.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.16.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.16.self_attention.out_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.16.self_attention.out_norm.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.16.self_attention.conv1d.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.16.self_attention.in_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.16.self_attention.in_proj.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.16.self_attention.A_log (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.16.self_attention.dt_bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.15.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.15.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.15.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.15.self_attention.k_layernorm.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.15.self_attention.q_layernorm.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.15.self_attention.linear_qkv.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.15.self_attention.linear_qkv.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.15.self_attention.linear_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.14.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.14.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.14.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.14.self_attention.out_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.14.self_attention.out_norm.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.14.self_attention.conv1d.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.14.self_attention.in_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.14.self_attention.in_proj.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.14.self_attention.A_log (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.14.self_attention.dt_bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.13.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.13.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.13.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.13.self_attention.out_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.13.self_attention.out_norm.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.13.self_attention.conv1d.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.13.self_attention.in_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.13.self_attention.in_proj.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.13.self_attention.A_log (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.13.self_attention.dt_bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.12.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.12.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.12.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.12.self_attention.out_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.12.self_attention.out_norm.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.12.self_attention.conv1d.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.12.self_attention.in_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.12.self_attention.in_proj.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.12.self_attention.A_log (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.12.self_attention.dt_bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.11.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.11.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.11.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.11.self_attention.k_layernorm.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.11.self_attention.q_layernorm.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.11.self_attention.linear_qkv.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.11.self_attention.linear_qkv.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.11.self_attention.linear_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.10.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.10.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.10.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.10.self_attention.out_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.10.self_attention.out_norm.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.10.self_attention.conv1d.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.10.self_attention.in_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.10.self_attention.in_proj.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.10.self_attention.A_log (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.10.self_attention.dt_bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.9.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.9.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.9.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.9.self_attention.out_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.9.self_attention.out_norm.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.9.self_attention.conv1d.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.9.self_attention.in_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.9.self_attention.in_proj.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.9.self_attention.A_log (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.9.self_attention.dt_bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.8.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.8.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.8.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.8.self_attention.out_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.8.self_attention.out_norm.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.8.self_attention.conv1d.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.8.self_attention.in_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.8.self_attention.in_proj.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.8.self_attention.A_log (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.8.self_attention.dt_bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.7.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.7.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.7.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.7.self_attention.k_layernorm.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.7.self_attention.q_layernorm.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.7.self_attention.linear_qkv.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.7.self_attention.linear_qkv.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.7.self_attention.linear_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.6.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.6.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.6.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.6.self_attention.out_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.6.self_attention.out_norm.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.6.self_attention.conv1d.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.6.self_attention.in_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.6.self_attention.in_proj.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.6.self_attention.A_log (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.6.self_attention.dt_bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.5.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.5.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.5.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.5.self_attention.out_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.5.self_attention.out_norm.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.5.self_attention.conv1d.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.5.self_attention.in_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.5.self_attention.in_proj.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.5.self_attention.A_log (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.5.self_attention.dt_bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.4.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.4.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.4.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.4.self_attention.out_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.4.self_attention.out_norm.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.4.self_attention.conv1d.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.4.self_attention.in_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.4.self_attention.in_proj.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.4.self_attention.A_log (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.4.self_attention.dt_bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.3.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.3.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.3.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.3.self_attention.k_layernorm.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.3.self_attention.q_layernorm.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.3.self_attention.linear_qkv.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.3.self_attention.linear_qkv.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.3.self_attention.linear_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.2.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.2.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.2.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.2.self_attention.out_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.2.self_attention.out_norm.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.2.self_attention.conv1d.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.2.self_attention.in_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.2.self_attention.in_proj.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.2.self_attention.A_log (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.2.self_attention.dt_bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.1.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.1.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.1.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.1.self_attention.out_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.1.self_attention.out_norm.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.1.self_attention.conv1d.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.1.self_attention.in_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.1.self_attention.in_proj.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.1.self_attention.A_log (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.1.self_attention.dt_bias (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.0.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.0.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.0.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.0.self_attention.out_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.0.self_attention.out_norm.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.0.self_attention.conv1d.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.0.self_attention.in_proj.weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.0.self_attention.in_proj.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.0.self_attention.A_log (param.main_grad.dtype=torch.float32)
+	module.decoder.layers.0.self_attention.dt_bias (param.main_grad.dtype=torch.float32)
+	module.embedding.word_embeddings.weight (param.main_grad.dtype=torch.float32)
+INFO:megatron.core.distributed.param_and_grad_buffer:Using all-reduce for gradient reductions because self.ddp_config.use_distributed_optimizer=False
+INFO:megatron.core.optimizer:Setting up optimizer with config OptimizerConfig(lr=0.0001, min_lr=None, decoupled_lr=None, decoupled_min_lr=None, weight_decay=0.01, apply_wd_to_qk_layernorm=False, fp8_recipe=None, fp16=False, bf16=True, reuse_grad_buf_for_mxfp8_param_ag=False, params_dtype=torch.float32, use_precision_aware_optimizer=False, store_param_remainders=True, main_grads_dtype=torch.float32, main_params_dtype=torch.float32, exp_avg_dtype=torch.float32, exp_avg_sq_dtype=torch.float32, optimizer='adam', loss_scale=None, initial_loss_scale=4294967296, min_loss_scale=1.0, loss_scale_window=1000, hysteresis=2, adam_beta1=0.9, adam_beta2=0.999, adam_eps=1e-08, decoupled_weight_decay=True, sgd_momentum=0.9, muon_momentum=0.95, muon_split_qkv=True, muon_nesterov=False, muon_scale_mode='spectral', muon_fp32_matmul_prec='medium', muon_coefficient_type='quintic', muon_num_ns_steps=5, muon_tp_mode='duplicated', muon_use_syrk=False, muon_extra_scale_factor=1.0, muon_ns_batch_size=1, muon_concurrent_groups=True, muon_scalar_optimizer='adam', lion_beta1=0.95, lion_beta2=0.98, soap_shampoo_beta=0.95, soap_use_kl_shampoo=True, adaptive_muon_moment2_method='adamuon', adaptive_muon_beta2=0.95, adaptive_muon_eps=1e-08, use_distributed_optimizer=False, use_layer_wise_distributed_optimizer=False, overlap_param_gather=False, overlap_param_gather_with_optimizer_step=False, optimizer_cpu_offload=False, optimizer_offload_fraction=0.0, use_torch_optimizer_for_cpu_offload=False, overlap_cpu_optimizer_d2h_h2d=False, pin_cpu_grads=True, pin_cpu_params=True, clip_grad=1.0, grad_norm_skip_threshold=inf, log_num_zeros_in_grad=False, barrier_with_L1_time=False, timers=None, config_logger_dir='', optimizer_cuda_graph=False)
+/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/_dynamo/variables/functions.py:2202: UserWarning: Dynamo detected a call to a `functools.lru_cache`-wrapped function at '_common.py:101'. Dynamo ignores the cache wrapper and directly traces the wrapped function. Silent incorrectness is only a *potential* risk, not something we have observed. Enable TORCH_LOGS=+dynamo for a DEBUG stack trace.
+
+This call originates from:
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/transformer_engine/pytorch/ops/_common.py", line 101, in maybe_autocast_dtype
+    if torch_version() >= (2, 4, 3):
+
+  torch._dynamo.utils.warn_once(msg)
+/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/_dynamo/variables/functions.py:2082: UserWarning: Dynamo does not know how to trace the builtin `transformer_engine_torch.pybind11_detail_function_record_v1_system_libstdcpp_gxx_abi_1xxx_use_cxx11_abi_1.rmsnorm_fwd.` This function is either a Python builtin (e.g. _warnings.warn) or a third-party C/C++ Python extension (perhaps created with pybind).
+If it is a Python builtin, please file an issue on GitHub so the PyTorch team can add support for it and see the next case for a workaround.
+If it is a third-party C/C++ Python extension, please either wrap it into a PyTorch-understood custom operator (see https://pytorch.org/tutorials/advanced/custom_ops_landing_page.html for more details) or, if it is traceable, use `torch.compiler.allow_in_graph`.
+  torch._dynamo.utils.warn_once(explanation + "\n" + "\n".join(hints))
+WARNING:DotProductAttention:flash-attn v4 may provide important feature support or performance improvement. Please install flash-attn v4 by 
+pip install flash-attn-4==4.0.0b11 nvidia-cutlass-dsl[cu13]
+/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+INFO:root:Rank 0 step 0: losses=[3.605313777923584, 3.8317580223083496, 3.569495677947998, 3.8961825370788574] grad_norm=tensor([55.6707], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 1: losses=[8.741743087768555, 7.236357688903809, 8.575654983520508, 5.609990119934082] grad_norm=tensor([109.8487], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 2: losses=[6.1223344802856445, 6.394637107849121, 7.047524452209473, 6.815127849578857] grad_norm=tensor([110.3169], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 3: losses=[5.424191474914551, 4.436211109161377, 5.2797651290893555, 5.092900276184082] grad_norm=tensor([54.4892], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 4: losses=[3.740135669708252, 4.866089344024658, 3.2354536056518555, 4.457645416259766] grad_norm=tensor([26.5149], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 5: losses=[3.2118406295776367, 4.7037353515625, 3.2806029319763184, 4.323413372039795] grad_norm=tensor([24.8863], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 6: losses=[2.5058889389038086, 4.95567512512207, 2.6878557205200195, 4.886408805847168] grad_norm=tensor([22.5310], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 7: losses=[2.4708852767944336, 4.479580879211426, 2.952432155609131, 4.626214504241943] grad_norm=tensor([23.6910], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 8: losses=[2.9278409481048584, 3.3195152282714844, 3.297738790512085, 3.6281113624572754] grad_norm=tensor([19.1859], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 9: losses=[3.7546775341033936, 3.345123291015625, 3.9757206439971924, 3.078639507293701] grad_norm=tensor([21.3989], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 10: losses=[4.248229503631592, 2.921297550201416, 4.08530855178833, 2.9913148880004883] grad_norm=tensor([22.6120], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 11: losses=[3.887439012527466, 2.4037609100341797, 3.7818827629089355, 2.6289021968841553] grad_norm=tensor([16.7573], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 12: losses=[3.4031484127044678, 3.4214582443237305, 2.965737819671631, 4.157769203186035] grad_norm=tensor([19.9696], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 13: losses=[2.3714892864227295, 4.087275981903076, 2.6789169311523438, 4.470113754272461] grad_norm=tensor([16.8063], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 14: losses=[2.5163345336914062, 4.556146621704102, 2.7231364250183105, 4.493519306182861] grad_norm=tensor([15.7081], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 15: losses=[3.1785497665405273, 4.040383338928223, 3.2083539962768555, 3.506408214569092] grad_norm=tensor([18.8405], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 16: losses=[3.813812494277954, 2.4134268760681152, 4.183676719665527, 2.395826578140259] grad_norm=tensor([14.5325], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 17: losses=[3.7115721702575684, 2.95430326461792, 3.9348983764648438, 2.5623204708099365] grad_norm=tensor([14.7529], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 18: losses=[3.9184467792510986, 2.9588828086853027, 3.4632294178009033, 3.6076440811157227] grad_norm=tensor([13.8343], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 19: losses=[2.2629926204681396, 5.006826877593994, 2.2716236114501953, 4.663751602172852] grad_norm=tensor([17.3183], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 20: losses=[2.771740674972534, 4.201148986816406, 2.941873073577881, 3.7415544986724854] grad_norm=tensor([15.5051], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 21: losses=[4.031023025512695, 4.4082441329956055, 3.237743854522705, 2.145317316055298] grad_norm=tensor([14.1168], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 22: losses=[4.35362434387207, 2.404060125350952, 4.545392990112305, 2.783970594406128] grad_norm=tensor([13.7189], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 23: losses=[4.459401607513428, 2.530869245529175, 4.681304931640625, 2.443445920944214] grad_norm=tensor([14.0346], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 24: losses=[3.116624116897583, 3.430041790008545, 3.1717185974121094, 4.11269474029541] grad_norm=tensor([13.4746], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 25: losses=[2.419790506362915, 4.99137544631958, 2.4504778385162354, 4.734745025634766] grad_norm=tensor([12.7961], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 26: losses=[2.154344081878662, 4.312190055847168, 3.2229185104370117, 4.875065803527832] grad_norm=tensor([15.6012], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 27: losses=[3.103461265563965, 3.935751438140869, 3.1103148460388184, 3.6320226192474365] grad_norm=tensor([14.4301], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 28: losses=[3.066767692565918, 2.4324865341186523, 3.8202688694000244, 2.582765579223633] grad_norm=tensor([11.6692], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 29: losses=[4.628446578979492, 2.41060209274292, 4.239757061004639, 2.014254570007324] grad_norm=tensor([12.9866], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 30: losses=[4.08384895324707, 2.86018443107605, 4.000283718109131, 2.0501444339752197] grad_norm=tensor([11.9211], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 31: losses=[4.207071304321289, 2.5795702934265137, 3.5314431190490723, 3.2831950187683105] grad_norm=tensor([12.5445], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 32: losses=[2.406365394592285, 4.400083541870117, 2.7034826278686523, 4.398349761962891] grad_norm=tensor([14.9429], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 33: losses=[2.2411293983459473, 5.383925914764404, 2.3740334510803223, 3.9181549549102783] grad_norm=tensor([13.2834], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 34: losses=[2.8861420154571533, 4.424766540527344, 2.55495548248291, 3.2275075912475586] grad_norm=tensor([11.8217], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 35: losses=[3.626077175140381, 3.617675542831421, 3.677210807800293, 2.7057321071624756] grad_norm=tensor([13.8207], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 36: losses=[3.4632794857025146, 2.2948381900787354, 3.9414265155792236, 2.1647531986236572] grad_norm=tensor([10.3730], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 37: losses=[3.8722469806671143, 2.638566732406616, 4.257489204406738, 2.664517879486084] grad_norm=tensor([10.1517], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 38: losses=[3.8586878776550293, 2.767488956451416, 3.782893419265747, 2.77698016166687] grad_norm=tensor([10.1613], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 39: losses=[3.3022444248199463, 3.183882236480713, 2.481524705886841, 4.838725566864014] grad_norm=tensor([11.0734], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 40: losses=[2.066298484802246, 4.492763519287109, 2.7491674423217773, 3.6789307594299316] grad_norm=tensor([10.4289], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 41: losses=[2.459226131439209, 3.4770116806030273, 3.061403274536133, 3.495966911315918] grad_norm=tensor([10.6945], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 42: losses=[3.0602524280548096, 2.1756434440612793, 4.887254238128662, 2.5904345512390137] grad_norm=tensor([12.6491], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 43: losses=[3.73122501373291, 2.6845099925994873, 3.615650177001953, 2.3580069541931152] grad_norm=tensor([10.0527], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 44: losses=[3.612907648086548, 2.1395862102508545, 3.7253592014312744, 2.732713222503662] grad_norm=tensor([10.1914], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 45: losses=[3.6245524883270264, 2.763446092605591, 3.1550369262695312, 3.5420243740081787] grad_norm=tensor([9.7376], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 46: losses=[2.8789100646972656, 3.627081871032715, 2.954123020172119, 4.223696708679199] grad_norm=tensor([11.2568], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 47: losses=[2.222134828567505, 4.584766387939453, 1.9244754314422607, 4.8177900314331055] grad_norm=tensor([12.9602], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 48: losses=[2.0166361331939697, 3.9138879776000977, 2.8615894317626953, 5.051877975463867] grad_norm=tensor([12.0497], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 49: losses=[2.7100892066955566, 3.6733622550964355, 2.7031362056732178, 3.9871811866760254] grad_norm=tensor([12.2723], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 50: losses=[3.3654141426086426, 2.3782010078430176, 4.333444118499756, 2.41007661819458] grad_norm=tensor([10.8641], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 51: losses=[4.260918617248535, 2.394634485244751, 4.2725629806518555, 3.049023389816284] grad_norm=tensor([10.6764], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 52: losses=[4.439509391784668, 2.924971103668213, 3.8628525733947754, 2.7239267826080322] grad_norm=tensor([10.0883], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 53: losses=[4.745293617248535, 2.850677967071533, 3.683828830718994, 2.9030187129974365] grad_norm=tensor([11.1746], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 54: losses=[4.239627838134766, 2.7668230533599854, 4.478909492492676, 2.753972053527832] grad_norm=tensor([12.6613], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 55: losses=[3.029029369354248, 3.3358545303344727, 3.293429374694824, 3.5829780101776123] grad_norm=tensor([12.2313], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 56: losses=[2.4244632720947266, 4.9324493408203125, 2.4129817485809326, 4.691154956817627] grad_norm=tensor([11.0614], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 57: losses=[2.497593879699707, 4.698137283325195, 2.4228250980377197, 4.057133197784424] grad_norm=tensor([9.4420], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 58: losses=[2.654963731765747, 3.750839948654175, 2.419318199157715, 3.8766374588012695] grad_norm=tensor([11.2415], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 59: losses=[2.1059436798095703, 3.079695224761963, 4.058855056762695, 3.274475574493408] grad_norm=tensor([10.6052], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 60: losses=[1.9684908390045166, 2.085920810699463, 2.3308498859405518, 2.1915154457092285] grad_norm=tensor([10.0295], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 61: losses=[3.0109028816223145, 2.5912256240844727, 3.248627185821533, 1.894113302230835] grad_norm=tensor([8.3964], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 62: losses=[3.5084738731384277, 1.7791743278503418, 3.6687655448913574, 2.6820480823516846] grad_norm=tensor([10.5768], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 63: losses=[3.1204705238342285, 2.0613718032836914, 3.1130669116973877, 2.2611472606658936] grad_norm=tensor([9.4910], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 64: losses=[2.334834098815918, 2.3200390338897705, 1.8065940141677856, 2.6260039806365967] grad_norm=tensor([10.1013], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 65: losses=[1.2937891483306885, 3.354748249053955, 2.0190956592559814, 2.765157699584961] grad_norm=tensor([11.0256], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 66: losses=[1.4055644273757935, 3.4926719665527344, 1.6031453609466553, 2.711742639541626] grad_norm=tensor([10.8397], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 67: losses=[1.522991418838501, 2.5287156105041504, 1.8057817220687866, 3.297194480895996] grad_norm=tensor([11.4916], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 68: losses=[1.823951005935669, 2.121894598007202, 1.6576907634735107, 2.499969482421875] grad_norm=tensor([10.6074], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 69: losses=[1.7024857997894287, 2.009608507156372, 2.1848654747009277, 2.017348289489746] grad_norm=tensor([10.9213], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 70: losses=[3.069666624069214, 1.760239839553833, 2.489689826965332, 1.9720301628112793] grad_norm=tensor([12.9576], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 71: losses=[2.296050548553467, 1.384861707687378, 2.6903676986694336, 1.8825397491455078] grad_norm=tensor([10.7025], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 72: losses=[2.4028940200805664, 2.153784990310669, 2.2472877502441406, 2.109567165374756] grad_norm=tensor([12.2815], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 73: losses=[1.7970139980316162, 2.2180800437927246, 1.806526780128479, 2.27787709236145] grad_norm=tensor([9.4991], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 74: losses=[1.243748664855957, 2.6472201347351074, 1.7572771310806274, 2.6995434761047363] grad_norm=tensor([10.9658], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 75: losses=[1.9010480642318726, 2.9304862022399902, 2.0898349285125732, 2.36740779876709] grad_norm=tensor([11.3842], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 76: losses=[1.7713134288787842, 1.4829885959625244, 2.5773847103118896, 1.4130384922027588] grad_norm=tensor([9.3883], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 77: losses=[2.1984310150146484, 1.7063162326812744, 2.121807098388672, 1.6040377616882324] grad_norm=tensor([9.0529], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 78: losses=[2.223268508911133, 1.3056915998458862, 2.138301372528076, 1.883998155593872] grad_norm=tensor([10.1624], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 79: losses=[1.5638526678085327, 2.5896854400634766, 1.614420771598816, 3.025261402130127] grad_norm=tensor([11.1579], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 80: losses=[1.8387601375579834, 2.767937421798706, 1.508577823638916, 1.9889836311340332] grad_norm=tensor([10.4065], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 81: losses=[2.2625632286071777, 2.7744436264038086, 1.6104705333709717, 1.6047396659851074] grad_norm=tensor([11.0770], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 82: losses=[2.471004009246826, 1.5454885959625244, 2.549259662628174, 1.806143045425415] grad_norm=tensor([10.9105], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 83: losses=[2.4858224391937256, 1.549656867980957, 2.4846763610839844, 1.8170926570892334] grad_norm=tensor([11.4808], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 84: losses=[2.0250072479248047, 1.6752265691757202, 1.967706561088562, 2.3550949096679688] grad_norm=tensor([9.6245], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 85: losses=[1.2093703746795654, 3.16137957572937, 1.312181830406189, 3.029158115386963] grad_norm=tensor([11.2827], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 86: losses=[1.4269154071807861, 2.6123061180114746, 1.8349554538726807, 3.2118825912475586] grad_norm=tensor([10.4557], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 87: losses=[2.014746904373169, 2.3588273525238037, 1.6232924461364746, 2.245826244354248] grad_norm=tensor([10.7446], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 88: losses=[1.7602005004882812, 1.6732734441757202, 2.089486837387085, 1.837249755859375] grad_norm=tensor([10.1331], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 89: losses=[2.198293447494507, 1.409308910369873, 2.28182053565979, 1.1720938682556152] grad_norm=tensor([10.0653], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 90: losses=[2.118710994720459, 1.8537474870681763, 2.5924510955810547, 1.2080137729644775] grad_norm=tensor([12.2717], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 91: losses=[2.575700044631958, 1.5872673988342285, 2.1539862155914307, 1.5765416622161865] grad_norm=tensor([10.8700], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 92: losses=[1.934980869293213, 2.0700278282165527, 1.5450804233551025, 2.405238389968872] grad_norm=tensor([11.1003], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 93: losses=[1.3000438213348389, 2.7418086528778076, 1.2695229053497314, 2.354198455810547] grad_norm=tensor([10.8386], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 94: losses=[1.6692593097686768, 2.4867873191833496, 1.8990325927734375, 2.314880132675171] grad_norm=tensor([11.7372], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 95: losses=[1.7566624879837036, 2.256927013397217, 1.8915202617645264, 1.7661610841751099] grad_norm=tensor([9.7907], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 96: losses=[1.5690267086029053, 1.4762991666793823, 2.1308698654174805, 1.4968591928482056] grad_norm=tensor([8.8455], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 97: losses=[2.082420825958252, 1.3948825597763062, 2.1816952228546143, 1.8570698499679565] grad_norm=tensor([9.1330], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 98: losses=[2.6034343242645264, 1.2934179306030273, 1.8844003677368164, 1.7298861742019653] grad_norm=tensor([9.3029], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 99: losses=[2.3458290100097656, 1.6729698181152344, 1.283747911453247, 2.883822441101074] grad_norm=tensor([9.7396], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 100: losses=[1.3295612335205078, 2.380496025085449, 1.5946686267852783, 2.342181444168091] grad_norm=tensor([9.7983], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 101: losses=[1.6934285163879395, 2.112091064453125, 1.5195949077606201, 1.7938454151153564] grad_norm=tensor([8.3943], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 102: losses=[1.6465498208999634, 1.5636967420578003, 2.523366928100586, 1.8079499006271362] grad_norm=tensor([9.3159], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 103: losses=[2.1308164596557617, 1.8317233324050903, 2.1076819896698, 1.6621167659759521] grad_norm=tensor([9.6015], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 104: losses=[2.202117443084717, 1.2566617727279663, 2.0051283836364746, 1.4149153232574463] grad_norm=tensor([10.0302], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 105: losses=[1.8728036880493164, 1.41739821434021, 1.763641357421875, 1.2654459476470947] grad_norm=tensor([7.9774], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 106: losses=[1.8297251462936401, 2.08274245262146, 1.970389723777771, 2.0335867404937744] grad_norm=tensor([9.6450], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 107: losses=[1.2281548976898193, 2.483640193939209, 1.4469630718231201, 2.739600658416748] grad_norm=tensor([11.6424], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 108: losses=[1.4687724113464355, 2.4646658897399902, 1.7669799327850342, 2.8245248794555664] grad_norm=tensor([11.2715], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 109: losses=[1.732696294784546, 2.523453712463379, 1.5533461570739746, 2.257145881652832] grad_norm=tensor([10.7795], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 110: losses=[1.5081110000610352, 1.6420269012451172, 2.024963855743408, 1.2571063041687012] grad_norm=tensor([10.2732], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 111: losses=[2.6336300373077393, 1.409156322479248, 3.0000429153442383, 1.7017369270324707] grad_norm=tensor([11.6395], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 112: losses=[2.704956531524658, 1.4958746433258057, 2.133301019668579, 1.5274324417114258] grad_norm=tensor([9.3291], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 113: losses=[2.583700180053711, 1.713653564453125, 2.6459810733795166, 1.5631581544876099] grad_norm=tensor([10.0454], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 114: losses=[2.5005903244018555, 1.7001535892486572, 2.8003311157226562, 1.4880565404891968] grad_norm=tensor([11.1530], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 115: losses=[2.125840425491333, 1.7362414598464966, 2.1985397338867188, 2.1864371299743652] grad_norm=tensor([10.5620], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 116: losses=[1.5120046138763428, 2.44858980178833, 1.432091236114502, 2.3631443977355957] grad_norm=tensor([9.7204], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 117: losses=[1.2171716690063477, 2.8155627250671387, 1.750148892402649, 2.109656810760498] grad_norm=tensor([10.5257], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 118: losses=[1.6955561637878418, 2.0634303092956543, 1.5717854499816895, 2.3680553436279297] grad_norm=tensor([10.8479], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 119: losses=[1.4614272117614746, 1.9026013612747192, 1.8553991317749023, 1.9681322574615479] grad_norm=tensor([10.1259], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 120: losses=[1.2972073554992676, 1.4647254943847656, 1.1019980907440186, 1.305274486541748] grad_norm=tensor([8.5384], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 121: losses=[1.7109122276306152, 2.0728845596313477, 2.172178268432617, 1.6882126331329346] grad_norm=tensor([11.1301], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 122: losses=[1.8672850131988525, 1.334505319595337, 2.374772071838379, 1.5899937152862549] grad_norm=tensor([10.0801], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 123: losses=[1.941688060760498, 1.3763256072998047, 1.9977936744689941, 1.5554074048995972] grad_norm=tensor([8.7444], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 124: losses=[1.6138986349105835, 1.173067569732666, 1.3334295749664307, 1.3504633903503418] grad_norm=tensor([7.8014], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 125: losses=[0.8805544376373291, 1.5541560649871826, 1.0333999395370483, 1.8896875381469727] grad_norm=tensor([8.3921], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 126: losses=[1.0905200242996216, 1.6266788244247437, 1.2599191665649414, 1.4739010334014893] grad_norm=tensor([8.9844], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 127: losses=[1.169267177581787, 1.567001461982727, 1.0010521411895752, 1.784891128540039] grad_norm=tensor([8.9205], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 128: losses=[1.2280259132385254, 1.4827618598937988, 1.4380825757980347, 1.5336174964904785] grad_norm=tensor([10.2044], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 129: losses=[1.1106288433074951, 1.5526199340820312, 1.508405089378357, 1.5523602962493896] grad_norm=tensor([10.3728], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 130: losses=[1.2808825969696045, 1.2867069244384766, 1.3360332250595093, 1.293579339981079] grad_norm=tensor([9.8999], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 131: losses=[1.379969835281372, 1.0933587551116943, 1.901036024093628, 1.0607924461364746] grad_norm=tensor([8.7009], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 132: losses=[1.3101696968078613, 1.3144242763519287, 1.802233338356018, 1.4608216285705566] grad_norm=tensor([8.9251], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 133: losses=[1.242704153060913, 1.3539421558380127, 1.2214915752410889, 1.0206701755523682] grad_norm=tensor([8.5876], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 134: losses=[0.9324252605438232, 1.4064486026763916, 1.0376334190368652, 1.8806778192520142] grad_norm=tensor([8.4588], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 135: losses=[1.3373199701309204, 1.4957478046417236, 1.2353838682174683, 1.1541824340820312] grad_norm=tensor([9.1218], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 136: losses=[0.9718153476715088, 0.8953185081481934, 1.1782339811325073, 1.0864815711975098] grad_norm=tensor([7.1044], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 137: losses=[1.3956429958343506, 1.221213936805725, 1.2906196117401123, 0.9402531385421753] grad_norm=tensor([9.1333], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 138: losses=[1.2768001556396484, 1.054736614227295, 1.488591194152832, 0.9837320446968079] grad_norm=tensor([9.0504], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 139: losses=[1.4577548503875732, 1.268335223197937, 1.1391046047210693, 1.4993441104888916] grad_norm=tensor([8.1539], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 140: losses=[1.1933258771896362, 1.327918529510498, 1.1264700889587402, 1.5288138389587402] grad_norm=tensor([8.1039], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 141: losses=[0.9524500966072083, 1.5340795516967773, 1.0590667724609375, 1.4740394353866577] grad_norm=tensor([9.9044], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 142: losses=[1.087086796760559, 1.0950648784637451, 1.3076801300048828, 1.123226284980774] grad_norm=tensor([9.8837], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 143: losses=[1.6199779510498047, 1.0131572484970093, 1.2784162759780884, 1.2342846393585205] grad_norm=tensor([9.2325], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 144: losses=[1.2776113748550415, 0.8066193461418152, 1.148749589920044, 1.0984678268432617] grad_norm=tensor([8.8997], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 145: losses=[0.8589497208595276, 1.4879043102264404, 1.2160727977752686, 1.6545871496200562] grad_norm=tensor([10.8344], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 146: losses=[0.7556626796722412, 1.105593204498291, 1.1611909866333008, 1.5974026918411255] grad_norm=tensor([8.5094], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 147: losses=[0.9821199178695679, 1.704440712928772, 1.0855026245117188, 1.2814710140228271] grad_norm=tensor([9.8734], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 148: losses=[0.9754579067230225, 1.1149773597717285, 1.0807145833969116, 1.1099262237548828] grad_norm=tensor([9.2744], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 149: losses=[1.0615127086639404, 0.8747950196266174, 1.2980766296386719, 0.808455228805542] grad_norm=tensor([9.6080], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 150: losses=[1.2454235553741455, 1.0714678764343262, 1.653067946434021, 1.1075503826141357] grad_norm=tensor([8.9465], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 151: losses=[1.3251447677612305, 0.958407461643219, 1.205499291419983, 1.120455265045166] grad_norm=tensor([8.3769], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 152: losses=[1.299580693244934, 1.100620985031128, 1.0490621328353882, 1.0408713817596436] grad_norm=tensor([9.1205], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 153: losses=[0.8368167877197266, 1.2949414253234863, 0.9442728757858276, 1.2083635330200195] grad_norm=tensor([8.1245], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 154: losses=[1.1734600067138672, 1.1678310632705688, 0.9793567657470703, 1.4357423782348633] grad_norm=tensor([7.9210], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 155: losses=[1.0647763013839722, 1.4484881162643433, 0.8841217756271362, 1.2053580284118652] grad_norm=tensor([9.4850], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 156: losses=[0.665917158126831, 0.949682354927063, 1.5854942798614502, 0.8598459362983704] grad_norm=tensor([8.5513], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 157: losses=[1.0362827777862549, 0.6633819341659546, 1.0886991024017334, 1.2097402811050415] grad_norm=tensor([7.8064], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 158: losses=[1.1308995485305786, 1.1126902103424072, 1.1283059120178223, 0.8031525015830994] grad_norm=tensor([8.4078], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 159: losses=[1.088450312614441, 0.7848727703094482, 0.8208638429641724, 1.8145250082015991] grad_norm=tensor([8.4087], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 160: losses=[0.962538480758667, 1.3425003290176392, 1.102970838546753, 1.4084771871566772] grad_norm=tensor([9.0051], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 161: losses=[1.0367674827575684, 1.223616600036621, 0.8940514326095581, 1.0601415634155273] grad_norm=tensor([8.6270], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 162: losses=[1.1452953815460205, 1.0655429363250732, 0.8838258385658264, 0.9688965678215027] grad_norm=tensor([8.1027], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 163: losses=[1.1139708757400513, 1.0138237476348877, 1.2178239822387695, 1.307978868484497] grad_norm=tensor([8.1526], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 164: losses=[1.1713893413543701, 0.9618388414382935, 0.9945822954177856, 0.7969722151756287] grad_norm=tensor([7.1432], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 165: losses=[1.17703378200531, 0.8015009164810181, 1.0763702392578125, 0.9547528028488159] grad_norm=tensor([7.9625], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 166: losses=[1.26203191280365, 1.3009307384490967, 1.3438076972961426, 1.2774323225021362] grad_norm=tensor([9.1373], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 167: losses=[1.0599539279937744, 1.504891276359558, 1.3477938175201416, 1.321144938468933] grad_norm=tensor([9.4639], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 168: losses=[1.263319969177246, 1.4300453662872314, 0.7839263081550598, 1.5776667594909668] grad_norm=tensor([8.4614], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 169: losses=[0.8751534223556519, 1.2402793169021606, 1.0818030834197998, 1.019180417060852] grad_norm=tensor([8.1673], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 170: losses=[1.044477105140686, 1.2614965438842773, 0.9715553522109985, 0.9121861457824707] grad_norm=tensor([8.6883], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 171: losses=[1.5037248134613037, 1.0012465715408325, 1.555405855178833, 0.9085323214530945] grad_norm=tensor([8.9193], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 172: losses=[1.2554879188537598, 0.8396782875061035, 1.4392069578170776, 0.8349901437759399] grad_norm=tensor([8.2114], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 173: losses=[1.3246452808380127, 0.8551239371299744, 1.4493836164474487, 1.0627150535583496] grad_norm=tensor([8.4592], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 174: losses=[1.260313630104065, 0.9213208556175232, 1.4580931663513184, 1.223020315170288] grad_norm=tensor([9.4423], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 175: losses=[1.4773712158203125, 1.0101964473724365, 1.4453908205032349, 1.1444566249847412] grad_norm=tensor([9.8189], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 176: losses=[0.9650325775146484, 1.2540663480758667, 1.0743293762207031, 1.3911926746368408] grad_norm=tensor([9.4608], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 177: losses=[0.902523398399353, 1.3606152534484863, 1.0237505435943604, 1.3857777118682861] grad_norm=tensor([8.4399], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 178: losses=[1.1495574712753296, 1.43547523021698, 1.008316159248352, 1.561579942703247] grad_norm=tensor([9.7299], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 179: losses=[1.0586330890655518, 1.123546838760376, 1.2276296615600586, 1.1500940322875977] grad_norm=tensor([8.2208], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 180: losses=[0.7540239691734314, 1.1926912069320679, 1.2317367792129517, 1.1329073905944824] grad_norm=tensor([8.5808], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 181: losses=[1.056084394454956, 1.3292123079299927, 1.0499420166015625, 1.0299656391143799] grad_norm=tensor([8.4542], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 182: losses=[1.6348199844360352, 0.8246683478355408, 1.6241097450256348, 1.0128452777862549] grad_norm=tensor([8.9202], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 183: losses=[1.0229058265686035, 1.179869294166565, 1.2382197380065918, 0.8892887830734253] grad_norm=tensor([8.1688], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 184: losses=[1.0366252660751343, 0.6038158535957336, 1.055806040763855, 0.8172242641448975] grad_norm=tensor([6.9429], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 185: losses=[0.7729073762893677, 0.8055144548416138, 0.6663863062858582, 1.5382674932479858] grad_norm=tensor([7.9816], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 186: losses=[0.8173810243606567, 0.8897348046302795, 1.1687076091766357, 1.273781418800354] grad_norm=tensor([7.2270], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 187: losses=[0.85574871301651, 0.7132507562637329, 0.8868988156318665, 1.0615400075912476] grad_norm=tensor([6.8464], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 188: losses=[0.9962354302406311, 0.9724657535552979, 1.6972825527191162, 1.0060542821884155] grad_norm=tensor([11.1374], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 189: losses=[0.9640305042266846, 0.863373339176178, 0.8494789004325867, 0.993639349937439] grad_norm=tensor([7.4673], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 190: losses=[0.7350741624832153, 1.0603160858154297, 0.8817028999328613, 1.1121883392333984] grad_norm=tensor([7.0595], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 191: losses=[1.0751314163208008, 0.6655738353729248, 1.144745945930481, 0.870536208152771] grad_norm=tensor([6.5957], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 192: losses=[1.0984876155853271, 1.0443291664123535, 1.0389626026153564, 0.6525624990463257] grad_norm=tensor([7.3991], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 193: losses=[0.9021908640861511, 0.703715980052948, 0.9918073415756226, 0.5363748073577881] grad_norm=tensor([6.6176], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 194: losses=[0.7419751286506653, 0.8112789392471313, 0.7727686166763306, 1.10814368724823] grad_norm=tensor([7.3020], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 195: losses=[1.2509682178497314, 1.385377287864685, 1.270715355873108, 0.7932766675949097] grad_norm=tensor([9.1410], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 196: losses=[1.0140467882156372, 1.1019423007965088, 0.7029879093170166, 0.7400766015052795] grad_norm=tensor([7.9587], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 197: losses=[0.5980010628700256, 0.7459315061569214, 0.9135181307792664, 0.8352440595626831] grad_norm=tensor([7.1242], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 198: losses=[0.7594836950302124, 0.7561477422714233, 0.8251279592514038, 0.5797848701477051] grad_norm=tensor([7.2075], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 199: losses=[0.6707103252410889, 0.5609908103942871, 0.7210426330566406, 0.733210563659668] grad_norm=tensor([6.7615], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 200: losses=[0.7956839203834534, 0.8215988278388977, 0.8646426200866699, 1.1502575874328613] grad_norm=tensor([7.8801], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 201: losses=[0.8390445709228516, 1.5997042655944824, 0.664616048336029, 0.9114422798156738] grad_norm=tensor([7.3976], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Rank 0 step 202: losses=[0.7569048404693604, 0.8303080797195435, 1.0178022384643555, 0.7810141444206238] grad_norm=tensor([7.2957], device='cuda:0') selected_transfer_bytes=132030464
+INFO:root:Wrote /home/lwx/.cache/megatron-gdn-20261026/qwen-bf16-stability-203-b6fa63-gpu3/result.rank0.json

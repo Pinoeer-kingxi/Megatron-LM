@@ -1,0 +1,2235 @@
+[
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 504,
+      "free_requests": 504,
+      "pool_hits": 378,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 980,
+      "free_requests": 980,
+      "pool_hits": 854,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 1456,
+      "free_requests": 1456,
+      "pool_hits": 1330,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 1932,
+      "free_requests": 1932,
+      "pool_hits": 1806,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 2408,
+      "free_requests": 2408,
+      "pool_hits": 2282,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 2884,
+      "free_requests": 2884,
+      "pool_hits": 2758,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 3360,
+      "free_requests": 3360,
+      "pool_hits": 3234,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 3836,
+      "free_requests": 3836,
+      "pool_hits": 3710,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 4312,
+      "free_requests": 4312,
+      "pool_hits": 4186,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 4788,
+      "free_requests": 4788,
+      "pool_hits": 4662,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 5264,
+      "free_requests": 5264,
+      "pool_hits": 5138,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 5740,
+      "free_requests": 5740,
+      "pool_hits": 5614,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 6216,
+      "free_requests": 6216,
+      "pool_hits": 6090,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 6692,
+      "free_requests": 6692,
+      "pool_hits": 6566,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 7168,
+      "free_requests": 7168,
+      "pool_hits": 7042,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 7644,
+      "free_requests": 7644,
+      "pool_hits": 7518,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 8120,
+      "free_requests": 8120,
+      "pool_hits": 7994,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 8596,
+      "free_requests": 8596,
+      "pool_hits": 8470,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 9072,
+      "free_requests": 9072,
+      "pool_hits": 8946,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 9548,
+      "free_requests": 9548,
+      "pool_hits": 9422,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 10024,
+      "free_requests": 10024,
+      "pool_hits": 9898,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 10500,
+      "free_requests": 10500,
+      "pool_hits": 10374,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 10976,
+      "free_requests": 10976,
+      "pool_hits": 10850,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 11452,
+      "free_requests": 11452,
+      "pool_hits": 11326,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 11928,
+      "free_requests": 11928,
+      "pool_hits": 11802,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 12404,
+      "free_requests": 12404,
+      "pool_hits": 12278,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 12880,
+      "free_requests": 12880,
+      "pool_hits": 12754,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 13356,
+      "free_requests": 13356,
+      "pool_hits": 13230,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 13832,
+      "free_requests": 13832,
+      "pool_hits": 13706,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 14308,
+      "free_requests": 14308,
+      "pool_hits": 14182,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 14784,
+      "free_requests": 14784,
+      "pool_hits": 14658,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 15260,
+      "free_requests": 15260,
+      "pool_hits": 15134,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 15736,
+      "free_requests": 15736,
+      "pool_hits": 15610,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 16212,
+      "free_requests": 16212,
+      "pool_hits": 16086,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 16688,
+      "free_requests": 16688,
+      "pool_hits": 16562,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 17164,
+      "free_requests": 17164,
+      "pool_hits": 17038,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 17640,
+      "free_requests": 17640,
+      "pool_hits": 17514,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 18116,
+      "free_requests": 18116,
+      "pool_hits": 17990,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 18592,
+      "free_requests": 18592,
+      "pool_hits": 18466,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 19068,
+      "free_requests": 19068,
+      "pool_hits": 18942,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 19544,
+      "free_requests": 19544,
+      "pool_hits": 19418,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 20020,
+      "free_requests": 20020,
+      "pool_hits": 19894,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 20496,
+      "free_requests": 20496,
+      "pool_hits": 20370,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 20972,
+      "free_requests": 20972,
+      "pool_hits": 20846,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 21448,
+      "free_requests": 21448,
+      "pool_hits": 21322,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 21924,
+      "free_requests": 21924,
+      "pool_hits": 21798,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 22400,
+      "free_requests": 22400,
+      "pool_hits": 22274,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 22876,
+      "free_requests": 22876,
+      "pool_hits": 22750,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 23352,
+      "free_requests": 23352,
+      "pool_hits": 23226,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 23828,
+      "free_requests": 23828,
+      "pool_hits": 23702,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 24304,
+      "free_requests": 24304,
+      "pool_hits": 24178,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 24780,
+      "free_requests": 24780,
+      "pool_hits": 24654,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 25256,
+      "free_requests": 25256,
+      "pool_hits": 25130,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 25732,
+      "free_requests": 25732,
+      "pool_hits": 25606,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 26208,
+      "free_requests": 26208,
+      "pool_hits": 26082,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 26684,
+      "free_requests": 26684,
+      "pool_hits": 26558,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 27160,
+      "free_requests": 27160,
+      "pool_hits": 27034,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 27636,
+      "free_requests": 27636,
+      "pool_hits": 27510,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 28112,
+      "free_requests": 28112,
+      "pool_hits": 27986,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 28588,
+      "free_requests": 28588,
+      "pool_hits": 28462,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 29064,
+      "free_requests": 29064,
+      "pool_hits": 28938,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 29540,
+      "free_requests": 29540,
+      "pool_hits": 29414,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 30016,
+      "free_requests": 30016,
+      "pool_hits": 29890,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 30492,
+      "free_requests": 30492,
+      "pool_hits": 30366,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 30968,
+      "free_requests": 30968,
+      "pool_hits": 30842,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 31444,
+      "free_requests": 31444,
+      "pool_hits": 31318,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 31920,
+      "free_requests": 31920,
+      "pool_hits": 31794,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 32396,
+      "free_requests": 32396,
+      "pool_hits": 32270,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 32872,
+      "free_requests": 32872,
+      "pool_hits": 32746,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 33348,
+      "free_requests": 33348,
+      "pool_hits": 33222,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 33824,
+      "free_requests": 33824,
+      "pool_hits": 33698,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 34300,
+      "free_requests": 34300,
+      "pool_hits": 34174,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 34776,
+      "free_requests": 34776,
+      "pool_hits": 34650,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 35252,
+      "free_requests": 35252,
+      "pool_hits": 35126,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 35728,
+      "free_requests": 35728,
+      "pool_hits": 35602,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 36204,
+      "free_requests": 36204,
+      "pool_hits": 36078,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 36680,
+      "free_requests": 36680,
+      "pool_hits": 36554,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 37156,
+      "free_requests": 37156,
+      "pool_hits": 37030,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 37632,
+      "free_requests": 37632,
+      "pool_hits": 37506,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 38108,
+      "free_requests": 38108,
+      "pool_hits": 37982,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 38584,
+      "free_requests": 38584,
+      "pool_hits": 38458,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 39060,
+      "free_requests": 39060,
+      "pool_hits": 38934,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 39536,
+      "free_requests": 39536,
+      "pool_hits": 39410,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 40012,
+      "free_requests": 40012,
+      "pool_hits": 39886,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 40488,
+      "free_requests": 40488,
+      "pool_hits": 40362,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 40964,
+      "free_requests": 40964,
+      "pool_hits": 40838,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 41440,
+      "free_requests": 41440,
+      "pool_hits": 41314,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 41916,
+      "free_requests": 41916,
+      "pool_hits": 41790,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 42392,
+      "free_requests": 42392,
+      "pool_hits": 42266,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 42868,
+      "free_requests": 42868,
+      "pool_hits": 42742,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 43344,
+      "free_requests": 43344,
+      "pool_hits": 43218,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 43820,
+      "free_requests": 43820,
+      "pool_hits": 43694,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 44296,
+      "free_requests": 44296,
+      "pool_hits": 44170,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 44772,
+      "free_requests": 44772,
+      "pool_hits": 44646,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 45248,
+      "free_requests": 45248,
+      "pool_hits": 45122,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 45724,
+      "free_requests": 45724,
+      "pool_hits": 45598,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 46200,
+      "free_requests": 46200,
+      "pool_hits": 46074,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 46676,
+      "free_requests": 46676,
+      "pool_hits": 46550,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 47152,
+      "free_requests": 47152,
+      "pool_hits": 47026,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 47628,
+      "free_requests": 47628,
+      "pool_hits": 47502,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 48104,
+      "free_requests": 48104,
+      "pool_hits": 47978,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 48580,
+      "free_requests": 48580,
+      "pool_hits": 48454,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 49056,
+      "free_requests": 49056,
+      "pool_hits": 48930,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 49532,
+      "free_requests": 49532,
+      "pool_hits": 49406,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 50008,
+      "free_requests": 50008,
+      "pool_hits": 49882,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 50484,
+      "free_requests": 50484,
+      "pool_hits": 50358,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 50960,
+      "free_requests": 50960,
+      "pool_hits": 50834,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 51436,
+      "free_requests": 51436,
+      "pool_hits": 51310,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 51912,
+      "free_requests": 51912,
+      "pool_hits": 51786,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 52388,
+      "free_requests": 52388,
+      "pool_hits": 52262,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 52864,
+      "free_requests": 52864,
+      "pool_hits": 52738,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 53340,
+      "free_requests": 53340,
+      "pool_hits": 53214,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 53816,
+      "free_requests": 53816,
+      "pool_hits": 53690,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 54292,
+      "free_requests": 54292,
+      "pool_hits": 54166,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 54768,
+      "free_requests": 54768,
+      "pool_hits": 54642,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 55244,
+      "free_requests": 55244,
+      "pool_hits": 55118,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 55720,
+      "free_requests": 55720,
+      "pool_hits": 55594,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 56196,
+      "free_requests": 56196,
+      "pool_hits": 56070,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 56672,
+      "free_requests": 56672,
+      "pool_hits": 56546,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 57148,
+      "free_requests": 57148,
+      "pool_hits": 57022,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 57624,
+      "free_requests": 57624,
+      "pool_hits": 57498,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 58100,
+      "free_requests": 58100,
+      "pool_hits": 57974,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 58576,
+      "free_requests": 58576,
+      "pool_hits": 58450,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 59052,
+      "free_requests": 59052,
+      "pool_hits": 58926,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 59528,
+      "free_requests": 59528,
+      "pool_hits": 59402,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 60004,
+      "free_requests": 60004,
+      "pool_hits": 59878,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 60480,
+      "free_requests": 60480,
+      "pool_hits": 60354,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 60956,
+      "free_requests": 60956,
+      "pool_hits": 60830,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 61432,
+      "free_requests": 61432,
+      "pool_hits": 61306,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 61908,
+      "free_requests": 61908,
+      "pool_hits": 61782,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 62384,
+      "free_requests": 62384,
+      "pool_hits": 62258,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 62860,
+      "free_requests": 62860,
+      "pool_hits": 62734,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 63336,
+      "free_requests": 63336,
+      "pool_hits": 63210,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 63812,
+      "free_requests": 63812,
+      "pool_hits": 63686,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 64288,
+      "free_requests": 64288,
+      "pool_hits": 64162,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 64764,
+      "free_requests": 64764,
+      "pool_hits": 64638,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 65240,
+      "free_requests": 65240,
+      "pool_hits": 65114,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 65716,
+      "free_requests": 65716,
+      "pool_hits": 65590,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 66192,
+      "free_requests": 66192,
+      "pool_hits": 66066,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 66668,
+      "free_requests": 66668,
+      "pool_hits": 66542,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 67144,
+      "free_requests": 67144,
+      "pool_hits": 67018,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 67620,
+      "free_requests": 67620,
+      "pool_hits": 67494,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 68096,
+      "free_requests": 68096,
+      "pool_hits": 67970,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 68572,
+      "free_requests": 68572,
+      "pool_hits": 68446,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 69048,
+      "free_requests": 69048,
+      "pool_hits": 68922,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 69524,
+      "free_requests": 69524,
+      "pool_hits": 69398,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 70000,
+      "free_requests": 70000,
+      "pool_hits": 69874,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 70476,
+      "free_requests": 70476,
+      "pool_hits": 70350,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 70952,
+      "free_requests": 70952,
+      "pool_hits": 70826,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 71428,
+      "free_requests": 71428,
+      "pool_hits": 71302,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 71904,
+      "free_requests": 71904,
+      "pool_hits": 71778,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 72380,
+      "free_requests": 72380,
+      "pool_hits": 72254,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 72856,
+      "free_requests": 72856,
+      "pool_hits": 72730,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 73332,
+      "free_requests": 73332,
+      "pool_hits": 73206,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 73808,
+      "free_requests": 73808,
+      "pool_hits": 73682,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 74284,
+      "free_requests": 74284,
+      "pool_hits": 74158,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 74760,
+      "free_requests": 74760,
+      "pool_hits": 74634,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 75236,
+      "free_requests": 75236,
+      "pool_hits": 75110,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 75712,
+      "free_requests": 75712,
+      "pool_hits": 75586,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 76188,
+      "free_requests": 76188,
+      "pool_hits": 76062,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 76664,
+      "free_requests": 76664,
+      "pool_hits": 76538,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 77140,
+      "free_requests": 77140,
+      "pool_hits": 77014,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 77616,
+      "free_requests": 77616,
+      "pool_hits": 77490,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 78092,
+      "free_requests": 78092,
+      "pool_hits": 77966,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 78568,
+      "free_requests": 78568,
+      "pool_hits": 78442,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 79044,
+      "free_requests": 79044,
+      "pool_hits": 78918,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 79520,
+      "free_requests": 79520,
+      "pool_hits": 79394,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 79996,
+      "free_requests": 79996,
+      "pool_hits": 79870,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 80472,
+      "free_requests": 80472,
+      "pool_hits": 80346,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 80948,
+      "free_requests": 80948,
+      "pool_hits": 80822,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 81424,
+      "free_requests": 81424,
+      "pool_hits": 81298,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 81900,
+      "free_requests": 81900,
+      "pool_hits": 81774,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 82376,
+      "free_requests": 82376,
+      "pool_hits": 82250,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 82852,
+      "free_requests": 82852,
+      "pool_hits": 82726,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 83328,
+      "free_requests": 83328,
+      "pool_hits": 83202,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 83804,
+      "free_requests": 83804,
+      "pool_hits": 83678,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 84280,
+      "free_requests": 84280,
+      "pool_hits": 84154,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 84756,
+      "free_requests": 84756,
+      "pool_hits": 84630,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 85232,
+      "free_requests": 85232,
+      "pool_hits": 85106,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 85708,
+      "free_requests": 85708,
+      "pool_hits": 85582,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 86184,
+      "free_requests": 86184,
+      "pool_hits": 86058,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 86660,
+      "free_requests": 86660,
+      "pool_hits": 86534,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 87136,
+      "free_requests": 87136,
+      "pool_hits": 87010,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 87612,
+      "free_requests": 87612,
+      "pool_hits": 87486,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 88088,
+      "free_requests": 88088,
+      "pool_hits": 87962,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 88564,
+      "free_requests": 88564,
+      "pool_hits": 88438,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 89040,
+      "free_requests": 89040,
+      "pool_hits": 88914,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 89516,
+      "free_requests": 89516,
+      "pool_hits": 89390,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 89992,
+      "free_requests": 89992,
+      "pool_hits": 89866,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 90468,
+      "free_requests": 90468,
+      "pool_hits": 90342,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 90944,
+      "free_requests": 90944,
+      "pool_hits": 90818,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 91420,
+      "free_requests": 91420,
+      "pool_hits": 91294,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 91896,
+      "free_requests": 91896,
+      "pool_hits": 91770,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 92372,
+      "free_requests": 92372,
+      "pool_hits": 92246,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 92848,
+      "free_requests": 92848,
+      "pool_hits": 92722,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 93324,
+      "free_requests": 93324,
+      "pool_hits": 93198,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 93800,
+      "free_requests": 93800,
+      "pool_hits": 93674,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 94276,
+      "free_requests": 94276,
+      "pool_hits": 94150,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 94752,
+      "free_requests": 94752,
+      "pool_hits": 94626,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 95228,
+      "free_requests": 95228,
+      "pool_hits": 95102,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 95704,
+      "free_requests": 95704,
+      "pool_hits": 95578,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 96180,
+      "free_requests": 96180,
+      "pool_hits": 96054,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  },
+  {
+    "stats": {
+      "total_allocated": 126,
+      "current_in_use": 0,
+      "allocation_requests": 96656,
+      "free_requests": 96656,
+      "pool_hits": 96530,
+      "pool_misses": 126
+    },
+    "retained_pinned_bytes": 33472512
+  }
+]
