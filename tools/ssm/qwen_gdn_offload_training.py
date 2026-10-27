@@ -29,6 +29,7 @@ from megatron.core.dist_checkpointing.mapping import ShardedObject
 from megatron.core.distributed import DistributedDataParallel, DistributedDataParallelConfig
 from megatron.core.distributed.finalize_model_grads import finalize_model_grads
 from megatron.core.enums import Fp8Recipe
+from megatron.core.fp4_utils import get_fp4_context
 from megatron.core.optimizer import MegatronOptimizer, OptimizerConfig, get_megatron_optimizer
 from megatron.core.pipeline_parallel.fine_grained_activation_offload import (
     FineGrainedActivationOffloadingInterface as off_interface,
@@ -231,9 +232,12 @@ def _forward_step(
 ) -> tuple[torch.Tensor, Any]:
     batch = next(batches)
     # Bridge's Qwen forward overrides GPTModel.forward without its offload setup.
-    if get_model_config(model).fine_grained_activation_offloading:
+    config = get_model_config(model)
+    if config.fine_grained_activation_offloading:
         get_attr_wrapped_model(model, "preprocess_for_fine_grained_offloading")()
-    output = model(batch["tokens"], batch["position_ids"], None, labels=batch["labels"])
+    # Bridge's custom decoder supplies FP8 contexts but does not enter an FP4 context.
+    with get_fp4_context(config):
+        output = model(batch["tokens"], batch["position_ids"], None, labels=batch["labels"])
 
     def loss_func(
         losses: torch.Tensor,
