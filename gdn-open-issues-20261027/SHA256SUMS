@@ -1,4 +1,4 @@
-f886791e94a75b457d7028b4b0ecec3ac2e5546447a03881e0783d9b62345fca  README.md
+4318c66abe821477bd86f11d6cfdfa1bb582cefc2a6a778069e3010a41c426b9  README.md
 8fbdde35d5d5f4c6578428ad7d56e9cc0f96493ac78c1047187827e6624920dd  alignment-real-te-baseline-final-gpu1/launcher.log
 441ed3c8910c80acbb5e66be37b0c2d0b5d5ee6b95d6b43b56fac5932aa8ebc9  alignment-real-te-baseline-final-gpu1/manifest.json
 f5624419ac34a494a0f599844a77df8b47db48338111d8a54985ad45f1ff9759  alignment-real-te-baseline-final-gpu1/ranks/da974009-4d57-450b-82da-49e8e8dc6d80_ghkb42ko/attempt_0/0/stderr.log
@@ -28,7 +28,7 @@ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  alignment-tp2-
 fc312d7168f180068e9db47b528835b017bf658efdb625bbef9dd193b110c696  alignment-tp2-fixed-verbose-20261027-gpu03/ranks/6b732bf3-a85e-4974-b024-3da7da22bd56_adq1502t/attempt_0/1/stdout.log
 7eb43f503fa898a5e9690f7577d6b9a1ad749ebf91d26eeb524534056b8ab335  alignment-tp2-fixed-verbose-20261027-gpu03/reports/rank-0.json
 8c4661455a50df5fa08c0fd9d57cdb3cccbaff80eeb1d00fa17bcf4afb5c9c0b  alignment-tp2-fixed-verbose-20261027-gpu03/reports/rank-1.json
-244da3810c9eab6afa1457a7ed127b45e3876c1dc7d1eee38280d4d9c3f7ef9f  audit.py
+9e467ce8f1f03063406cf4965bd8d702dd15fda43fa9fac1657c73a60f2021e9  audit.py
 5e4601280cddb7dfab225f2c377cc88eb9c84f896e1bb1ba828d9022104e0f83  benchmark_current_20261027.py
 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  graph-with-mrope-c5264b6-graph-native-gpu12/launcher.log
 966c9d543ef92b0ae7c8066f5b20ed9c64a5cfbf204b91d4188f3a44115a5ff8  graph-with-mrope-c5264b6-graph-native-gpu12/manifest.json
@@ -65,6 +65,11 @@ da55b0e7e2fbe23d59bdf3da238eeeef931f2428563fcb2fede6c52c0fe7f0cf  nvfp4-ddp-66b6
 8c70512e5361f22eb14f03a6105eae3a166e60d20fcbce465beea9173c54ae73  nvfp4-ddp-66b6bb6-unit-gpu12/reports/rank-0.json
 023f28536df5821d097bfa6fee392fe976d8aad0935666de0d5c2b20b4fc477e  nvfp4-ddp-66b6bb6-unit-gpu12/reports/rank-1.json
 ca18c1f784db6cc96f535d9cc0b21b37651a78cf699f5911a910caa398364a94  nvfp4-ddp-alignment-prototype.patch
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  precision-with-mrope-dfaa633-graph-gpu3/launcher.log
+d2d0955e908796db371a4162bf43251fb648e86c13b39197bc6a6ea9887eec8c  precision-with-mrope-dfaa633-graph-gpu3/manifest.json
+548992f0a0cd30ac2e0e78bd85e7872887a7ce7e713b0cdb8d95b44a4706d768  precision-with-mrope-dfaa633-graph-gpu3/ranks/83cb362e-4e23-47cb-8a0c-0ec4e9a98f82_hb_32e5r/attempt_0/0/stderr.log
+0f2814f4160388b004a8b0f064bac5010bc731ccc078e338bb3954ad5d651b1d  precision-with-mrope-dfaa633-graph-gpu3/ranks/83cb362e-4e23-47cb-8a0c-0ec4e9a98f82_hb_32e5r/attempt_0/0/stdout.log
+6a3ca08404d86ce9521e7fb3e7769b54459de52b97b37205ae8323a044133fd1  precision-with-mrope-dfaa633-graph-gpu3/reports/rank-0.json
 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  precision-with-mrope-dfaa633-native-gpu3/launcher.log
 28320c808fdd0f3c7e87015087754b3566d6e27252c14db12eb94ca6f2a59812  precision-with-mrope-dfaa633-native-gpu3/manifest.json
 f4165ddf9816d08f682810a7c252854d3cead0028423a16deec4afe39a846c3d  precision-with-mrope-dfaa633-native-gpu3/ranks/0da50049-1f56-4375-a16e-b523c20457d1_iu5rqvjo/attempt_0/0/stderr.log

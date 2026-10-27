@@ -13,6 +13,7 @@ jobs = {
     'precision-with-mrope-dfaa633-precision-replay-gpu12': ('dfaa6338c65edab118ba415fcc14c73241f503a6', 18, 2),
     'precision-with-mrope-dfaa633-scope-gpu3': ('dfaa6338c65edab118ba415fcc14c73241f503a6', 111, 1),
     'precision-with-mrope-dfaa633-native-gpu3': ('dfaa6338c65edab118ba415fcc14c73241f503a6', 54, 1),
+    'precision-with-mrope-dfaa633-graph-gpu3': ('dfaa6338c65edab118ba415fcc14c73241f503a6', 23, 1),
 }
 for name, (revision, count, ranks) in jobs.items():
     folder = root / name
