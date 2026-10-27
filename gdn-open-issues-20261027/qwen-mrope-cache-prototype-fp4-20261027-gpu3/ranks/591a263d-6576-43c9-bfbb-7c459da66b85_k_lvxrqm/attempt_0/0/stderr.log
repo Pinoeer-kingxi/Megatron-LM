@@ -1,0 +1,51 @@
+/home/lwx/.cache/megatron-gdn-20261026/precision-mrope-prototype/megatron/core/models/mimo/config/base_configs.py:12: UserWarning: MimoModelConfig is experimental and still under active development. The API may change without notice in future releases.
+  class MimoModelConfig:
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+/home/lwx/.cache/megatron-gdn-20261026/precision-mrope-prototype/megatron/core/transformer/transformer_config.py:3806: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+  warnings.warn(
+/home/lwx/.cache/megatron-gdn-20261026/benchmark_nvfp4_controls.py:70: DeprecationWarning: ModelProviderMixin-based model configuration is deprecated. Migrate to ModelConfig + ModelBuilder.
+  parents = config.provide_distributed_model(
+/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/_dynamo/variables/functions.py:2202: UserWarning: Dynamo detected a call to a `functools.lru_cache`-wrapped function at '_common.py:101'. Dynamo ignores the cache wrapper and directly traces the wrapped function. Silent incorrectness is only a *potential* risk, not something we have observed. Enable TORCH_LOGS=+dynamo for a DEBUG stack trace.
+
+This call originates from:
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/transformer_engine/pytorch/ops/_common.py", line 101, in maybe_autocast_dtype
+    if torch_version() >= (2, 4, 3):
+
+  torch._dynamo.utils.warn_once(msg)
+/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/_dynamo/variables/functions.py:2082: UserWarning: Dynamo does not know how to trace the builtin `transformer_engine_torch.pybind11_detail_function_record_v1_system_libstdcpp_gxx_abi_1xxx_use_cxx11_abi_1.rmsnorm_fwd.` This function is either a Python builtin (e.g. _warnings.warn) or a third-party C/C++ Python extension (perhaps created with pybind).
+If it is a Python builtin, please file an issue on GitHub so the PyTorch team can add support for it and see the next case for a workaround.
+If it is a third-party C/C++ Python extension, please either wrap it into a PyTorch-understood custom operator (see https://pytorch.org/tutorials/advanced/custom_ops_landing_page.html for more details) or, if it is traceable, use `torch.compiler.allow_in_graph`.
+  torch._dynamo.utils.warn_once(explanation + "\n" + "\n".join(hints))
+/home/lwx/.cache/megatron-gdn-20261026/precision-mrope-prototype/megatron/core/pipeline_parallel/schedules.py:225: UserWarning: The AccumulateGrad node's stream does not match the stream of the node that produced the incoming gradient. This may incur unnecessary synchronization and break CUDA graph capture if the AccumulateGrad node's stream is the default stream. This mismatch is caused by an AccumulateGrad node created prior to the current iteration being kept alive. This can happen if the autograd graph is still being kept alive by tensors such as the loss, or if you are using DDP, which will stash a reference to the node. To resolve the mismatch, delete all references to the autograd graph or ensure that DDP initialization is performed under the same stream as subsequent forwards. If the mismatch is intentional, you can use torch.autograd.graph.set_warn_on_accumulate_grad_stream_mismatch(False) to suppress this warning. (Triggered internally at /pytorch/torch/csrc/autograd/input_buffer.cpp:240.)
+  Variable._execution_engine.run_backward(
+terminate called after throwing an instance of 'c10::AcceleratorError'
+  what():  CUDA error: an illegal memory access was encountered
+Search for `cudaErrorIllegalAddress' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Exception raised from insert_events at /pytorch/c10/cuda/CUDACachingAllocator.cpp:3726 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x9d (0x7f3bf2f7305d in /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0xc114 (0x7f3bf33de114 in /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/lib/libc10_cuda.so)
+frame #2: <unknown function> + 0x1941e (0x7f3bf33eb41e in /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/lib/libc10_cuda.so)
+frame #3: <unknown function> + 0x1d425 (0x7f3bf33ef425 in /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/lib/libc10_cuda.so)
+frame #4: <unknown function> + 0x7f8e4 (0x7f3bf2f548e4 in /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/lib/libc10.so)
+frame #5: c10::TensorImpl::~TensorImpl() + 0x9 (0x7f3bf2f4e279 in /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/lib/libc10.so)
+frame #6: <unknown function> + 0x869d55 (0x7f3b69e69d55 in /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/lib/libtorch_python.so)
+frame #7: <unknown function> + 0x869df1 (0x7f3b69e69df1 in /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/lib/libtorch_python.so)
+frame #8: /home/songbinbin/.venvs/megatron-gdn-offload/bin/python() [0x577aba]
+frame #9: /home/songbinbin/.venvs/megatron-gdn-offload/bin/python() [0x517dac]
+frame #10: _PyEval_EvalFrameDefault + 0xa62c (0x52fdcc in /home/songbinbin/.venvs/megatron-gdn-offload/bin/python)
+frame #11: PyEval_EvalCode + 0xae (0x5e4dfe in /home/songbinbin/.venvs/megatron-gdn-offload/bin/python)
+frame #12: /home/songbinbin/.venvs/megatron-gdn-offload/bin/python() [0x60a5d7]
+frame #13: /home/songbinbin/.venvs/megatron-gdn-offload/bin/python() [0x605ca7]
+frame #14: /home/songbinbin/.venvs/megatron-gdn-offload/bin/python() [0x61db12]
+frame #15: _PyRun_SimpleFileObject + 0x1b0 (0x61d3b0 in /home/songbinbin/.venvs/megatron-gdn-offload/bin/python)
+frame #16: _PyRun_AnyFileObject + 0x43 (0x61d123 in /home/songbinbin/.venvs/megatron-gdn-offload/bin/python)
+frame #17: Py_RunMain + 0x303 (0x615b43 in /home/songbinbin/.venvs/megatron-gdn-offload/bin/python)
+frame #18: Py_BytesMain + 0x39 (0x5cc259 in /home/songbinbin/.venvs/megatron-gdn-offload/bin/python)
+frame #19: <unknown function> + 0x29ca8 (0x7f3bf45a4ca8 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #20: __libc_start_main + 0x85 (0x7f3bf45a4d65 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #21: /home/songbinbin/.venvs/megatron-gdn-offload/bin/python() [0x5cc089]
+

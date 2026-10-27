@@ -1,0 +1,41 @@
+{
+  "base": "37f34ccaf362ca7e42c0b2e5405455a1fe12993d",
+  "arm": "fixed",
+  "command": [
+    "/usr/bin/python3",
+    "/home/lwx/.cache/megatron-gdn-20261026/precision_graph_container_gpu12_apex.py",
+    "/home/songbinbin/.venvs/megatron-gdn-offload/bin/python",
+    "-m",
+    "torch.distributed.run",
+    "--standalone",
+    "--nproc-per-node=2",
+    "--log-dir",
+    "/home/lwx/.cache/megatron-gdn-20261026/alignment-tp2-composed-37f34cc-v2-20261027-gpu12/ranks",
+    "--redirects",
+    "3",
+    "/home/lwx/.cache/megatron-gdn-20261026/rank_env_precision_graph.py",
+    "/home/lwx/.cache/megatron-gdn-20261026/rank_distributed_pytest.py",
+    "/home/lwx/.cache/megatron-gdn-20261026/alignment-tp2-composed-37f34cc-v2-20261027-gpu12/reports",
+    "-q",
+    "-s",
+    "-x",
+    "-p",
+    "no:cacheprovider",
+    "--confcutdir=/home/lwx/.cache/megatron-gdn-20261026/probes",
+    "/home/lwx/.cache/megatron-gdn-20261026/probes/test_fp4_ordinary_optimizer.py",
+    "-k",
+    "gdn2-False-True-True-True-1.0-fp4-True-tp2-sp"
+  ],
+  "patch_sha256": null,
+  "test_sha256": "226c53f1b66883d77a88ae0d45bccd1a72b55b54ed757c421b838cad310eb155",
+  "started_unix": 1793096697.9615726,
+  "gpu_uuids": [
+    "GPU-5ceca9be-9cf0-99be-0868-915db7531fae",
+    "GPU-fa4310c6-b684-22a7-6878-e8f0f86cf214"
+  ],
+  "disable_rht": true,
+  "disable_stochastic_rounding": true,
+  "exit_code": 0,
+  "finished_unix": 1793096735.3741262,
+  "revision_after": "37f34ccaf362ca7e42c0b2e5405455a1fe12993d"
+}

@@ -1,0 +1,33 @@
+{
+  "revision": "865d79dd37f304a4dffa23158e8df52735d43247",
+  "command": [
+    "/usr/bin/python3",
+    "/home/lwx/.cache/megatron-gdn-20261026/precision_graph_container_gpu1_default.py",
+    "/home/songbinbin/.venvs/megatron-gdn-offload/bin/python",
+    "-m",
+    "torch.distributed.run",
+    "--standalone",
+    "--nproc-per-node=1",
+    "--log-dir",
+    "/home/lwx/.cache/megatron-gdn-20261026/mrope-graph-865d79d-native-gpu1/ranks",
+    "--redirects",
+    "3",
+    "/home/lwx/.cache/megatron-gdn-20261026/rank_env_precision_graph.py",
+    "/home/lwx/.cache/megatron-gdn-20261026/rank_distributed_pytest.py",
+    "/home/lwx/.cache/megatron-gdn-20261026/mrope-graph-865d79d-native-gpu1/reports",
+    "-q",
+    "-s",
+    "-x",
+    "-p",
+    "no:cacheprovider",
+    "--confcutdir=tests/unit_tests/pipeline_parallel",
+    "tests/unit_tests/transformer/test_cuda_graphs.py::TestTECudaGraphHelper::test_mrope_replay_uses_current_positions"
+  ],
+  "gpu_uuid": "GPU-5ceca9be-9cf0-99be-0868-915db7531fae",
+  "shared_gpu": true,
+  "started_unix": 1793098593.5174532,
+  "exit_code": 0,
+  "finished_unix": 1793098610.987853,
+  "revision_after": "865d79dd37f304a4dffa23158e8df52735d43247",
+  "dirty_after": ""
+}

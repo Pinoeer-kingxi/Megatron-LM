@@ -1,0 +1,15 @@
+Imported Megatron Core from /home/lwx/.cache/megatron-gdn-20261026/alignment-composed-37f34cc/megatron/core/__init__.py
+Loading from /home/lwx/.cache/megatron-gdn-20261026/models/Qwen3.… (3… Qwen35VL…
+ > number of parameters on (tensor, gtp_remat, pipeline) model parallel rank (0, 0, 0): 428024608
+
+======================================
+   Activation Offload Summary (MB)    
+======================================
+Rank      gdn_core_attn          Total
+--------------------------------------
+Rank 0            15.07          15.07
+Rank 1            15.07          15.07
+--------------------------------------
+Total             30.15          30.15
+======================================
+

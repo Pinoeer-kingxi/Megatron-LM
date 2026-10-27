@@ -1,0 +1,31 @@
+{
+  "base": "aecc0e8116912554f27a62a51ad2aeca479a7f9e",
+  "arm": "baseline",
+  "command": [
+    "/usr/bin/python3",
+    "/home/lwx/.cache/megatron-gdn-20261026/precision_graph_container_gpu1_default.py",
+    "/home/songbinbin/.venvs/megatron-gdn-offload/bin/python",
+    "-m",
+    "torch.distributed.run",
+    "--standalone",
+    "--nproc-per-node=1",
+    "--log-dir",
+    "/home/lwx/.cache/megatron-gdn-20261026/alignment-real-te-baseline-final-gpu1/ranks",
+    "--redirects",
+    "3",
+    "/home/lwx/.cache/megatron-gdn-20261026/rank_env_precision_graph.py",
+    "/home/lwx/.cache/megatron-gdn-20261026/rank_distributed_pytest.py",
+    "/home/lwx/.cache/megatron-gdn-20261026/alignment-real-te-baseline-final-gpu1/reports",
+    "-q",
+    "-s",
+    "-p",
+    "no:cacheprovider",
+    "--confcutdir=/home/lwx/.cache/megatron-gdn-20261026/probes",
+    "/home/lwx/.cache/megatron-gdn-20261026/probes/test_ddp_fp4_alignment_final.py::TestDistributedDataParallel::test_nvfp4_fused_weight_gradient_alignment"
+  ],
+  "patch_sha256": null,
+  "test_sha256": "b00b28d5fcae537f53c810b16468983c90b590fe82c6c73b63c4f9e02a3f7cab",
+  "started_unix": 1793099167.6117024,
+  "exit_code": 1,
+  "finished_unix": 1793099184.976328
+}

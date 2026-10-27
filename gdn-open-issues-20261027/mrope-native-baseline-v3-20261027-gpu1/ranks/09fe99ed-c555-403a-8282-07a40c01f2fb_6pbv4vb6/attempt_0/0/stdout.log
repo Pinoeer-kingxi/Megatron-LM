@@ -1,0 +1,211 @@
+Initializing torch.distributed with rank: 0, world_size: 1
+Test store timeout: 10 minutes for cold compilation before lazy PP initialization
+INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 1
+WARNING:megatron.core.models.gpt.gpt_model:GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+INFO:megatron.core.distributed.distributed_data_parallel:Setting up DistributedDataParallel with config DistributedDataParallelConfig(grad_reduce_in_fp32=True, overlap_grad_reduce=False, overlap_param_gather=False, align_param_gather=False, use_distributed_optimizer=False, num_distributed_optimizer_instances=1, check_for_nan_in_grad=False, check_for_large_grads=False, bucket_size=None, num_buckets=None, pad_buckets_for_high_nccl_busbw=False, reduce_scatter_with_fp32_accumulation=False, param_name_patterns_for_fp32_local_accumulation=(), average_in_collective=False, fp8_param_gather=False, fp4_param_gather=False, reuse_grad_buf_for_mxfp8_param_ag=False, use_megatron_fsdp=False, megatron_fsdp_version=1, use_custom_fsdp=False, data_parallel_sharding_strategy='no_shard', expert_data_parallel_sharding_strategy='no_shard', gradient_reduce_div_fusion=True, suggested_communication_unit_size=None, keep_fp8_transpose_cache=False, nccl_ub=False, grad_buffer_offload=False, fsdp_double_buffer=False, fsdp_db_use_persist_buf_on_alloc_fail=False, fsdp_all_gather_in_start_param_sync=True, outer_dp_sharding_strategy='no_shard', expert_outer_dp_sharding_strategy='no_shard', disable_symmetric_registration=False, fsdp_manual_registration=False, delay_wgrad_compute=False, megatron_fsdp_main_params_dtype=torch.float32, megatron_fsdp_main_grads_dtype=None, megatron_fsdp_grad_comm_dtype=None, megatron_fsdp_use_decoupled_grad=False, megatron_fsdp_cuda_graph_mode=False, megatron_fsdp_enable_fine_grained_param_gather=False, megatron_fsdp_max_pool_double_buffer=False, hfsdp_param_gather_overlap=False)
+INFO:megatron.core.distributed.param_and_grad_buffer:Number of buckets for gradient all-reduce / reduce-scatter: 1
+Params for bucket 1 (116480 elements, 116480 padded size, 0 param(s) with extra main_grads):
+	output_layer.weight (param.main_grad.dtype=torch.float32)
+	decoder.final_layernorm.bias (param.main_grad.dtype=torch.float32)
+	decoder.final_layernorm.weight (param.main_grad.dtype=torch.float32)
+	decoder.layers.1.mlp.linear_fc2.bias (param.main_grad.dtype=torch.float32)
+	decoder.layers.1.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+	decoder.layers.1.mlp.linear_fc1.bias (param.main_grad.dtype=torch.float32)
+	decoder.layers.1.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+	decoder.layers.1.mlp.linear_fc1.layer_norm_bias (param.main_grad.dtype=torch.float32)
+	decoder.layers.1.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	decoder.layers.1.self_attention.linear_qkv.bias (param.main_grad.dtype=torch.float32)
+	decoder.layers.1.self_attention.linear_qkv.weight (param.main_grad.dtype=torch.float32)
+	decoder.layers.1.self_attention.linear_qkv.layer_norm_bias (param.main_grad.dtype=torch.float32)
+	decoder.layers.1.self_attention.linear_qkv.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	decoder.layers.1.self_attention.linear_proj.bias (param.main_grad.dtype=torch.float32)
+	decoder.layers.1.self_attention.linear_proj.weight (param.main_grad.dtype=torch.float32)
+	decoder.layers.0.mlp.linear_fc2.bias (param.main_grad.dtype=torch.float32)
+	decoder.layers.0.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+	decoder.layers.0.mlp.linear_fc1.bias (param.main_grad.dtype=torch.float32)
+	decoder.layers.0.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+	decoder.layers.0.mlp.linear_fc1.layer_norm_bias (param.main_grad.dtype=torch.float32)
+	decoder.layers.0.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	decoder.layers.0.self_attention.linear_qkv.bias (param.main_grad.dtype=torch.float32)
+	decoder.layers.0.self_attention.linear_qkv.weight (param.main_grad.dtype=torch.float32)
+	decoder.layers.0.self_attention.linear_qkv.layer_norm_bias (param.main_grad.dtype=torch.float32)
+	decoder.layers.0.self_attention.linear_qkv.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	decoder.layers.0.self_attention.linear_proj.bias (param.main_grad.dtype=torch.float32)
+	decoder.layers.0.self_attention.linear_proj.weight (param.main_grad.dtype=torch.float32)
+	embedding.word_embeddings.weight (param.main_grad.dtype=torch.float32)
+INFO:megatron.core.distributed.param_and_grad_buffer:Using all-reduce for gradient reductions because self.ddp_config.use_distributed_optimizer=False
+INFO:megatron.core.transformer.cuda_graphs:Rank 0: 2 graphable layers.
+INFO:megatron.core.transformer.cuda_graphs:Start CUDA Graphs capture...
+INFO:megatron.core.transformer.cuda_graphs:Time spent in CUDA Graphs capture on rank 0: 0.29679369926452637s
+INFO:megatron.core.transformer.cuda_graphs:Rank 0: 2 graphs deleted with explicit reset, 0 graphs deleted without explicit reset.
+F
+=================================== FAILURES ===================================
+________ TestTECudaGraphHelper.test_mrope_replay_uses_current_positions ________
+
+self = <test_mrope_graph_regression_v3.TestTECudaGraphHelper object at 0x755fc24fbef0>
+
+    def test_mrope_replay_uses_current_positions(self):
+        """Graph replay must preserve position-dependent mRoPE forward and gradients."""
+        Utils.initialize_model_parallel()
+        init_num_microbatches_calculator(
+            rank=0,
+            global_batch_size=1,
+            micro_batch_size=1,
+            data_parallel_size=1,
+            decrease_batch_size_if_needed=False,
+        )
+        config = TransformerConfig(
+            num_layers=2,
+            hidden_size=64,
+            num_attention_heads=4,
+            bf16=True,
+            params_dtype=torch.bfloat16,
+            attention_dropout=0.0,
+            hidden_dropout=0.0,
+            cuda_graph_impl="transformer_engine",
+            use_te_rng_tracker=True,
+            mrope_section=[2, 3, 3],
+        )
+        torch.manual_seed(123)
+        model_parallel_cuda_manual_seed(123)
+        current_stream = torch.cuda.current_stream()
+        init_stream = torch.cuda.Stream()
+        init_stream.wait_stream(current_stream)
+        with torch.cuda.stream(init_stream):
+            raw_model = GPTModel(
+                config=config,
+                transformer_layer_spec=get_gpt_layer_with_transformer_engine_spec(),
+                vocab_size=128,
+                max_sequence_length=128,
+                position_embedding_type="mrope",
+            ).cuda()
+            model = DistributedDataParallel(
+                config, DistributedDataParallelConfig(grad_reduce_in_fp32=True), raw_model
+            )
+        current_stream.wait_stream(init_stream)
+        tokens = torch.arange(128, device="cuda").unsqueeze(0)
+        positions = tokens.unsqueeze(0).expand(3, -1, -1).contiguous()
+        shifted = positions * torch.tensor([1, 2, 3], device="cuda").view(3, 1, 1)
+    
+        def train_step(position_ids):
+            model.zero_grad_buffer()
+            model.set_is_first_microbatch()
+            losses = model(tokens, position_ids, None, labels=tokens)
+            losses.mean().backward()
+            model.finish_grad_sync()
+            return losses.detach().clone(), [p.main_grad.clone() for p in model.parameters()]
+    
+        eager = [train_step(position_ids) for position_ids in (positions, shifted)]
+        assert not torch.equal(eager[0][0], eager[1][0])
+        helper = TECudaGraphHelper(
+            model=[model], config=config, seq_length=128, micro_batch_size=1, optimizers=[]
+        )
+        try:
+            helper.create_cudagraphs()
+            assert helper.graphs_created()
+            replay = [train_step(position_ids) for position_ids in (positions, shifted)]
+            for expected, actual in zip(eager, replay):
+>               torch.testing.assert_close(actual, expected, rtol=1e-5, atol=1e-6)
+E               AssertionError: Tensor-likes are not close!
+E               
+E               Mismatched elements: 114 / 128 (89.1%)
+E               Greatest absolute difference: 0.0038957595825195312 at index (0, 18) (up to 1e-06 allowed)
+E               Greatest relative difference: 0.0007640544208697975 at index (0, 18) (up to 1e-05 allowed)
+E               
+E               The failure occurred for item [0]
+
+../probes/test_mrope_graph_regression_v3.py:1321: AssertionError
+------------------------------ Captured log call -------------------------------
+INFO     megatron.core.num_microbatches_calculator:num_microbatches_calculator.py:292 setting number of microbatches to constant 1
+WARNING  megatron.core.models.gpt.gpt_model:_rank_utils.py:127 GPTModel IS DEPRECATED. GPTModel is only accepting critical bug fixes, no new features. Please reference the migration guide `docs/user-guide/hybrid-model-migration.md` for details on how to use `HybridModel`
+INFO     megatron.core.distributed.distributed_data_parallel:_rank_utils.py:127 Setting up DistributedDataParallel with config DistributedDataParallelConfig(grad_reduce_in_fp32=True, overlap_grad_reduce=False, overlap_param_gather=False, align_param_gather=False, use_distributed_optimizer=False, num_distributed_optimizer_instances=1, check_for_nan_in_grad=False, check_for_large_grads=False, bucket_size=None, num_buckets=None, pad_buckets_for_high_nccl_busbw=False, reduce_scatter_with_fp32_accumulation=False, param_name_patterns_for_fp32_local_accumulation=(), average_in_collective=False, fp8_param_gather=False, fp4_param_gather=False, reuse_grad_buf_for_mxfp8_param_ag=False, use_megatron_fsdp=False, megatron_fsdp_version=1, use_custom_fsdp=False, data_parallel_sharding_strategy='no_shard', expert_data_parallel_sharding_strategy='no_shard', gradient_reduce_div_fusion=True, suggested_communication_unit_size=None, keep_fp8_transpose_cache=False, nccl_ub=False, grad_buffer_offload=False, fsdp_double_buffer=False, fsdp_db_use_persist_buf_on_alloc_fail=False, fsdp_all_gather_in_start_param_sync=True, outer_dp_sharding_strategy='no_shard', expert_outer_dp_sharding_strategy='no_shard', disable_symmetric_registration=False, fsdp_manual_registration=False, delay_wgrad_compute=False, megatron_fsdp_main_params_dtype=torch.float32, megatron_fsdp_main_grads_dtype=None, megatron_fsdp_grad_comm_dtype=None, megatron_fsdp_use_decoupled_grad=False, megatron_fsdp_cuda_graph_mode=False, megatron_fsdp_enable_fine_grained_param_gather=False, megatron_fsdp_max_pool_double_buffer=False, hfsdp_param_gather_overlap=False)
+INFO     megatron.core.distributed.param_and_grad_buffer:param_and_grad_buffer.py:1541 Number of buckets for gradient all-reduce / reduce-scatter: 1
+Params for bucket 1 (116480 elements, 116480 padded size, 0 param(s) with extra main_grads):
+	output_layer.weight (param.main_grad.dtype=torch.float32)
+	decoder.final_layernorm.bias (param.main_grad.dtype=torch.float32)
+	decoder.final_layernorm.weight (param.main_grad.dtype=torch.float32)
+	decoder.layers.1.mlp.linear_fc2.bias (param.main_grad.dtype=torch.float32)
+	decoder.layers.1.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+	decoder.layers.1.mlp.linear_fc1.bias (param.main_grad.dtype=torch.float32)
+	decoder.layers.1.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+	decoder.layers.1.mlp.linear_fc1.layer_norm_bias (param.main_grad.dtype=torch.float32)
+	decoder.layers.1.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	decoder.layers.1.self_attention.linear_qkv.bias (param.main_grad.dtype=torch.float32)
+	decoder.layers.1.self_attention.linear_qkv.weight (param.main_grad.dtype=torch.float32)
+	decoder.layers.1.self_attention.linear_qkv.layer_norm_bias (param.main_grad.dtype=torch.float32)
+	decoder.layers.1.self_attention.linear_qkv.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	decoder.layers.1.self_attention.linear_proj.bias (param.main_grad.dtype=torch.float32)
+	decoder.layers.1.self_attention.linear_proj.weight (param.main_grad.dtype=torch.float32)
+	decoder.layers.0.mlp.linear_fc2.bias (param.main_grad.dtype=torch.float32)
+	decoder.layers.0.mlp.linear_fc2.weight (param.main_grad.dtype=torch.float32)
+	decoder.layers.0.mlp.linear_fc1.bias (param.main_grad.dtype=torch.float32)
+	decoder.layers.0.mlp.linear_fc1.weight (param.main_grad.dtype=torch.float32)
+	decoder.layers.0.mlp.linear_fc1.layer_norm_bias (param.main_grad.dtype=torch.float32)
+	decoder.layers.0.mlp.linear_fc1.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	decoder.layers.0.self_attention.linear_qkv.bias (param.main_grad.dtype=torch.float32)
+	decoder.layers.0.self_attention.linear_qkv.weight (param.main_grad.dtype=torch.float32)
+	decoder.layers.0.self_attention.linear_qkv.layer_norm_bias (param.main_grad.dtype=torch.float32)
+	decoder.layers.0.self_attention.linear_qkv.layer_norm_weight (param.main_grad.dtype=torch.float32)
+	decoder.layers.0.self_attention.linear_proj.bias (param.main_grad.dtype=torch.float32)
+	decoder.layers.0.self_attention.linear_proj.weight (param.main_grad.dtype=torch.float32)
+	embedding.word_embeddings.weight (param.main_grad.dtype=torch.float32)
+INFO     megatron.core.distributed.param_and_grad_buffer:_rank_utils.py:127 Using all-reduce for gradient reductions because self.ddp_config.use_distributed_optimizer=False
+INFO     megatron.core.transformer.cuda_graphs:utils.py:977 Rank 0: 2 graphable layers.
+INFO     megatron.core.transformer.cuda_graphs:_rank_utils.py:127 Start CUDA Graphs capture...
+INFO     megatron.core.transformer.cuda_graphs:_rank_utils.py:127 Time spent in CUDA Graphs capture on rank 0: 0.29679369926452637s
+INFO     megatron.core.transformer.cuda_graphs:utils.py:977 Rank 0: 2 graphs deleted with explicit reset, 0 graphs deleted without explicit reset.
+=============================== warnings summary ===============================
+../../../../songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/config/__init__.py:1345
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/config/__init__.py:1345: PytestAssertRewriteWarning: Module already imported so cannot be rewritten; anyio
+    self._mark_plugins_for_rewrite(hook, disable_autoload)
+
+../probes/test_mrope_graph_regression_v3.py:1824
+  /home/lwx/.cache/megatron-gdn-20261026/probes/test_mrope_graph_regression_v3.py:1824: PytestUnknownMarkWarning: Unknown pytest.mark.flaky - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.flaky
+
+../probes/test_mrope_graph_regression_v3.py:1825
+  /home/lwx/.cache/megatron-gdn-20261026/probes/test_mrope_graph_regression_v3.py:1825: PytestUnknownMarkWarning: Unknown pytest.mark.flaky_in_dev - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.flaky_in_dev
+
+../probes/test_mrope_graph_regression_v3.py:1839
+  /home/lwx/.cache/megatron-gdn-20261026/probes/test_mrope_graph_regression_v3.py:1839: PytestUnknownMarkWarning: Unknown pytest.mark.launch_on_gb200 - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    pytest.param("ncclep_fp8", marks=pytest.mark.launch_on_gb200),
+
+../probes/test_mrope_graph_regression_v3.py:1933
+  /home/lwx/.cache/megatron-gdn-20261026/probes/test_mrope_graph_regression_v3.py:1933: PytestUnknownMarkWarning: Unknown pytest.mark.flaky - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.flaky
+
+../probes/test_mrope_graph_regression_v3.py:1934
+  /home/lwx/.cache/megatron-gdn-20261026/probes/test_mrope_graph_regression_v3.py:1934: PytestUnknownMarkWarning: Unknown pytest.mark.flaky_in_dev - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.flaky_in_dev
+
+probes/test_mrope_graph_regression_v3.py::TestTECudaGraphHelper::test_mrope_replay_uses_current_positions
+probes/test_mrope_graph_regression_v3.py::TestTECudaGraphHelper::test_mrope_replay_uses_current_positions
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+    return func(*args, **kwargs)
+
+probes/test_mrope_graph_regression_v3.py::TestTECudaGraphHelper::test_mrope_replay_uses_current_positions
+  /home/lwx/.cache/megatron-gdn-20261026/precision-final-aecc0e/megatron/core/transformer/transformer_config.py:3806: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+    warnings.warn(
+
+probes/test_mrope_graph_regression_v3.py::TestTECudaGraphHelper::test_mrope_replay_uses_current_positions
+probes/test_mrope_graph_regression_v3.py::TestTECudaGraphHelper::test_mrope_replay_uses_current_positions
+  /home/lwx/.cache/megatron-gdn-20261026/precision-final-aecc0e/megatron/core/transformer/mlp.py:447: DeprecationWarning: MLP requires ffn_hidden_size, but it was not provided. Using                     config.ffn_hidden_size by default.
+    return cls(
+
+probes/test_mrope_graph_regression_v3.py::TestTECudaGraphHelper::test_mrope_replay_uses_current_positions
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/autograd/graph.py:869: UserWarning: The AccumulateGrad node's stream does not match the stream of the node that produced the incoming gradient. This may incur unnecessary synchronization and break CUDA graph capture if the AccumulateGrad node's stream is the default stream. This mismatch is caused by an AccumulateGrad node created prior to the current iteration being kept alive. This can happen if the autograd graph is still being kept alive by tensors such as the loss, or if you are using DDP, which will stash a reference to the node. To resolve the mismatch, delete all references to the autograd graph or ensure that DDP initialization is performed under the same stream as subsequent forwards. If the mismatch is intentional, you can use torch.autograd.graph.set_warn_on_accumulate_grad_stream_mismatch(False) to suppress this warning. (Triggered internally at /pytorch/torch/csrc/autograd/input_buffer.cpp:240.)
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+
+probes/test_mrope_graph_regression_v3.py::TestTECudaGraphHelper::test_mrope_replay_uses_current_positions
+  /home/lwx/.cache/megatron-gdn-20261026/precision-final-aecc0e/megatron/core/transformer/cuda_graphs.py:2888: DeprecationWarning: make_graphed_callables has deprecated `fp8_enabled` kwarg in favor of `enabled`. `fp8_enabled` will be removed in a future release.
+    graphs = make_graphed_callables(
+
+probes/test_mrope_graph_regression_v3.py: 16 warnings
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/transformer_engine/pytorch/attention/dot_product_attention/dot_product_attention.py:2624: DeprecationWarning: Relying on pointer-based detection of packed q/k/v layouts (detected 'sbh3d') is deprecated: pass the packed buffer explicitly via qkv_layer/kv_layer (with qkv_interleave_dim) to DotProductAttention instead.
+    ) = dpa_utils.get_qkv_layout(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED ../probes/test_mrope_graph_regression_v3.py::TestTECudaGraphHelper::test_mrope_replay_uses_current_positions
+1 failed, 29 warnings in 2.70s

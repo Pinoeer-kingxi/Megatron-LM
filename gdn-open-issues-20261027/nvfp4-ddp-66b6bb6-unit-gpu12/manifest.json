@@ -1,0 +1,36 @@
+{
+  "revision": "66b6bb62a00bdccf8365096e6828215cffed4ce7",
+  "command": [
+    "/usr/bin/python3",
+    "/home/lwx/.cache/megatron-gdn-20261026/precision_graph_container_gpu12_apex.py",
+    "/home/songbinbin/.venvs/megatron-gdn-offload/bin/python",
+    "-m",
+    "torch.distributed.run",
+    "--standalone",
+    "--nproc-per-node=2",
+    "--log-dir",
+    "/home/lwx/.cache/megatron-gdn-20261026/nvfp4-ddp-66b6bb6-unit-gpu12/ranks",
+    "--redirects",
+    "3",
+    "/home/lwx/.cache/megatron-gdn-20261026/rank_env_precision_graph.py",
+    "/home/lwx/.cache/megatron-gdn-20261026/rank_distributed_pytest.py",
+    "/home/lwx/.cache/megatron-gdn-20261026/nvfp4-ddp-66b6bb6-unit-gpu12/reports",
+    "-q",
+    "-s",
+    "-p",
+    "no:cacheprovider",
+    "--confcutdir=tests/unit_tests/pipeline_parallel",
+    "tests/unit_tests/distributed/test_param_layout.py::TestDefaultParamLayout",
+    "tests/unit_tests/distributed/test_distributed_data_parallel.py::TestDistributedDataParallel::test_nvfp4_fused_weight_gradient_alignment"
+  ],
+  "gpu_uuids": [
+    "GPU-5ceca9be-9cf0-99be-0868-915db7531fae",
+    "GPU-fa4310c6-b684-22a7-6878-e8f0f86cf214"
+  ],
+  "shared_gpu": true,
+  "started_unix": 1793099152.1332052,
+  "exit_code": 0,
+  "finished_unix": 1793099170.0150366,
+  "revision_after": "66b6bb62a00bdccf8365096e6828215cffed4ce7",
+  "dirty_after": ""
+}

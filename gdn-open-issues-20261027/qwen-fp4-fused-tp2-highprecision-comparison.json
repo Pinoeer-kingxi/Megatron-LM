@@ -1,0 +1,11 @@
+{
+  "revision": "37f34ccaf362ca7e42c0b2e5405455a1fe12993d",
+  "repeat_exact": [
+    true,
+    true
+  ],
+  "offload_exact": [
+    true,
+    true
+  ]
+}

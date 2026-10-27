@@ -1,0 +1,32 @@
+{
+  "base": "aecc0e8116912554f27a62a51ad2aeca479a7f9e",
+  "arm": "baseline",
+  "command": [
+    "/usr/bin/python3",
+    "/home/lwx/.cache/megatron-gdn-20261026/precision_graph_container_gpu1_default.py",
+    "/home/songbinbin/.venvs/megatron-gdn-offload/bin/python",
+    "-m",
+    "torch.distributed.run",
+    "--standalone",
+    "--nproc-per-node=1",
+    "--log-dir",
+    "/home/lwx/.cache/megatron-gdn-20261026/mrope-native-baseline-v3-20261027-gpu1/ranks",
+    "--redirects",
+    "3",
+    "/home/lwx/.cache/megatron-gdn-20261026/rank_env_precision_graph.py",
+    "/home/lwx/.cache/megatron-gdn-20261026/rank_distributed_pytest.py",
+    "/home/lwx/.cache/megatron-gdn-20261026/mrope-native-baseline-v3-20261027-gpu1/reports",
+    "-q",
+    "-s",
+    "-p",
+    "no:cacheprovider",
+    "--confcutdir=/home/lwx/.cache/megatron-gdn-20261026/probes",
+    "/home/lwx/.cache/megatron-gdn-20261026/probes/test_mrope_graph_regression_v3.py::TestTECudaGraphHelper::test_mrope_replay_uses_current_positions"
+  ],
+  "test_sha256": "67d92a33e1c84fa20069cff78e40bc16f8ee42fc9320e3f80027231c3146b7b2",
+  "patch_sha256": null,
+  "started_unix": 1793098459.1909926,
+  "shared_gpu": true,
+  "exit_code": 1,
+  "finished_unix": 1793098480.0568912
+}

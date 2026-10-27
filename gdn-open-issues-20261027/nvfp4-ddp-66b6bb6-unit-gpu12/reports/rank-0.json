@@ -1,0 +1,55 @@
+{
+  "rank": 0,
+  "collected": 8,
+  "exit_code": 0,
+  "outcomes": [
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestDefaultParamLayout::test_single_bucket_no_padding",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestDefaultParamLayout::test_multiple_buckets",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestDefaultParamLayout::test_no_padding_applied",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestDefaultParamLayout::test_single_param",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestDefaultParamLayout::test_aligned_layout_preserves_parameter_counts[None]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_param_layout.py::TestDefaultParamLayout::test_aligned_layout_preserves_parameter_counts[100]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_distributed_data_parallel.py::TestDistributedDataParallel::test_nvfp4_fused_weight_gradient_alignment[False]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/distributed/test_distributed_data_parallel.py::TestDistributedDataParallel::test_nvfp4_fused_weight_gradient_alignment[True]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    }
+  ]
+}

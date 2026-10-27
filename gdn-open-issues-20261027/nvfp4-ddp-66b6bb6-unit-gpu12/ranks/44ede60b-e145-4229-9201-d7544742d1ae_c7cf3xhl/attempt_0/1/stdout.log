@@ -1,0 +1,39 @@
+Initializing torch.distributed with rank: 1, world_size: 2
+Test store timeout: 10 minutes for cold compilation before lazy PP initialization
+........
+=============================== warnings summary ===============================
+../../../../songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/config/__init__.py:1345
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/config/__init__.py:1345: PytestAssertRewriteWarning: Module already imported so cannot be rewritten; anyio
+    self._mark_plugins_for_rewrite(hook, disable_autoload)
+
+tests/unit_tests/distributed/test_distributed_data_parallel.py::TestDistributedDataParallel::test_nvfp4_fused_weight_gradient_alignment[False]
+tests/unit_tests/distributed/test_distributed_data_parallel.py::TestDistributedDataParallel::test_nvfp4_fused_weight_gradient_alignment[True]
+  /home/lwx/.cache/megatron-gdn-20261026/nvfp4-ddp-66b6bb6/megatron/core/transformer/transformer_config.py:3775: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+    warnings.warn(
+
+tests/unit_tests/distributed/test_distributed_data_parallel.py::TestDistributedDataParallel::test_nvfp4_fused_weight_gradient_alignment[False]
+tests/unit_tests/distributed/test_distributed_data_parallel.py::TestDistributedDataParallel::test_nvfp4_fused_weight_gradient_alignment[False]
+tests/unit_tests/distributed/test_distributed_data_parallel.py::TestDistributedDataParallel::test_nvfp4_fused_weight_gradient_alignment[True]
+tests/unit_tests/distributed/test_distributed_data_parallel.py::TestDistributedDataParallel::test_nvfp4_fused_weight_gradient_alignment[True]
+  /home/lwx/.cache/megatron-gdn-20261026/nvfp4-ddp-66b6bb6/tests/unit_tests/distributed/test_distributed_data_parallel.py:79: DeprecationWarning: fp8_autocast is deprecated and will be removed in a future release. Use autocast(enabled=..., calibrating=..., recipe=..., group=..., _graph=...) instead.
+    with te.fp8_autocast(enabled=True, fp8_recipe=recipe):
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+============================= slowest 15 durations =============================
+0.56s call     tests/unit_tests/distributed/test_distributed_data_parallel.py::TestDistributedDataParallel::test_nvfp4_fused_weight_gradient_alignment[False]
+0.14s setup    tests/unit_tests/distributed/test_distributed_data_parallel.py::TestDistributedDataParallel::test_nvfp4_fused_weight_gradient_alignment[False]
+0.03s teardown tests/unit_tests/distributed/test_distributed_data_parallel.py::TestDistributedDataParallel::test_nvfp4_fused_weight_gradient_alignment[True]
+0.03s call     tests/unit_tests/distributed/test_distributed_data_parallel.py::TestDistributedDataParallel::test_nvfp4_fused_weight_gradient_alignment[True]
+
+(11 durations < 0.005s hidden.  Use -vv to show these durations.)
+=========================== short test summary info ============================
+PASSED tests/unit_tests/distributed/test_param_layout.py::TestDefaultParamLayout::test_single_bucket_no_padding
+PASSED tests/unit_tests/distributed/test_param_layout.py::TestDefaultParamLayout::test_multiple_buckets
+PASSED tests/unit_tests/distributed/test_param_layout.py::TestDefaultParamLayout::test_no_padding_applied
+PASSED tests/unit_tests/distributed/test_param_layout.py::TestDefaultParamLayout::test_single_param
+PASSED tests/unit_tests/distributed/test_param_layout.py::TestDefaultParamLayout::test_aligned_layout_preserves_parameter_counts[None]
+PASSED tests/unit_tests/distributed/test_param_layout.py::TestDefaultParamLayout::test_aligned_layout_preserves_parameter_counts[100]
+PASSED tests/unit_tests/distributed/test_distributed_data_parallel.py::TestDistributedDataParallel::test_nvfp4_fused_weight_gradient_alignment[False]
+PASSED tests/unit_tests/distributed/test_distributed_data_parallel.py::TestDistributedDataParallel::test_nvfp4_fused_weight_gradient_alignment[True]
+8 passed, 7 warnings in 1.04s
