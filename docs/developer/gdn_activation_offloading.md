@@ -41,13 +41,13 @@ Engine's responsibility; offloading does not override them.
 The manager's minimum tensor size, offload fraction and last-group margin apply.
 After warmup, fraction zero selects no transfers. Warmup can still copy eligible
 tensors to collect size statistics. The default minimum is 1,048,576 elements;
-short correctness tests use 1024 elements to exercise copies. Native GPU checks cover fixed-length training, evaluation before the first
-training iteration, and sequence lengths 8/256/64/256 after a small warmup.
-The fraction is selected from warmup-eligible groups; changing sizes does not
-recompute a positive-fraction budget. Fraction zero remains transfer-free after
-warmup even when previously small tensors become eligible. Use multiple GDN
-layers when measuring steady-state savings: one GDN group is kept resident after
-warmup. Evaluation, no-grad and fully frozen recurrence execution bypass the scope.
+short correctness tests use 1024 elements to exercise copies. This integration
+covers fixed-length runs beginning with training. Evaluation before the first
+training iteration and changes to tensor sizes after warmup are outside this
+PR's scope. The fraction is selected from warmup-eligible groups; changing
+sizes does not recompute that policy. Use multiple GDN layers when measuring
+steady-state savings: one GDN group is kept resident after warmup. No-grad and
+fully frozen recurrence execution bypass the GDN scope.
 
 ## Saved tensors and integration boundary
 
@@ -97,8 +97,9 @@ It requires a Bridge environment with Qwen3.5 VL mappings; the historical runs
 used revision `c860f8a5bc5fddd78690f32baa0b8696774308b4` and the compatibility
 overlay recorded in the evidence. Bridge is not a core runtime dependency.
 
-Give each rank its own persistent Triton cache before starting the training
-interpreter. Concurrent ranks can select different autotuned configurations for
+Give each rank its own persistent Triton and TorchInductor caches before starting
+the training interpreter. Inductor captures user-defined FLA L2-normalization
+kernels and stores their autotuning choices separately from Triton's cache. Concurrent ranks can select different autotuned configurations for
 the same key; sharing a cache can overwrite those choices and make even repeated
 offload-disabled baselines differ. Create the root once for a fixed
 topology/fusion/norm-recomputation setting and reuse it for both comparison arms:
@@ -106,17 +107,18 @@ topology/fusion/norm-recomputation setting and reuse it for both comparison arms
 ```bash
 # Run once for this comparison; preserve this exported root between arms.
 export TRITON_CACHE_DIR="$(mktemp -d /tmp/qwen-offload-triton.XXXXXX)"
+export TORCHINDUCTOR_CACHE_DIR="$(mktemp -d /tmp/qwen-offload-inductor.XXXXXX)"
 python -m torch.distributed.run --standalone --nproc-per-node=4 \
   --log-dir /tmp/qwen-disabled-ranks --redirects 3 --tee 3 --no-python \
-  bash -c 'export TRITON_CACHE_DIR="${TRITON_CACHE_DIR}/rank-${RANK}"; exec python "$@"' \
+  bash -c 'export TRITON_CACHE_DIR="${TRITON_CACHE_DIR}/rank-${RANK}"; export TORCHINDUCTOR_CACHE_DIR="${TORCHINDUCTOR_CACHE_DIR}/rank-${RANK}"; exec python "$@"' \
   qwen-training tools/ssm/qwen_gdn_offload_training.py \
   --weights /path/to/Qwen3.5-0.8B --data /path/to/messages.jsonl \
   --tp 2 --sp --pp 2 --seq-length 128 --min-offloaded-tensor-size 1024 \
   --warmup 1 --iterations 2 --check-state --output /tmp/qwen-disabled.json
 ```
 
-Run a fresh enabled process with the same exported cache root and arguments plus
-`--fraction 1` and a distinct output/log directory. Do not recreate the cache root
+Run a fresh enabled process with the same exported cache roots and arguments plus
+`--fraction 1` and a distinct output/log directory. Do not recreate either cache root
 or clear its rank subdirectories between matched runs. Repeat with
 `--recompute-norm` off/on and `--fused-pre-gdr` off/on, using a new root and a
 separate disabled baseline for each fusion/recomputation pair. Keep topology,
@@ -166,7 +168,9 @@ Complete-Qwen measurements at `1f2c9ae4f7e617b12caa115e387d95e668517c62`
 use one RTX A6000, sequence 4096, four microbatches, fraction 1, the default
 tensor threshold and norm recomputation off. Each setting has three
 fresh-process on/off pairs, three warmup steps and ten measured complete optimizer
-steps. Peak allocated memory decreases by 952 MiB: 3.43% with unfused pre-GDR
+steps. These runs include the separately retained evaluation-first and size-change
+policy fixes; they are measurements at the recorded revision, not the current head.
+Peak allocated memory decreases by 952 MiB: 3.43% with unfused pre-GDR
 and 3.47% with native fused pre-GDR. Paired median step-time changes are
 +0.50% (−0.26% to +0.55%) and +4.11% (+3.58% to +6.11%), respectively.
 Peak reserved memory increases by 650–652 MiB and 738–756 MiB; offloading
