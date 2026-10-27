@@ -64,20 +64,40 @@ for arm in ('eager', 'graph-disabled', 'graph-repeat', 'graph-offloaded'):
     assert not manifest['disable_rht'] and not manifest['disable_stochastic_rounding']
     data = json.loads((folder / 'result.json').read_text())
     assert len(data['records']) == 6 and len(data['graph_counts']) == (0 if arm == 'eager' else 24)
-    assert all(x['selected_bytes'] > 0 for x in data['records'][3:]) == (arm == 'graph-offloaded')
+    assert all((x['selected_bytes'] > 0) == (arm == 'graph-offloaded') for x in data['records'][3:])
+    assert data['pool_checks'] == 6 and all(x['pool']['current_in_use'] == 0 for x in data['records'])
     states.append([{k: step[k] for k in keys} for step in data['records']])
 assert states[0] == states[1] == states[2] == states[3]
 
+for model, layers in (('qwen', 24), ('gdn2', 8)):
+    states = []
+    for arm in ('eager', 'off', 'on'):
+        folder = root / f'graph-{model}-f0-correct-{arm}'
+        manifest = json.loads((folder / 'manifest.json').read_text())
+        assert manifest['revision'] == manifest['revision_after'] == 'c5264b66197040f4309edfdb22dc9bbaf62189b1'
+        assert manifest['exit_code'] == 0 and not manifest['dirty_after'] and not manifest['foreign_samples']
+        data = json.loads((folder / 'result.json').read_text())
+        assert len(data['records']) == 6 and len(data['graph_counts']) == (0 if arm == 'eager' else layers)
+        assert all((x['selected_bytes'] > 0) == (arm == 'on') for x in data['records'][3:])
+        assert data['pool_checks'] == 6 and all(x['pool']['current_in_use'] == 0 for x in data['records'])
+        states.append([{k: step[k] for k in keys} for step in data['records']])
+    assert states[0] == states[1] == states[2]
+
 states = []
-for arm in ('eager', 'off', 'on'):
-    folder = root / f'graph-qwen-f0-correct-{arm}'
+for arm in ('eager', 'graph-off', 'graph-on'):
+    folder = root / f'qwen-bf16-graph-tp2-{arm}-c5264b6-gpu12'
     manifest = json.loads((folder / 'manifest.json').read_text())
     assert manifest['revision'] == manifest['revision_after'] == 'c5264b66197040f4309edfdb22dc9bbaf62189b1'
-    assert manifest['exit_code'] == 0 and not manifest['dirty_after'] and not manifest['foreign_samples']
-    data = json.loads((folder / 'result.json').read_text())
-    assert len(data['records']) == 6 and len(data['graph_counts']) == (0 if arm == 'eager' else 24)
-    assert all(x['selected_bytes'] > 0 for x in data['records'][3:]) == (arm == 'on')
-    states.append([{k: step[k] for k in keys} for step in data['records']])
+    assert manifest['exit_code'] == 0 and not manifest['dirty_after']
+    assert hashlib.sha256((root / 'benchmark_qwen_graph_tp2.py').read_bytes()).hexdigest() == manifest['script_sha256']
+    ranks = []
+    for rank in (0, 1):
+        data = json.loads((folder / f'result.rank{rank}.json').read_text())
+        assert len(data['records']) == 6 and len(data['graph_counts']) == (0 if arm == 'eager' else 24)
+        assert all((x['selected_bytes'] > 0) == (arm == 'graph-on') for x in data['records'][3:])
+        assert data['pool_checks'] == 6 and all(x['pool']['current_in_use'] == 0 for x in data['records'])
+        ranks.append([{k: step[k] for k in keys} for step in data['records']])
+    states.append(ranks)
 assert states[0] == states[1] == states[2]
 
 normal = root / 'qwen-fp4-normal-tp2-default-dfaa633-gpu12'

@@ -21,6 +21,10 @@ At `c5264b66197040f4309edfdb22dc9bbaf62189b1`, two-GPU GDN2 native and GDN/GDN2 
 
 At `c5264b66197040f4309edfdb22dc9bbaf62189b1`, the `graph-qwen-f0-correct-{eager,off,on}` runs compare full BF16 Qwen training at sequence length 2048 with four microbatches. Eager, graph without offload, and graph with offload match input, loss, gradients, weights and full optimizer state for six steps. Offload records actual transfers; these are correctness runs and not timing measurements.
 
+The `graph-gdn2-f0-correct-{eager,off,on}` runs make the same comparison for an eight-block native GDN2 model at the same commit; all recorded states match for six steps and the offload arm records actual transfers.
+
+The `qwen-bf16-graph-tp2-*-c5264b6-gpu12` runs use full Qwen BF16 training with TP2+SP, sequence 128, four microbatches and two shared GPUs. Eager, graph without offload and graph with offload match the input and complete training-state fingerprints at both ranks for all six steps. The offload run records transfers and checks pool ownership.
+
 At `dfaa6338c65edab118ba415fcc14c73241f503a6`, the single-GPU scope/configuration/tool suite passes 111 cases, native low-precision training passes 54 cases and graph capture/replay passes 23 cases, without skips.
 
 The `qwen-mrope-paired-*` runs use an earlier uncommitted mRoPE prototype on base `aecc0e8116912554f27a62a51ad2aeca479a7f9e`. They compare complete BF16 and constrained-FP4 eager and graph training with all recorded states equal. They do not establish coverage of the final graph PR head.
