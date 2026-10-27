@@ -4,6 +4,8 @@ The retained manifests contain the actual commands, source revisions and device 
 
 Environment: RTX PRO 6000 Blackwell, driver 580.126.09, PyTorch 2.11 with CUDA 13.0, Transformer Engine 2.20.2, FLA 0.5.1, Triton 3.6, FlashAttention 2.8.3 and causal-conv1d 1.6.1. Some runs shared GPUs with other processes. Timings from shared runs are not performance claims.
 
+This GPU is SM120. [Transformer Engine 2.20.2 documents NVFP4 training support for SM100 and SM103](https://docs.nvidia.com/deeplearning/transformer-engine/features/low_precision_training/nvfp4/nvfp4.html#supported-devices); the SM120 FP4 training results here are exploratory and require confirmation on a supported training GPU. BF16 results are not subject to that particular NVFP4 limitation.
+
 ## Independent regression fixes
 
 * `mrope-graph-865d79d-native-gpu1`: commit `865d79dd37f304a4dffa23158e8df52735d43247`, one real GPU, native GPT/DDP and TE graph, one test passed. The test compares the loss and gradients for two different three-axis position inputs. `mrope-native-baseline-v3-20261027-gpu1` uses the same regression test against `aecc0e8116912554f27a62a51ad2aeca479a7f9e` and fails on the actual replay/eager loss mismatch. The baseline is not a `main` checkout; both commits contain the old graph-input behavior.
@@ -16,6 +18,8 @@ The `probes/` files are the regression tests used for the old-code controls. `al
 `qwen-fp4-mrope-dfaa633-*-gpu0` runs the complete 24-layer Qwen3.5-0.8B language model with local checkpoint/data, sequence length 128 and four microbatches. At `dfaa6338c65edab118ba415fcc14c73241f503a6`, eager, two graph baselines and graph plus offload execute six steps each. RHT and stochastic rounding use the default enabled settings. All recorded input hashes, losses, gradient norms, gradient fingerprints, weights and full optimizer state match across the four arms; the offload arm records actual transfers. These are correctness runs, not benchmarks.
 
 At `c5264b66197040f4309edfdb22dc9bbaf62189b1`, two-GPU GDN2 native and GDN/GDN2 graph suites pass 12 and 14 cases per rank, respectively. At `dfaa6338c65edab118ba415fcc14c73241f503a6`, the two-GPU low-precision graph suite passes 18 cases per rank. These suites cover TP2+SP and PP2 and have no skips.
+
+At `dfaa6338c65edab118ba415fcc14c73241f503a6`, the single-GPU scope/configuration/tool suite passes 111 cases and native low-precision training passes 54 cases, without skips.
 
 The `qwen-mrope-paired-*` runs use an earlier uncommitted mRoPE prototype on base `aecc0e8116912554f27a62a51ad2aeca479a7f9e`. They compare complete BF16 and constrained-FP4 eager and graph training with all recorded states equal. They do not establish coverage of the final graph PR head.
 
