@@ -1,0 +1,7 @@
+{
+  "expected_storage": "NVFP4",
+  "gemm_operand_types": {
+    "Parameter/Tensor": 2304,
+    "Tensor/Tensor": 1152
+  }
+}

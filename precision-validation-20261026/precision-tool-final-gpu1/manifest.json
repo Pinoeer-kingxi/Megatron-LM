@@ -1,0 +1,31 @@
+{
+  "revision": "688159928298844dc00d9d3a9ce33774735d997c",
+  "command": [
+    "/usr/bin/python3",
+    "/home/lwx/.cache/megatron-gdn-20261026/remote_container_gpu1_inductor.py",
+    "/home/songbinbin/.venvs/megatron-gdn-offload/bin/python",
+    "-m",
+    "torch.distributed.run",
+    "--standalone",
+    "--nproc-per-node=1",
+    "--log-dir",
+    "/home/lwx/.cache/megatron-gdn-20261026/precision-tool-final-gpu1/ranks",
+    "--redirects",
+    "3",
+    "/home/lwx/.cache/megatron-gdn-20261026/rank_env.py",
+    "/home/lwx/.cache/megatron-gdn-20261026/rank_distributed_pytest.py",
+    "/home/lwx/.cache/megatron-gdn-20261026/precision-tool-final-gpu1/reports",
+    "-q",
+    "-x",
+    "-p",
+    "no:cacheprovider",
+    "--confcutdir=tests/unit_tests/pipeline_parallel",
+    "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py"
+  ],
+  "started_unix": 1793069302.7438612,
+  "gpu_uuid": "GPU-5ceca9be-9cf0-99be-0868-915db7531fae",
+  "exit_code": 0,
+  "finished_unix": 1793069318.4545238,
+  "revision_after": "688159928298844dc00d9d3a9ce33774735d997c",
+  "dirty_after": ""
+}

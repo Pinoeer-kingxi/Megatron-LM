@@ -1,0 +1,58 @@
+{
+  "revision": "688159928298844dc00d9d3a9ce33774735d997c",
+  "started_unix": 1793070410.773748,
+  "commands": [
+    [
+      "/usr/bin/python3",
+      "/home/lwx/.cache/megatron-gdn-20261026/remote_container_gpu3_inductor.py",
+      "/home/songbinbin/.venvs/megatron-gdn-offload/bin/python",
+      "-m",
+      "torch.distributed.run",
+      "--standalone",
+      "--nproc-per-node=1",
+      "--log-dir",
+      "/home/lwx/.cache/megatron-gdn-20261026/l2norm-real-input-gpu3/ranks",
+      "--redirects",
+      "3",
+      "/home/lwx/.cache/megatron-gdn-20261026/rank_env.py",
+      "/home/lwx/.cache/megatron-gdn-20261026/capture_l2norm.py",
+      "/home/lwx/.cache/megatron-gdn-20261026/l2norm-private/captured.pt",
+      "/home/lwx/.cache/megatron-gdn-20261026/precision-stable/tools/ssm/qwen_gdn_offload_training.py",
+      "--weights",
+      "/home/lwx/.cache/megatron-gdn-20261026/models/Qwen3.5-0.8B",
+      "--data",
+      "/home/lwx/.cache/megatron-gdn-20261026/data/ks-item-sft.jsonl",
+      "--precision",
+      "fp8-delayed",
+      "--seq-length",
+      "128",
+      "--microbatches",
+      "4",
+      "--warmup",
+      "1",
+      "--iterations",
+      "1",
+      "--recompute-norm",
+      "--output",
+      "/home/lwx/.cache/megatron-gdn-20261026/l2norm-real-input-gpu3/result.json"
+    ],
+    [
+      "/usr/bin/python3",
+      "/home/lwx/.cache/megatron-gdn-20261026/remote_container_gpu3_inductor.py",
+      "/home/songbinbin/.venvs/megatron-gdn-offload/bin/python",
+      "/home/lwx/.cache/megatron-gdn-20261026/replay_l2norm.py"
+    ]
+  ],
+  "gpu_uuid": "GPU-dfee170b-6263-1438-4231-9e55c7f1c24d",
+  "scripts": {
+    "capture_l2norm.py": "e797fab98dfa11e1a722ffc3a2ac8cd508dce96f38ff7b5b653725a7828ebafa",
+    "replay_l2norm.py": "40f38be8b7775b04b36cc8476f6a821a75ba7eb660f98482827572a15f0007b2"
+  },
+  "exit_codes": [
+    0,
+    1
+  ],
+  "finished_unix": 1793070450.57448,
+  "revision_after": "688159928298844dc00d9d3a9ce33774735d997c",
+  "dirty_after": ""
+}

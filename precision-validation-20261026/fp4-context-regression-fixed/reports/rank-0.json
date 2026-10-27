@@ -1,0 +1,13 @@
+{
+  "rank": 0,
+  "collected": 1,
+  "exit_code": 0,
+  "outcomes": [
+    {
+      "nodeid": "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_forward_step_activates_nvfp4",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    }
+  ]
+}

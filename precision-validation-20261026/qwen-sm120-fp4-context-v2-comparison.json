@@ -1,0 +1,9 @@
+{
+  "revision": "ae126ed2a1e4c6e32cc85283b1fd45d887e52be8",
+  "exact_states": false,
+  "pairs": {
+    "disabled vs repeated-disabled": false,
+    "disabled vs offloaded": true,
+    "repeated-disabled vs offloaded": false
+  }
+}

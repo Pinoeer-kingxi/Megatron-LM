@@ -1,0 +1,29 @@
+/home/lwx/.cache/megatron-gdn-20261026/precision-stable/megatron/core/models/mimo/config/base_configs.py:12: UserWarning: MimoModelConfig is experimental and still under active development. The API may change without notice in future releases.
+  class MimoModelConfig:
+/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+[rank0]:[W1027 02:48:34.110505522 ProcessGroupNCCL.cpp:5188] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+usage: qwen-training [-h] --weights WEIGHTS --data DATA --output OUTPUT
+                     [--save-checkpoint SAVE_CHECKPOINT]
+                     [--load-checkpoint LOAD_CHECKPOINT] [--dry-run]
+                     [--check-state]
+                     [--precision {bf16,fp8-delayed,fp8-tensorwise,fp4}]
+                     [--fraction {0.0,0.5,1.0}] [--recompute-norm]
+                     [--fused-pre-gdr] [--tp TP] [--sp] [--cp CP] [--pp PP]
+                     [--vp VP] [--seq-length SEQ_LENGTH]
+                     [--microbatches MICROBATCHES] [--warmup WARMUP]
+                     [--iterations ITERATIONS] [--max-documents MAX_DOCUMENTS]
+                     [--min-offloaded-tensor-size MIN_OFFLOADED_TENSOR_SIZE]
+qwen-training: error: --load-checkpoint must name an existing checkpoint directory
+usage: qwen-training [-h] --weights WEIGHTS --data DATA --output OUTPUT
+                     [--save-checkpoint SAVE_CHECKPOINT]
+                     [--load-checkpoint LOAD_CHECKPOINT] [--dry-run]
+                     [--check-state]
+                     [--precision {bf16,fp8-delayed,fp8-tensorwise,fp4}]
+                     [--fraction {0.0,0.5,1.0}] [--recompute-norm]
+                     [--fused-pre-gdr] [--tp TP] [--sp] [--cp CP] [--pp PP]
+                     [--vp VP] [--seq-length SEQ_LENGTH]
+                     [--microbatches MICROBATCHES] [--warmup WARMUP]
+                     [--iterations ITERATIONS] [--max-documents MAX_DOCUMENTS]
+                     [--min-offloaded-tensor-size MIN_OFFLOADED_TENSOR_SIZE]
+qwen-training: error: --save-checkpoint must name a new directory

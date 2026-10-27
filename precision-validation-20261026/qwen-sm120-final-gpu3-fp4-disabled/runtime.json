@@ -1,0 +1,23 @@
+{
+  "expected_storage": "NVFP4",
+  "gemm_operand_types": {
+    "NVFP4Tensor/NVFP4TensorStorage": 2304,
+    "NVFP4TensorStorage/NVFP4TensorStorage": 1152
+  },
+  "inductor_kernels": {
+    "l2norm_fwd_kernel:/home/lwx/.cache/megatron-gdn-20261026/cache/final-inductor-fp4/w5/cw5n7yjharlin54nbj7nzh44j75sc6yr6tgnfszxbyhdvxoyt3xx.py": {
+      "kwargs": {
+        "BT": 8
+      },
+      "num_warps": 2,
+      "num_stages": 3
+    },
+    "l2norm_bwd_kernel:/home/lwx/.cache/megatron-gdn-20261026/cache/final-inductor-fp4/53/c53smuugt2dvpzbvkfs3bcrtzwdoz37j6d55c7uyetjddb3uioam.py": {
+      "kwargs": {
+        "BT": 8
+      },
+      "num_warps": 8,
+      "num_stages": 3
+    }
+  }
+}

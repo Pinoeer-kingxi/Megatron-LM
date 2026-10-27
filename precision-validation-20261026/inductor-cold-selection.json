@@ -1,0 +1,44 @@
+[
+  {
+    "label": "seed0",
+    "path": "/home/lwx/.cache/megatron-gdn-20261026/cache/inductor-gpu1-seed0/53/bcd6eab639b21c99958c953f21f90830bca4806a837864b7185e29d388299276.best_config",
+    "sha256": "20568ba0a14fc1a7b422d722dfc92cb0b868271d78bf3dab129aee671abd1b3d",
+    "selection": {
+      "BT": 8,
+      "num_warps": 8,
+      "num_stages": 3,
+      "configs_hash": "4eef334c5756e387c568fe2a2f898736dad419299275294b2ff97323c9726655",
+      "found_by_coordesc": false,
+      "time_taken_ms": 505,
+      "triton_cache_hash": "UV46AMTYG3KJRPGUXFRSA72QL4LPDEXVVUUUHIP6H37PTX4LLCZQ"
+    }
+  },
+  {
+    "label": "seed1",
+    "path": "/home/lwx/.cache/megatron-gdn-20261026/cache/inductor-gpu1-seed1/53/bcd6eab639b21c99958c953f21f90830bca4806a837864b7185e29d388299276.best_config",
+    "sha256": "ed2392d80c86a5e5addf8ec4bee5637eba4e4c25a0e9e3de8228b3c3cac0c298",
+    "selection": {
+      "BT": 16,
+      "num_warps": 4,
+      "num_stages": 3,
+      "configs_hash": "4eef334c5756e387c568fe2a2f898736dad419299275294b2ff97323c9726655",
+      "found_by_coordesc": false,
+      "time_taken_ms": 494,
+      "triton_cache_hash": "45K7NZNTL7QK4GKJTJELR6LKSTDHXOEHQASXY65QWC5WZ5MVFKVQ"
+    }
+  },
+  {
+    "label": "seed0-repeat",
+    "path": "/home/lwx/.cache/megatron-gdn-20261026/cache/inductor-gpu1-seed0-repeat/53/bcd6eab639b21c99958c953f21f90830bca4806a837864b7185e29d388299276.best_config",
+    "sha256": "cc309403cf0bc6a8f735cf4579da2974d76f816b5399c49e031cff5b6c442f52",
+    "selection": {
+      "BT": 64,
+      "num_warps": 2,
+      "num_stages": 3,
+      "configs_hash": "4eef334c5756e387c568fe2a2f898736dad419299275294b2ff97323c9726655",
+      "found_by_coordesc": false,
+      "time_taken_ms": 502,
+      "triton_cache_hash": "KKWRTNRVL64FUHRO4X3EXJ2MHJOTSOW3WH6R76MSMAWLUYUADDOQ"
+    }
+  }
+]

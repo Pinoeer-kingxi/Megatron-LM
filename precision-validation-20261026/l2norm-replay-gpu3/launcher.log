@@ -1,0 +1,111 @@
+{
+  "input_shapes": {
+    "y": [
+      4096,
+      128
+    ],
+    "rstd": [
+      1,
+      128,
+      32
+    ],
+    "dy": [
+      4096,
+      128
+    ],
+    "actual_dx": [
+      4096,
+      128
+    ]
+  },
+  "shape": [
+    4096,
+    128
+  ],
+  "dtype": "torch.bfloat16",
+  "reference_max_absolute": 0.03466796875,
+  "variants": [
+    {
+      "config": {
+        "BT": 8,
+        "num_warps": 8,
+        "num_stages": 3
+      },
+      "repeat_exact": true,
+      "max_absolute_vs_double_reference": 9.5367431640625e-07,
+      "different_from_double_reference": 3,
+      "matches_captured_inductor_dx": false
+    },
+    {
+      "config": {
+        "BT": 16,
+        "num_warps": 4,
+        "num_stages": 3
+      },
+      "repeat_exact": true,
+      "max_absolute_vs_double_reference": 9.5367431640625e-07,
+      "different_from_double_reference": 6,
+      "matches_captured_inductor_dx": true
+    },
+    {
+      "config": {
+        "BT": 64,
+        "num_warps": 2,
+        "num_stages": 3
+      },
+      "repeat_exact": true,
+      "max_absolute_vs_double_reference": 9.5367431640625e-07,
+      "different_from_double_reference": 6,
+      "matches_captured_inductor_dx": true
+    },
+    {
+      "config": {
+        "BT": 64,
+        "num_warps": 16,
+        "num_stages": 3
+      },
+      "repeat_exact": true,
+      "max_absolute_vs_double_reference": 9.5367431640625e-07,
+      "different_from_double_reference": 6,
+      "matches_captured_inductor_dx": true
+    }
+  ],
+  "comparisons": [
+    {
+      "left": 0,
+      "right": 1,
+      "different_elements": 3,
+      "max_absolute": 4.656612873077393e-10
+    },
+    {
+      "left": 0,
+      "right": 2,
+      "different_elements": 3,
+      "max_absolute": 4.656612873077393e-10
+    },
+    {
+      "left": 0,
+      "right": 3,
+      "different_elements": 3,
+      "max_absolute": 4.656612873077393e-10
+    },
+    {
+      "left": 1,
+      "right": 2,
+      "different_elements": 0,
+      "max_absolute": 0.0
+    },
+    {
+      "left": 1,
+      "right": 3,
+      "different_elements": 0,
+      "max_absolute": 0.0
+    },
+    {
+      "left": 2,
+      "right": 3,
+      "different_elements": 0,
+      "max_absolute": 0.0
+    }
+  ]
+}

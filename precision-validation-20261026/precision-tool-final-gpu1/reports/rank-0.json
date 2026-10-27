@@ -1,0 +1,85 @@
+{
+  "rank": 0,
+  "collected": 13,
+  "exit_code": 0,
+  "outcomes": [
+    {
+      "nodeid": "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags0-divisible by TP * CP]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags1-divisible by TP * CP]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags2-divisible by --pp]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags3-divisible by --pp]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags4-None]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags5-None]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags6-None]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags7-None]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags8-None]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_qwen_parallel_input_boundaries[flags9-None]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_checkpoint_path_boundaries[False]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_checkpoint_path_boundaries[True]",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    },
+    {
+      "nodeid": "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py::test_forward_step_activates_nvfp4",
+      "when": "call",
+      "outcome": "passed",
+      "detail": ""
+    }
+  ]
+}

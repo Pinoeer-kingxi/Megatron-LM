@@ -1,0 +1,57 @@
+Initializing torch.distributed with rank: 0, world_size: 1
+Test store timeout: 10 minutes for cold compilation before lazy PP initialization
+F
+=================================== FAILURES ===================================
+______________________ test_forward_step_activates_nvfp4 _______________________
+
+    @pytest.mark.skipif(not torch.cuda.is_available(), reason="CUDA is required for NVFP4.")
+    def test_forward_step_activates_nvfp4() -> None:
+        """Exercise real TE GEMMs when a custom decoder leaves precision to its caller."""
+        te = pytest.importorskip("transformer_engine.pytorch")
+        from transformer_engine.pytorch.fp8 import check_nvfp4_support
+    
+        supported, reason = check_nvfp4_support()
+        if not supported:
+            pytest.skip(reason)
+        if torch.cuda.get_device_capability()[0] == 12 and any(
+            os.environ.get(name) != "1"
+            for name in ("NVTE_NVFP4_DISABLE_RHT", "NVTE_NVFP4_DISABLE_STOCHASTIC_ROUNDING")
+        ):
+            pytest.skip("SM120 validation requires the constrained NVFP4 recipe before startup.")
+        config = TransformerConfig(
+            num_layers=1, hidden_size=32, num_attention_heads=1, bf16=True, fp4="e2m1"
+        )
+    
+        class LanguageModel(MegatronModule):
+            def __init__(self) -> None:
+                super().__init__(config=config)
+                self.projection = te.Linear(32, 32, params_dtype=torch.bfloat16, device="cuda")
+    
+            def forward(
+                self, tokens: torch.Tensor, position_ids: None, attention_mask: None, labels: None
+            ) -> torch.Tensor:
+                return self.projection(tokens)
+    
+        model = LanguageModel()
+        inputs = torch.randn(128, 32, dtype=torch.bfloat16, device="cuda", requires_grad=True)
+        output, _ = _forward_step(iter([dict(tokens=inputs, position_ids=None, labels=None)]), model)
+>       assert model.projection.fp8 and model.projection.fp8_meta["recipe"].nvfp4()
+E       assert (False)
+E        +  where False = Linear().fp8
+E        +    where Linear() = LanguageModel(\n  (projection): Linear()\n).projection
+
+../test_qwen_context_repro.py:114: AssertionError
+=============================== warnings summary ===============================
+../../../../songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/config/__init__.py:1345
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/config/__init__.py:1345: PytestAssertRewriteWarning: Module already imported so cannot be rewritten; anyio
+    self._mark_plugins_for_rewrite(hook, disable_autoload)
+
+test_qwen_context_repro.py::test_forward_step_activates_nvfp4
+  /home/lwx/.cache/megatron-gdn-20261026/precision/megatron/core/transformer/transformer_config.py:3778: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED ../test_qwen_context_repro.py::test_forward_step_activates_nvfp4 - ass...
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!
+1 failed, 12 deselected, 2 warnings in 0.22s

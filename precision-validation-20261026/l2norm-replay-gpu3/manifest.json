@@ -1,0 +1,16 @@
+{
+  "revision": "688159928298844dc00d9d3a9ce33774735d997c",
+  "command": [
+    "/usr/bin/python3",
+    "/home/lwx/.cache/megatron-gdn-20261026/remote_container_gpu3_inductor.py",
+    "/home/songbinbin/.venvs/megatron-gdn-offload/bin/python",
+    "/home/lwx/.cache/megatron-gdn-20261026/replay_l2norm.py"
+  ],
+  "started_unix": 1793070514.8248851,
+  "gpu_uuid": "GPU-dfee170b-6263-1438-4231-9e55c7f1c24d",
+  "script_sha256": "f0c3729ecf3417204309aa4d426566d7e7e9579688176c2d3196136d601fd4c4",
+  "exit_code": 0,
+  "finished_unix": 1793070525.2601485,
+  "revision_after": "688159928298844dc00d9d3a9ce33774735d997c",
+  "dirty_after": ""
+}

@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/home/lwx/.cache/megatron-gdn-20261026/replay_l2norm.py", line 20, in <module>
+    reference=(dy.double()*rstd.double()[:,None]-(dy.double()*y.double()).sum(-1)[:,None]*y.double()*rstd.double()[:,None]).to(torch.bfloat16)
+               ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+RuntimeError: The size of tensor a (128) must match the size of tensor b (32) at non-singleton dimension 3

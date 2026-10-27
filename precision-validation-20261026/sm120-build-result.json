@@ -1,0 +1,11 @@
+{
+  "source_version": "flash-attn 2.8.3",
+  "sha256": "1cbe8dc9443e504570fe35755f7babd0634a0253f7887ef620cb3c1787c3993b",
+  "size": 295557560,
+  "arch": "sm_120",
+  "cuda": "13.0",
+  "torch": "2.11.0+cu130",
+  "max_jobs": 4,
+  "build_exit_code": 0,
+  "gpu_execution_verified": false
+}

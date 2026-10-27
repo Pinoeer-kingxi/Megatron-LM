@@ -1,0 +1,7 @@
+{
+  "expected_storage": "NVFP4",
+  "gemm_operand_types": {
+    "NVFP4Tensor/NVFP4TensorStorage": 2304,
+    "NVFP4TensorStorage/NVFP4TensorStorage": 1152
+  }
+}
