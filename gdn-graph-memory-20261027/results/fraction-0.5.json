@@ -1,0 +1,496 @@
+{
+  "arguments": {
+    "model": "qwen",
+    "precision": "bf16",
+    "threshold": 1048576,
+    "cached": false,
+    "no_graph": false,
+    "weights": "/home/lwx/.cache/megatron-gdn-20261026/models/Qwen3.5-0.8B",
+    "data": "/home/lwx/.cache/megatron-gdn-20261026/data/ks-item-sft.jsonl",
+    "output": "/home/lwx/.cache/megatron-gdn-20261026/graph-memory-diagnostic-20261027/fraction-0.5.json",
+    "offload": true,
+    "check_state": false,
+    "seq_length": 2048,
+    "warmup": 3,
+    "iterations": 10,
+    "fraction": 0.5,
+    "tp": 1,
+    "sp": false,
+    "cp": 1,
+    "pp": 1,
+    "vp": null,
+    "microbatches": 4,
+    "fused_pre_gdr": false,
+    "recompute_norm": false,
+    "min_offloaded_tensor_size": 1048576,
+    "max_documents": 128
+  },
+  "torch": "2.11.0+cu130",
+  "cuda": "13.0",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "graph_counts": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "helper_microbatches": 1,
+  "parameters": 752393024,
+  "config": "Qwen35VLModelProvider(tensor_model_parallel_size=1, tensor_parallel_num_weight_shards=None, gtp_weight_remat_size=1, tensor_parallel_num_sequence_shards=None, pipeline_model_parallel_comm_backend=None, pipeline_model_parallel_size=1, virtual_pipeline_model_parallel_size=None, sequence_parallel=False, context_parallel_size=1, hierarchical_context_parallel_sizes=None, max_seqlen_per_dp_cp_rank=None, dynamic_context_parallel=False, min_dynamic_context_parallel_size=1, hybrid_context_parallel=False, sequence_packing_scheduler=None, pad_packed_seq_alignment=None, expert_model_parallel_size=1, expert_tensor_parallel_size=1, expert_tensor_parallel_num_weight_shards=None, expert_gtp_weight_remat_size=1, perform_initialization=False, use_cpu_initialization=False, fp16=False, bf16=True, params_dtype=torch.bfloat16, timers=None, finalize_model_grads_func=functools.partial(<function run.<locals>.finalize at 0x7c3730fe51c0>, pg_collection=ProcessGroupCollection(tp(1), pp(1), mp(1), embd(1), pos_embd(1), cp(1), tp_cp(1), ep(1), expt_tp(1), tp_ep(1), tp_ep_pp(1), tp_ep_pp_with_egtp_remat(1), tp_dp_cp(1), dp(1), dp_gtp_remat(1), dp_cp(1), dp_cp_gtp_remat(1), gtp_remat(1), expt_gtp_remat(1), expt_dp(1), expt_dp_gtp_remat(1), intra_dp_cp(1), intra_expt_dp(1), intra_dist_opt(1))), grad_scale_func=<bound method MegatronOptimizer.scale_loss of <megatron.core.optimizer.optimizer.ChainedOptimizer object at 0x7c3730e4cb00>>, moe_grad_scale_func=None, mtp_grad_scale_func=None, no_sync_func=None, grad_sync_func=None, param_sync_func=None, deterministic_mode=False, enable_autocast=False, autocast_dtype=torch.bfloat16, num_microbatches_with_partial_activation_checkpoints=None, gradient_accumulation_fusion=False, use_te_rng_tracker=True, tp_comm_overlap=False, tp_comm_bulk_wgrad=True, tp_comm_bulk_dgrad=True, tp_comm_overlap_ag=True, tp_comm_overlap_rs=True, tp_comm_overlap_rs_dgrad=False, tp_comm_split_ag=True, tp_comm_atomic_ag=False, tp_comm_split_rs=True, tp_comm_atomic_rs=False, cross_entropy_loss_fusion=True, cross_entropy_fusion_impl='native', tp_comm_overlap_disable_qkv=False, tp_comm_overlap_disable_fc1=False, tp_comm_bootstrap_backend='nccl', overlap_moe_expert_parallel_comm=False, delay_wgrad_compute=False, overlap_dispatch_backward_with_experts_wgrad=False, ep_overlap_early_attn_memory_release=False, pipeline_dtype=torch.bfloat16, variable_seq_lengths=False, overlap_p2p_comm=False, batch_p2p_comm=False, batch_p2p_sync=True, use_ring_exchange_p2p=False, deallocate_pipeline_outputs=True, defer_embedding_wgrad_compute=False, wgrad_deferral_limit=0, overlap_p2p_comm_warmup_flush=False, microbatch_group_size_per_vp_stage=1, mtp_standalone=False, cpu_offloading=False, cpu_offloading_num_layers=0, _cpu_offloading_context=None, cpu_offloading_activations=True, cpu_offloading_weights=False, cpu_offloading_double_buffering=False, cpu_offloading_retain_pinned_cpu_buffers=False, barrier_with_L1_time=True, num_layers=24, mtp_num_layers=0, mtp_loss_scaling_factor=0.1, mtp_use_repeated_layer=False, freeze_base_model_for_mtp=False, keep_mtp_in_bf16=False, mtp_detach_heads=False, mtp_hsm=False, mtp_loss_early_backward=False, mtp_hybrid_override_pattern=None, num_layers_in_first_pipeline_stage=None, num_layers_in_last_pipeline_stage=None, pipeline_model_parallel_layout=None, account_for_embedding_in_pipeline_split=False, account_for_loss_in_pipeline_split=False, hidden_size=1024, num_attention_heads=8, attention_backend=<AttnBackend.auto: 5>, flash_attention_version=None, softmax_scale=None, softmax_type='vanilla', attn_logit_softcapping=None, num_query_groups=2, ffn_hidden_size=3584, kv_channels=256, hidden_dropout=0.0, attention_dropout=0.0, fp32_residual_connection=False, apply_residual_connection_post_layernorm=False, layernorm_epsilon=1e-06, layernorm_zero_centered_gamma=True, add_bias_linear=False, add_qkv_bias=False, gated_linear_unit=True, activation_func=<function silu at 0x7c3a2399a2a0>, activation_func_fp8_input_store=False, glu_linear_offset=0.0, activation_func_clamp_value=None, activation_func_tanh_clamp_scale=None, activation_func_tanh_clamp_scale_linear=None, num_moe_experts=None, rotary_interleaved=False, window_size=None, window_attn_skip_freq=None, normalization='RMSNorm', qk_layernorm=True, qk_l2_norm=False, qk_clip=False, qk_clip_alpha=0.5, qk_clip_threshold=100, log_max_attention_logit=False, attention_output_gate=True, test_mode=False, calculate_per_token_loss=False, multi_latent_attention=False, no_rope_freq=None, experimental_attention_variant='gdn', experimental_attention_variant_loss_scale_func=None, dsa_indexer_mode='standard', dsa_indexer_n_heads=None, dsa_indexer_head_dim=None, dsa_indexer_topk=None, dsa_indexer_topk_freq=1, dsa_indexer_skip_topk_offset=0, dsa_fwd_use_dense_attn=False, dsa_reset_indexer_on_load=False, dsa_indexer_loss_coeff=None, dsa_indexer_use_sparse_loss=False, dsa_kernel_backend='none', dsa_indexer_rope_interleaved=False, dsa_indexer_rotate_activation=True, dsa_indexer_scoring_relu=True, dsa_indexer_qk_proj_use_quantization=True, dsa_indexer_k_norm_epsilon=None, dsa_indexer_k_norm_fp32=False, dsa_indexer_weights_proj_use_quantization=True, dsa_indexer_weights_proj_output_dtype='bf16', dsa_indexer_kpool=1, dsa_indexer_kpool_use_quantization=False, dsa_indexer_kpool_always_select_tail=True, csa_window_size=128, csa_compress_ratios=None, csa_compress_rotary_base=40000.0, csa_dense_mode=False, linear_attention_freq=[1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0], gdn_kernel_backend='fla', linear_conv_kernel_dim=4, linear_key_head_dim=128, linear_value_head_dim=128, linear_num_key_heads=16, linear_num_value_heads=16, gdn_pre_gated_delta_rule_fusion=False, gdn_gated_output_norm_fusion=False, init_method=functools.partial(<function normal_ at 0x7c3a23822f20>, mean=0.0, std=0.02), output_layer_init_method=functools.partial(<function normal_ at 0x7c3a23822f20>, mean=0.0, std=0.002886751345948129), init_method_std=0.02, embedding_init_method=functools.partial(<function normal_ at 0x7c3a23822f20>, mean=0.0, std=0.02), embedding_init_method_std=0.02, init_model_with_meta_device=False, use_mup=False, mup_width_mult=1.0, mup_base_hidden_size=None, mup_embedding_mult=1.0, mup_output_mult=1.0, mup_base_head_dim=None, mup_attn_scale_power=1.0, apply_query_key_layer_scaling=False, attention_softmax_in_fp32=True, disable_bf16_reduced_precision_matmul=False, bias_activation_fusion=True, masked_softmax_fusion=True, persist_layer_norm=False, memory_efficient_layer_norm=False, bias_dropout_fusion=False, apply_rope_fusion=False, use_fused_weighted_squared_relu=False, fused_single_qkv_rope=False, fused_residual_rmsnorm=False, use_transformer_engine_op_fuser=False, recompute_granularity=None, recompute_method=None, recompute_num_layers=None, distribute_saved_activations=False, recompute_modules=[], fp8=None, fp8_recipe='delayed', fp8_param=False, fp8_quantizer_factory=None, fp8_margin=0, fp8_interval=1, fp8_amax_history_len=1, fp8_amax_compute_algo='most_recent', fp8_wgrad=True, fp8_output_proj=False, fp8_dot_product_attention=False, fp8_multi_head_attention=False, tp_only_amax_red=False, first_last_layers_bf16=False, num_layers_at_start_in_bf16=1, num_layers_at_end_in_bf16=1, use_kitchen=False, use_kitchen_attention=False, kitchen_attention_backend='sdpa', fp4=None, fp4_recipe='nvfp4', fp4_param=False, fp4_quantizer_factory=None, high_priority_a2a_comm_stream=False, moe_shared_expert_intermediate_size=None, moe_shared_expert_gate=False, moe_shared_expert_overlap=False, use_grouped_gemm_for_shared_expert=False, moe_shared_expert_glu_interleave_size=None, moe_shortcut_connection=False, moe_shortcut_post_norm=False, moe_shortcut_parallel=False, moe_layer_freq=1, moe_ffn_hidden_size=None, moe_router_load_balancing_type='aux_loss', moe_router_topk=2, moe_enable_routing_replay=False, moe_router_topk_limited_devices=None, moe_router_padding_for_quantization=False, moe_router_padding_for_fp8=False, moe_router_num_groups=None, moe_router_group_topk=None, moe_router_pre_softmax=False, moe_router_topk_scaling_factor=None, moe_router_score_function='softmax', moe_router_dtype=None, moe_router_skip_muon=False, moe_router_enable_expert_bias=False, moe_router_bias_update_rate=0.001, moe_router_quantile_balancing_ema=0.0, moe_router_quantile_balancing_estimation_scope='micro_batch', moe_router_qb_num_bins=1000, moe_router_force_load_balancing=False, moe_router_force_biased=None, moe_num_hash_layers=0, hash_moe_vocab_size=None, use_grouped_gemm_for_dense_mlp=False, moe_grouped_gemm=False, moe_use_grouped_tensor=False, moe_single_grouped_weight=False, moe_single_grouped_bias=False, moe_aux_loss_coeff=0.0, moe_z_loss_coeff=None, moe_input_jitter_eps=None, moe_token_dropping=False, moe_token_dispatcher_type='allgather', moe_enable_deepep=False, moe_flex_dispatcher_backend='deepep', moe_virtual_expert_load_balance=False, moe_permute_fusion_into_hybridep=False, moe_hybridep_pad_uneven_dispatch_inputs=False, moe_per_layer_logging=False, moe_expert_capacity_factor=None, moe_pad_expert_input_to_capacity=False, moe_pad_experts_for_cuda_graph_inference=False, moe_token_drop_policy='probs', moe_layer_recompute=False, moe_permute_fusion=False, moe_router_fusion=False, moe_router_aux_loss_fusion=False, moe_apply_probs_on_input=False, moe_latent_size=None, moe_use_norm_before_up_proj=False, gtp_remat_opt_in_modules=[], moe_flex_dispatcher_num_sms=None, moe_deepep_num_sms=None, moe_hybridep_num_sms=None, moe_hybridep_num_blocks_permute=None, moe_hybridep_num_blocks_unpermute=None, moe_hybridep_num_sms_preprocessing=108, moe_hybridep_routing_map_mode='indices', moe_ncclep_zero_copy=False, moe_dispatch_fwd_dtype='bf16', moe_combine_bwd_dtype='bf16', moe_mlp_glu_interleave_size=None, moe_expert_rank_capacity_factor=None, cp_comm_type=None, linear_cp_mode='headwise', linear_cp_layout='zigzag', attention_cp_layout='zigzag', enable_cuda_graph=False, cuda_graph_use_single_mempool=True, cuda_graph_retain_backward_graph=False, cuda_graph_warmup_steps=3, external_cuda_graph=False, cuda_graph_impl='transformer_engine', cuda_graph_modules=[], inference_cuda_graph_scope=<InferenceCudaGraphScope.none: 1>, cuda_graph_scope=None, enable_mhc_connections=False, mhc_num_residual_streams=4, mhc_sinkhorn_iterations=20, mhc_init_gating_factor=0.01, use_fused_mhc=False, mhc_fused_backend='auto', mhc_recompute_layer_num=None, wide_residual=None, residual_stream_recompute_num_layers=None, clone_scatter_output_in_embedding=True, disable_parameter_transpose_cache=False, config_logger_dir='', flash_decode=False, batch_invariant_mode=False, batch_invariant_backend='te_native', batch_invariant_collective='ordered', use_te_activation_func=False, inference_rng_tracker=False, inference_sampling_seed=42, symmetric_ar_type=None, nccl_all_reduce_for_prefill=False, use_inference_optimized_layers=False, inference_fuse_tp_communication=False, inference_disable_triton_nvls_kernels=False, inference_grouped_gemm_backend='vllm', inference_moe_disable_fused_quant_kernels=False, inference_flashinfer_mxfp8_token_capacity=None, inference_moe_nvfp4_recipe=None, inference_moe_token_dispatcher_type='nvls', mrope_section=[11, 11, 10], is_hybrid_model=False, mamba_state_dim=128, mamba_head_dim=64, mamba_num_groups=8, mamba_num_heads=None, gdp_num_householder=3, mamba_training_ssm_states_dtype=None, use_mamba_mem_eff_path=True, gdp_cutedsl_kernel=False, gdp_num_chunk_states_to_recompute=2, mlp_chunks_for_prefill=1, mlp_chunks_for_training=1, heterogeneous_block_specs=False, hetereogenous_dist_checkpoint=True, quant_recipe=None, transformer_impl='transformer_engine', fine_grained_activation_offloading=True, offload_modules=['gdn_core_attn'], min_offloaded_tensor_size=1048576, delay_offload_until_cuda_graph=False, delta_offload_bytes_across_pp_ranks=0, activation_offload_fraction=0.5, moe_paged_stash=False, moe_paged_stash_page_size=64, moe_paged_stash_buffer_size_factor_cuda=1.1, moe_paged_stash_buffer_size_factor_cpu=0.0, fine_grained_offloading_max_inflight_offloads=None, fp16_lm_cross_entropy=False, logit_dtype=None, parallel_output=True, share_embeddings_and_output_weights=True, make_vocab_size_divisible_by=128, position_embedding_type='mrope', rotary_base=10000000, rotary_percent=0.25, rope_scaling=False, rope_scaling_factor=1.0, rotary_scaling_factor=None, seq_len_interpolation_factor=None, yarn_rotary_scaling_factor=None, yarn_original_max_position_embeddings=None, yarn_beta_fast=None, yarn_beta_slow=None, yarn_mscale=None, yarn_mscale_all_dim=None, yarn_correction_range_round_to_int=None, seq_length=262144, scatter_embedding_sequence_parallel=False, tp_comm_overlap_cfg=None, use_transformer_engine_full_layer_spec=False, dense_grouped_gemm=False, transformer_layer_spec=<function get_transformer_block_with_experimental_attention_variant_spec at 0x7c37331cc860>, mtp_layer_spec_transform=None, hf_model_id='/home/lwx/.cache/megatron-gdn-20261026/models/Qwen3.5-0.8B', hf_model_revision=None, vocab_size=248320, should_pad_vocab=False, mtp_enabled=False, restore_modelopt_state=False, use_arbitrary_attention_mask=None, _pg_collection=ProcessGroupCollection(tp(1), pp(1), mp(1), embd(1), pos_embd(1), cp(1), tp_cp(1), ep(1), expt_tp(1), tp_ep(1), tp_ep_pp(1), tp_ep_pp_with_egtp_remat(1), tp_dp_cp(1), dp(1), dp_gtp_remat(1), dp_cp(1), dp_cp_gtp_remat(1), gtp_remat(1), expt_gtp_remat(1), expt_dp(1), expt_dp_gtp_remat(1), intra_dp_cp(1), intra_expt_dp(1), intra_dist_opt(1)), vision_config=Qwen3_5VisionConfig {\n  \"deepstack_visual_indexes\": [],\n  \"depth\": 12,\n  \"dtype\": \"bfloat16\",\n  \"hidden_act\": \"gelu_pytorch_tanh\",\n  \"hidden_size\": 768,\n  \"in_channels\": 3,\n  \"initializer_range\": 0.02,\n  \"intermediate_size\": 3072,\n  \"model_type\": \"qwen3_5_vision\",\n  \"num_heads\": 12,\n  \"num_position_embeddings\": 2304,\n  \"out_hidden_size\": 1024,\n  \"patch_size\": 16,\n  \"spatial_merge_size\": 2,\n  \"temporal_patch_size\": 2,\n  \"transformers_version\": \"5.15.0\"\n}\n, apply_rotary_pos_emb_in_fp32=False, image_token_id=248056, video_token_id=248057, vision_start_token_id=248053, vision_end_token_id=248054, bos_token_id=None, eos_token_id=248044, spatial_merge_size=2, temporal_patch_size=2, patch_size=16, language_max_sequence_length=2048, freeze_language_model=False, freeze_vision_model=True, freeze_vision_projection=True, use_hf_vision_model=False, vision_dp_when_cp=False, vision_recompute_granularity=None, vision_recompute_method=None, vision_recompute_num_layers=None, vision_recompute_modules=None)",
+  "dataset_tokens": 30727,
+  "records": [
+    {
+      "step": 0,
+      "replay": false,
+      "measured": false,
+      "seconds": 7.082714121963363,
+      "peak_allocated_bytes": 13916789248,
+      "peak_reserved_bytes": 14625538048,
+      "allocated_bytes": 13594927104,
+      "reserved_bytes": 14625538048,
+      "input_sha256": "119a2497df2fde19f1f0f184cf0b9fd80da24c6d1e1214c0f3b8e43b07f66af7",
+      "loss": [
+        2.58378005027771,
+        2.6296629905700684,
+        2.4426333904266357,
+        2.4723358154296875
+      ],
+      "grad_norm": 38.98931121826172,
+      "pool": {
+        "total_allocated": 72,
+        "current_in_use": 0,
+        "allocation_requests": 288,
+        "free_requests": 288,
+        "pool_hits": 216,
+        "pool_misses": 72
+      },
+      "selected_bytes": 264241152
+    },
+    {
+      "step": 1,
+      "replay": false,
+      "measured": false,
+      "seconds": 1.2985226850141771,
+      "peak_allocated_bytes": 20200209920,
+      "peak_reserved_bytes": 20996685824,
+      "allocated_bytes": 13594927104,
+      "reserved_bytes": 20996685824,
+      "input_sha256": "1d946b435d3791fc76f73f153f8a0f882664bc8f3b6f556f7ae69564a1c3d2b5",
+      "loss": [
+        6.842812538146973,
+        6.650406837463379,
+        6.763911247253418,
+        6.812127113342285
+      ],
+      "grad_norm": 105.62128448486328,
+      "pool": {
+        "total_allocated": 72,
+        "current_in_use": 0,
+        "allocation_requests": 432,
+        "free_requests": 432,
+        "pool_hits": 360,
+        "pool_misses": 72
+      },
+      "selected_bytes": 264241152
+    },
+    {
+      "step": 2,
+      "replay": false,
+      "measured": false,
+      "seconds": 1.2505298120086081,
+      "peak_allocated_bytes": 20200209920,
+      "peak_reserved_bytes": 20996685824,
+      "allocated_bytes": 13594927104,
+      "reserved_bytes": 20996685824,
+      "input_sha256": "e86ed62d1e5a35f7d45734cd5aa6f2e8c7f63d0f6d4c1e459f71fbbde2447fea",
+      "loss": [
+        4.693378448486328,
+        4.813994407653809,
+        4.647648334503174,
+        4.868077278137207
+      ],
+      "grad_norm": 41.316612243652344,
+      "pool": {
+        "total_allocated": 72,
+        "current_in_use": 0,
+        "allocation_requests": 576,
+        "free_requests": 576,
+        "pool_hits": 504,
+        "pool_misses": 72
+      },
+      "selected_bytes": 264241152
+    },
+    {
+      "step": 3,
+      "replay": true,
+      "measured": false,
+      "seconds": 0.3746771260048263,
+      "peak_allocated_bytes": 16921729024,
+      "peak_reserved_bytes": 23691526144,
+      "allocated_bytes": 13861389824,
+      "reserved_bytes": 23691526144,
+      "input_sha256": "f06a6d9e08a092c9afbbecf7d197b6802c6712c56c5cea51b8a6b8eee5f25567",
+      "loss": [
+        4.305840492248535,
+        4.3961968421936035,
+        4.346295356750488,
+        3.5433907508850098
+      ],
+      "grad_norm": 50.90636444091797,
+      "pool": {
+        "total_allocated": 72,
+        "current_in_use": 0,
+        "allocation_requests": 612,
+        "free_requests": 612,
+        "pool_hits": 540,
+        "pool_misses": 72
+      },
+      "selected_bytes": 264241152
+    },
+    {
+      "step": 4,
+      "replay": true,
+      "measured": false,
+      "seconds": 0.3792958490084857,
+      "peak_allocated_bytes": 16921729024,
+      "peak_reserved_bytes": 23691526144,
+      "allocated_bytes": 13861389824,
+      "reserved_bytes": 23691526144,
+      "input_sha256": "d5d18249a8241e3072182ba326edc13bb4dc84ab2c1ff7f280ce3efadc307f68",
+      "loss": [
+        2.4846792221069336,
+        2.4573440551757812,
+        2.527907371520996,
+        3.204298973083496
+      ],
+      "grad_norm": 17.536664962768555,
+      "pool": {
+        "total_allocated": 72,
+        "current_in_use": 0,
+        "allocation_requests": 612,
+        "free_requests": 612,
+        "pool_hits": 540,
+        "pool_misses": 72
+      },
+      "selected_bytes": 264241152
+    },
+    {
+      "step": 5,
+      "replay": true,
+      "measured": false,
+      "seconds": 0.3798426490393467,
+      "peak_allocated_bytes": 16921729024,
+      "peak_reserved_bytes": 23691526144,
+      "allocated_bytes": 13861389824,
+      "reserved_bytes": 23691526144,
+      "input_sha256": "a40460759ef68c2d9404abaeecf7316ef98c83c2a7fdd254f6dda8f304a420ca",
+      "loss": [
+        2.600006580352783,
+        2.739315986633301,
+        2.676046371459961,
+        2.5664844512939453
+      ],
+      "grad_norm": 10.378625869750977,
+      "pool": {
+        "total_allocated": 72,
+        "current_in_use": 0,
+        "allocation_requests": 612,
+        "free_requests": 612,
+        "pool_hits": 540,
+        "pool_misses": 72
+      },
+      "selected_bytes": 264241152
+    },
+    {
+      "step": 6,
+      "replay": true,
+      "measured": true,
+      "seconds": 0.3800824040081352,
+      "peak_allocated_bytes": 16921729024,
+      "peak_reserved_bytes": 23691526144,
+      "allocated_bytes": 13861389824,
+      "reserved_bytes": 23691526144,
+      "input_sha256": "c7af6bbee3bbb708e47de4ea927ab76ddbe04b072d95e8719cef80531418d29b",
+      "loss": [
+        2.4846785068511963,
+        2.403559446334839,
+        2.446760654449463,
+        2.4561939239501953
+      ],
+      "grad_norm": 17.555774688720703,
+      "pool": {
+        "total_allocated": 72,
+        "current_in_use": 0,
+        "allocation_requests": 612,
+        "free_requests": 612,
+        "pool_hits": 540,
+        "pool_misses": 72
+      },
+      "selected_bytes": 264241152
+    },
+    {
+      "step": 7,
+      "replay": true,
+      "measured": true,
+      "seconds": 0.37835179700050503,
+      "peak_allocated_bytes": 16921729024,
+      "peak_reserved_bytes": 23691526144,
+      "allocated_bytes": 13861389824,
+      "reserved_bytes": 23691526144,
+      "input_sha256": "2369cf117b7d68466ae61a0ddc6e162ca644bba0c5ff3d18db7512cbbf135908",
+      "loss": [
+        2.4033658504486084,
+        2.3552112579345703,
+        1.682046890258789,
+        1.5915346145629883
+      ],
+      "grad_norm": 8.800137519836426,
+      "pool": {
+        "total_allocated": 72,
+        "current_in_use": 0,
+        "allocation_requests": 612,
+        "free_requests": 612,
+        "pool_hits": 540,
+        "pool_misses": 72
+      },
+      "selected_bytes": 264241152
+    },
+    {
+      "step": 8,
+      "replay": true,
+      "measured": true,
+      "seconds": 0.3774224019725807,
+      "peak_allocated_bytes": 16921729024,
+      "peak_reserved_bytes": 23691526144,
+      "allocated_bytes": 13861389824,
+      "reserved_bytes": 23691526144,
+      "input_sha256": "7ef752a16c1f5642884b1c4a8698a8ab009a83c6478882762715d3fc86a2b434",
+      "loss": [
+        1.3188000917434692,
+        1.3617366552352905,
+        1.758063554763794,
+        1.4772030115127563
+      ],
+      "grad_norm": 6.114521503448486,
+      "pool": {
+        "total_allocated": 72,
+        "current_in_use": 0,
+        "allocation_requests": 612,
+        "free_requests": 612,
+        "pool_hits": 540,
+        "pool_misses": 72
+      },
+      "selected_bytes": 264241152
+    },
+    {
+      "step": 9,
+      "replay": true,
+      "measured": true,
+      "seconds": 0.3772106329561211,
+      "peak_allocated_bytes": 16921729024,
+      "peak_reserved_bytes": 23691526144,
+      "allocated_bytes": 13861389824,
+      "reserved_bytes": 23691526144,
+      "input_sha256": "e8a8e05a14d1a5d98ea8e26c3161a3677301dec886189553eb9e75e732a48ac3",
+      "loss": [
+        1.5298888683319092,
+        1.3876383304595947,
+        1.4541665315628052,
+        1.7222983837127686
+      ],
+      "grad_norm": 7.264512538909912,
+      "pool": {
+        "total_allocated": 72,
+        "current_in_use": 0,
+        "allocation_requests": 612,
+        "free_requests": 612,
+        "pool_hits": 540,
+        "pool_misses": 72
+      },
+      "selected_bytes": 264241152
+    },
+    {
+      "step": 10,
+      "replay": true,
+      "measured": true,
+      "seconds": 0.3771395710064098,
+      "peak_allocated_bytes": 16921729024,
+      "peak_reserved_bytes": 23691526144,
+      "allocated_bytes": 13861389824,
+      "reserved_bytes": 23691526144,
+      "input_sha256": "1dd685e9573358eaffc8e1793528d7c262e1aa48d4b9c0be95e4543ca685e928",
+      "loss": [
+        1.6395114660263062,
+        1.5790719985961914,
+        1.6724168062210083,
+        1.5515556335449219
+      ],
+      "grad_norm": 7.498654365539551,
+      "pool": {
+        "total_allocated": 72,
+        "current_in_use": 0,
+        "allocation_requests": 612,
+        "free_requests": 612,
+        "pool_hits": 540,
+        "pool_misses": 72
+      },
+      "selected_bytes": 264241152
+    },
+    {
+      "step": 11,
+      "replay": true,
+      "measured": true,
+      "seconds": 0.37720582098700106,
+      "peak_allocated_bytes": 16921729024,
+      "peak_reserved_bytes": 23691526144,
+      "allocated_bytes": 13861389824,
+      "reserved_bytes": 23691526144,
+      "input_sha256": "ffad448ed7c312ce1c76c1c7d6648b9e7bfc911f5c6769c3b3b84e4642e7bf2c",
+      "loss": [
+        1.3946659564971924,
+        0.967054009437561,
+        0.9274761080741882,
+        0.8485156297683716
+      ],
+      "grad_norm": 5.547923564910889,
+      "pool": {
+        "total_allocated": 72,
+        "current_in_use": 0,
+        "allocation_requests": 612,
+        "free_requests": 612,
+        "pool_hits": 540,
+        "pool_misses": 72
+      },
+      "selected_bytes": 264241152
+    },
+    {
+      "step": 12,
+      "replay": true,
+      "measured": true,
+      "seconds": 0.3767309419927187,
+      "peak_allocated_bytes": 16921729024,
+      "peak_reserved_bytes": 23691526144,
+      "allocated_bytes": 13861389824,
+      "reserved_bytes": 23691526144,
+      "input_sha256": "84c2e024731d168184d940ba37963b3ec8e8de5b7cb15ad66a04cb25fa3dd604",
+      "loss": [
+        0.8167189359664917,
+        1.001612663269043,
+        0.8108415603637695,
+        0.9356164932250977
+      ],
+      "grad_norm": 5.278346061706543,
+      "pool": {
+        "total_allocated": 72,
+        "current_in_use": 0,
+        "allocation_requests": 612,
+        "free_requests": 612,
+        "pool_hits": 540,
+        "pool_misses": 72
+      },
+      "selected_bytes": 264241152
+    },
+    {
+      "step": 13,
+      "replay": true,
+      "measured": true,
+      "seconds": 0.3759953690459952,
+      "peak_allocated_bytes": 16921729024,
+      "peak_reserved_bytes": 23691526144,
+      "allocated_bytes": 13861389824,
+      "reserved_bytes": 23691526144,
+      "input_sha256": "38ab52ac530028043b5ef88b029941cda7a14bf4afb95a0df50091ad7215028d",
+      "loss": [
+        0.831940770149231,
+        0.8136200904846191,
+        0.9381672143936157,
+        0.9466167688369751
+      ],
+      "grad_norm": 5.143260955810547,
+      "pool": {
+        "total_allocated": 72,
+        "current_in_use": 0,
+        "allocation_requests": 612,
+        "free_requests": 612,
+        "pool_hits": 540,
+        "pool_misses": 72
+      },
+      "selected_bytes": 264241152
+    },
+    {
+      "step": 14,
+      "replay": true,
+      "measured": true,
+      "seconds": 0.3733462000382133,
+      "peak_allocated_bytes": 16921729024,
+      "peak_reserved_bytes": 23691526144,
+      "allocated_bytes": 13861389824,
+      "reserved_bytes": 23691526144,
+      "input_sha256": "c210f09f4a3977395a347f10c8aaae409a3b987c5f4da06ed77217f47f4d884f",
+      "loss": [
+        0.8533364534378052,
+        0.9222153425216675,
+        0.8090711832046509,
+        0.7677494287490845
+      ],
+      "grad_norm": 5.468283176422119,
+      "pool": {
+        "total_allocated": 72,
+        "current_in_use": 0,
+        "allocation_requests": 612,
+        "free_requests": 612,
+        "pool_hits": 540,
+        "pool_misses": 72
+      },
+      "selected_bytes": 264241152
+    },
+    {
+      "step": 15,
+      "replay": true,
+      "measured": true,
+      "seconds": 0.37751320301322266,
+      "peak_allocated_bytes": 16921729024,
+      "peak_reserved_bytes": 23691526144,
+      "allocated_bytes": 13861389824,
+      "reserved_bytes": 23691526144,
+      "input_sha256": "549f6fa30eef34674e4c99e59aae9f8c2fb58fdcd2c94e481c7844fcca5133d3",
+      "loss": [
+        0.6034309267997742,
+        0.6183958649635315,
+        0.516671359539032,
+        0.5028151273727417
+      ],
+      "grad_norm": 4.299454212188721,
+      "pool": {
+        "total_allocated": 72,
+        "current_in_use": 0,
+        "allocation_requests": 612,
+        "free_requests": 612,
+        "pool_hits": 540,
+        "pool_misses": 72
+      },
+      "selected_bytes": 264241152
+    }
+  ],
+  "pool_checks": 16
+}
