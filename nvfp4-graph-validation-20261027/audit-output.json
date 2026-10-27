@@ -1,0 +1,12 @@
+{
+  "integrity": "passed",
+  "source": "7d52248294fd759dd69b83c68ec6d1c0b36f2836",
+  "scope_and_tool": 109,
+  "native_low_precision": 54,
+  "single_rank_graphs": 21,
+  "nvfp4_single_rank_graphs": 7,
+  "two_rank_graphs_per_rank": 16,
+  "nvfp4_two_rank_graphs_per_rank": 8,
+  "nvfp4_graph_boundary": "existing parameter cache disabled; RHT/SR disabled on SM120",
+  "numerical_comparisons": "eager/replay/offload equality executed inside GPU tests; not recomputed offline"
+}

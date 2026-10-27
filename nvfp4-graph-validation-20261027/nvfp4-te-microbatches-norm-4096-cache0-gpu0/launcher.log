@@ -1,0 +1,22 @@
+/home/lwx/.cache/megatron-gdn-20261026/probe_te_fp4_microbatches.py:24: DeprecationWarning: fp8_autocast is deprecated and will be removed in a future release. Use autocast(enabled=..., calibrating=..., recipe=..., group=..., _graph=...) instead.
+  with te.fp8_autocast(enabled=True, fp8_recipe=recipe):
+/home/lwx/.cache/megatron-gdn-20261026/probe_te_fp4_microbatches.py:28: DeprecationWarning: make_graphed_callables has deprecated `fp8_enabled` kwarg in favor of `enabled`. `fp8_enabled` will be removed in a future release.
+  graphs = te.make_graphed_callables((model,), samples, num_warmup_iters=3,
+/home/lwx/.cache/megatron-gdn-20261026/probe_te_fp4_microbatches.py:28: DeprecationWarning: make_graphed_callables has deprecated `fp8_recipe` kwarg in favor of `recipe`. `fp8_recipe` will be removed in a future release.
+  graphs = te.make_graphed_callables((model,), samples, num_warmup_iters=3,
+/home/lwx/.cache/megatron-gdn-20261026/probe_te_fp4_microbatches.py:28: DeprecationWarning: make_graphed_callables has deprecated `fp8_weight_caching` kwarg in favor of `cache_quantized_params`. `fp8_weight_caching` will be removed in a future release.
+  graphs = te.make_graphed_callables((model,), samples, num_warmup_iters=3,
+/home/lwx/.cache/megatron-gdn-20261026/probe_te_fp4_microbatches.py:35: DeprecationWarning: fp8_autocast is deprecated and will be removed in a future release. Use autocast(enabled=..., calibrating=..., recipe=..., group=..., _graph=...) instead.
+  with te.fp8_autocast(enabled=True, fp8_recipe=recipe):
+{"kind": "norm", "width": 4096, "caching": false, "step": 0, "micro": 0, "loss": 0.13483867049217224}
+{"kind": "norm", "width": 4096, "caching": false, "step": 0, "micro": 1, "loss": 0.13425439596176147}
+{"kind": "norm", "width": 4096, "caching": false, "step": 0, "micro": 2, "loss": 0.13487327098846436}
+{"kind": "norm", "width": 4096, "caching": false, "step": 0, "micro": 3, "loss": 0.13442084193229675}
+{"kind": "norm", "width": 4096, "caching": false, "step": 1, "micro": 0, "loss": 0.1351170539855957}
+{"kind": "norm", "width": 4096, "caching": false, "step": 1, "micro": 1, "loss": 0.13469982147216797}
+{"kind": "norm", "width": 4096, "caching": false, "step": 1, "micro": 2, "loss": 0.13489104807376862}
+{"kind": "norm", "width": 4096, "caching": false, "step": 1, "micro": 3, "loss": 0.13450667262077332}
+{"kind": "norm", "width": 4096, "caching": false, "step": 2, "micro": 0, "loss": 0.13537049293518066}
+{"kind": "norm", "width": 4096, "caching": false, "step": 2, "micro": 1, "loss": 0.1348406970500946}
+{"kind": "norm", "width": 4096, "caching": false, "step": 2, "micro": 2, "loss": 0.13512393832206726}
+{"kind": "norm", "width": 4096, "caching": false, "step": 2, "micro": 3, "loss": 0.1348494291305542}

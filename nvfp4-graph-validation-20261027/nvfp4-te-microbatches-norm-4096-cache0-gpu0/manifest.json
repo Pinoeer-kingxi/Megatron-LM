@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/usr/bin/python3",
+    "/home/lwx/.cache/megatron-gdn-20261026/precision_graph_container_gpu0.py",
+    "/home/songbinbin/.venvs/megatron-gdn-offload/bin/python",
+    "/home/lwx/.cache/megatron-gdn-20261026/probe_te_fp4_microbatches.py",
+    "norm",
+    "4096",
+    "0"
+  ],
+  "started_unix": 1793078036.2786684,
+  "gpu_uuid": "GPU-69c3be35-a9f7-eae1-6746-0f1e08f57e9a",
+  "exit_code": 0,
+  "finished_unix": 1793078041.9577541
+}

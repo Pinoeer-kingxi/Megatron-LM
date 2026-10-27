@@ -1,0 +1,19 @@
+{
+  "baseline": "3b6f5e66f64bd381893e0ea814511031c9b5e4af",
+  "head": "7d52248294fd759dd69b83c68ec6d1c0b36f2836",
+  "command": [
+    "/home/songbinbin/.venvs/megatron-gdn-offload/bin/mypy",
+    "--explicit-package-bases",
+    "--follow-imports=skip",
+    "megatron/core/transformer/cuda_graphs.py",
+    "megatron/core/transformer/transformer_config.py",
+    "tests/unit_tests/ssm/test_gated_delta_net_offloading.py",
+    "tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py",
+    "tests/unit_tests/ssm/test_gdn_offload_training.py",
+    "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py",
+    "tools/ssm/qwen_gdn_offload_training.py"
+  ],
+  "base_count": 20,
+  "head_count": 19,
+  "new": {}
+}
