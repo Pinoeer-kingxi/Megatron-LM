@@ -1,0 +1,132 @@
+diff --git a/megatron/core/distributed/distributed_data_parallel.py b/megatron/core/distributed/distributed_data_parallel.py
+index b7b81da14..13335f360 100644
+--- a/megatron/core/distributed/distributed_data_parallel.py
++++ b/megatron/core/distributed/distributed_data_parallel.py
+@@ -369,6 +369,11 @@ class DistributedDataParallel(_BaseDataParallel):
+                 self.ddp_config.nccl_ub,
+                 pg_collection,
+                 param_layout=param_layout,
++                align_fp4_wgrad=bool(
++                    config.fp4
++                    and config.gradient_accumulation_fusion
++                    and not self.ddp_config.use_distributed_optimizer
++                ),
+             )
+             if buffer_key.is_expert_parallel:
+                 self.expert_parallel_buffers.append(buffer)
+diff --git a/megatron/core/distributed/param_and_grad_buffer.py b/megatron/core/distributed/param_and_grad_buffer.py
+index 6bf9d794b..c80305f19 100644
+--- a/megatron/core/distributed/param_and_grad_buffer.py
++++ b/megatron/core/distributed/param_and_grad_buffer.py
+@@ -1013,16 +1013,17 @@ def group_params_for_buffers(
+ 
+ 
+ def _compute_default_per_buffer_param_layout(
+-    params: List[torch.nn.Parameter], bucket_size: Optional[int]
++    params: List[torch.nn.Parameter], bucket_size: Optional[int], alignment: int = 1
+ ) -> 'PerBufferParamLayout':
+     """Compute parameter layout for the non-distributed-optimizer case.
+ 
+-    No padding is applied. Parameters are iterated in reverse order (backprop order)
+-    and grouped into buckets of approximately `bucket_size` elements.
++    Parameters are iterated in reverse order (backprop order) and grouped into
++    buckets of approximately `bucket_size` elements.
+ 
+     Args:
+         params: List of parameters to lay out.
+         bucket_size: Approximate number of elements per bucket, or None for a single bucket.
++        alignment: Alignment of parameter and bucket starts in elements.
+ 
+     Returns:
+         PerBufferParamLayout with the computed mapping.
+@@ -1037,23 +1038,29 @@ def _compute_default_per_buffer_param_layout(
+     bucket_start_index = 0
+     bucket_params = set()
+     bucket_id = 0
++    bucket_numel_unpadded = 0
+ 
+     for param in params[::-1]:
++        param_start_index = (param_start_index + alignment - 1) // alignment * alignment
+         this_numel = param.data.nelement()
++        bucket_numel_unpadded += this_numel
+         param_end_index = param_start_index + this_numel
+         param_index_map[param] = (param_start_index, param_end_index, bucket_id)
+         bucket_params.add(param)
+ 
+         if bucket_size is not None and (param_end_index - bucket_start_index) >= bucket_size:
+-            per_bucket_numel_unpadded.append(param_end_index - bucket_start_index)
++            per_bucket_numel_unpadded.append(bucket_numel_unpadded)
++            param_end_index = (param_end_index + alignment - 1) // alignment * alignment
+             bucket_indices.append((bucket_start_index, param_end_index))
+             bucket_start_index = param_end_index
++            bucket_numel_unpadded = 0
+             bucket_params = set()
+             bucket_id += 1
+         param_start_index = param_end_index
+ 
+     if len(bucket_params) > 0:
+-        per_bucket_numel_unpadded.append(param_end_index - bucket_start_index)
++        per_bucket_numel_unpadded.append(bucket_numel_unpadded)
++        param_end_index = (param_end_index + alignment - 1) // alignment * alignment
+         bucket_indices.append((bucket_start_index, param_end_index))
+ 
+     return PerBufferParamLayout(
+@@ -1099,6 +1106,7 @@ class _ParamAndGradBuffer:
+         nccl_ub: bool,
+         pg_collection: Optional[ProcessGroupCollection] = None,
+         param_layout: Optional['PerBufferParamLayout'] = None,
++        align_fp4_wgrad: bool = False,
+     ):
+ 
+         if pg_collection is None:
+@@ -1148,9 +1156,15 @@ class _ParamAndGradBuffer:
+         self.buckets = []
+         self.param_to_bucket = {}  # Param -> bucket mapping.
+ 
+-        # Use the provided layout if given, otherwise compute the default (no-padding) layout.
++        # FP4 GEMM writes fused weight gradients directly into this buffer and requires
++        # 16-byte-aligned output pointers. Distributed optimizer layouts already align them.
+         if param_layout is None:
+-            param_layout = _compute_default_per_buffer_param_layout(self.params, bucket_size)
++            alignment = (
++                16 // torch.empty((), dtype=grad_dtype).element_size() if align_fp4_wgrad else 1
++            )
++            param_layout = _compute_default_per_buffer_param_layout(
++                self.params, bucket_size, alignment
++            )
+         self.param_index_map = param_layout.param_index_map
+         self.bucket_indices = param_layout.bucket_indices
+         self.num_optimizer_shards = param_layout.num_optimizer_shards
+@@ -1200,7 +1214,7 @@ class _ParamAndGradBuffer:
+             assert self.numel % self.data_parallel_world_size == 0
+             if self.has_nvfp4_params:
+                 assert self.nvfp4_packed_numel % self.data_parallel_world_size == 0
+-        else:
++        elif not align_fp4_wgrad:
+             assert self.numel == self.numel_unpadded
+ 
+         self.param_data = None
+diff --git a/tests/unit_tests/distributed/test_param_layout.py b/tests/unit_tests/distributed/test_param_layout.py
+index 99922e379..d5975a0bd 100644
+--- a/tests/unit_tests/distributed/test_param_layout.py
++++ b/tests/unit_tests/distributed/test_param_layout.py
+@@ -209,6 +209,19 @@ class TestDefaultParamLayout:
+         assert layout.param_index_map[params[0]] == (0, 256, 0)
+         assert layout.bucket_indices == [(0, 256)]
+ 
++    @pytest.mark.parametrize("bucket_size", [None, 100])
++    def test_aligned_layout_preserves_parameter_counts(self, bucket_size):
++        params = _make_params((97,), (103,), (3,))
++        layout = _compute_default_per_buffer_param_layout(params, bucket_size, alignment=4)
++
++        assert sum(layout.per_bucket_numel_unpadded) == 203
++        assert all(start % 4 == 0 and end % 4 == 0 for start, end in layout.bucket_indices)
++        assert all(start % 4 == 0 for start, _, _ in layout.param_index_map.values())
++        assert all(
++            end - start == param.numel()
++            for param, (start, end, _) in layout.param_index_map.items()
++        )
++
+ 
+ # ---------------------------------------------------------------------------
+ # Tests for DistributedOptimizer._compute_per_buffer_param_layout

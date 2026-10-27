@@ -35,6 +35,21 @@ for name, count, cause in (
     test = Path(manifest['command'][-1].split('::')[0]).name
     assert hashlib.sha256((root / 'probes' / test).read_bytes()).hexdigest() == manifest['test_sha256']
 
+for arm in ('baseline', 'fixed'):
+    folder = root / f'alignment-tp2-{arm}-verbose-20261027-gpu03'
+    manifest = json.loads((folder / 'manifest.json').read_text())
+    assert (manifest['exit_code'] == 0) == (arm == 'fixed')
+    assert hashlib.sha256((root / 'probes/test_fp4_ordinary_optimizer.py').read_bytes()).hexdigest() == manifest['test_sha256']
+    if arm == 'fixed':
+        assert hashlib.sha256((root / 'nvfp4-ddp-alignment-prototype.patch').read_bytes()).hexdigest() == manifest['patch_sha256']
+    for rank in (0, 1):
+        report = json.loads((folder / 'reports' / f'rank-{rank}.json').read_text())
+        assert report['collected'] == 1 and len(report['outcomes']) == 1
+        outcome = report['outcomes'][0]
+        assert outcome['outcome'] == ('passed' if arm == 'fixed' else 'failed')
+        if arm == 'baseline':
+            assert 'CUBLAS_STATUS_NOT_SUPPORTED' in outcome['detail']
+
 revision = 'dfaa6338c65edab118ba415fcc14c73241f503a6'
 states = []
 keys = ('input_sha256', 'loss', 'grad_norm', 'gradients', 'weights', 'optimizer')
