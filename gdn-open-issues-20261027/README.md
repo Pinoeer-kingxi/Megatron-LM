@@ -19,6 +19,8 @@ The `probes/` files are the regression tests used for the old-code controls. `al
 
 At `c5264b66197040f4309edfdb22dc9bbaf62189b1`, two-GPU GDN2 native and GDN/GDN2 graph suites pass 12 and 14 cases per rank, respectively. At `dfaa6338c65edab118ba415fcc14c73241f503a6`, the two-GPU low-precision graph suite passes 18 cases per rank. These suites cover TP2+SP and PP2 and have no skips.
 
+At `c5264b66197040f4309edfdb22dc9bbaf62189b1`, the `graph-qwen-f0-correct-{eager,off,on}` runs compare full BF16 Qwen training at sequence length 2048 with four microbatches. Eager, graph without offload, and graph with offload match input, loss, gradients, weights and full optimizer state for six steps. Offload records actual transfers; these are correctness runs and not timing measurements.
+
 At `dfaa6338c65edab118ba415fcc14c73241f503a6`, the single-GPU scope/configuration/tool suite passes 111 cases, native low-precision training passes 54 cases and graph capture/replay passes 23 cases, without skips.
 
 The `qwen-mrope-paired-*` runs use an earlier uncommitted mRoPE prototype on base `aecc0e8116912554f27a62a51ad2aeca479a7f9e`. They compare complete BF16 and constrained-FP4 eager and graph training with all recorded states equal. They do not establish coverage of the final graph PR head.

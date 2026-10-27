@@ -68,6 +68,18 @@ for arm in ('eager', 'graph-disabled', 'graph-repeat', 'graph-offloaded'):
     states.append([{k: step[k] for k in keys} for step in data['records']])
 assert states[0] == states[1] == states[2] == states[3]
 
+states = []
+for arm in ('eager', 'off', 'on'):
+    folder = root / f'graph-qwen-f0-correct-{arm}'
+    manifest = json.loads((folder / 'manifest.json').read_text())
+    assert manifest['revision'] == manifest['revision_after'] == 'c5264b66197040f4309edfdb22dc9bbaf62189b1'
+    assert manifest['exit_code'] == 0 and not manifest['dirty_after'] and not manifest['foreign_samples']
+    data = json.loads((folder / 'result.json').read_text())
+    assert len(data['records']) == 6 and len(data['graph_counts']) == (0 if arm == 'eager' else 24)
+    assert all(x['selected_bytes'] > 0 for x in data['records'][3:]) == (arm == 'on')
+    states.append([{k: step[k] for k in keys} for step in data['records']])
+assert states[0] == states[1] == states[2]
+
 normal = root / 'qwen-fp4-normal-tp2-default-dfaa633-gpu12'
 assert json.loads((normal / 'manifest.json').read_text())['exit_code'] != 0
 assert any('CUBLAS_STATUS_NOT_SUPPORTED' in p.read_text() for p in (normal / 'ranks').glob('**/stderr.log'))
