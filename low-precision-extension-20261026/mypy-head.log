@@ -1,0 +1,6 @@
+megatron/core/transformer/transformer_config.py:4426: error: Incompatible types in assignment (expression has type "str", base class "TransformerConfig" defined the type as "Literal['LayerNorm', 'RMSNorm']")  [assignment]
+tools/ssm/qwen_gdn_offload_training.py:130: error: Cannot find implementation or library stub for module named "megatron.bridge"  [import-not-found]
+tools/ssm/qwen_gdn_offload_training.py:130: note: Error code "import-not-found" not covered by "type: ignore[import-untyped]" comment
+tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py:100: error: Need type annotation for "references" (hint: "references: list[<type>] = ...")  [var-annotated]
+tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py:206: error: Item "None" of "Any | None" has no attribute "delete_cuda_graphs"  [union-attr]
+Found 4 errors in 3 files (checked 6 source files)

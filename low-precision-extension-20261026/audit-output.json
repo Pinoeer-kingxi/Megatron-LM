@@ -1,0 +1,10 @@
+{
+  "integrity": "passed",
+  "source": "1aa1151a213c13de1faab0930c5e6bc91662c042",
+  "scope_and_tool": 108,
+  "native_low_precision": 54,
+  "single_rank_graphs": 14,
+  "two_rank_graphs_per_rank": 8,
+  "nvfp4_graphs": "excluded; failed offload-disabled prototypes retained",
+  "numerical_comparisons": "performed on real tensors inside the executed tests; not recomputed by this audit"
+}

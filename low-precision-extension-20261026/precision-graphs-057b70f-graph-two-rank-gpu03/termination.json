@@ -1,0 +1,6 @@
+{
+  "reason": "No progress after TP2/SP to PP2 transition; retained as diagnostic, not a production bug claim",
+  "pid": 1569518,
+  "signal": "SIGTERM",
+  "observed_unix": 1793076067.768558
+}

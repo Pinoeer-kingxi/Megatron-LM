@@ -1,0 +1,15 @@
+/home/lwx/.cache/megatron-gdn-20261026/probe_te_fp4_graph.py:17: DeprecationWarning: fp8_autocast is deprecated and will be removed in a future release. Use autocast(enabled=..., calibrating=..., recipe=..., group=..., _graph=...) instead.
+  with te.fp8_autocast(enabled=True, fp8_recipe=recipe):
+/home/lwx/.cache/megatron-gdn-20261026/probe_te_fp4_graph.py:21: DeprecationWarning: make_graphed_callables has deprecated `fp8_enabled` kwarg in favor of `enabled`. `fp8_enabled` will be removed in a future release.
+  graph = te.make_graphed_callables(model, (sample,), num_warmup_iters=3,
+/home/lwx/.cache/megatron-gdn-20261026/probe_te_fp4_graph.py:21: DeprecationWarning: make_graphed_callables has deprecated `fp8_recipe` kwarg in favor of `recipe`. `fp8_recipe` will be removed in a future release.
+  graph = te.make_graphed_callables(model, (sample,), num_warmup_iters=3,
+/home/lwx/.cache/megatron-gdn-20261026/probe_te_fp4_graph.py:21: DeprecationWarning: make_graphed_callables has deprecated `fp8_weight_caching` kwarg in favor of `cache_quantized_params`. `fp8_weight_caching` will be removed in a future release.
+  graph = te.make_graphed_callables(model, (sample,), num_warmup_iters=3,
+/home/lwx/.cache/megatron-gdn-20261026/probe_te_fp4_graph.py:26: DeprecationWarning: fp8_autocast is deprecated and will be removed in a future release. Use autocast(enabled=..., calibrating=..., recipe=..., group=..., _graph=...) instead.
+  with te.fp8_autocast(enabled=True, fp8_recipe=recipe):
+/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/autograd/graph.py:869: UserWarning: The AccumulateGrad node's stream does not match the stream of the node that produced the incoming gradient. This may incur unnecessary synchronization and break CUDA graph capture if the AccumulateGrad node's stream is the default stream. This mismatch is caused by an AccumulateGrad node created prior to the current iteration being kept alive. This can happen if the autograd graph is still being kept alive by tensors such as the loss, or if you are using DDP, which will stash a reference to the node. To resolve the mismatch, delete all references to the autograd graph or ensure that DDP initialization is performed under the same stream as subsequent forwards. If the mismatch is intentional, you can use torch.autograd.graph.set_warn_on_accumulate_grad_stream_mismatch(False) to suppress this warning. (Triggered internally at /pytorch/torch/csrc/autograd/input_buffer.cpp:240.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+{"width": 2592, "step": 0, "loss": 0.13718698918819427}
+{"width": 2592, "step": 1, "loss": 0.13483376801013947}
+{"width": 2592, "step": 2, "loss": 0.13643214106559753}

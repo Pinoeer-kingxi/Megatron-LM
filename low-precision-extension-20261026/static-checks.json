@@ -1,0 +1,88 @@
+{
+  "source": "1aa1151a213c13de1faab0930c5e6bc91662c042",
+  "checks": [
+    {
+      "command": [
+        "/home/songbinbin/.venvs/megatron-gdn-offload/bin/black",
+        "--check",
+        "megatron/core/transformer/transformer_config.py",
+        "tests/unit_tests/ssm/test_gated_delta_net_offloading.py",
+        "tests/unit_tests/ssm/test_gdn_offload_training.py",
+        "tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py",
+        "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py",
+        "tools/ssm/qwen_gdn_offload_training.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "Warning: Python 3.12 cannot parse code formatted for Python 3.14. To fix this: run Black with Python 3.14, set --target-version to py312, or use --fast to skip the safety check. Black's safety check verifies equivalence by parsing the AST, which fails when the running Python is older than the target version.\nAll done! \u2728 \ud83c\udf70 \u2728\n6 files would be left unchanged.\n"
+    },
+    {
+      "command": [
+        "/home/songbinbin/.venvs/megatron-gdn-offload/bin/isort",
+        "--check-only",
+        "megatron/core/transformer/transformer_config.py",
+        "tests/unit_tests/ssm/test_gated_delta_net_offloading.py",
+        "tests/unit_tests/ssm/test_gdn_offload_training.py",
+        "tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py",
+        "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py",
+        "tools/ssm/qwen_gdn_offload_training.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/home/songbinbin/.venvs/megatron-gdn-offload/bin/ruff",
+        "check",
+        "megatron/core/transformer/transformer_config.py",
+        "tests/unit_tests/ssm/test_gated_delta_net_offloading.py",
+        "tests/unit_tests/ssm/test_gdn_offload_training.py",
+        "tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py",
+        "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py",
+        "tools/ssm/qwen_gdn_offload_training.py"
+      ],
+      "exit_code": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": "warning: The top-level linter settings are deprecated in favour of their counterparts in the `lint` section. Please update the following options in `pyproject.toml`:\n  - 'per-file-ignores' -> 'lint.per-file-ignores'\n"
+    },
+    {
+      "command": [
+        "/home/songbinbin/.venvs/megatron-gdn-offload/bin/pylint",
+        "megatron/core/transformer/transformer_config.py",
+        "tests/unit_tests/ssm/test_gated_delta_net_offloading.py",
+        "tests/unit_tests/ssm/test_gdn_offload_training.py",
+        "tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py",
+        "tests/unit_tests/ssm/test_qwen_gdn_offload_training.py",
+        "tools/ssm/qwen_gdn_offload_training.py"
+      ],
+      "exit_code": 0,
+      "stdout": "\n--------------------------------------------------------------------\nYour code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3",
+        "-S",
+        "tools/check_kernel_determinism_coverage.py",
+        "--base-ref",
+        "3b6f5e66f64bd381893e0ea814511031c9b5e4af"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "Kernel determinism coverage check passed for 7 changed file(s).\n"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "3b6f5e66f64bd381893e0ea814511031c9b5e4af",
+        "HEAD"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

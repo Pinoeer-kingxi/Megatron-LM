@@ -1,0 +1,213 @@
+/home/lwx/.cache/megatron-gdn-20261026/precision-graphs-18fe09f/megatron/core/models/mimo/config/base_configs.py:12: UserWarning: MimoModelConfig is experimental and still under active development. The API may change without notice in future releases.
+  class MimoModelConfig:
+/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+[rank0]:[W1027 04:13:28.755829541 ProcessGroupNCCL.cpp:5188] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+Original failure before graph cleanup; offload=False
+Traceback (most recent call last):
+  File "/home/lwx/.cache/megatron-gdn-20261026/precision-graphs-18fe09f/tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py", line 168, in test_gdn_offload_with_te_graphs
+    losses = schedule(
+             ^^^^^^^^^
+  File "/home/lwx/.cache/megatron-gdn-20261026/precision-graphs-18fe09f/megatron/core/pipeline_parallel/schedules.py", line 817, in forward_backward_no_pipelining
+    output_tensor, num_tokens = forward_step(
+                                ^^^^^^^^^^^^^
+  File "/home/lwx/.cache/megatron-gdn-20261026/precision-graphs-18fe09f/megatron/core/pipeline_parallel/schedules.py", line 516, in forward_step
+    output_tensor, loss_func = forward_step_func(data_iterator, model)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lwx/.cache/megatron-gdn-20261026/precision-graphs-18fe09f/tests/unit_tests/ssm/test_gdn_offload_training.py", line 183, in _forward_step
+    output = model(batch["tokens"], batch["position_ids"], None, labels=batch["labels"])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lwx/.cache/megatron-gdn-20261026/precision-graphs-18fe09f/megatron/core/distributed/data_parallel_base.py", line 22, in forward
+    return self.module(*inputs, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lwx/.cache/megatron-gdn-20261026/precision-graphs-18fe09f/megatron/core/transformer/module.py", line 591, in forward
+    outputs = self.module(*inputs, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lwx/.cache/megatron-gdn-20261026/precision-graphs-18fe09f/megatron/core/models/hybrid/hybrid_model.py", line 530, in __call__
+    return super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lwx/.cache/megatron-gdn-20261026/precision-graphs-18fe09f/megatron/core/transformer/module.py", line 416, in __call__
+    return super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lwx/.cache/megatron-gdn-20261026/precision-graphs-18fe09f/megatron/core/models/hybrid/hybrid_model.py", line 703, in forward
+    decoder_output = self.decoder(
+                     ^^^^^^^^^^^^^
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lwx/.cache/megatron-gdn-20261026/precision-graphs-18fe09f/megatron/core/models/hybrid/hybrid_block.py", line 782, in forward
+    hidden_states, _ = layer(**layer_kwargs)
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lwx/.cache/megatron-gdn-20261026/precision-graphs-18fe09f/megatron/core/transformer/module.py", line 415, in __call__
+    return cuda_graph_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lwx/.cache/megatron-gdn-20261026/precision-graphs-18fe09f/megatron/core/transformer/transformer_layer.py", line 1934, in _te_cuda_graph_replay
+    return self._te_cuda_graph_replay_impl(args, kwargs, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lwx/.cache/megatron-gdn-20261026/precision-graphs-18fe09f/megatron/core/transformer/transformer_layer.py", line 1950, in _te_cuda_graph_replay_impl
+    cuda_graph_output = list(super()._te_cuda_graph_replay(*args, **graph_kwargs))
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lwx/.cache/megatron-gdn-20261026/precision-graphs-18fe09f/megatron/core/transformer/module.py", line 353, in _te_cuda_graph_replay
+    cudagraph_args, cudagraph_kwargs = self._get_te_cuda_graph_replay_args(*args, **kwargs)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lwx/.cache/megatron-gdn-20261026/precision-graphs-18fe09f/megatron/core/transformer/transformer_layer.py", line 2116, in _get_te_cuda_graph_replay_args
+    cudagraph_kwargs["attention_mask"] = get_zero_attention_mask(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lwx/.cache/megatron-gdn-20261026/precision-graphs-18fe09f/megatron/core/transformer/transformer_layer.py", line 2089, in get_zero_attention_mask
+    return torch.zeros(
+           ^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: an illegal memory access was encountered
+Search for `cudaErrorIllegalAddress' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+terminate called after throwing an instance of 'c10::AcceleratorError'
+  what():  CUDA error: an illegal memory access was encountered
+Search for `cudaErrorIllegalAddress' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Exception raised from insert_events at /pytorch/c10/cuda/CUDACachingAllocator.cpp:3726 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x9d (0x71f151fd105d in /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0xc114 (0x71f15206a114 in /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/lib/libc10_cuda.so)
+frame #2: <unknown function> + 0x1941e (0x71f15207741e in /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/lib/libc10_cuda.so)
+frame #3: <unknown function> + 0x1d425 (0x71f15207b425 in /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/lib/libc10_cuda.so)
+frame #4: <unknown function> + 0x7f8e4 (0x71f151fb28e4 in /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/lib/libc10.so)
+frame #5: c10::TensorImpl::~TensorImpl() + 0x9 (0x71f151fac279 in /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/lib/libc10.so)
+frame #6: <unknown function> + 0x869d55 (0x71f0c8a69d55 in /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/lib/libtorch_python.so)
+frame #7: <unknown function> + 0x869df1 (0x71f0c8a69df1 in /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/lib/libtorch_python.so)
+frame #8: /home/songbinbin/.venvs/megatron-gdn-offload/bin/python() [0x577aba]
+frame #9: /home/songbinbin/.venvs/megatron-gdn-offload/bin/python() [0x517dac]
+frame #10: _PyEval_EvalFrameDefault + 0xa62c (0x52fdcc in /home/songbinbin/.venvs/megatron-gdn-offload/bin/python)
+frame #11: _PyObject_FastCallDictTstate + 0x285 (0x51df35 in /home/songbinbin/.venvs/megatron-gdn-offload/bin/python)
+frame #12: _PyObject_Call_Prepend + 0x66 (0x558836 in /home/songbinbin/.venvs/megatron-gdn-offload/bin/python)
+frame #13: /home/songbinbin/.venvs/megatron-gdn-offload/bin/python() [0x62f5e6]
+frame #14: _PyObject_MakeTpCall + 0x2fb (0x51b30b in /home/songbinbin/.venvs/megatron-gdn-offload/bin/python)
+frame #15: _PyEval_EvalFrameDefault + 0x6d5 (0x525e75 in /home/songbinbin/.venvs/megatron-gdn-offload/bin/python)
+frame #16: _PyObject_FastCallDictTstate + 0x285 (0x51df35 in /home/songbinbin/.venvs/megatron-gdn-offload/bin/python)
+frame #17: _PyObject_Call_Prepend + 0x66 (0x558836 in /home/songbinbin/.venvs/megatron-gdn-offload/bin/python)
+frame #18: /home/songbinbin/.venvs/megatron-gdn-offload/bin/python() [0x62f5e6]
+frame #19: _PyObject_Call + 0xb5 (0x55b425 in /home/songbinbin/.venvs/megatron-gdn-offload/bin/python)
+frame #20: _PyEval_EvalFrameDefault + 0x5902 (0x52b0a2 in /home/songbinbin/.venvs/megatron-gdn-offload/bin/python)
+frame #21: _PyObject_FastCallDictTstate + 0x285 (0x51df35 in /home/songbinbin/.venvs/megatron-gdn-offload/bin/python)
+frame #22: _PyObject_Call_Prepend + 0x66 (0x558836 in /home/songbinbin/.venvs/megatron-gdn-offload/bin/python)
+frame #23: /home/songbinbin/.venvs/megatron-gdn-offload/bin/python() [0x62f5e6]
+frame #24: _PyObject_MakeTpCall + 0x2fb (0x51b30b in /home/songbinbin/.venvs/megatron-gdn-offload/bin/python)
+frame #25: _PyEval_EvalFrameDefault + 0x6d5 (0x525e75 in /home/songbinbin/.venvs/megatron-gdn-offload/bin/python)
+frame #26: _PyObject_FastCallDictTstate + 0x285 (0x51df35 in /home/songbinbin/.venvs/megatron-gdn-offload/bin/python)
+frame #27: _PyObject_Call_Prepend + 0x66 (0x558836 in /home/songbinbin/.venvs/megatron-gdn-offload/bin/python)
+frame #28: /home/songbinbin/.venvs/megatron-gdn-offload/bin/python() [0x62f5e6]
+frame #29: _PyObject_MakeTpCall + 0x2fb (0x51b30b in /home/songbinbin/.venvs/megatron-gdn-offload/bin/python)
+frame #30: _PyEval_EvalFrameDefault + 0x6d5 (0x525e75 in /home/songbinbin/.venvs/megatron-gdn-offload/bin/python)
+frame #31: _PyObject_FastCallDictTstate + 0x285 (0x51df35 in /home/songbinbin/.venvs/megatron-gdn-offload/bin/python)
+frame #32: _PyObject_Call_Prepend + 0x66 (0x558836 in /home/songbinbin/.venvs/megatron-gdn-offload/bin/python)
+frame #33: /home/songbinbin/.venvs/megatron-gdn-offload/bin/python() [0x62f5e6]
+frame #34: _PyObject_MakeTpCall + 0x2fb (0x51b30b in /home/songbinbin/.venvs/megatron-gdn-offload/bin/python)
+frame #35: _PyEval_EvalFrameDefault + 0x6d5 (0x525e75 in /home/songbinbin/.venvs/megatron-gdn-offload/bin/python)
+frame #36: PyEval_EvalCode + 0xae (0x5e4dfe in /home/songbinbin/.venvs/megatron-gdn-offload/bin/python)
+frame #37: /home/songbinbin/.venvs/megatron-gdn-offload/bin/python() [0x601ca9]
+frame #38: /home/songbinbin/.venvs/megatron-gdn-offload/bin/python() [0x53f0ce]
+frame #39: PyObject_Vectorcall + 0x51 (0x53ee61 in /home/songbinbin/.venvs/megatron-gdn-offload/bin/python)
+frame #40: _PyEval_EvalFrameDefault + 0x6d5 (0x525e75 in /home/songbinbin/.venvs/megatron-gdn-offload/bin/python)
+frame #41: PyEval_EvalCode + 0xae (0x5e4dfe in /home/songbinbin/.venvs/megatron-gdn-offload/bin/python)
+frame #42: /home/songbinbin/.venvs/megatron-gdn-offload/bin/python() [0x60a5d7]
+frame #43: /home/songbinbin/.venvs/megatron-gdn-offload/bin/python() [0x605ca7]
+frame #44: /home/songbinbin/.venvs/megatron-gdn-offload/bin/python() [0x61db12]
+frame #45: _PyRun_SimpleFileObject + 0x1b0 (0x61d3b0 in /home/songbinbin/.venvs/megatron-gdn-offload/bin/python)
+frame #46: _PyRun_AnyFileObject + 0x43 (0x61d123 in /home/songbinbin/.venvs/megatron-gdn-offload/bin/python)
+frame #47: Py_RunMain + 0x303 (0x615b43 in /home/songbinbin/.venvs/megatron-gdn-offload/bin/python)
+frame #48: Py_BytesMain + 0x39 (0x5cc259 in /home/songbinbin/.venvs/megatron-gdn-offload/bin/python)
+frame #49: <unknown function> + 0x29ca8 (0x71f152b0bca8 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #50: __libc_start_main + 0x85 (0x71f152b0bd65 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #51: /home/songbinbin/.venvs/megatron-gdn-offload/bin/python() [0x5cc089]
+
+Fatal Python error: Aborted
+
+Thread 0x000071ebb20006c0 (most recent call first):
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/_inductor/compile_worker/timer.py", line 43 in check
+  File "/data/songbinbin/minicoda/lib/python3.12/threading.py", line 1010 in run
+  File "/data/songbinbin/minicoda/lib/python3.12/threading.py", line 1073 in _bootstrap_inner
+  File "/data/songbinbin/minicoda/lib/python3.12/threading.py", line 1030 in _bootstrap
+
+Thread 0x000071ed10c006c0 (most recent call first):
+  <no Python frame>
+
+Thread 0x000071ed116006c0 (most recent call first):
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/_inductor/compile_worker/subproc_pool.py", line 76 in _recv_msg
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/_inductor/compile_worker/subproc_pool.py", line 271 in _read_thread
+  File "/data/songbinbin/minicoda/lib/python3.12/threading.py", line 1010 in run
+  File "/data/songbinbin/minicoda/lib/python3.12/threading.py", line 1073 in _bootstrap_inner
+  File "/data/songbinbin/minicoda/lib/python3.12/threading.py", line 1030 in _bootstrap
+
+Thread 0x000071ed120006c0 (most recent call first):
+  File "/data/songbinbin/minicoda/lib/python3.12/threading.py", line 359 in wait
+  File "/data/songbinbin/minicoda/lib/python3.12/threading.py", line 655 in wait
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/tqdm/_monitor.py", line 69 in run
+  File "/data/songbinbin/minicoda/lib/python3.12/threading.py", line 1073 in _bootstrap_inner
+  File "/data/songbinbin/minicoda/lib/python3.12/threading.py", line 1030 in _bootstrap
+
+Current thread 0x000071f152adf740 (most recent call first):
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/transformer_engine/pytorch/graph.py", line 1225 in release_static_state
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/transformer_engine/pytorch/graph.py", line 1267 in reset
+  File "/home/lwx/.cache/megatron-gdn-20261026/precision-graphs-18fe09f/megatron/core/transformer/cuda_graphs.py", line 2928 in delete_cuda_graphs
+  File "/home/lwx/.cache/megatron-gdn-20261026/rank_graph_diagnostic.py", line 16 in delete
+  File "/home/lwx/.cache/megatron-gdn-20261026/precision-graphs-18fe09f/tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py", line 210 in test_gdn_offload_with_te_graphs
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/python.py", line 167 in pytest_pyfunc_call
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/pluggy/_callers.py", line 121 in _multicall
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/pluggy/_manager.py", line 120 in _hookexec
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/pluggy/_hooks.py", line 512 in __call__
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/python.py", line 1707 in runtest
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/runner.py", line 184 in pytest_runtest_call
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/pluggy/_callers.py", line 121 in _multicall
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/pluggy/_manager.py", line 120 in _hookexec
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/pluggy/_hooks.py", line 512 in __call__
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/runner.py", line 250 in <lambda>
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/runner.py", line 361 in from_call
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/runner.py", line 249 in call_and_report
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/runner.py", line 139 in runtestprotocol
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/runner.py", line 118 in pytest_runtest_protocol
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/pluggy/_callers.py", line 121 in _multicall
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/pluggy/_manager.py", line 120 in _hookexec
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/pluggy/_hooks.py", line 512 in __call__
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/main.py", line 408 in pytest_runtestloop
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/pluggy/_callers.py", line 121 in _multicall
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/pluggy/_manager.py", line 120 in _hookexec
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/pluggy/_hooks.py", line 512 in __call__
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/main.py", line 384 in _main
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/main.py", line 330 in wrap_session
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/main.py", line 377 in pytest_cmdline_main
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/pluggy/_callers.py", line 121 in _multicall
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/pluggy/_manager.py", line 120 in _hookexec
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/pluggy/_hooks.py", line 512 in __call__
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/config/__init__.py", line 229 in _main
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/_pytest/config/__init__.py", line 201 in main
+  File "/home/lwx/.cache/megatron-gdn-20261026/rank_distributed_pytest.py", line 17 in <module>
+  File "<frozen runpy>", line 88 in _run_code
+  File "<frozen runpy>", line 98 in _run_module_code
+  File "<frozen runpy>", line 286 in run_path
+  File "/home/lwx/.cache/megatron-gdn-20261026/rank_graph_diagnostic.py", line 20 in <module>
+
+Extension modules: numpy._core._multiarray_umath, numpy.linalg._umath_linalg, torch._C, torch._C._dynamo.autograd_compiler, torch._C._dynamo.eval_frame, torch._C._dynamo.guards, torch._C._dynamo.utils, torch._C._fft, torch._C._linalg, torch._C._nested, torch._C._nn, torch._C._sparse, torch._C._special, numpy.random._common, numpy.random.bit_generator, numpy.random._bounded_integers, numpy.random._pcg64, numpy.random._generator, numpy.random._mt19937, numpy.random._philox, numpy.random._sfc64, numpy.random.mtrand, google._upb._message, yaml._yaml, markupsafe._speedups, cuda_utils, regex._regex, PIL._imaging, _cyutility, scipy._cyutility, scipy._lib._ccallback_c, scipy.linalg._fblas, scipy.linalg._flapack, scipy.linalg._batched_linalg, charset_normalizer.md, charset_normalizer.cd, scipy.linalg._cythonized_array_utils, scipy.linalg._solve_toeplitz, scipy.linalg._internal_matfuncs, scipy.linalg._linalg_pythran, scipy.linalg.cython_blas, scipy.linalg.cython_lapack, scipy.linalg._decomp_update, scipy.sparse._sparsetools, _csparsetools, scipy.sparse._csparsetools, scipy.sparse.linalg._dsolve._superlu, scipy.sparse.linalg._eigen.arpack._arpacklib, scipy.sparse.linalg._propack, scipy.optimize._group_columns, scipy._lib.messagestream, scipy.optimize._trlib._trlib, scipy.optimize._lbfgsb, _moduleTNC, scipy.optimize._moduleTNC, scipy.optimize._slsqplib, scipy.optimize._minpack, scipy.optimize._lsq.givens_elimination, scipy.optimize._zeros, scipy._lib._uarray._uarray, scipy.special._ufuncs_cxx, scipy.special._ellip_harm_2, scipy.special._special_ufuncs, scipy.special._gufuncs, scipy.special._ufuncs, scipy.special._specfun, scipy.special._comb, scipy.linalg._decomp_interpolative, scipy.optimize._bglu_dense, scipy.optimize._lsap, scipy.spatial._ckdtree, scipy.spatial._hausdorff, scipy.spatial._distance_wrap, scipy.spatial._qhull, scipy.spatial._voronoi, scipy.spatial.transform._rotation_cy, scipy.spatial.transform._rigid_transform_cy, scipy.optimize._direct, __triton_launcher (total: 79)

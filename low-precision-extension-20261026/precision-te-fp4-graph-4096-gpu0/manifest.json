@@ -1,0 +1,14 @@
+{
+  "command": [
+    "/usr/bin/python3",
+    "/home/lwx/.cache/megatron-gdn-20261026/precision_graph_container_gpu0.py",
+    "/home/songbinbin/.venvs/megatron-gdn-offload/bin/python",
+    "/home/lwx/.cache/megatron-gdn-20261026/probe_te_fp4_graph.py",
+    "4096"
+  ],
+  "started_unix": 1793074256.6459427,
+  "source": "unmodified Transformer Engine 2.20.2",
+  "cuda_launch_blocking": true,
+  "exit_code": 0,
+  "finished_unix": 1793074262.061755
+}
