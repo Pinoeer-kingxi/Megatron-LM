@@ -15,6 +15,8 @@ The `probes/` files are the regression tests used for the old-code controls. The
 
 `qwen-fp4-mrope-dfaa633-*-gpu0` runs the complete 24-layer Qwen3.5-0.8B language model with local checkpoint/data, sequence length 128 and four microbatches. At `dfaa6338c65edab118ba415fcc14c73241f503a6`, eager, two graph baselines and graph plus offload execute six steps each. RHT and stochastic rounding use the default enabled settings. All recorded input hashes, losses, gradient norms, gradient fingerprints, weights and full optimizer state match across the four arms; the offload arm records actual transfers. These are correctness runs, not benchmarks.
 
+At `c5264b66197040f4309edfdb22dc9bbaf62189b1`, two-GPU GDN2 native and GDN/GDN2 graph suites pass 12 and 14 cases per rank, respectively. At `dfaa6338c65edab118ba415fcc14c73241f503a6`, the two-GPU low-precision graph suite passes 18 cases per rank. These suites cover TP2+SP and PP2 and have no skips.
+
 The `qwen-mrope-paired-*` runs use an earlier uncommitted mRoPE prototype on base `aecc0e8116912554f27a62a51ad2aeca479a7f9e`. They compare complete BF16 and constrained-FP4 eager and graph training with all recorded states equal. They do not establish coverage of the final graph PR head.
 
 ## Known independent limitations
@@ -22,5 +24,7 @@ The `qwen-mrope-paired-*` runs use an earlier uncommitted mRoPE prototype on bas
 `qwen-mrope-cache-prototype-fp4-20261027-gpu3` enables FP4 parameter caching with the mRoPE prototype and offload disabled; it fails with an illegal CUDA memory access. This run does not establish a root cause. The graph feature retains its cache-disabled restriction.
 
 `qwen-fp4-fused-tp2-trace-fixed-trace-20261027-gpu12` records a separate full-Qwen TP2 FP4 backward failure with a 4112-wide dimension, even with the gradient-buffer alignment fix; the cuBLAS operation is not the misaligned output-buffer operation. The `qwen-fp4-fused-tp2-*-highprecision-20261027-gpu12` runs use the temporary `37f34cc` merge and explicitly set `NVTE_BACKWARD_OVERRIDE=high_precision`: this means FP4 forward and high-precision backward, not default FP4 backward. Repeated and offloaded runs match the retained high-precision baseline at both ranks across loss, gradients, weights and full optimizer state.
+
+The unmodified Qwen runner with ordinary unfused weight-gradient accumulation also fails in the FP4 backward GEMM on both TP2 ranks at `dfaa6338c65edab118ba415fcc14c73241f503a6`, with offload disabled (`qwen-fp4-normal-tp2-default-dfaa633-gpu12`). The accompanying high-precision-backward runs pass with offload disabled and enabled and match all recorded states at each rank. All three use RHT and stochastic rounding disabled; these TP2 runs do not establish behavior of the default FP4 recipe with RHT and stochastic rounding enabled.
 
 These local runs do not replace upstream GPU CI or cover every model, recipe and topology.
