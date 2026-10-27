@@ -1,0 +1,10 @@
+{
+  "revision": "ebdb25fc493b528764a4116313effaf8504eec3d",
+  "exact_states": true,
+  "steps": 3,
+  "pairs": {
+    "disabled vs repeated-disabled": true,
+    "disabled vs offloaded": true,
+    "repeated-disabled vs offloaded": true
+  }
+}

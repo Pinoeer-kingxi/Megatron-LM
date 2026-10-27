@@ -1,0 +1,7 @@
+Finished /home/lwx/.cache/megatron-gdn-20261026/qwen-sm120-gpu0-fp8-delayed-disabled
+Finished /home/lwx/.cache/megatron-gdn-20261026/qwen-sm120-gpu0-fp8-delayed-repeated-disabled
+Finished /home/lwx/.cache/megatron-gdn-20261026/qwen-sm120-gpu0-fp8-delayed-offloaded
+Traceback (most recent call last):
+  File "/home/lwx/.cache/megatron-gdn-20261026/run_remote_qwen_gpu0.py", line 38, in <module>
+    assert states[0]==states[1]==states[2],precision
+AssertionError: fp8-delayed

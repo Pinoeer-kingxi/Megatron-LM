@@ -1,0 +1,24 @@
+{
+  "python": "3.12.4",
+  "packages": {
+    "torch": "2.11.0+cu130",
+    "transformer-engine": "2.20.2",
+    "triton": "3.6.0",
+    "flash-linear-attention": "0.5.1",
+    "fla-core": "0.5.1",
+    "flash-attn": "2.8.3",
+    "causal-conv1d": "1.6.1",
+    "transformers": "5.15.0"
+  },
+  "cuda": "13.0",
+  "device": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "compute_capability": "12.0",
+  "gpu_index": 0,
+  "gpu_uuid": "GPU-69c3be35-a9f7-eae1-6746-0f1e08f57e9a",
+  "driver": "580.126.09",
+  "source": "ebdb25fc493b528764a4116313effaf8504eec3d",
+  "flash_attn_sm120_library_sha256": "1cbe8dc9443e504570fe35755f7babd0634a0253f7887ef620cb3c1787c3993b",
+  "nvfp4_disable_rht": true,
+  "nvfp4_disable_stochastic_rounding": true,
+  "torch_cuda_initialized_by_metadata_probe": false
+}

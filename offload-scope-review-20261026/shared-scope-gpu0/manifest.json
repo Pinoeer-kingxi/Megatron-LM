@@ -1,0 +1,33 @@
+{
+  "revision": "2b4211c0681a3c9d08b9b685af687ed13e6f4053",
+  "command": [
+    "/usr/bin/python3",
+    "/home/lwx/.cache/megatron-gdn-20261026/remote_container_gpu0.py",
+    "/home/songbinbin/.venvs/megatron-gdn-offload/bin/python",
+    "-m",
+    "torch.distributed.run",
+    "--standalone",
+    "--nproc-per-node=1",
+    "--log-dir",
+    "/home/lwx/.cache/megatron-gdn-20261026/shared-scope-gpu0/ranks",
+    "--redirects",
+    "3",
+    "/home/lwx/.cache/megatron-gdn-20261026/rank_env.py",
+    "/home/lwx/.cache/megatron-gdn-20261026/rank_distributed_pytest.py",
+    "/home/lwx/.cache/megatron-gdn-20261026/shared-scope-gpu0/reports",
+    "-q",
+    "-x",
+    "-p",
+    "no:cacheprovider",
+    "--confcutdir=tests/unit_tests/pipeline_parallel",
+    "tests/unit_tests/pipeline_parallel/test_fine_grained_activation_offloading.py",
+    "-k",
+    "resident_groups_preserve_forward_chunks or (with_cuda_graph and (offload_modules6 or offload_modules7 or offload_modules8))"
+  ],
+  "started_unix": 1793064612.266909,
+  "gpu_uuid": "GPU-69c3be35-a9f7-eae1-6746-0f1e08f57e9a",
+  "exit_code": 0,
+  "finished_unix": 1793064653.0734322,
+  "revision_after": "2b4211c0681a3c9d08b9b685af687ed13e6f4053",
+  "dirty_after": ""
+}

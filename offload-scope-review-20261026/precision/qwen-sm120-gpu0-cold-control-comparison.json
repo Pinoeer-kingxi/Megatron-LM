@@ -1,0 +1,27 @@
+{
+  "revision": "ebdb25fc493b528764a4116313effaf8504eec3d",
+  "cold_vs_warm_exact": false,
+  "warm_repeated_exact": false,
+  "different_keys_by_step": [
+    [
+      "grad_norm",
+      "grads",
+      "weights",
+      "optimizer"
+    ],
+    [
+      "losses",
+      "grad_norm",
+      "grads",
+      "weights",
+      "optimizer"
+    ],
+    [
+      "losses",
+      "grad_norm",
+      "grads",
+      "weights",
+      "optimizer"
+    ]
+  ]
+}

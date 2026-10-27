@@ -1,0 +1,8 @@
+Finished /home/lwx/.cache/megatron-gdn-20261026/qwen-sm120-gpu0-cold-control-cold-disabled
+Finished /home/lwx/.cache/megatron-gdn-20261026/qwen-sm120-gpu0-cold-control-warm-disabled
+Finished /home/lwx/.cache/megatron-gdn-20261026/qwen-sm120-gpu0-cold-control-warm-repeated-disabled
+{"revision": "ebdb25fc493b528764a4116313effaf8504eec3d", "cold_vs_warm_exact": false, "warm_repeated_exact": false, "different_keys_by_step": [["grad_norm", "grads", "weights", "optimizer"], ["losses", "grad_norm", "grads", "weights", "optimizer"], ["losses", "grad_norm", "grads", "weights", "optimizer"]]}
+Traceback (most recent call last):
+  File "/home/lwx/.cache/megatron-gdn-20261026/run_remote_cold_control_gpu0.py", line 55, in <module>
+    assert comparison['warm_repeated_exact']
+AssertionError

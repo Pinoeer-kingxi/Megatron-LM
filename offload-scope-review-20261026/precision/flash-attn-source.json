@@ -1,0 +1,22 @@
+{
+  "comment_text": null,
+  "core-metadata": false,
+  "digests": {
+    "blake2b_256": "3bb28d76c41ad7974ee264754709c22963447f7f8134613fd9ce80984ed0dab7",
+    "md5": "a922f11063302bbe7c0874632ae2dcd4",
+    "sha256": "1e71dd64a9e0280e0447b8a0c2541bad4bf6ac65bdeaa2f90e51a9e57de0370d"
+  },
+  "downloads": -1,
+  "filename": "flash_attn-2.8.3.tar.gz",
+  "has_sig": false,
+  "md5_digest": "a922f11063302bbe7c0874632ae2dcd4",
+  "packagetype": "sdist",
+  "python_version": "source",
+  "requires_python": ">=3.9",
+  "size": 8447812,
+  "upload_time": "2025-08-15T08:28:12",
+  "upload_time_iso_8601": "2025-08-15T08:28:12.911581Z",
+  "url": "https://files.pythonhosted.org/packages/3b/b2/8d76c41ad7974ee264754709c22963447f7f8134613fd9ce80984ed0dab7/flash_attn-2.8.3.tar.gz",
+  "yanked": false,
+  "yanked_reason": null
+}

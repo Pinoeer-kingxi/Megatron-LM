@@ -1,0 +1,10 @@
+Finished /home/lwx/.cache/megatron-gdn-20261026/qwen-sm120-gpu0-fp8-delayed-confirmed-disabled
+{"revision": "ebdb25fc493b528764a4116313effaf8504eec3d", "exact_states": false, "steps": 3, "pairs": {"disabled vs repeated-disabled": false, "disabled vs offloaded": false, "disabled vs confirmed-disabled": false, "repeated-disabled vs offloaded": true, "repeated-disabled vs confirmed-disabled": true, "offloaded vs confirmed-disabled": true}}
+Finished /home/lwx/.cache/megatron-gdn-20261026/qwen-sm120-gpu0-fp8-tensorwise-disabled
+Finished /home/lwx/.cache/megatron-gdn-20261026/qwen-sm120-gpu0-fp8-tensorwise-repeated-disabled
+Finished /home/lwx/.cache/megatron-gdn-20261026/qwen-sm120-gpu0-fp8-tensorwise-offloaded
+{"revision": "ebdb25fc493b528764a4116313effaf8504eec3d", "exact_states": true, "steps": 3, "pairs": {"disabled vs repeated-disabled": true, "disabled vs offloaded": true, "repeated-disabled vs offloaded": true}}
+Finished /home/lwx/.cache/megatron-gdn-20261026/qwen-sm120-gpu0-fp4-disabled
+Finished /home/lwx/.cache/megatron-gdn-20261026/qwen-sm120-gpu0-fp4-repeated-disabled
+Finished /home/lwx/.cache/megatron-gdn-20261026/qwen-sm120-gpu0-fp4-offloaded
+{"revision": "ebdb25fc493b528764a4116313effaf8504eec3d", "exact_states": false, "steps": 3, "pairs": {"disabled vs repeated-disabled": false, "disabled vs offloaded": true, "repeated-disabled vs offloaded": false}}
