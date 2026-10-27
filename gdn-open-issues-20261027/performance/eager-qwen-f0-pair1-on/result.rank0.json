@@ -1,0 +1,136 @@
+{
+  "arguments": {
+    "weights": "/home/lwx/.cache/megatron-gdn-20261026/models/Qwen3.5-0.8B",
+    "data": "/home/lwx/.cache/megatron-gdn-20261026/data/ks-item-sft.jsonl",
+    "output": "/home/lwx/.cache/megatron-gdn-20261026/current-performance-20261027/eager-qwen-f0-pair1-on/result.json",
+    "save_checkpoint": null,
+    "load_checkpoint": null,
+    "dry_run": false,
+    "check_state": false,
+    "fraction": 1.0,
+    "recompute_norm": false,
+    "fused_pre_gdr": false,
+    "tp": 1,
+    "sp": false,
+    "cp": 1,
+    "pp": 1,
+    "vp": null,
+    "seq_length": 4096,
+    "microbatches": 4,
+    "warmup": 3,
+    "iterations": 10,
+    "max_documents": 128,
+    "min_offloaded_tensor_size": 1048576
+  },
+  "text_layers": 24,
+  "text_hidden_size": 1024,
+  "dataset_tokens": 30727,
+  "pipeline_batch_p2p_comm": false,
+  "pipeline_deallocate_outputs": true,
+  "pool_verified_before_reset": false,
+  "torch": "2.11.0+cu130",
+  "cuda": "13.0",
+  "gpu_training_run": true,
+  "rank": 0,
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "samples": [
+    {
+      "step": 3,
+      "seconds": 1.2248492779908702,
+      "peak_allocated_bytes": 26335987200,
+      "peak_reserved_bytes": 28712108032,
+      "selected_group_calls": 71,
+      "selected_transfer_bytes": 4169138176,
+      "offload_summary_bytes": 998244352
+    },
+    {
+      "step": 4,
+      "seconds": 1.2422008449793793,
+      "peak_allocated_bytes": 26335987200,
+      "peak_reserved_bytes": 28712108032,
+      "selected_group_calls": 71,
+      "selected_transfer_bytes": 4169138176,
+      "offload_summary_bytes": 998244352
+    },
+    {
+      "step": 5,
+      "seconds": 1.2264921210007742,
+      "peak_allocated_bytes": 26335987200,
+      "peak_reserved_bytes": 28712108032,
+      "selected_group_calls": 71,
+      "selected_transfer_bytes": 4169138176,
+      "offload_summary_bytes": 998244352
+    },
+    {
+      "step": 6,
+      "seconds": 1.1565840119728819,
+      "peak_allocated_bytes": 26335987200,
+      "peak_reserved_bytes": 28712108032,
+      "selected_group_calls": 71,
+      "selected_transfer_bytes": 4169138176,
+      "offload_summary_bytes": 998244352
+    },
+    {
+      "step": 7,
+      "seconds": 1.1973009619978257,
+      "peak_allocated_bytes": 26335987200,
+      "peak_reserved_bytes": 28712108032,
+      "selected_group_calls": 71,
+      "selected_transfer_bytes": 4169138176,
+      "offload_summary_bytes": 998244352
+    },
+    {
+      "step": 8,
+      "seconds": 1.2262807310326025,
+      "peak_allocated_bytes": 26335987200,
+      "peak_reserved_bytes": 28712108032,
+      "selected_group_calls": 71,
+      "selected_transfer_bytes": 4169138176,
+      "offload_summary_bytes": 998244352
+    },
+    {
+      "step": 9,
+      "seconds": 1.2147116819978692,
+      "peak_allocated_bytes": 26335987200,
+      "peak_reserved_bytes": 28712108032,
+      "selected_group_calls": 71,
+      "selected_transfer_bytes": 4169138176,
+      "offload_summary_bytes": 998244352
+    },
+    {
+      "step": 10,
+      "seconds": 1.226856241992209,
+      "peak_allocated_bytes": 26335987200,
+      "peak_reserved_bytes": 28712108032,
+      "selected_group_calls": 71,
+      "selected_transfer_bytes": 4169138176,
+      "offload_summary_bytes": 998244352
+    },
+    {
+      "step": 11,
+      "seconds": 1.2311190170003101,
+      "peak_allocated_bytes": 26335987200,
+      "peak_reserved_bytes": 28712108032,
+      "selected_group_calls": 71,
+      "selected_transfer_bytes": 4169138176,
+      "offload_summary_bytes": 998244352
+    },
+    {
+      "step": 12,
+      "seconds": 1.201613826036919,
+      "peak_allocated_bytes": 26335987200,
+      "peak_reserved_bytes": 28712108032,
+      "selected_group_calls": 71,
+      "selected_transfer_bytes": 4169138176,
+      "offload_summary_bytes": 998244352
+    }
+  ],
+  "states": [],
+  "offload_status": {
+    "selected_group_calls": 71,
+    "selected_transfer_bytes": 4169138176,
+    "offload_summary_bytes": 998244352
+  },
+  "first_step": 0,
+  "next_step": 13
+}

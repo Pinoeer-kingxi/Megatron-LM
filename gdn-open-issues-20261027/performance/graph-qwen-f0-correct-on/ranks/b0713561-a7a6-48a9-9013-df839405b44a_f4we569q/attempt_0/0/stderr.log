@@ -1,0 +1,22 @@
+/home/lwx/.cache/megatron-gdn-20261026/graph-with-mrope-c5264b6/megatron/core/models/mimo/config/base_configs.py:12: UserWarning: MimoModelConfig is experimental and still under active development. The API may change without notice in future releases.
+  class MimoModelConfig:
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+/home/lwx/.cache/megatron-gdn-20261026/graph-with-mrope-c5264b6/megatron/core/transformer/transformer_config.py:3797: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+  warnings.warn(
+/home/lwx/.cache/megatron-gdn-20261026/benchmark_current_20261027.py:70: DeprecationWarning: ModelProviderMixin-based model configuration is deprecated. Migrate to ModelConfig + ModelBuilder.
+  parents = config.provide_distributed_model(
+/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/_dynamo/variables/functions.py:2202: UserWarning: Dynamo detected a call to a `functools.lru_cache`-wrapped function at '_common.py:101'. Dynamo ignores the cache wrapper and directly traces the wrapped function. Silent incorrectness is only a *potential* risk, not something we have observed. Enable TORCH_LOGS=+dynamo for a DEBUG stack trace.
+
+This call originates from:
+  File "/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/transformer_engine/pytorch/ops/_common.py", line 101, in maybe_autocast_dtype
+    if torch_version() >= (2, 4, 3):
+
+  torch._dynamo.utils.warn_once(msg)
+/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/_dynamo/variables/functions.py:2082: UserWarning: Dynamo does not know how to trace the builtin `transformer_engine_torch.pybind11_detail_function_record_v1_system_libstdcpp_gxx_abi_1xxx_use_cxx11_abi_1.rmsnorm_fwd.` This function is either a Python builtin (e.g. _warnings.warn) or a third-party C/C++ Python extension (perhaps created with pybind).
+If it is a Python builtin, please file an issue on GitHub so the PyTorch team can add support for it and see the next case for a workaround.
+If it is a third-party C/C++ Python extension, please either wrap it into a PyTorch-understood custom operator (see https://pytorch.org/tutorials/advanced/custom_ops_landing_page.html for more details) or, if it is traceable, use `torch.compiler.allow_in_graph`.
+  torch._dynamo.utils.warn_once(explanation + "\n" + "\n".join(hints))
+/home/lwx/.cache/megatron-gdn-20261026/graph-with-mrope-c5264b6/megatron/core/pipeline_parallel/schedules.py:225: UserWarning: The AccumulateGrad node's stream does not match the stream of the node that produced the incoming gradient. This may incur unnecessary synchronization and break CUDA graph capture if the AccumulateGrad node's stream is the default stream. This mismatch is caused by an AccumulateGrad node created prior to the current iteration being kept alive. This can happen if the autograd graph is still being kept alive by tensors such as the loss, or if you are using DDP, which will stash a reference to the node. To resolve the mismatch, delete all references to the autograd graph or ensure that DDP initialization is performed under the same stream as subsequent forwards. If the mismatch is intentional, you can use torch.autograd.graph.set_warn_on_accumulate_grad_stream_mismatch(False) to suppress this warning. (Triggered internally at /pytorch/torch/csrc/autograd/input_buffer.cpp:240.)
+  Variable._execution_engine.run_backward(
+/home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)

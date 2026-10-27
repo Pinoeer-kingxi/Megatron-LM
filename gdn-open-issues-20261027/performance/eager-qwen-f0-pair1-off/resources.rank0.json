@@ -1,0 +1,13 @@
+[
+  {
+    "stats": {
+      "total_allocated": 0,
+      "current_in_use": 0,
+      "allocation_requests": 0,
+      "free_requests": 0,
+      "pool_hits": 0,
+      "pool_misses": 0
+    },
+    "retained_pinned_bytes": 0
+  }
+]

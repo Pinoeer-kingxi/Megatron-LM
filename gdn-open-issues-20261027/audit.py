@@ -1,6 +1,8 @@
 """Check recorded GPU outcomes, full training fingerprints, and file integrity."""
 import hashlib
 import json
+import subprocess
+import sys
 from collections import Counter
 from pathlib import Path
 
@@ -56,6 +58,23 @@ for arm in ('baseline', 'fixed'):
 revision = 'dfaa6338c65edab118ba415fcc14c73241f503a6'
 states = []
 keys = ('input_sha256', 'loss', 'grad_norm', 'gradients', 'weights', 'optimizer')
+old = []
+for arm in ('eager', 'graph'):
+    folder = root / f'qwen-bf16-{arm}-20261027-gpu1'
+    manifest = json.loads((folder / 'manifest.json').read_text())
+    assert manifest['revision'] == manifest['revision_after'] == 'aecc0e8116912554f27a62a51ad2aeca479a7f9e'
+    assert manifest['exit_code'] == 0 and not manifest['dirty_after']
+    assert hashlib.sha256((root / 'benchmark_nvfp4_controls.py').read_bytes()).hexdigest() == manifest['script_sha256']
+    data = json.loads((folder / 'result.json').read_text())
+    assert len(data['records']) == 6 and not data['arguments']['offload']
+    old.append(data['records'])
+for i, (eager, graph) in enumerate(zip(*old)):
+    assert eager['input_sha256'] == graph['input_sha256']
+    if i < 3:
+        assert all(eager[key] == graph[key] for key in keys)
+    else:
+        assert all(eager[key] != graph[key] for key in ('loss', 'gradients', 'weights', 'optimizer'))
+
 for arm in ('eager', 'graph-disabled', 'graph-repeat', 'graph-offloaded'):
     folder = root / f'qwen-fp4-mrope-dfaa633-{arm}-gpu0'
     manifest = json.loads((folder / 'manifest.json').read_text())
@@ -118,7 +137,10 @@ for arm in ('high-precision', 'high-precision-offload'):
     states.append([output['states'] for output in outputs])
 assert states[0] == states[1]
 
+summary = json.loads(subprocess.check_output([sys.executable, '-S', str(root / 'summarize_performance.py')], text=True))
+assert summary == json.loads((root / 'performance-summary.json').read_text())
+
 for line in (root / 'SHA256SUMS').read_text().splitlines():
     digest, relative = line.split('  ', 1)
     assert hashlib.sha256((root / relative).read_bytes()).hexdigest() == digest, relative
-print('Checksums, real GPU regression controls, and Qwen FP4 training fingerprints verified.')
+print('Checksums, GPU regressions, training fingerprints, and performance summaries verified.')
