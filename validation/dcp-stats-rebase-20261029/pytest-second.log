@@ -1,0 +1,723 @@
+Test data already available at /opt/data
+.................Test data already available at /opt/data
+......................Test data already available at /opt/data
+.....Test data already available at /opt/data
+.............................Initializing torch.distributed with rank: 1, world_size: 4
+...............Initializing torch.distributed with rank: 0, world_size: 4
+Initializing torch.distributed with rank: 2, world_size: 4
+[rank0]:[W1029 08:51:35.208893786 ProcessGroupNCCL.cpp:5188] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+Initializing torch.distributed with rank: 3, world_size: 4
+..................................................WARNING:megatron.core.rerun_state_machine:Implicit initialization of Rerun State Machine!
+WARNING:megatron.core.rerun_state_machine:RerunStateMachine initialized in mode RerunMode.DISABLED
+.......................................................................................................................................> setting tensorboard ...
+..........> setting tensorboard ...
+............> setting tensorboard ...
+.......> setting tensorboard ...
+......done with setups ...
+training ...
+evaluation only mode, setting epoch to -1
+done :-)
+.....INFO:megatron.training.initialize:Setting logging level to 20
+......INFO:megatron.training.initialize:Setting logging level to 20
+..........INFO:megatron.training.initialize:Setting logging level to 20
+..INFO:megatron.training.initialize:Setting logging level to 20
+.Checkpoint did not provide arguments num_layers
+Checkpoint did not provide arguments hidden_size
+Checkpoint did not provide arguments ffn_hidden_size
+Checkpoint did not provide arguments seq_length
+Checkpoint did not provide arguments num_attention_heads
+Checkpoint did not provide arguments num_query_groups
+Checkpoint did not provide arguments group_query_attention
+Checkpoint did not provide arguments kv_channels
+Checkpoint did not provide arguments max_position_embeddings
+Checkpoint did not provide arguments position_embedding_type
+Checkpoint did not provide arguments add_position_embedding
+Checkpoint did not provide arguments use_rotary_position_embeddings
+Checkpoint did not provide arguments rotary_base
+Checkpoint did not provide arguments rotary_percent
+Checkpoint did not provide arguments rotary_interleaved
+Checkpoint did not provide arguments add_bias_linear
+Checkpoint did not provide arguments add_qkv_bias
+Checkpoint did not provide arguments squared_relu
+Checkpoint did not provide arguments swiglu
+Checkpoint did not provide arguments situ_glu
+Checkpoint did not provide arguments situ_glu_beta1
+Checkpoint did not provide arguments situ_glu_beta2
+Checkpoint did not provide arguments activation_func_tanh_clamp_scale
+Checkpoint did not provide arguments untie_embeddings_and_output_weights
+Checkpoint did not provide arguments apply_layernorm_1p
+Checkpoint did not provide arguments normalization
+Checkpoint did not provide arguments apply_query_key_layer_scaling
+Checkpoint did not provide arguments attention_dropout
+Checkpoint did not provide arguments hidden_dropout
+Checkpoint did not provide arguments wide_residual_num_streams
+Checkpoint did not provide arguments wide_residual_streamwise_sigmoid_init_scale
+Checkpoint did not provide arguments wide_residual_learned_retention
+Checkpoint did not provide arguments wide_residual_retention_init
+Checkpoint did not provide arguments wide_residual_retention_max_forget
+Checkpoint did not provide arguments mtp_hybrid_override_pattern
+Checkpoint did not provide arguments mtp_num_layers
+Checkpoint did not provide arguments mtp_use_repeated_layer
+Checkpoint did not provide arguments spec
+Checkpoint did not provide arguments num_experts
+Checkpoint did not provide arguments mtp_num_layers
+Checkpoint did not provide arguments moe_layer_freq
+Checkpoint did not provide arguments moe_router_topk
+Checkpoint did not provide arguments moe_router_pre_softmax
+Checkpoint did not provide arguments moe_grouped_gemm
+Checkpoint did not provide arguments moe_single_grouped_weight
+Checkpoint did not provide arguments moe_single_grouped_bias
+Checkpoint did not provide arguments moe_shared_expert_intermediate_size
+Checkpoint did not provide arguments moe_router_load_balancing_type
+Checkpoint did not provide arguments moe_aux_loss_coeff
+Checkpoint did not provide arguments moe_router_quantile_balancing_estimation_scope
+Checkpoint did not provide arguments moe_router_quantile_balancing_ema
+Checkpoint did not provide arguments moe_router_qb_num_bins
+Checkpoint did not provide arguments moe_router_score_function
+Checkpoint did not provide arguments moe_router_enable_expert_bias
+Checkpoint did not provide arguments moe_router_topk_scaling_factor
+Checkpoint did not provide arguments moe_shortcut_connection
+Checkpoint did not provide arguments moe_shortcut_post_norm
+Checkpoint did not provide arguments mamba_state_dim
+Checkpoint did not provide arguments mamba_head_dim
+Checkpoint did not provide arguments mamba_num_groups
+Checkpoint did not provide arguments mamba_num_heads
+Setting gdp_num_householder to 3 from checkpoint
+Checkpoint did not provide arguments hybrid_layer_pattern
+Checkpoint did not provide arguments heterogeneous_layers_config_path
+Checkpoint did not provide arguments heterogeneous_layers_config_encoded_json
+Checkpoint did not provide arguments moe_latent_size
+Checkpoint did not provide arguments moe_latent_up_projection_rmsnorm
+Checkpoint did not provide arguments moe_use_norm_before_up_proj
+Checkpoint did not provide arguments tokenizer_model
+Checkpoint did not provide arguments tokenizer_type
+Checkpoint did not provide arguments tiktoken_pattern
+Checkpoint did not provide arguments padded_vocab_size
+............................................
+=============================== warnings summary ===============================
+megatron/core/dist_checkpointing/strategies/torch.py:70
+  /data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/megatron/core/dist_checkpointing/strategies/torch.py:70: DeprecationWarning: transformer_engine.pytorch.float8_tensor is deprecated and will be removed in a future release. Float8Tensor should be imported directly through `from transformer_engine.pytorch import Float8Tensor`
+    from transformer_engine.pytorch.float8_tensor import Float8Tensor
+
+
+=============================== warnings summary ===============================
+megatron/core/dist_checkpointing/strategies/torch.py:70
+  /data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/megatron/core/dist_checkpointing/strategies/torch.py:70: DeprecationWarning: transformer_engine.pytorch.float8_tensor is deprecated and will be removed in a future release. Float8Tensor should be imported directly through `from transformer_engine.pytorch import Float8Tensor`
+    from transformer_engine.pytorch.float8_tensor import Float8Tensor
+
+../../../../../home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+megatron/core/tensor_parallel/random.py:121
+  /data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/megatron/core/tensor_parallel/random.py:121: DeprecationWarning: Using deprecated internal API from Transformer Engine. transformer_engine.pytorch.fp8 will be removed in a future release.
+    from transformer_engine.pytorch.fp8 import FP8GlobalStateManager, fp8_autocast
+
+megatron/core/inference/contexts/__init__.py:9
+  /data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/megatron/core/inference/contexts/__init__.py:9: DeprecationWarning: The following imports from `dynamic_context.py` will be removed in this file in `megatron-core` 0.14. The imports here result in a cyclic import issue that causes rotary embeddings to import from Apex rather than Transformer Engine.
+    warnings.warn(
+
+tests/unit_tests/training/test_logger_ownership.py::test_normalization_does_not_alias_or_mutate_args[False]
+  /data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/megatron/training/argument_utils.py:876: UserWarning: 
+          It is recommended to use a ModelConfig (e.g. megatron.training.models.HybridModelConfig) instead
+          of a model builder/model provider function pointer.
+          
+    warnings.warn(msg)
+
+tests/unit_tests/training/test_logger_ownership.py::test_native_builder_keeps_core_metric_settings[gpt-False]
+tests/unit_tests/training/test_logger_ownership.py::test_native_builder_keeps_core_metric_settings[gpt-True]
+tests/unit_tests/training/test_logger_ownership.py::test_native_builder_keeps_core_metric_settings[hybrid-False]
+tests/unit_tests/training/test_logger_ownership.py::test_native_builder_keeps_core_metric_settings[hybrid-True]
+tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[False-False]
+tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[False-True]
+tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[True-False]
+tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[True-True]
+  /data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/megatron/core/transformer/transformer_config.py:4764: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+
+=============================== warnings summary ===============================
+megatron/core/dist_checkpointing/strategies/torch.py:70
+  /data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/megatron/core/dist_checkpointing/strategies/torch.py:70: DeprecationWarning: transformer_engine.pytorch.float8_tensor is deprecated and will be removed in a future release. Float8Tensor should be imported directly through `from transformer_engine.pytorch import Float8Tensor`
+    from transformer_engine.pytorch.float8_tensor import Float8Tensor
+
+_______________ test_logging_level_config_overrides_environment ________________
+------------------------------ Captured log call -------------------------------
+INFO     megatron.training.initialize:initialize.py:764 Setting logging level to 20
+../../../../../home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+../../../../../home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+megatron/core/tensor_parallel/random.py:121
+  /data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/megatron/core/tensor_parallel/random.py:121: DeprecationWarning: Using deprecated internal API from Transformer Engine. transformer_engine.pytorch.fp8 will be removed in a future release.
+    from transformer_engine.pytorch.fp8 import FP8GlobalStateManager, fp8_autocast
+
+megatron/core/inference/contexts/__init__.py:9
+  /data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/megatron/core/inference/contexts/__init__.py:9: DeprecationWarning: The following imports from `dynamic_context.py` will be removed in this file in `megatron-core` 0.14. The imports here result in a cyclic import issue that causes rotary embeddings to import from Apex rather than Transformer Engine.
+    warnings.warn(
+
+megatron/core/tensor_parallel/random.py:121
+  /data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/megatron/core/tensor_parallel/random.py:121: DeprecationWarning: Using deprecated internal API from Transformer Engine. transformer_engine.pytorch.fp8 will be removed in a future release.
+    from transformer_engine.pytorch.fp8 import FP8GlobalStateManager, fp8_autocast
+
+megatron/core/models/mimo/config/base_configs.py:12
+  /data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/megatron/core/models/mimo/config/base_configs.py:12: UserWarning: MimoModelConfig is experimental and still under active development. The API may change without notice in future releases.
+    class MimoModelConfig:
+
+============================= slowest 15 durations =============================tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_distributed[False]
+tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_distributed[True]
+tests/unit_tests/test_sequence_packing.py::test_scheduler_reroute_dp_all_gather_is_dcp_compatible
+tests/unit_tests/test_sequence_packing.py::test_wrap_data_iterator_raises_stop_iteration_on_every_rank[1]
+tests/unit_tests/test_sequence_packing.py::test_wrap_data_iterator_raises_stop_iteration_on_every_rank[2]
+
+  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+    return func(*args, **kwargs)
+
+tests/unit_tests/training/test_logger_ownership.py::test_normalization_does_not_alias_or_mutate_args[False]
+1.40s teardown tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_distributed[False]  /data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/megatron/training/argument_utils.py:876: UserWarning: 
+          It is recommended to use a ModelConfig (e.g. megatron.training.models.HybridModelConfig) instead
+          of a model builder/model provider function pointer.
+          
+    warnings.warn(msg)
+
+
+1.38s teardown tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_distributed[True]tests/unit_tests/training/test_logger_ownership.py::test_native_builder_keeps_core_metric_settings[gpt-False]
+tests/unit_tests/training/test_logger_ownership.py::test_native_builder_keeps_core_metric_settings[gpt-True]
+tests/unit_tests/training/test_logger_ownership.py::test_native_builder_keeps_core_metric_settings[hybrid-False]
+tests/unit_tests/training/test_logger_ownership.py::test_native_builder_keeps_core_metric_settings[hybrid-True]
+tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[False-False]
+tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[False-True]
+tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[True-False]
+tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[True-True]
+
+1.30s call     tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_distributed[False]  /data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/megatron/core/transformer/transformer_config.py:4764: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+    warnings.warn(
+
+
+1.03s teardown tests/unit_tests/test_sequence_packing.py::test_scheduler_reroute_dp_all_gather_is_dcp_compatible-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+
+0.96s teardown tests/unit_tests/test_sequence_packing.py::test_wrap_data_iterator_raises_stop_iteration_on_every_rank[2]
+0.95s teardown tests/unit_tests/test_sequence_packing.py::test_wrap_data_iterator_raises_stop_iteration_on_every_rank[1]
+0.55s call     tests/unit_tests/training/test_logger_ownership.py::test_native_builder_keeps_core_metric_settings[gpt-True]
+0.30s call     tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_distributed[True]
+megatron/core/inference/contexts/__init__.py:90.30s call     tests/unit_tests/test_sequence_packing.py::test_wrap_data_iterator_raises_stop_iteration_on_every_rank[1]
+
+0.29s call     tests/unit_tests/test_sequence_packing.py::test_scheduler_reroute_dp_all_gather_is_dcp_compatible  /data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/megatron/core/inference/contexts/__init__.py:9: DeprecationWarning: The following imports from `dynamic_context.py` will be removed in this file in `megatron-core` 0.14. The imports here result in a cyclic import issue that causes rotary embeddings to import from Apex rather than Transformer Engine.
+    warnings.warn(
+==================================== PASSES ====================================0.26s call     tests/unit_tests/test_sequence_packing.py::test_wrap_data_iterator_raises_stop_iteration_on_every_rank[2]
+
+
+
+0.20s call     tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[True-False]
+tests/unit_tests/training/test_logger_ownership.py::test_normalization_does_not_alias_or_mutate_args[False]0.19s call     tests/unit_tests/training/test_logger_ownership.py::test_cli_aliases_and_native_config_match
+
+
+0.18s call     tests/unit_tests/training/test_logger_ownership.py::test_normalization_does_not_alias_or_mutate_args[False]  /data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/megatron/training/argument_utils.py:876: UserWarning: 
+          It is recommended to use a ModelConfig (e.g. megatron.training.models.HybridModelConfig) instead
+          of a model builder/model provider function pointer.
+          
+    warnings.warn(msg)
+
+0.17s call     tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[True-True]
+
+tests/unit_tests/training/test_logger_ownership.py::test_native_builder_keeps_core_metric_settings[gpt-False]
+tests/unit_tests/training/test_logger_ownership.py::test_native_builder_keeps_core_metric_settings[gpt-True]
+tests/unit_tests/training/test_logger_ownership.py::test_native_builder_keeps_core_metric_settings[hybrid-False]
+tests/unit_tests/training/test_logger_ownership.py::test_native_builder_keeps_core_metric_settings[hybrid-True]
+tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[False-False]
+tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[False-True]
+tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[True-False]
+tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[True-True]
+  /data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/megatron/core/transformer/transformer_config.py:4764: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=============================== warnings summary ===============================
+==================================== PASSES ====================================
+megatron/core/dist_checkpointing/strategies/torch.py:70
+  /data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/megatron/core/dist_checkpointing/strategies/torch.py:70: DeprecationWarning: transformer_engine.pytorch.float8_tensor is deprecated and will be removed in a future release. Float8Tensor should be imported directly through `from transformer_engine.pytorch import Float8Tensor`
+    from transformer_engine.pytorch.float8_tensor import Float8Tensor
+
+_________ test_vpp_packed_iterators_are_independent_and_mtp_gets_data __________
+------------------------------ Captured log call -------------------------------
+WARNING  megatron.core.rerun_state_machine:_rank_utils.py:127 Implicit initialization of Rerun State Machine!
+WARNING  megatron.core.rerun_state_machine:_rank_utils.py:127 RerunStateMachine initialized in mode RerunMode.DISABLED
+=========================== short test summary info ============================
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_hand_calculation[schedule0-lengths0-work0-1-counts0]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_hand_calculation[schedule1-lengths1-work1-0.625-counts1]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_hand_calculation[schedule2-lengths2-work2-1-counts2]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_hand_calculation[schedule3-lengths3-work3-0.625-counts3]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_hand_calculation[schedule4-lengths4-work4-0.9166666666666666-counts4]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_hand_calculation[schedule5-lengths5-work5-0.625-counts5]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_hand_calculation[schedule6-lengths6-work6-0.9-counts6]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_empty[schedule0-lengths0]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_empty[schedule1-lengths1]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_empty[schedule2-lengths2]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_empty[schedule3-lengths3]../../../../../home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: 14 warnings
+
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_after_vpp_alignment
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_window_and_reset  /home/songbinbin/.venvs/megatron-gdn-offload/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_tp_metadata[False]
+
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_tp_metadata[True]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_cli_switch
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_evaluation_does_not_collect
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_training_log
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_rerun_and_abort[exit]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_rerun_and_abort[exception]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_rerun_and_abort[success]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_rerun_and_abort[skipped]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_distributed[False]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_distributed[True]
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_max_real_num_seqs_reserves_dummy_sequence
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_max_real_num_seqs_rejects_dummy_without_capacity
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_thd_padding_mask_from_cu_seqlens
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_sanitizes_thd_padding_values_______________ test_logging_level_config_overrides_environment ________________
+
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_builds_runtime_cp_layout_views[1-expected_layouts0]
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_builds_runtime_cp_layout_views[2-expected_layouts1]
+------------------------------ Captured log call -------------------------------PASSED tests/unit_tests/test_sequence_packing.py::test_next_hdp_group_packing_aware_can_expand_short_sequence_group
+
+INFO     megatron.training.initialize:initialize.py:764 Setting logging level to 20PASSED tests/unit_tests/test_sequence_packing.py::test_next_hdp_group_packing_aware_fills_non_power_of_two_groupmegatron/core/tensor_parallel/random.py:121
+
+
+PASSED tests/unit_tests/test_sequence_packing.py::test_default_dynamic_cp_scheduler_uses_packing_aware_grouping
+  /data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/megatron/core/tensor_parallel/random.py:121: DeprecationWarning: Using deprecated internal API from Transformer Engine. transformer_engine.pytorch.fp8 will be removed in a future release.
+    from transformer_engine.pytorch.fp8 import FP8GlobalStateManager, fp8_autocastPASSED tests/unit_tests/test_sequence_packing.py::test_dynamic_cp_group_sizes_partition_dpxcp_ranks
+
+
+PASSED tests/unit_tests/test_sequence_packing.py::test_default_dynamic_cp_scheduler_rejects_uncreated_min_group_size
+PASSED tests/unit_tests/test_sequence_packing.py::test_vpp_packed_iterators_are_independent_and_mtp_gets_data
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_reroute_uses_dp_all_gather
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_reroute_rejects_multimodal_metadata_in_text_contract
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_reroute_rejects_unsupported_sample_keys
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_reroute_rejects_inconsistent_sample_keys
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_reroute_dp_all_gather_distributed
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_reroute_dp_all_gather_is_dcp_compatible
+PASSED tests/unit_tests/test_sequence_packing.py::test_dsv4_thd_cp_slice_uses_static_partition_total
+PASSED tests/unit_tests/test_sequence_packing.py::test_next_hdp_group_packing_aware_can_use_larger_cp_group_for_short_sequences
+PASSED tests/unit_tests/test_sequence_packing.py::test_next_hdp_group_packing_aware_fills_non_power_of_two_dpxcp_group
+PASSED tests/unit_tests/test_sequence_packing.py::test_default_dynamic_cp_scheduler_uses_packing_aware_grouping_by_default
+PASSED tests/unit_tests/test_sequence_packing.py::test_wrap_data_iterator_raises_stop_iteration_on_every_rank[1]
+PASSED tests/unit_tests/test_sequence_packing.py::test_wrap_data_iterator_raises_stop_iteration_on_every_rank[2]
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_early_exit_keeps_normal_result_field_order
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_returns_scheduled_microbatch_count
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_forwards_schedule_plumbing
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_defaults_to_none
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_drives_chunked_optimizer_state_offload_lifecycle
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_rebinds_finalize_prefetch_without_nesting_optimizers
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_mxfp8_staging_delegates_master_restore_to_distributed_optimizer
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_pre_forward_sync_only_uses_layerwise_bucket_subsetmegatron/core/inference/contexts/__init__.py:9
+
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_wraps_sequence_packing_after_rerun_check
+  /data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/megatron/core/inference/contexts/__init__.py:9: DeprecationWarning: The following imports from `dynamic_context.py` will be removed in this file in `megatron-core` 0.14. The imports here result in a cyclic import issue that causes rotary embeddings to import from Apex rather than Transformer Engine.
+    warnings.warn(PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_layerwise_wrapper_uses_ddp_config_as_single_layout_source
+
+
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_dynamic_cp_cuda_graph_upper_bound_uses_dp_cp_and_sp_padding
+tests/unit_tests/training/test_logger_ownership.py::test_normalization_does_not_alias_or_mutate_args[False]PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_uses_optimizer_ddp_config_for_mxfp8_staging
+
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_supports_bare_distributed_optimizer_for_mxfp8_staging  /data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/megatron/training/argument_utils.py:876: UserWarning: 
+          It is recommended to use a ModelConfig (e.g. megatron.training.models.HybridModelConfig) instead
+          of a model builder/model provider function pointer.
+          
+    warnings.warn(msg)
+
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_model_process_groups_fall_back_when_attribute_is_missing_or_none
+
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_model_process_groups_are_found_through_model_wrappers
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_invokes_tensor_metric_observer_before_optimizertests/unit_tests/training/test_logger_ownership.py::test_native_builder_keeps_core_metric_settings[gpt-False]
+tests/unit_tests/training/test_logger_ownership.py::test_native_builder_keeps_core_metric_settings[gpt-True]
+tests/unit_tests/training/test_logger_ownership.py::test_native_builder_keeps_core_metric_settings[hybrid-False]
+tests/unit_tests/training/test_logger_ownership.py::test_native_builder_keeps_core_metric_settings[hybrid-True]
+tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[False-False]
+tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[False-True]
+tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[True-False]
+tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[True-True]
+
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_scopes_forward_tensor_observation_around_schedule
+  /data/songbinbin/Proj/Proj_LWX/Megatron-LM-dcp-stats/megatron/core/transformer/transformer_config.py:4764: UserWarning: full scope is deprecated. Use empty cuda_graph_modules to capture the whole layer.
+    warnings.warn(PASSED tests/unit_tests/training/test_logger_ownership.py::test_cli_aliases_and_native_config_match
+
+
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_normalization_does_not_alias_or_mutate_args[False]-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_normalization_does_not_alias_or_mutate_args[True]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_native_memory_interval_validation[None-True]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_native_memory_interval_validation[20-True]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_native_memory_interval_validation[21-False]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_tensorboard_uses_owned_directory_and_queue[0-False]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_tensorboard_uses_owned_directory_and_queue[1-True]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_wandb_uses_owned_settings_and_legacy_metadata
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_one_logger_async_policy[None-False]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_one_logger_async_policy[project-True]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_timers_use_owned_settings
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_finetune_reuses_registered_config
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_tensorboard_metadata_preserves_legacy_args
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_async_worker_telemetry_uses_config
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_disabled_async_telemetry_does_not_read_resource_metadata==================================== PASSES ====================================
+
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_native_parameter_norm_cadence
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_logging_level_config_overrides_environment
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_checkpoint_logging_does_not_override_current_run
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_core_metric_flags_keep_cli_defaults_and_owners[False]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_core_metric_flags_keep_cli_defaults_and_owners[True]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_native_builder_keeps_core_metric_settings[gpt-False]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_native_builder_keeps_core_metric_settings[gpt-True]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_native_builder_keeps_core_metric_settings[hybrid-False]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_native_builder_keeps_core_metric_settings[hybrid-True]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[False-False]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[False-True]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[True-False]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[True-True]
+============================= slowest 15 durations =============================
+1.40s teardown tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_distributed[False]
+1.37s teardown tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_distributed[True]
+1.22s call     tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_distributed[False]
+1.02s teardown tests/unit_tests/test_sequence_packing.py::test_scheduler_reroute_dp_all_gather_is_dcp_compatible
+0.96s teardown tests/unit_tests/test_sequence_packing.py::test_wrap_data_iterator_raises_stop_iteration_on_every_rank[2]
+0.95s teardown tests/unit_tests/test_sequence_packing.py::test_wrap_data_iterator_raises_stop_iteration_on_every_rank[1]
+0.51s call     tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_training_log
+0.49s call     tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[False-True]94 passed, 31 deselected, 26 warnings in 12.23s
+
+0.39s teardown tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[True-True]
+0.31s call     tests/unit_tests/test_sequence_packing.py::test_wrap_data_iterator_raises_stop_iteration_on_every_rank[1]
+0.30s call     tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_distributed[True]
+0.30s call     tests/unit_tests/test_sequence_packing.py::test_scheduler_reroute_dp_all_gather_is_dcp_compatible
+0.26s call     tests/unit_tests/test_sequence_packing.py::test_wrap_data_iterator_raises_stop_iteration_on_every_rank[2]
+0.17s call     tests/unit_tests/training/test_logger_ownership.py::test_cli_aliases_and_native_config_match
+0.16s call     tests/unit_tests/training/test_logger_ownership.py::test_normalization_does_not_alias_or_mutate_args[False]
+_______________ test_logging_level_config_overrides_environment ________________
+------------------------------ Captured log call -------------------------------
+INFO     megatron.training.initialize:initialize.py:764 Setting logging level to 20
+_______________ test_logging_level_config_overrides_environment ________________
+------------------------------ Captured log call -------------------------------
+INFO     megatron.training.initialize:initialize.py:764 Setting logging level to 20
+=========================== short test summary info ============================
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_hand_calculation[schedule0-lengths0-work0-1-counts0]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_hand_calculation[schedule1-lengths1-work1-0.625-counts1]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_hand_calculation[schedule2-lengths2-work2-1-counts2]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_hand_calculation[schedule3-lengths3-work3-0.625-counts3]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_hand_calculation[schedule4-lengths4-work4-0.9166666666666666-counts4]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_hand_calculation[schedule5-lengths5-work5-0.625-counts5]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_hand_calculation[schedule6-lengths6-work6-0.9-counts6]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_empty[schedule0-lengths0]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_empty[schedule1-lengths1]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_empty[schedule2-lengths2]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_empty[schedule3-lengths3]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_after_vpp_alignment
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_window_and_reset
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_tp_metadata[False]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_tp_metadata[True]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_cli_switch
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_evaluation_does_not_collect
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_training_log
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_rerun_and_abort[exit]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_rerun_and_abort[exception]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_rerun_and_abort[success]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_rerun_and_abort[skipped]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_distributed[False]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_distributed[True]
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_max_real_num_seqs_reserves_dummy_sequence
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_max_real_num_seqs_rejects_dummy_without_capacity
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_thd_padding_mask_from_cu_seqlens
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_sanitizes_thd_padding_values
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_builds_runtime_cp_layout_views[1-expected_layouts0]
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_builds_runtime_cp_layout_views[2-expected_layouts1]
+PASSED tests/unit_tests/test_sequence_packing.py::test_next_hdp_group_packing_aware_can_expand_short_sequence_group
+PASSED tests/unit_tests/test_sequence_packing.py::test_next_hdp_group_packing_aware_fills_non_power_of_two_group
+PASSED tests/unit_tests/test_sequence_packing.py::test_default_dynamic_cp_scheduler_uses_packing_aware_grouping
+PASSED tests/unit_tests/test_sequence_packing.py::test_dynamic_cp_group_sizes_partition_dpxcp_ranks
+PASSED tests/unit_tests/test_sequence_packing.py::test_default_dynamic_cp_scheduler_rejects_uncreated_min_group_size
+PASSED tests/unit_tests/test_sequence_packing.py::test_vpp_packed_iterators_are_independent_and_mtp_gets_data
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_reroute_uses_dp_all_gather
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_reroute_rejects_multimodal_metadata_in_text_contract
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_reroute_rejects_unsupported_sample_keys
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_reroute_rejects_inconsistent_sample_keys
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_reroute_dp_all_gather_distributed
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_reroute_dp_all_gather_is_dcp_compatible
+PASSED tests/unit_tests/test_sequence_packing.py::test_dsv4_thd_cp_slice_uses_static_partition_total
+PASSED tests/unit_tests/test_sequence_packing.py::test_next_hdp_group_packing_aware_can_use_larger_cp_group_for_short_sequences============================= slowest 15 durations ========================================================== slowest 15 durations =============================
+
+
+PASSED tests/unit_tests/test_sequence_packing.py::test_next_hdp_group_packing_aware_fills_non_power_of_two_dpxcp_group
+PASSED tests/unit_tests/test_sequence_packing.py::test_default_dynamic_cp_scheduler_uses_packing_aware_grouping_by_default
+PASSED tests/unit_tests/test_sequence_packing.py::test_wrap_data_iterator_raises_stop_iteration_on_every_rank[1]
+1.39s teardown tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_distributed[True]PASSED tests/unit_tests/test_sequence_packing.py::test_wrap_data_iterator_raises_stop_iteration_on_every_rank[2]
+1.67s call     tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_distributed[False]
+1.39s teardown tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_distributed[False]
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_early_exit_keeps_normal_result_field_order
+
+1.39s teardown tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_distributed[True]1.28s call     tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_distributed[False]PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_returns_scheduled_microbatch_count
+
+
+1.39s teardown tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_distributed[False]1.04s teardown tests/unit_tests/test_sequence_packing.py::test_scheduler_reroute_dp_all_gather_is_dcp_compatiblePASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_forwards_schedule_plumbing
+
+
+1.04s teardown tests/unit_tests/test_sequence_packing.py::test_scheduler_reroute_dp_all_gather_is_dcp_compatible0.97s teardown tests/unit_tests/test_sequence_packing.py::test_wrap_data_iterator_raises_stop_iteration_on_every_rank[2]PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_defaults_to_none
+
+
+0.97s teardown tests/unit_tests/test_sequence_packing.py::test_wrap_data_iterator_raises_stop_iteration_on_every_rank[2]0.95s teardown tests/unit_tests/test_sequence_packing.py::test_wrap_data_iterator_raises_stop_iteration_on_every_rank[1]PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_drives_chunked_optimizer_state_offload_lifecycle
+
+
+0.95s teardown tests/unit_tests/test_sequence_packing.py::test_wrap_data_iterator_raises_stop_iteration_on_every_rank[1]0.52s call     tests/unit_tests/training/test_logger_ownership.py::test_native_builder_keeps_core_metric_settings[gpt-True]PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_rebinds_finalize_prefetch_without_nesting_optimizers
+
+
+0.50s call     tests/unit_tests/training/test_logger_ownership.py::test_native_builder_keeps_core_metric_settings[gpt-True]0.31s call     tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_distributed[True]PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_mxfp8_staging_delegates_master_restore_to_distributed_optimizer
+
+
+0.32s call     tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_distributed[True]0.30s call     tests/unit_tests/test_sequence_packing.py::test_scheduler_reroute_dp_all_gather_is_dcp_compatiblePASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_pre_forward_sync_only_uses_layerwise_bucket_subset
+
+
+0.30s teardown tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[True-True]0.29s call     tests/unit_tests/test_sequence_packing.py::test_wrap_data_iterator_raises_stop_iteration_on_every_rank[1]PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_wraps_sequence_packing_after_rerun_check
+
+
+0.29s call     tests/unit_tests/test_sequence_packing.py::test_wrap_data_iterator_raises_stop_iteration_on_every_rank[1]0.26s call     tests/unit_tests/test_sequence_packing.py::test_wrap_data_iterator_raises_stop_iteration_on_every_rank[2]PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_layerwise_wrapper_uses_ddp_config_as_single_layout_source
+
+
+0.28s call     tests/unit_tests/test_sequence_packing.py::test_scheduler_reroute_dp_all_gather_is_dcp_compatible0.18s call     tests/unit_tests/training/test_logger_ownership.py::test_cli_aliases_and_native_config_matchPASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_dynamic_cp_cuda_graph_upper_bound_uses_dp_cp_and_sp_padding
+
+
+0.26s call     tests/unit_tests/test_sequence_packing.py::test_wrap_data_iterator_raises_stop_iteration_on_every_rank[2]0.18s call     tests/unit_tests/training/test_logger_ownership.py::test_normalization_does_not_alias_or_mutate_args[False]PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_uses_optimizer_ddp_config_for_mxfp8_staging
+
+
+0.19s call     tests/unit_tests/training/test_logger_ownership.py::test_cli_aliases_and_native_config_match0.16s call     tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[True-False]PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_supports_bare_distributed_optimizer_for_mxfp8_staging
+
+
+0.17s call     tests/unit_tests/training/test_logger_ownership.py::test_normalization_does_not_alias_or_mutate_args[False]0.16s teardown tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[True-True]PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_model_process_groups_fall_back_when_attribute_is_missing_or_none
+
+
+0.16s call     tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_training_logPASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_model_process_groups_are_found_through_model_wrappers
+
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_invokes_tensor_metric_observer_before_optimizer
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_scopes_forward_tensor_observation_around_schedule
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_cli_aliases_and_native_config_match
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_normalization_does_not_alias_or_mutate_args[False]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_normalization_does_not_alias_or_mutate_args[True]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_native_memory_interval_validation[None-True]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_native_memory_interval_validation[20-True]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_native_memory_interval_validation[21-False]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_tensorboard_uses_owned_directory_and_queue[0-False]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_tensorboard_uses_owned_directory_and_queue[1-True]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_wandb_uses_owned_settings_and_legacy_metadata
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_one_logger_async_policy[None-False]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_one_logger_async_policy[project-True]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_timers_use_owned_settings
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_finetune_reuses_registered_config
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_tensorboard_metadata_preserves_legacy_args
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_async_worker_telemetry_uses_config
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_disabled_async_telemetry_does_not_read_resource_metadata
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_native_parameter_norm_cadence
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_logging_level_config_overrides_environment
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_checkpoint_logging_does_not_override_current_run
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_core_metric_flags_keep_cli_defaults_and_owners[False]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_core_metric_flags_keep_cli_defaults_and_owners[True]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_native_builder_keeps_core_metric_settings[gpt-False]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_native_builder_keeps_core_metric_settings[gpt-True]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_native_builder_keeps_core_metric_settings[hybrid-False]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_native_builder_keeps_core_metric_settings[hybrid-True]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[False-False]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[False-True]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[True-False]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[True-True]
+94 passed, 31 deselected, 32 warnings in 12.07s
+=========================== short test summary info ============================
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_hand_calculation[schedule0-lengths0-work0-1-counts0]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_hand_calculation[schedule1-lengths1-work1-0.625-counts1]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_hand_calculation[schedule2-lengths2-work2-1-counts2]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_hand_calculation[schedule3-lengths3-work3-0.625-counts3]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_hand_calculation[schedule4-lengths4-work4-0.9166666666666666-counts4]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_hand_calculation[schedule5-lengths5-work5-0.625-counts5]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_hand_calculation[schedule6-lengths6-work6-0.9-counts6]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_empty[schedule0-lengths0]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_empty[schedule1-lengths1]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_empty[schedule2-lengths2]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_empty[schedule3-lengths3]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_after_vpp_alignment
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_window_and_reset
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_tp_metadata[False]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_tp_metadata[True]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_cli_switch
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_evaluation_does_not_collect
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_training_log
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_rerun_and_abort[exit]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_rerun_and_abort[exception]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_rerun_and_abort[success]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_rerun_and_abort[skipped]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_distributed[False]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_distributed[True]
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_max_real_num_seqs_reserves_dummy_sequence
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_max_real_num_seqs_rejects_dummy_without_capacity
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_thd_padding_mask_from_cu_seqlens
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_sanitizes_thd_padding_values
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_builds_runtime_cp_layout_views[1-expected_layouts0]
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_builds_runtime_cp_layout_views[2-expected_layouts1]
+PASSED tests/unit_tests/test_sequence_packing.py::test_next_hdp_group_packing_aware_can_expand_short_sequence_group
+PASSED tests/unit_tests/test_sequence_packing.py::test_next_hdp_group_packing_aware_fills_non_power_of_two_group
+PASSED tests/unit_tests/test_sequence_packing.py::test_default_dynamic_cp_scheduler_uses_packing_aware_grouping
+PASSED tests/unit_tests/test_sequence_packing.py::test_dynamic_cp_group_sizes_partition_dpxcp_ranks
+PASSED tests/unit_tests/test_sequence_packing.py::test_default_dynamic_cp_scheduler_rejects_uncreated_min_group_size
+PASSED tests/unit_tests/test_sequence_packing.py::test_vpp_packed_iterators_are_independent_and_mtp_gets_data
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_reroute_uses_dp_all_gather
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_reroute_rejects_multimodal_metadata_in_text_contract
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_reroute_rejects_unsupported_sample_keys
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_reroute_rejects_inconsistent_sample_keys
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_reroute_dp_all_gather_distributed
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_reroute_dp_all_gather_is_dcp_compatible
+PASSED tests/unit_tests/test_sequence_packing.py::test_dsv4_thd_cp_slice_uses_static_partition_total
+PASSED tests/unit_tests/test_sequence_packing.py::test_next_hdp_group_packing_aware_can_use_larger_cp_group_for_short_sequences
+PASSED tests/unit_tests/test_sequence_packing.py::test_next_hdp_group_packing_aware_fills_non_power_of_two_dpxcp_group
+PASSED tests/unit_tests/test_sequence_packing.py::test_default_dynamic_cp_scheduler_uses_packing_aware_grouping_by_default
+PASSED tests/unit_tests/test_sequence_packing.py::test_wrap_data_iterator_raises_stop_iteration_on_every_rank[1]
+PASSED tests/unit_tests/test_sequence_packing.py::test_wrap_data_iterator_raises_stop_iteration_on_every_rank[2]
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_early_exit_keeps_normal_result_field_order
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_returns_scheduled_microbatch_count
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_forwards_schedule_plumbing
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_defaults_to_none
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_drives_chunked_optimizer_state_offload_lifecycle
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_rebinds_finalize_prefetch_without_nesting_optimizers
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_mxfp8_staging_delegates_master_restore_to_distributed_optimizer
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_pre_forward_sync_only_uses_layerwise_bucket_subset
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_wraps_sequence_packing_after_rerun_check
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_layerwise_wrapper_uses_ddp_config_as_single_layout_source
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_dynamic_cp_cuda_graph_upper_bound_uses_dp_cp_and_sp_padding
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_uses_optimizer_ddp_config_for_mxfp8_staging
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_supports_bare_distributed_optimizer_for_mxfp8_staging
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_model_process_groups_fall_back_when_attribute_is_missing_or_none
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_model_process_groups_are_found_through_model_wrappers
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_invokes_tensor_metric_observer_before_optimizer
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_scopes_forward_tensor_observation_around_schedule
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_cli_aliases_and_native_config_match
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_normalization_does_not_alias_or_mutate_args[False]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_normalization_does_not_alias_or_mutate_args[True]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_native_memory_interval_validation[None-True]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_native_memory_interval_validation[20-True]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_native_memory_interval_validation[21-False]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_tensorboard_uses_owned_directory_and_queue[0-False]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_tensorboard_uses_owned_directory_and_queue[1-True]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_wandb_uses_owned_settings_and_legacy_metadata
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_one_logger_async_policy[None-False]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_one_logger_async_policy[project-True]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_timers_use_owned_settings
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_finetune_reuses_registered_config
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_tensorboard_metadata_preserves_legacy_args
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_async_worker_telemetry_uses_config
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_disabled_async_telemetry_does_not_read_resource_metadata
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_native_parameter_norm_cadence
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_logging_level_config_overrides_environment
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_checkpoint_logging_does_not_override_current_run
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_core_metric_flags_keep_cli_defaults_and_owners[False]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_core_metric_flags_keep_cli_defaults_and_owners[True]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_native_builder_keeps_core_metric_settings[gpt-False]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_native_builder_keeps_core_metric_settings[gpt-True]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_native_builder_keeps_core_metric_settings[hybrid-False]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_native_builder_keeps_core_metric_settings[hybrid-True]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[False-False]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[False-True]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[True-False]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[True-True]
+94 passed, 31 deselected, 26 warnings in 12.22s
+=========================== short test summary info ============================
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_hand_calculation[schedule0-lengths0-work0-1-counts0]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_hand_calculation[schedule1-lengths1-work1-0.625-counts1]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_hand_calculation[schedule2-lengths2-work2-1-counts2]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_hand_calculation[schedule3-lengths3-work3-0.625-counts3]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_hand_calculation[schedule4-lengths4-work4-0.9166666666666666-counts4]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_hand_calculation[schedule5-lengths5-work5-0.625-counts5]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_hand_calculation[schedule6-lengths6-work6-0.9-counts6]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_empty[schedule0-lengths0]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_empty[schedule1-lengths1]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_empty[schedule2-lengths2]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_empty[schedule3-lengths3]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_after_vpp_alignment
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_window_and_reset
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_tp_metadata[False]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_tp_metadata[True]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_cli_switch
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_evaluation_does_not_collect
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_training_log
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_rerun_and_abort[exit]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_rerun_and_abort[exception]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_rerun_and_abort[success]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_rerun_and_abort[skipped]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_distributed[False]
+PASSED tests/unit_tests/test_sequence_packing.py::test_dcp_schedule_stats_distributed[True]
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_max_real_num_seqs_reserves_dummy_sequence
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_max_real_num_seqs_rejects_dummy_without_capacity
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_thd_padding_mask_from_cu_seqlens
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_sanitizes_thd_padding_values
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_builds_runtime_cp_layout_views[1-expected_layouts0]
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_builds_runtime_cp_layout_views[2-expected_layouts1]
+PASSED tests/unit_tests/test_sequence_packing.py::test_next_hdp_group_packing_aware_can_expand_short_sequence_group
+PASSED tests/unit_tests/test_sequence_packing.py::test_next_hdp_group_packing_aware_fills_non_power_of_two_group
+PASSED tests/unit_tests/test_sequence_packing.py::test_default_dynamic_cp_scheduler_uses_packing_aware_grouping
+PASSED tests/unit_tests/test_sequence_packing.py::test_dynamic_cp_group_sizes_partition_dpxcp_ranks
+PASSED tests/unit_tests/test_sequence_packing.py::test_default_dynamic_cp_scheduler_rejects_uncreated_min_group_size
+PASSED tests/unit_tests/test_sequence_packing.py::test_vpp_packed_iterators_are_independent_and_mtp_gets_data
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_reroute_uses_dp_all_gather
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_reroute_rejects_multimodal_metadata_in_text_contract
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_reroute_rejects_unsupported_sample_keys
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_reroute_rejects_inconsistent_sample_keys
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_reroute_dp_all_gather_distributed
+PASSED tests/unit_tests/test_sequence_packing.py::test_scheduler_reroute_dp_all_gather_is_dcp_compatible
+PASSED tests/unit_tests/test_sequence_packing.py::test_dsv4_thd_cp_slice_uses_static_partition_total
+PASSED tests/unit_tests/test_sequence_packing.py::test_next_hdp_group_packing_aware_can_use_larger_cp_group_for_short_sequences
+PASSED tests/unit_tests/test_sequence_packing.py::test_next_hdp_group_packing_aware_fills_non_power_of_two_dpxcp_group
+PASSED tests/unit_tests/test_sequence_packing.py::test_default_dynamic_cp_scheduler_uses_packing_aware_grouping_by_default
+PASSED tests/unit_tests/test_sequence_packing.py::test_wrap_data_iterator_raises_stop_iteration_on_every_rank[1]
+PASSED tests/unit_tests/test_sequence_packing.py::test_wrap_data_iterator_raises_stop_iteration_on_every_rank[2]
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_early_exit_keeps_normal_result_field_order
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_returns_scheduled_microbatch_count
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_forwards_schedule_plumbing
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_defaults_to_none
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_drives_chunked_optimizer_state_offload_lifecycle
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_rebinds_finalize_prefetch_without_nesting_optimizers
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_mxfp8_staging_delegates_master_restore_to_distributed_optimizer
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_pre_forward_sync_only_uses_layerwise_bucket_subset
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_wraps_sequence_packing_after_rerun_check
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_layerwise_wrapper_uses_ddp_config_as_single_layout_source
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_dynamic_cp_cuda_graph_upper_bound_uses_dp_cp_and_sp_padding
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_uses_optimizer_ddp_config_for_mxfp8_staging
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_supports_bare_distributed_optimizer_for_mxfp8_staging
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_model_process_groups_fall_back_when_attribute_is_missing_or_none
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_model_process_groups_are_found_through_model_wrappers
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_invokes_tensor_metric_observer_before_optimizer
+PASSED tests/unit_tests/training/test_train_step_schedule_plumbing.py::test_train_step_scopes_forward_tensor_observation_around_schedule
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_cli_aliases_and_native_config_match
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_normalization_does_not_alias_or_mutate_args[False]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_normalization_does_not_alias_or_mutate_args[True]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_native_memory_interval_validation[None-True]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_native_memory_interval_validation[20-True]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_native_memory_interval_validation[21-False]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_tensorboard_uses_owned_directory_and_queue[0-False]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_tensorboard_uses_owned_directory_and_queue[1-True]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_wandb_uses_owned_settings_and_legacy_metadata
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_one_logger_async_policy[None-False]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_one_logger_async_policy[project-True]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_timers_use_owned_settings
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_finetune_reuses_registered_config
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_tensorboard_metadata_preserves_legacy_args
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_async_worker_telemetry_uses_config
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_disabled_async_telemetry_does_not_read_resource_metadata
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_native_parameter_norm_cadence
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_logging_level_config_overrides_environment
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_checkpoint_logging_does_not_override_current_run
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_core_metric_flags_keep_cli_defaults_and_owners[False]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_core_metric_flags_keep_cli_defaults_and_owners[True]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_native_builder_keeps_core_metric_settings[gpt-False]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_native_builder_keeps_core_metric_settings[gpt-True]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_native_builder_keeps_core_metric_settings[hybrid-False]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_native_builder_keeps_core_metric_settings[hybrid-True]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[False-False]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[False-True]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[True-False]
+PASSED tests/unit_tests/training/test_logger_ownership.py::test_attention_metric_logging_reads_model_config[True-True]
+94 passed, 31 deselected, 26 warnings in 12.53s

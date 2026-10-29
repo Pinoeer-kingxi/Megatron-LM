@@ -1,0 +1,22 @@
+{
+  "metrics_head": "bc96c9ad5d241eb34e9394577bc5db70a5fb7d45",
+  "base": "c4220af3a62e851585afdac6f5aa7496163afdaf",
+  "date": "2026-10-29",
+  "timezone": "America/Los_Angeles",
+  "image": "megatron-dcp-stats:validation-20261022",
+  "image_sha": "070e339faa1fb4fec1c630f7bcc77c97ebd7eb138bc81802feac567aa011bcb8",
+  "compatibility_patch_applied": false,
+  "benchmark_rerun": false,
+  "gpu_indices": {
+    "two": [
+      1,
+      3
+    ],
+    "four": [
+      1,
+      2,
+      4,
+      3
+    ]
+  }
+}

@@ -1,0 +1,326 @@
+1:  75fde133d ! 1:  27a69e362 Log final DCP schedule attention-work balance and CP-size fractions
+    @@ megatron/core/datasets/data_schedule.py: from megatron.core.datasets.data_schedu
+     +    compute_schedule_stats,
+          create_data_iterator,
+          get_batch_and_global_seqlens,
+    -     get_cp_slice_for_thd,
+    +     get_packed_sequence_alignment,
+     @@ megatron/core/datasets/data_schedule.py: class BasePackingScheduler:
+              dp_cp_group,
+              dev,
+    @@ megatron/core/datasets/data_schedule.py: class DpBalancedScheduler(BasePackingSc
+              """
+              Run the complete scheduling pipeline.
+     @@ megatron/core/datasets/data_schedule.py: class DpBalancedScheduler(BasePackingScheduler):
+    +             seqlen_squared_sum_this_global_batch: Sum of squared seqlens for FLOPs.
+              """
+      
+    -         total_dcp_gpus = dp_cp_group.size()
+    ++        total_dcp_gpus = dp_cp_group.size()
+     +        if schedule_stats is not None:
+     +            schedule_stats.clear()
+              is_first_pp = pp_group.rank() == 0
+              is_last_pp = pp_group.rank() == pp_group.size() - 1
+    - 
+    +         vpp_size = config.virtual_pipeline_model_parallel_size or 1
+     @@ megatron/core/datasets/data_schedule.py: class DpBalancedScheduler(BasePackingScheduler):
+      
+    -             # Step 4: Schedule samples into groups
+    +             # Step 3: Schedule samples into groups
+                  sample_id_groups = self.get_groups_and_subsamples(global_id_seqlens)
+     +            if schedule_stats is not None:
+    -+                # get_groups_and_subsamples includes VPP alignment, which can
+    -+                # split microbatches and expand the actual CP sizes.
+    ++                # Observe the final schedule after VPP alignment.
+     +                schedule_stats.update(compute_schedule_stats(sample_id_groups, global_id_seqlens))
+      
+                  # Validate scheduling result
+                  set_gbs = set()
+     @@ megatron/core/datasets/data_schedule.py: class DpBalancedScheduler(BasePackingScheduler):
+    +                 seqlen_squared_sum_this_global_batch,
+                  ) = (None, None, None, None)
+      
+    -         # Broadcast to TP group (for non-TP-0 ranks)
+    +-        # Broadcast the schedule shape and FLOPs metadata inside each TP group.
+     -        num_micro_batches, seqlen_sum_this_global_batch, seqlen_squared_sum_this_global_batch = (
+     -            broadcast_scalars(
+    ++        # Broadcast to TP group (for non-TP-0 ranks)
+     +        metadata: list[Any] = [
+     +            num_micro_batches,
+     +            seqlen_sum_this_global_batch,
+    @@ megatron/core/datasets/data_schedule.py: class DpBalancedScheduler(BasePackingSc
+     +                    schedule_stats.get('cp_sample_counts', {}).get(c, 0)
+     +                    for c in range(1, total_dcp_gpus + 1)
+     +                ]
+    -             )
+    ++            )
+     +            # Preserve long-sequence squared sums and summaries on TP peers.
+     +            metadata = broadcast_scalars(metadata, tp_group, dev, dtype=torch.float64)
+     +            schedule_stats.update(
+     +                balance_numerator=metadata[3],
+     +                balance_denominator=metadata[4],
+     +                cp_sample_counts={c: int(metadata[4 + c]) for c in range(1, total_dcp_gpus + 1)},
+    -+            )
+    +             )
+     +        else:
+     +            metadata = broadcast_scalars(metadata, tp_group, dev)
+     +        num_micro_batches, seqlen_sum_this_global_batch, seqlen_squared_sum_this_global_batch = (
+    @@ megatron/core/datasets/data_schedule.py: def _get_scheduler_max_real_num_seqs(co
+      
+      
+      def wrap_data_iterator(
+    --    data_iterator, config, num_microbatches, pg_collection: Optional[ProcessGroupCollection] = None
+    +-    data_iterator, config, num_microbatches, pg_collection: ProcessGroupCollection
+     +    data_iterator,
+     +    config,
+     +    num_microbatches,
+    -+    pg_collection: Optional[ProcessGroupCollection] = None,
+    ++    pg_collection: ProcessGroupCollection,
+     +    schedule_stats: Optional[Dict] = None,
+      ):
+          """
+          A wrapper function that wraps around an existing data_iterator
+     @@ megatron/core/datasets/data_schedule.py: def wrap_data_iterator(
+    +         data_iterator: The original data_iterator to wrap around
+              config: The config object containing the max_seqlen_per_dp_cp_rank
+    -         dp_cp_group: Data parallel context parallel group.
+    -         pg_collection: The process group collection.
+    +         pg_collection: Caller-owned process groups; must define dp_cp, dp, tp, and pp.
+     +        schedule_stats: Optional output dict for final schedule work estimates.
+     +            TP source ranks also retain the full rank-work matrix.
+          """
+      
+    -     if pg_collection is None:
+    +     # GTP_remat peers consume distinct samples, so packing must span them like the rest of DP.
+     @@ megatron/core/datasets/data_schedule.py: def wrap_data_iterator(
+              seqlen_sum_this_global_batch,
+              seqlen_squared_sum_this_global_batch,
+    @@ megatron/core/datasets/data_schedule.py: def wrap_data_iterator(
+     
+      ## megatron/core/datasets/data_schedule_utils.py ##
+     @@
+    - # Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+    + # Copyright (c) 2026, NVIDIA CORPORATION. All rights reserved.
+      
+    +-from math import ceil, lcm, log2
+    +-from typing import Dict, List, Literal, Optional, Sequence, Tuple, TypeVar
+     +from collections import Counter
+    - from functools import lru_cache
+    --from math import ceil, log2
+    --from typing import Dict, List, Literal, Optional, Sequence, Tuple
+    -+from math import ceil, fsum, log2
+    -+from typing import Dict, List, Literal, Mapping, Optional, Sequence, Tuple
+    ++from math import ceil, fsum, lcm, log2
+    ++from typing import Dict, List, Literal, Mapping, Optional, Sequence, Tuple, TypeVar
+      
+      import torch
+      
+    -@@ megatron/core/datasets/data_schedule_utils.py: _REROUTE_KEY_SET = frozenset(_REROUTE_KEY_ORDER)
+    - _REROUTE_SCALAR_KEYS = frozenset(("original_seq_len", "padded_seq_len"))
+    +@@ megatron/core/datasets/data_schedule_utils.py: _REROUTE_SCALAR_KEYS = frozenset(("original_seq_len", "padded_seq_len"))
+    + _SequenceLength = TypeVar('_SequenceLength', int, torch.Tensor)
+      
+      
+     +def compute_schedule_stats(
+    @@ megatron/training/config/training_config.py: class LoggerConfig:
+     +    at log_interval. These are L²/CP estimates, not GPU utilization measurements.
+     +    """
+     +
+    -     log_params_norm: bool = False
+    -     """If set, calculate and log parameters norm."""
+    - 
+    +     tensor_metrics: list[str] = field(default_factory=list)
+    +     """Tensor metric specifications in `NAME:INTERVAL` form, such as
+    +     `layer-param-l2:10`. Multiple specifications may be supplied after one
+     
+      ## megatron/training/logging/packed_sequence_stats.py ##
+     @@
+    @@ megatron/training/logging/packed_sequence_stats.py: _packed_sequence_trained_tok
+          global _packed_sequence_lengths_in_iteration
+     
+      ## megatron/training/training.py ##
+    -@@ megatron/training/training.py: from megatron.training.kernel_warmup import warmup_training_kernels
+    +@@ megatron/training/training.py: from megatron.training.logging.dsa_flops import _dsa_kpool_attention_scale
+      
+      # Retain the training.py import path used by existing multimodal callers.
+      from megatron.training.logging.packed_sequence_stats import (
+    @@ megatron/training/training.py: from megatron.training.kernel_warmup import warmu
+          update_packed_sequence_stats,
+      )
+     @@ megatron/training/training.py: def train_step(
+    -     iteration=None,
+          pg_collection: Optional[ProcessGroupCollection | MultiModuleProcessGroupCollection] = None,
+          p2p_communicator: Optional[P2PCommunicator] = None,
+    +     tensor_metric_observer: _TensorMetricObserverCallback | None = None,
+     +    schedule_stats: Optional[Dict] = None,
+      ):
+          """Single training step.
+    @@ megatron/training/training.py: def train_step(
+          optimizer_config = getattr(optimizer, 'config', None)
+          chunked_optimizer_state_offload = bool(
+     @@ megatron/training/training.py: def train_step(
+    -                     num_microbatches,
+    -                     seqlen_sum_this_global_batch,
+    -                     seqlen_squared_sum_this_global_batch,
+    --                ) = wrap_data_iterator(data_iterator, config, get_num_microbatches())
+    -+                ) = wrap_data_iterator(
+    -+                    data_iterator,
+    -+                    config,
+    -+                    get_num_microbatches(),
+    +                     config,
+    +                     get_num_microbatches(),
+    +                     pg_collection=get_attr_wrapped_model(model[0], "pg_collection"),
+     +                    **(
+     +                        {'schedule_stats': pending_schedule_stats}
+     +                        if pending_schedule_stats is not None
+     +                        else {}
+     +                    ),
+    -+                )
+    +                 )
+                      has_wrapped_data_iterator = True
+                      rerun_data_iterator = packed_data_iterator
+    -             forward_backward_data_iterator = packed_data_iterator
+     @@ megatron/training/training.py: def train_step(
+          else:
+              skipped_iter = 1
+    @@ megatron/training/training.py: def train(
+                  # RL inference-only mode: skip gradient updates, just collect rollouts.
+                  loss_dict = {}
+     @@ megatron/training/training.py: def train(
+    -                     iteration=iteration,
+                          pg_collection=pg_collection,
+                          p2p_communicator=p2p_communicator,
+    +                     tensor_metric_observer=tensor_metric_observer,
+     +                    schedule_stats=schedule_stats,
+                      )
+                      ft_integration.on_training_step_end()
+    @@ megatron/training/training.py: def train(
+                          callback_manager=callback_manager,
+                          packed_sequence_stats=packed_sequence_stats,
+     +                    dcp_stats=dcp_stats,
+    +                     num_microbatches=scheduled_num_microbatches,
+                      )
+                  # OTel: close the iteration-report super-span (parents params_norm + log;
+    -             # its own uninstrumented time is the loss_scale sync + FLOPs bookkeeping).
+     
+      ## tests/unit_tests/test_sequence_packing.py ##
+     @@
+    @@ tests/unit_tests/test_sequence_packing.py
+     +from copy import deepcopy
+      from types import SimpleNamespace
+     +from unittest import mock
+    + from unittest.mock import patch
+      
+      import numpy as np
+    - import pytest
+     @@ tests/unit_tests/test_sequence_packing.py: from megatron.core.datasets.data_schedule import (
+          wrap_data_iterator,
+      )
+      from megatron.core.datasets.data_schedule_utils import (
+     +    align_sample_id_groups,
+     +    compute_schedule_stats,
+    +     create_data_iterator,
+          next_hdp_group_packing_aware,
+          reroute_samples_to_dcp_ranks,
+    - )
+    +@@ tests/unit_tests/test_sequence_packing.py: from megatron.core.datasets.data_schedule_utils import (
+    + from megatron.core.process_groups_config import ProcessGroupCollection
+      from megatron.core.rerun_state_machine import RerunDataIterator
+      from megatron.training.global_vars import unset_global_variables
+     +from megatron.training.logging.packed_sequence_stats import DcpStatsAccumulator
+    @@ tests/unit_tests/test_sequence_packing.py: from megatron.core.datasets.data_sche
+     +    assert len(aligned) == 2
+     +    stats = compute_schedule_stats(aligned, lengths)
+     +    assert stats['cp_sample_counts'] == {2: 2, 4: 1}
+    -+    assert stats['rank_work'] == [[8, 8, 8, 8], [16, 16, 16, 16]]
+    ++    assert stats['rank_work'] == [[16, 16, 16, 16], [8, 8, 8, 8]]
+     +    assert stats['balance_numerator'] == 96
+     +    scheduler = DefaultDynamicCPScheduler(4, 4, 1, 2)
+     +    final = scheduler.get_groups_and_subsamples(lengths)
+    @@ tests/unit_tests/test_sequence_packing.py: from megatron.core.datasets.data_sche
+     +
+     +@pytest.mark.parametrize('enabled', [False, True])
+     +def test_dcp_schedule_stats_tp_metadata(monkeypatch, enabled):
+    -+    monkeypatch.setattr(data_schedule, 'mtp_on_this_rank', lambda *a, **k: False)
+    ++    monkeypatch.setattr(data_schedule, 'mtp_on_this_pipeline_rank', lambda *a, **k: False)
+    ++    monkeypatch.setattr(torch.distributed, 'all_reduce', lambda *a, **kw: None)
+     +
+     +    class Group:
+     +        def __init__(self, rank=0, size=2):
+    @@ tests/unit_tests/test_sequence_packing.py: from megatron.core.datasets.data_sche
+     +        'get_batch_and_global_seqlens',
+     +        lambda *a: (samples, lengths, [], [], [x[1] for x in lengths]),
+     +    )
+    -+    monkeypatch.setattr(data_schedule, 'reroute_samples_to_dcp_ranks', lambda *a: {})
+    -+    monkeypatch.setattr(data_schedule, 'build_packed_microbatches', lambda *a: [])
+    -+    monkeypatch.setattr(data_schedule, 'create_data_iterator', lambda *a: None)
+    ++    monkeypatch.setattr(data_schedule, 'reroute_samples_to_dcp_ranks', lambda *a, **kw: {})
+    ++    monkeypatch.setattr(data_schedule, 'build_packed_microbatches', lambda *a, **kw: [])
+    ++    monkeypatch.setattr(data_schedule, 'create_data_iterator', lambda *a, **kw: None)
+     +    wire = []
+     +
+     +    def broadcast(values, group, dev, dtype=torch.float32):
+    @@ tests/unit_tests/test_sequence_packing.py: from megatron.core.datasets.data_sche
+     +        monkeypatch.setattr(scheduler, 'get_groups_and_subsamples', lambda *a: schedule)
+     +        stats = {'stale': 1} if enabled else None
+     +        result = scheduler.run(
+    -+            iter([]) if rank == 0 else None,
+    ++            iter(samples) if rank == 0 else None,
+     +            1,
+     +            Group(),
+     +            Group(rank),
+    @@ tests/unit_tests/test_sequence_packing.py: from megatron.core.datasets.data_sche
+     +    monkeypatch.setattr(training, 'has_nvidia_modelopt', False)
+     +    pending = compute_schedule_stats([[[0]]], {0: 8})
+     +
+    -+    def wrap(*a, schedule_stats):
+    ++    def wrap(*a, pg_collection, schedule_stats):
+     +        schedule_stats.update(pending)
+     +        return None, 1, 8.0, 64.0
+     +
+    @@ tests/unit_tests/test_sequence_packing.py: from megatron.core.datasets.data_sche
+     +    monkeypatch.setattr(training, 'logical_and_across_model_parallel_group', lambda x, **kw: x)
+     +    monkeypatch.setattr(training, 'reduce_max_stat_across_model_parallel_group', lambda x, **kw: x)
+     +    stats = {'stale': True}
+    ++    observer = mock.MagicMock()
+     +    kwargs = dict(
+     +        forward_step_func=None,
+     +        data_iterator=object(),
+    -+        model=[SimpleNamespace(zero_grad_buffer=lambda: None)],
+    ++        model=[SimpleNamespace(zero_grad_buffer=lambda: None, pg_collection=groups)],
+     +        optimizer=SimpleNamespace(
+     +            zero_grad=lambda: None, step=lambda: (outcome == 'success', 1.0, None)
+     +        ),
+    @@ tests/unit_tests/test_sequence_packing.py: from megatron.core.datasets.data_sche
+     +        forward_backward_func=forward,
+     +        iteration=0,
+     +        schedule_stats=stats,
+    ++        tensor_metric_observer=observer,
+     +    )
+     +    if outcome == 'exception':
+     +        with pytest.raises(RuntimeError, match='aborted forward'):
+    @@ tests/unit_tests/test_sequence_packing.py: from megatron.core.datasets.data_sche
+     +        training.train_step(**kwargs)
+     +        assert forward.call_count == 2
+     +    wrapper.assert_called_once()
+    ++    assert observer.call_count == int(outcome in ('success', 'skipped'))
+    ++    assert observer.observe_forward_backward.call_count == (1 if outcome == 'exception' else 2)
+     +    assert stats == (pending if outcome == 'success' else {})
+     +
+     +
+    @@ tests/unit_tests/test_sequence_packing.py: from megatron.core.datasets.data_sche
+     +        data_iterator = iter(samples) if source else None
+     +        if vpp:
+     +            data_iterator = [data_iterator, None]
+    -+        result = wrap_data_iterator(data_iterator, config, len(lengths), schedule_stats=stats)
+    ++        result = wrap_data_iterator(
+    ++            data_iterator,
+    ++            config,
+    ++            len(lengths),
+    ++            pg_collection=ProcessGroupCollection.use_mpu_process_groups(),
+    ++            schedule_stats=stats,
+    ++        )
+     +        assert len(result) == 4
+     +        summaries = [None] * world_size
+     +        summary = {key: value for key, value in stats.items() if key != 'rank_work'}
+2:  87d6973da = 2:  247a5db5a Document A6000 training parity and DCP observation cost measurements

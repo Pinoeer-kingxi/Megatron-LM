@@ -1,0 +1,7 @@
+final-2-off 1
+Traceback (most recent call last):
+  File "/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/dcp-stats-rebase-20261029/run_correctness.py", line 17, in <module>
+    subprocess.run([sys.executable,'-S',str(base/'launch_train.py'),*args,'--container','dcp-stats-rebase-20261029'],env=env,check=True)
+  File "/data/songbinbin/minicoda/envs/aicas/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/data/songbinbin/minicoda/envs/aicas/bin/python', '-S', '/data/songbinbin/Proj/Proj_LWX/.codex-artifacts/dcp-stats-rebase-20261029/launch_train.py', 'final-2-off', '--audit', '--load', 'initial-aligned', '--save', '--eval', '--container', 'dcp-stats-rebase-20261029']' returned non-zero exit status 1.
