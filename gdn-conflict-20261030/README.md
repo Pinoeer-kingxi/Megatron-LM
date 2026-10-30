@@ -71,3 +71,58 @@ timeout 360 /usr/bin/python3 "$B/precision_graph_container_gpu2.py" \
   --confcutdir=tests/unit_tests/pipeline_parallel \
   'tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-False-True-False-1.0-tp1]'
 ```
+
+## FP8 GPU cases at the merged #8543 source
+
+At `a04f1e65627ec7a5323bdd56d165a746b59f1c6e`, one RTX PRO 6000 passed two real decoder-training and TE graph cases: GDN with FP8 delayed scaling, and GDN2 with FP8 tensorwise scaling. Each test compares offload disabled and enabled, including losses and complete optimizer states. No cases were skipped. The launcher used:
+
+```bash
+B=/home/lwx/.cache/megatron-gdn-20261026
+R=$B/conflict-20261030
+export GDN_SOURCE=$B/conflict-precision-a04f1e6
+export GDN_INDUCTOR_CACHE_DIR=$R/cache/precision/inductor
+export GDN_TRITON_CACHE_DIR=$R/cache/precision/triton
+export PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
+timeout 480 /usr/bin/python3 "$B/precision_graph_container_gpu3_constrained.py" \
+  /home/songbinbin/.venvs/megatron-gdn-offload/bin/python \
+  -m torch.distributed.run --standalone --nproc-per-node=1 \
+  --log-dir "$R/precision-fp8/ranks" --redirects 3 \
+  "$B/rank_env_precision_graph.py" "$R/watch_run.py" "$B/rank_distributed_pytest.py" \
+  "$R/precision-fp8/reports" -q -s -x -p no:cacheprovider \
+  --confcutdir=tests/unit_tests/pipeline_parallel \
+  'tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn-False-False-False-False-1.0-fp8-delayed-False-tp1]' \
+  'tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-False-False-False-1.0-fp8-tensorwise-False-tp1]'
+```
+
+This FP8 test does not validate NVFP4 on a supported training GPU.
+
+The #8543 CPU-only configuration check used the merged checkout and ran:
+
+```bash
+PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 LD_LIBRARY_PATH=/path/to/compatible/libstdc \
+  python -m pytest -q tests/unit_tests/ssm/test_gated_delta_net_offloading.py \
+  -k 'test_reject_unsupported_gdn_offload or test_gdn_offload_config or test_gdn_offload_te_graph_config'
+```
+
+## Qwen FP8 at the merged #8543 source
+
+At `a04f1e65627ec7a5323bdd56d165a746b59f1c6e`, the complete Qwen3.5-0.8B language model (excluding vision and MTP) ran on a shared RTX PRO 6000 with FP8 delayed scaling, sequence length 128, four microbatches and an offload threshold of 1024 elements. Each of the eager, graph without offload and graph with offload arms used a fresh process and ran six optimizer steps. The audit compares input hashes, loss, gradient norm, all gradient and parameter fingerprints, and full optimizer-state fingerprints, and checks transfers and pinned pool release. This is a correctness check, not a performance comparison.
+
+Each arm used the following command (add `--no-graph` for eager, no flag for graph without offload, and `--offload` for graph with offload):
+
+```bash
+B=/home/lwx/.cache/megatron-gdn-20261026
+R=$B/conflict-20261030
+export GDN_SOURCE=$B/conflict-precision-a04f1e6
+export GDN_INDUCTOR_CACHE_DIR=$R/cache/fp8-qwen/inductor
+export GDN_TRITON_CACHE_DIR=$R/cache/fp8-qwen/triton
+export PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
+/usr/bin/python3 "$B/precision_graph_container_gpu2.py" \
+  /home/songbinbin/.venvs/megatron-gdn-offload/bin/python \
+  -m torch.distributed.run --standalone --nproc-per-node=1 \
+  --log-dir "$R/fp8-qwen-ARM/ranks" --redirects 3 \
+  "$B/rank_env_precision_graph.py" "$B/benchmark_fp8_qwen.py" \
+  --model qwen --precision fp8-delayed --weights "$B/models/Qwen3.5-0.8B" \
+  --data "$B/data/ks-item-sft.jsonl" --seq-length 128 --threshold 1024 \
+  --check-state --warmup 1 --iterations 2 --output "$R/fp8-qwen-ARM/result.json"
+```
