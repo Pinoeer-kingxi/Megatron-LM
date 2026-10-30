@@ -27,3 +27,47 @@ export PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 For #8543, `precision-cpu.log.gz` records 19 configuration tests passing on the revision above; it is not a GPU training result. For transparency, the two local A6000 attempts at the #8555 test in `mrope-gpu*.log.gz` failed during Transformer Engine NVRTC compilation because the local runtime and CUDA headers do not match. The successful GPU test was run separately in the isolated environment. The test framework attempted to download optional `/opt/data` and reported permission denied; this test does not require that data.
 
 These results do not replace upstream GPU CI, the earlier Qwen/low-precision training results on other revisions, or NVFP4 validation on a supported training GPU.
+
+## Qwen BF16 at the merged #8308 source
+
+At `03b5ef353a1e657a89247f1ae0f67d05d619166f`, one RTX PRO 6000 ran three fresh processes using the complete Qwen3.5-0.8B language model, local pretrained weights and JSONL data, BF16, sequence 128, four microbatches and offload threshold 1024 elements. Each process ran six optimizer steps: three warmup steps and three after graph capture for the graph arms. Eager, graph without offload and graph with offload match input hashes, loss, gradients, weights and full optimizer states for every step. The graph arms capture 24 layers; the offload arm records selected transfer bytes and zero in-use pool buffers after each step. Vision and MTP are excluded. Run `python3 -S audit.py` after verifying `SHA256SUMS` to check these results.
+
+Each arm used the following command (add `--no-graph` for eager, no flag for graph without offload, and `--offload` for graph with offload):
+
+```bash
+B=/home/lwx/.cache/megatron-gdn-20261026
+R=$B/conflict-20261030
+export GDN_SOURCE=$B/conflict-graph-03b5ef3
+export GDN_INDUCTOR_CACHE_DIR=$R/cache/qwen/inductor
+export GDN_TRITON_CACHE_DIR=$R/cache/qwen/triton
+export PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
+/usr/bin/python3 "$B/precision_graph_container_gpu3_default.py" \
+  /home/songbinbin/.venvs/megatron-gdn-offload/bin/python \
+  -m torch.distributed.run --standalone --nproc-per-node=1 \
+  --log-dir "$R/qwen-ARM/ranks" --redirects 3 \
+  "$B/rank_env_precision_graph.py" "$B/benchmark_current_20261027.py" \
+  --model qwen --weights "$B/models/Qwen3.5-0.8B" --data "$B/data/ks-item-sft.jsonl" \
+  --seq-length 128 --threshold 1024 --check-state --warmup 1 --iterations 2 \
+  --output "$R/qwen-ARM/result.json"
+```
+
+A separate GPU `-k tp1` graph test matrix on #8308 was manually interrupted after four GDN cases completed because the first GDN2 case was compiling for several minutes. The interrupted run is preserved under `interrupted-graph/`; it has no final pytest report and is not treated as a passing matrix. Its isolated GDN2 follow-up is reported separately if completed. These are correctness tests, not performance measurements.
+
+The isolated GDN2 case on #8308 passed on RTX PRO 6000 GPU 2, shared with an existing process. It runs offload-disabled and offload-enabled training, TE graph capture and replay, and compares the training states. The test took 260.91 seconds, including cold Triton compilation. Diagnostic traceback dumps during the run show progress through FLA Triton compilation and autotuning; the test completed successfully. The exact launch was:
+
+```bash
+B=/home/lwx/.cache/megatron-gdn-20261026
+R=$B/conflict-20261030
+export GDN_SOURCE=$B/conflict-graph-03b5ef3
+export GDN_INDUCTOR_CACHE_DIR=$R/cache/gdn2-isolated/inductor
+export GDN_TRITON_CACHE_DIR=$R/cache/gdn2-isolated/triton
+export PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
+timeout 360 /usr/bin/python3 "$B/precision_graph_container_gpu2.py" \
+  /home/songbinbin/.venvs/megatron-gdn-offload/bin/python \
+  -m torch.distributed.run --standalone --nproc-per-node=1 \
+  --log-dir "$R/gdn2-isolated/ranks" --redirects 3 \
+  "$B/rank_env_precision_graph.py" "$R/watch_run.py" "$B/rank_distributed_pytest.py" \
+  "$R/gdn2-isolated/reports" -q -s -x -p no:cacheprovider \
+  --confcutdir=tests/unit_tests/pipeline_parallel \
+  'tests/unit_tests/ssm/test_gdn_offload_cuda_graphs.py::test_gdn_offload_with_te_graphs[gdn2-False-False-True-False-1.0-tp1]'
+```
